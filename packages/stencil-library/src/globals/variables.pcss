@@ -1,0 +1,272 @@
+/**
+ * 
+ * ⚠️ Important!
+ * 
+ * For Theming and Customization in Ease Purposes:
+ * Each global variable should:
+ * 1. Start witht the `tnw-` prefix
+ * 2. Have a callback variable same as the global variable but without the `tnw-` prefix
+ * 
+ * The global variable are as design tokens while
+ * The callback variables are only for overriding the default vals of the global variables
+ * The callback variables are not recommended to be used directly with css propeties.
+ * 
+ * For example use the `color: var(--tnw-primary-color)` 
+ * not color: var(--primary-color)
+ * 
+ * To ensure consistency
+ * 
+ */
+
+:root {
+  /* Breakpoints */
+  --tnw-breakpoint-xs: var(--breakpoint-xs, 567px);
+  --tnw-breakpoint-sm: var(--breakpoint-v, 767px);
+  --tnw-breakpoint-md: var(--breakpoint-md, 1024px);
+  --tnw-breakpoint-lg: var(--breakpoint-lg, 1200px);
+  --tnw-breakpoint-xl: var(--breakpoint-xl, 1439px);
+
+  /* colors */
+  --tnw-background-color: var(--background-color, #ffffff);
+  --tnw-background-color-rgb: var(--background-color-rgb, 255, 255, 255);
+  --tnw-background-color-100: var(--background-color-100, #e9e9e9);
+  --tnw-background-color-200: var(--background-color-200, #d8d8d8);
+  --tnw-background-color-opacity: var(--background-color-opacity, rgba(var(--tnw-background-color-rgb), 0.2));
+  --tnw-background-color-inverse: var(--background-color-inverse, #060606);
+  --tnw-background-color-inverse-rgb: var(--background-color-inverse-rgb, 6, 6, 6);
+  --tnw-background-color-inverse-100: var(--background-color-inverse-100, #171418);
+  --tnw-background-color-inverse-200: var(--background-color-inverse-200, #323132);
+
+  --tnw-text-color: var(--text-color, #0e0e0e);
+  --tnw-text-color-light: var(--text-color-light, #222);
+  --tnw-text-color-inverse: var(--text-color-inverse, #fefefe);
+
+  --tnw-placeholder-color: var(--placeholder-color, #666);
+  --tnw-placeholder-focus-color: var(--placeholder-color, #444);
+
+  --tnw-border-color: var(--border-color, #ccc);
+  --tnw-border-color-rgb: var(--border-color-rgb, 204, 204, 204);
+  --tnw-border-color-inverse: var(--border-color-inverse, #2d2d2d);
+  --tnw-border-color-inverse-rgb: var(--border-color-inverse-rgb, 51, 42, 41);
+  --tnw-border-color-opacity: var(--border-color-opacity, rgba(150, 150, 150, 0.301));
+
+  --tnw-primary-color: var(--primary-color, #f76f30);
+  --tnw-primary-color-rgb: var(--primary-color-rgb, 243, 111, 51);
+  --tnw-primary-color-100: var(--primary-color-100, #fff6f3); /* liter than primary color */
+  --tnw-primary-color-200: var(--primary-color-200, #fdd1bf); /* lite but less than 100 */
+  --tnw-primary-color-300: var(--primary-color-300, #ffa981); /* lite but less than 200 */
+  --tnw-primary-color-400: var(--primary-color-400, #e25e21); /* darker than primary color */
+  --tnw-primary-color-opacity: var(--primary-color-opacity, rgba(var(--tnw-primary-color-rgb), 0.15));
+
+  --tnw-secondary-color: var(--secondary-color, #e4c438);
+  --tnw-secondary-color-rgb: var(--secondary-color-rgb, 228, 196, 56);
+  --tnw-secondary-color-100: var(--secondary-color-100, #fffef8); /* liter than secondary color */
+  --tnw-secondary-color-200: var(--secondary-color-200, #faecac); /* lite but less than 100 */
+  --tnw-secondary-color-300: var(--secondary-color-300, #f3d656); /* lite but less than 200 */
+  --tnw-secondary-color-400: var(--secondary-color-400, #b89b1c); /* darker than secondary color */
+  --tnw-secondary-color-opacity: var(--secondary-color-opacity, rgba(var(--tnw-secondary-color-rgb), 0.25));
+
+  --tnw-success-color: var(--success-color, #24c47c);
+  --tnw-success-color-100: var(--success-color-100, #cdffe8);
+  --tnw-success-color-200: var(--success-color-200, #f2fff9);
+
+  --tnw-warning-color: var(--warning-color, #ffc107);
+  --tnw-warning-color-100: var(--warning-color-100, #fcf7c8);
+  --tnw-warning-color-200: var(--warning-color-200, #fffef5);
+
+  --tnw-danger-color: var(--danger-color, #d82139);
+  --tnw-danger-color-100: var(--danger-color-100, #fdd6db);
+  --tnw-danger-color-200: var(--danger-color-200, #fdf5f6);
+
+  --tnw-info-color: var(--info-color, #237ed3);
+  --tnw-info-color-100: var(--info-color-100, #bce1f8);
+  --tnw-info-color-200: var(--info-color-200, #f8fcff);
+
+  --tnw-white: var(--white, #ffffff);
+  --tnw-gray-100: var(--gray-100, #f2f2f2);
+  --tnw-gray-200: var(--gray-200, #e5e5e5);
+  --tnw-gray-300: var(--gray-300, #d9d9d9);
+  --tnw-gray-400: var(--gray-400, #cccccc);
+  --tnw-gray-500: var(--gray-500, #b4b4b4);
+  --tnw-gray-600: var(--gray-600, #6c757d);
+  --tnw-gray-700: var(--gray-700, #495057);
+  --tnw-gray-800: var(--gray-800, #343a40);
+  --tnw-gray-900: var(--gray-900, #071a2e);
+  --tnw-black: var(--black, #000000);
+
+  /* Global */
+  --tnw-direction: var(--direction, ltr);
+
+  /* Fonts */
+  --tnw-font-icon: var(--font-icon, 'icomoon');
+  --tnw-font-heading-en: var(--font-heading-en, 'Montserrat', sans-serif);
+  --tnw-font-text-en: var(--font-text-en, 'Montserrat', sans-serif);
+  --tnw-font-heading-ar: var(--font-heading-ar, 'Tajawal', sans-serif);
+  --tnw-font-text-ar: var(--font-text-ar, 'Readex Pro', sans-serif);
+
+  /* Border Widths */
+  --tnw-border-sm: var(--border-sm, 1px);
+  --tnw-border-md: var(--border-md, 2px);
+  --tnw-border-lg: var(--border-lg, 3px);
+  --tnw-border-xl: var(--border-xl, 4px);
+
+  /* Border Radiuses */
+  --tnw-rounded-none: var(--rounded-none, 0);
+  --tnw-rounded-xs: var(--rounded-xs, 3px);
+  --tnw-rounded-sm: var(--rounded-sm, 5px);
+  --tnw-rounded-md: var(--rounded-md, 10px);
+  --tnw-rounded-lg: var(--rounded-lg, 20px);
+  --tnw-rounded-xl: var(--rounded-xl, 30px);
+  --tnw-rounded-2xl: var(--rounded-2xl, 50px);
+  --tnw-rounded-full: var(--rounded-full, 1000px);
+  --tnw-rounded-circle: var(--rounded-circle, 50%);
+
+  /* Size Values */
+  --tnw-size-xl: var(--size-xl, 600px);
+  --tnw-size-lg: var(--size-lg, 500px);
+  --tnw-size-md: var(--size-md, 400px);
+  --tnw-size-sm: var(--size-sm, 350px);
+  --tnw-size-xs: var(--size-xs, 300px);
+  --tnw-size-auto: var(--size-auto, auto);
+  --tnw-size-full: var(--size-full, 100%);
+  --tnw-size-full-screen: var(--size-full, 100vh);
+
+  --tnw-container-width: var(--container-width, 92%);
+  --tnw-container-max-width: var(--container-width-max, 1100px);
+
+  /* Spacings */
+  --tnw-spacing-auto: auto;
+  --tnw-spacing-none: var(--spacing-none, 0);
+  --tnw-spacing-2xs: var(--spacing-2xs, 5px);
+  --tnw-spacing-xs: var(--spacing-xs, 10px);
+  --tnw-spacing-sm: var(--spacing-sm, 15px);
+  --tnw-spacing-md: var(--spacing-md, 20px);
+  --tnw-spacing-lg: var(--spacing-lg, 40px);
+  --tnw-spacing-xl: var(--spacing-xl, 55px);
+  --tnw-spacing-2xl: var(--spacing-2xl, 70px);
+  --tnw-spacing-3xl: var(--spacing-3xl, 90px);
+  --tnw-spacing-4xl: var(--spacing-4xl, 120px);
+
+  /* Section Spacings */
+  --tnw-section-spacing-sm: var(--section-spacing-sm, 50px);
+  --tnw-section-spacing-md: var(--section-spacing-md, 75px);
+  --tnw-section-spacing-lg: var(--section-spacing-lg, 100px);
+
+  /* Scrollbar */
+  --tnw-scrollbar-size: var(--scrollbar-size, 6px);
+  --tnw-scrollbar-rounded: var(--scrollbar-rounded, var(--tnw-rounded-sm));
+  --tnw-scrollbar-track-color: var(--scrollbar-track-color, var(--tnw-gray-300));
+  --tnw-scrollbar-thumb-color: var(--scrollbar-thumb-color, var(--tnw-gray-500));
+  --tnw-scrollbar-thumb-hover-color: var(--scrollbar-thumb-hover-color, var(--tnw-gray-700));
+
+  /* Font Sizes */
+  --tnw-fs-2xs: var(--fs-2xs, 12px);
+  --tnw-fs-xs: var(--fs-xs, 14px);
+  --tnw-fs-sm: var(--fs-sm, 16px);
+  --tnw-fs-md: var(--fs-md, 18px);
+  --tnw-fs-lg: var(--fs-lg, 20px);
+  --tnw-fs-xl: var(--fs-xl, 22px);
+  --tnw-fs-2xl: var(--fs-2xl, 26px);
+  --tnw-fs-3xl: var(--fs-3xl, 28px);
+  --tnw-fs-4xl: var(--fs-4xl, 30px);
+  --tnw-fs-5xl: var(--fs-5xl, 36px);
+  --tnw-fs-6xl: var(--fs-6xl, 42px);
+  --tnw-fs-7xl: var(--fs-7xl, 50px);
+  --tnw-fs-8xl: var(--fs-8xl, 60px);
+  --tnw-fs-9xl: var(--fs-9xl, 70px);
+
+  /* Font Weights */
+  --tnw-fw-100: var(--fw-100, 100);
+  --tnw-fw-200: var(--fw-200, 200);
+  --tnw-fw-300: var(--fw-300, 300);
+  --tnw-fw-400: var(--fw-400, 400);
+  --tnw-fw-500: var(--fw-500, 500);
+  --tnw-fw-600: var(--fw-600, 600);
+  --tnw-fw-700: var(--fw-700, 700);
+  --tnw-fw-800: var(--fw-800, 800);
+  --tnw-fw-900: var(--fw-900, 900);
+
+  /* Line Heights */
+  --tnw-lh-1: var(--lh-1, 1);
+  --tnw-lh-1_25: var(--lh-1_25, 1.25);
+  --tnw-lh-1_5: var(--lh-1_5, 1.5);
+  --tnw-lh-1_75: var(--lh-1_75, 1.75);
+  --tnw-lh-2: var(--lh-2, 2);
+  --tnw-lh-2_25: var(--lh-2_25, 2.25);
+  --tnw-lh-2_5: var(--lh-2_5, 2.5);
+
+  /* Gradients */
+  --tnw-gradient-x-primary-to-sec: var(--gradient-x-primary-to-sec, linear-gradient(to right, var(--tnw-primary-color), var(--tnw-secondary-color)));
+  --tnw-gradient-x-bg-to-transparent: var(--gradient-x-bg-to-transparent, linear-gradient(to right, var(--tnw-background-color), transparent));
+
+  /* Shadows */
+  --tnw-shadow: var(--shadow, rgba(160, 160, 160, 0.35));
+  --tnw-shadow-primary: var(--shadow-prim, var(--tnw-primary-color));
+  --tnw-shadow-primary-lite: var(--shadow-primary-lite, rgba(var(--tnw-primary-color-rgb), 0.3));
+
+  /* Glow */
+  --tnw-glow-primary-1: var(--glow-primary-1, rgba(var(--tnw-primary-color-rgb), 0.15));
+  --tnw-glow-primary-2: var(--glow-primary-2, rgba(var(--tnw-primary-color-rgb), 0.1));
+  --tnw-glow-primary-3: var(--glow-primary-3, rgba(var(--tnw-primary-color-rgb), 0.05));
+  --tnw-glow-primary-4: var(--glow-primary-4, rgba(var(--tnw-primary-color-rgb), 0.03));
+
+  /* Overlay Colors */
+  --tnw-overlay-100: var(--overlay-100, rgba(0, 0, 0, 0.1));
+  --tnw-overlay-200: var(--overlay-200, rgba(0, 0, 0, 0.2));
+  --tnw-overlay-300: var(--overlay-300, rgba(0, 0, 0, 0.3));
+  --tnw-overlay-400: var(--overlay-400, rgba(0, 0, 0, 0.4));
+  --tnw-overlay-500: var(--overlay-500, rgba(0, 0, 0, 0.5));
+  --tnw-overlay-600: var(--overlay-600, rgba(0, 0, 0, 0.6));
+  --tnw-overlay-700: var(--overlay-700, rgba(0, 0, 0, 0.7));
+  --tnw-overlay-800: var(--overlay-800, rgba(0, 0, 0, 0.8));
+  --tnw-overlay-900: var(--overlay-900, rgba(0, 0, 0, 0.9));
+
+  /* a11y */
+  --tnw-focus-color: var(--focus-color, var(--primary-color));
+
+  
+  @media only screen and (max-width: var(--tnw-breakpoint-md)) {
+    --tnw-spacing-lg: var(--spacing-lg, 20px);
+    --tnw-spacing-xl: var(--spacing-xl, 35px);
+    --tnw-spacing-2xl: var(--spacing-2xl, 50px);
+    
+    --tnw-fs-2xl: var(--fs-2xl, 26px);
+    --tnw-fs-3xl: var(--fs-3xl, 28px);
+    --tnw-fs-4xl: var(--fs-4xl, 30px);
+    --tnw-fs-5xl: var(--fs-5xl, 34px);
+    --tnw-fs-6xl: var(--fs-6xl, 38px);
+    --tnw-fs-7xl: var(--fs-7xl, 44px);
+    --tnw-fs-8xl: var(--fs-8xl, 54px);
+    --tnw-fs-9xl: var(--fs-9xl, 64px);
+  }
+
+  @media only screen and (max-width: var(--tnw-breakpoint-sm)) {
+    --tnw-spacing-lg: var(--spacing-lg, 15px);
+    --tnw-spacing-xl: var(--spacing-xl, 25px);
+    --tnw-spacing-2xl: var(--spacing-2xl, 35px);
+    
+    --tnw-section-spacing-sm: var(--section-spacing-sm, 30px);
+    --tnw-section-spacing-md: var(--section-spacing-md, 45px);
+    --tnw-section-spacing-lg: var(--section-spacing-lg, 80px);
+    
+    --tnw-fs-xl: var(--fs-xl, 20px);
+    --tnw-fs-2xl: var(--fs-2xl, 22px);
+    --tnw-fs-3xl: var(--fs-3xl, 24px);
+    --tnw-fs-4xl: var(--fs-4xl, 26px);
+    --tnw-fs-5xl: var(--fs-5xl, 28px);
+    --tnw-fs-6xl: var(--fs-6xl, 34px);
+    --tnw-fs-7xl: var(--fs-7xl, 42px);
+    --tnw-fs-8xl: var(--fs-8xl, 50px);
+    --tnw-fs-9xl: var(--fs-9xl, 60px);
+  }
+
+  @media only screen and (max-width: var(--tnw-breakpoint-xs)) {
+    --tnw-fs-md: var(--fs-md, 16px);
+    --tnw-fs-lg: var(--fs-lg, 18px);
+    --tnw-fs-5xl: var(--fs-5xl, 26px);
+    --tnw-fs-6xl: var(--fs-6xl, 32px);
+    --tnw-fs-7xl: var(--fs-7xl, 38px);
+    --tnw-fs-8xl: var(--fs-8xl, 42px);
+    --tnw-fs-9xl: var(--fs-9xl, 48px);
+  }
+}

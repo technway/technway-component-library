@@ -1,0 +1,142 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="Theming/Component-Level" />
+
+<div class="mdx-docs">
+
+# Component-Level Customization
+
+The Technway Design System provides powerful and flexible options for customization at the component level. This guide offers an in-depth exploration of how individual components can be tailored to meet specific project requirements while maintaining consistency across the application.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Component-Level Customization Methods](#component-level-customization-methods)
+   1. [Using Component Props](#1-using-component-props)
+   2. [Modifying Component Structure](#2-modifying-component-structure)
+   3. [Component Local Style Variables](#3-component-local-style-variables)
+      1. [Overriding Component Local Variables](#overriding-component-local-variables)
+   4. [Using Custom CSS Classes](#4-using-custom-css-classes)
+- [Best Practices for Component Customization](#best-practices-for-component-customization)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Component customization within the Technway Design System allows for adjustments to the appearance and behavior of individual components without compromising overall design integrity. Flexibility is provided through CSS variables, custom CSS classes, and component props.
+
+### Why Customize Components?
+
+Customizing components is essential for:
+
+- **Aligning with Branding**: Modifying components to reflect the unique identity of a brand.
+- **Enhancing User Experience**: Adapting components to better fit the specific context in which they are used.
+- **Ensuring Consistency**: Maintaining a consistent look and feel across different parts of an application while allowing for necessary variations.
+
+---
+
+## Component-Level Customization Methods
+
+### 1. Using Component Props
+
+Component props are a vital aspect of customization, offering direct control over various elements of a component's appearance and behavior. Every component in the Technway Design System includes a set of props designed for easy customization.
+
+#### Example: `tnw-button` Component Props
+
+<Markdown>
+{`
+| Prop       | Usage                                                                 |
+|------------|----------------------------------------------------------------------|
+| \`label\`    | Specifies the text label displayed on the button.                     |
+| \`variant\`  | Defines the color variant of the button.                              |
+| \`appearance\` | Specifies the appearance style of the button.                      |
+| \`href\`     | If provided, the button will render as a link with this \`href\`.       |
+| \`newTab\`   | If \`true\`, the link will open in a new tab. Only relevant when \`href\` is provided. |
+`}
+</Markdown>
+
+**Usage Example:**
+
+<Source
+code={`
+<tnw-button label="Submit" variant="primary" appearance="solid" href="#" newTab></tnw-button>
+`}
+language="html"
+dark={true}
+/>
+
+### 2. Modifying Component Structure
+
+Slots can be utilized to add or replace elements within a component, providing control over the component’s internal structure without altering the core design system. This method offers flexibility while preserving a consistent visual language.
+
+### 3. Component Local Style Variables
+
+Local style variables are component-specific CSS variables that control the appearance and behavior of individual components. These variables follow a structured naming convention, `--<component-tag>-<property-name>`, for easy identification and modification.
+
+These variables serve as the foundation for component-level customization, allowing for design adjustments at a granular level.
+
+#### Overriding Component Local Variables
+
+Overriding local variables enables customization of components globally or locally, depending on project needs.
+
+**Usage Example:**
+
+<Source
+code={`
+tnw-button {
+  --tnw-button-background-color: #007bff;
+  --tnw-button-text-color: #fff;
+}
+`}
+language="css"
+dark={true}
+/>
+
+This approach ensures that customizations are applied consistently across all instances of the component.
+
+### 4. Using Custom CSS Classes
+
+Custom CSS classes allow for even more granular customization by applying specific styles to individual components. This method is ideal for creating variations without altering the base component styles.
+
+**Usage Example:**
+
+<Source
+code={`
+.my-custom-button {
+  background-color: red;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: var(--tnw-rounded-lg);
+}
+`}
+language="css"
+dark={true}
+/>
+
+Custom classes can be used alongside or in place of local variables, depending on project requirements.
+
+---
+
+## Best Practices for Component Customization
+
+- **Consistency**: Customizations should align with the overall design system to maintain a unified look and feel.
+- **Reuse**: Global variables and custom classes should be utilized to create reusable component styles that can be applied across the application.
+- **Maintainability**: Customizations should be kept modular and well-documented to simplify future updates and maintenance.
+- **Performance**: Excessive CSS overrides that could negatively impact application performance should be avoided.
+
+---
+
+## Conclusion
+
+Component customization within the Technway Design System is designed to offer both flexibility and consistency. By leveraging CSS variables, custom classes, props, and component structure modifications, tailored components can be created that enhance the user experience while maintaining a cohesive design language.
+
+Continue exploring customization options with these guides:
+
+- [Color Customization](./color-customization.mdx)
+- [Typography Customization](./typography-customization.mdx)
+- [Spacing and Layout Customization](./spacing-layout-customization.mdx)
+- [Theme Customization](./theme-customization.mdx)
+- [Accessibility Customization](./accessibility-customization.mdx)
+
+</div>

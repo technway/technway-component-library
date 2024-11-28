@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-alert Default and Required Prop Behavior renders correctly with required props (alertId and message) 1`] = `
+<tnw-alert alert-id="alert1" aria-live="assertive" class="rounded-default tnw-alert--sm" id="alert1" message="This is an alert message" role="alert">
+  <template shadowrootmode="open">
+    <p class="tnw-alert" part="text">
+      This is an alert message
+    </p>
+  </template>
+</tnw-alert>
+`;

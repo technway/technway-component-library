@@ -1,0 +1,283 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="CSS Utilities/Spacings" />
+
+<div class="mdx-docs">
+
+# Spacing Utilities
+
+Spacing utilities are fundamental for creating consistent and well-structured layouts. This documentation outlines the available utilities for margins, paddings, gaps, and positional spacing. Each utility class is derived from custom properties, allowing for easy theming and consistent application across projects.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Default Spacing Values](#default-spacing-values)
+- [Margin Utilities](#margin-utilities)
+- [Padding Utilities](#padding-utilities)
+- [Gap Utilities](#gap-utilities)
+- [Position Spacing Utilities](#position-spacing-utilities)
+- [Customization and Theming](#customization-and-theming)
+- [Usage Guidelines](#usage-guidelines)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Spacing utilities are essential in maintaining the structure and rhythm of a design system. By using custom properties, these utilities allow for consistent spacing throughout your application, ensuring a cohesive look and feel across different components.
+
+---
+
+## Default Spacing Values
+
+The design system includes a set of default spacing variables. These variables are designed to be flexible, allowing them to be easily overridden or adjusted to fit specific project needs.
+
+<Source
+language="css"
+code={`
+/* Default Spacing Values */
+--tnw-spacing-none: 0;
+--tnw-spacing-2xs: 5px;
+--tnw-spacing-xs: 10px;
+--tnw-spacing-sm: 15px;
+--tnw-spacing-md: 20px;
+--tnw-spacing-lg: 40px;
+--tnw-spacing-xl: 55px;
+--tnw-spacing-2xl: 70px;
+--tnw-spacing-3xl: 90px;
+--tnw-spacing-4xl: 120px;
+`}
+dark={true}
+/>
+
+---
+
+## Margin Utilities
+
+Margin utilities provide classes for applying margin spacing to elements. Each utility applies a specific margin value from the design system’s spacing palette.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class | Description                          |
+| ------------- | ------------------------------------ |
+| \`.m-[size]\`  | Applies margin to all sides           |
+| \`.mt-[size]\` | Applies margin to the top             |
+| \`.mb-[size]\` | Applies margin to the bottom          |
+| \`.mr-[size]\` | Applies margin to the right           |
+| \`.ml-[size]\` | Applies margin to the left            |
+| \`.minl-[size]\` | Applies margin inline                |
+| \`.minls-[size]\` | Applies margin inline start          |
+| \`.minle-[size]\` | Applies margin inline end            |
+| \`.mblk-[size]\` | Applies margin block                 |
+| \`.mblks-[size]\` | Applies margin block start           |
+| \`.mblke-[size]\` | Applies margin block end             |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="m-md">Margin on all sides</div>
+<div class="mt-lg">Margin on top</div>
+<div class="ml-2xs">Margin on left</div>
+<div class="minl-xs">Inline margin</div>
+`}
+dark={true}
+/>
+
+---
+
+## Padding Utilities
+
+Padding utilities allow you to apply padding spacing to elements using predefined custom properties.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class | Description                           |
+| ------------- | ------------------------------------- |
+| \`.p-[size]\`  | Applies padding to all sides           |
+| \`.pt-[size]\` | Applies padding to the top             |
+| \`.pb-[size]\` | Applies padding to the bottom          |
+| \`.pr-[size]\` | Applies padding to the right           |
+| \`.pl-[size]\` | Applies padding to the left            |
+| \`.pinl-[size]\` | Applies padding inline                |
+| \`.pinls-[size]\` | Applies padding inline start          |
+| \`.pinle-[size]\` | Applies padding inline end            |
+| \`.pblk-[size]\` | Applies padding block                 |
+| \`.pblks-[size]\` | Applies padding block start           |
+| \`.pblke-[size]\` | Applies padding block end             |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="p-md">Padding on all sides</div>
+<div class="pt-lg">Padding on top</div>
+<div class="pl-2xs">Padding on left</div>
+<div class="pinl-xs">Inline padding</div>
+`}
+dark={true}
+/>
+
+---
+
+## Gap Utilities
+
+Gap utilities provide classes for applying gaps between elements in grid and flexbox layouts.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class | Description                           |
+| ------------- | ------------------------------------- |
+| \`.gap-[size]\`  | Applies gap between grid/flex items     |
+| \`.gap-col-[size]\` | Applies gap between grid/flex columns  |
+| \`.gap-row-[size]\` | Applies gap between grid/flex rows      |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="gap-md">Gap between items</div>
+<div class="gap-col-lg">Gap between columns</div>
+<div class="gap-row-xs">Gap between rows</div>
+`}
+dark={true}
+/>
+
+---
+
+## Position Spacing Utilities
+
+Position spacing utilities allow you to control the position of elements using spacing variables.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class | Description                          |
+| ------------- | ------------------------------------ |
+| \`.top-[size]\` | Applies top position spacing          |
+| \`.bottom-[size]\` | Applies bottom position spacing      |
+| \`.left-[size]\` | Applies left position spacing        |
+| \`.right-[size]\` | Applies right position spacing       |
+| \`.inset-[size]\` | Applies inset position spacing       |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="top-md">Top position spacing</div>
+<div class="bottom-lg">Bottom position spacing</div>
+<div class="left-2xs">Left position spacing</div>
+<div class="inset-xl">Inset position spacing</div>
+`}
+dark={true}
+/>
+
+---
+
+## Customization and Theming
+
+Customization and theming are simplified through the use of custom properties. By overriding these properties, it’s possible to adjust the spacing scheme to match specific branding requirements or to adapt the design system to different projects.
+
+### Theming Variables
+
+The following callback variables are used for theming and can be customized to change the appearance of spacing in your application:
+
+<Markdown>
+{`
+| Variable Name          | Description                                    |
+| ---------------------- | ---------------------------------------------- |
+| \`--spacing-none\`      | No spacing                                     |
+| \`--spacing-2xs\`       | Extra-extra small spacing (5px)                |
+| \`--spacing-xs\`        | Extra small spacing (10px)                     |
+| \`--spacing-sm\`        | Small spacing (15px)                           |
+| \`--spacing-md\`        | Medium spacing (20px)                          |
+| \`--spacing-lg\`        | Large spacing (40px)                           |
+| \`--spacing-xl\`        | Extra-large spacing (55px)                     |
+| \`--spacing-2xl\`       | Extra-extra large spacing (70px)               |
+| \`--spacing-3xl\`       | Triple extra-large spacing (90px)              |
+| \`--spacing-4xl\`       | Quadruple extra-large spacing (120px)          |
+`}
+</Markdown>
+
+---
+
+## Usage Guidelines
+
+- **Consistency:** Ensure that spacing utilities are used consistently throughout the application to maintain a cohesive design.
+- **Accessibility:** Consider readability and usability when applying spacing utilities, ensuring that content is neither too cramped nor too spaced out.
+- **Customization:** Use the custom properties to easily theme and adjust the spacing scheme for different projects or branding requirements.
+
+---
+
+## Examples
+
+Here’s how to apply different spacing utilities in a practical example:
+
+<Source
+language="html"
+code={`
+<div class="p-md m-lg gap-md">
+  This is an example with padding, margin, and gap applied.
+</div>
+<div class="mt-md ml-2xs">
+  Margin top and margin left example.
+</div>
+`}
+dark={true}
+/>
+
+These examples show how to combine various spacing utilities to create structured and visually appealing layouts.
+
+---
+
+## Best Practices
+
+- **Use Classes Appropriately:** Apply spacing utilities where they enhance readability and user experience.
+- **Maintain Visual Hierarchy:** Use different spacing values to create depth and structure in the UI.
+- **Test Across Devices:** Ensure that spacing utilities render consistently across different browsers and devices.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Can spacing values be customized?
+
+Yes, spacing values can be customized by overriding the respective custom properties (e.g., `--spacing-md`).
+
+### How do I ensure accessibility with spacing utilities?
+
+Ensure that spacing provides sufficient whitespace for readability without causing content to appear disjointed or difficult to navigate.
+
+### What is the best way to apply spacing utilities?
+
+Use spacing utilities to reinforce the design system’s layout structure, maintain visual consistency, and ensure a pleasant user experience across the UI.
+
+---
+
+## Conclusion
+
+Spacing utilities are a foundational aspect of the design system, enabling a consistent and adaptable layout structure across applications. By leveraging custom properties, these utilities offer flexibility in theming and ensure that the design remains cohesive, accessible, and easily maintainable.
+
+</div>

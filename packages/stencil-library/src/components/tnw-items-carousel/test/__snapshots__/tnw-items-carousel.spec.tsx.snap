@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-items-carousel renders 1`] = `
+<tnw-items-carousel class="tnw-items-carousel">
+  <template shadowrootmode="open">
+    <div class="tnw-items-carousel__slides" data-carousel-slides></div>
+    <div class="tnw-items-carousel__controls" part="controls-container">
+      <button class="rounded-default tnw-items-carousel__control tnw-items-carousel__control--md tnw-items-carousel__control--next" part="control">
+        <tnw-icon appearance="none" name="tnw-arrow-thin-right" size="md"></tnw-icon>
+      </button>
+    </div>
+  </template>
+</tnw-items-carousel>
+`;

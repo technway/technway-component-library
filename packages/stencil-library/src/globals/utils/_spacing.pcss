@@ -1,0 +1,465 @@
+/**
+ * tnw CSS Utilities
+ *
+ * Spacing Utilities
+ * 
+ * This file provides utility classes for margins, paddings, and gaps using the defined variables.
+ */
+
+/* Margin Utilities */
+@define-mixin margin $value {
+  &-$value {
+    margin: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-top $value {
+  &t-$value {
+    margin-top: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-bottom $value {
+  &b-$value {
+    margin-bottom: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-right $value {
+  &r-$value {
+    margin-right: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-left $value {
+  &l-$value {
+    margin-left: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-inline $value {
+  &inl-$value {
+    margin-inline: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-inline-start $value {
+  &inls-$value {
+    margin-inline-start: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-inline-end $value {
+  &inle-$value {
+    margin-inline-end: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-block $value {
+  &blk-$value {
+    margin-block: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-block-start $value {
+  &blks-$value {
+    margin-block-start: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin margin-block-end $value {
+  &blke-$value {
+    margin-block-end: var(--tnw-spacing-$value);
+  }
+}
+.m {
+  @mixin margin 2xs;
+  @mixin margin xs;
+  @mixin margin sm;
+  @mixin margin md;
+  @mixin margin lg;
+  @mixin margin xl;
+  @mixin margin 2xl;
+  @mixin margin 3xl;
+  @mixin margin 4xl;
+  @mixin margin auto;
+
+  @mixin margin-top 2xs;
+  @mixin margin-top xs;
+  @mixin margin-top sm;
+  @mixin margin-top md;
+  @mixin margin-top lg;
+  @mixin margin-top xl;
+  @mixin margin-top 2xl;
+  @mixin margin-top 3xl;
+  @mixin margin-top 4xl;
+  @mixin margin-top auto;
+
+  @mixin margin-bottom 2xs;
+  @mixin margin-bottom xs;
+  @mixin margin-bottom sm;
+  @mixin margin-bottom md;
+  @mixin margin-bottom lg;
+  @mixin margin-bottom xl;
+  @mixin margin-bottom 2xl;
+  @mixin margin-bottom 3xl;
+  @mixin margin-bottom 4xl;
+  @mixin margin-bottom auto;
+
+  @mixin margin-left 2xs;
+  @mixin margin-left xs;
+  @mixin margin-left sm;
+  @mixin margin-left md;
+  @mixin margin-left lg;
+  @mixin margin-left xl;
+  @mixin margin-left 2xl;
+  @mixin margin-left 3xl;
+  @mixin margin-left 4xl;
+  @mixin margin-left auto;
+
+  @mixin margin-inline 2xs;
+  @mixin margin-inline xs;
+  @mixin margin-inline sm;
+  @mixin margin-inline md;
+  @mixin margin-inline lg;
+  @mixin margin-inline xl;
+  @mixin margin-inline 2xl;
+  @mixin margin-inline 3xl;
+  @mixin margin-inline 4xl;
+  @mixin margin-inline auto;
+
+  @mixin margin-inline-start 2xs;
+  @mixin margin-inline-start xs;
+  @mixin margin-inline-start sm;
+  @mixin margin-inline-start md;
+  @mixin margin-inline-start lg;
+  @mixin margin-inline-start xl;
+  @mixin margin-inline-start 2xl;
+  @mixin margin-inline-start 3xl;
+  @mixin margin-inline-start 4xl;
+  @mixin margin-inline-start auto;
+
+  @mixin margin-inline-end 2xs;
+  @mixin margin-inline-end xs;
+  @mixin margin-inline-end sm;
+  @mixin margin-inline-end md;
+  @mixin margin-inline-end lg;
+  @mixin margin-inline-end xl;
+  @mixin margin-inline-end 2xl;
+  @mixin margin-inline-end 3xl;
+  @mixin margin-inline-end 4xl;
+  @mixin margin-inline-end auto;
+
+  @mixin margin-block 2xs;
+  @mixin margin-block xs;
+  @mixin margin-block sm;
+  @mixin margin-block md;
+  @mixin margin-block lg;
+  @mixin margin-block xl;
+  @mixin margin-block 2xl;
+  @mixin margin-block 3xl;
+  @mixin margin-block 4xl;
+  @mixin margin-block auto;
+
+  @mixin margin-block-start 2xs;
+  @mixin margin-block-start xs;
+  @mixin margin-block-start sm;
+  @mixin margin-block-start md;
+  @mixin margin-block-start lg;
+  @mixin margin-block-start xl;
+  @mixin margin-block-start 2xl;
+  @mixin margin-block-start 3xl;
+  @mixin margin-block-start 4xl;
+  @mixin margin-block-start auto;
+
+  @mixin margin-block-end 2xs;
+  @mixin margin-block-end xs;
+  @mixin margin-block-end sm;
+  @mixin margin-block-end md;
+  @mixin margin-block-end lg;
+  @mixin margin-block-end xl;
+  @mixin margin-block-end 2xl;
+  @mixin margin-block-end 3xl;
+  @mixin margin-block-end 4xl;
+  @mixin margin-block-end auto;
+}
+
+/* Padding Utilities */
+@define-mixin padding $value {
+  &-$value {
+    padding: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-top $value {
+  &t-$value {
+    padding-top: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-bottom $value {
+  &b-$value {
+    padding-bottom: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-right $value {
+  &r-$value {
+    padding-right: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-left $value {
+  &l-$value {
+    padding-left: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-inline $value {
+  &inl-$value {
+    padding-inline: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-inline-start $value {
+  &inls-$value {
+    padding-inline-start: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-inline-end $value {
+  &inle-$value {
+    padding-inline-end: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-block $value {
+  &blk-$value {
+    padding-block: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-block-start $value {
+  &blks-$value {
+    padding-block-start: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin padding-block-end $value {
+  &blke-$value {
+    padding-block-end: var(--tnw-spacing-$value);
+  }
+}
+.p {
+  @mixin padding 2xs;
+  @mixin padding xs;
+  @mixin padding sm;
+  @mixin padding md;
+  @mixin padding lg;
+  @mixin padding xl;
+  @mixin padding 2xl;
+  @mixin padding 3xl;
+  @mixin padding 4xl;
+
+  @mixin padding-top 2xs;
+  @mixin padding-top xs;
+  @mixin padding-top sm;
+  @mixin padding-top md;
+  @mixin padding-top lg;
+  @mixin padding-top xl;
+  @mixin padding-top 2xl;
+  @mixin padding-top 3xl;
+  @mixin padding-top 4xl;
+
+  @mixin padding-bottom 2xs;
+  @mixin padding-bottom xs;
+  @mixin padding-bottom sm;
+  @mixin padding-bottom md;
+  @mixin padding-bottom lg;
+  @mixin padding-bottom xl;
+  @mixin padding-bottom 2xl;
+  @mixin padding-bottom 3xl;
+  @mixin padding-bottom 4xl;
+
+  @mixin padding-left 2xs;
+  @mixin padding-left xs;
+  @mixin padding-left sm;
+  @mixin padding-left md;
+  @mixin padding-left lg;
+  @mixin padding-left xl;
+  @mixin padding-left 2xl;
+  @mixin padding-left 3xl;
+  @mixin padding-left 4xl;
+
+  @mixin padding-inline 2xs;
+  @mixin padding-inline xs;
+  @mixin padding-inline sm;
+  @mixin padding-inline md;
+  @mixin padding-inline lg;
+  @mixin padding-inline xl;
+  @mixin padding-inline 2xl;
+  @mixin padding-inline 3xl;
+  @mixin padding-inline 4xl;
+
+  @mixin padding-inline-start 2xs;
+  @mixin padding-inline-start xs;
+  @mixin padding-inline-start sm;
+  @mixin padding-inline-start md;
+  @mixin padding-inline-start lg;
+  @mixin padding-inline-start xl;
+  @mixin padding-inline-start 2xl;
+  @mixin padding-inline-start 3xl;
+  @mixin padding-inline-start 4xl;
+
+  @mixin padding-inline-end 2xs;
+  @mixin padding-inline-end xs;
+  @mixin padding-inline-end sm;
+  @mixin padding-inline-end md;
+  @mixin padding-inline-end lg;
+  @mixin padding-inline-end xl;
+  @mixin padding-inline-end 2xl;
+  @mixin padding-inline-end 3xl;
+  @mixin padding-inline-end 4xl;
+
+  @mixin padding-block 2xs;
+  @mixin padding-block xs;
+  @mixin padding-block sm;
+  @mixin padding-block md;
+  @mixin padding-block lg;
+  @mixin padding-block xl;
+  @mixin padding-block 2xl;
+  @mixin padding-block 3xl;
+  @mixin padding-block 4xl;
+
+  @mixin padding-block-start 2xs;
+  @mixin padding-block-start xs;
+  @mixin padding-block-start sm;
+  @mixin padding-block-start md;
+  @mixin padding-block-start lg;
+  @mixin padding-block-start xl;
+  @mixin padding-block-start 2xl;
+  @mixin padding-block-start 3xl;
+  @mixin padding-block-start 4xl;
+
+  @mixin padding-block-end 2xs;
+  @mixin padding-block-end xs;
+  @mixin padding-block-end sm;
+  @mixin padding-block-end md;
+  @mixin padding-block-end lg;
+  @mixin padding-block-end xl;
+  @mixin padding-block-end 2xl;
+  @mixin padding-block-end 3xl;
+  @mixin padding-block-end 4xl;
+}
+
+/* Gap Utilities */
+@define-mixin gap $value {
+  &-$value {
+    gap: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin gap-column $value {
+  &-col-$value {
+    column-gap: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin gap-row $value {
+  &-row-$value {
+    row-gap: var(--tnw-spacing-$value);
+  }
+}
+.gap {
+  @mixin gap 2xs;
+  @mixin gap xs;
+  @mixin gap sm;
+  @mixin gap md;
+  @mixin gap lg;
+  @mixin gap xl;
+  @mixin gap 2xl;
+  @mixin gap 3xl;
+  @mixin gap 4xl;
+
+  @mixin gap-column 2xs;
+  @mixin gap-column xs;
+  @mixin gap-column sm;
+  @mixin gap-column md;
+  @mixin gap-column lg;
+  @mixin gap-column xl;
+  @mixin gap-column 2xl;
+  @mixin gap-column 3xl;
+  @mixin gap-column 4xl;
+
+  @mixin gap-row 2xs;
+  @mixin gap-row xs;
+  @mixin gap-row sm;
+  @mixin gap-row md;
+  @mixin gap-row lg;
+  @mixin gap-row xl;
+  @mixin gap-row 2xl;
+  @mixin gap-row 3xl;
+  @mixin gap-row 4xl;
+}
+
+/* Position Spacing Utilities */
+@define-mixin top $value {
+  &-$value {
+    top: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin bottom $value {
+  &-$value {
+    bottom: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin left $value {
+  &-$value {
+    left: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin right $value {
+  &-$value {
+    right: var(--tnw-spacing-$value);
+  }
+}
+@define-mixin inset $value {
+  &-$value {
+    inset: var(--tnw-spacing-$value);
+  }
+}
+
+/* Apply Position Utilities */
+.top {
+  @mixin top 2xs;
+  @mixin top xs;
+  @mixin top sm;
+  @mixin top md;
+  @mixin top lg;
+  @mixin top xl;
+  @mixin top 2xl;
+  @mixin top 3xl;
+  @mixin top 4xl;
+}
+.bottom {
+  @mixin bottom 2xs;
+  @mixin bottom xs;
+  @mixin bottom sm;
+  @mixin bottom md;
+  @mixin bottom lg;
+  @mixin bottom xl;
+  @mixin bottom 2xl;
+  @mixin bottom 3xl;
+  @mixin bottom 4xl;
+}
+.left {
+  @mixin left 2xs;
+  @mixin left xs;
+  @mixin left sm;
+  @mixin left md;
+  @mixin left lg;
+  @mixin left xl;
+  @mixin left 2xl;
+  @mixin left 3xl;
+  @mixin left 4xl;
+}
+.right {
+  @mixin right 2xs;
+  @mixin right xs;
+  @mixin right sm;
+  @mixin right md;
+  @mixin right lg;
+  @mixin right xl;
+  @mixin right 2xl;
+  @mixin right 3xl;
+  @mixin right 4xl;
+}
+.inset {
+  @mixin inset 2xs;
+  @mixin inset xs;
+  @mixin inset sm;
+  @mixin inset md;
+  @mixin inset lg;
+  @mixin inset xl;
+  @mixin inset 2xl;
+  @mixin inset 3xl;
+  @mixin inset 4xl;
+}

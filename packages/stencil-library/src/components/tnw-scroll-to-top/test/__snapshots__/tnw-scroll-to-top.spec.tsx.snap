@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-scroll-to-top Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-scroll-to-top class="tnw-scroll-to-top">
+  <template shadowrootmode="open">
+    <tnw-icon appearance="solid" borderradius="default" isbutton="" name="tnw-arrow-thin-up" part="icon" size="md" variant="primary">
+      <slot name="icon-svg" slot="svg"></slot>
+    </tnw-icon>
+  </template>
+</tnw-scroll-to-top>
+`;

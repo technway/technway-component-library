@@ -1,0 +1,24 @@
+:root {
+  --tnw-fs-heading: var(--fs-heading, var(--tnw-fs-3xl));
+  --tnw-fs-text: var(--fs-text, var(--tnw-fs-sm));
+
+  --tnw-font-text: var(--tnw-font-text-en, 'Montserrat', sans-serif);
+  --tnw-font-heading: var(--tnw-font-heading-en, 'Montserrat', sans-serif);
+
+  --tnw-fw-heading: var(--fw-heading, var(--tnw-fw-600));
+  --tnw-fw-text: var(--fw-text, var(--tnw-fw-300));
+
+  --tnw-lh-heading: var(--lh-heading, var(--tnw-lh-1_25));
+  --tnw-lh-text: var(--lh-text, var(--tnw-lh-1_75));
+
+  --tnw-rounded-default: var(--rounded-default, var(--tnw-rounded-sm));
+  --tnw-border-default: var(--border-default, var(--tnw-border-sm));
+
+  @media only screen and (max-width: 1024px) {
+    --tnw-fs-text: var(--tnw-fs-xs);
+  }
+
+  @media only screen and (max-width: 567px) {
+    --tnw-lh-text: var(--lh-text, var(--tnw-lh-1_5));
+  }
+}

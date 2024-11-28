@@ -1,0 +1,157 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="Theming/Spacing and Layout" />
+
+<div class="mdx-docs">
+
+# Spacing and Layout Customization
+
+Spacing and layout are critical components in the overall design and user experience of an application. The Technway Design System provides extensive customization options for spacing and layout, enabling the creation of designs that are both aesthetically pleasing and functionally sound.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Default Spacing and Layout Variables](#default-spacing-and-layout-variables)
+   1. [Detailed Overview of Key Spacing and Layout Variables](#detailed-overview-of-key-spacing-and-layout-variables)
+      1. [Spacings](#spacings)
+      2. [Layouts](#layouts)
+      3. [Breakpoints](#breakpoints)
+- [Customizing Spacing and Layout](#customizing-spacing-and-layout)
+   1. [Example: Customizing Container Width and Breakpoints](#example-customizing-container-width-and-breakpoints)
+- [Best Practices for Spacing and Layout Customization](#best-practices-for-spacing-and-layout-customization)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+The Technway Design System employs a variety of CSS variables to control spacing and layout, including margin, padding, grid gaps, and other layout-related properties. These variables are defined globally and can be customized to meet the specific needs of a project.
+
+### Default Spacing and Layout Variables
+
+Below is a snippet of the core spacing and layout variables used in the design system:
+
+<Source
+code={`
+:root {
+  /* Spacings */
+  --tnw-spacing-none: var(--spacing-none, 0);
+  --tnw-spacing-xs: var(--spacing-xs, 10px);
+  --tnw-spacing-sm: var(--spacing-sm, 15px);
+  --tnw-spacing-md: var(--spacing-md, 20px);
+  --tnw-spacing-lg: var(--spacing-lg, 40px);
+  --tnw-spacing-xl: var(--spacing-xl, 55px);
+  --tnw-spacing-2xl: var(--spacing-2xl, 70px);
+  --tnw-spacing-3xl: var(--spacing-3xl, 90px);
+  --tnw-spacing-4xl: var(--spacing-4xl, 120px);
+  --tnw-container-width: var(--container-width, 92%);
+  --tnw-container-max-width: var(--container-width-max, 1100px);
+
+  /* Section Spacings */
+  --tnw-section-spacing-sm: var(--section-spacing-sm, 50px);
+  --tnw-section-spacing-md: var(--section-spacing-md, 75px);
+  --tnw-section-spacing-lg: var(--section-spacing-lg, 100px);
+  
+  /* Breakpoints */
+  --tnw-breakpoint-xs: var(--breakpoint-xs, 567px);
+  --tnw-breakpoint-sm: var(--breakpoint-sm, 767px);
+  --tnw-breakpoint-md: var(--breakpoint-md, 1024px);
+  --tnw-breakpoint-lg: var(--breakpoint-lg, 1200px);
+  --tnw-breakpoint-xl: var(--breakpoint-xl, 1439px);
+}
+`}
+language="css"
+dark={true}
+/>
+
+These variables form the foundation of the design system’s spacing and layout configurations.
+
+---
+
+## Detailed Overview of Key Spacing and Layout Variables
+
+### Spacings
+
+</div>
+<Markdown>
+{`
+| Global Variable                | Theming Variable            | Description                                               |
+|--------------------------------|-----------------------------|-----------------------------------------------------------|
+| \`--tnw-spacing-none\`            | \`--spacing-none\`           | No spacing applied.                                       |
+| \`--tnw-spacing-xs\`              | \`--spacing-xs\`             | Extra small spacing value, typically used for tight spacing. |
+| \`--tnw-spacing-sm\`              | \`--spacing-sm\`             | Small spacing value, used for minor separations.          |
+| \`--tnw-spacing-md\`              | \`--spacing-md\`             | Medium spacing value, the default for most components.    |
+| \`--tnw-spacing-lg\`              | \`--spacing-lg\`             | Large spacing value, used for significant separations.    |
+| \`--tnw-spacing-xl\`              | \`--spacing-xl\`             | Extra large spacing value, used for wide gaps.            |
+| \`--tnw-spacing-2xl\`             | \`--spacing-2xl\`            | Double extra large spacing value, used for major separations. |
+| \`--tnw-spacing-3xl\`             | \`--spacing-3xl\`            | Triple extra large spacing value, used for maximum separations. |
+| \`--tnw-spacing-4xl\`             | \`--spacing-4xl\`            | Quadruple extra large spacing value, used for extensive separations. |
+
+### Layouts
+
+| Global Variable                | Theming Variable            | Description                                               |
+|--------------------------------|-----------------------------|-----------------------------------------------------------|
+| \`--tnw-container-width\`         | \`--container-width\`        | Default container width percentage.                       |
+| \`--tnw-container-max-width\`     | \`--container-width-max\`    | Maximum container width in pixels.                        |
+
+### Breakpoints
+
+| Global Variable                | Theming Variable            | Description                                               |
+|--------------------------------|-----------------------------|-----------------------------------------------------------|
+| \`--tnw-breakpoint-xs\`          | \`--breakpoint-xs\`          | Extra small breakpoint, typically for mobile devices.     |
+| \`--tnw-breakpoint-sm\`          | \`--breakpoint-sm\`          | Small breakpoint, used for small tablets.                 |
+| \`--tnw-breakpoint-md\`          | \`--breakpoint-md\`          | Medium breakpoint, the default for tablets.               |
+| \`--tnw-breakpoint-lg\`          | \`--breakpoint-lg\`          | Large breakpoint, used for small desktops.                |
+| \`--tnw-breakpoint-xl\`          | \`--breakpoint-xl\`          | Extra large breakpoint, used for large desktops.          |
+`}
+</Markdown>
+
+<div class="mdx-docs">
+
+---
+
+## Customizing Spacing and Layout
+
+To customize the spacing and layout across the project, the default spacing and layout variables should be overridden in global CSS or theme-specific files.
+
+### Example: Customizing Container Width and Breakpoints
+
+To adjust the container width and breakpoints throughout the application:
+
+<Source
+code={`
+:root {${`\n`}
+  --container-width: 80%;${`\n`}
+  --breakpoint-md: 960px;${`\n`}
+}
+`}
+language="css"
+dark={true}
+/>
+
+By overriding `--container-width` and `--breakpoint-md`, the layout and responsiveness of the application can be modified to better align with design requirements.
+
+---
+
+## Best Practices for Spacing and Layout Customization
+
+- **Consistency**: Global variables (`--tnw-...`) should always be used to ensure uniformity across the project.
+- **Flexibility**: The layout should be designed to adjust gracefully across different screen sizes by leveraging breakpoints.
+- **Accessibility**: Spacing and layout should be considered in the context of user accessibility, ensuring that elements are appropriately spaced for easy interaction.
+- **Reuse**: Hardcoding spacing and layout values directly in components should be avoided; predefined variables should be utilized to maintain consistency.
+
+---
+
+## Conclusion
+
+Customizing spacing and layout within the Technway Design System is both intuitive and powerful. By adhering to the theming guidelines and using the provided CSS variables, a responsive, consistent, and visually appealing application can be developed.
+
+Continue exploring customization options with the following guides:
+
+- [Color Customization](./color-customization.mdx)
+- [Typography Customization](./typography-customization.mdx)
+- [Theme Customization](./theme-customization.mdx)
+- [Accessibility Customization](./accessibility-customization.mdx)
+- [Component-Level Customization](./component-customization.mdx)
+
+</div>

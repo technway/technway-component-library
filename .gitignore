@@ -1,0 +1,44 @@
+# Ignore build directories
+dist/
+www/
+loader/
+coverage/
+storybook-static/
+
+# Temporary files and logs
+*~
+*.sw[mnpcod]
+*.log
+*.lock
+*.tmp
+*.tmp.*
+log.txt
+*.sublime-project
+*.sublime-workspace
+
+# Stencil and tooling-specific folders
+.stencil/
+.idea/
+.vscode/
+.sass-cache/
+.versions/
+
+# Ignore all node_modules, including in packages/
+node_modules/
+
+# OS-specific and IDE-generated files
+$RECYCLE.BIN/
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+.env
+
+# Storybook and testing-related files
+storybook.log
+notes-for-commits.txt
+.vercel
+*storybook.log
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

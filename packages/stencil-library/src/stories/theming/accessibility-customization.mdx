@@ -1,0 +1,84 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="Theming/Accessibility" />
+
+<div class="mdx-docs">
+
+# Accessibility Customization
+
+Accessibility stands as a critical pillar in web design, ensuring that every user, including those with disabilities, can navigate and interact with applications effectively. The Technway Design System offers a straightforward yet powerful approach to customizing accessibility-related styles, such as focus indicators.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Global Accessibility Variables](#global-accessibility-variables)
+   1. [Focus Color](#focus-color)
+- [Accessibility Utility Classes](#accessibility-utility-classes)
+   1. [Keyboard-Only Focus Style](#keyboard-only-focus-style)
+- [Best Practices for Accessibility Customization](#best-practices-for-accessibility-customization)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Ensuring that applications are accessible to all users is not only a best practice but a fundamental aspect of inclusive design. The Technway Design System provides a set of tools and variables that simplify the customization of accessibility features, with a particular focus on enhancing keyboard navigation.
+
+## Global Accessibility Variables
+
+### Focus Color
+
+Focus color plays a crucial role in accessibility, especially for users who rely on keyboard navigation. The `--tnw-focus-color` variable within the Technway Design System defines the color used for focus outlines throughout the application.
+
+<Source
+code={`
+:root {
+  --tnw-focus-color: var(--focus-color, var(--primary-color));
+}
+`}
+language="css"
+dark={true}
+/>
+
+This variable defaults to the primary color of the theme but can be customized to any color that meets accessibility needs. The focus color ensures that interactive elements, such as buttons and links, are visually distinct when focused.
+
+## Accessibility Utility Classes
+
+### Keyboard-Only Focus Style
+
+A utility class is included in the design system, leveraging the `--tnw-focus-color` variable to provide a consistent focus style across the application. This class is particularly beneficial for ensuring that keyboard users can navigate the site with ease.
+
+<Source
+code={`
+.keyboard-only {
+  &:focus {
+    outline: 2px solid var(--tnw-focus-color);
+    outline-offset: 2px;
+  }
+}
+`}
+language="css"
+dark={true}
+/>
+
+This class applies a 2px solid outline using the focus color, with a 2px offset to ensure that the outline remains clearly visible around the focused element.
+
+## Best Practices for Accessibility Customization
+
+- **Consistent Focus Styles**: It is essential that all focusable elements maintain a consistent and visible focus style, enhancing navigation for keyboard users and ensuring adherence to accessibility standards.
+- **Customizable Colors**: While customizing the focus color to align with branding is possible, accessibility should always take precedence over aesthetics, ensuring contrast requirements are met.
+- **Test with Real Users**: Accessibility customizations should be validated with real users, including those who rely on keyboard navigation and screen readers, to ensure effectiveness.
+
+## Conclusion
+
+Customizing accessibility features within the Technway Design System is both straightforward and crucial for creating inclusive web applications. By utilizing global variables and utility classes, it is possible to ensure that applications are accessible to all users, regardless of how interaction occurs.
+
+Further customization options can be explored with these guides:
+
+- [Color Customization](./color-customization.mdx)
+- [Typography Customization](./typography-customization.mdx)
+- [Theme Customization](./theme-customization.mdx)
+- [Spacing and Layout Customization](./spacing-layout-customization.mdx)
+- [Component-Level Customization](./component-customization.mdx)
+
+</div>

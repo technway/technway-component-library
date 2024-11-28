@@ -1,0 +1,176 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="CSS Utilities/Breakpoints" />
+
+<div class="mdx-docs">
+
+# Breakpoints
+
+Breakpoints are essential in responsive design, allowing styles to adapt to different screen sizes. In this design system, breakpoints are managed through custom properties, providing flexibility and consistency across projects. While the specific values of breakpoints can be modified for theming purposes, the type of media query (e.g., `max-width` vs. `min-width`) is fixed and cannot be changed once the design system is installed.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Default Breakpoints](#default-breakpoints)
+- [Controlling Responsive Utilities](#controlling-responsive-utilities)
+- [Customization and Theming](#customization-and-theming)
+- [Usage Guidelines](#usage-guidelines)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Breakpoints in the design system are defined using custom properties that map to specific screen widths. These breakpoints are used to create responsive utilities that adapt to various device sizes. The values of these breakpoints can be modified to suit different projects, but the type of media query (e.g., `max-width`) remains fixed within the design system.
+
+---
+
+## Default Breakpoints
+
+The design system defines the following breakpoints:
+
+<Source
+language="css"
+code={`
+/* Default Breakpoints */
+--tnw-breakpoint-xs: 567px;
+--tnw-breakpoint-sm: 767px;
+--tnw-breakpoint-md: 1024px;
+--tnw-breakpoint-lg: 1200px;
+--tnw-breakpoint-xl: 1439px;
+`}
+dark={true}
+/>
+
+These values correspond to the following screen sizes:
+
+- **xs**: Extra small screens (up to 567px)
+- **sm**: Small screens (up to 767px)
+- **md**: Medium screens (up to 1024px)
+- **lg**: Large screens (up to 1200px)
+- **xl**: Extra large screens (up to 1439px)
+
+These breakpoints provide a foundation for designing responsive interfaces that work across a wide range of devices, from mobile phones to large desktop monitors.
+
+---
+
+## Controlling Responsive Utilities
+
+Responsive utilities are generated based on these breakpoints, allowing styles to change at specific screen widths. These utilities enable developers to apply styles conditionally, depending on the screen size.
+
+To use responsive utilities, simply prefix the desired CSS utility class with the breakpoint size. For example, `xs:rounded-none` applies the `rounded-none` utility only on screens that match the `xs` breakpoint.
+
+<Source
+language="html"
+code={`
+<tnw-image class="rounded-lg md:rounded-md xs:rounded-none" src="image.png" alt="image alt"></tnw-image>
+`}
+dark={true}
+/>
+
+In this example, the border radius of the image element will be set to `rounded-lg` by default, then change to `rounded-md` on medium screens (up to 1024px), and finally to `rounded-none` on extra small screens (up to 567px).
+
+---
+
+## Customization and Theming
+
+While the media query type (`max-width`) is fixed, the specific values for breakpoints can be adjusted to fit the needs of different projects. This customization is done by modifying the custom properties before packaging the design system.
+
+For theming purposes, use the variables `--breakpoint-<size>` to change breakpoint values. For example:
+
+<Source
+language="css"
+code={`
+:root {
+  --breakpoint-xs: 400px; /* Custom breakpoint for xs */
+  --breakpoint-sm: 800px; /* Custom breakpoint for sm */
+  /* Additional custom breakpoints as needed */
+}
+`}
+dark={true}
+/>
+
+This approach allows for flexible theming and adaptation of the design system across different projects while maintaining consistency in the responsive behavior.
+
+The theming mechanism ensures that breakpoints can be tailored to specific project requirements without altering the core design system. This flexibility is particularly useful for adapting the design system to different devices or target audiences.
+
+---
+
+## Usage Guidelines
+
+- **Consistency:** Ensure that breakpoint values are applied consistently across all responsive utilities to maintain a cohesive design.
+- **Customization:** Customize breakpoint values before packaging the design system to meet specific project requirements.
+- **Performance:** Avoid adding too many breakpoints, as this can lead to complex CSS and potential performance issues.
+
+The goal is to create a responsive design that works seamlessly across various devices, providing a consistent user experience regardless of screen size.
+
+---
+
+## Examples
+
+Here is an example of how a responsive utility might be applied:
+
+<Source
+language="css"
+code={`
+@media (max-width: var(--tnw-breakpoint-md)) {
+  .md:p-sm { padding: var(--tnw-spacing-4); }
+}
+`}
+dark={true}
+/>
+
+This CSS applies padding to an element when the screen width is at most 1024px (the `md` breakpoint).
+
+Another example demonstrates how to apply margin using the `lg` breakpoint:
+
+<Source
+language="css"
+code={`
+@media (max-width: var(--tnw-breakpoint-lg)) {
+  .lg:m-sm { margin: var(--tnw-spacing-sm); }
+}
+`}
+dark={true}
+/>
+
+This CSS applies a margin of `var(--tnw-spacing-sm)` to an element when the screen width is at most 1200px.
+
+---
+
+## Best Practices
+
+- **Use Breakpoints Wisely:** Only apply breakpoints where necessary to avoid over-complicating the CSS.
+- **Test Across Devices:** Regularly test the responsive utilities on various devices and screen sizes to ensure optimal user experience.
+- **Document Changes:** Clearly document any customizations made to breakpoint values to maintain consistency across the project.
+
+It is essential to strike a balance between flexibility and maintainability when using breakpoints. Too many breakpoints can lead to bloated CSS, while too few may not provide the desired responsiveness.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Can breakpoint values be changed after installing the design system?
+
+Yes, the values of breakpoints can be changed using custom properties like `--breakpoint-xs`, but the type of media query (`max-width`) remains fixed and cannot be altered after installation.
+
+### What happens if a custom property for a breakpoint is not defined?
+
+The design system will fall back to the default values for breakpoints if a custom property is not defined.
+
+### Is it possible to use both `max-width` and `min-width` in the same project?
+
+While the design system is configured to use a specific media query type (`max-width`), it is possible to manually implement additional breakpoints using `min-width` or other media query types if necessary.
+
+---
+
+## Conclusion
+
+Breakpoints are a key aspect of responsive design, enabling styles to adapt to different screen sizes. By defining and using consistent breakpoints, the design system ensures that applications remain responsive and accessible across various devices. Customization of breakpoint values should be done before packaging to maintain flexibility in different projects.
+
+When used effectively, breakpoints contribute to a seamless user experience, ensuring that interfaces look great and function well across all devices.
+
+</div>

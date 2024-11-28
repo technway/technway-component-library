@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TnwSection Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-section class="tnw-section tnw-section--margin-none tnw-section--padding-block-xl">
+  <template shadowrootmode="open">
+    <section class="container tnw-section__content tnw-section__content--spacing-md tnw-section__content--start" part="section">
+      <slot name="header"></slot>
+      <slot name="body"></slot>
+      <slot name="footer"></slot>
+    </section>
+  </template>
+</tnw-section>
+`;

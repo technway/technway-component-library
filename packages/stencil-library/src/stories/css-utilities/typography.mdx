@@ -1,0 +1,364 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="CSS Utilities/Typography" />
+
+<div class="mdx-docs">
+
+# Typography Utilities
+
+Typography utilities are essential for maintaining consistency and clarity in text styling across your application. This documentation outlines the available utilities for font sizes, font weights, font families, line heights, text alignment, and text transformation. Each utility class is derived from custom properties, allowing for easy theming and consistent application across projects.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Default Typography Values](#default-typography-values)
+- [Font Size Utilities](#font-size-utilities)
+- [Font Weight Utilities](#font-weight-utilities)
+- [Font Family Utilities](#font-family-utilities)
+- [Line Height Utilities](#line-height-utilities)
+- [Text Alignment Utilities](#text-alignment-utilities)
+- [Text Transformation Utilities](#text-transformation-utilities)
+- [Customization and Theming](#customization-and-theming)
+- [Usage Guidelines](#usage-guidelines)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Typography utilities are vital in creating a consistent and readable text hierarchy. By using custom properties, these utilities allow for flexible and adaptable typography styling throughout your application, ensuring a cohesive look across all components.
+
+---
+
+## Default Typography Values
+
+The design system includes a set of default typography variables. These variables are designed to be flexible, allowing them to be easily overridden or adjusted to fit specific project needs.
+
+<Source
+language="css"
+code={`
+/* Font Sizes */
+--tnw-fs-2xs: 12px;
+--tnw-fs-xs: 14px;
+--tnw-fs-sm: 16px;
+--tnw-fs-md: 18px;
+--tnw-fs-lg: 20px;
+--tnw-fs-xl: 22px;
+--tnw-fs-2xl: 26px;
+--tnw-fs-3xl: 28px;
+--tnw-fs-4xl: 30px;
+--tnw-fs-5xl: 36px;
+--tnw-fs-6xl: 42px;
+--tnw-fs-7xl: 50px;
+--tnw-fs-8xl: 60px;
+--tnw-fs-9xl: 70px;
+
+/* Font Weights */
+--tnw-fw-100: 100;
+--tnw-fw-200: 200;
+--tnw-fw-300: 300;
+--tnw-fw-400: 400;
+--tnw-fw-500: 500;
+--tnw-fw-600: 600;
+--tnw-fw-700: 700;
+--tnw-fw-800: 800;
+--tnw-fw-900: 900;
+
+/* Line Heights */
+--tnw-lh-1: 1;
+--tnw-lh-1_25: 1.25;
+--tnw-lh-1_5: 1.5;
+--tnw-lh-1_75: 1.75;
+--tnw-lh-2: 2;
+--tnw-lh-2_25: 2.25;
+--tnw-lh-2_5: 2.5;
+
+/* Font Families */
+--tnw-font-icon: 'icomoon';
+--tnw-font-heading-en: 'Montserrat', sans-serif;
+--tnw-font-text-en: 'Montserrat', sans-serif;
+--tnw-font-heading-ar: 'Tajawal', sans-serif;
+--tnw-font-text-ar: 'Readex Pro', sans-serif;
+`}
+dark={true}
+/>
+
+---
+
+## Font Size Utilities
+
+Font size utilities allow you to apply various font sizes to text elements, ensuring a consistent text hierarchy.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                     |
+| ------------------- | ----------------------------------------------- |
+| \`.fs-[size]\`        | Applies font size based on the defined sizes    |
+| \`.fs-heading\`       | Applies the default heading font size           |
+| \`.fs-text\`          | Applies the default text font size              |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="fs-md">Medium Font Size</p>
+<p class="fs-xl">Extra Large Font Size</p>
+<p class="fs-heading">Heading Font Size</p>
+<p class="fs-text">Text Font Size</p>
+`}
+dark={true}
+/>
+
+---
+
+## Font Weight Utilities
+
+Font weight utilities allow you to apply different font weights, enhancing text emphasis and hierarchy.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                     |
+| ------------------- | ----------------------------------------------- |
+| \`.fw-[weight]\`      | Applies font weight based on the defined weights|
+| \`.fw-heading\`       | Applies the default heading font weight         |
+| \`.fw-text\`          | Applies the default text font weight            |
+| \`.fw-button\`        | Applies the default button font weight          |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="fw-400">Normal Font Weight</p>
+<p class="fw-700">Bold Font Weight</p>
+<p class="fw-heading">Heading Font Weight</p>
+<p class="fw-text">Text Font Weight</p>
+<p class="fw-button">Button Font Weight</p>
+`}
+dark={true}
+/>
+
+---
+
+## Font Family Utilities
+
+Font family utilities allow you to apply different font families for headings, text, and icons.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                       |
+| ------------------- | ------------------------------------------------- |
+| \`.font-head\`        | Applies the default heading font family          |
+| \`.font-txt\`         | Applies the default text font family             |
+| \`.font-icon\`        | Applies the icon font family                     |
+| \`.font-head-en\`     | Applies the English heading font family          |
+| \`.font-txt-en\`      | Applies the English text font family             |
+| \`.font-head-ar\`     | Applies the Arabic heading font family           |
+| \`.font-txt-ar\`      | Applies the Arabic text font family              |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="font-head">Heading Font Family</p>
+<p class="font-txt">Text Font Family</p>
+<p class="font-icon">Icon Font Family</p>
+<p class="font-head-en">English Heading Font Family</p>
+<p class="font-txt-ar">Arabic Text Font Family</p>
+`}
+dark={true}
+/>
+
+---
+
+## Line Height Utilities
+
+Line height utilities provide control over the line height of text elements, ensuring appropriate spacing between lines of text.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                      |
+| ------------------- | ------------------------------------------------ |
+| \`.lh-[value]\`       | Applies line height based on the defined values  |
+| \`.lh-head\`          | Applies the default heading line height          |
+| \`.lh-txt\`           | Applies the default text line height             |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="lh-1">Line Height 1</p>
+<p class="lh-1_5">Line Height 1.5</p>
+<p class="lh-head">Heading Line Height</p>
+<p class="lh-txt">Text Line Height</p>
+`}
+dark={true}
+/>
+
+---
+
+## Text Alignment Utilities
+
+Text alignment utilities allow you to align text to the left, right, center, or justify it within its container.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                       |
+| ------------------- | ------------------------------------------------- |
+| \`.ta-left\`          | Aligns text to the left                           |
+| \`.ta-right\`         | Aligns text to the right                          |
+| \`.ta-center\`        | Aligns text to the center                         |
+| \`.ta-justify\`       | Justifies text within its container               |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="ta-left">Left Aligned Text</p>
+<p class="ta-center">Center Aligned Text</p>
+<p class="ta-right">Right Aligned Text</p>
+<p class="ta-justify">Justified Text</p>
+`}
+dark={true}
+/>
+
+---
+
+## Text Transformation Utilities
+
+Text transformation utilities allow you to control the case of text, such as uppercase, lowercase, and capitalization.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                    |
+| ------------------- | ---------------------------------------------- |
+| \`.normal-case\`      | Resets text to normal case                    |
+| \`.capitalize\`       | Capitalizes the first letter of each word     |
+| \`.uppercase\`        | Transforms text to uppercase                  |
+| \`.lowercase\`        | Transforms text to lowercase                  |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="uppercase">Uppercase Text</p>
+<p class="lowercase">Lowercase Text</p>
+<p class="capitalize">Capitalized Text</p>
+<p class="normal-case">Normal Case Text</p>
+`}
+dark={true}
+/>
+
+---
+
+## Customization and Theming
+
+Customization and theming of typography utilities are easily managed through the use of custom properties. By overriding these properties, you can tailor typography to fit specific branding or project requirements.
+
+### Theming Variables
+
+The following callback variables are used for theming and can be customized to change the typography of your application:
+
+<Markdown>
+{`
+| Variable Name              | Description                                           |
+| -------------------------- | ----------------------------------------------------- |
+| \`--fs-[size]\`               | Defines the font size for the specified size category  |
+| \`--fw-[weight]\`             | Defines the font weight for the specified weight value |
+| \`--lh-[value]\`              | Defines the line height for the specified value       |
+| \`--font-heading\`            | Defines the font family for headings                 |
+| \`--font-text\`               | Defines the font family for text                    |
+| \`--font-icon\`               | Defines the font family for icons                   |
+`}
+</Markdown>
+
+This approach ensures that typography can be adapted to various project needs while maintaining a consistent look and feel across the application.
+
+---
+
+## Usage Guidelines
+
+- **Consistency:** Ensure that typography utilities are used consistently throughout the application to maintain a cohesive design.
+- **Readability:** Choose appropriate font sizes, weights, and line heights to ensure that text is readable across different devices and screen sizes.
+- **Customization:** Use the custom properties to easily theme and adjust typography for different projects or branding requirements.
+
+---
+
+## Examples
+
+Here’s how to apply different typography utilities in a practical example:
+
+<Source
+language="html"
+code={`
+<h1 class="fs-4xl fw-700 ta-center">Heading with Custom Typography</h1>
+<p class="fs-md lh-1_5 ta-justify">This is a paragraph with justified text and a medium font size.</p>
+`}
+dark={true}
+/>
+
+These examples show how to combine typography utilities to create a visually consistent and readable UI.
+
+---
+
+## Best Practices
+
+- **Use Classes Appropriately:** Apply typography utilities where they enhance readability and user experience.
+- **Maintain Visual Hierarchy:** Use different font sizes, weights, and line heights to establish a clear text hierarchy in your application.
+- **Test Across Devices:** Ensure that typography renders consistently across different browsers and devices.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Can typography values be customized?
+
+Yes, typography values can be customized by overriding the respective custom properties (e.g., `--fs-md`).
+
+### How do I ensure accessibility with typography utilities?
+
+Ensure that font sizes and line heights are adequate for readability and consider using larger sizes for small text on smaller screens.
+
+### What is the best way to apply typography utilities?
+
+Use typography utilities to reinforce the design system’s visual hierarchy, maintain readability, and ensure a pleasant user experience across the UI.
+
+---
+
+## Conclusion
+
+Typography utilities are a fundamental aspect of the design system, enabling a consistent and adaptable text hierarchy across applications. By leveraging custom properties, these utilities offer flexibility in theming and ensure that the design remains cohesive, accessible, and easily maintainable.
+
+</div>

@@ -1,0 +1,626 @@
+{/* Typography.mdx */}
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Tokens/Typography" />
+
+export const typography = {
+  type: {
+    primary: '"Montserrat", Readex Pro, Tajawal, sans-serif',
+    arabic: '"Readex Pro", Tajawal, Montserrat, sans-serif',
+    arabicSecondary: '"Tajawal", Readex Pro, Montserrat, sans-serif',
+  },
+  weight: {
+    thin: '100',
+    extralight: '200',
+    light: '300',
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+    extraBold: '800',
+    black: '900',
+  },
+  size: {
+    s1: 12,
+    s2: 14,
+    s3: 16,
+    s4: 18,
+    m1: 20,
+    m2: 22,
+    m3: 26,
+    l1: 28,
+    l2: 30,
+    l3: 36,
+    xl1: 42,
+    xl2: 50,
+    xl3: 60,
+    xl4: 70,
+  },
+};
+
+export const SampleText = 'The quick brown fox jumps over the lazy dog.';
+export const SampleTextarabicSecondary = 'نص عربي بسيط يظهر هنا لاختبار الخط.';
+
+# Typography
+
+## Montserrat
+
+**Thin Weight `100`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.thin}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+**Extra Light Weight `200`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.extralight}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+**Light Weight `300`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.light}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+**Regular Weight `400`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.regular}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+**Medium Weight `500`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.medium}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+**Semibold Weight `600`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.semibold}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+**Bold Weight `700`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+**Extra Bold Weight `800`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.extraBold}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+**Black Weight `900`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.black}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+## Readex Pro
+
+**Extra Light Weight `200`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.extralight}
+  sampleText={SampleText}
+  fontFamily={typography.type.arabic}
+/>
+
+**Light Weight `300`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.light}
+  sampleText={SampleText}
+  fontFamily={typography.type.arabic}
+/>
+
+**Regular Weight `400`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.regular}
+  sampleText={SampleText}
+  fontFamily={typography.type.arabic}
+/>
+
+**Medium Weight `500`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.medium}
+  sampleText={SampleText}
+  fontFamily={typography.type.arabic}
+/>
+
+**Semibold Weight `600`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.semibold}
+  sampleText={SampleText}
+  fontFamily={typography.type.arabic}
+/>
+
+**Bold Weight `700`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={typography.type.arabic}
+/>
+
+**Extra Bold Weight `800`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.extraBold}
+  sampleText={SampleText}
+  fontFamily={typography.type.arabic}
+/>
+
+**Black Weight `900`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.black}
+  sampleText={SampleText}
+  fontFamily={typography.type.arabic}
+/>
+
+## Tajawal
+
+**Extra Light Weight `200`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.extralight}
+  sampleText={SampleTextarabicSecondary}
+  fontFamily={typography.type.arabicSecondary}
+/>
+
+**Light Weight `300`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.light}
+  sampleText={SampleTextarabicSecondary}
+  fontFamily={typography.type.arabicSecondary}
+/>
+
+**Regular Weight `400`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.regular}
+  sampleText={SampleTextarabicSecondary}
+  fontFamily={typography.type.arabicSecondary}
+/>
+
+**Medium Weight `500`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.medium}
+  sampleText={SampleTextarabicSecondary}
+  fontFamily={typography.type.arabicSecondary}
+/>
+
+**Semibold Weight `600`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.semibold}
+  sampleText={SampleTextarabicSecondary}
+  fontFamily={typography.type.arabicSecondary}
+/>
+
+**Bold Weight `700`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleTextarabicSecondary}
+  fontFamily={typography.type.arabicSecondary}
+/>
+
+**Black Weight `900`:**
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.s1),
+    Number(typography.size.s2),
+    Number(typography.size.s3),
+    Number(typography.size.s4),
+    Number(typography.size.m1),
+    Number(typography.size.m2),
+    Number(typography.size.m3),
+    Number(typography.size.l1),
+    Number(typography.size.l2),
+    Number(typography.size.l3),
+    Number(typography.size.xl1),
+    Number(typography.size.xl2),
+    Number(typography.size.xl3),
+    Number(typography.size.xl4),
+  ]}
+  fontWeight={typography.weight.black}
+  sampleText={SampleTextarabicSecondary}
+  fontFamily={typography.type.arabicSecondary}
+/>

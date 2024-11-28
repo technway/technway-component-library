@@ -1,0 +1,394 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="CSS Utilities/Colors" />
+
+<div class="mdx-docs">
+
+# Colors Utilities
+
+Color utilities play a crucial role in maintaining a cohesive and accessible design system. This documentation outlines the available color utilities, which include text color, background color, border color, and placeholder color utilities. Each utility class is derived from custom properties, allowing for easy theming and consistent application across projects.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Default Colors](#default-colors)
+- [Text Color Utilities](#text-color-utilities)
+- [Background Color Utilities](#background-color-utilities)
+- [Border Color Utilities](#border-color-utilities)
+- [Placeholder Color Utilities](#placeholder-color-utilities)
+- [Customization and Theming](#customization-and-theming)
+- [Usage Guidelines](#usage-guidelines)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Color utilities are fundamental in ensuring that your design system is both consistent and flexible. By using custom properties, color utilities allow for easy adaptation to various branding requirements while maintaining a unified look and feel across your application. These utilities cover a wide range of colors, including primary, secondary, background, and utility colors like success, warning, and danger.
+
+To see the colors, visit the [Tokens Colors documentation](#tokens-colors).
+
+---
+
+## Default Colors
+
+The design system includes a set of default color variables. These variables are designed to be flexible, allowing them to be easily overridden or adjusted to fit specific project needs.
+
+### Primary and Secondary Colors
+
+<Source
+language="css"
+code={`
+/* Primary Colors */
+--tnw-primary-color: #f76f30;
+--tnw-primary-color-rgb: 243, 111, 51;
+--tnw-primary-color-400: #e25e21;
+--tnw-primary-color-300: #ffa981;
+--tnw-primary-color-200: #fdd1bf;
+--tnw-primary-color-100: #ffefe9;
+--tnw-primary-color-opacity: rgba(var(--tnw-primary-color-rgb), 0.15);
+
+/* Secondary Colors */
+--tnw-secondary-color: #e4c438;
+--tnw-secondary-color-rgb: 228, 196, 56;
+--tnw-secondary-color-100: #b89b1c;
+--tnw-secondary-color-300: #f3d656;
+--tnw-secondary-color-200: #faecac;
+--tnw-secondary-color-400: #fffae2;
+--tnw-secondary-color-opacity: rgba(var(--tnw-secondary-color-rgb), 0.25);
+`}
+dark={true}
+/>
+
+### Background and Text Colors
+
+<Source
+language="css"
+code={`
+/* Background Colors */
+--tnw-background-color: #ffffff;
+--tnw-background-color-rgb: 255, 255, 255;
+--tnw-background-color-secondry: #e9e9e9;
+--tnw-background-color-inverse: #060606;
+--tnw-background-color-opacity: rgba(var(--tnw-background-color-rgb), 0.2);
+
+/* Text Colors */
+--tnw-text-color: #0e0e0e;
+--tnw-text-color-inverse: #ffffff;
+--tnw-text-color-light: #666666;
+`}
+dark={true}
+/>
+
+### Utility Colors
+
+<Source
+language="css"
+code={`
+/* Utility Colors */
+--tnw-success-color: #cdffe8;
+--tnw-warning-color: #fcf7c8;
+--tnw-danger-color: #fdd6db;
+--tnw-info-color: #bce1f8;
+`}
+dark={true}
+/>
+
+---
+
+## Text Color Utilities
+
+Text color utilities provide classes for setting the color of text elements. Each utility applies a specific color from the design system’s palette.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class        | Description                             |
+| -------------------- | --------------------------------------- |
+| \`.color-primary\`     | Applies the primary brand color to text |
+| \`.color-secondary\`   | Applies the secondary color to text     |
+| \`.color-auto\`        | Applies the default text color          |
+| \`.color-inverse\`     | Applies the inverse text color          |
+| \`.color-200\`       | Applies a lighter text color            |
+| \`.color-placeholder\` | Applies the placeholder text color      |
+| \`.color-white\`       | Applies white color to text             |
+| \`.color-black\`       | Applies black color to text             |
+`}
+</Markdown>
+
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="color-primary">Primary Text Color</p>
+<p class="color-secondary">Secondary Text Color</p>
+<p class="color-auto">Default Text Color</p>
+<p class="color-inverse">Inverse Text Color</p>
+<p class="color-200">Light Text Color</p>
+<p class="color-placeholder">Placeholder Text Color</p>
+<p class="color-white bg-black p-md">White Text on Black Background</p>
+`}
+dark={true}
+/>
+
+These classes ensure that text elements maintain a consistent color scheme throughout the application.
+
+---
+
+## Background Color Utilities
+
+Background color utilities allow you to apply background colors to elements using predefined custom properties.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class   | Description                                          |
+| --------------- | ---------------------------------------------------- |
+| \`.bg-primary\`  | Applies the primary brand color as a background      |
+| \`.bg-secondary\`| Applies the secondary color as a background          |
+| \`.bg-auto\`     | Applies the default background color                 |
+| \`.bg-inverse\`  | Applies the inverse background color                 |
+| \`.bg-100\`    | Applies a lighter background color                   |
+| \`.bg-opacity\`  | Applies a background color with opacity              |
+| \`.bg-white\`    | Applies a white background color                     |
+| \`.bg-black\`    | Applies a black background color                     |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="bg-primary text-white p-md">
+  This is a primary background with white text.
+</div>
+
+<div class="bg-secondary text-black p-md mt-md">
+  This is a secondary background with black text.
+</div>
+
+<div class="bg-auto text-auto p-md mt-md">
+  Default background with default text.
+</div>
+
+<div class="bg-inverse text-inverse p-md mt-md">
+  Inverse background with inverse text.
+</div>
+`}
+dark={true}
+/>
+
+These classes ensure that background colors are applied consistently, enhancing the visual hierarchy and readability of UI elements.
+
+---
+
+## Border Color Utilities
+
+Border color utilities provide a way to apply border colors consistently across the application.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                    |
+| ------------------- | ---------------------------------------------- |
+| \`.border-primary\`  | Applies a primary brand color border           |
+| \`.border-secondary\`| Applies a secondary color border               |
+| \`.border-auto\`     | Applies the default border color               |
+| \`.border-inverse\`  | Applies the inverse border color               |
+| \`.border-100\`    | Applies a lighter border color                 |
+| \`.border-white\`    | Applies a white border color                   |
+| \`.border-black\`    | Applies a black border color                   |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="border-primary border p-md">
+  Primary Border Color
+</div>
+<div class="border-secondary border p-md mt-md">
+  Secondary Border Color
+</div>
+<div class="border-auto border p-md mt-md">
+  Default Border Color
+</div>
+<div class="border-inverse border p-md mt-md bg-100">
+  Inverse Border Color on Light Background
+</div>
+`}
+dark={true}
+/>
+
+These classes are critical for maintaining a consistent border appearance across various components and layouts.
+
+---
+
+## Placeholder Color Utilities
+
+Placeholder color utilities allow the styling of placeholder text within input fields, ensuring that even subtle UI elements adhere to the design system.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class             | Description                                             |
+| ------------------------- | ------------------------------------------------------- |
+| \`.placeholder-primary\`   | Applies the primary brand color to placeholder text     |
+| \`.placeholder-secondary\` | Applies the secondary color to placeholder text         |
+| \`.placeholder-auto\`      | Applies the default text color to placeholder text      |
+| \`.placeholder-inverse\`   | Applies the inverse placeholder color                   |
+| \`.placeholder-100\`     | Applies a lighter placeholder text color                |
+| \`.placeholder-white\`     | Applies a white placeholder text color                  |
+| \`.placeholder-black\`     | Applies a black placeholder text color                  |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<input class="placeholder-primary p-md" placeholder="Primary Placeholder" />
+<input class="placeholder-secondary p-md mt-md" placeholder="Secondary Placeholder" />
+<input class="placeholder-auto p-md mt-md" placeholder="Default Placeholder" />
+<input class="placeholder-inverse bg-inverse text-inverse p-md mt-md" placeholder="Inverse Placeholder" />
+`}
+dark={true}
+/>
+
+These utilities ensure that placeholder text is styled consistently with the rest of the UI, contributing to a cohesive design language.
+
+---
+
+## Customization and Theming
+
+Customization and theming are simplified through the use of custom properties. By overriding these properties, it’s possible to adjust the color scheme to match specific branding requirements or to adapt the design system to different projects.
+
+### Theming Variables
+
+The following callback variables are used for theming and can be customized to change the appearance of your application:
+
+<Markdown>
+{`
+| Variable Name           | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| \`--primary-color\`       | Main primary color                              |
+| \`--primary-color-400\`| Darker shade of primary color                   |
+| \`--primary-color-300\`| Lighter shade of primary color                 |
+| \`--primary-color-200\`    | Lighter tone of primary color                            |
+| \`--primary-color-100\` | Lightest tone of primary color                           |
+| \`--primary-color-opacity\`  | Primary color with opacity                               |
+| \`--secondary-color\`        | Main secondary color                                     |
+| \`--secondary-color-400\` | Darker shade of secondary color                          |
+| \`--secondary-color-300\`| Lighter shade of secondary color                         |
+| \`--secondary-color-200\`  | Lighter tone of secondary color                          |
+| \`--secondary-color-100\`| Lightest tone of secondary color                        |
+| \`--secondary-color-opacity\`| Secondary color with opacity                             |
+| \`--background-color\`              | Default background color                                  |
+| \`--background-color-200\`        | Lighter shade of background color                         |
+| \`--background-color-inverse\`      | Inverse background color (e.g., black for light themes)   |
+| \`--background-color-opacity\`      | Background color with opacity                             |
+| \`--text-color\`            | Default text color                                        |
+| \`--text-color-inverse\`    | Inverse text color (e.g., white for dark backgrounds)     |
+| \`--text-color-light\`      | Lighter text color                                        |
+| \`--success-color\`         | Success color                                             |
+| \`--warning-color\`         | Warning color                                             |
+| \`--danger-color\`          | Danger color                                              |
+| \`--info-color\`            | Informational color                                       |
+| \`--border-color\`          | Default border color                                      |
+| \`--border-color-inverse\`  | Inverse border color                                      |
+| \`--border-color-opacity\`    | Light border color                                        |
+| \`--placeholder-color\`     | Default placeholder color                                 |
+`}
+</Markdown>
+
+### Theming Considerations for Inverse Colors
+
+Inverse colors are typically used together to create a visually consistent experience across different themes. When using an inverse background, such as a dark background for a light theme, it is important to also use inverse text colors to ensure readability.
+
+For example:
+
+<Source
+language="html"
+code={`
+<div class="bg-inverse text-white p-md">
+  This is an inverse background with white text.
+</div>
+`}
+dark={true}
+/>
+
+This ensures that the text is readable against the darker background. Similarly, inverse border and placeholder colors should be used in conjunction with inverse backgrounds to maintain a cohesive design.
+
+---
+
+## Usage Guidelines
+
+- **Consistency:** Ensure that color utilities are used consistently throughout the application to maintain a cohesive design.
+- **Accessibility:** Consider contrast ratios and readability when applying color utilities, especially for text and background colors.
+- **Customization:** Use the custom properties to easily theme and adjust the color scheme for different projects or branding requirements.
+
+---
+
+## Examples
+
+Here’s how to apply different color utilities in a practical example:
+
+<Source
+language="html"
+code={`
+<div class="bg-primary text-white p-md">
+  This is a primary background with white text.
+</div>
+<div class="bg-secondary text-black p-md mt-md">
+  This is a secondary background with black text.
+</div>
+`}
+dark={true}
+/>
+
+These examples show how to combine background and text color utilities to create visually distinct sections.
+
+---
+
+## Best Practices
+
+- **Use Classes Appropriately:** Apply color utilities where they enhance readability and user experience.
+- **Maintain Visual Hierarchy:** Use different shades and opacities to create depth and hierarchy in the UI.
+- **Test Across Devices:** Ensure that color utilities render consistently across different browsers and devices.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Can color values be customized?
+
+Yes, color values can be customized by overriding the respective custom properties (e.g., `--primary-color`).
+
+### How do I ensure accessibility with color utilities?
+
+Ensure that color combinations meet contrast ratio guidelines, especially for text and background colors, to maintain accessibility.
+
+### What is the best way to apply color utilities?
+
+Use color utilities to reinforce the design system’s color scheme, maintain visual consistency, and ensure accessibility across the UI.
+
+---
+
+## Conclusion
+
+Color utilities are a foundational aspect of the design system, enabling a consistent and adaptable visual language across applications. By leveraging custom properties, these utilities offer flexibility in theming and ensure that the design remains cohesive, accessible, and easily maintainable.
+
+</div>

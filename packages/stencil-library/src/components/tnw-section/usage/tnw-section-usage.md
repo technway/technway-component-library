@@ -1,0 +1,48 @@
+### When to use:
+
+- **Layout Container**: The `tnw-section` component is designed to wrap different types of content, making it an ideal container for structuring pages into logical sections.
+- **Theming & Appearance**: Use this component when you need to create sections with customizable appearances like glassmorphism, solid or outlined styles, and control over margins and paddings.
+- **Responsive Design**: You can center content, align it flexibly, and adjust margins and padding to fit the design requirements, making it suitable for modern, responsive web design.
+
+### Use Cases:
+
+1. **Standard Section**:
+   This section includes a header, body, and footer, where the body can be any content like text or components. It's a versatile section for general use.
+
+   @useStory Standard
+
+2. **Section with Glassmorphism Effect**:
+   Adding a frosted glass background effect gives this section a modern design touch, ideal for premium or standout content sections.
+
+   @useStory WithGlassmorphism
+
+3. **Solid Appearance Section**:
+   This example demonstrates a section with a solid background, perfect for primary calls-to-action or content you want to emphasize.
+
+   @useStory SolidAppearance
+
+4. **Centered Content Section**:
+   This section centers the content, which is great for important sections such as main banners or introduction areas on a landing page.
+
+   @useStory Centered
+
+5. **Section with Custom Padding and Margin**:
+   In this use case, you can customize the padding and margin to give extra space around the section or between elements, ideal for creating breathing room around dense content.
+
+   @useStory CustomPaddingAndMargin
+
+6. **First Section Example**:
+   When the section is the first on a page, certain paddings and margins may be adjusted to make the transition from the header to the section smoother.
+
+   @useStory FirstSection
+
+7. **Last Section Example**:
+   This use case focuses on the last section of the page, often used for wrapping up the content, like a final call to action.
+
+   @useStory LastSection
+
+### Additional Considerations:
+
+- **Slot Flexibility**: The component supports slots for the header, body, and footer, allowing flexible content placement.
+- **Customizable Alignment**: You can align content within the section either to the left, center, or right.
+- **Padding & Margin Control**: Padding and margin can be adjusted based on your design requirements, allowing for tight or spacious layouts.

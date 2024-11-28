@@ -1,0 +1,147 @@
+/**
+ * tnw CSS Utilities
+ *
+ * Colors Utilities
+ * 
+ * This file provides utility classes for text color, background color,
+ * border color, and placeholder colors
+ */
+
+/* Text Color */
+@define-mixin color $class, $value {
+  &-$class {
+    color: var(--tnw-$value);
+    fill: var(--tnw-$value);
+  }
+}
+.color {
+  @mixin color primary, primary-color;
+  @mixin color secondary, secondary-color;
+  @mixin color auto, text-color;
+  @mixin color inverse, text-color-inverse;
+  @mixin color light, text-color-light;
+  @mixin color placeholder, placeholder-color;
+  @mixin color white, white;
+  @mixin color black, black;
+
+  @each $i in 100, 200, 300, 400, 500, 600, 700, 800, 900 {
+    @mixin color gray-$i, gray-$i;
+  }
+}
+
+/* Background Color */
+@define-mixin bg-color $class, $value {
+  &-$class {
+    background-color: var(--tnw-$value);
+  }
+}
+.bg {
+  @mixin bg-color primary, primary-color;
+  @mixin bg-color secondary, secondary-color;
+  @mixin bg-color auto, background-color;
+  @mixin bg-color 100, background-color-100;
+  @mixin bg-color 200, background-color-200;
+  @mixin bg-color opacity, background-color-opacity;
+  @mixin bg-color inverse, background-color-inverse;
+  @mixin bg-color inverse-100, background-color-inverse-100;
+  @mixin bg-color inverse-200, background-color-inverse-200;
+  @mixin bg-color white, white;
+  @mixin bg-color black, black;
+
+  @each $i in 100, 200, 300, 400, 500, 600, 700, 800, 900 {
+    @mixin bg-color gray-$i, gray-$i;
+  }
+}
+
+/* Border Color */
+@define-mixin border-color $class, $value {
+  &-$class {
+    border-color: var(--tnw-$value);
+  }
+}
+@define-mixin border-right-color $class, $value {
+  &-r-$class {
+    border-right-color: var(--tnw-$value);
+  }
+}
+@define-mixin border-left-color $class, $value {
+  &-l-$class {
+    border-left-color: var(--tnw-$value);
+  }
+}
+@define-mixin border-bottom-color $class, $value {
+  &-b-$class {
+    border-bottom-color: var(--tnw-$value);
+  }
+}
+@define-mixin border-top-color $class, $value {
+  &-t-$class {
+    border-top-color: var(--tnw-$value);
+  }
+}
+.border {
+  @mixin border-color primary, primary-color;
+  @mixin border-color secondary, secondary-color;
+  @mixin border-color auto, border-color;
+  @mixin border-color inverse, border-color-inverse;
+  @mixin border-color light, border-color-300;
+  @mixin border-color white, white;
+  @mixin border-color black, black;
+
+  @mixin border-right-color primary, primary-color;
+  @mixin border-right-color secondary, secondary-color;
+  @mixin border-right-color auto, border-color;
+  @mixin border-right-color inverse, border-color-inverse;
+  @mixin border-right-color light, border-color-300;
+  @mixin border-right-color white, white;
+  @mixin border-right-color black, black;
+
+  @mixin border-left-color primary, primary-color;
+  @mixin border-left-color secondary, secondary-color;
+  @mixin border-left-color auto, border-color;
+  @mixin border-left-color inverse, border-color-inverse;
+  @mixin border-left-color light, border-color-300;
+  @mixin border-left-color white, white;
+  @mixin border-left-color black, black;
+
+  @mixin border-bottom-color primary, primary-color;
+  @mixin border-bottom-color secondary, secondary-color;
+  @mixin border-bottom-color auto, border-color;
+  @mixin border-bottom-color inverse, border-color-inverse;
+  @mixin border-bottom-color light, border-color-300;
+  @mixin border-bottom-color white, white;
+  @mixin border-bottom-color black, black;
+
+  @mixin border-top-color primary, primary-color;
+  @mixin border-top-color secondary, secondary-color;
+  @mixin border-top-color auto, border-color;
+  @mixin border-top-color inverse, border-color-inverse;
+  @mixin border-top-color light, border-color-300;
+  @mixin border-top-color white, white;
+  @mixin border-top-color black, black;
+
+  @each $i in 100, 200, 300, 400, 500, 600, 700, 800, 900 {
+    @mixin border-color gray-$i, gray-$i;
+  }
+}
+
+/* Placeholder Color */
+@define-mixin placeholder-color $class, $value {
+  &-$class::placeholder {
+    color: var(--tnw-$value);
+  }
+}
+.placeholder {
+  @mixin placeholder-color primary, primary-color;
+  @mixin placeholder-color secondary, secondary-color;
+  @mixin placeholder-color auto, text-color;
+  @mixin placeholder-color inverse, text-color-inverse;
+  @mixin placeholder-color light, text-color-300;
+  @mixin placeholder-color placeholder, placeholder-color;
+  @mixin placeholder-color white, white;
+  @mixin placeholder-color black, black;
+
+  @each $i in 100, 200, 300, 400, 500, 600, 700, 800, 900 {
+    @mixin placeholder-color gray-$i, gray-$i;
+  }
+}

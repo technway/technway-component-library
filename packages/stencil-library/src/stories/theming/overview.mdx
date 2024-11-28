@@ -1,0 +1,84 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="Theming/An Overview" />
+
+<div class="mdx-docs">
+
+# Overview
+
+The Technway Design System provides a flexible and robust theming architecture, enabling seamless customization of the visual style across applications.
+
+<div class="table-contents">
+
+- [What is Theming?](#what-is-theming)
+   1. [Key Concepts](#key-concepts)
+- [Theming Structure](#theming-structure)
+   1. [Global Theming](#global-theming)
+   2. [Component-Specific Theming](#component-specific-theming)
+- [Theming and Customization Guidelines](#theming-and-customization-guidelines)
+- [Best Practices for Theming](#best-practices-for-theming)
+- [Next Steps](#next-steps)
+
+</div>
+
+## What is Theming?
+
+Theming within the Technway Design System refers to the process of defining and applying a set of design tokens—such as colors, typography, spacing, and shadows—that shape the overall appearance of an application. By adjusting these tokens, various themes can be created, such as light and dark modes or brand-specific themes, aligning with the project’s identity.
+
+### Key Concepts
+
+- **Design Tokens**: Variables that encapsulate the core design decisions, including colors, typography, and spacing.
+- **Themes**: Collections of design tokens that establish a specific visual identity.
+- **Global Styles**: Foundational styles applied universally across the application, including resets and base typography.
+- **Component-Level Customization**: Modifications made to individual components to align with a theme or specific customization requirements.
+
+---
+
+## Theming Structure
+
+The Technway Design System is structured to separate global theming from component-specific customizations, ensuring both flexibility and scalability:
+
+### Global Theming
+
+Global theming is managed through a series of CSS variables (design tokens). These variables govern the overall aesthetic of the application, encompassing primary and secondary colors, typography settings, and global spacing values.
+
+### Component-Specific Theming
+
+Individual components can be themed by overriding global design tokens or introducing new component-specific variables. This approach allows for detailed control over the appearance of individual components while preserving consistency across the application.
+
+---
+
+## Theming and Customization Guidelines
+
+To ensure consistency and streamline the customization process, the following guidelines should be adhered to:
+
+1. **Prefix Global Variables with `tnw-`**: All global variables within the design system are prefixed with `tnw-`. This practice clearly identifies these variables as core design tokens used throughout the system.
+   
+2. **Utilize Callback Variables for Customization**: Each global variable is paired with a corresponding callback variable, which retains the same name minus the `tnw-` prefix. These callback variables allow for overriding default values while maintaining the integrity of the global variables.
+
+---
+
+## Best Practices for Theming
+
+- **Global Variables Usage**: Always apply global variables (e.g., `font-family: var(--tnw-font-heading-en)`) when styling. Direct use of callback variables in CSS (e.g., `font-family: var(--font-heading-en)`) should be avoided to preserve the design system's consistency.
+- **Employ CSS Variables**: For theming and customization, CSS variables should always be used to maintain consistency and flexibility.
+- **Avoid Hardcoding Values**: Hardcoding styles directly within components should be avoided whenever possible; instead, design tokens should be utilized.
+- **Leverage Global Styles**: Base styling should be managed through global styles, with overrides applied as necessary at the component level.
+- **Modularize Themes**: Themes should be kept modular by defining them in separate files. This practice aids in maintaining and updating themes without disrupting other parts of the system.
+
+---
+
+## Next Steps
+
+With an understanding of the theming capabilities in the Technway Design System, further exploration can be conducted through the following guides, which provide detailed instructions on theme implementation and customization:
+
+- [Color Customization](./color-customization.mdx)
+- [Typography Customization](./typography-customization.mdx)
+- [Spacing and Layout Customization](./spacing-layout-customization.mdx)
+- [Theme Customization](./theme-customization.mdx)
+- [Accessibility Customization](./accessibility-customization.mdx)
+- [Component-Level Customization](./component-customization.mdx)
+
+These guides will outline the specific steps necessary to tailor the design system to align with the project’s needs.
+
+</div>

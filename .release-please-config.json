@@ -1,0 +1,16 @@
+{
+    "include-component-in-tag": true,
+    "tag-separator": "@",
+    "release-type": "node",
+    "separate-pull-requests": true,
+    "packages": {
+        "./packages/stencil-library": {
+            "package-name": "@technway/components",
+            "release-type": "node"
+        },
+        "./packages/react-library": {
+            "package-name": "@technway/react-components",
+            "release-type": "node"
+        }
+    }
+}

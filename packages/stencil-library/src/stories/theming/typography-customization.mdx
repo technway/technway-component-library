@@ -1,0 +1,192 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="Theming/Typography" />
+
+<div class="mdx-docs">
+
+# Typography Customization
+
+Typography is a crucial element in the design system, providing consistency and readability across all components. The Technway Design System allows for customization of typography through a set of CSS variables that can be easily overridden to match a brand's identity.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Default Typography Variables](#default-typography-variables)
+- [Detailed Typography Variables](#detailed-typography-variables)
+   1. [Font Families](#font-families)
+   2. [Font Sizes](#font-sizes)
+   3. [Font Weights](#font-weights)
+   4. [Line Heights](#line-heights)
+- [Customizing Global Typography](#customizing-global-typography)
+   1. [Example: Customizing Font Families and Sizes](#example-customizing-font-families-and-sizes)
+- [Best Practices for Typography Customization](#best-practices-for-typography-customization)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+The Technway Design System uses a variety of CSS variables to control typography, including font families, sizes, weights, and line heights. These variables are defined globally and can be customized to meet specific needs.
+
+### Default Typography Variables
+
+Below is a snippet of the core typography variables and their corresponding callback variables used in the design system:
+
+<Source
+code={`
+:root {
+  /* Font Families */
+  --tnw-font-icon: var(--font-icon, 'icomoon');
+  --tnw-font-heading-en: var(--font-heading-en, 'Montserrat', sans-serif);
+  --tnw-font-text-en: var(--font-text-en, 'Montserrat', sans-serif);
+  --tnw-font-heading-ar: var(--font-heading-ar, 'Tajawal', sans-serif);
+  --tnw-font-text-ar: var(--font-text-ar, 'Readex Pro', sans-serif);
+  --tnw-font-heading: var(--font-heading, var(--tnw-font-heading-en));
+  --tnw-font-text: var(--font-text, var(--tnw-font-text-en));
+  
+  /* Font Sizes */
+  --tnw-fs-xs: var(--fs-xs, 14px);
+  --tnw-fs-sm: var(--fs-sm, 16px);
+  --tnw-fs-md: var(--fs-md, 18px);
+  --tnw-fs-lg: var(--fs-lg, 20px);
+  --tnw-fs-xl: var(--fs-xl, 22px);
+  --tnw-fs-heading: var(--fs-heading, var(--tnw-fs-2xl));
+  --tnw-fs-text: var(--fs-text, var(--tnw-fs-sm));
+  
+  /* Font Weights */
+  --tnw-fw-100: var(--fw-100, 100);
+  --tnw-fw-200: var(--fw-200, 200);
+  --tnw-fw-300: var(--fw-300, 300);
+  --tnw-fw-400: var(--fw-400, 400);
+  --tnw-fw-500: var(--fw-500, 500);
+  --tnw-fw-600: var(--fw-600, 600);
+  --tnw-fw-700: var(--fw-700, 700);
+  --tnw-fw-heading: var(--fw-heading, var(--tnw-fw-600));
+  --tnw-fw-text: var(--fw-text, var(--tnw-fw-300));
+  --tnw-fw-button: var(--fw-button, var(--tnw-fw-500));
+  
+  /* Line Heights */
+  --tnw-lh-1: var(--lh-1, 1);
+  --tnw-lh-1_25: var(--lh-1_25, 1.25);
+  --tnw-lh-1_5: var(--lh-1_5, 1.5);
+  --tnw-lh-2: var(--lh-2, 2);
+  --tnw-lh-heading: var(--lh-heading, var(--tnw-lh-1_25));
+  --tnw-lh-text: var(--lh-text, var(--tnw-lh-1_75));
+}
+`}
+language="css"
+dark={true}
+/>
+
+These variables form the basis of the design system’s typography and can be customized to fit specific needs.
+
+---
+
+## Detailed Typography Variables
+
+Here’s a detailed breakdown of the key typography variables and their corresponding theming variables:
+
+### Font Families
+
+</div>
+<Markdown>
+{`
+| Global Variable                | Theming Variable          | Description                                               |
+|--------------------------------|---------------------------|-----------------------------------------------------------|
+| \`--tnw-font-icon\`             | \`--font-icon\`            | The font family used for icons.                           |
+| \`--tnw-font-heading-en\`       | \`--font-heading-en\`      | The main font family for English headings.                |
+| \`--tnw-font-text-en\`          | \`--font-text-en\`         | The main font family for English text.                    |
+| \`--tnw-font-heading-ar\`       | \`--font-heading-ar\`      | The main font family for Arabic headings.                 |
+| \`--tnw-font-text-ar\`          | \`--font-text-ar\`         | The main font family for Arabic text.                     |
+| \`--tnw-font-heading\`          | \`--font-heading\`         | The main font family for all headings.                    |
+| \`--tnw-font-text\`             | \`--font-text\`            | The main font family for all body text.                   |
+
+### Font Sizes
+
+| Global Variable                | Theming Variable          | Description                                               |
+|--------------------------------|---------------------------|-----------------------------------------------------------|
+| \`--tnw-fs-xs\`                | \`--fs-xs\`                | Extra small font size.                                    |
+| \`--tnw-fs-sm\`                | \`--fs-sm\`                | Small font size.                                          |
+| \`--tnw-fs-md\`                | \`--fs-md\`                | Medium font size, used as the default size for body text. |
+| \`--tnw-fs-lg\`                | \`--fs-lg\`                | Large font size, used for subheadings or emphasis.        |
+| \`--tnw-fs-xl\`                | \`--fs-xl\`                | Extra large font size, used for major headings.           |
+| \`--tnw-fs-heading\`           | \`--fs-heading\`           | Default font size for all headings.                       |
+| \`--tnw-fs-text\`              | \`--fs-text\`              | Default font size for all body text.                      |
+
+### Font Weights
+
+| Global Variable                | Theming Variable          | Description                                               |
+|--------------------------------|---------------------------|-----------------------------------------------------------|
+| \`--tnw-fw-100\`               | \`--fw-100\`               | Thin font weight.                                         |
+| \`--tnw-fw-200\`               | \`--fw-200\`               | Extra light font weight.                                  |
+| \`--tnw-fw-300\`               | \`--fw-300\`               | Light font weight.                                        |
+| \`--tnw-fw-400\`               | \`--fw-400\`               | Regular font weight, used for body text.                  |
+| \`--tnw-fw-500\`               | \`--fw-500\`               | Medium font weight, used for subheadings.                 |
+| \`--tnw-fw-600\`               | \`--fw-600\`               | Semi-bold font weight, used for emphasis.                 |
+| \`--tnw-fw-700\`               | \`--fw-700\`               | Bold font weight, used for headings.                      |
+| \`--tnw-fw-heading\`           | \`--fw-heading\`           | Default font weight for all headings.                     |
+| \`--tnw-fw-text\`              | \`--fw-text\`              | Default font weight for all body text.                    |
+| \`--tnw-fw-button\`            | \`--fw-button\`            | Font weight for buttons.                                  |
+
+### Line Heights
+
+| Global Variable                | Theming Variable          | Description                                               |
+|--------------------------------|---------------------------|-----------------------------------------------------------|
+| \`--tnw-lh-1\`                 | \`--lh-1\`                 | Single line height.                                       |
+| \`--tnw-lh-1_25\`              | \`--lh-1_25\`              | Line height for closely spaced text.                      |
+| \`--tnw-lh-1_5\`               | \`--lh-1_5\`               | Default line height for body text.                        |
+| \`--tnw-lh-2\`                 | \`--lh-2\`                 | Line height for widely spaced text.                       |
+| \`--tnw-lh-heading\`           | \`--lh-heading\`           | Default line height for headings.                         |
+| \`--tnw-lh-text\`              | \`--lh-text\`              | Default line height for body text.                        |
+`}
+</Markdown>
+
+<div class="mdx-docs">
+
+---
+
+## Customizing Global Typography
+
+To customize the typography across the project, override the default typography variables in global CSS or theme-specific files.
+
+### Example: Customizing Font Families and Sizes
+
+To adjust the font family and size used for headings and text throughout the application:
+
+<Source
+code={`
+:root {${`\n`}
+  --font-heading-en: 'Roboto', sans-serif;${`\n`}
+  --fs-heading: 32px;${`\n`}
+}
+`}
+language="css"
+dark={true}
+/>
+
+By overriding `--font-heading-en` and `--fs-heading`, the appearance of all headings that use the `tnw-font-heading` and `tnw-fs-heading` tokens will be changed.
+
+---
+
+## Best Practices for Typography Customization
+
+- **Consistency**: Global variables (`--tnw-...`) should always be used to ensure uniformity across the project.
+- **Accessibility**: Font sizes and line heights should be designed to provide adequate readability.
+- **Variable Reuse**: Hardcoding font properties directly in components should be avoided; CSS variables should be leveraged instead.
+- **Cross-Device Testing**: Typography should be validated on different screen sizes and resolutions to ensure a consistent user experience.
+
+---
+
+## Conclusion
+
+Typography customization in the Technway Design System is designed to be both powerful and flexible. By adhering to the theming guidelines and leveraging the robust CSS variable system, a visually consistent and easily maintainable application can be created that aligns with branding needs.
+
+Continue exploring customization options with these guides:
+
+- [Color Customization](./color-customization.mdx)
+- [Spacing and Layout Customization](./spacing-layout-customization.mdx)
+- [Theme Customization](./theme-customization.mdx)
+- [Accessibility Customization](./accessibility-customization.mdx)
+- [Component-Level Customization](./component-customization.mdx)
+
+</div>

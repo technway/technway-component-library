@@ -1,0 +1,100 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="Theming/Themes" />
+
+<div class="mdx-docs">
+
+# Theme Customization (Light/Dark Mode)
+
+The Technway Design System provides comprehensive support for theme customization, allowing the creation of both light and dark themes to enhance the user experience across different environments. This guide offers a step-by-step approach to implementing and customizing themes within an application.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Global Theme Variables](#global-theme-variables)
+   1. [Light Theme Variables](#1-light-theme-variables)
+   2. [Dark Theme Variables](#2-dark-theme-variables)
+- [Implementing Light and Dark Themes](#implementing-light-and-dark-themes)
+- [Best Practices for Theme Customization](#best-practices-for-theme-customization)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Theming is a key feature of the Technway Design System, enabling the creation of visually distinct interfaces that cater to user preferences or brand requirements. By leveraging global theme variables, seamless switching between light and dark modes is possible, ensuring that applications remain accessible and visually appealing across all contexts.
+
+### Why Use Theming?
+
+- **User Preference**: Adapts to user preferences by providing light and dark modes.
+- **Accessibility**: Enhances readability and reduces eye strain, particularly in low-light environments.
+- **Branding**: Customizes the visual identity to align with specific branding or seasonal themes.
+
+---
+
+## Global Theme Variables
+
+Global theme variables form the foundation of an application's theming capabilities. These should be defined in the `:root` to establish the base theme.
+
+### 1. Light Theme Variables
+
+If the light theme is the default, these variables are defined in the `:root` and can be overridden in the `html.dark-theme` selector.
+
+### 2. Dark Theme Variables
+
+If the dark theme is the default, these variables are defined in the `:root`, with overrides placed in the `html.light-theme` selector.
+
+**Example:**
+
+<Source
+code={`
+:root {
+  /* Default (Light) Theme Variables */
+  --tnw-background-color: #ffffff;
+  --tnw-text-color: #000000;
+  --tnw-primary-color: #f76f30;
+}
+
+html.dark-theme {
+  /* Dark Theme Overrides */
+  --tnw-background-color: #1a1a1a;
+  --tnw-text-color: #f0f0f0;
+  --tnw-primary-color: #ff5733;
+}
+`}
+language="css"
+dark={true}
+/>
+
+These variables allow for easy theme switching, providing a consistent user experience across different lighting conditions.
+
+---
+
+## Implementing Light and Dark Themes
+
+To implement theme switching, the `tnw-theme-toggler` component should be used, offering three options: system, dark, and light modes. This component automatically manages theme switching based on user preference or system settings.
+
+---
+
+## Best Practices for Theme Customization
+
+- **Consistent Design Language**: Both light and dark themes should align with the brand’s overall design language.
+- **Accessibility**: Readability should be prioritized by maintaining adequate color contrast in both themes.
+- **Smooth Transitions**: Smooth transitions between themes should be implemented to enhance the user experience when switching modes.
+- **Cross-Device Testing**: Themes should be tested on various devices and screen sizes to ensure a consistent experience.
+
+---
+
+## Conclusion
+
+Theme customization within the Technway Design System is designed to be both powerful and intuitive. By defining global theme variables and utilizing the `tnw-theme-toggler` component, a flexible, user-centered experience can be provided that adapts to various environments and preferences.
+
+Continue exploring customization options with these guides:
+
+- [Color Customization](./color-customization.mdx)
+- [Typography Customization](./typography-customization.mdx)
+- [Spacing and Layout Customization](./spacing-layout-customization.mdx)
+- [Component-Level Customization](./component-customization.mdx)
+- [Accessibility Customization](./accessibility-customization.mdx)
+
+</div>

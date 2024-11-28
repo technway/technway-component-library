@@ -1,0 +1,234 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="Theming/Color" />
+
+<div class="mdx-docs">
+
+# Color Customization
+
+Color customization is a key feature of the Technway Design System, enabling you to tailor the visual identity of your application to meet specific branding requirements. This guide details how to effectively customize colors across your project, ensuring both flexibility and consistency.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Default Color Variables](#default-color-variables)
+- [Detailed Overview of Key Color Variables](#detailed-overview-of-key-color-variables)
+   1. [Primary Colors](#primary-colors)
+   2. [Secondary Colors](#secondary-colors)
+   3. [Background Colors](#background-colors)
+   4. [Text Colors](#text-colors)
+   5. [Utility Colors](#utility-colors)
+   6. [Border Colors](#border-colors)
+- [Customizing Global Colors](#customizing-global-colors)
+   1. [Example: Customizing Primary and Secondary Colors](#example-customizing-primary-and-secondary-colors)
+- [Best Practices for Color Customization](#best-practices-for-color-customization)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+The Technway Design System employs CSS variables to manage colors consistently across your project. These variables are defined globally and can be overridden to create custom themes or adjust specific component colors.
+
+### Default Color Variables
+
+Below is a snippet of the core color variables and their corresponding callback variables used in the design system:
+z
+<Source
+code={`
+:root {
+  /* Colors */
+  --tnw-primary-color: var(--primary-color, #f76f30);
+  --tnw-primary-color-rgb: var(--primary-color-rgb, 243, 111, 51);
+  --tnw-secondary-color: var(--secondary-color, #e4c438);
+  --tnw-background-color: var(--background-color, #ffffff);
+  --tnw-text-color: var(--text-color, #0e0e0e);
+  --tnw-success-color: var(--success-color, #cdffe8);
+  --tnw-warning-color: var(--warning-color, #fcf7c8);
+  --tnw-danger-color: var(--danger-color, #fdd6db);
+  --tnw-info-color: var(--info-color, #bce1f8);
+  --tnw-border-color: var(--border-color, #ccc);
+}
+`}
+language="css"
+dark={true}
+/>
+
+These variables establish the foundation of the design system’s color scheme and can be customized to fit your specific needs.
+
+---
+
+## Detailed Overview of Key Color Variables
+
+### Primary Colors
+
+</div>
+<Markdown>
+{`
+| Global Variable              | Theming Variable            | Description                                               |
+|------------------------------|-----------------------------|-----------------------------------------------------------|
+| \`--tnw-primary-color\`         | \`--primary-color\`           | The main primary color used throughout the design system.  |
+| \`--tnw-primary-color-rgb\`     | \`--primary-color-rgb\`       | RGB representation of the primary color.                  |
+| \`--tnw-primary-color-100\`     | \`--primary-color-100\`       | A lighter shade of the primary color.                     |
+| \`--tnw-primary-color-200\`     | \`--primary-color-200\`       | A mid-light shade of the primary color.                   |
+| \`--tnw-primary-color-300\`     | \`--primary-color-300\`       | A mid-dark shade of the primary color.                    |
+| \`--tnw-primary-color-400\`     | \`--primary-color-400\`       | A darker shade of the primary color.                      |
+| \`--tnw-primary-color-opacity\` | \`--primary-color-opacity\`   | Opacity version of the primary color.                     |
+
+
+### Secondary Colors
+
+| Global Variable              | Theming Variable            | Description                                               |
+|------------------------------|-----------------------------|-----------------------------------------------------------|
+| \`--tnw-secondary-color\`       | \`--secondary-color\`         | The main secondary color used across the design system.    |
+| \`--tnw-secondary-color-rgb\`   | \`--secondary-color-rgb\`     | RGB representation of the secondary color.                |
+| \`--tnw-secondary-color-100\`   | \`--secondary-color-100\`     | A lighter shade of the secondary color.                   |
+| \`--tnw-secondary-color-200\`   | \`--secondary-color-200\`     | A mid-light shade of the secondary color.                 |
+| \`--tnw-secondary-color-300\`   | \`--secondary-color-300\`     | A mid-dark shade of the secondary color.                  |
+| \`--tnw-secondary-color-400\`   | \`--secondary-color-400\`     | A darker shade of the secondary color.                    |
+| \`--tnw-secondary-color-opacity\` | \`--secondary-color-opacity\` | Opacity version of the secondary color.                   |
+
+
+### Background Colors
+
+| Global Variable                    | Theming Variable               | Description                                               |
+|------------------------------------|---------------------------------|-----------------------------------------------------------|
+| \`--tnw-background-color\`           | \`--background-color\`            | The main background color.                                |
+| \`--tnw-background-color-rgb\`       | \`--background-color-rgb\`        | RGB representation of the background color.               |
+| \`--tnw-background-color-100\`       | \`--background-color-100\`        | A lighter shade of the background color.                  |
+| \`--tnw-background-color-200\`       | \`--background-color-200\`        | A slightly darker background color.                       |
+| \`--tnw-background-color-opacity\`   | \`--background-color-opacity\`    | Opacity version of the background color.                  |
+| \`--tnw-background-color-inverse\`   | \`--background-color-inverse\`    | Background color for dark themes or inverse sections.     |
+| \`--tnw-background-color-inverse-rgb\` | \`--background-color-inverse-rgb\` | RGB representation of the inverse background color.       |
+| \`--tnw-background-color-inverse-100\` | \`--background-color-inverse-100\` | A lighter inverse background color.                       |
+| \`--tnw-background-color-inverse-200\` | \`--background-color-inverse-200\` | A slightly darker inverse background color.               |
+
+### Primary Colors
+
+| Global Variable              | Theming Variable            | Description                                               |
+|------------------------------|-----------------------------|-----------------------------------------------------------|
+| \`--tnw-primary-color\`         | \`--primary-color\`           | The main primary color used throughout the design system.  |
+| \`--tnw-primary-color-rgb\`     | \`--primary-color-rgb\`       | RGB representation of the primary color.                  |
+| \`--tnw-primary-color-100\`     | \`--primary-color-100\`       | A lighter shade of the primary color.                     |
+| \`--tnw-primary-color-200\`     | \`--primary-color-200\`       | A mid-light shade of the primary color.                   |
+| \`--tnw-primary-color-300\`     | \`--primary-color-300\`       | A mid-dark shade of the primary color.                    |
+| \`--tnw-primary-color-400\`     | \`--primary-color-400\`       | A darker shade of the primary color.                      |
+| \`--tnw-primary-color-opacity\` | \`--primary-color-opacity\`   | Opacity version of the primary color.                     |
+
+### Secondary Colors
+
+| Global Variable              | Theming Variable            | Description                                               |
+|------------------------------|-----------------------------|-----------------------------------------------------------|
+| \`--tnw-secondary-color\`       | \`--secondary-color\`         | The main secondary color used across the design system.    |
+| \`--tnw-secondary-color-rgb\`   | \`--secondary-color-rgb\`     | RGB representation of the secondary color.                |
+| \`--tnw-secondary-color-100\`   | \`--secondary-color-100\`     | A lighter shade of the secondary color.                   |
+| \`--tnw-secondary-color-200\`   | \`--secondary-color-200\`     | A mid-light shade of the secondary color.                 |
+| \`--tnw-secondary-color-300\`   | \`--secondary-color-300\`     | A mid-dark shade of the secondary color.                  |
+| \`--tnw-secondary-color-400\`   | \`--secondary-color-400\`     | A darker shade of the secondary color.                    |
+| \`--tnw-secondary-color-opacity\` | \`--secondary-color-opacity\` | Opacity version of the secondary color.                   |
+
+### Text Colors
+
+| Global Variable                | Theming Variable          | Description                                               |
+|--------------------------------|---------------------------|-----------------------------------------------------------|
+| \`--tnw-text-color\`             | \`--text-color\`            | The main text color used for content.                     |
+| \`--tnw-text-color-light\`         | \`--text-color-light\`        | A lighter shade of the text color.                        |
+| \`--tnw-text-color-inverse\`     | \`--text-color-inverse\`    | Text color used on dark backgrounds.                      |
+
+### Border Colors
+
+| Global Variable                | Theming Variable          | Description                                               |
+|--------------------------------|---------------------------|-----------------------------------------------------------|
+| \`--tnw-border-color\`           | \`--border-color\`          | The main border color.                                    |
+| \`--tnw-border-color-opacity\`       | \`--border-color-opacity\`      | A lighter shade of the border color.                      |
+| \`--tnw-border-color-inverse\`   | \`--border-color-inverse\`  | Border color for dark themes or inverse sections.         |
+| \`--tnw-border-color-inverse-rgb\` | \`--border-color-inverse-rgb\` | RGB representation of the inverse border color.          |
+
+Here is the completed table for the **Utility Colors** section:
+
+### Utility Colors
+
+**Success Colors:**
+
+| Global Variable                 | Theming Variable           | Description                                               |
+|---------------------------------|----------------------------|-----------------------------------------------------------|
+| \`--tnw-success-color\`           | \`--success-color\`          | The main success color used for indicating success states. |
+| \`--tnw-success-color-100\`       | \`--success-color-100\`      | A lighter shade of the success color.                     |
+| \`--tnw-success-color-200\`       | \`--success-color-200\`      | An even lighter shade of the success color.               |
+
+**Warning Colors:**
+
+| Global Variable                 | Theming Variable           | Description                                               |
+|---------------------------------|----------------------------|-----------------------------------------------------------|
+| \`--tnw-warning-color\`           | \`--warning-color\`          | The main warning color used for indicating warning states. |
+| \`--tnw-warning-color-100\`       | \`--warning-color-100\`      | A lighter shade of the warning color.                     |
+| \`--tnw-warning-color-200\`       | \`--warning-color-200\`      | An even lighter shade of the warning color.               |
+
+**Danger Colors:**
+
+| Global Variable                 | Theming Variable           | Description                                               |
+|---------------------------------|----------------------------|-----------------------------------------------------------|
+| \`--tnw-danger-color\`            | \`--danger-color\`           | The main danger color used for indicating error or danger. |
+| \`--tnw-danger-color-100\`        | \`--danger-color-100\`       | A lighter shade of the danger color.                      |
+| \`--tnw-danger-color-200\`        | \`--danger-color-200\`       | An even lighter shade of the danger color.                |
+
+**Info Colors:**
+
+| Global Variable                 | Theming Variable           | Description                                               |
+|---------------------------------|----------------------------|-----------------------------------------------------------|
+| \`--tnw-info-color\`              | \`--info-color\`             | The main info color used for providing informational feedback. |
+| \`--tnw-info-color-100\`          | \`--info-color-100\`         | A lighter shade of the info color.                        |
+| \`--tnw-info-color-200\`          | \`--info-color-200\`         | An even lighter shade of the info color.                  |
+
+`}
+</Markdown>
+
+<div class="mdx-docs">
+
+---
+
+## Customizing Global Colors
+
+To customize global colors across your project, override the default color variables in your global CSS or theme-specific files.
+
+### Example: Customizing Primary and Secondary Colors
+
+To adjust the primary and secondary colors throughout your application:
+
+<Source
+code={`
+:root {${`\n`}
+  --primary-color: #004085;${`\n`}
+  --secondary-color: #6c757d;${`\n`}
+}
+`}
+language="css"
+dark={true}
+/>
+
+By overriding `--primary-color` and `--secondary-color`, you modify the appearance of all components that utilize the `tnw-primary-color` and `--tnw-secondary-color` tokens.
+
+---
+
+## Best Practices for Color Customization
+
+- **Consistency**: Always use global variables (`--tnw-...`) to ensure uniformity across your project.
+- **Accessibility**: Ensure adequate color contrast for readability and accessibility.
+- **Variable Reuse**: Avoid hardcoding colors directly in components; leverage CSS variables instead.
+- **Cross-Theme Testing**: Test your colors in different themes (e.g., light and dark) to ensure a consistent user experience.
+
+---
+
+## Conclusion
+
+Color customization in the Technway Design System is both powerful and flexible. By following the theming guidelines and leveraging the comprehensive CSS variable system, you can develop a visually consistent and maintainable application that aligns with your branding objectives.
+
+Continue exploring customization options with the following guides:
+
+- [Typography Customization](./typography-customization.mdx)
+- [Spacing and Layout Customization](./spacing-layout-customization.mdx)
+- [Theme Customization](./theme-customization.mdx)
+- [Accessibility Customization](./accessibility-customization.mdx)
+- [Component-Level Customization](./component-customization.mdx)
+
+</div>

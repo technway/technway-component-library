@@ -1,0 +1,88 @@
+import { generateComponentArgTypes, getComponentByTagName, getComponentTemplate } from "../../../utils/sb-utils";
+
+const component = getComponentByTagName('tnw-card');
+
+export default {
+  title: 'Components/Card',
+  parameters: {
+    actions: { disable: true },
+    status: {
+      type: 'stable',
+    },
+  },
+  argTypes: generateComponentArgTypes(component),
+};
+
+const VerticalTemplate = (args) => getComponentTemplate(args, component, true, "1000px");
+const HorizontalTemplate = (args) => getComponentTemplate(args, component, true);
+
+// Default Card Example
+export const Default = HorizontalTemplate.bind({});
+Default.args = {
+  imageSrc: 'https://via.placeholder.com/300x200',
+  heading: 'Card Heading',
+  subheading: 'Card Subheading',
+  description: 'This is a description of the card. It provides additional details about the content.',
+  buttonLabel: 'Click Me',
+};
+
+// Horizontal Layout Card
+export const HorizontalLayout = VerticalTemplate.bind({});
+HorizontalLayout.args = {
+  ...Default.args,
+  layout: 'horizontal',
+};
+
+// 
+export const itemsCenter = VerticalTemplate.bind({});
+itemsCenter.args = {
+  ...HorizontalLayout.args,
+  itemsAlignment: 'center',
+};
+
+// Card with Content First
+export const ContentFirst = HorizontalTemplate.bind({});
+ContentFirst.args = {
+  imageSrc: 'https://via.placeholder.com/300x200',
+  heading: 'Card Heading',
+  subheading: 'Card Subheading',
+  description: 'This is a description of the card. It provides additional details about the content.',
+  orderContentFirst: true,
+};
+
+// Card without Image
+export const WithoutImage = HorizontalTemplate.bind({});
+WithoutImage.args = {
+  heading: 'Card Without Image',
+  description: 'This card does not include an image, focusing on the content only.',
+  buttonLabel: 'Contact Us',
+};
+
+// Card with Outlined Appearance
+export const OutlinedAppearance = HorizontalTemplate.bind({});
+OutlinedAppearance.args = {
+  ...Default.args,
+  appearance: 'outlined',
+  variant: 'auto',
+  padding: 'sm',
+};
+
+// Card with Solid Appearance
+export const SolidAppearance = HorizontalTemplate.bind({});
+SolidAppearance.args = {
+  imageSrc: 'https://via.placeholder.com/300x200',
+  heading: 'Card Heading',
+  subheading: 'Card Subheading',
+  description: 'This is a description of the card. It provides additional details about the content.',
+  buttonSlot: `<tnw-button slot="button" label="Button" variant="white"></tnw-button>`,
+  appearance: 'solid',
+  variant: 'inverse',
+  padding: 'sm',
+};
+
+// Card with rounded corners
+export const RoundedCorners = HorizontalTemplate.bind({});
+RoundedCorners.args = {
+  ...OutlinedAppearance.args,
+  borderRadius: "lg",
+};

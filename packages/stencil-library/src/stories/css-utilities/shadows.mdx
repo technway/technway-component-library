@@ -1,0 +1,251 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="CSS Utilities/Shadows" />
+
+<div class="mdx-docs">
+
+# Shadow Utilities
+
+Shadow utilities enhance the visual depth of UI elements by applying shadows, glows, and other effects using predefined variables. This documentation outlines the available utilities for box shadows, text shadows, and glow effects, allowing for consistent application across your design system.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Default Shadow Values](#default-shadow-values)
+- [Box Shadow Utilities](#box-shadow-utilities)
+- [Text Shadow Utilities](#text-shadow-utilities)
+- [Glow Utilities](#glow-utilities)
+- [Customization and Theming](#customization-and-theming)
+- [Usage Guidelines](#usage-guidelines)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Shadow utilities are essential for creating depth and emphasis in your UI design. By using custom properties, these utilities allow for flexible and adaptable shadow effects, ensuring a cohesive and visually appealing design system.
+
+---
+
+## Default Shadow Values
+
+The design system includes a set of default shadow variables. These variables can be easily overridden or adjusted to fit specific project needs.
+
+<Source
+language="css"
+code={`
+/* Shadows */
+--tnw-shadow: rgba(160, 160, 160, 0.35);
+--tnw-shadow-prim: var(--tnw-primary-color);
+--tnw-shadow-primary-lite: rgba(var(--tnw-primary-color-rgb), 0.3);
+
+/* Glow */
+--tnw-glw-primary-1: rgba(var(--tnw-primary-color-rgb), 0.15);
+--tnw-glw-primary-2: rgba(var(--tnw-primary-color-rgb), 0.1);
+--tnw-glw-primary-3: rgba(var(--tnw-primary-color-rgb), 0.05);
+--tnw-glw-primary-4: rgba(var(--tnw-primary-color-rgb), 0.03);
+`}
+dark={true}
+/>
+
+---
+
+## Box Shadow Utilities
+
+Box shadow utilities allow you to apply shadows to elements, creating a sense of depth and elevation.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class         | Description                                     |
+| --------------------- | ----------------------------------------------- |
+| \`.shadow-default\`    | Applies the default box shadow                  |
+| \`.shadow-primary\`    | Applies the primary color box shadow            |
+| \`.shadow-primary-100\` | Applies a lighter version of the primary shadow  |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="shadow-default p-md">
+  This element has the default box shadow.
+</div>
+
+<div class="shadow-primary p-md mt-md">
+  This element has the primary color box shadow.
+</div>
+
+<div class="shadow-primary-100 p-md mt-md">
+  This element has a light primary color box shadow.
+</div>
+`}
+dark={true}
+/>
+
+---
+
+## Text Shadow Utilities
+
+Text shadow utilities allow you to apply shadow effects to text, enhancing its emphasis and readability.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class          | Description                                     |
+| ---------------------- | ----------------------------------------------- |
+| \`.text-shadow-default\`  | Applies the default text shadow                 |
+| \`.text-shadow-primary\`  | Applies the primary color text shadow           |
+| \`.text-shadow-primary-100\` | Applies a lighter version of the primary text shadow |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="text-shadow-default">Default Text Shadow</p>
+<p class="text-shadow-primary">Primary Text Shadow</p>
+<p class="text-shadow-primary-100">Light Primary Text Shadow</p>
+`}
+dark={true}
+/>
+
+---
+
+## Glow Utilities
+
+Glow utilities provide a glowing effect around elements, creating a more pronounced emphasis.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class        | Description                                     |
+| -------------------- | ----------------------------------------------- |
+| \`.glow-primary-1\`    | Applies a light primary glow                    |
+| \`.glow-primary-2\`    | Applies a medium-100 primary glow             |
+| \`.glow-primary-3\`    | Applies a medium-dark primary glow              |
+| \`.glow-primary-4\`    | Applies a dark primary glow                     |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="glow-primary-1 p-md">
+  This element has a light primary glow.
+</div>
+
+<div class="glow-primary-2 p-md mt-md">
+  This element has a medium-100 primary glow.
+</div>
+
+<div class="glow-primary-3 p-md mt-md">
+  This element has a medium-dark primary glow.
+</div>
+
+<div class="glow-primary-4 p-md mt-md">
+  This element has a dark primary glow.
+</div>
+`}
+dark={true}
+/>
+
+---
+
+## Customization and Theming
+
+Customization and theming of shadow utilities are managed through the use of custom properties. By overriding these properties, you can tailor shadow effects to match specific branding or project requirements.
+
+### Theming Variables
+
+The following callback variables are used for theming and can be customized to change the shadow effects in your application:
+
+<Markdown>
+{`
+| Variable Name           | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| \`--shadow\`                | Default shadow color                            |
+| \`--shadow-prim\`           | Primary shadow color                            |
+| \`--shadow-primary-lite\`      | Lighter version of the primary shadow color     |
+| \`--glow-primary-1\`         | Lightest primary glow color                     |
+| \`--glow-primary-2\`         | Medium-100 primary glow color                 |
+| \`--glow-primary-3\`         | Medium-dark primary glow color                  |
+| \`--glow-primary-4\`         | Darkest primary glow color                      |
+`}
+</Markdown>
+
+This flexibility ensures that shadow effects can be adapted to various project needs while maintaining consistency across the design system.
+
+---
+
+## Usage Guidelines
+
+- **Consistency:** Ensure that shadow utilities are used consistently throughout the application to maintain a cohesive design.
+- **Readability:** Use shadows to enhance readability and emphasize important elements.
+- **Customization:** Use the custom properties to easily theme and adjust shadow effects for different projects or branding requirements.
+
+---
+
+## Examples
+
+Here’s how to apply different shadow utilities in a practical example:
+
+<Source
+language="html"
+code={`
+<div class="shadow-default p-md">
+  This is an example of a default box shadow.
+</div>
+
+<div class="glow-primary-1 p-md mt-md">
+  This is an example of a light primary glow.
+</div>
+`}
+dark={true}
+/>
+
+These examples show how to combine shadow utilities to create visually distinct and impactful UI elements.
+
+---
+
+## Best Practices
+
+- **Use Shadows Sparingly:** Apply shadow utilities where they enhance visual hierarchy and focus attention.
+- **Maintain Visual Consistency:** Ensure that shadows are used consistently across similar elements to avoid a disjointed appearance.
+- **Test Across Devices:** Ensure that shadows and glows render consistently across different browsers and devices.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Can shadow values be customized?
+
+Yes, shadow values can be customized by overriding the respective custom properties (e.g., `--shadow`, `--glow-primary-1`).
+
+### How do I ensure accessibility with shadow utilities?
+
+Use shadows to enhance focus on interactive elements, but ensure that they do not obscure or reduce the readability of text.
+
+### What is the best way to apply shadow utilities?
+
+Use shadow utilities to reinforce the design system’s visual hierarchy, maintain readability, and draw attention to key UI components.
+
+---
+
+## Conclusion
+
+Shadow utilities are a key aspect of the design system, enabling a consistent and adaptable visual hierarchy across applications. By leveraging custom properties, these utilities offer flexibility in theming and ensure that the design remains cohesive, accessible, and visually appealing.
+
+</div>

@@ -1,0 +1,83 @@
+/**
+ * tnw CSS Utilities
+ *
+ * Border Width & Radius Utilities
+ *
+ * This file provides utility classes for border width and border radius using the defined variables.
+ */
+
+/* Border Width */
+@define-mixin border-width $size {
+  &-$size {
+    border-width: var(--tnw-border-$size);
+  }
+}
+@define-mixin border-top-width $size {
+  &-$size {
+    border-top-width: var(--tnw-border-$size);
+  }
+}
+@define-mixin border-right-width $size {
+  &-$size {
+    border-right-width: var(--tnw-border-$size);
+  }
+}
+@define-mixin border-bottom-width $size {
+  &-$size {
+    border-bottom-width: var(--tnw-border-$size);
+  }
+}
+@define-mixin border-left-width $size {
+  &-$size {
+    border-left-width: var(--tnw-border-$size);
+  }
+}
+
+.border {
+  @mixin border-width none;
+  @mixin border-width sm;
+  @mixin border-width md;
+  @mixin border-width lg;
+  @mixin border-width xl;
+  @mixin border-width default;
+}
+
+.border-t {
+  @mixin border-top-width none;
+  @mixin border-top-width sm;
+  @mixin border-top-width md;
+  @mixin border-top-width lg;
+  @mixin border-top-width xl;
+  @mixin border-top-width default;
+}
+
+.border-r {
+  @mixin border-right-width none;
+  @mixin border-right-width sm;
+  @mixin border-right-width md;
+  @mixin border-right-width lg;
+  @mixin border-right-width xl;
+  @mixin border-right-width default;
+}
+
+.border-b {
+  @mixin border-bottom-width none;
+  @mixin border-bottom-width sm;
+  @mixin border-bottom-width md;
+  @mixin border-bottom-width lg;
+  @mixin border-bottom-width xl;
+  @mixin border-bottom-width default;
+}
+
+.border-l {
+  @mixin border-left-width none;
+  @mixin border-left-width sm;
+  @mixin border-left-width md;
+  @mixin border-left-width lg;
+  @mixin border-left-width xl;
+  @mixin border-left-width default;
+}
+
+/* Border Radius */
+@import '_border-radius.pcss';
+

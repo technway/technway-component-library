@@ -1,0 +1,16 @@
+{
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "extends": [
+        "plugin:@stencil-community/recommended"
+    ],
+    "rules": {
+        "complexity": [
+            "error",
+            {
+                "max": 20
+            }
+        ]
+    }
+}

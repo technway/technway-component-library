@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-accordion Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-accordion accordion-id="accordion-1" class="rounded-default tnw-accordion tnw-accordion--hasPadding tnw-accordion--outlined tnw-accordion--outlined-auto" content="Accordion Content" the-title="Accordion Title">
+  <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    /**
+     * @prop --tnw-accordion-gap: The gap between accordion header and body.
+     * @prop-default: var(--tnw-spacing-xs)
+     */
+    gap: var(--tnw-accordion-gap, var(--tnw-spacing-xs));
+}
+
+:host(.tnw-accordion--hasPadding) {
+    /**
+     * @prop --tnw-accordion-padding: The accordion padding.
+     * @prop-default: var(--tnw-spacing-xs) calc(var(--tnw-spacing-xs) * 2)
+     */
+    padding: var(--tnw-accordion-padding, var(--tnw-spacing-xs) calc(var(--tnw-spacing-xs) * 2));
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+}
+
+/* Appearance & Variants Styles */
+:host(.tnw-accordion--outlined) {
+    border-width: 1px;
+    border-style: solid;
+}
+:host(.tnw-accordion--outlined-primary) {
+    border-color: var(--tnw-primary-color);
+}
+:host(.tnw-accordion--outlined-secondary) {
+    border-color: var(--tnw-secondary-color);
+}
+:host(.tnw-accordion--outlined-auto) {
+    border-color: var(--tnw-border-color);
+}
+:host(.tnw-accordion--outlined-light) {
+    border-color: var(--tnw-border-color-opacity);
+}
+:host(.tnw-accordion--outlined-inverse) {
+    border-color: var(--tnw-border-color-inverse);
+}
+:host(.tnw-accordion--outlined-black) {
+    border-color: var(--tnw-black);
+}
+:host(.tnw-accordion--outlined-white) {
+    border-color: var(--tnw-white);
+}
+
+:host(.tnw-accordion--underlined) {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+:host(.tnw-accordion--underlined-primary) {
+    border-bottom-color: var(--tnw-primary-color);
+}
+:host(.tnw-accordion--underlined-secondary) {
+    border-bottom-color: var(--tnw-secondary-color);
+}
+:host(.tnw-accordion--underlined-auto) {
+    border-bottom-color: var(--tnw-border-color);
+}
+:host(.tnw-accordion--underlined-light) {
+    border-bottom-color: var(--tnw-border-color-opacity);
+}
+:host(.tnw-accordion--underlined-inverse) {
+    border-bottom-color: var(--tnw-border-color-inverse);
+}
+:host(.tnw-accordion--underlined-black) {
+    border-bottom-color: var(--tnw-black);
+}
+:host(.tnw-accordion--underlined-white) {
+    border-bottom-color: var(--tnw-white);
+}
+
+:host(.tnw-accordion--solid-primary) {
+    background-color: var(--tnw-primary-color);
+}
+:host(.tnw-accordion--solid-secondary) {
+    background-color: var(--tnw-secondary-color);
+}
+:host(.tnw-accordion--solid-auto) {
+    background-color: var(--tnw-background-color);
+}
+:host(.tnw-accordion--solid-light) {
+    background-color: var(--tnw-background-color-100);
+}
+:host(.tnw-accordion--solid-inverse) {
+    background-color: var(--tnw-background-color-inverse);
+}
+:host(.tnw-accordion--solid-black) {
+    background-color: var(--tnw-black);
+}
+:host(.tnw-accordion--solid-white) {
+    background-color: var(--tnw-white);
+}
+
+tnw-button {
+    width: 100%;
+}
+
+.tnw-accordion__header-button {
+    display: flex;
+    align-items: center;
+
+    /**
+     * @prop --tnw-accordion-header-gap: The gap between accordion header title and expand icon.
+     * @prop-default: var(--tnw-spacing-2xs)
+     */
+    gap: var(--tnw-accordion-header-gap, var(--tnw-spacing-2xs));
+}
+
+.tnw-accordion__expand-icon {
+    /**
+     * @prop --tnw-accordion-transition-delay: The delay of the expanding accordion transition.
+     * @prop-default: 0.25s
+     */
+    transition: var(--tnw-accordion-transition-delay, 0.25s) transform ease-in-out;
+}
+.tnw-accordion__expand-icon--rotated {
+    /**
+     * @prop --tnw-accordion-icon-rotation: The rotation angle of the icon when the accordion is expanded.
+     * @prop-default: -180deg
+     */
+    transform: rotate(var(--tnw-accordion-item-icon-rotation, -180deg));
+}
+    </style>
+    <style></style>
+    <style></style>
+    <h3 class="tnw-accordion__header" part="header">
+      <tnw-button appearance="none" aria-controls="accordion-1-body" aria-expanded="false" id="accordion-1-header" size="sm" tabindex="0">
+        <div class="tnw-accordion__header-button" part="header-button">
+          <div class="tnw-accordion__expand-icon">
+            <tnw-icon color="auto" hiddenaria="" name="tnw-chevron-down" part="header-icon"></tnw-icon>
+          </div>
+          <slot name="heading"></slot>
+        </div>
+      </tnw-button>
+    </h3>
+    <div aria-labelledby="accordion-1-header" class="tnw-accordion__body" hidden="" id="accordion-1-body" part="body" role="region">
+      <tnw-text color="auto" size="xs" text="Accordion Content"></tnw-text>
+    </div>
+  </template>
+</tnw-accordion>
+`;

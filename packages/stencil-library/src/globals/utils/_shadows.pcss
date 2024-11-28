@@ -1,0 +1,47 @@
+/**
+ * tnw CSS Utilities
+ *
+ * Shadow Utilities
+ * 
+ * This file provides utility classes for shadows using the defined variables.
+ */
+
+/* Box Shadow */
+@define-mixin box-shadow $class, $value {
+  &-$class {
+    box-shadow: var(--tnw-$value);
+  }
+}
+
+.shadow {
+  @mixin box-shadow default, shd;
+  @mixin box-shadow primary, shd-prim;
+  @mixin box-shadow primary-100, shd-primary-lite;
+}
+
+/* Text Shadow */
+@define-mixin text-shadow $class, $value {
+  &-$class {
+    text-shadow: var(--tnw-$value);
+  }
+}
+
+.text-shadow {
+  @mixin text-shadow default, shd;
+  @mixin text-shadow primary, shd-prim;
+  @mixin text-shadow primary-100, shd-primary-lite;
+}
+
+/* Glow */
+@define-mixin glow $class, $value {
+  &-$class {
+    box-shadow: 0 0 10px var(--tnw-$value);
+  }
+}
+
+.glow {
+  @mixin glow primary-1, glow-primary-1;
+  @mixin glow primary-2, glow-primary-2;
+  @mixin glow primary-3, glow-primary-3;
+  @mixin glow primary-4, glow-primary-4;
+}

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-button Default and Required Prop Behavior renders correctly with required label 1`] = `
+<tnw-button class="rounded-default tnw-button tnw-button--md tnw-extended-v-solid-primary" label="Click Me">
+  <template shadowrootmode="open">
+    <button class="tnw-button__el tnw-button__el--has-padding" part="button" type="button">
+      <slot name="icon-start"></slot>
+      Click Me
+      <slot name="icon-end"></slot>
+    </button>
+  </template>
+</tnw-button>
+`;
+
+exports[`tnw-button Slot Content and Icon Rendering renders icon-start and icon-end slots correctly 1`] = `
+<tnw-button class="rounded-default tnw-button tnw-button--md tnw-extended-v-solid-primary" label="Button with Icons">
+  <template shadowrootmode="open">
+    <button class="tnw-button__el tnw-button__el--has-padding" part="button" type="button">
+      <slot name="icon-start"></slot>
+      Button with Icons
+      <slot name="icon-end"></slot>
+    </button>
+  </template>
+  <span slot="icon-start">
+    IconStart
+  </span>
+  <span slot="icon-end">
+    IconEnd
+  </span>
+</tnw-button>
+`;

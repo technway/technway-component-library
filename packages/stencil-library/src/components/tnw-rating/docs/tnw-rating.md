@@ -1,0 +1,82 @@
+# tnw-rating
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Properties](#properties)
+- [Slots](#slots)
+- [Shadow Parts](#shadow-parts)
+- [Usage](#usage)
+
+## Overview
+
+The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
+
+| Detail | Value |
+| --- | --- |
+| HTML Component Tag | `<tnw-rating>` |
+| React Component Tag | `TnwRating` |
+| Encapsulation | `shadow` |
+
+<div style="overflow-x: auto;">
+## Properties
+
+| Property | Description | Default | Type |
+| --- | --- | --- | --- |
+| **emptyStarColor** | The color of the empty (unfilled) stars. | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **filledStarColor** | The color of the filled stars. | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **hideEmptyStars** | If true, empty stars (unfilled) will be hidden, showing only the filled stars. | `false` | `boolean` |
+| **rating** | The current rating value to display as filled stars. | `this.totalStars || 0` | `number` |
+| **starSize** | The size of the stars. | `'sm'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **totalStars** | The total number of stars to display in the rating component. | `5` | `number` |
+
+</div>
+
+## Shadow Parts
+
+| Part | Description |
+| --- | --- |
+| **default-icon** | The `tnw-icon` element used to render the default star icons. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| **default** | Slot for custom icons. Use the default slot to insert custom content for rating stars. |
+
+## Usage & Examples
+
+### When to use:
+
+- **Displaying Star Ratings**: The `tnw-rating` component is useful when you need to visually represent a rating system, like product reviews, user feedback, or any rating-based content.
+- **Customizable Star Ratings**: Use this component when you want control over the number of stars, their size, and their colors, or when you want to display only the filled stars and hide the unfilled ones.
+
+### Use Cases:
+
+1. **Default Rating**:
+   Use the default configuration for a basic rating system with a total of 5 stars, where a specific rating value is displayed.
+
+   @useStory Default
+
+2. **Custom Rating with 10 Stars**:
+   This example shows how to customize the total number of stars to fit your design requirements, such as using 10 stars instead of 5.
+
+   @useStory IncreaseTotalStars
+
+3. **Custom Star Sizes**:
+   When you want the stars to be larger or smaller based on the layout or design needs, use this example to customize the star sizes.
+
+   @useStory LargeRating
+   @useStory SmallRating
+
+4. **Hide Empty Stars**:
+   If you only want to display the filled stars and hide the unfilled ones, this use case is useful to create a minimalist look.
+
+   @useStory HiddenEmptyStars
+
+### Additional Considerations:
+
+- **Customizable Number of Stars**: You can specify the total number of stars to display, allowing for flexible rating scales beyond the standard 5-star system.
+- **Icon Customization**: The component supports custom icons via slots, enabling you to replace the default star icons with custom SVG graphics.
+- **Hide Empty Stars**: You can hide the unfilled stars for a cleaner visual, only displaying the filled rating stars.
+

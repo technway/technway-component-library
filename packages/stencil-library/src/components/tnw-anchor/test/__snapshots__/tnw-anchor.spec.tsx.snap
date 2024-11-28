@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-anchor Custom Prop Behavior renders with slot content when text prop is not provided 1`] = `
+<tnw-anchor href="https://example.com">
+  <template shadowrootmode="open">
+    <a aria-label="Link" class="color-auto tnw-anchor tnw-anchor--underline" href="https://example.com" part="anchor">
+      <slot></slot>
+    </a>
+  </template>
+  <span>
+    Custom Content
+  </span>
+</tnw-anchor>
+`;
+
+exports[`tnw-anchor Default and Required Prop Behavior renders correctly with required href and text 1`] = `
+<tnw-anchor href="https://example.com" text="Example">
+  <template shadowrootmode="open">
+    <a aria-label="Example" class="color-auto tnw-anchor tnw-anchor--underline" href="https://example.com" part="anchor">
+      Example
+    </a>
+  </template>
+</tnw-anchor>
+`;

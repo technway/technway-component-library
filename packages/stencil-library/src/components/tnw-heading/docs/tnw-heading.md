@@ -1,0 +1,92 @@
+# tnw-heading
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Properties](#properties)
+- [Slots](#slots)
+- [Shadow Parts](#shadow-parts)
+- [Usage](#usage)
+
+## Overview
+
+The `tnw-heading` component is used to render a customizable heading or title with various styling options.
+It allows you to control the text alignment, color, size, weight, transformation, and line height, 
+along with the ability to use a different HTML tag for the heading element.
+
+| Detail | Value |
+| --- | --- |
+| HTML Component Tag | `<tnw-heading>` |
+| React Component Tag | `TnwHeading` |
+| Encapsulation | `shadow` |
+
+<div style="overflow-x: auto;">
+## Properties
+
+| Property | Description | Default | Type |
+| --- | --- | --- | --- |
+| **alignment** | Sets the text alignment within the container. | N/A | `"center"` \| `"end"` \| `"justify"` \| `"left"` \| `"right"` \| `"start"` |
+| **color** | Sets the color of the text based on the available theme colors. | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **headingTag** | Specifies the HTML tag to be used for the heading. | `'h2'` | `"div"` \| `"h1"` \| `"h2"` \| `"h3"` \| `"h4"` \| `"h5"` \| `"h6"` |
+| **lineHeight** | Adjusts the line height of the text. | `"1_5"` | `"1"` \| `"1_25"` \| `"1_5"` \| `"1_75"` \| `"2"` \| `"2_25"` \| `"2_5"` |
+| **size** | Defines the font size of the text. | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
+| **text** | The content of the heading. If no text is provided, the slot content will be used. | N/A | `string` |
+| **textCase** | Controls the text transformation (e.g., uppercase, lowercase). | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
+| **useTextFont** | If true, applies a text font style to the heading instead of the default heading font. | `false` | `boolean` |
+| **weight** | Specifies the font weight of the text. | N/A | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
+
+</div>
+
+## Shadow Parts
+
+| Part | Description |
+| --- | --- |
+| **heading** | The root `heading` element rendered by the component. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| **default** | Use the default slot to add custom content inside the heading tag. |
+
+## Usage & Examples
+
+### When to use:
+
+- **Section Headings**: Use `tnw-heading` to add titles or headings to sections of a page, providing a clear structure for content.
+- **Main Page Headings**: Ideal for large headings at the top of pages, such as blog titles, product pages, or landing sections.
+- **Custom Heading Styles**: Useful when you need to control the size, font weight, text color, and alignment of your headings for specific design requirements.
+
+### Use Cases:
+
+1. **Standard Heading**:
+   Use this for regular section titles, providing a quick overview or introduction to content.
+
+   @useStory Standard
+
+2. **Main Page Heading (H1)**:
+   When you need a large, bold heading for the main title of a page, such as a landing or product page.
+
+   @useStory HeadingOne
+
+3. **Primary Color Heading**:
+   Use this case when you want to highlight a heading using your theme’s primary color.
+
+   @useStory PrimaryColor
+
+4. **Uppercase Heading**:
+   If your design requires the heading to be displayed in uppercase letters, use this case for emphasis or stylistic purposes.
+
+   @useStory Uppercase
+
+5. **Massive Title**:
+   For cases where a large, eye-catching title is required, such as for hero sections or feature banners.
+
+   @useStory MassiveTitle
+
+### Additional Considerations:
+
+- **Customizable Text Alignment**: You can adjust the alignment of the heading (left, center, or right) to fit your layout design.
+- **Font Weight and Size Control**: With various size and weight options, you can tailor the heading's appearance for both small and large sections, ensuring it blends well with your content structure.
+- **Dynamic Heading Tag**: The component supports different HTML heading tags (`h1`, `h2`, `h3`, etc.) or even divs, making it flexible for use in a wide range of contexts.
+

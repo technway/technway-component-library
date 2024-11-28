@@ -1,0 +1,247 @@
+/**
+ * tnw CSS Utilities
+ *
+ * Layout Utilities
+ * 
+ * This file provides utility classes for common layout properties using the defined variables.
+ */
+
+/* Flexbox Layout */
+@define-mixin flex-direction $value {
+  &-$value {
+    flex-direction: $value;
+  }
+}
+@define-mixin flex-wrap $value {
+  &-$value {
+    flex-wrap: $value;
+  }
+}
+@define-mixin justify-content $class, $value {
+  &-$class {
+    justify-content: $value;
+  }
+}
+@define-mixin align-items $class, $value {
+  &-$class {
+    align-items: $value;
+  }
+}
+.flex {
+  @mixin flex-wrap wrap;
+  @mixin flex-wrap nowrap;
+  @mixin flex-wrap wrap-inverse;
+
+  @mixin justify-content start, flex-start;
+  @mixin justify-content end, flex-end;
+  @mixin justify-content center, center;
+  @mixin justify-content between, space-between;
+  @mixin justify-content around, space-around;
+
+  @mixin align-items start, flex-start;
+  @mixin align-items end, flex-end;
+  @mixin align-items center, center;
+  @mixin align-items baseline, baseline;
+  @mixin align-items stretch, stretch;
+
+  @mixin flex-direction row;
+  @mixin flex-direction column;
+  @mixin flex-direction row-inverse;
+  @mixin flex-direction column-inverse;
+}
+
+/* Width Utilities */
+@define-mixin width $class, $value {
+  &-$class {
+    width: var(--tnw-size-$value);
+  }
+}
+@define-mixin min-width $class, $value {
+  &-$class {
+    min-width: var(--tnw-size-$value);
+  }
+}
+@define-mixin max-width $class, $value {
+  &-$class {
+    max-width: var(--tnw-size-$value);
+  }
+}
+.w {
+  @mixin width container, container;
+  @mixin width xl, xl;
+  @mixin width lg, lg;
+  @mixin width md, md;
+  @mixin width sm, sm;
+  @mixin width xs, xs;
+  @mixin width auto, auto;
+  @mixin width full, full;
+}
+.min-w {
+  @mixin min-width container, container;
+  @mixin min-width xl, xl;
+  @mixin min-width lg, lg;
+  @mixin min-width md, md;
+  @mixin min-width sm, sm;
+  @mixin min-width xs, xs;
+  @mixin min-width auto, auto;
+  @mixin min-width full, full;
+}
+.max-w {
+  @mixin max-width container, container;
+  @mixin max-width xl, xl;
+  @mixin max-width lg, lg;
+  @mixin max-width md, md;
+  @mixin max-width sm, sm;
+  @mixin max-width xs, xs;
+  @mixin max-width auto, auto;
+  @mixin max-width full, full;
+}
+
+/* Height Utilities */
+@define-mixin height $class, $value {
+  &-$class {
+    height: var(--tnw-size-$value);
+  }
+}
+@define-mixin min-height $class, $value {
+  &-$class {
+    min-height: var(--tnw-size-$value);
+  }
+}
+@define-mixin max-height $class, $value {
+  &-$class {
+    max-height: var(--tnw-size-$value);
+  }
+}
+.h {
+  @mixin height xl, xl;
+  @mixin height lg, lg;
+  @mixin height md, md;
+  @mixin height sm, sm;
+  @mixin height xs, xs;
+  @mixin height auto, auto;
+  @mixin height full-screen, full-screen;
+  @mixin height full, full;
+}
+.min-h {
+  @mixin min-height xl, xl;
+  @mixin min-height lg, lg;
+  @mixin min-height md, md;
+  @mixin min-height sm, sm;
+  @mixin min-height xs, xs;
+  @mixin min-height auto, auto;
+  @mixin min-height full-screen, full-screen;
+  @mixin min-height full, full;
+}
+.max-h {
+  @mixin max-height xl, xl;
+  @mixin max-height lg, lg;
+  @mixin max-height md, md;
+  @mixin max-height sm, sm;
+  @mixin max-height xs, xs;
+  @mixin max-height auto, auto;
+  @mixin max-height full-screen, full-screen;
+  @mixin max-height full, full;
+}
+
+/* Display Layout */
+.inline-block {
+  display: inline-block;
+}
+.flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.grid {
+  display: grid;
+}
+.hidden {
+  display: none;
+}
+
+/* Grid Layout */
+@define-mixin grid-cols $n {
+  &-cols-$n {
+    grid-template-columns: repeat($n, 1fr);
+  }
+}
+.grid {
+  @for $i from 1 to 12 by 1 {
+    @mixin grid-cols $i;
+  }
+}
+
+/* Object Position Utilities */
+@define-mixin obj-pos $class, $value {
+  &-$class {
+    object-position: $value;
+  }
+}
+.obj-pos {
+  @mixin obj-pos t, top;
+  @mixin obj-pos b, bottom;
+  @mixin obj-pos l, left;
+  @mixin obj-pos r, right;
+  @mixin obj-pos c, center;
+  @mixin obj-pos tl, top-left;
+  @mixin obj-pos tr, top-right;
+  @mixin obj-pos bl, bottom-left;
+  @mixin obj-pos br, bottom-right;
+  @mixin obj-pos bl, left-top;
+  @mixin obj-pos br, left-bottom;
+  @mixin obj-pos bl, right-top;
+  @mixin obj-pos br, right-bottom;
+  @mixin obj-pos bl, center-left;
+  @mixin obj-pos br, center-right;
+  @mixin obj-pos bl, center-top;
+  @mixin obj-pos br, center-bottom;
+}
+
+/* Object Fit Utilities */
+@define-mixin obj-fit $value {
+  &-$value {
+    object-fit: $value;
+  }
+}
+.fit {
+  @mixin obj-fit fill;
+  @mixin obj-fit contain;
+  @mixin obj-fit cover;
+  @mixin obj-fit none;
+  @mixin obj-fit scale-down;
+}
+
+/* Aspect Ratio Utilities */
+@define-mixin aspect-ratio $class, $value {
+  &-$class {
+    aspect-ratio: $value;
+  }
+}
+.ar {
+  @mixin aspect-ratio 1_1, 1/1;
+  @mixin aspect-ratio 16_9, 16/9;
+  @mixin aspect-ratio 4_3, 4/3;
+  @mixin aspect-ratio 21_9, 21/9;
+  @mixin aspect-ratio 3_4, 3/4;
+  @mixin aspect-ratio 9_16, 9/16;
+  @mixin aspect-ratio 9_21, 9/21;
+}
+
+/* Position Utilities */
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.sticky {
+  position: sticky;
+}
+.static {
+  position: static;
+}

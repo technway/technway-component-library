@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-input Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-input input-id="username" label="Username" placeholder="Enter username" type="text">
+  <template shadowrootmode="open">
+    <tnw-label htmlfor="username" part="label" text="Username"></tnw-label>
+    <input aria-describedby="" aria-labelledby="username" autocomplete="off" class="rounded-default tnw-input tnw-input--outlined" id="username" part="input" pattern="" placeholder="Enter username" type="text">
+  </template>
+</tnw-input>
+`;

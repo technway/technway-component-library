@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TnwNavbarMenuToggler Default Behavior renders correctly with default props 1`] = `
+<tnw-navbar-menu-toggler aria-expanded="false" aria-label="Toggle Navbar Menu" role="button" style="display: none;">
+  <template shadowrootmode="open">
+    <tnw-icon appearance="outlined" borderradius="circle" color="auto" name="tnw-menu" size="md" variant="auto"></tnw-icon>
+  </template>
+</tnw-navbar-menu-toggler>
+`;

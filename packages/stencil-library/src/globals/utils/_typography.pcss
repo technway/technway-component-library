@@ -1,0 +1,131 @@
+/**
+ * tnw CSS Utilities
+ *
+ * Typography Utilities
+ * 
+ * This file provides utility classes for typography using the defined font and text-related variables.
+ */
+
+/* Font Size Utilities */
+@define-mixin fs $size {
+  &-$size {
+    font-size: var(--tnw-fs-$size);
+  }
+}
+.fs {
+  @mixin fs 2xs;
+  @mixin fs xs;
+  @mixin fs sm;
+  @mixin fs md;
+  @mixin fs lg;
+  @mixin fs xl;
+  @mixin fs 2xl;
+  @mixin fs 3xl;
+  @mixin fs 4xl;
+  @mixin fs 5xl;
+  @mixin fs 6xl;
+  @mixin fs 7xl;
+  @mixin fs 8xl;
+  @mixin fs 9xl;
+}
+.fs-heading {
+  font-size: var(--tnw-fs-heading);
+}
+.fs-text {
+  font-size: var(--tnw-fs-text);
+}
+
+/* Font Weight Utilities */
+@define-mixin fw $weight {
+  &-$weight {
+    font-weight: var(--tnw-fw-$weight);
+  }
+}
+.fw {
+  @for $i from 100 to 900 by 100 {
+    @mixin fw $i;
+  }
+}
+.fw-heading {
+  font-weight: var(--tnw-fw-heading);
+}
+.fw-text {
+  font-weight: var(--tnw-fw-text);
+}
+.fw-button {
+  font-weight: var(--tnw-fw-button);
+}
+
+/* Font Family Utilities */
+.font-head {
+  font-family: var(--tnw-font-heading);
+}
+.font-txt {
+  font-family: var(--tnw-font-text);
+}
+.font-icon {
+  font-family: var(--tnw-font-icon);
+}
+.font-head-en {
+  font-family: var(--tnw-font-heading-en);
+}
+.font-txt-en {
+  font-family: var(--tnw-font-text-en);
+}
+.font-head-ar {
+  font-family: var(--tnw-font-heading-ar);
+}
+.font-txt-ar {
+  font-family: var(--tnw-font-text-ar);
+}
+
+/* Line Height Utilities */
+@define-mixin lh $value {
+  &-$value {
+    line-height: var(--tnw-lh-$value);
+  }
+}
+.lh {
+  @mixin lh 1;
+  @mixin lh 1_25;
+  @mixin lh 1_5;
+  @mixin lh 1_75;
+  @mixin lh 2;
+  @mixin lh 2_25;
+  @mixin lh 2_5;
+}
+.lh-heading {
+  line-height: var(--tnw-lh-heading);
+}
+.lh-txt {
+  line-height: var(--tnw-lh-text);
+}
+
+/* Text Alignment Utilities */
+@define-mixin ta $value {
+  &-$value {
+    text-align: $value;
+  }
+}
+.ta {
+  @mixin ta left;
+  @mixin ta right;
+  @mixin ta start;
+  @mixin ta end;
+  @mixin ta center;
+  @mixin ta justify;
+}
+
+/* Text Case */
+.normal-case {
+  text-transform: none;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}

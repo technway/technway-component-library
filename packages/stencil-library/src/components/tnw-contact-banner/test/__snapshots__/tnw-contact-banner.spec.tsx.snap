@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-contact-banner Custom Prop Behavior renders content slot when \`enableContentSlot\` is set to true 1`] = `
+<tnw-contact-banner class="rounded-default tnw-contact-banner tnw-contact-banner--center tnw-v-solid-primary" enable-content-slot="true">
+  <template shadowrootmode="open">
+    <slot name="content"></slot>
+  </template>
+  <div slot="content">
+    Custom Content
+  </div>
+</tnw-contact-banner>
+`;
+
+exports[`tnw-contact-banner Custom Prop Behavior renders default slots when \`enableContentSlot\` is false 1`] = `
+<tnw-contact-banner class="rounded-default tnw-contact-banner tnw-contact-banner--center tnw-v-solid-primary">
+  <template shadowrootmode="open">
+    <div class="tnw-contact-banner__content">
+      <div class="tnw-contact-banner__content-heading">
+        <slot name="short-title"></slot>
+        <slot name="title"></slot>
+      </div>
+      <slot name="description"></slot>
+    </div>
+    <slot name="button"></slot>
+  </template>
+  <div slot="short-title">
+    Short Title
+  </div>
+  <div slot="title">
+    Main Title
+  </div>
+  <div slot="description">
+    Description Text
+  </div>
+  <button slot="button">
+    Click Me
+  </button>
+</tnw-contact-banner>
+`;
+
+exports[`tnw-contact-banner Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-contact-banner class="rounded-default tnw-contact-banner tnw-contact-banner--center tnw-v-solid-primary">
+  <template shadowrootmode="open">
+    <div class="tnw-contact-banner__content">
+      <div class="tnw-contact-banner__content-heading">
+        <slot name="short-title"></slot>
+        <slot name="title"></slot>
+      </div>
+      <slot name="description"></slot>
+    </div>
+    <slot name="button"></slot>
+  </template>
+</tnw-contact-banner>
+`;

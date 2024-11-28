@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-select Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-select class="tnw-select" options-data="[]">
+  <template shadowrootmode="open">
+    <button aria-describedby="tnw-select-description" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="tnw-select-label" class="rounded-default tnw-select__button" data-select-toggler part="button">
+      Select an option
+      <tnw-icon name="tnw-chevron-down" slot="icon-end"></tnw-icon>
+    </button>
+    <ul class="rounded-default tnw-select__dropdown" data-select part="dropdown" role="listbox"></ul>
+  </template>
+</tnw-select>
+`;

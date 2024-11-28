@@ -1,0 +1,5 @@
+<div class="mdx-docs">
+    
+CATALOG_CONTENT
+    
+</div>

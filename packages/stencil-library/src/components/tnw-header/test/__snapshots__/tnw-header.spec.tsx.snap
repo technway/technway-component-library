@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-header Default and Required Prop Behavior renders with default props 1`] = `
+<tnw-header class="h-auto min-h-auto tnw-header">
+  <template shadowrootmode="open">
+    <header class="container tnw-header__content tnw-header__content--start" part="header">
+      <slot name="navbar"></slot>
+      <slot name="banner"></slot>
+    </header>
+  </template>
+</tnw-header>
+`;

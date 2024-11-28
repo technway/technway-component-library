@@ -1,0 +1,12 @@
+/*
+!package.json
+!api
+!storybook-static
+!api
+!loader
+!dist
+dist/cjs
+dist/collection
+dist/components
+vercel.json
+tsconfig.json

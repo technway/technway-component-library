@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-rating Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-rating aria-label="Rating: 5 out of 5" class="tnw-rating" role="img">
+  <template shadowrootmode="open">
+    <tnw-icon color="primary" enablesvg="" hiddenaria="" name="star" part="default-icon" size="sm">
+      <svg slot="svg" viewBox="0 0 16 16">
+        <rect fill="none" height="16" width="16"></rect>
+        <path d="M16,6.204l-5.528-0.803L8,0.392L5.528,5.401L0,6.204l4,3.899l-0.944,5.505L8,13.009l4.944,2.599L12,10.103L16,6.204z"></path>
+      </svg>
+    </tnw-icon>
+    <tnw-icon color="primary" enablesvg="" hiddenaria="" name="star" part="default-icon" size="sm">
+      <svg slot="svg" viewBox="0 0 16 16">
+        <rect fill="none" height="16" width="16"></rect>
+        <path d="M16,6.204l-5.528-0.803L8,0.392L5.528,5.401L0,6.204l4,3.899l-0.944,5.505L8,13.009l4.944,2.599L12,10.103L16,6.204z"></path>
+      </svg>
+    </tnw-icon>
+    <tnw-icon color="primary" enablesvg="" hiddenaria="" name="star" part="default-icon" size="sm">
+      <svg slot="svg" viewBox="0 0 16 16">
+        <rect fill="none" height="16" width="16"></rect>
+        <path d="M16,6.204l-5.528-0.803L8,0.392L5.528,5.401L0,6.204l4,3.899l-0.944,5.505L8,13.009l4.944,2.599L12,10.103L16,6.204z"></path>
+      </svg>
+    </tnw-icon>
+    <tnw-icon color="primary" enablesvg="" hiddenaria="" name="star" part="default-icon" size="sm">
+      <svg slot="svg" viewBox="0 0 16 16">
+        <rect fill="none" height="16" width="16"></rect>
+        <path d="M16,6.204l-5.528-0.803L8,0.392L5.528,5.401L0,6.204l4,3.899l-0.944,5.505L8,13.009l4.944,2.599L12,10.103L16,6.204z"></path>
+      </svg>
+    </tnw-icon>
+    <tnw-icon color="primary" enablesvg="" hiddenaria="" name="star" part="default-icon" size="sm">
+      <svg slot="svg" viewBox="0 0 16 16">
+        <rect fill="none" height="16" width="16"></rect>
+        <path d="M16,6.204l-5.528-0.803L8,0.392L5.528,5.401L0,6.204l4,3.899l-0.944,5.505L8,13.009l4.944,2.599L12,10.103L16,6.204z"></path>
+      </svg>
+    </tnw-icon>
+  </template>
+</tnw-rating>
+`;

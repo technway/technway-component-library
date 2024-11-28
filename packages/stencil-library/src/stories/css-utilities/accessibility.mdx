@@ -1,0 +1,294 @@
+import { Meta, Source } from '@storybook/blocks';
+
+<Meta title="CSS Utilities/Accessibility" />
+
+<div class="mdx-docs">
+
+# Accessibility Utilities
+
+This page outlines the utility classes designed to enhance accessibility in web applications. These utilities ensure that applications are inclusive and provide an optimal user experience for everyone, including individuals with disabilities.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Screen Reader Only](#screen-reader-only)
+   1. [Default Classes and Values](#default-classes-and-values)
+   2. [Usage Guidelines](#usage-guidelines)
+   3. [Examples](#examples)
+   4. [Customization and Theming](#customization-and-theming)
+   5. [Best Practices](#best-practices)
+   6. [Accessibility Considerations](#accessibility-considerations)
+- [Keyboard Navigation](#keyboard-navigation)
+   1. [Default Classes and Values](#default-classes-and-values-1)
+   2. [Usage Guidelines](#usage-guidelines-1)
+   3. [Examples](#examples-1)
+   4. [Customization and Theming](#customization-and-theming-1)
+   5. [Best Practices](#best-practices-1)
+   6. [Accessibility Considerations](#accessibility-considerations-1)
+- [Reduced Motion](#reduced-motion)
+   1. [Default Classes and Values](#default-classes-and-values-2)
+   2. [Usage Guidelines](#usage-guidelines-2)
+   3. [Examples](#examples-2)
+   4. [Customization and Theming](#customization-and-theming-2)
+   5. [Best Practices](#best-practices-2)
+   6. [Accessibility Considerations](#accessibility-considerations-2)
+- [Advanced Usage Tips](#advanced-usage-tips)
+   1. [Combining Accessibility Utilities](#combining-accessibility-utilities)
+   2. [Performance Considerations](#performance-considerations)
+- [Best Practices](#best-practices)
+- [Interactive Examples](#interactive-examples)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [Conclusion](#conclusion)
+- [Further Reading](#further-reading)
+
+</div>
+
+## Introduction
+
+Accessibility utilities are essential for creating an inclusive web application. These utilities manage screen reader accessibility, keyboard navigation, and reduced motion for users who require these accommodations.
+
+---
+
+## Screen Reader Only
+
+The `.sr-only` class visually hides elements while keeping them accessible to screen readers, ensuring that vital information is available to visually impaired users.
+
+### Default Classes and Values
+
+<Source
+language="css"
+code={`
+/* Screen Reader Only */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+`}
+dark={true}
+/>
+
+### Usage Guidelines
+
+- **Purpose:** The `.sr-only` class is used to provide additional context for screen readers without displaying the content on the screen.
+- **When to Use:** This utility should be applied to supplementary instructions or descriptions that are unnecessary for sighted users.
+
+### Examples
+
+<Source
+language="html"
+code={`
+<p class="sr-only">This text is only accessible to screen readers.</p>
+`}
+dark={true}
+/>
+
+### Customization and Theming
+
+The behavior of the `.sr-only` class can be adjusted by modifying its CSS properties to meet specific needs. For instance, the clipping or positioning can be altered to suit different design requirements.
+
+<Source
+language="css"
+code={`
+.sr-only {
+  position: absolute;
+  left: -9999px; /* Move off-screen */
+}
+`}
+dark={true}
+/>
+
+### Best Practices
+
+- **Use Sparingly:** The `.sr-only` class should only be used to hide content from sighted users when it is truly supplementary.
+- **Thorough Testing:** It is important to test hidden content to ensure it is accessible and functional across various screen readers.
+
+### Accessibility Considerations
+
+- **Critical Information:** The `.sr-only` class should not be used for content that is crucial for all users.
+- **Focus Management:** Ensure that hidden elements are not focusable unless they provide interactive functionality.
+
+---
+
+## Keyboard Navigation
+
+The `.keyboard-only` class enhances focus visibility for keyboard navigation, improving accessibility for users who rely on keyboards.
+
+### Default Classes and Values
+
+<Source
+language="css"
+code={`
+/* Keyboard Navigation */
+.keyboard-only {
+  &:focus {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+}
+`}
+dark={true}
+/>
+
+### Usage Guidelines
+
+- **Purpose:** The `.keyboard-only` class is used to visually highlight elements when they receive focus via keyboard navigation.
+- **When to Use:** This utility should be applied to all interactive elements to ensure they are accessible via keyboard.
+
+### Examples
+
+<Source
+language="html"
+code={`
+<a href="#" class="keyboard-only">Focusable Link</a>
+`}
+dark={true}
+/>
+
+### Customization and Theming
+
+The focus outline can be customized by modifying the `--focus-color` variable or by adjusting the outline width and offset to suit design needs.
+
+<Source
+language="css"
+code={`
+:root {
+  --focus-color: #FF5733; /* Custom focus color */
+}
+.keyboard-only:focus {
+  outline: 3px dashed var(--focus-color); /* Custom focus style */
+}
+`}
+dark={true}
+/>
+
+### Best Practices
+
+- **Consistency:** Focus styles should be applied consistently across all interactive elements.
+- **Visibility:** The focus outline should be easily visible against various backgrounds.
+
+### Accessibility Considerations
+
+- **Visual Contrast:** The focus outline must meet contrast guidelines to ensure it is easily distinguishable.
+- **Avoid Overlap:** Care should be taken to ensure that the focus outline does not overlap or obscure important parts of the UI.
+
+---
+
+## Reduced Motion
+
+The `.reduced-motion` class is designed to honor user preferences for reduced motion, disabling animations and transitions for those who prefer a minimal-motion interface.
+
+### Default Classes and Values
+
+<Source
+language="css"
+code={`
+@media (prefers-reduced-motion: reduce) {
+  .reduced-motion {
+    animation: none;
+    transition: none;
+  }
+}
+`}
+dark={true}
+/>
+
+### Usage Guidelines
+
+- **Purpose:** The `.reduced-motion` class is used to disable animations and transitions for users who have requested reduced motion.
+- **When to Use:** This utility should be applied to elements with significant animations or transitions.
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="reduced-motion">Content with no animations or transitions</div>
+`}
+dark={true}
+/>
+
+### Customization and Theming
+
+The behavior of reduced motion can be customized by modifying or extending the rules within the `@media (prefers-reduced-motion)` query.
+
+<Source
+language="css"
+code={`
+@media (prefers-reduced-motion: reduce) {
+  .reduced-motion {
+    opacity: 1;
+    transform: none;
+  }
+}
+`}
+dark={true}
+/>
+
+### Best Practices
+
+- **Respect User Preferences:** The preference for reduced motion should always be honored.
+- **Test Across Devices:** It is important to ensure that the reduction in motion functions correctly across different devices and screen sizes.
+
+### Accessibility Considerations
+
+- **Sensory Sensitivities:** Reducing motion can help users with vestibular disorders or motion sensitivities avoid discomfort.
+- **Comprehensive Application:** Reduced motion rules should be applied consistently across the UI to ensure a cohesive experience.
+
+---
+
+## Advanced Usage Tips
+
+### Combining Accessibility Utilities
+
+Accessibility utilities such as `.sr-only` and `.keyboard-only` can be combined to create a more inclusive and accessible user interface.
+
+**Example:**
+
+<Source
+language="html"
+code={`
+<a href="#" class="sr-only keyboard-only">Focusable Link with Screen Reader Support</a>
+`}
+dark={true}
+/>
+
+### Performance Considerations
+
+While these utilities are lightweight, their impact on rendering performance should be considered, particularly when applied to a large number of elements.
+
+---
+
+## Best Practices
+
+- **Consistency:** Ensure these utilities are applied consistently across the application.
+- **Regular Testing:** Regular testing should be conducted to confirm that the UI is genuinely accessible.
+- **Comprehensive Documentation:** Clear documentation and guidelines should be provided for developers on effectively using these utilities.
+
+---
+
+## Interactive Examples
+
+Interactive examples are available on [CodeSandbox](https://codesandbox.io/), enabling experimentation with different configurations and providing insights into the impact of these utilities in real-time.
+
+---
+
+## Conclusion
+
+Accessibility utilities are vital for creating an inclusive web experience. By using these utilities, you can ensure your application is accessible to a wider range of users, providing a better overall user experience.
+
+---
+
+## Further Reading
+
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [Accessibility in Modern Web Design](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility)
+- [Designing for All Users](https://a11yproject.com/)
+
+</div>

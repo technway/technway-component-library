@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TnwAccordionGroup Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-accordion-group>
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</tnw-accordion-group>
+`;

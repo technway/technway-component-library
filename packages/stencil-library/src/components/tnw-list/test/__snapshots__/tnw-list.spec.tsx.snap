@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-list Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-list list-data="[{&quot;text&quot;:&quot;Item 1&quot;},{&quot;text&quot;:&quot;Item 2&quot;}]">
+  <template shadowrootmode="open">
+    <ul class="tnw-list tnw-list--disc tnw-list--inside" part="list">
+      <li class="lh-1_75 tnw-list__item" part="item">
+        Item 1
+      </li>
+      <li class="lh-1_75 tnw-list__item" part="item">
+        Item 2
+      </li>
+    </ul>
+  </template>
+</tnw-list>
+`;

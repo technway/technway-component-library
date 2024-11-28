@@ -1,0 +1,65 @@
+/**
+ * tnw CSS Utilities
+ *
+ * Border Radius Utilities
+ *
+ * This file provides utility classes for border radius using the defined variables.
+ */
+
+/* Border Radius */
+.rounded-none {
+  border-radius: var(--tnw-rounded-none);
+}
+@each $size in default, xs, sm, md, lg, xl, 2xl, 3xl, full, circle {
+  .rounded-$size {
+    border-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-t-$size {
+    border-top-left-radius: var(--tnw-rounded-$size);
+    border-top-right-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-b-$size {
+    border-bottom-left-radius: var(--tnw-rounded-$size);
+    border-bottom-right-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-l-$size {
+    border-top-left-radius: var(--tnw-rounded-$size);
+    border-bottom-left-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-r-$size {
+    border-top-right-radius: var(--tnw-rounded-$size);
+    border-bottom-right-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-tl-$size {
+    border-top-left-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-tr-$size {
+    border-top-right-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-bl-$size {
+    border-bottom-left-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-br-$size {
+    border-bottom-right-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-s-$size {
+    border-start-start-radius: var(--tnw-rounded-$size);
+    border-end-start-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-e-$size {
+    border-start-end-radius: var(--tnw-rounded-$size);
+    border-end-end-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-ss-$size {
+    border-start-start-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-se-$size {
+    border-start-end-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-es-$size {
+    border-end-start-radius: var(--tnw-rounded-$size);
+  }
+  .rounded-ee-$size {
+    border-end-end-radius: var(--tnw-rounded-$size);
+  }
+}

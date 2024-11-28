@@ -1,0 +1,147 @@
+.mdx-docs {
+  --primary-color: #f76f30;
+  --font: 'Montserrat', sans serif;
+  --border-color: #0e0e0e;
+}
+
+.mdx-docs, .mdx-docs__canvas {
+  inline-size: 100%;
+  max-inline-size: 1400px;
+}
+
+.mdx-docs h1,
+.mdx-docs h2,
+.mdx-docs h3,
+.mdx-docs h4,
+.mdx-docs h5,
+.mdx-docs h6,
+.mdx-docs p,
+.mdx-docs span,
+.mdx-docs ol,
+.mdx-docs ul,
+.mdx-docs li,
+.mdx-docs a,
+.mdx-docs c,
+.mdx-docs strong {
+  font-family: var(--font)
+}
+
+.mdx-docs h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.mdx-docs h1 a.css-1ofkq6d,
+.mdx-docs h2 a.css-1ofkq6d,
+.mdx-docs h3 a.css-1ofkq6d, 
+.mdx-docs h4 a.css-1ofkq6d {
+  display: none;
+}
+
+.mdx-docs h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.mdx-docs a {
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.mdx-docs c,
+.mdx-docs a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.mdx-docs hr {
+  margin: 20px 0;
+}
+
+.mdx-docs h2 {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  font-weight: 600;
+  border-bottom-color: var(--border-color);
+  font-size: 28px;
+  line-height: 1.25;
+  padding-bottom: 10px;
+}
+
+.mdx-docs p,
+.mdx-docs li {
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.mdx-docs strong {
+  font-weight: 600;
+}
+
+.mdx-docs hr {
+  border-top-color: transparent;
+}
+
+.mdx-docs .table-contents {
+  margin: 40px 0 50px;
+}
+
+.mdx-docs .table-contents ol c,
+.mdx-docs .table-contents ol a {
+  color: #888;
+}
+
+.mdx-docs .table-contents ul a:hover,
+.mdx-docs .table-contents ol a:hover {
+  text-decoration: underline;
+}
+
+.mdx-docs .table-contents ul ol {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.mdx-docs .table-contents ul li {
+  font-size: 18px;
+  font-weight: 600;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.mdx-docs .table-contents ul li::marker {
+  color: var(--primary-color);
+}
+
+.mdx-docs .table-contents ul ol li {
+  font-size: 14px;
+  font-weight: 200;
+  list-style-type: decimal;
+}
+
+.mdx-docs .table-contents ol li::marker {
+  color: #666;
+}
+
+.mdx-docs .table-contents li {
+  line-height: 1;
+}
+
+.mdx-docs .docblock-source {
+  border-radius: 10px;
+  background-color: #1e2127;
+  border-color: #3b404b;
+  box-shadow: none;
+  line-height: 1.5;
+}
+
+.mdx-docs pre.prismjs {
+  font-size: 14px;
+  overflow-x: auto;
+  font-weight: 400;
+  padding: 1.25rem;
+}

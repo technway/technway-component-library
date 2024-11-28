@@ -1,0 +1,453 @@
+import { Meta, Source, Markdown } from "@storybook/blocks";
+
+<Meta title="CSS Utilities/Layout" />
+
+<div class="mdx-docs">
+
+# Layout Utilities
+
+Layout utilities are essential for creating responsive and well-structured web designs. This documentation covers various utility classes that help manage display properties, flexbox, grid layouts, width, height, object positioning, and more. These utilities provide flexibility and control, ensuring consistent and adaptable layouts across your projects.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Display Utilities](#display-utilities)
+- [Flexbox Utilities](#flexbox-utilities)
+- [Grid Layout Utilities](#grid-layout-utilities)
+- [Width Utilities](#width-utilities)
+- [Height Utilities](#height-utilities)
+- [Aspect Ratio Utilities](#aspect-ratio-utilities)
+- [Object Position Utilities](#object-position-utilities)
+- [Object Fit Utilities](#object-fit-utilities)
+- [Position Utilities](#position-utilities)
+- [Default Size Values](#default-size-values)
+- [Customization and Theming](#customization-and-theming)
+- [Usage Guidelines](#usage-guidelines)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+The layout utilities in this design system allow you to create complex layouts using simple, reusable classes. These classes are built on top of CSS display properties, flexbox, grid systems, and other essential layout properties like width, height, object positioning, and more.
+
+---
+
+## Display Utilities
+
+Display utilities allow you to control the display properties of elements, which is the foundation for all other layout utilities like flexbox and grid.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                       |
+| ------------------- | ------------------------------------------------- |
+| \`.inline-block\`    | Sets the display property to inline-block          |
+| \`.flex\`           | Sets the display property to flex                  |
+| \`.inline-flex\`     | Sets the display property to inline-flex           |
+| \`.grid\`           | Sets the display property to grid                  |
+| \`.hidden\`         | Sets the display property to none (hides element)  |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="flex">This element uses flex display.</div>
+
+<div class="grid">This element uses grid display.</div>
+
+<div class="hidden">This element is hidden.</div>
+`}
+dark={true}
+/>
+
+These utilities form the basis for creating responsive and flexible layouts using flexbox and grid systems.
+
+---
+
+## Flexbox Utilities
+
+Flexbox utilities allow you to control the alignment, direction, and wrapping of flexbox layouts. After setting the display to `flex`, these utilities give you control over the flex container's behavior.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class                  | Description                                               |
+| ------------------------------ | --------------------------------------------------------- |
+| \`.flex-direction-row\`          | Sets the direction of flex items to row                   |
+| \`.flex-direction-column\`       | Sets the direction of flex items to column                |
+| \`.flex-direction-row-inverse\`  | Sets the direction of flex items to row-reverse           |
+| \`.flex-direction-column-inverse\`| Sets the direction of flex items to column-reverse       |
+| \`.flex-wrap-wrap\`              | Controls whether flex items wrap                          |
+| \`.flex-wrap-nowrap\`            | Prevents flex items from wrapping                         |
+| \`.justify-content-start\`       | Aligns flex items along the main axis at the start        |
+| \`.justify-content-end\`         | Aligns flex items along the main axis at the end          |
+| \`.justify-content-center\`      | Aligns flex items along the main axis at the center       |
+| \`.justify-content-between\`     | Distributes flex items with space between them            |
+| \`.justify-content-around\`      | Distributes flex items with space around them             |
+| \`.align-items-start\`           | Aligns flex items along the cross axis at the start       |
+| \`.align-items-end\`             | Aligns flex items along the cross axis at the end         |
+| \`.align-items-center\`          | Aligns flex items along the cross axis at the center      |
+| \`.align-items-baseline\`        | Aligns flex items along the cross axis at the baseline    |
+| \`.align-items-stretch\`         | Stretches flex items to fill the cross axis               |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="flex flex-direction-row justify-content-between align-items-center">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+`}
+dark={true}
+/>
+
+These utilities are crucial for creating responsive and flexible layouts using flexbox.
+
+---
+
+## Grid Layout Utilities
+
+Grid layout utilities provide control over the grid columns of a container. This is crucial for building complex and responsive grid-based layouts.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                       |
+| ------------------- | ------------------------------------------------- |
+| \`.grid-cols-1\`     | Sets the grid to have 1 column                     |
+| \`.grid-cols-2\`     | Sets the grid to have 2 columns                    |
+| \`.grid-cols-3\`     | Sets the grid to have 3 columns                    |
+| \`.grid-cols-4\`     | Sets the grid to have 4 columns                    |
+| \`.grid-cols-5\`     | Sets the grid to have 5 columns                    |
+| \`.grid-cols-6\`     | Sets the grid to have 6 columns                    |
+| \`.grid-cols-7\`     | Sets the grid to have 7 columns                    |
+| \`.grid-cols-8\`     | Sets the grid to have 8 columns                    |
+| \`.grid-cols-9\`     | Sets the grid to have 9 columns                    |
+| \`.grid-cols-10\`    | Sets the grid to have 10 columns                   |
+| \`.grid-cols-11\`    | Sets the grid to have 11 columns                   |
+| \`.grid-cols-12\`    | Sets the grid to have 12 columns                   |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="grid grid-cols-4">
+  <div>Column 1</div>
+  <div>Column 2</div>
+  <div>Column 3</div>
+  <div>Column 4</div>
+</div>
+`}
+dark={true}
+/>
+
+---
+
+## Width Utilities
+
+Width utilities allow you to set the width of elements using predefined custom properties. This is essential for controlling the size and responsiveness of elements across different devices.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class     | Description                                     |
+| ----------------- | ----------------------------------------------- |
+| \`.w-xl\`          | Sets the width to the extra large size (600px)   |
+| \`.w-lg\`          | Sets the width to the large size (500px)         |
+| \`.w-md\`          | Sets the width to the medium size (400px)        |
+| \`.w-sm\`          | Sets the width to the small size (350px)         |
+| \`.w-xs\`          | Sets the width to the extra-small size (300px)   |
+| \`.w-auto\`        | Sets the width to auto                           |
+| \`.w-full\`        | Sets the width to 100%                           |
+| \`.min-w-lg\`      | Sets the minimum width to the large size (500px) |
+| \`.max-w-md\`      | Sets the maximum width to the medium size (400px)|
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="w-xl">
+  This element has an extra-large width.
+</div>
+<div class="w-full">
+  This element takes up the full width.
+</div>
+`}
+dark={true}
+/>
+
+---
+
+## Height Utilities
+
+Height utilities allow you to set the height of elements using predefined custom properties. This is crucial for maintaining the visual balance of elements.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class     | Description                                       |
+| ----------------- | ------------------------------------------------- |
+| \`.h-xl\`          | Sets the height to the extra large size (600px)     |
+| \`.h-lg\`          | Sets the height to the large size (500px)           |
+| \`.h-md\`          | Sets the height to the medium size (400px)          |
+| \`.h-sm\`          | Sets the height to the small size (350px)           |
+| \`.h-xs\`          | Sets the height to the extra-small size (300px)     |
+| \`.h-auto\`        | Sets the height to auto                             |
+| \`.h-full\`        | Sets the height to 100%                             |
+| \`.min-h-lg\`      | Sets the minimum height to the large size (500px)    |
+| \`.max-h-md\`      | Sets the maximum height to the medium size (400px)   |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="h-lg">  This element has a large height.</div>
+<div class="h-full">  This element takes up the full height.</div>
+`}
+dark={true}
+/>
+
+---
+
+## Aspect Ratio Utilities
+
+Aspect ratio utilities maintain a consistent aspect ratio for elements, useful in responsive designs for ensuring that images and other content maintain their dimensions relative to the width.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class         | Description                                     |
+| --------------------- | ----------------------------------------------- |
+| \`.ar-1_1\`            | Sets the aspect ratio to 1:1                      |
+| \`.ar-16_9\`           | Sets the aspect ratio to 16:9                     |
+| \`.ar-4_3\`            | Sets the aspect ratio to 4:3                      |
+| \`.ar-21_9\`           | Sets the aspect ratio to 21:9                     |
+| \`.ar-3_4\`            | Sets the aspect ratio to 3:4                      |
+| \`.ar-9_16\`           | Sets the aspect ratio to 9:16                     |
+| \`.ar-9_21\`           | Sets the aspect ratio to 9:21                     |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="ar-16_9 bg-primary">
+  This element has a 16:9 aspect ratio.
+</div>
+`}
+dark={true}
+/>
+
+---
+
+## Object Position Utilities
+
+Object position utilities allow you to position elements within a container using the object-position property.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                        |
+| ------------------- | -------------------------------------------------- |
+| \`.obj-pos-t\`       | Positions the object at the top                     |
+| \`.obj-pos-b\`       | Positions the object at the bottom                  |
+| \`.obj-pos-l\`       | Positions the object at the left                    |
+| \`.obj-pos-r\`       | Positions the object at the right                   |
+| \`.obj-pos-c\`       | Positions the object at the center                  |
+| \`.obj-pos-tl\`      | Positions the object at the top-left corner         |
+| \`.obj-pos-tr\`      | Positions the object at the top-right corner        |
+| \`.obj-pos-bl\`      | Positions the object at the bottom-left corner      |
+| \`.obj-pos-br\`      | Positions the object at the bottom-right corner     |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="relative">
+  <img src="image.png" class="obj-pos-t" alt="Top positioned image" />
+</div>
+`}
+dark={true}
+/>
+
+---
+
+## Object Fit Utilities
+
+Object fit utilities allow you to control how an element fits within its container, using the object-fit property.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class      | Description                                           |
+| ------------------ | ----------------------------------------------------- |
+| \`.fit-fill\`       | Stretches the object to fill the container             |
+| \`.fit-contain\`    | Resizes the object to be fully contained within the container |
+| \`.fit-cover\`      | Resizes the object to cover the container              |
+| \`.fit-none\`       | Displays the object at its intrinsic size               |
+| \`.fit-scale-down\` | Scales the object down to fit the container            |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<img src="image.png" class="fit-cover" alt="Cover fitted image" />
+`}
+dark={true}
+/>
+
+---
+
+## Position Utilities
+
+Position utilities provide control over the positioning of elements within their containing block, using the standard CSS position property.
+
+### Usage
+
+<Markdown>
+{`
+| Utility Class       | Description                                         |
+| ------------------- | --------------------------------------------------- |
+| \`.relative\`        | Sets the position to relative                       |
+| \`.absolute\`        | Sets the position to absolute                       |
+| \`.fixed\`           | Sets the position to fixed                          |
+| \`.sticky\`          | Sets the position to sticky                         |
+| \`.static\`          | Sets the position to static                         |
+`}
+</Markdown>
+
+### Examples
+
+<Source
+language="html"
+code={`
+<div class="relative">  This element is relatively positioned.</div>
+<div class="fixed">  This element is fixed positioned.</div>
+`}
+dark={true}
+/>
+
+---
+
+## Default Size Values
+
+Here are the default size values used across the layout utilities:
+
+<Source
+language="css"
+code={`
+/* Size Values */
+--tnw-size-xl: 600px;
+--tnw-size-lg: 500px;
+--tnw-size-md: 400px;
+--tnw-size-sm: 350px;
+--tnw-size-xs: 300px;
+--tnw-size-auto: auto;
+--tnw-size-full: 100%;
+`}
+dark={true}
+/>
+
+---
+
+## Customization and Theming
+
+Layout utilities can be customized and themed using the provided custom properties. By overriding these properties, you can adapt the layout utilities to suit specific branding or project requirements.
+
+### Theming Variables
+
+The following variables are used for theming and can be customized to change the layout behavior in your application:
+
+<Markdown>
+{`
+| Variable Name          | Description                                     |
+| ---------------------- | ----------------------------------------------- |
+| \`--size-xl\`           | Defines the extra-large size value               |
+| \`--size-lg\`           | Defines the large size value                     |
+| \`--size-md\`           | Defines the medium size value                    |
+| \`--size-sm\`           | Defines the small size value                     |
+| \`--size-xs\`           | Defines the extra-small size value               |
+| \`--size-full\`         | Defines the full size value (100%)               |
+| \`--size-auto\`         | Defines the auto size value                      |
+`}
+</Markdown>
+
+---
+
+## Usage Guidelines
+
+- **Consistency:** Use layout utilities consistently across your application to maintain a cohesive design.
+- **Responsiveness:** Ensure that layout utilities are used to create responsive designs that adapt well to different screen sizes.
+- **Customization:** Override the custom properties to tailor layout utilities to fit specific project needs.
+
+---
+
+## Examples
+
+Here’s how to apply different layout utilities in a practical example:
+
+<Source
+language="html"
+code={`
+<div class="flex flex-direction-row justify-content-between p-md">
+  <div class="w-lg h-md bg-primary">Box 1</div>
+  <div class="w-lg h-md bg-secondary">Box 2</div>
+</div>
+`}
+dark={true}
+/>
+
+These examples demonstrate how to combine various layout utilities to create structured, responsive layouts.
+
+---
+
+## Best Practices
+
+- **Use Classes Appropriately:** Apply layout utilities to create clear and consistent structures in your UI.
+- **Maintain Visual Consistency:** Ensure that the layout structure is consistent across different sections of your application.
+- **Test Across Devices:** Verify that layouts render correctly across different devices and screen sizes.
+
+---
+
+## Conclusion
+
+Layout utilities are a fundamental part of the design system, enabling consistent, flexible, and responsive designs across applications. By leveraging custom properties, these utilities ensure that layouts remain adaptable and visually consistent across various projects.
+
+</div>

@@ -1,0 +1,281 @@
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta title="CSS Utilities/Borders" />
+
+<div class="mdx-docs">
+
+# Border Utilities
+
+Border utilities are integral to establishing consistent and visually appealing UI elements. These utilities facilitate control over border width and radius, ensuring uniformity and style across various components. Designed with theming flexibility in mind, these utilities allow for the easy overriding of default values to align with specific design systems.
+
+<div class="table-contents">
+
+- [Introduction](#introduction)
+- [Border Width Utilities](#border-width-utilities)
+   1. [Default Classes and Values](#default-classes-and-values)
+   2. [Usage Guidelines](#usage-guidelines)
+   3. [Examples](#examples)
+- [Border Radius Utilities](#border-radius-utilities)
+   1. [Default Classes and Values](#default-classes-and-values-1)
+   2. [Usage Guidelines](#usage-guidelines-1)
+   3. [Start/End vs. Right/Left, Top/Bottom](#startend-vs-rightleft-topbottom)
+   4. [Examples](#examples-1)
+- [Customization and Theming](#customization-and-theming)
+   1. [How to Override Default Values](#how-to-override-default-values)
+   2. [Theming Examples](#theming-examples)
+   3. [Considerations for Responsive Design](#considerations-for-responsive-design)
+- [Advanced Usage Tips](#advanced-usage-tips)
+   1. [Combining Border Utilities with Other CSS Utilities](#combining-border-utilities-with-other-css-utilities)
+   2. [Accessibility Considerations](#accessibility-considerations)
+   3. [Performance Considerations](#performance-considerations)
+- [Best Practices](#best-practices)
+- [Interactive Examples](#interactive-examples)
+- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [Conclusion](#conclusion)
+
+</div>
+
+## Introduction
+
+Border utilities enable the consistent and efficient application of borders and rounded corners to UI elements. These utilities ensure a cohesive aesthetic across an application, helping components like buttons, cards, and images conform to a unified design system. Default and customizable variables simplify maintaining consistent styles and adapting them for diverse themes.
+
+---
+
+## Border Width Utilities
+
+The `.border` classes provide an efficient method for controlling border width on elements. These utilities play a crucial role in maintaining consistent borders across various components, contributing to a more uniform and visually pleasing UI.
+
+### Default Classes and Values
+
+The following are the default classes and corresponding CSS variables provided by the border width utilities, along with their default values. These variables can be overridden to meet specific theming requirements, with default fallbacks available for easy adjustments.
+
+<Source
+  language="css"
+  code={`
+/* Border Widths */
+--tnw-border-default: var(--border-default, var(--tnw-border-sm));
+--tnw-border-sm: var(--border-sm, 1px);
+--tnw-border-md: var(--border-md, 2px);
+--tnw-border-lg: var(--border-lg, 3px);
+--tnw-border-xl: var(--border-xl, 4px);
+`}
+  dark={true}
+/>
+
+**Classes:**
+
+- `.border-none`: No border
+- `.border-sm`: Small border width (1px)
+- `.border-md`: Medium border width (2px)
+- `.border-lg`: Large border width (3px)
+- `.border-xl`: Extra-large border width (4px)
+- `.border-default`: Default border width (fallbacks to `--tnw-border-sm`)
+
+### Usage Guidelines
+
+- **Applying Uniform Borders:** The `.border-[size]` classes should be used to apply consistent border widths across multiple elements.
+- **Overriding Default Values:** The border width can be customized by overriding the CSS variables, allowing for easy theming and adjustments based on design requirements.
+
+### Examples
+
+**HTML:**
+
+<Source
+language="html"
+code={
+`
+<div class="border border-sm">Small border</div>
+<div class="border border-md">Medium border</div>
+<div class="border border-lg">Large border</div>
+<div class="border border-default">Default border</div>
+`
+}
+dark={true}
+/>
+
+---
+
+## Border Radius Utilities
+
+The `.rounded` classes apply border-radius values, giving elements rounded corners. These utilities offer a spectrum of options, from slightly rounded edges to fully circular elements, allowing for added softness and depth in the design.
+
+### Default Classes and Values
+
+Below are the default values for the border radius utilities, which can be easily customized by overriding the variables in the CSS. The default value is derived from the `--tnw-rounded-lg` variable but can be overridden with a `--rounded-default` value.
+
+<Source
+language="css"
+code={
+`
+/* Border Radiuses */
+--tnw-rounded-default: var(--rounded-default, var(--tnw-rounded-lg));
+--tnw-rounded-none: var(--rounded-none, 0);
+--tnw-rounded-xs: var(--rounded-xs, 3px);
+--tnw-rounded-sm: var(--rounded-sm, 5px);
+--tnw-rounded-md: var(--rounded-md, 10px);
+--tnw-rounded-lg: var(--rounded-lg, 20px);
+--tnw-rounded-xl: var(--rounded-xl, 30px);
+--tnw-rounded-2xl: var(--rounded-2xl, 50px);
+--tnw-rounded-circle: var(--rounded-circle, 50%);
+`
+}
+dark={true}
+/>
+
+**Classes:**
+
+- `.rounded-none`: No rounding (0px)
+- `.rounded-xs`: Extra-small rounding (3px)
+- `.rounded-sm`: Small rounding (5px)
+- `.rounded-md`: Medium rounding (10px)
+- `.rounded-lg`: Large rounding (20px)
+- `.rounded-xl`: Extra-large rounding (30px)
+- `.rounded-2xl`: Double extra-large rounding (50px)
+- `.rounded-circle`: Circular rounding (50%)
+- `.rounded-default`: Default rounding (fallbacks to `--tnw-rounded-lg`)
+
+### Usage Guidelines
+
+- **Consistent Rounding:** The `.rounded-[size]` classes should be used for applying uniform border-radius values across elements.
+- **Directional Rounding:** Different radii can be applied to specific corners using directional classes like `.rounded-t-md` or `.rounded-br-lg`.
+
+### Start/End vs. Right/Left, Top/Bottom
+
+- **Start/End Utilities:** These adaptive utilities change based on text direction (LTR or RTL), making them ideal for responsive designs supporting multiple languages.
+- **Right/Left, Top/Bottom Utilities:** These apply fixed border-radius values that remain consistent regardless of text direction, ensuring a uniform appearance.
+
+### Examples
+
+**HTML:**
+
+<Source
+language="html"
+code={
+`
+<div class="rounded-md">Medium rounded corners</div>
+<div class="rounded-t-lg">Large rounded top corners</div>
+<div class="rounded-br-xl">Extra-large bottom-right rounded corner</div>
+<div class="rounded-default">Default rounded corners</div>
+`
+}
+dark={true}
+/>
+
+---
+
+## Customization and Theming
+
+### How to Override Default Values
+
+Default border width and radius values are designed to provide a consistent look but can be easily customized. By defining custom values for the relevant CSS variables in the project's CSS file, the appearance of components can be tailored to align with specific design requirements.
+
+**Example:**
+
+<Source
+language="css"
+code={
+`
+:root {
+  --border-default: 2px; /* Adjusts default border width */
+  --rounded-default: 25px; /* Applies custom large rounding */
+}
+`
+}
+dark={true}
+/>
+
+### Theming Examples
+
+Utilizing default utilities for border radius and width helps maintain consistency while offering flexibility for modifications. For example, changing the border radius from `rounded-lg` to `rounded-sm` across various elements can be tedious. Instead, using the `--rounded-default` variable allows for a simpler update, as modifying this single variable will apply changes across all instances where `rounded-default` is used.
+
+The `--rounded-default` variable can reference any existing rounded variables or be assigned a specific value. This approach allows for both consistency and flexibility in theming.
+
+**Example:**
+
+<Source
+language="css"
+code={
+`
+:root {
+  --rounded-default: var(--tnw-rounded-none);
+  /* or */
+  --rounded-default: var(--tnw-rounded-sm);
+  /* or */
+  --rounded-default: var(--tnw-rounded-md);
+  /* or */
+  --rounded-default: var(--tnw-rounded-lg);
+  /* or assign an explicit value */
+  --rounded-default: 20px;
+}
+`
+}
+dark={true}
+/>
+
+### Considerations for Responsive Design
+
+When working with responsive designs, ensure that border utilities adjust appropriately across different screen sizes. Utilizing CSS variables in combination with media queries allows for dynamic adjustments, ensuring the design remains consistent and visually appealing on all devices.
+
+---
+
+## Advanced Usage Tips
+
+### Combining Border Utilities with Other CSS Utilities
+
+Borders can be combined with other utilities such as shadows and spacing to create visually striking components. For instance, combining a large border-radius with a subtle box-shadow can make buttons and cards stand out.
+
+**Example:**
+
+<Source
+language="html"
+code={
+`
+<div class="border border-lg rounded-lg shadow-md p-4">Styled Box</div>
+`
+}
+dark={true}
+/>
+
+### Accessibility Considerations
+
+Ensure that the use of border utilities enhances rather than detracts from accessibility. Borders can be used to create visual distinctions that aid navigation and comprehension, particularly for users with visual impairments.
+
+### Performance Considerations
+
+While border-radius is generally performant, the use of very large or complex values across many elements should be considered, as this can impact rendering performance on low-powered devices.
+
+---
+
+## Best Practices
+
+- **Consistency:** Border utilities should be used to maintain a consistent appearance across UI elements.
+- **Customization:** CSS variables should be utilized to tailor borders to specific design needs.
+- **Responsiveness:** Border styles should be responsive and function well across different screen sizes.
+- **RTL Support:** Start/end utilities should be employed in designs that support both LTR and RTL languages.
+- **Accessibility:** Borders should be used to enhance usability and accessibility, ensuring that all users can easily navigate the interface.
+
+---
+
+## Interactive Examples
+
+Interactive examples are available on [CodeSandbox](https://codesandbox.io/), allowing for real-time experimentation with different border widths and radii.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### How can the default border radius be overridden?
+
+The default border radius can be overridden by defining custom values for the `--rounded-[size]` variables in the theme.
+
+### What distinguishes start/end utilities from right/left utilities?
+
+Start/end utilities adapt to text direction (LTR/RTL), while right/left utilities apply fixed styles.
+
+---
+
+## Conclusion
+
+Border utilities are invaluable tools for creating consistent and aesthetically pleasing UI components. By understanding and utilizing these utilities, the visual design and usability of applications can be significantly enhanced, ensuring alignment with design goals and user needs.
+
+</div>

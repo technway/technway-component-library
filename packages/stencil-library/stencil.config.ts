@@ -134,13 +134,10 @@ export const config: Config = {
     reactOutputTarget({
       outDir: '../react-library/lib/components/stencil-generated/',
       stencilPackageName: '@technway/stencil-library',
-      // esModules: true,
     }),
     {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'auto-define-custom-elements',
-      generateTypeDeclarations: true,
-      externalRuntime: false,
     },
   ],
   testing: {

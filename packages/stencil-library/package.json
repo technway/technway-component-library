@@ -31,6 +31,7 @@
     "build:all": "npm run g:css-utils && stencil build",
     "build:sb": "storybook build",
     "build:stencil": "stencil build --docs",
+    "build:react": "stencil build --react",
     "build:components-css-utils": "node scripts/build-components-css-utils.mjs",
     "watch": "concurrently \"npm run g:css-utils\" \"stencil build --watch\"",
     "watch:stencil": "stencil build --watch",

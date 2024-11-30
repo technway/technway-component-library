@@ -32,6 +32,11 @@ export class TnwPortfolioGrid {
    */
   @Prop() spacing?: ExtendedSizeType = 'sm';
 
+  /**
+   * Displays a gradient fade at the bottom of the grid. Default is `false`.
+   */
+  @Prop() showGradientFade?: boolean = false;
+
   constructor() {
     this.initializeStyles();
   }
@@ -82,11 +87,20 @@ export class TnwPortfolioGrid {
     };
   }
 
+  private getContentClasses() {
+    const contentClass = `${this.baseClass}__content`;
+    return [
+      contentClass,
+      `${contentClass}--spacing-${this.spacing}`,
+      this.showGradientFade ? `${contentClass}--gradient-fade` : '',
+    ].filter(Boolean).join(' ');
+  }
+
   render() {
     return (
-      <Host>
-        <div class={this.baseClass} style={this.getColsStyles()}>
-          {this.parsedItemsData.map((item) => (
+      <Host class={this.baseClass}>
+        <div class={this.getContentClasses()} style={this.getColsStyles()}>
+          {this.parsedItemsData.map((item) => [
             <div
               class={`${this.baseClass}__item`}
               style={{
@@ -96,13 +110,13 @@ export class TnwPortfolioGrid {
             >
               {isNotEmptyString(item.link) ? (
                 <tnw-anchor href={item.link} labelAria={item.alt}>
-                  <tnw-image src={item.src} alt={item.alt}></tnw-image>
+                  <tnw-image src={item.src} alt={item.alt} widthSize='full' heightSize='full' objectFit='cover'></tnw-image>
                 </tnw-anchor>
               ) : (
-                <tnw-image src={item.src} alt={item.alt}></tnw-image>
+                <tnw-image src={item.src} alt={item.alt} widthSize='full' heightSize='full' objectFit='cover'></tnw-image>
               )}
             </div>
-          ))}
+          ])}
         </div>
       </Host>
     );

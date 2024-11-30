@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-30T06:52:41",
+  "timestamp": "2024-11-30T07:21:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -4517,11 +4517,12 @@
           "docs": "Specifies the HTML tag to be used for the heading.",
           "docsTags": [
             {
-              "name": "deprecated"
+              "name": "deprecated",
+              "text": "since v1.0.0"
             }
           ],
           "default": "'h2'",
-          "deprecation": "",
+          "deprecation": "since v1.0.0",
           "values": [
             {
               "value": "div",

@@ -29,37 +29,37 @@ describe('tnw-heading', () => {
 
   describe('Heading Tag Rendering', () => {
     it('renders the correct HTML tag based on level prop', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 1" heading-tag="h1"></tnw-heading>`, "h1");
+      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 1" level="h1"></tnw-heading>`, "h1");
       expect(headingElement.tagName).toBe('H1');
     });
 
     it('renders correctly for h1 tag with default props', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading heading-tag="h1" text="Test Heading"></tnw-heading>`, "h1");
+      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading level="h1" text="Test Heading"></tnw-heading>`, "h1");
       expect(headingElement).toHaveClasses(['fw-700', 'fs-5xl']);
     });
 
     it('renders correctly for h2 tag with default props', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading heading-tag="h2" text="Test Heading"></tnw-heading>`, "h2");
+      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading level="h2" text="Test Heading"></tnw-heading>`, "h2");
       expect(headingElement).toHaveClasses(['fw-600', 'fs-heading']);
     });
 
     it('renders correctly for h3 tag with default props', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading heading-tag="h3" text="Test Heading"></tnw-heading>`, "h3");
+      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading level="h3" text="Test Heading"></tnw-heading>`, "h3");
       expect(headingElement).toHaveClasses(['fw-400', 'fs-xl']);
     });
 
     it('renders the correct HTML tag for h4', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 4" heading-tag="h4"></tnw-heading>`, "h4");
+      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 4" level="h4"></tnw-heading>`, "h4");
       expect(headingElement.tagName).toBe('H4');
     });
 
     it('renders the correct HTML tag for h5', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 5" heading-tag="h5"></tnw-heading>`, "h5");
+      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 5" level="h5"></tnw-heading>`, "h5");
       expect(headingElement.tagName).toBe('H5');
     });
 
     it('renders the correct HTML tag for h6', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 6" heading-tag="h6"></tnw-heading>`, "h6");
+      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 6" level="h6"></tnw-heading>`, "h6");
       expect(headingElement.tagName).toBe('H6');
     });
   });
@@ -103,7 +103,7 @@ describe('tnw-heading', () => {
     it('renders correctly with a combination of custom props', async () => {
       const headingElement = await createSpecPage(
         TnwHeading,
-        `<tnw-heading text="Custom Heading" heading-tag="h3" alignment="center" color="primary" weight="900" size="xs" text-case="uppercase" line-height="1_75" use-text-font></tnw-heading>`
+        `<tnw-heading text="Custom Heading" level="h3" alignment="center" color="primary" weight="900" size="xs" text-case="uppercase" line-height="1_75" use-text-font></tnw-heading>`
       );
       expect(headingElement).toMatchSnapshot();
     });
@@ -111,7 +111,7 @@ describe('tnw-heading', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('handles invalid level prop gracefully', async () => {
-      await checkError(TnwHeading, `<tnw-heading text="Invalid Heading" heading-tag="invalid"></tnw-heading>`, 'Invalid prop value for "level"');
+      await checkError(TnwHeading, `<tnw-heading text="Invalid Heading" level="invalid"></tnw-heading>`, 'Invalid prop value for "level"');
     });
   });
 });

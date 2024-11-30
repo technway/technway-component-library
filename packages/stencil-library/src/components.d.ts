@@ -486,7 +486,7 @@ export namespace Components {
         "color"?: TextColorType;
         /**
           * Specifies the HTML tag to be used for the heading.
-          * @deprecated
+          * @deprecated since v1.0.0
          */
         "headingTag": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**
@@ -2010,7 +2010,7 @@ declare namespace LocalJSX {
         "color"?: TextColorType;
         /**
           * Specifies the HTML tag to be used for the heading.
-          * @deprecated
+          * @deprecated since v1.0.0
          */
         "headingTag"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**

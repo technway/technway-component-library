@@ -6,9 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
-import { FontSizeType as FontSizeType1 } from "./components";
+import { ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
 export { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
-export { FontSizeType as FontSizeType1 } from "./components";
+export { ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
 export namespace Components {
     /**
      * The `tnw-accordion` component provides a collapsible/expandable section
@@ -936,6 +936,20 @@ export namespace Components {
          */
         "labelAria": string;
     }
+    interface TnwPortfolioGrid {
+        /**
+          * Number of columns in the grid layout. Default is 3.
+         */
+        "columns": number;
+        /**
+          * JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number).
+         */
+        "itemsData": string;
+        /**
+          * Spacing between grid items (identifies value of CSS gap propery).
+         */
+        "spacing": ExtendedSizeType1;
+    }
     /**
      * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
      */
@@ -1446,6 +1460,12 @@ declare global {
         prototype: HTMLTnwNavbarMenuTogglerElement;
         new (): HTMLTnwNavbarMenuTogglerElement;
     };
+    interface HTMLTnwPortfolioGridElement extends Components.TnwPortfolioGrid, HTMLStencilElement {
+    }
+    var HTMLTnwPortfolioGridElement: {
+        prototype: HTMLTnwPortfolioGridElement;
+        new (): HTMLTnwPortfolioGridElement;
+    };
     /**
      * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
      */
@@ -1541,6 +1561,7 @@ declare global {
         "tnw-navbar-dropdown-menu": HTMLTnwNavbarDropdownMenuElement;
         "tnw-navbar-menu": HTMLTnwNavbarMenuElement;
         "tnw-navbar-menu-toggler": HTMLTnwNavbarMenuTogglerElement;
+        "tnw-portfolio-grid": HTMLTnwPortfolioGridElement;
         "tnw-rating": HTMLTnwRatingElement;
         "tnw-scroll-to-top": HTMLTnwScrollToTopElement;
         "tnw-section": HTMLTnwSectionElement;
@@ -2480,6 +2501,20 @@ declare namespace LocalJSX {
          */
         "labelAria"?: string;
     }
+    interface TnwPortfolioGrid {
+        /**
+          * Number of columns in the grid layout. Default is 3.
+         */
+        "columns"?: number;
+        /**
+          * JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number).
+         */
+        "itemsData": string;
+        /**
+          * Spacing between grid items (identifies value of CSS gap propery).
+         */
+        "spacing"?: ExtendedSizeType1;
+    }
     /**
      * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
      */
@@ -2764,6 +2799,7 @@ declare namespace LocalJSX {
         "tnw-navbar-dropdown-menu": TnwNavbarDropdownMenu;
         "tnw-navbar-menu": TnwNavbarMenu;
         "tnw-navbar-menu-toggler": TnwNavbarMenuToggler;
+        "tnw-portfolio-grid": TnwPortfolioGrid;
         "tnw-rating": TnwRating;
         "tnw-scroll-to-top": TnwScrollToTop;
         "tnw-section": TnwSection;
@@ -2894,6 +2930,7 @@ declare module "@stencil/core" {
              * The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.
              */
             "tnw-navbar-menu-toggler": LocalJSX.TnwNavbarMenuToggler & JSXBase.HTMLAttributes<HTMLTnwNavbarMenuTogglerElement>;
+            "tnw-portfolio-grid": LocalJSX.TnwPortfolioGrid & JSXBase.HTMLAttributes<HTMLTnwPortfolioGridElement>;
             /**
              * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
              */

@@ -131,10 +131,10 @@ export const config: Config = {
       ],
     },
 
-    // reactOutputTarget({
-    //   outDir: '../react-library/lib/components/stencil-generated/',
-    //   stencilPackageName: '@technway/stencil-library',
-    // }),
+    reactOutputTarget({
+      outDir: '../react-library/lib/components/stencil-generated/',
+      stencilPackageName: '@technway/stencil-library',
+    }),
     {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'auto-define-custom-elements',

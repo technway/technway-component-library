@@ -27,6 +27,7 @@ This page lists all the library components.
 - [tnw-navbar-dropdown-menu](#tnw-navbar-dropdown-menu)
 - [tnw-navbar-menu](#tnw-navbar-menu)
 - [tnw-navbar-menu-toggler](#tnw-navbar-menu-toggler)
+- [tnw-portfolio-grid](#tnw-portfolio-grid)
 - [tnw-rating](#tnw-rating)
 - [tnw-scroll-to-top](#tnw-scroll-to-top)
 - [tnw-section](#tnw-section)
@@ -204,6 +205,12 @@ The menu supports nested submenus, text color customization, and adaptive behavi
 ## tnw-navbar-menu-toggler
 
 The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.
+
+---
+
+## tnw-portfolio-grid
+
+_No overview available for this component._
 
 ---
 

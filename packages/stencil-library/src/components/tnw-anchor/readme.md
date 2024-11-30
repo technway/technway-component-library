@@ -87,6 +87,7 @@ This component supports both text content and custom content via a slot, making 
 
  - [tnw-navbar-dropdown-menu](../tnw-navbar-menu/tnw-navbar-dropdown-menu)
  - [tnw-navbar-menu](../tnw-navbar-menu)
+ - [tnw-portfolio-grid](../tnw-portfolio-grid)
 
 ### Depends on
 
@@ -98,6 +99,7 @@ graph TD;
   tnw-anchor --> tnw-icon
   tnw-navbar-dropdown-menu --> tnw-anchor
   tnw-navbar-menu --> tnw-anchor
+  tnw-portfolio-grid --> tnw-anchor
   style tnw-anchor fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,5 +1,5 @@
 import { JsonDocsComponent } from '@stencil/core/internal';
-import { toPascalCase } from '../src/utils/utils';
+import { isNotEmptyString, toPascalCase } from '../src/utils/utils';
 import * as fs from 'fs';
 import path from 'path';
 
@@ -159,10 +159,20 @@ export function generateMarkdownForComponent(component: JsonDocsComponent): stri
     content += `## Properties\n\n`;
     content += `| Property | Description | Default | Type |\n`;
     content += `| --- | --- | --- | --- |\n`;
+  
     component.props.forEach(prop => {
       const formattedType = prop.type.split('|').map(type => `\`${type.trim()}\``).join(' \\| ');
-      content += `| **${prop.name}** | ${prop.docs || 'No description provided.'} | ${prop.default ? `\`${prop.default}\`` : 'N/A'} | ${formattedType} |\n`;
+  
+      const isDeprecated = isNotEmptyString(prop.deprecation);
+      const deprecationText = isDeprecated 
+        ? `<div style="color: #d9534f; font-weight: bold;">⚠️ Deprecated: ${prop.deprecation}</div><br>` 
+        : '';
+  
+      const description = `${deprecationText}<div>${prop.docs || 'No description provided.'}</div>`;
+  
+      content += `| **${prop.name}** | ${description} | ${isNotEmptyString(prop.default) ? `\`${prop.default}\`` : 'N/A'} | ${formattedType} |\n`;
     });
+  
     content += `\n`;
     content += `</div>\n\n`;
   }

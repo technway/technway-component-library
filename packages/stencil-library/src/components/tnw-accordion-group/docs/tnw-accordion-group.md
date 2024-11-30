@@ -25,7 +25,7 @@ and handles the state updates accordingly.
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **singleExpand** | Whether to expand only one accordion item at a time. | `false` | `boolean` |
+| **singleExpand** | <div>Whether to expand only one accordion item at a time.</div> | `false` | `boolean` |
 
 </div>
 

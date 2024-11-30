@@ -23,25 +23,25 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **alert** | alert displayed when the input is invalid. | `''` | `string` |
-| **alertType** | Indicates if the input is in an invalid state. | N/A | `"danger"` \| `"info"` \| `"success"` \| `"warning"` |
-| **autoComplete** | The autocomplete setting for the input. | `'off'` | `string` |
-| **borderRadius** | The border radius of the input. | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **disabled** | Disables the input if set to true. | `false` | `boolean` |
-| **helpText** | The help text providing additional information about the input. | `''` | `string` |
-| **inputId** | The unique ID for the input element. | N/A | `string` |
-| **isInvalid** | Indicates if the input has invalid data. | `false` | `boolean` |
-| **isLabelSrOnly** | If true, the label is visually hidden but still accessible to screen readers. | N/A | `boolean` |
-| **isRequired** | Marks the input as required. | `false` | `boolean` |
-| **label** | The label for the input. | N/A | `string` |
-| **maxlength** | The maximum number of characters allowed in the input. | N/A | `number` |
-| **minlength** | The minimum number of characters required in the input. | N/A | `number` |
-| **name** | The name of the input field. | `''` | `string` |
-| **pattern** | A regex pattern to validate the input. | `''` | `string` |
-| **placeholder** | The placeholder text for the input. | N/A | `string` |
-| **type** | The input type (e.g., text, password). | N/A | `string` |
-| **value** | The initial value of the input. | `''` | `string` |
-| **variant** | Defines the color variant of the input. | `'outlined'` | `"outlined"` \| `"underlined"` |
+| **alert** | <div>alert displayed when the input is invalid.</div> | `''` | `string` |
+| **alertType** | <div>Indicates if the input is in an invalid state.</div> | N/A | `"danger"` \| `"info"` \| `"success"` \| `"warning"` |
+| **autoComplete** | <div>The autocomplete setting for the input.</div> | `'off'` | `string` |
+| **borderRadius** | <div>The border radius of the input.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **disabled** | <div>Disables the input if set to true.</div> | `false` | `boolean` |
+| **helpText** | <div>The help text providing additional information about the input.</div> | `''` | `string` |
+| **inputId** | <div>The unique ID for the input element.</div> | N/A | `string` |
+| **isInvalid** | <div>Indicates if the input has invalid data.</div> | `false` | `boolean` |
+| **isLabelSrOnly** | <div>If true, the label is visually hidden but still accessible to screen readers.</div> | N/A | `boolean` |
+| **isRequired** | <div>Marks the input as required.</div> | `false` | `boolean` |
+| **label** | <div>The label for the input.</div> | N/A | `string` |
+| **maxlength** | <div>The maximum number of characters allowed in the input.</div> | N/A | `number` |
+| **minlength** | <div>The minimum number of characters required in the input.</div> | N/A | `number` |
+| **name** | <div>The name of the input field.</div> | `''` | `string` |
+| **pattern** | <div>A regex pattern to validate the input.</div> | `''` | `string` |
+| **placeholder** | <div>The placeholder text for the input.</div> | N/A | `string` |
+| **type** | <div>The input type (e.g., text, password).</div> | N/A | `string` |
+| **value** | <div>The initial value of the input.</div> | `''` | `string` |
+| **variant** | <div>Defines the color variant of the input.</div> | `'outlined'` | `"outlined"` \| `"underlined"` |
 
 </div>
 

@@ -24,14 +24,14 @@ This component supports both text content and custom content via a slot, making 
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **color** | Sets the color of the text based on the available colors. | `'auto'` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **hideNewTabIcon** | Hides the new tab icon. | `false` | `boolean` |
-| **href** | Specifies the URL that the link navigates to. This prop is required. | N/A | `string` |
-| **labelAria** | Specifies the aria-label for the anchor, providing an accessible name for screen readers. If not provided, it defaults to the value of the `text` prop or falls back to a custom value if content is slotted. | N/A | `string` |
-| **newTab** | Specifies whether the link should open in a new browser tab. | `false` | `boolean` |
-| **size** | Sets the font size of the anchor text. | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
-| **text** | Specifies the text content of the link. If not provided, the content should be provided via the default slot. | N/A | `string` |
-| **textDecoration** | Specifies the text decoration line of the anchor text. | `'underline'` | `"line-through"` \| `"none"` \| `"overline"` \| `"underline"` |
+| **color** | <div>Sets the color of the text based on the available colors.</div> | `'auto'` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **hideNewTabIcon** | <div>Hides the new tab icon.</div> | `false` | `boolean` |
+| **href** | <div>Specifies the URL that the link navigates to. This prop is required.</div> | N/A | `string` |
+| **labelAria** | <div>Specifies the aria-label for the anchor, providing an accessible name for screen readers. If not provided, it defaults to the value of the `text` prop or falls back to a custom value if content is slotted.</div> | N/A | `string` |
+| **newTab** | <div>Specifies whether the link should open in a new browser tab.</div> | `false` | `boolean` |
+| **size** | <div>Sets the font size of the anchor text.</div> | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
+| **text** | <div>Specifies the text content of the link. If not provided, the content should be provided via the default slot.</div> | N/A | `string` |
+| **textDecoration** | <div>Specifies the text decoration line of the anchor text.</div> | `'underline'` | `"line-through"` \| `"none"` \| `"overline"` \| `"underline"` |
 
 </div>
 

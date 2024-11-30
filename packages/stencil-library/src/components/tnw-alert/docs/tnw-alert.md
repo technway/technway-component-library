@@ -23,13 +23,13 @@ important notifications, success messages, warnings, or errors.
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **alertId** | The unique ID for the alert message. This ID is important for accessibility purposes, helping to associate the alert with form elements or any other triggering components. | N/A | `string` |
-| **appearance** | The appearance of the alert, defining how the alert will be styled. | `'transparent'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
-| **borderRadius** | The border radius of the alert. | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **isHidden** | Controls whether the alert is visible or hidden. When `true`, the component does not render | `false` | `boolean` |
-| **message** | The message text to display in the alert. This is the main content of the alert and should be concise but informative. | N/A | `string` |
-| **size** | Defines the font size of the alert message. | `'sm'` | `"lg"` \| `"md"` \| `"sm"` |
-| **variant** | The color variant of the alert, defining the type of message being displayed. | N/A | `"danger"` \| `"info"` \| `"success"` \| `"warning"` |
+| **alertId** | <div>The unique ID for the alert message. This ID is important for accessibility purposes, helping to associate the alert with form elements or any other triggering components.</div> | N/A | `string` |
+| **appearance** | <div>The appearance of the alert, defining how the alert will be styled.</div> | `'transparent'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
+| **borderRadius** | <div>The border radius of the alert.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **isHidden** | <div>Controls whether the alert is visible or hidden. When `true`, the component does not render</div> | `false` | `boolean` |
+| **message** | <div>The message text to display in the alert. This is the main content of the alert and should be concise but informative.</div> | N/A | `string` |
+| **size** | <div>Defines the font size of the alert message.</div> | `'sm'` | `"lg"` \| `"md"` \| `"sm"` |
+| **variant** | <div>The color variant of the alert, defining the type of message being displayed.</div> | N/A | `"danger"` \| `"info"` \| `"success"` \| `"warning"` |
 
 </div>
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/technway/technway-component-library/compare/root-v2.2.0...root-v2.3.0) (2024-11-30)
+
+
+### Features
+
+* **tnw-button:** implement tnw-portfolio component ([2a751ef](https://github.com/technway/technway-component-library/commit/2a751ef7e817d80c83a4d18581d86326d947e49c))
+
 ## [2.2.0](https://github.com/technway/technway-component-library/compare/root-v2.1.0...root-v2.2.0) (2024-11-30)
 
 

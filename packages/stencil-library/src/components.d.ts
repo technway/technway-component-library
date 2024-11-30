@@ -940,15 +940,19 @@ export namespace Components {
         /**
           * Number of columns in the grid layout. Default is 3.
          */
-        "columns": number;
+        "columns"?: number;
         /**
           * JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number).
          */
         "itemsData": string;
         /**
-          * Spacing between grid items (identifies value of CSS gap propery).
+          * Displays a gradient fade at the bottom of the grid. Default is `false`.
          */
-        "spacing": ExtendedSizeType1;
+        "showGradientFade"?: boolean;
+        /**
+          * Spacing between grid items (identifies value of CSS gap property).
+         */
+        "spacing"?: ExtendedSizeType1;
     }
     /**
      * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
@@ -2511,7 +2515,11 @@ declare namespace LocalJSX {
          */
         "itemsData": string;
         /**
-          * Spacing between grid items (identifies value of CSS gap propery).
+          * Displays a gradient fade at the bottom of the grid. Default is `false`.
+         */
+        "showGradientFade"?: boolean;
+        /**
+          * Spacing between grid items (identifies value of CSS gap property).
          */
         "spacing"?: ExtendedSizeType1;
     }

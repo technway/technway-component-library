@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-30T17:28:59",
+  "timestamp": "2024-11-30T19:37:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -8943,7 +8943,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8968,6 +8968,28 @@
           "required": true
         },
         {
+          "name": "showGradientFade",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-gradient-fade",
+          "reflectToAttr": false,
+          "docs": "Displays a gradient fade at the bottom of the grid. Default is `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "spacing",
           "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -8984,7 +9006,7 @@
           "mutable": false,
           "attr": "spacing",
           "reflectToAttr": false,
-          "docs": "Spacing between grid items (identifies value of CSS gap propery).",
+          "docs": "Spacing between grid items (identifies value of CSS gap property).",
           "docsTags": [],
           "default": "'sm'",
           "values": [
@@ -9009,7 +9031,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],

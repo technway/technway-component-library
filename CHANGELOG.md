@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/technway/technway-component-library/compare/root-v2.1.0...root-v2.2.0) (2024-11-30)
+
+
+### Features
+
+* **tnw-header-banner:** add options to add image ([fedd998](https://github.com/technway/technway-component-library/commit/fedd998525cc079270108f7bb9da6954253fc09f))
+
 ## [2.1.0](https://github.com/technway/technway-component-library/compare/root-v2.0.0...root-v2.1.0) (2024-11-30)
 
 

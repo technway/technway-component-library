@@ -90,7 +90,6 @@ export class TnwNavbarMenu {
     // Set the initial hideBelowBreakpoint value in the store
     navbarState.hideBelowBreakpoint = this.hideBelowBreakpoint;
 
-
     this.parsedMenuData = await parseJSONAsync(this.itemsData);
 
     // Validate Props

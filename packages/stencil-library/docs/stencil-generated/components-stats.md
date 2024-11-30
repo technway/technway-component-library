@@ -6,16 +6,16 @@ This page provides an overview of statistics related to the components.
 
 | Statistic | Value |
 | --- | --- |
-| **Total Components** | `29` |
-| **Total Props** | `251` |
+| **Total Components** | `30` |
+| **Total Props** | `254` |
 | **Total Events** | `2` |
 | **Total Methods** | `0` |
 | **Total Slots** | `41` |
-| **Total Features** | `294` |
+| **Total Features** | `297` |
 |   |  |
-| **Shadow DOM Components** | `29` |
+| **Shadow DOM Components** | `30` |
 | **Light DOM Components** | `0` |
-| **Components with Props** | `29` |
+| **Components with Props** | `30` |
 | **Components with Events** | `2` |
 | **Components with Methods** | `0` |
 | **Components with Slots** | `19` |
@@ -202,6 +202,14 @@ This page provides an overview of statistics related to the components.
 | Feature | Count |
 | --- | --- |
 | **Props** | `1` |
+| **Events** | `0` |
+| **Methods** | `0` |
+| **Slots** | `0` |
+
+### tnw-portfolio-grid
+| Feature | Count |
+| --- | --- |
+| **Props** | `3` |
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `0` |

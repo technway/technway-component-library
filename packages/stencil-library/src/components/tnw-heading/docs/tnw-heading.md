@@ -28,6 +28,7 @@ along with the ability to use a different HTML tag for the heading element.
 | **alignment** | Sets the text alignment within the container. | N/A | `"center"` \| `"end"` \| `"justify"` \| `"left"` \| `"right"` \| `"start"` |
 | **color** | Sets the color of the text based on the available theme colors. | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
 | **headingTag** | Specifies the HTML tag to be used for the heading. | `'h2'` | `"div"` \| `"h1"` \| `"h2"` \| `"h3"` \| `"h4"` \| `"h5"` \| `"h6"` |
+| **level** | Specifies the HTML tag to be used for the heading. | `'h2'` | `"div"` \| `"h1"` \| `"h2"` \| `"h3"` \| `"h4"` \| `"h5"` \| `"h6"` |
 | **lineHeight** | Adjusts the line height of the text. | `"1_5"` | `"1"` \| `"1_25"` \| `"1_5"` \| `"1_75"` \| `"2"` \| `"2_25"` \| `"2_5"` |
 | **size** | Defines the font size of the text. | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
 | **text** | The content of the heading. If no text is provided, the slot content will be used. | N/A | `string` |

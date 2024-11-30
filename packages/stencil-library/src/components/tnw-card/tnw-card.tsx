@@ -200,7 +200,7 @@ export class TnwCard {
     }
 
     return (
-      <tnw-heading text={this.heading} size="lg" headingTag='h3' alignment={this.textAlignment} weight='600' part='heading' />
+      <tnw-heading text={this.heading} size="lg" level='h3' alignment={this.textAlignment} weight='600' part='heading' />
     )
   }
 
@@ -210,7 +210,7 @@ export class TnwCard {
     }
 
     return (
-      <tnw-heading text={this.subheading} size="sm" headingTag='h4' alignment={this.textAlignment} part='subheading' />
+      <tnw-heading text={this.subheading} size="sm" level='h4' alignment={this.textAlignment} part='subheading' />
     )
   }
 

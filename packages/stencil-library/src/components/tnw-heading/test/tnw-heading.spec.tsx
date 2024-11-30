@@ -28,7 +28,7 @@ describe('tnw-heading', () => {
   });
 
   describe('Heading Tag Rendering', () => {
-    it('renders the correct HTML tag based on headingTag prop', async () => {
+    it('renders the correct HTML tag based on level prop', async () => {
       const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 1" heading-tag="h1"></tnw-heading>`, "h1");
       expect(headingElement.tagName).toBe('H1');
     });
@@ -110,8 +110,8 @@ describe('tnw-heading', () => {
   });
 
   describe('Error Handling and Edge Cases', () => {
-    it('handles invalid headingTag prop gracefully', async () => {
-      await checkError(TnwHeading, `<tnw-heading text="Invalid Heading" heading-tag="invalid"></tnw-heading>`, 'Invalid prop value for "headingTag"');
+    it('handles invalid level prop gracefully', async () => {
+      await checkError(TnwHeading, `<tnw-heading text="Invalid Heading" heading-tag="invalid"></tnw-heading>`, 'Invalid prop value for "level"');
     });
   });
 });

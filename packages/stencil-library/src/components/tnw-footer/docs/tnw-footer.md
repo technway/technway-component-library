@@ -25,20 +25,20 @@ It can be customized to display dynamic or static years, as well as pre-defined 
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **backgroundColor** | The background color for the footer. | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **borderTopColor** | The color of the top border of the footer. | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **centerContent** | Centering text | `false` | `boolean` |
-| **disableInternalContainer** | If `true`, a container class will be added around the content to align it within the page layout. Default is `false`. | `false` | `boolean` |
-| **enableSlot** | If true, the footer will render custom content using a slot instead of the default content. | `false` | `boolean` |
-| **endYear** | The ending year to display in the footer. If `useCurrentYearAsEndYear` is true, this will default to the current year. | N/A | `number` |
-| **organizationName** | The name of the organization to display in the footer. | N/A | `string` |
-| **organizationNameColor** | The color of the organization name. Defaults to the same value as `textColor`. | `this.textColor` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **postText** | Text to display after the organization name. | N/A | `string` |
-| **preText** | Text to display before the organization name. | N/A | `string` |
-| **startYear** | The starting year to display in the footer. If `useCurrentYearAsStartYear` is true, this will default to the current year. | N/A | `number` |
-| **textColor** | The text color for the footer content. | `'auto'` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **useCurrentYearAsEndYear** | If true, the ending year will be set to the current year. | `false` | `boolean` |
-| **useCurrentYearAsStartYear** | If true, the starting year will be set to the current year. | `false` | `boolean` |
+| **backgroundColor** | <div>The background color for the footer.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **borderTopColor** | <div>The color of the top border of the footer.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **centerContent** | <div>Centering text</div> | `false` | `boolean` |
+| **disableInternalContainer** | <div>If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.</div> | `false` | `boolean` |
+| **enableSlot** | <div>If true, the footer will render custom content using a slot instead of the default content.</div> | `false` | `boolean` |
+| **endYear** | <div>The ending year to display in the footer. If `useCurrentYearAsEndYear` is true, this will default to the current year.</div> | N/A | `number` |
+| **organizationName** | <div>The name of the organization to display in the footer.</div> | N/A | `string` |
+| **organizationNameColor** | <div>The color of the organization name. Defaults to the same value as `textColor`.</div> | `this.textColor` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **postText** | <div>Text to display after the organization name.</div> | N/A | `string` |
+| **preText** | <div>Text to display before the organization name.</div> | N/A | `string` |
+| **startYear** | <div>The starting year to display in the footer. If `useCurrentYearAsStartYear` is true, this will default to the current year.</div> | N/A | `number` |
+| **textColor** | <div>The text color for the footer content.</div> | `'auto'` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **useCurrentYearAsEndYear** | <div>If true, the ending year will be set to the current year.</div> | `false` | `boolean` |
+| **useCurrentYearAsStartYear** | <div>If true, the starting year will be set to the current year.</div> | `false` | `boolean` |
 
 </div>
 

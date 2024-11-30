@@ -23,14 +23,14 @@ It allows you to create lists with various marker types, colors, and fonts, and 
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **color** | Sets the color of the list items based on the available colors. | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **lineHeight** | Adjusts the line height of the list items. | `"1_75"` | `"1"` \| `"1_25"` \| `"1_5"` \| `"1_75"` \| `"2"` \| `"2_25"` \| `"2_5"` |
-| **listData** | A JSON string representing the list data. Each item can contain `text` and an optional `icon`. | N/A | `string` |
-| **markerPosition** | Specifies the position of the list marker relative to the text. | `'inside'` | `"inside"` \| `"outside"` |
-| **markerType** | Defines the type of list marker to use. | `'disc'` | `"circle"` \| `"decimal"` \| `"disc"` \| `"lower-roman"` \| `"none"` \| `"square"` \| `"upper-roman"` |
-| **size** | Defines the font size of the list items. | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
-| **textCase** | Controls the list items text transformation (e.g., uppercase, lowercase). | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
-| **weight** | Specifies the font weight of the list items. | N/A | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
+| **color** | <div>Sets the color of the list items based on the available colors.</div> | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **lineHeight** | <div>Adjusts the line height of the list items.</div> | `"1_75"` | `"1"` \| `"1_25"` \| `"1_5"` \| `"1_75"` \| `"2"` \| `"2_25"` \| `"2_5"` |
+| **listData** | <div>A JSON string representing the list data. Each item can contain `text` and an optional `icon`.</div> | N/A | `string` |
+| **markerPosition** | <div>Specifies the position of the list marker relative to the text.</div> | `'inside'` | `"inside"` \| `"outside"` |
+| **markerType** | <div>Defines the type of list marker to use.</div> | `'disc'` | `"circle"` \| `"decimal"` \| `"disc"` \| `"lower-roman"` \| `"none"` \| `"square"` \| `"upper-roman"` |
+| **size** | <div>Defines the font size of the list items.</div> | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
+| **textCase** | <div>Controls the list items text transformation (e.g., uppercase, lowercase).</div> | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
+| **weight** | <div>Specifies the font weight of the list items.</div> | N/A | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
 
 </div>
 

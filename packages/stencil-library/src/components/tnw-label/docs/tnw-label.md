@@ -23,13 +23,13 @@ It supports various font sizes, weights, colors, and text transformations. Addit
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **color** | Sets the color of the label based on the available colors. | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **htmlFor** | The `for` attribute, used to associate the label with an input element by ID. | N/A | `string` |
-| **isSrOnly** | This prop is used to render the label as a hidden label for accessibility purposes. | `false` | `boolean` |
-| **size** | Defines the font size of the label. | `"sm"` | `"lg"` \| `"md"` \| `"sm"` |
-| **text** | The content of the component. | N/A | `number` \| `string` |
-| **textCase** | Controls the text transformation (e.g., uppercase, lowercase). | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
-| **weight** | Specifies the font weight of the label. | `"500"` | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
+| **color** | <div>Sets the color of the label based on the available colors.</div> | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **htmlFor** | <div>The `for` attribute, used to associate the label with an input element by ID.</div> | N/A | `string` |
+| **isSrOnly** | <div>This prop is used to render the label as a hidden label for accessibility purposes.</div> | `false` | `boolean` |
+| **size** | <div>Defines the font size of the label.</div> | `"sm"` | `"lg"` \| `"md"` \| `"sm"` |
+| **text** | <div>The content of the component.</div> | N/A | `number` \| `string` |
+| **textCase** | <div>Controls the text transformation (e.g., uppercase, lowercase).</div> | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
+| **weight** | <div>Specifies the font weight of the label.</div> | `"500"` | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
 
 </div>
 

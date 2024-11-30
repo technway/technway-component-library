@@ -23,12 +23,12 @@ It supports various appearances and color variants, and allows for custom conten
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **alignment** | If `true`, the banner will center its content. | `'center'` | `"center"` \| `"end"` \| `"start"` |
-| **appearance** | Defines the visual appearance of the banner (e.g., solid, outline). | `'solid'` | `"mixed"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
-| **borderRadius** | Defines the border radius of the banner. | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **enableContentSlot** | If `true`, the banner will render custom content using the `content` slot. 
-When this is enabled, the standard slots (`short-title`, `title`, `description`, `button`) will not be used. | `false` | `boolean` |
-| **variant** | Specifies the primary color variant of the banner. | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **alignment** | <div>If `true`, the banner will center its content.</div> | `'center'` | `"center"` \| `"end"` \| `"start"` |
+| **appearance** | <div>Defines the visual appearance of the banner (e.g., solid, outline).</div> | `'solid'` | `"mixed"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
+| **borderRadius** | <div>Defines the border radius of the banner.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **enableContentSlot** | <div>If `true`, the banner will render custom content using the `content` slot. 
+When this is enabled, the standard slots (`short-title`, `title`, `description`, `button`) will not be used.</div> | `false` | `boolean` |
+| **variant** | <div>Specifies the primary color variant of the banner.</div> | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 
 </div>
 

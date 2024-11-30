@@ -25,13 +25,13 @@ It supports customization of the icon, size, appearance, and allows for the use 
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **appearance** | Determines the appearance style of the scroll-to-top button. | `'solid'` | `"mixed"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
-| **borderRadius** | Determines the border radius. | `"default"` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **color** | Determines the color of the icon. | N/A | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **customIconName** | The name of the custom icon to be used for the scroll-to-top button. | `'tnw-arrow-thin-up'` | `string` |
-| **enableCustomSvgIcon** | If true, a custom SVG icon provided via the `icon-svg` slot will be used. | `false` | `boolean` |
-| **size** | Specifies the size of the scroll-to-top button. | `'md'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **variant** | Defines the color variant of the scroll-to-top button. | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **appearance** | <div>Determines the appearance style of the scroll-to-top button.</div> | `'solid'` | `"mixed"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
+| **borderRadius** | <div>Determines the border radius.</div> | `"default"` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **color** | <div>Determines the color of the icon.</div> | N/A | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **customIconName** | <div>The name of the custom icon to be used for the scroll-to-top button.</div> | `'tnw-arrow-thin-up'` | `string` |
+| **enableCustomSvgIcon** | <div>If true, a custom SVG icon provided via the `icon-svg` slot will be used.</div> | `false` | `boolean` |
+| **size** | <div>Specifies the size of the scroll-to-top button.</div> | `'md'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **variant** | <div>Defines the color variant of the scroll-to-top button.</div> | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 
 </div>
 

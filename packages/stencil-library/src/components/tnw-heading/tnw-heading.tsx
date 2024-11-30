@@ -36,13 +36,13 @@ export class TnwHeading {
   /**
    * Specifies the HTML tag to be used for the heading.
    */
-  @Prop() level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' = 'h2';
+  @Prop() level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h2';
 
   /**
    * Specifies the HTML tag to be used for the heading.
    * @deprecated since v1.0.0
    */
-  @Prop() headingTag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' = 'h2';
+  @Prop() headingTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 
   /**
    * Sets the text alignment within the container.

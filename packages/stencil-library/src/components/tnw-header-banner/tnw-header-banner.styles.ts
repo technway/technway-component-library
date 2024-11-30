@@ -2,19 +2,20 @@ import { GLOBAL_PREFIX } from "../../utils/utils";
 
 const baseClass = `${GLOBAL_PREFIX}-header-banner`;
 const contentClass = `${baseClass}__content`;
+const imageClass = `${baseClass}__image`;
 
 export const styles = `
 :host {
+    z-index: 2;
+    max-width: 100%;
+    margin-block: auto !important;
+    padding-bottom: 100px !important;
+}
+
+.${contentClass} {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    position: relative;
-    z-index: 2;
-    max-width: 100%;
-}
-
-:host(.${baseClass}--stickyNavbar) {
-    margin-top: -100px;
 }
 
 .${contentClass}--start {
@@ -64,5 +65,15 @@ export const styles = `
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.${imageClass} {
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    max-width: 800px;
 }
 `;

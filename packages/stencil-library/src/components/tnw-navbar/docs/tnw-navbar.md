@@ -24,18 +24,18 @@ It supports various appearance styles, optional glassmorphism effects, and flexi
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **appearance** | <div>Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.</div> | `'outlined'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"outlined-bottom"` \| `"solid"` \| `"transparent"` |
+| **appearance** | <div>Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.</div> | `'solid'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"outlined-bottom"` \| `"solid"` \| `"transparent"` |
 | **borderRadius** | <div>Sets the border-radius of the navigation bar.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **burgerMenuPlacement** | <div>Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.</div> | `'end'` | `"end"` \| `"start"` |
 | **disableInternalContainer** | <div>If true, the navigation bar content will not be wrapped in a container for centering and padding.</div> | `false` | `boolean` |
 | **exactCenterMiddleSlot** | <div>When true, the middle slot will be centered exactly in the horizontal center of the screen.</div> | `false` | `boolean` |
-| **paddingSize** | <div>Sets the padding size of the navigation bar.</div> | `'sm'` | `"lg"` \| `"md"` \| `"sm"` |
+| **paddingSize** | <div>Sets the padding size of the navigation bar.</div> | N/A | `"lg"` \| `"md"` \| `"sm"` |
 | **sticky** | <div>Makes the navigation bar sticky at the top of the viewport when set to true.</div> | `false` | `boolean` |
 | **useEndSlot** | <div>Enables the end slot for custom content, like user actions or profile links.</div> | `false` | `boolean` |
 | **useGlassmorphismEffect** | <div>Enables a glassmorphism effect for the navigation bar. When true, the navbar will have a frosted glass appearance.</div> | `false` | `boolean` |
 | **useMiddleSlot** | <div>Enables the middle slot for custom content, typically used for navigation links.</div> | `false` | `boolean` |
 | **useStartSlot** | <div>Enables the start slot for custom content, such as logos or menus.</div> | `false` | `boolean` |
-| **variant** | <div>Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.</div> | N/A | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **variant** | <div>Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 
 </div>
 

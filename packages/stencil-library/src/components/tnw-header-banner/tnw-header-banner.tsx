@@ -79,7 +79,7 @@ export class TnwHeaderBanner {
   /**
    * Path to the image file to be displayed in the banner. if provided, the `imageAlt` prop is required.
    */
-  @Prop() imagePath?: string;
+  @Prop() imageSrc?: string;
 
   /**
    * Alternative text for the banner image, improving accessibility.
@@ -222,28 +222,36 @@ export class TnwHeaderBanner {
   }
 
   private renderImage(): JSX.Element | null {
-    const { enableImageSlot, imageBorderRadius } = this;
-    if (enableImageSlot || isNotEmptyString(this.imagePath)) {
+    const { enableImageSlot, imageBorderRadius, imageSrc } = this;
+
+    if (enableImageSlot || isNotEmptyString(imageSrc)) {
       return (
         <div class={`${this.baseClass}__image`} part='image-container'>
           {enableImageSlot ?
             <slot name='image' />
             :
-            <tnw-image src={this.imagePath} alt={this.imageAlt} BorderRadius={imageBorderRadius} part='image' />
+            <tnw-image src={imageSrc} alt={this.imageAlt} BorderRadius={imageBorderRadius} part='image' heightSize='full' widthSize='full' objectFit='cover' />
           }
         </div>
       );
     }
   }
 
+  private renderContent(): JSX.Element {
+    return (
+      <div class={this.getContentClasses()} part='content'>
+        {this.renderHeadings()}
+        {this.renderDescription()}
+        {this.renderButton()}
+      </div>
+    );
+  }
+
   render() {
     return (
       <Host class={this.getHostClasses()}>
-        <div class={this.getContentClasses()} part='content'>
-          {this.renderHeadings()}
-          {this.renderDescription()}
-          {this.renderButton()}
-        </div>
+        {this.renderContent()}
+        {this.renderImage()}
       </Host>
     );
   }

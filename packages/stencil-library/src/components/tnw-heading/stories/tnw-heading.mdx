@@ -53,16 +53,16 @@ along with the ability to use a different HTML tag for the heading element.
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **alignment** | Sets the text alignment within the container. | N/A | \`"center"\` \\| \`"end"\` \\| \`"justify"\` \\| \`"left"\` \\| \`"right"\` \\| \`"start"\` |
-| **color** | Sets the color of the text based on the available theme colors. | N/A | \`"auto"\` \\| \`"black"\` \\| \`"gray100"\` \\| \`"gray200"\` \\| \`"gray300"\` \\| \`"gray400"\` \\| \`"gray500"\` \\| \`"gray600"\` \\| \`"gray700"\` \\| \`"gray800"\` \\| \`"gray900"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"placeholder"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
-| **headingTag** | Specifies the HTML tag to be used for the heading. | \`'h2'\` | \`"div"\` \\| \`"h1"\` \\| \`"h2"\` \\| \`"h3"\` \\| \`"h4"\` \\| \`"h5"\` \\| \`"h6"\` |
-| **level** | Specifies the HTML tag to be used for the heading. | \`'h2'\` | \`"div"\` \\| \`"h1"\` \\| \`"h2"\` \\| \`"h3"\` \\| \`"h4"\` \\| \`"h5"\` \\| \`"h6"\` |
-| **lineHeight** | Adjusts the line height of the text. | \`"1_5"\` | \`"1"\` \\| \`"1_25"\` \\| \`"1_5"\` \\| \`"1_75"\` \\| \`"2"\` \\| \`"2_25"\` \\| \`"2_5"\` |
-| **size** | Defines the font size of the text. | N/A | \`"2xl"\` \\| \`"3xl"\` \\| \`"4xl"\` \\| \`"5xl"\` \\| \`"6xl"\` \\| \`"7xl"\` \\| \`"8xl"\` \\| \`"9xl"\` \\| \`"heading"\` \\| \`"lg"\` \\| \`"md"\` \\| \`"sm"\` \\| \`"text"\` \\| \`"xl"\` \\| \`"xs"\` |
-| **text** | The content of the heading. If no text is provided, the slot content will be used. | N/A | \`string\` |
-| **textCase** | Controls the text transformation (e.g., uppercase, lowercase). | N/A | \`"capitalize"\` \\| \`"lowercase"\` \\| \`"normal-case"\` \\| \`"uppercase"\` |
-| **useTextFont** | If true, applies a text font style to the heading instead of the default heading font. | \`false\` | \`boolean\` |
-| **weight** | Specifies the font weight of the text. | N/A | \`"100"\` \\| \`"200"\` \\| \`"300"\` \\| \`"400"\` \\| \`"500"\` \\| \`"600"\` \\| \`"700"\` \\| \`"800"\` \\| \`"900"\` \\| \`"heading"\` \\| \`"text"\` |
+| **alignment** | <div>Sets the text alignment within the container.</div> | N/A | \`"center"\` \\| \`"end"\` \\| \`"justify"\` \\| \`"left"\` \\| \`"right"\` \\| \`"start"\` |
+| **color** | <div>Sets the color of the text based on the available theme colors.</div> | N/A | \`"auto"\` \\| \`"black"\` \\| \`"gray100"\` \\| \`"gray200"\` \\| \`"gray300"\` \\| \`"gray400"\` \\| \`"gray500"\` \\| \`"gray600"\` \\| \`"gray700"\` \\| \`"gray800"\` \\| \`"gray900"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"placeholder"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
+| **headingTag** | <div style="color: #d9534f; font-weight: bold;">⚠️ Deprecated: since v1.0.0</div><br><div>Specifies the HTML tag to be used for the heading.</div> | \`'h2'\` | \`"div"\` \\| \`"h1"\` \\| \`"h2"\` \\| \`"h3"\` \\| \`"h4"\` \\| \`"h5"\` \\| \`"h6"\` |
+| **level** | <div>Specifies the HTML tag to be used for the heading.</div> | \`'h2'\` | \`"div"\` \\| \`"h1"\` \\| \`"h2"\` \\| \`"h3"\` \\| \`"h4"\` \\| \`"h5"\` \\| \`"h6"\` |
+| **lineHeight** | <div>Adjusts the line height of the text.</div> | \`"1_5"\` | \`"1"\` \\| \`"1_25"\` \\| \`"1_5"\` \\| \`"1_75"\` \\| \`"2"\` \\| \`"2_25"\` \\| \`"2_5"\` |
+| **size** | <div>Defines the font size of the text.</div> | N/A | \`"2xl"\` \\| \`"3xl"\` \\| \`"4xl"\` \\| \`"5xl"\` \\| \`"6xl"\` \\| \`"7xl"\` \\| \`"8xl"\` \\| \`"9xl"\` \\| \`"heading"\` \\| \`"lg"\` \\| \`"md"\` \\| \`"sm"\` \\| \`"text"\` \\| \`"xl"\` \\| \`"xs"\` |
+| **text** | <div>The content of the heading. If no text is provided, the slot content will be used.</div> | N/A | \`string\` |
+| **textCase** | <div>Controls the text transformation (e.g., uppercase, lowercase).</div> | N/A | \`"capitalize"\` \\| \`"lowercase"\` \\| \`"normal-case"\` \\| \`"uppercase"\` |
+| **useTextFont** | <div>If true, applies a text font style to the heading instead of the default heading font.</div> | \`false\` | \`boolean\` |
+| **weight** | <div>Specifies the font weight of the text.</div> | N/A | \`"100"\` \\| \`"200"\` \\| \`"300"\` \\| \`"400"\` \\| \`"500"\` \\| \`"600"\` \\| \`"700"\` \\| \`"800"\` \\| \`"900"\` \\| \`"heading"\` \\| \`"text"\` |
 
 </div>
 

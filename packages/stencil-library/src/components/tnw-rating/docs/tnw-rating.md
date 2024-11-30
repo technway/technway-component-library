@@ -23,12 +23,12 @@ The `tnw-rating` component is used to display a star-based rating system, allowi
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **emptyStarColor** | The color of the empty (unfilled) stars. | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **filledStarColor** | The color of the filled stars. | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **hideEmptyStars** | If true, empty stars (unfilled) will be hidden, showing only the filled stars. | `false` | `boolean` |
-| **rating** | The current rating value to display as filled stars. | `this.totalStars || 0` | `number` |
-| **starSize** | The size of the stars. | `'sm'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **totalStars** | The total number of stars to display in the rating component. | `5` | `number` |
+| **emptyStarColor** | <div>The color of the empty (unfilled) stars.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **filledStarColor** | <div>The color of the filled stars.</div> | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **hideEmptyStars** | <div>If true, empty stars (unfilled) will be hidden, showing only the filled stars.</div> | `false` | `boolean` |
+| **rating** | <div>The current rating value to display as filled stars.</div> | `this.totalStars || 0` | `number` |
+| **starSize** | <div>The size of the stars.</div> | `'sm'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **totalStars** | <div>The total number of stars to display in the rating component.</div> | `5` | `number` |
 
 </div>
 

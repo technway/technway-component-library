@@ -23,11 +23,11 @@ This component supports various customization options including different varian
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **appearance** | The appearance determines the overall style of the badge, such as whether it is solid or outlined. | `'outlined'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
-| **borderRadius** | The border radius of the badge. | `'lg'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **label** | The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot. | N/A | `number` \| `string` |
-| **size** | The size of the badge. | `'sm'` | `"lg"` \| `"md"` \| `"sm"` |
-| **variant** | The color variant of the badge, determining the overall color scheme. | `'auto'` | `"auto"` \| `"black"` \| `"danger"` \| `"info"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"success"` \| `"warning"` \| `"white"` |
+| **appearance** | <div>The appearance determines the overall style of the badge, such as whether it is solid or outlined.</div> | `'outlined'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
+| **borderRadius** | <div>The border radius of the badge.</div> | `'lg'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **label** | <div>The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot.</div> | N/A | `number` \| `string` |
+| **size** | <div>The size of the badge.</div> | `'sm'` | `"lg"` \| `"md"` \| `"sm"` |
+| **variant** | <div>The color variant of the badge, determining the overall color scheme.</div> | `'auto'` | `"auto"` \| `"black"` \| `"danger"` \| `"info"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"success"` \| `"warning"` \| `"white"` |
 
 </div>
 

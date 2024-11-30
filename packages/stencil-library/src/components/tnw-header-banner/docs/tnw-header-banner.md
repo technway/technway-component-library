@@ -26,14 +26,14 @@ It is designed to align with the theme of the parent header component, making it
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **alignment** | Controls the alignment of the banner content. Acceptable values are 'start', 'center', or 'end' to align the content horizontally and vertically within the banner. Default is 'start'. | `'start'` | `"center"` \| `"end"` \| `"left"` \| `"right"` \| `"start"` |
-| **buttonLabel** | The label for the banner's button. If not provided, the button content can be customized via the `button` slot. | N/A | `string` |
-| **description** | The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed. | N/A | `string` |
-| **heading** | The main heading text of the banner. This can be a simple string or passed through a slot using the `heading` slot. | N/A | `string` |
-| **stickyNavbar** | When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar. | `false` | `boolean` |
-| **subheading** | The subheading text of the banner. It provides secondary information under the main heading and can be customized via the `subheading` slot if needed. | N/A | `string` |
-| **theme** | Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'. | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **width** | Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage. | `'full'` | `"full"` \| `"lg"` \| `"md"` \| `"sm"` |
+| **alignment** | <div>Controls the alignment of the banner content. Acceptable values are 'start', 'center', or 'end' to align the content horizontally and vertically within the banner. Default is 'start'.</div> | `'start'` | `"center"` \| `"end"` \| `"left"` \| `"right"` \| `"start"` |
+| **buttonLabel** | <div>The label for the banner's button. If not provided, the button content can be customized via the `button` slot.</div> | N/A | `string` |
+| **description** | <div>The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed.</div> | N/A | `string` |
+| **heading** | <div>The main heading text of the banner. This can be a simple string or passed through a slot using the `heading` slot.</div> | N/A | `string` |
+| **stickyNavbar** | <div>When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.</div> | `false` | `boolean` |
+| **subheading** | <div>The subheading text of the banner. It provides secondary information under the main heading and can be customized via the `subheading` slot if needed.</div> | N/A | `string` |
+| **theme** | <div>Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **width** | <div>Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.</div> | `'full'` | `"full"` \| `"lg"` \| `"md"` \| `"sm"` |
 
 </div>
 

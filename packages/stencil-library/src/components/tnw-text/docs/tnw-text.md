@@ -24,14 +24,14 @@ It supports various typography-related properties, color, and alignment.
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **alignment** | Specifies the text alignment. | N/A | `"center"` \| `"end"` \| `"justify"` \| `"left"` \| `"right"` \| `"start"` |
-| **color** | Sets the color of the text based on the available colors. | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **lineHeight** | Adjusts the line height of the text. | `"1_75"` | `"1"` \| `"1_25"` \| `"1_5"` \| `"1_75"` \| `"2"` \| `"2_25"` \| `"2_5"` |
-| **size** | Defines the font size of the text. | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
-| **text** | The content of the component. | N/A | `number` \| `string` |
-| **textCase** | Controls the text transformation (e.g., uppercase, lowercase). | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
-| **textTag** | Defines the HTML tag of the component. | `"p"` | `"p"` \| `"span"` |
-| **weight** | Specifies the font weight of the text. | N/A | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
+| **alignment** | <div>Specifies the text alignment.</div> | N/A | `"center"` \| `"end"` \| `"justify"` \| `"left"` \| `"right"` \| `"start"` |
+| **color** | <div>Sets the color of the text based on the available colors.</div> | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **lineHeight** | <div>Adjusts the line height of the text.</div> | `"1_75"` | `"1"` \| `"1_25"` \| `"1_5"` \| `"1_75"` \| `"2"` \| `"2_25"` \| `"2_5"` |
+| **size** | <div>Defines the font size of the text.</div> | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
+| **text** | <div>The content of the component.</div> | N/A | `number` \| `string` |
+| **textCase** | <div>Controls the text transformation (e.g., uppercase, lowercase).</div> | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
+| **textTag** | <div>Defines the HTML tag of the component.</div> | `"p"` | `"p"` \| `"span"` |
+| **weight** | <div>Specifies the font weight of the text.</div> | N/A | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
 
 </div>
 

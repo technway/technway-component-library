@@ -25,11 +25,11 @@ The `tnw-select` component provides a custom dropdown select element with suppor
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **borderRadius** | Border radius of the select. | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **defaultOption** | The default option that should be selected on component load. | N/A | `string` |
-| **label** | The label to display when no option is selected. | `'Select an option'` | `string` |
-| **optionsData** | JSON string representing the options available in the select dropdown.
-Each option can include a label, value, ariaLabel, and disabled state. | N/A | `string` |
+| **borderRadius** | <div>Border radius of the select.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **defaultOption** | <div>The default option that should be selected on component load.</div> | N/A | `string` |
+| **label** | <div>The label to display when no option is selected.</div> | `'Select an option'` | `string` |
+| **optionsData** | <div>JSON string representing the options available in the select dropdown.
+Each option can include a label, value, ariaLabel, and disabled state.</div> | N/A | `string` |
 
 </div>
 

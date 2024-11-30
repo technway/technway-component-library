@@ -25,17 +25,17 @@ By default, the component renders a button element, but it can also render an an
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **appearance** | Specifies the appearance style of the button. | `'solid'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
-| **borderRadius** | Specifies the border radius of the button. | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **disabled** | Specifies whether the button is disabled. | `false` | `boolean` |
-| **hoverAppearance** | Specifies the hover appearance style for the button. | `'none'` | `"none"` \| `"outlined"` \| `"solid"` |
-| **hoverVariant** | Specifies the hover variant color for the button color. | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **href** | If provided, the button will render as a link with this `href`. | N/A | `string` |
-| **label** | Specifies the text label displayed on the button. This prop is required. | N/A | `string` |
-| **newTab** | If `true`, the link will open in a new tab. Only relevant when `href` is provided. | `false` | `boolean` |
-| **size** | Determines the size of the button. | `'md'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **type** | Specifies the button type. | `'button'` | `"button"` \| `"submit"` |
-| **variant** | Defines the color variant of the button. | `'primary'` | `"auto"` \| `"black"` \| `"danger"` \| `"info"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"success"` \| `"warning"` \| `"white"` |
+| **appearance** | <div>Specifies the appearance style of the button.</div> | `'solid'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
+| **borderRadius** | <div>Specifies the border radius of the button.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **disabled** | <div>Specifies whether the button is disabled.</div> | `false` | `boolean` |
+| **hoverAppearance** | <div>Specifies the hover appearance style for the button.</div> | `'none'` | `"none"` \| `"outlined"` \| `"solid"` |
+| **hoverVariant** | <div>Specifies the hover variant color for the button color.</div> | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **href** | <div>If provided, the button will render as a link with this `href`.</div> | N/A | `string` |
+| **label** | <div>Specifies the text label displayed on the button. This prop is required.</div> | N/A | `string` |
+| **newTab** | <div>If `true`, the link will open in a new tab. Only relevant when `href` is provided.</div> | `false` | `boolean` |
+| **size** | <div>Determines the size of the button.</div> | `'md'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **type** | <div>Specifies the button type.</div> | `'button'` | `"button"` \| `"submit"` |
+| **variant** | <div>Defines the color variant of the button.</div> | `'primary'` | `"auto"` \| `"black"` \| `"danger"` \| `"info"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"success"` \| `"warning"` \| `"white"` |
 
 </div>
 

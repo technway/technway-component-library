@@ -15,11 +15,12 @@
 
 ## Properties
 
-| Property                 | Attribute    | Description                                                                                                                                                                                                         | Type                                   | Default     |
-| ------------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
-| `columns`                | `columns`    | Number of columns in the grid layout. Default is 3.                                                                                                                                                                 | `number`                               | `3`         |
-| `itemsData` _(required)_ | `items-data` | JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number). | `string`                               | `undefined` |
-| `spacing`                | `spacing`    | Spacing between grid items (identifies value of CSS gap propery).                                                                                                                                                   | `"lg" \| "md" \| "sm" \| "xl" \| "xs"` | `'sm'`      |
+| Property                 | Attribute            | Description                                                                                                                                                                                                         | Type                                   | Default     |
+| ------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
+| `columns`                | `columns`            | Number of columns in the grid layout. Default is 3.                                                                                                                                                                 | `number`                               | `3`         |
+| `itemsData` _(required)_ | `items-data`         | JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number). | `string`                               | `undefined` |
+| `showGradientFade`       | `show-gradient-fade` | Displays a gradient fade at the bottom of the grid. Default is `false`.                                                                                                                                             | `boolean`                              | `false`     |
+| `spacing`                | `spacing`            | Spacing between grid items (identifies value of CSS gap property).                                                                                                                                                  | `"lg" \| "md" \| "sm" \| "xl" \| "xs"` | `'sm'`      |
 
 
 ## Dependencies

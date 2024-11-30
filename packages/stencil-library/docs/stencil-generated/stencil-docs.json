@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-30T10:43:25",
+  "timestamp": "2024-11-30T17:28:59",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -1211,7 +1211,8 @@
       ],
       "dependents": [
         "tnw-navbar-dropdown-menu",
-        "tnw-navbar-menu"
+        "tnw-navbar-menu",
+        "tnw-portfolio-grid"
       ],
       "dependencies": [
         "tnw-icon"
@@ -1224,6 +1225,9 @@
           "tnw-anchor"
         ],
         "tnw-navbar-menu": [
+          "tnw-anchor"
+        ],
+        "tnw-portfolio-grid": [
           "tnw-anchor"
         ]
       }
@@ -6099,7 +6103,8 @@
       ],
       "dependents": [
         "tnw-card",
-        "tnw-header-banner"
+        "tnw-header-banner",
+        "tnw-portfolio-grid"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -6107,6 +6112,9 @@
           "tnw-image"
         ],
         "tnw-header-banner": [
+          "tnw-image"
+        ],
+        "tnw-portfolio-grid": [
           "tnw-image"
         ]
       }
@@ -8906,6 +8914,127 @@
       }
     },
     {
+      "filePath": "src/components/tnw-portfolio-grid/tnw-portfolio-grid.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-portfolio-grid",
+      "readme": "# tnw-portfolio-grid\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {
+        "tnw-portfolio-grid-usage": ""
+      },
+      "props": [
+        {
+          "name": "columns",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "columns",
+          "reflectToAttr": false,
+          "docs": "Number of columns in the grid layout. Default is 3.",
+          "docsTags": [],
+          "default": "3",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "itemsData",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "items-data",
+          "reflectToAttr": false,
+          "docs": "JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "spacing",
+          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "ExtendedSizeType",
+            "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "ExtendedSizeType": {
+                "location": "import",
+                "path": "../../components",
+                "id": "src/components.d.ts::ExtendedSizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "spacing",
+          "reflectToAttr": false,
+          "docs": "Spacing between grid items (identifies value of CSS gap propery).",
+          "docsTags": [],
+          "default": "'sm'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "tnw-anchor",
+        "tnw-image"
+      ],
+      "dependencyGraph": {
+        "tnw-portfolio-grid": [
+          "tnw-anchor",
+          "tnw-image"
+        ],
+        "tnw-anchor": [
+          "tnw-icon"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/tnw-rating/tnw-rating.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-rating",
@@ -11353,6 +11482,11 @@
       "path": "src/utils/component-props-types.ts"
     },
     "src/components.d.ts::FontSizeType": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/components.d.ts"
+    },
+    "src/components.d.ts::ExtendedSizeType": {
       "declaration": "any",
       "docstring": "",
       "path": "src/components.d.ts"

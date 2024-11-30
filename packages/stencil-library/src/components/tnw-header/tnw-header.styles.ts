@@ -13,6 +13,7 @@ export const styles = `
     flex-direction: column;
     gap: 25px;
     position: relative;
+    padding-top: 10px;
 }
 :host(.${baseClass}--borderBottom) {
     border-bottom-width: 1px;
@@ -28,6 +29,7 @@ export const styles = `
     display: flex;
     flex-direction: column;
     gap: 25px;
+    height: 100%;
 }
 .${contentClass}--center {
     align-items: center;
@@ -40,5 +42,10 @@ export const styles = `
 .${contentClass}--end {
     align-items: end;
     justify-content: end;
+}
+
+tnw-header-banner {
+    margin-block: auto;
+    padding-bottom: 100px;
 }
 `;

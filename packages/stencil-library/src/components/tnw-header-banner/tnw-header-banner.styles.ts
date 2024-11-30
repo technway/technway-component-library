@@ -1,6 +1,7 @@
 import { GLOBAL_PREFIX } from "../../utils/utils";
 
 const baseClass = `${GLOBAL_PREFIX}-header-banner`;
+const contentClass = `${baseClass}__content`;
 
 export const styles = `
 :host {
@@ -12,47 +13,50 @@ export const styles = `
     max-width: 100%;
 }
 
-:host(.${baseClass}--start) {
+:host(.${baseClass}--stickyNavbar) {
+    margin-top: -100px;
+}
+
+.${contentClass}--start {
     text-align: start;
     margin-inline-end: auto;
     justify-content: start;
     align-items: start;
 }
-:host(.${baseClass}--center) {
+.${contentClass}--center {
     text-align: center;
     margin-inline: auto;
     justify-content: center;
     align-items: center;
 }
-:host(.${baseClass}--end) {
+.${contentClass}--end {
     text-align: end;
     margin-inline-start: auto;
     justify-content: end;
     align-items: end;
 }
-:host(.${baseClass}--right) {
+.${contentClass}--right {
     text-align: right;
     margin-left: auto;
 }
-:host(.${baseClass}--left) {
+.${contentClass}--left {
     text-align: left;
     margin-right: auto;
 }
 
-:host(.${baseClass}--stickyNavbar) {
-    margin-top: -100px;
+.${contentClass}--sm {
+    width: 450px;
 }
-
-:host(.${baseClass}--sm) {
+.${contentClass}--md {
     width: 600px;
 }
-:host(.${baseClass}--md) {
+.${contentClass}--lg {
     width: 800px;
 }
-:host(.${baseClass}--lg) {
+.${contentClass}--xl {
     width: 1000px;
 }
-:host(.${baseClass}--full) {
+.${contentClass}--full {
     width: 100%;
 }
 

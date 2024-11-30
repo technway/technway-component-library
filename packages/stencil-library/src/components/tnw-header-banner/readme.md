@@ -49,16 +49,21 @@ It is designed to align with the theme of the parent header component, making it
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                                                             | Type                                                                    | Default     |
-| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------- |
-| `alignment`    | `alignment`     | Controls the alignment of the banner content. Acceptable values are 'start', 'center', or 'end' to align the content horizontally and vertically within the banner. Default is 'start'. | `"center" \| "end" \| "left" \| "right" \| "start"`                     | `'start'`   |
-| `buttonLabel`  | `button-label`  | The label for the banner's button. If not provided, the button content can be customized via the `button` slot.                                                                         | `string`                                                                | `undefined` |
-| `description`  | `description`   | The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed.                        | `string`                                                                | `undefined` |
-| `heading`      | `heading`       | The main heading text of the banner. This can be a simple string or passed through a slot using the `heading` slot.                                                                     | `string`                                                                | `undefined` |
-| `stickyNavbar` | `sticky-navbar` | When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.                      | `boolean`                                                               | `false`     |
-| `subheading`   | `subheading`    | The subheading text of the banner. It provides secondary information under the main heading and can be customized via the `subheading` slot if needed.                                  | `string`                                                                | `undefined` |
-| `theme`        | `theme`         | Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'.          | `"auto" \| "black" \| "inverse" \| "primary" \| "secondary" \| "white"` | `'auto'`    |
-| `width`        | `width`         | Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.                                                                            | `"full" \| "lg" \| "md" \| "sm"`                                        | `'full'`    |
+| Property            | Attribute             | Description                                                                                                                                                                             | Type                                                                                                  | Default     |
+| ------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
+| `alignment`         | `alignment`           | Controls the alignment of the banner content. Acceptable values are 'start', 'center', or 'end' to align the content horizontally and vertically within the banner. Default is 'start'. | `"center" \| "end" \| "left" \| "right" \| "start"`                                                   | `'start'`   |
+| `buttonLabel`       | `button-label`        | The label for the banner's button. If not provided, the button content can be customized via the `button` slot.                                                                         | `string`                                                                                              | `undefined` |
+| `description`       | `description`         | The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed.                        | `string`                                                                                              | `undefined` |
+| `enableImageSlot`   | `enable-image-slot`   | Enables the image slot for adding custom images to the banner.                                                                                                                          | `boolean`                                                                                             | `false`     |
+| `heading`           | `heading`             | The main heading text of the banner. This can be a simple string or passed through a slot using the `heading` slot.                                                                     | `string`                                                                                              | `undefined` |
+| `imageAlt`          | `image-alt`           | Alternative text for the banner image, improving accessibility.                                                                                                                         | `string`                                                                                              | `undefined` |
+| `imageBorderRadius` | `image-border-radius` | Controls the border radius of the banner image. It can be set to predefined size types or 'none' for no border.                                                                         | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `'none'`    |
+| `imageSrc`          | `image-src`           | Path to the image file to be displayed in the banner. if provided, the `imageAlt` prop is required.                                                                                     | `string`                                                                                              | `undefined` |
+| `stickyNavbar`      | `sticky-navbar`       | When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.                      | `boolean`                                                                                             | `false`     |
+| `subheading`        | `subheading`          | The subheading text of the banner. It provides secondary information under the main heading and can be customized via the `subheading` slot if needed.                                  | `string`                                                                                              | `undefined` |
+| `theme`             | `theme`               | Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'.          | `"auto" \| "black" \| "inverse" \| "primary" \| "secondary" \| "white"`                               | `'auto'`    |
+| `width`             | `width`               | Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.                                                                            | `"full" \| "lg" \| "md" \| "sm" \| "xl"`                                                              | `'full'`    |
+| `wrapImage`         | `wrap-image`          | Wraps the image in a container for consistency.                                                                                                                                         | `boolean`                                                                                             | `false`     |
 
 
 ## Slots
@@ -73,12 +78,15 @@ It is designed to align with the theme of the parent header component, making it
 
 ## Shadow Parts
 
-| Part            | Description                                                          |
-| --------------- | -------------------------------------------------------------------- |
-| `"button"`      | The `tnw-button` element or the container for the button slot.       |
-| `"description"` | The `tnw-text` element displaying the description of the banner.     |
-| `"heading"`     | The `tnw-heading` element displaying the main heading of the banner. |
-| `"subheading"`  | The `tnw-heading` element displaying the subheading of the banner.   |
+| Part                | Description                                                          |
+| ------------------- | -------------------------------------------------------------------- |
+| `"button"`          | The `tnw-button` element or the container for the button slot.       |
+| `"content"`         |                                                                      |
+| `"description"`     | The `tnw-text` element displaying the description of the banner.     |
+| `"heading"`         | The `tnw-heading` element displaying the main heading of the banner. |
+| `"image"`           |                                                                      |
+| `"image-container"` |                                                                      |
+| `"subheading"`      | The `tnw-heading` element displaying the subheading of the banner.   |
 
 
 ## Dependencies
@@ -88,6 +96,7 @@ It is designed to align with the theme of the parent header component, making it
 - [tnw-heading](../tnw-heading)
 - [tnw-text](../tnw-text)
 - [tnw-button](../tnw-button)
+- [tnw-image](../tnw-image)
 
 ### Graph
 ```mermaid
@@ -95,6 +104,7 @@ graph TD;
   tnw-header-banner --> tnw-heading
   tnw-header-banner --> tnw-text
   tnw-header-banner --> tnw-button
+  tnw-header-banner --> tnw-image
   style tnw-header-banner fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

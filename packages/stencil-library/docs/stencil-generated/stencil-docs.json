@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-30T08:11:41",
+  "timestamp": "2024-11-30T10:43:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -4147,6 +4147,28 @@
           "required": false
         },
         {
+          "name": "enableImageSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-image-slot",
+          "reflectToAttr": false,
+          "docs": "Enables the image slot for adding custom images to the banner.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "heading",
           "type": "string",
           "complexType": {
@@ -4165,6 +4187,117 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "imageAlt",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "image-alt",
+          "reflectToAttr": false,
+          "docs": "Alternative text for the banner image, improving accessibility.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "imageBorderRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "image-border-radius",
+          "reflectToAttr": false,
+          "docs": "Controls the border radius of the banner image. It can be set to predefined size types or 'none' for no border.",
+          "docsTags": [],
+          "default": "'none'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "imageSrc",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "image-src",
+          "reflectToAttr": false,
+          "docs": "Path to the image file to be displayed in the banner. if provided, the `imageAlt` prop is required.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
@@ -4255,10 +4388,10 @@
         },
         {
           "name": "width",
-          "type": "\"full\" | \"lg\" | \"md\" | \"sm\"",
+          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
           "complexType": {
-            "original": "'sm' | 'md' | 'lg' | 'full'",
-            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\"",
+            "original": "'sm' | 'md' | 'lg' | 'xl' | 'full'",
+            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
             "references": {}
           },
           "mutable": false,
@@ -4283,9 +4416,35 @@
             {
               "value": "sm",
               "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "wrapImage",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "wrap-image",
+          "reflectToAttr": false,
+          "docs": "Wraps the image in a container for consistency.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
           "required": false
         }
       ],
@@ -4317,12 +4476,24 @@
           "docs": "The `tnw-button` element or the container for the button slot."
         },
         {
+          "name": "content",
+          "docs": ""
+        },
+        {
           "name": "description",
           "docs": "The `tnw-text` element displaying the description of the banner."
         },
         {
           "name": "heading",
           "docs": "The `tnw-heading` element displaying the main heading of the banner."
+        },
+        {
+          "name": "image",
+          "docs": ""
+        },
+        {
+          "name": "image-container",
+          "docs": ""
         },
         {
           "name": "subheading",
@@ -4333,13 +4504,15 @@
       "dependencies": [
         "tnw-heading",
         "tnw-text",
-        "tnw-button"
+        "tnw-button",
+        "tnw-image"
       ],
       "dependencyGraph": {
         "tnw-header-banner": [
           "tnw-heading",
           "tnw-text",
-          "tnw-button"
+          "tnw-button",
+          "tnw-image"
         ]
       }
     },
@@ -4521,7 +4694,6 @@
               "text": "since v1.0.0"
             }
           ],
-          "default": "'h2'",
           "deprecation": "since v1.0.0",
           "values": [
             {
@@ -4553,15 +4725,15 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
           "name": "level",
-          "type": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+          "type": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
           "complexType": {
-            "original": "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div'",
-            "resolved": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+            "original": "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+            "resolved": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
             "references": {}
           },
           "mutable": false,
@@ -4571,10 +4743,6 @@
           "docsTags": [],
           "default": "'h2'",
           "values": [
-            {
-              "value": "div",
-              "type": "string"
-            },
             {
               "value": "h1",
               "type": "string"
@@ -5930,11 +6098,15 @@
         }
       ],
       "dependents": [
-        "tnw-card"
+        "tnw-card",
+        "tnw-header-banner"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "tnw-card": [
+          "tnw-image"
+        ],
+        "tnw-header-banner": [
           "tnw-image"
         ]
       }
@@ -7635,7 +7807,7 @@
           "reflectToAttr": false,
           "docs": "Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.",
           "docsTags": [],
-          "default": "'outlined'",
+          "default": "'solid'",
           "values": [
             {
               "value": "mixed",
@@ -7824,7 +7996,6 @@
           "reflectToAttr": false,
           "docs": "Sets the padding size of the navigation bar.",
           "docsTags": [],
-          "default": "'sm'",
           "values": [
             {
               "value": "lg",
@@ -7839,7 +8010,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7971,6 +8142,7 @@
           "reflectToAttr": false,
           "docs": "Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.",
           "docsTags": [],
+          "default": "'auto'",
           "values": [
             {
               "value": "auto",

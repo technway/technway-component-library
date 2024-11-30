@@ -33,12 +33,12 @@ export class TnwNavbar {
   /**
    * Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
    */
-  @Prop() appearance?: OptionalAppearanceType | "outlined-bottom" = 'outlined';
+  @Prop() appearance?: OptionalAppearanceType | "outlined-bottom" = 'solid';
 
   /**
    * Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
    */
-  @Prop() variant?: ColorType;
+  @Prop() variant?: ColorType = 'auto';
 
   /**
    * Enables a glassmorphism effect for the navigation bar. When true, the navbar will have a frosted glass appearance.
@@ -88,7 +88,7 @@ export class TnwNavbar {
   /**
    * Sets the padding size of the navigation bar.
    */
-  @Prop() paddingSize: SizeType = 'sm';
+  @Prop() paddingSize?: SizeType;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {

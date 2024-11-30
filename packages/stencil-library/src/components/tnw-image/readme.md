@@ -80,11 +80,13 @@ It supports various properties to control the image source, dimensions, and appe
 ### Used by
 
  - [tnw-card](../tnw-card)
+ - [tnw-header-banner](../tnw-header-banner)
 
 ### Graph
 ```mermaid
 graph TD;
   tnw-card --> tnw-image
+  tnw-header-banner --> tnw-image
   style tnw-image fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -450,9 +450,25 @@ export namespace Components {
          */
         "description": string;
         /**
+          * Enables the image slot for adding custom images to the banner.
+         */
+        "enableImageSlot"?: boolean;
+        /**
           * The main heading text of the banner. This can be a simple string or passed through a slot using the `heading` slot.
          */
         "heading": string;
+        /**
+          * Alternative text for the banner image, improving accessibility.
+         */
+        "imageAlt"?: string;
+        /**
+          * Controls the border radius of the banner image. It can be set to predefined size types or 'none' for no border.
+         */
+        "imageBorderRadius": BorderRadiusType;
+        /**
+          * Path to the image file to be displayed in the banner. if provided, the `imageAlt` prop is required.
+         */
+        "imageSrc"?: string;
         /**
           * When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.
          */
@@ -468,7 +484,11 @@ export namespace Components {
         /**
           * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
          */
-        "width": 'sm' | 'md' | 'lg' | 'full';
+        "width": 'sm' | 'md' | 'lg' | 'xl' | 'full';
+        /**
+          * Wraps the image in a container for consistency.
+         */
+        "wrapImage"?: boolean;
     }
     /**
      * The `tnw-heading` component is used to render a customizable heading or title with various styling options.
@@ -488,11 +508,11 @@ export namespace Components {
           * Specifies the HTML tag to be used for the heading.
           * @deprecated since v1.0.0
          */
-        "headingTag": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
+        "headingTag"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**
           * Specifies the HTML tag to be used for the heading.
          */
-        "level": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
+        "level": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
         /**
           * Adjusts the line height of the text.
          */
@@ -830,7 +850,7 @@ export namespace Components {
         /**
           * Sets the padding size of the navigation bar.
          */
-        "paddingSize": SizeType;
+        "paddingSize"?: SizeType;
         /**
           * Makes the navigation bar sticky at the top of the viewport when set to true.
          */
@@ -1974,9 +1994,25 @@ declare namespace LocalJSX {
          */
         "description"?: string;
         /**
+          * Enables the image slot for adding custom images to the banner.
+         */
+        "enableImageSlot"?: boolean;
+        /**
           * The main heading text of the banner. This can be a simple string or passed through a slot using the `heading` slot.
          */
         "heading"?: string;
+        /**
+          * Alternative text for the banner image, improving accessibility.
+         */
+        "imageAlt"?: string;
+        /**
+          * Controls the border radius of the banner image. It can be set to predefined size types or 'none' for no border.
+         */
+        "imageBorderRadius"?: BorderRadiusType;
+        /**
+          * Path to the image file to be displayed in the banner. if provided, the `imageAlt` prop is required.
+         */
+        "imageSrc"?: string;
         /**
           * When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.
          */
@@ -1992,7 +2028,11 @@ declare namespace LocalJSX {
         /**
           * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
          */
-        "width"?: 'sm' | 'md' | 'lg' | 'full';
+        "width"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+        /**
+          * Wraps the image in a container for consistency.
+         */
+        "wrapImage"?: boolean;
     }
     /**
      * The `tnw-heading` component is used to render a customizable heading or title with various styling options.
@@ -2016,7 +2056,7 @@ declare namespace LocalJSX {
         /**
           * Specifies the HTML tag to be used for the heading.
          */
-        "level"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
+        "level"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
         /**
           * Adjusts the line height of the text.
          */

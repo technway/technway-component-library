@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/technway/technway-component-library/compare/root-v2.0.0...root-v2.1.0) (2024-11-30)
+
+
+### Features
+
+* **tnw-heading:** remove 'div' as an option for the level prop ([14b2636](https://github.com/technway/technway-component-library/commit/14b2636b575110331a0ac16ecca5a83f2382a5f0))
+
 ## [2.0.0](https://github.com/technway/technway-component-library/compare/root-v1.0.0...root-v2.0.0) (2024-11-30)
 
 

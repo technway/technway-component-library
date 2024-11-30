@@ -13,7 +13,7 @@ export const styles = `
     flex-direction: column;
     gap: 25px;
     position: relative;
-    padding-top: 10px;
+    padding-top: 10px !important;
 }
 :host(.${baseClass}--borderBottom) {
     border-bottom-width: 1px;
@@ -30,22 +30,15 @@ export const styles = `
     flex-direction: column;
     gap: 25px;
     height: 100%;
+    justify-content: center;
 }
 .${contentClass}--center {
     align-items: center;
-    justify-content: center;
 }
 .${contentClass}--start {
     align-items: start;
-    justify-content: start;
 }
 .${contentClass}--end {
     align-items: end;
-    justify-content: end;
-}
-
-tnw-header-banner {
-    margin-block: auto;
-    padding-bottom: 100px;
 }
 `;

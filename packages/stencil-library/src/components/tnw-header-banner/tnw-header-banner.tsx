@@ -1,6 +1,6 @@
 import { Component, Element, Fragment, Host, Prop, h } from '@stencil/core';
 import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
-import { AlignmentType } from '../../utils/component-props-types';
+import { AlignmentType, BorderRadiusType } from '../../utils/component-props-types';
 import { styles } from './tnw-header-banner.styles';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-header-banner-validate-props';
@@ -64,12 +64,37 @@ export class TnwHeaderBanner {
   /**
    * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
    */
-  @Prop() width: 'sm' | 'md' | 'lg' | 'full' = 'full';
+  @Prop() width: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'full';
 
   /**
    * When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.
    */
   @Prop() stickyNavbar: boolean = false;
+
+  /**
+   * Enables the image slot for adding custom images to the banner.
+   */
+  @Prop() enableImageSlot?: boolean = false;
+
+  /**
+   * Path to the image file to be displayed in the banner. if provided, the `imageAlt` prop is required.
+   */
+  @Prop() imagePath?: string;
+
+  /**
+   * Alternative text for the banner image, improving accessibility.
+   */
+  @Prop() imageAlt?: string;
+
+  /**
+   * Wraps the image in a container for consistency.
+   */
+  @Prop() wrapImage?: boolean = false;
+
+  /**
+   * Controls the border radius of the banner image. It can be set to predefined size types or 'none' for no border.
+   */
+  @Prop() imageBorderRadius: BorderRadiusType = 'none';
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -119,13 +144,23 @@ export class TnwHeaderBanner {
   };
 
   private getHostClasses(): string {
-    const { baseClass, alignment, stickyNavbar } = this;
+    const { baseClass, stickyNavbar } = this;
 
     return [
       baseClass,
-      `${baseClass}--${alignment}`,
       stickyNavbar ? `${baseClass}--stickyNavbar` : '',
-      `${baseClass}--${this.width}`,
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private getContentClasses(): string {
+    const { baseClass, alignment, width } = this;
+
+    const contentClass = `${baseClass}__content`;
+
+    return [
+      contentClass,
+      `${contentClass}--${alignment}`,
+      `${contentClass}--${width}`,
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -186,12 +221,29 @@ export class TnwHeaderBanner {
     )
   }
 
+  private renderImage(): JSX.Element | null {
+    const { enableImageSlot, imageBorderRadius } = this;
+    if (enableImageSlot || isNotEmptyString(this.imagePath)) {
+      return (
+        <div class={`${this.baseClass}__image`} part='image-container'>
+          {enableImageSlot ?
+            <slot name='image' />
+            :
+            <tnw-image src={this.imagePath} alt={this.imageAlt} BorderRadius={imageBorderRadius} part='image' />
+          }
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <Host class={this.getHostClasses()}>
-        {this.renderHeadings()}
-        {this.renderDescription()}
-        {this.renderButton()}
+        <div class={this.getContentClasses()} part='content'>
+          {this.renderHeadings()}
+          {this.renderDescription()}
+          {this.renderButton()}
+        </div>
       </Host>
     );
   }

@@ -486,8 +486,13 @@ export namespace Components {
         "color"?: TextColorType;
         /**
           * Specifies the HTML tag to be used for the heading.
+          * @deprecated
          */
         "headingTag": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
+        /**
+          * Specifies the HTML tag to be used for the heading.
+         */
+        "level": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**
           * Adjusts the line height of the text.
          */
@@ -2005,8 +2010,13 @@ declare namespace LocalJSX {
         "color"?: TextColorType;
         /**
           * Specifies the HTML tag to be used for the heading.
+          * @deprecated
          */
         "headingTag"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
+        /**
+          * Specifies the HTML tag to be used for the heading.
+         */
+        "level"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**
           * Adjusts the line height of the text.
          */

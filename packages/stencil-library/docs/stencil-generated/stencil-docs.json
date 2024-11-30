@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-29T18:25:32",
+  "timestamp": "2024-11-30T06:52:41",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -4513,6 +4513,58 @@
           },
           "mutable": false,
           "attr": "heading-tag",
+          "reflectToAttr": false,
+          "docs": "Specifies the HTML tag to be used for the heading.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "default": "'h2'",
+          "deprecation": "",
+          "values": [
+            {
+              "value": "div",
+              "type": "string"
+            },
+            {
+              "value": "h1",
+              "type": "string"
+            },
+            {
+              "value": "h2",
+              "type": "string"
+            },
+            {
+              "value": "h3",
+              "type": "string"
+            },
+            {
+              "value": "h4",
+              "type": "string"
+            },
+            {
+              "value": "h5",
+              "type": "string"
+            },
+            {
+              "value": "h6",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "level",
+          "type": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+          "complexType": {
+            "original": "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div'",
+            "resolved": "\"div\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "level",
           "reflectToAttr": false,
           "docs": "Specifies the HTML tag to be used for the heading.",
           "docsTags": [],

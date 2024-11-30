@@ -3,7 +3,7 @@
 exports[`tnw-navbar Default Behavior renders with default properties 1`] = `
 <tnw-navbar class="tnw-navbar">
   <template shadowrootmode="open">
-    <nav class="container rounded-default tnw-navbar__content tnw-navbar__content--padding-sm" part="navbar"></nav>
+    <nav class="container rounded-default tnw-directional-v-solid-auto tnw-navbar__content tnw-navbar__content--padding-undefined" part="navbar"></nav>
   </template>
 </tnw-navbar>
 `;

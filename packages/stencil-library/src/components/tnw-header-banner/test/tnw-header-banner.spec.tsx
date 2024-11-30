@@ -47,16 +47,16 @@ describe('tnw-header-banner', () => {
       const el = await createSpecPage(TnwHeaderBanner, `
         <tnw-header-banner alignment="center"></tnw-header-banner>
       `);
-      const host = el.shadowRoot?.host;
-      expect(host).toHaveClass('tnw-header-banner--center');
+      const contentEl = el.shadowRoot?.querySelector('.tnw-header-banner__content');
+      expect(contentEl).toHaveClass('tnw-header-banner__content--center');
     });
 
     it('applies correct width class when `width` prop is set', async () => {
       const el = await createSpecPage(TnwHeaderBanner, `
         <tnw-header-banner width="lg"></tnw-header-banner>
       `);
-      const host = el.shadowRoot?.host;
-      expect(host).toHaveClass('tnw-header-banner--lg');
+      const contentEl = el.shadowRoot?.querySelector('.tnw-header-banner__content');
+      expect(contentEl).toHaveClass('tnw-header-banner__content--lg');
     });
 
     it('applies sticky class when `stickyNavbar` is true', async () => {

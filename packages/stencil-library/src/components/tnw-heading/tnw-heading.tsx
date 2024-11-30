@@ -105,7 +105,7 @@ export class TnwHeading {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.color, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight];
+    const propsValues = [this.alignment, this.color, this.headingTag, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight];
     validateProps(propsValues);
 
     this.updateDefaultStyles();

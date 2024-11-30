@@ -1,11 +1,21 @@
 {
-    "release-type": "node",
     "packages": {
-        "./packages/stencil-library": {
-            "component": "@technway/components",
+        "packages/stencil-library": {
+            "package-name": "@technway/stencil-library",
+            "release-type": "node"
         },
-        "./packages/react-library": {
-            "component": "@technway/react-components",
+        "packages/react-library": {
+            "package-name": "@technway/react-library",
+            "release-type": "node"
         }
-    }
+    },
+    "release-type": "node",
+    "package-name": ".",
+    "monorepo-tags": true,
+    "separate-pull-requests": true,
+    "plugins": [
+        {
+            "type": "node-workspace"
+        }
+    ]
 }

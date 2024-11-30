@@ -61,7 +61,7 @@ CustomBodyContent.args = {
   heading: 'Accordion with Custom Body Content',
   bodySlot: `
   <div slot="body">
-    <tnw-heading heading-tag="h4" text="Hello World"></tnw-heading>
+    <tnw-heading level="h4" text="Hello World"></tnw-heading>
     <tnw-text text="Some other text"></tnw-text>
   </div>
   `,

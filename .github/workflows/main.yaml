@@ -16,92 +16,73 @@ permissions:
     pull-requests: write
 
 jobs:
-    # bootstrap:
-    #     name: Bootstrap and Setup
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Checkout repository
-    #           uses: actions/checkout@v3
+    lint:
+        name: Lint Code
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
 
-    #         - name: Set up Node.js with cache
-    #           uses: actions/setup-node@v3
-    #           with:
-    #               node-version: 20
-    #               cache: "npm"
+            - name: Set up Node.js with cache
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20
+                  cache: "npm"
 
-    #         - name: Install and Link Dependencies
-    #           run: npm install
+            - name: Install Dependencies for @technway/components
+              working-directory: packages/stencil-library
+              run: npm install
 
-    # lint:
-    #     name: Lint Code
-    #     runs-on: ubuntu-latest
-    #     needs: bootstrap
-    #     steps:
-    #         - name: Checkout repository
-    #           uses: actions/checkout@v3
+            - name: Run Lint
+              run: npx lerna run lint
 
-    #         - name: Set up Node.js with cache
-    #           uses: actions/setup-node@v3
-    #           with:
-    #               node-version: 20
-    #               cache: "npm"
+    test:
+        name: Run Spec Tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
 
-    #         - name: Install Dependencies for @technway/components
-    #           working-directory: packages/stencil-library
-    #           run: npm install
+            - name: Set up Node.js with cache
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20
+                  cache: "npm"
 
-    #         - name: Run Lint
-    #           run: npx lerna run lint
+            - name: Install Dependencies for @technway/components
+              working-directory: packages/stencil-library
+              run: npm install
 
-    # test:
-    #     name: Run Spec Tests
-    #     runs-on: ubuntu-latest
-    #     needs: bootstrap
-    #     steps:
-    #         - name: Checkout repository
-    #           uses: actions/checkout@v3
+            - name: Run Tests
+              run: npx lerna run test.spec
 
-    #         - name: Set up Node.js with cache
-    #           uses: actions/setup-node@v3
-    #           with:
-    #               node-version: 20
-    #               cache: "npm"
+    chromatic:
+        name: Run Chromatic Visual Tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
 
-    #         - name: Install Dependencies for @technway/components
-    #           working-directory: packages/stencil-library
-    #           run: npm install
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20
 
-    #         - name: Run Tests
-    #           run: npx lerna run test.spec
+            - name: Install Dependencies for @technway/components
+              working-directory: packages/stencil-library
+              run: npm ci
 
-    # chromatic:
-    #     name: Run Chromatic Visual Tests
-    #     runs-on: ubuntu-latest
-    #     needs: bootstrap
-    #     steps:
-    #         - name: Checkout code
-    #           uses: actions/checkout@v3
-    #           with:
-    #               fetch-depth: 0
+            - name: Build Project
+              working-directory: packages/stencil-library
+              run: npm run build:stencil
 
-    #         - name: Set up Node.js
-    #           uses: actions/setup-node@v3
-    #           with:
-    #               node-version: 20
-
-    #         - name: Install Dependencies for @technway/components
-    #           working-directory: packages/stencil-library
-    #           run: npm ci
-
-    #         - name: Build Project
-    #           working-directory: packages/stencil-library
-    #           run: npm run build:stencil
-
-    #         - name: Run Chromatic
-    #           env:
-    #               CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-    #           run: |
-    #               cd packages/stencil-library && npx chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes
+            - name: Run Chromatic
+              env:
+                  CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+              run: |
+                  cd packages/stencil-library && npx chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes
 
     # deploy-storybook:
     #     name: Deploy Storybook to Vercel
@@ -142,6 +123,10 @@ jobs:
     versioning:
         name: Versioning Packages
         runs-on: ubuntu-latest
+        needs:
+            - lint
+            - test
+            - chromatic
         steps:
           - name: Checkout
             uses: actions/checkout@v3

@@ -23,7 +23,7 @@ Standard.args = {
 export const HeadingOne = Template.bind({});
 HeadingOne.args = {
   text: "Main Page Heading: Welcome to the Future of CDD with Stencil.js",
-  headingTag: "h1"
+  level: "h1"
 };
 
 export const PrimaryColor = Template.bind({});

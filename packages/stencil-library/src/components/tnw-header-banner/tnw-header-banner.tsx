@@ -135,7 +135,7 @@ export class TnwHeaderBanner {
     }
 
     return (
-      <tnw-heading text={this.heading} size="2xl" headingTag='h1' alignment={this.alignment} weight='600' color={this.getThemeMatchedColor()} part='heading' />
+      <tnw-heading text={this.heading} size="2xl" level='h1' alignment={this.alignment} weight='600' color={this.getThemeMatchedColor()} part='heading' />
     );
   }
 
@@ -145,7 +145,7 @@ export class TnwHeaderBanner {
     }
 
     return (
-      <tnw-heading text={this.subheading} size="md" headingTag='h2' weight='400' alignment={this.alignment} color={this.getThemeMatchedColor()} part='subheading' />
+      <tnw-heading text={this.subheading} size="md" level='h2' weight='400' alignment={this.alignment} color={this.getThemeMatchedColor()} part='subheading' />
     );
   }
 

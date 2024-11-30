@@ -36,6 +36,12 @@ export class TnwHeading {
   /**
    * Specifies the HTML tag to be used for the heading.
    */
+  @Prop() level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' = 'h2';
+
+  /**
+   * Specifies the HTML tag to be used for the heading.
+   * @deprecated since v1.0.0
+   */
   @Prop() headingTag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' = 'h2';
 
   /**
@@ -73,7 +79,7 @@ export class TnwHeading {
    */
   @Prop() useTextFont: boolean = false;
 
-  @Watch('headingTag')
+  @Watch('level')
   @Watch('weight')
   @Watch('size')
   @Watch('alignment')
@@ -99,7 +105,7 @@ export class TnwHeading {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.color, this.headingTag, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight];
+    const propsValues = [this.alignment, this.color, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight];
     validateProps(propsValues);
 
     this.updateDefaultStyles();
@@ -111,7 +117,7 @@ export class TnwHeading {
   }
 
   private getDefaultWeight(): FontWeightType {
-    switch (this.headingTag) {
+    switch (this.level) {
       case 'h1': return '700';
       case 'h2': return '600';
       default: return '400';
@@ -119,7 +125,7 @@ export class TnwHeading {
   }
 
   private getDefaultSize(): FontSizeType {
-    switch (this.headingTag) {
+    switch (this.level) {
       case 'h1': return '5xl';
       case 'h2': return 'heading';
       default: return 'xl';
@@ -141,7 +147,7 @@ export class TnwHeading {
   }
 
   render() {
-    const HeadingTag = this.headingTag;
+    const HeadingTag = this.level;
 
     return (
       <Host>

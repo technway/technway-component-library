@@ -5,8 +5,8 @@ exports[`TnwCard Custom Prop Behavior renders heading, subheading, description, 
   <template shadowrootmode="open">
     <div class="tnw-card__content tnw-card__content-start" part="content">
       <div class="tnw-card__content-heading">
-        <tnw-heading alignment="start" headingtag="h3" part="heading" size="lg" text="Card Heading" weight="600"></tnw-heading>
-        <tnw-heading alignment="start" headingtag="h4" part="subheading" size="sm" text="Card Subheading"></tnw-heading>
+        <tnw-heading alignment="start" level="h3" part="heading" size="lg" text="Card Heading" weight="600"></tnw-heading>
+        <tnw-heading alignment="start" level="h4" part="subheading" size="sm" text="Card Subheading"></tnw-heading>
       </div>
       <tnw-text alignment="start" part="description" text="Card Description"></tnw-text>
       <tnw-button borderradius="default" label="Click Me" part="button"></tnw-button>

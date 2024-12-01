@@ -54,7 +54,7 @@ describe('tnw-text', () => {
         `<tnw-text text="Custom Text" alignment="center" color="primary" weight="900" size="xs" text-case="uppercase" line-height="1_75"></tnw-text>`,
         elementSelector
       );
-      expect(textElement).toHaveClass('tnw-text');
+      expect(textElement).toHaveClass('tnw-text__inner');
       expect(textElement).toHaveClasses(['ta-center', 'color-primary', 'fw-900', 'fs-xs', 'uppercase', 'lh-1_75']);
     });
   });

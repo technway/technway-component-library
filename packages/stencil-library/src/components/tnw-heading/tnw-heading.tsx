@@ -1,10 +1,11 @@
 import { Component, Host, Prop, State, h, Element, Watch } from '@stencil/core';
-import { GLOBAL_PREFIX, getColorClass, getTextTransformClass, getTypographyClass } from '../../utils/utils';
+import { GLOBAL_PREFIX, getColorClass, getTextTransformClass, getTypographyClass, isNotEmptyString } from '../../utils/utils';
 import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextColorType, TextTransformType } from '../../utils/component-props-types';
 import { validateProps } from './utils/tnw-heading-validate-props';
 import { styles } from './tnw-heading.styles';
 import { typographyStyleSheet, colorStyleSheet } from '../../utils/shared-styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { SizeType } from '../../../loader';
 
 /**
  * The `tnw-heading` component is used to render a customizable heading or title with various styling options.
@@ -75,6 +76,11 @@ export class TnwHeading {
   @Prop() lineHeight?: LineHeightType = "1_5";
 
   /**
+   * The width size of the text.
+   */
+  @Prop() widthSize?: SizeType | "xl" | "full" = 'full';
+
+  /**
    * If true, applies a text font style to the heading instead of the default heading font.
    */
   @Prop() useTextFont: boolean = false;
@@ -132,11 +138,21 @@ export class TnwHeading {
     }
   }
 
-  private getClasses(): string {
-    const { baseClass, color, textCase, lineHeight, useTextFont, alignment, computedWeight, computedSize } = this;
+  private getHostClasses(): string {
+    const { baseClass, widthSize } = this;
     return [
       baseClass,
-      useTextFont ? `${baseClass}--textFont` : ``,
+      isNotEmptyString(widthSize) ? `${baseClass}--width-${widthSize}` : ``,
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private getHeadingClasses(): string {
+    const { baseClass, color, textCase, lineHeight, useTextFont, alignment, computedWeight, computedSize } = this;
+    const headingClass = `${baseClass}__inner`;
+
+    return [
+      headingClass,
+      useTextFont ? `${headingClass}--textFont` : ``,
       getColorClass('color', color),
       getTypographyClass('fs', computedSize),
       getTypographyClass('lh', lineHeight),
@@ -150,8 +166,8 @@ export class TnwHeading {
     const HeadingTag = this.level;
 
     return (
-      <Host>
-        <HeadingTag class={this.getClasses()} part='heading'>
+      <Host class={this.getHostClasses()}>
+        <HeadingTag class={this.getHeadingClasses()} part='heading'>
           {this.text || <slot />}
         </HeadingTag>
       </Host>

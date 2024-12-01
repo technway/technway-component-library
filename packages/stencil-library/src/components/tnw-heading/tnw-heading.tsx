@@ -40,7 +40,7 @@ export class TnwHeading {
 
   /**
    * Specifies the HTML tag to be used for the heading.
-   * @deprecated since v1.0.0
+   * @deprecated since v1.0.0. Use `level` instead.
    */
   @Prop() headingTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 

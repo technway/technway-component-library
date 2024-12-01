@@ -43,7 +43,7 @@ export class TnwSection {
   @Prop() variant?: ColorType = 'auto';
 
   /**
-   * If `true`, the section body will be wrapped in a container for centering and padding.
+   * If `true`, the section body will be wrapped in a container.
    */
   @Prop() disableInternalContainer?: boolean = false;
 
@@ -132,9 +132,9 @@ export class TnwSection {
     return (
       <Host class={this.getHostClasses()}>
         <section class={this.getSectionContentClasses()} part='section'>
-          <slot name='header'></slot>
-          <slot name='body'></slot>
-          <slot name='footer'></slot>
+          <slot name='header' />
+          <slot name='body' />
+          <slot name='footer' />
         </section>
       </Host>
     );

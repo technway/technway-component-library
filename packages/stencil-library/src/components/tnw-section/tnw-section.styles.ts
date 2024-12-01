@@ -16,6 +16,9 @@ export const styles = `
     --${baseClass}-spacing-md: var(--tnw-spacing-md);
     --${baseClass}-spacing-lg: var(--tnw-spacing-lg);
     --${baseClass}-spacing-xl: var(--tnw-spacing-xl);
+    --${baseClass}-spacing-2xl: var(--tnw-spacing-2xl);
+    --${baseClass}-spacing-3xl: var(--tnw-spacing-3xl);
+    --${baseClass}-spacing-4xl: var(--tnw-spacing-4xl);
 }
 :host(.${baseClass}--glassmorphism) {
     background: linear-gradient(to top, rgba(var(--tnw-background-color-inverse-rgb), 0.025), rgba(var(--tnw-background-color-inverse-rgb), 0)) !important;

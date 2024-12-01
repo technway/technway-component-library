@@ -304,23 +304,39 @@ export namespace Components {
      */
     interface TnwContactBanner {
         /**
+          * Defines the vertical padding of the banner.
+         */
+        "VerticalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
           * If `true`, the banner will center its content.
          */
         "alignment"?: LogicalAlignmentType;
         /**
           * Defines the visual appearance of the banner (e.g., solid, outline).
          */
-        "appearance"?: AppearanceType;
+        "appearance"?: AppearanceType | 'gradient';
         /**
           * Defines the border radius of the banner.
          */
         "borderRadius"?: BorderRadiusType;
         /**
-          * If `true`, the banner will render custom content using the `content` slot.  When this is enabled, the standard slots (`short-title`, `title`, `description`, `button`) will not be used.
+          * If `true`, the section body will be wrapped in a container for centering and padding.
+         */
+        "disableInternalContainer"?: boolean;
+        /**
+          * If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.
          */
         "enableContentSlot"?: boolean;
         /**
-          * Specifies the primary color variant of the banner.
+          * Defines the horizontal padding of the banner.
+         */
+        "horizontalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the margin of the banner.
+         */
+        "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.
          */
         "variant"?: ColorType;
     }
@@ -506,7 +522,7 @@ export namespace Components {
         "color"?: TextColorType;
         /**
           * Specifies the HTML tag to be used for the heading.
-          * @deprecated since v1.0.0
+          * @deprecated since v1.0.0. Use `level` instead.
          */
         "headingTag"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**
@@ -1033,7 +1049,7 @@ export namespace Components {
          */
         "appearance"?: DirectionalAppearanceType;
         /**
-          * If `true`, the section body will be wrapped in a container for centering and padding.
+          * If `true`, the section body will be wrapped in a container.
          */
         "disableInternalContainer"?: boolean;
         /**
@@ -1873,23 +1889,39 @@ declare namespace LocalJSX {
      */
     interface TnwContactBanner {
         /**
+          * Defines the vertical padding of the banner.
+         */
+        "VerticalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
           * If `true`, the banner will center its content.
          */
         "alignment"?: LogicalAlignmentType;
         /**
           * Defines the visual appearance of the banner (e.g., solid, outline).
          */
-        "appearance"?: AppearanceType;
+        "appearance"?: AppearanceType | 'gradient';
         /**
           * Defines the border radius of the banner.
          */
         "borderRadius"?: BorderRadiusType;
         /**
-          * If `true`, the banner will render custom content using the `content` slot.  When this is enabled, the standard slots (`short-title`, `title`, `description`, `button`) will not be used.
+          * If `true`, the section body will be wrapped in a container for centering and padding.
+         */
+        "disableInternalContainer"?: boolean;
+        /**
+          * If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.
          */
         "enableContentSlot"?: boolean;
         /**
-          * Specifies the primary color variant of the banner.
+          * Defines the horizontal padding of the banner.
+         */
+        "horizontalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the margin of the banner.
+         */
+        "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.
          */
         "variant"?: ColorType;
     }
@@ -2075,7 +2107,7 @@ declare namespace LocalJSX {
         "color"?: TextColorType;
         /**
           * Specifies the HTML tag to be used for the heading.
-          * @deprecated since v1.0.0
+          * @deprecated since v1.0.0. Use `level` instead.
          */
         "headingTag"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**
@@ -2602,7 +2634,7 @@ declare namespace LocalJSX {
          */
         "appearance"?: DirectionalAppearanceType;
         /**
-          * If `true`, the section body will be wrapped in a container for centering and padding.
+          * If `true`, the section body will be wrapped in a container.
          */
         "disableInternalContainer"?: boolean;
         /**

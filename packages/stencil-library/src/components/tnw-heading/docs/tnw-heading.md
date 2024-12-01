@@ -27,7 +27,7 @@ along with the ability to use a different HTML tag for the heading element.
 | --- | --- | --- | --- |
 | **alignment** | <div>Sets the text alignment within the container.</div> | N/A | `"center"` \| `"end"` \| `"justify"` \| `"left"` \| `"right"` \| `"start"` |
 | **color** | <div>Sets the color of the text based on the available theme colors.</div> | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **headingTag** | <div style="color: #d9534f; font-weight: bold;">⚠️ Deprecated: since v1.0.0</div><br><div>Specifies the HTML tag to be used for the heading.</div> | N/A | `"div"` \| `"h1"` \| `"h2"` \| `"h3"` \| `"h4"` \| `"h5"` \| `"h6"` |
+| **headingTag** | <div style="color: #d9534f; font-weight: bold;">⚠️ Deprecated: since v1.0.0. Use `level` instead.</div><br><div>Specifies the HTML tag to be used for the heading.</div> | N/A | `"div"` \| `"h1"` \| `"h2"` \| `"h3"` \| `"h4"` \| `"h5"` \| `"h6"` |
 | **level** | <div>Specifies the HTML tag to be used for the heading.</div> | `'h2'` | `"h1"` \| `"h2"` \| `"h3"` \| `"h4"` \| `"h5"` \| `"h6"` |
 | **lineHeight** | <div>Adjusts the line height of the text.</div> | `"1_5"` | `"1"` \| `"1_25"` \| `"1_5"` \| `"1_75"` \| `"2"` \| `"2_25"` \| `"2_5"` |
 | **size** | <div>Defines the font size of the text.</div> | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-30T19:37:09",
+  "timestamp": "2024-12-01T08:30:45",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -2720,7 +2720,7 @@
       "docsTags": [
         {
           "name": "slot",
-          "text": "short-title - Use this slot to insert a short title or subtitle in the banner."
+          "text": "subtitle - Use this slot to insert a short title or subtitle in the banner."
         },
         {
           "name": "slot",
@@ -2743,6 +2743,61 @@
         "tnw-contact-banner-usage": "### When to use:\r\n\r\n- **Promotional Banners**: The `tnw-contact-banner` component is ideal for highlighting contact information or calls to action on landing pages, product sections, or help/support pages.\r\n- **Support and Assistance**: Use the banner to draw attention to customer support options or provide a direct link to contact your business.\r\n- **Customization**: The component supports both predefined slots for titles, descriptions, and buttons, as well as a custom content slot for more flexible layouts.\r\n\r\n### Use Cases:\r\n\r\n1. **Default Contact Banner**:\r\n   This example showcases a default banner layout with a short title, main title, description, and a call-to-action button.\r\n\r\n   @useStory Default\r\n\r\n2. **Contact Banner with Alignment Start**:\r\n   Use this option when you want to align content to the start of the banner.\r\n\r\n   @useStory AlignmentStart\r\n\r\n3. **Contact Banner with Outlined Appearance**:\r\n   This version of the contact banner uses an outlined appearance, giving the banner a more subtle look, often suited for less prominent sections.\r\n\r\n   @useStory OutlinedAppearance\r\n\r\n4. **Contact Banner with Inverse Variant**:\r\n   This banner example utilizes an inverse color variant, often useful for dark mode or contrasting sections.\r\n\r\n   @useStory InverseVariant\r\n\r\n### Additional Considerations:\r\n\r\n- **Custom Slots**: When the `enableContentSlot` prop is set to true, the component disables the standard slots (`short-title`, `title`, `description`, `button`) in favor of a flexible `content` slot.\r\n- **Alignment Options**: The `alignment` prop allows you to align the banner content to the start, center, or end, based on your layout requirements.\r\n- **Appearance and Color Customization**: You can modify the appearance of the banner using the `appearance` and `variant` props, making it easy to match your branding and design guidelines."
       },
       "props": [
+        {
+          "name": "VerticalPadding",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "vertical-padding",
+          "reflectToAttr": false,
+          "docs": "Defines the vertical padding of the banner.",
+          "docsTags": [],
+          "default": "'2xl'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "alignment",
           "type": "\"center\" | \"end\" | \"start\"",
@@ -2782,10 +2837,10 @@
         },
         {
           "name": "appearance",
-          "type": "\"mixed\" | \"outlined\" | \"solid\" | \"transparent\"",
+          "type": "\"gradient\" | \"mixed\" | \"outlined\" | \"solid\" | \"transparent\"",
           "complexType": {
-            "original": "AppearanceType",
-            "resolved": "\"mixed\" | \"outlined\" | \"solid\" | \"transparent\"",
+            "original": "AppearanceType | 'gradient'",
+            "resolved": "\"gradient\" | \"mixed\" | \"outlined\" | \"solid\" | \"transparent\"",
             "references": {
               "AppearanceType": {
                 "location": "import",
@@ -2801,6 +2856,10 @@
           "docsTags": [],
           "default": "'solid'",
           "values": [
+            {
+              "value": "gradient",
+              "type": "string"
+            },
             {
               "value": "mixed",
               "type": "string"
@@ -2891,6 +2950,28 @@
           "required": false
         },
         {
+          "name": "disableInternalContainer",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-internal-container",
+          "reflectToAttr": false,
+          "docs": "If `true`, the section body will be wrapped in a container for centering and padding.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "enableContentSlot",
           "type": "boolean",
           "complexType": {
@@ -2901,12 +2982,122 @@
           "mutable": false,
           "attr": "enable-content-slot",
           "reflectToAttr": false,
-          "docs": "If `true`, the banner will render custom content using the `content` slot. \nWhen this is enabled, the standard slots (`short-title`, `title`, `description`, `button`) will not be used.",
+          "docs": "If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.",
           "docsTags": [],
           "default": "false",
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "horizontalPadding",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "horizontal-padding",
+          "reflectToAttr": false,
+          "docs": "Defines the horizontal padding of the banner.",
+          "docsTags": [],
+          "default": "'2xl'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "margin",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "margin",
+          "reflectToAttr": false,
+          "docs": "Defines the margin of the banner.",
+          "docsTags": [],
+          "default": "'xl'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
             }
           ],
           "optional": true,
@@ -2929,7 +3120,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Specifies the primary color variant of the banner.",
+          "docs": "Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -2984,7 +3175,7 @@
           "docs": "Use this slot to insert a description or additional information in the banner."
         },
         {
-          "name": "short-title",
+          "name": "subtitle",
           "docs": "Use this slot to insert a short title or subtitle in the banner."
         },
         {
@@ -4695,10 +4886,10 @@
           "docsTags": [
             {
               "name": "deprecated",
-              "text": "since v1.0.0"
+              "text": "since v1.0.0. Use `level` instead."
             }
           ],
-          "deprecation": "since v1.0.0",
+          "deprecation": "since v1.0.0. Use `level` instead.",
           "values": [
             {
               "value": "div",
@@ -9812,7 +10003,7 @@
           "mutable": false,
           "attr": "disable-internal-container",
           "reflectToAttr": false,
-          "docs": "If `true`, the section body will be wrapped in a container for centering and padding.",
+          "docs": "If `true`, the section body will be wrapped in a container.",
           "docsTags": [],
           "default": "false",
           "values": [

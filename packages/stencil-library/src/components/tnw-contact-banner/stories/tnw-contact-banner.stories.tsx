@@ -18,7 +18,7 @@ const Template = (args) => getComponentTemplate(args, component);
 // Default Contact Banner
 export const Default = Template.bind({});
 Default.args = {
-  shortTitleSlot: '<tnw-text slot="short-title" text="for free!" text-tag="span" size="xs"></tnw-text>',
+  shortTitleSlot: '<tnw-text slot="subtitle" text="for free!" text-tag="span" size="xs"></tnw-text>',
   titleSlot: '<tnw-heading slot="title" text="Get in Touch"></tnw-heading>',
   descriptionSlot: '<tnw-text slot="description" text="We are here to help you with any questions or concerns. Reach out to us for assistance." size="md"></tnw-text>',
   buttonSlot: '<tnw-button slot="button" label="Contact Us" variant="white"></tnw-button>',

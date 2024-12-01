@@ -32,6 +32,7 @@ It supports various typography-related properties, color, and alignment.
 | **textCase** | <div>Controls the text transformation (e.g., uppercase, lowercase).</div> | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
 | **textTag** | <div>Defines the HTML tag of the component.</div> | `"p"` | `"p"` \| `"span"` |
 | **weight** | <div>Specifies the font weight of the text.</div> | N/A | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
+| **widthSize** | <div>The width size of the text.</div> | `'full'` | `"full"` \| `"lg"` \| `"md"` \| `"sm"` \| `"xl"` |
 
 </div>
 

@@ -1,11 +1,10 @@
 import { Component, Host, Prop, State, h, Element, Watch } from '@stencil/core';
 import { GLOBAL_PREFIX, getColorClass, getTextTransformClass, getTypographyClass, isNotEmptyString } from '../../utils/utils';
-import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextColorType, TextTransformType } from '../../utils/component-props-types';
+import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextColorType, TextTransformType, SizeType } from '../../utils/component-props-types';
 import { validateProps } from './utils/tnw-heading-validate-props';
 import { styles } from './tnw-heading.styles';
 import { typographyStyleSheet, colorStyleSheet } from '../../utils/shared-styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
-import { SizeType } from '../../../loader';
 
 /**
  * The `tnw-heading` component is used to render a customizable heading or title with various styling options.
@@ -111,7 +110,7 @@ export class TnwHeading {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.color, this.headingTag, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight];
+    const propsValues = [this.alignment, this.color, this.headingTag, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight, this.widthSize];
     validateProps(propsValues);
 
     this.updateDefaultStyles();

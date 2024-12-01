@@ -67,6 +67,7 @@ It supports various typography-related properties, color, and alignment.
 | `textCase`   | `text-case`   | Controls the text transformation (e.g., uppercase, lowercase). | `"capitalize" \| "lowercase" \| "normal-case" \| "uppercase"`                                                                                                                                                            | `undefined` |
 | `textTag`    | `text-tag`    | Defines the HTML tag of the component.                         | `"p" \| "span"`                                                                                                                                                                                                          | `"p"`       |
 | `weight`     | `weight`      | Specifies the font weight of the text.                         | `"100" \| "200" \| "300" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "heading" \| "text"`                                                                                                                   | `undefined` |
+| `widthSize`  | `width-size`  | The width size of the text.                                    | `"full" \| "lg" \| "md" \| "sm" \| "xl"`                                                                                                                                                                                 | `'full'`    |
 
 
 ## Slots

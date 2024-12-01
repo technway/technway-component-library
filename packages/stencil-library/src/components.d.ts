@@ -553,6 +553,10 @@ export namespace Components {
           * Specifies the font weight of the text.
          */
         "weight"?: FontWeightType;
+        /**
+          * The width size of the text.
+         */
+        "widthSize"?: SizeType | "xl" | "full";
     }
     /**
      * The `tnw-icon` component is a flexible icon element that supports various styles, sizes, and appearances. 
@@ -1140,6 +1144,10 @@ export namespace Components {
           * Specifies the font weight of the text.
          */
         "weight"?: FontWeightType;
+        /**
+          * The width size of the text.
+         */
+        "widthSize"?: SizeType | "xl" | "full";
     }
     /**
      * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.
@@ -2138,6 +2146,10 @@ declare namespace LocalJSX {
           * Specifies the font weight of the text.
          */
         "weight"?: FontWeightType;
+        /**
+          * The width size of the text.
+         */
+        "widthSize"?: SizeType | "xl" | "full";
     }
     /**
      * The `tnw-icon` component is a flexible icon element that supports various styles, sizes, and appearances. 
@@ -2729,6 +2741,10 @@ declare namespace LocalJSX {
           * Specifies the font weight of the text.
          */
         "weight"?: FontWeightType;
+        /**
+          * The width size of the text.
+         */
+        "widthSize"?: SizeType | "xl" | "full";
     }
     /**
      * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.

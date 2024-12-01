@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.4.0](https://github.com/technway/technway-component-library/compare/root-v2.3.0...root-v2.4.0) (2024-12-01)
+
+
+### Features
+
+* add a widthSize prop for tnw-heading & tnw-text components ([0909907](https://github.com/technway/technway-component-library/commit/0909907942273dc076b38cf9af425c2477d52d76))
+* **tnw-contact-banner:** add a 'gradient' appearance and props. ([6550fbb](https://github.com/technway/technway-component-library/commit/6550fbb5f141f83f968b75aff48f5b4a6e9dfcb3))
+
+
+### Bug Fixes
+
+* **components:** fix components props validations ([fb5226c](https://github.com/technway/technway-component-library/commit/fb5226c226df3c530a8295a6e27aef36086e6f1b))
+
 ## [2.3.0](https://github.com/technway/technway-component-library/compare/root-v2.2.0...root-v2.3.0) (2024-11-30)
 
 

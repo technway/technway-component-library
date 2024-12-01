@@ -1,10 +1,11 @@
 import { Component, Host, h, Prop, Element } from '@stencil/core';
 import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextColorType, TextTransformType } from '../../utils/component-props-types';
-import { getColorClass, getTextTransformClass, getTypographyClass, GLOBAL_PREFIX } from '../../utils/utils';
+import { getColorClass, getTextTransformClass, getTypographyClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { validateProps } from './utils/tnw-text-validate-props';
 import { colorStyleSheet, typographyStyleSheet } from '../../utils/shared-styles';
 import { styles } from './tnw-text.styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { SizeType } from '../../../loader';
 
 /**
  * The `tnw-text` component is used to display descriptive text with customizable styling options. 
@@ -60,6 +61,11 @@ export class TnwText {
   @Prop() lineHeight?: LineHeightType = "1_75";
 
   /**
+   * The width size of the text.
+   */
+  @Prop() widthSize?: SizeType | "xl" | "full" = 'full';
+
+  /**
    * Defines the HTML tag of the component.
    */
   @Prop() textTag?: "p" | "span" = "p";
@@ -86,11 +92,20 @@ export class TnwText {
     validateProps(propsValues);
   }
 
-  private getClasses(): string {
-    const { baseClass, color, size, lineHeight, weight, textCase, alignment } = this;
-
+  private getHostClasses(): string {
+    const { baseClass, widthSize } = this;
     return [
       baseClass,
+      isNotEmptyString(widthSize) ? `${baseClass}--width-${widthSize}` : ``,
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private getTextClasses(): string {
+    const { baseClass, color, size, lineHeight, weight, textCase, alignment } = this;
+    const headingClass = `${baseClass}__inner`;
+
+    return [
+      headingClass,
       getColorClass('color', color),
       getTypographyClass('fs', size),
       getTypographyClass('lh', lineHeight),
@@ -104,8 +119,8 @@ export class TnwText {
     const Tag = this.textTag;
 
     return (
-      <Host>
-        <Tag class={this.getClasses()} part='text'>{this.text || <slot />}</Tag>
+      <Host class={this.getHostClasses()}>
+        <Tag class={this.getTextClasses()} part='text'>{this.text || <slot />}</Tag>
       </Host>
     );
   }

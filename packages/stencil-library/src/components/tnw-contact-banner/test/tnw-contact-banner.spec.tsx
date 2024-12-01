@@ -52,11 +52,11 @@ describe('tnw-contact-banner', () => {
         </tnw-contact-banner>
       `);
       expect(el).toMatchSnapshot();
-      const shortTitle = el.shadowRoot?.querySelector('slot[name="short-title"]');
+      const subtitle = el.shadowRoot?.querySelector('slot[name="subtitle"]');
       const title = el.shadowRoot?.querySelector('slot[name="title"]');
       const description = el.shadowRoot?.querySelector('slot[name="description"]');
       const button = el.shadowRoot?.querySelector('slot[name="button"]');
-      expect(shortTitle).not.toBeNull();
+      expect(subtitle).not.toBeNull();
       expect(title).not.toBeNull();
       expect(description).not.toBeNull();
       expect(button).not.toBeNull();

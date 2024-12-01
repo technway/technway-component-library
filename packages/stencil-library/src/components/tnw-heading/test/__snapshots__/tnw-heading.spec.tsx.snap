@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tnw-heading Custom Prop Behavior renders correctly with a combination of custom props 1`] = `
-<tnw-heading alignment="center" color="primary" level="h3" line-height="1_75" size="xs" text="Custom Heading" text-case="uppercase" use-text-font="" weight="900">
+<tnw-heading alignment="center" class="tnw-heading tnw-heading--width-full" color="primary" level="h3" line-height="1_75" size="xs" text="Custom Heading" text-case="uppercase" use-text-font="" weight="900">
   <template shadowrootmode="open">
-    <h3 class="color-primary fs-xs fw-900 lh-1_75 ta-center tnw-heading tnw-heading--textFont uppercase" part="heading">
+    <h3 class="color-primary fs-xs fw-900 lh-1_75 ta-center tnw-heading__inner tnw-heading__inner--textFont uppercase" part="heading">
       Custom Heading
     </h3>
   </template>
@@ -11,9 +11,9 @@ exports[`tnw-heading Custom Prop Behavior renders correctly with a combination o
 `;
 
 exports[`tnw-heading Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-heading text="Test Heading">
+<tnw-heading class="tnw-heading tnw-heading--width-full" text="Test Heading">
   <template shadowrootmode="open">
-    <h2 class="fs-heading fw-600 lh-1_5 tnw-heading" part="heading">
+    <h2 class="fs-heading fw-600 lh-1_5 tnw-heading__inner" part="heading">
       Test Heading
     </h2>
   </template>

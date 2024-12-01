@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-01T08:30:45",
+  "timestamp": "2024-12-01T14:36:11",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -5248,6 +5248,51 @@
             },
             {
               "value": "text",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "widthSize",
+          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
+          "complexType": {
+            "original": "SizeType | \"xl\" | \"full\"",
+            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::SizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "width-size",
+          "reflectToAttr": false,
+          "docs": "The width size of the text.",
+          "docsTags": [],
+          "default": "'full'",
+          "values": [
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
               "type": "string"
             }
           ],
@@ -10969,6 +11014,51 @@
             },
             {
               "value": "text",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "widthSize",
+          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
+          "complexType": {
+            "original": "SizeType | \"xl\" | \"full\"",
+            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::SizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "width-size",
+          "reflectToAttr": false,
+          "docs": "The width size of the text.",
+          "docsTags": [],
+          "default": "'full'",
+          "values": [
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
               "type": "string"
             }
           ],

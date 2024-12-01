@@ -1,11 +1,10 @@
 import { Component, Host, h, Prop, Element } from '@stencil/core';
-import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextColorType, TextTransformType } from '../../utils/component-props-types';
+import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextColorType, TextTransformType, SizeType } from '../../utils/component-props-types';
 import { getColorClass, getTextTransformClass, getTypographyClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { validateProps } from './utils/tnw-text-validate-props';
 import { colorStyleSheet, typographyStyleSheet } from '../../utils/shared-styles';
 import { styles } from './tnw-text.styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
-import { SizeType } from '../../../loader';
 
 /**
  * The `tnw-text` component is used to display descriptive text with customizable styling options. 
@@ -88,7 +87,7 @@ export class TnwText {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.color, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight];
+    const propsValues = [this.alignment, this.color, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize];
     validateProps(propsValues);
   }
 

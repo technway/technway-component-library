@@ -97,7 +97,7 @@ describe('tnw-heading', () => {
 
     it('renders the correct class when useTextFont prop is true', async () => {
       const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading" use-text-font></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('tnw-heading--textFont');
+      expect(headingElement).toHaveClass('tnw-heading__inner--textFont');
     });
 
     it('renders correctly with a combination of custom props', async () => {

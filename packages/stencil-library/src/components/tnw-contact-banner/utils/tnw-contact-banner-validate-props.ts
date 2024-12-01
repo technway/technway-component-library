@@ -4,14 +4,14 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-contact-banner.tsx` file.
  * 
-const propsValues = [this.alignment, this.appearance, this.borderRadius, this.enableContentSlot, this.variant];
+const propsValues = [this.VerticalPadding, this.alignment, this.appearance, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin, this.variant];
 validateProps(propsValues);
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"alignment","type":["center","end","start"],"isRequired":false},{"name":"appearance","type":["mixed","outlined","solid","transparent"],"isRequired":false},{"name":"borderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"enableContentSlot","type":["boolean"],"isRequired":false},{"name":"variant","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false}];
+  const props = [{"name":"VerticalPadding","type":["2xl","3xl","4xl","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"alignment","type":["center","end","start"],"isRequired":false},{"name":"appearance","type":["gradient","mixed","outlined","solid","transparent"],"isRequired":false},{"name":"borderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"disableInternalContainer","type":["boolean"],"isRequired":false},{"name":"enableContentSlot","type":["boolean"],"isRequired":false},{"name":"horizontalPadding","type":["2xl","3xl","4xl","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"margin","type":["2xl","3xl","4xl","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"variant","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false}];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

@@ -93,12 +93,14 @@ along with the ability to use a different HTML tag for the heading element.
 
  - [tnw-card](../tnw-card)
  - [tnw-header-banner](../tnw-header-banner)
+ - [tnw-testimonial-card](../tnw-testimonial-card)
 
 ### Graph
 ```mermaid
 graph TD;
   tnw-card --> tnw-heading
   tnw-header-banner --> tnw-heading
+  tnw-testimonial-card --> tnw-heading
   style tnw-heading fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

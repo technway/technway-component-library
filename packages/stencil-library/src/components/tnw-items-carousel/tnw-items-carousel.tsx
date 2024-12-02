@@ -5,7 +5,6 @@ import { styles } from './tnw-items-carousel.styles';
 import { borderRadiusStyleSheet, colorStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-items-carousel-validate-props';
 
-
 /**
  * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
  * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.

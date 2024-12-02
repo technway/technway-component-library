@@ -28,6 +28,7 @@ import { TnwInput as TnwInputElement, defineCustomElement as defineTnwInput } fr
 import { TnwItemsCarousel as TnwItemsCarouselElement, defineCustomElement as defineTnwItemsCarousel } from "../../../../stencil-library/dist/components/tnw-items-carousel.js";
 import { TnwLabel as TnwLabelElement, defineCustomElement as defineTnwLabel } from "../../../../stencil-library/dist/components/tnw-label.js";
 import { TnwList as TnwListElement, defineCustomElement as defineTnwList } from "../../../../stencil-library/dist/components/tnw-list.js";
+import { TnwMultiRowCarousel as TnwMultiRowCarouselElement, defineCustomElement as defineTnwMultiRowCarousel } from "../../../../stencil-library/dist/components/tnw-multi-row-carousel.js";
 import { TnwNavbarDropdownMenu as TnwNavbarDropdownMenuElement, defineCustomElement as defineTnwNavbarDropdownMenu } from "../../../../stencil-library/dist/components/tnw-navbar-dropdown-menu.js";
 import { TnwNavbarMenuToggler as TnwNavbarMenuTogglerElement, defineCustomElement as defineTnwNavbarMenuToggler } from "../../../../stencil-library/dist/components/tnw-navbar-menu-toggler.js";
 import { TnwNavbarMenu as TnwNavbarMenuElement, defineCustomElement as defineTnwNavbarMenu } from "../../../../stencil-library/dist/components/tnw-navbar-menu.js";
@@ -37,6 +38,7 @@ import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating }
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "../../../../stencil-library/dist/components/tnw-scroll-to-top.js";
 import { TnwSection as TnwSectionElement, defineCustomElement as defineTnwSection } from "../../../../stencil-library/dist/components/tnw-section.js";
 import { TnwSelect as TnwSelectElement, defineCustomElement as defineTnwSelect } from "../../../../stencil-library/dist/components/tnw-select.js";
+import { TnwTestimonialCard as TnwTestimonialCardElement, defineCustomElement as defineTnwTestimonialCard } from "../../../../stencil-library/dist/components/tnw-testimonial-card.js";
 import { TnwText as TnwTextElement, defineCustomElement as defineTnwText } from "../../../../stencil-library/dist/components/tnw-text.js";
 import { TnwTextarea as TnwTextareaElement, defineCustomElement as defineTnwTextarea } from "../../../../stencil-library/dist/components/tnw-textarea.js";
 import React from 'react';
@@ -250,6 +252,17 @@ export const TnwList: StencilReactComponent<TnwListElement, TnwListEvents> = /*@
     defineCustomElement: defineTnwList
 });
 
+type TnwMultiRowCarouselEvents = NonNullable<unknown>;
+
+export const TnwMultiRowCarousel: StencilReactComponent<TnwMultiRowCarouselElement, TnwMultiRowCarouselEvents> = /*@__PURE__*/ createComponent<TnwMultiRowCarouselElement, TnwMultiRowCarouselEvents>({
+    tagName: 'tnw-multi-row-carousel',
+    elementClass: TnwMultiRowCarouselElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as TnwMultiRowCarouselEvents,
+    defineCustomElement: defineTnwMultiRowCarousel
+});
+
 type TnwNavbarEvents = NonNullable<unknown>;
 
 export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents> = /*@__PURE__*/ createComponent<TnwNavbarElement, TnwNavbarEvents>({
@@ -347,6 +360,17 @@ export const TnwSelect: StencilReactComponent<TnwSelectElement, TnwSelectEvents>
     react: React,
     events: { onOptionSelected: 'optionSelected' } as TnwSelectEvents,
     defineCustomElement: defineTnwSelect
+});
+
+type TnwTestimonialCardEvents = NonNullable<unknown>;
+
+export const TnwTestimonialCard: StencilReactComponent<TnwTestimonialCardElement, TnwTestimonialCardEvents> = /*@__PURE__*/ createComponent<TnwTestimonialCardElement, TnwTestimonialCardEvents>({
+    tagName: 'tnw-testimonial-card',
+    elementClass: TnwTestimonialCardElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as TnwTestimonialCardEvents,
+    defineCustomElement: defineTnwTestimonialCard
 });
 
 type TnwTextEvents = NonNullable<unknown>;

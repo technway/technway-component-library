@@ -843,6 +843,24 @@ export namespace Components {
         "weight"?: FontWeightType;
     }
     /**
+     * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+     * with multiple rows. Each row scrolls independently and can move in alternating directions.
+     */
+    interface TnwMultiRowCarousel {
+        /**
+          * The speed of the row animation in milliseconds.
+         */
+        "animationSpeed": number;
+        /**
+          * The direction of row movement. Alternates automatically unless explicitly set.
+         */
+        "direction"?: 'left' | 'right';
+        /**
+          * The number of rows in the carousel.
+         */
+        "rows": number;
+    }
+    /**
      * The `tnw-navbar` component creates a responsive, customizable navigation bar.
      * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
      */
@@ -1106,6 +1124,59 @@ export namespace Components {
           * JSON string representing the options available in the select dropdown. Each option can include a label, value, ariaLabel, and disabled state.
          */
         "optionsData": string;
+    }
+    /**
+     * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
+     */
+    interface TnwTestimonialCard {
+        /**
+          * The appearance style of the card.
+         */
+        "appearance"?: OptionalAppearanceType;
+        /**
+          * The name of the author.
+         */
+        "authorName"?: string;
+        /**
+          * Alternative text for the author's photo.
+         */
+        "authorPhotoAlt"?: string;
+        /**
+          * The URL of the author's photo.
+         */
+        "authorPhotoSrc"?: string;
+        /**
+          * The role or title of the author.
+         */
+        "authorRole"?: string;
+        /**
+          * The border radius applied to the card.
+         */
+        "borderRadius"?: BorderRadiusType;
+        /**
+          * The padding size for the card.
+         */
+        "padding"?: SizeType | "none";
+        /**
+          * Controls the spacing between description and author details.
+         */
+        "spacing"?: SizeType;
+        /**
+          * The text of the testimonial.
+         */
+        "text"?: string;
+        /**
+          * If `true`, the card will have a glassmorphism effect applied to its background.
+         */
+        "useGlassmorphismEffect"?: boolean;
+        /**
+          * If `true`, a random gradient avatar will be generated when no photo is provided.
+         */
+        "useRandomAvatar"?: boolean;
+        /**
+          * The color variant of the card, determining the overall color scheme.
+         */
+        "variant"?: ColorType;
     }
     /**
      * The `tnw-text` component is used to display descriptive text with customizable styling options. 
@@ -1451,6 +1522,16 @@ declare global {
         new (): HTMLTnwListElement;
     };
     /**
+     * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+     * with multiple rows. Each row scrolls independently and can move in alternating directions.
+     */
+    interface HTMLTnwMultiRowCarouselElement extends Components.TnwMultiRowCarousel, HTMLStencilElement {
+    }
+    var HTMLTnwMultiRowCarouselElement: {
+        prototype: HTMLTnwMultiRowCarouselElement;
+        new (): HTMLTnwMultiRowCarouselElement;
+    };
+    /**
      * The `tnw-navbar` component creates a responsive, customizable navigation bar.
      * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
      */
@@ -1547,6 +1628,15 @@ declare global {
         new (): HTMLTnwSelectElement;
     };
     /**
+     * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
+     */
+    interface HTMLTnwTestimonialCardElement extends Components.TnwTestimonialCard, HTMLStencilElement {
+    }
+    var HTMLTnwTestimonialCardElement: {
+        prototype: HTMLTnwTestimonialCardElement;
+        new (): HTMLTnwTestimonialCardElement;
+    };
+    /**
      * The `tnw-text` component is used to display descriptive text with customizable styling options. 
      * It supports various typography-related properties, color, and alignment.
      */
@@ -1585,6 +1675,7 @@ declare global {
         "tnw-items-carousel": HTMLTnwItemsCarouselElement;
         "tnw-label": HTMLTnwLabelElement;
         "tnw-list": HTMLTnwListElement;
+        "tnw-multi-row-carousel": HTMLTnwMultiRowCarouselElement;
         "tnw-navbar": HTMLTnwNavbarElement;
         "tnw-navbar-dropdown-menu": HTMLTnwNavbarDropdownMenuElement;
         "tnw-navbar-menu": HTMLTnwNavbarMenuElement;
@@ -1594,6 +1685,7 @@ declare global {
         "tnw-scroll-to-top": HTMLTnwScrollToTopElement;
         "tnw-section": HTMLTnwSectionElement;
         "tnw-select": HTMLTnwSelectElement;
+        "tnw-testimonial-card": HTMLTnwTestimonialCardElement;
         "tnw-text": HTMLTnwTextElement;
         "tnw-textarea": HTMLTnwTextareaElement;
     }
@@ -2436,6 +2528,24 @@ declare namespace LocalJSX {
         "weight"?: FontWeightType;
     }
     /**
+     * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+     * with multiple rows. Each row scrolls independently and can move in alternating directions.
+     */
+    interface TnwMultiRowCarousel {
+        /**
+          * The speed of the row animation in milliseconds.
+         */
+        "animationSpeed"?: number;
+        /**
+          * The direction of row movement. Alternates automatically unless explicitly set.
+         */
+        "direction"?: 'left' | 'right';
+        /**
+          * The number of rows in the carousel.
+         */
+        "rows"?: number;
+    }
+    /**
      * The `tnw-navbar` component creates a responsive, customizable navigation bar.
      * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
      */
@@ -2705,6 +2815,59 @@ declare namespace LocalJSX {
         "optionsData": string;
     }
     /**
+     * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
+     */
+    interface TnwTestimonialCard {
+        /**
+          * The appearance style of the card.
+         */
+        "appearance"?: OptionalAppearanceType;
+        /**
+          * The name of the author.
+         */
+        "authorName"?: string;
+        /**
+          * Alternative text for the author's photo.
+         */
+        "authorPhotoAlt"?: string;
+        /**
+          * The URL of the author's photo.
+         */
+        "authorPhotoSrc"?: string;
+        /**
+          * The role or title of the author.
+         */
+        "authorRole"?: string;
+        /**
+          * The border radius applied to the card.
+         */
+        "borderRadius"?: BorderRadiusType;
+        /**
+          * The padding size for the card.
+         */
+        "padding"?: SizeType | "none";
+        /**
+          * Controls the spacing between description and author details.
+         */
+        "spacing"?: SizeType;
+        /**
+          * The text of the testimonial.
+         */
+        "text"?: string;
+        /**
+          * If `true`, the card will have a glassmorphism effect applied to its background.
+         */
+        "useGlassmorphismEffect"?: boolean;
+        /**
+          * If `true`, a random gradient avatar will be generated when no photo is provided.
+         */
+        "useRandomAvatar"?: boolean;
+        /**
+          * The color variant of the card, determining the overall color scheme.
+         */
+        "variant"?: ColorType;
+    }
+    /**
      * The `tnw-text` component is used to display descriptive text with customizable styling options. 
      * It supports various typography-related properties, color, and alignment.
      */
@@ -2851,6 +3014,7 @@ declare namespace LocalJSX {
         "tnw-items-carousel": TnwItemsCarousel;
         "tnw-label": TnwLabel;
         "tnw-list": TnwList;
+        "tnw-multi-row-carousel": TnwMultiRowCarousel;
         "tnw-navbar": TnwNavbar;
         "tnw-navbar-dropdown-menu": TnwNavbarDropdownMenu;
         "tnw-navbar-menu": TnwNavbarMenu;
@@ -2860,6 +3024,7 @@ declare namespace LocalJSX {
         "tnw-scroll-to-top": TnwScrollToTop;
         "tnw-section": TnwSection;
         "tnw-select": TnwSelect;
+        "tnw-testimonial-card": TnwTestimonialCard;
         "tnw-text": TnwText;
         "tnw-textarea": TnwTextarea;
     }
@@ -2969,6 +3134,11 @@ declare module "@stencil/core" {
              */
             "tnw-list": LocalJSX.TnwList & JSXBase.HTMLAttributes<HTMLTnwListElement>;
             /**
+             * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+             * with multiple rows. Each row scrolls independently and can move in alternating directions.
+             */
+            "tnw-multi-row-carousel": LocalJSX.TnwMultiRowCarousel & JSXBase.HTMLAttributes<HTMLTnwMultiRowCarouselElement>;
+            /**
              * The `tnw-navbar` component creates a responsive, customizable navigation bar.
              * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
              */
@@ -3008,6 +3178,10 @@ declare module "@stencil/core" {
              * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
              */
             "tnw-select": LocalJSX.TnwSelect & JSXBase.HTMLAttributes<HTMLTnwSelectElement>;
+            /**
+             * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
+             */
+            "tnw-testimonial-card": LocalJSX.TnwTestimonialCard & JSXBase.HTMLAttributes<HTMLTnwTestimonialCardElement>;
             /**
              * The `tnw-text` component is used to display descriptive text with customizable styling options. 
              * It supports various typography-related properties, color, and alignment.

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-01T14:36:11",
+  "timestamp": "2024-12-02T12:59:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -5318,7 +5318,8 @@
       ],
       "dependents": [
         "tnw-card",
-        "tnw-header-banner"
+        "tnw-header-banner",
+        "tnw-testimonial-card"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -5326,6 +5327,9 @@
           "tnw-heading"
         ],
         "tnw-header-banner": [
+          "tnw-heading"
+        ],
+        "tnw-testimonial-card": [
           "tnw-heading"
         ]
       }
@@ -6340,7 +6344,8 @@
       "dependents": [
         "tnw-card",
         "tnw-header-banner",
-        "tnw-portfolio-grid"
+        "tnw-portfolio-grid",
+        "tnw-testimonial-card"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -6351,6 +6356,9 @@
           "tnw-image"
         ],
         "tnw-portfolio-grid": [
+          "tnw-image"
+        ],
+        "tnw-testimonial-card": [
           "tnw-image"
         ]
       }
@@ -7987,6 +7995,108 @@
           "tnw-icon"
         ]
       }
+    },
+    {
+      "filePath": "src/components/tnw-multi-row-carousel/tnw-multi-row-carousel.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-multi-row-carousel",
+      "readme": "# tnw-multi-row-carousel\n\n\n",
+      "docs": "The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel \nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Default slot to provide the content for the carousel. Each row will auto-distribute the slot's content."
+        }
+      ],
+      "usage": {
+        "tnw-multi-row-carousel-usage": ""
+      },
+      "props": [
+        {
+          "name": "animationSpeed",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "animation-speed",
+          "reflectToAttr": false,
+          "docs": "The speed of the row animation in milliseconds.",
+          "docsTags": [],
+          "default": "5000",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "\"left\" | \"right\"",
+          "complexType": {
+            "original": "'left' | 'right'",
+            "resolved": "\"left\" | \"right\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "direction",
+          "reflectToAttr": false,
+          "docs": "The direction of row movement. Alternates automatically unless explicitly set.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rows",
+          "reflectToAttr": false,
+          "docs": "The number of rows in the carousel.",
+          "docsTags": [],
+          "default": "3",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Default slot to provide the content for the carousel. Each row will auto-distribute the slot's content."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "src/components/tnw-navbar/tnw-navbar.tsx",
@@ -10565,6 +10675,482 @@
       }
     },
     {
+      "filePath": "src/components/tnw-testimonial-card/tnw-testimonial-card.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-testimonial-card",
+      "readme": "# tnw-testimonial-card\n\n\n",
+      "docs": "The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.",
+      "docsTags": [
+        {
+          "name": "part",
+          "text": "avatar - The container for the author's avatar or randomly generated gradient avatar."
+        },
+        {
+          "name": "part",
+          "text": "author-details - The container `div` element for the author's details (name and role)."
+        },
+        {
+          "name": "part",
+          "text": "author-photo - The `tnw-image` element for the author's photo."
+        },
+        {
+          "name": "part",
+          "text": "author-name - The `tnw-heading` element displaying the author's name."
+        },
+        {
+          "name": "part",
+          "text": "author-role - The `tnw-text` element displaying the author's role."
+        },
+        {
+          "name": "part",
+          "text": "description - The `tnw-text` element displaying the testimonial description."
+        }
+      ],
+      "usage": {
+        "tnw-testimonial-card-usage": ""
+      },
+      "props": [
+        {
+          "name": "appearance",
+          "type": "\"mixed\" | \"none\" | \"outlined\" | \"solid\" | \"transparent\"",
+          "complexType": {
+            "original": "OptionalAppearanceType",
+            "resolved": "\"mixed\" | \"none\" | \"outlined\" | \"solid\" | \"transparent\"",
+            "references": {
+              "OptionalAppearanceType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::OptionalAppearanceType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance style of the card.",
+          "docsTags": [],
+          "default": "'outlined'",
+          "values": [
+            {
+              "value": "mixed",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            },
+            {
+              "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "authorName",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "author-name",
+          "reflectToAttr": false,
+          "docs": "The name of the author.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "authorPhotoAlt",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "author-photo-alt",
+          "reflectToAttr": false,
+          "docs": "Alternative text for the author's photo.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "authorPhotoSrc",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "author-photo-src",
+          "reflectToAttr": false,
+          "docs": "The URL of the author's photo.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "authorRole",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "author-role",
+          "reflectToAttr": false,
+          "docs": "The role or title of the author.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "borderRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-radius",
+          "reflectToAttr": false,
+          "docs": "The border radius applied to the card.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "padding",
+          "type": "\"lg\" | \"md\" | \"none\" | \"sm\"",
+          "complexType": {
+            "original": "SizeType | \"none\"",
+            "resolved": "\"lg\" | \"md\" | \"none\" | \"sm\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::SizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "padding",
+          "reflectToAttr": false,
+          "docs": "The padding size for the card.",
+          "docsTags": [],
+          "default": "\"sm\"",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "spacing",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "SizeType",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::SizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "spacing",
+          "reflectToAttr": false,
+          "docs": "Controls the spacing between description and author details.",
+          "docsTags": [],
+          "default": "'sm'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": false,
+          "docs": "The text of the testimonial.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "useGlassmorphismEffect",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "use-glassmorphism-effect",
+          "reflectToAttr": false,
+          "docs": "If `true`, the card will have a glassmorphism effect applied to its background.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "useRandomAvatar",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "use-random-avatar",
+          "reflectToAttr": false,
+          "docs": "If `true`, a random gradient avatar will be generated when no photo is provided.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The color variant of the card, determining the overall color scheme.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "author-details",
+          "docs": "The container `div` element for the author's details (name and role)."
+        },
+        {
+          "name": "author-name",
+          "docs": "The `tnw-heading` element displaying the author's name."
+        },
+        {
+          "name": "author-photo",
+          "docs": "The `tnw-image` element for the author's photo."
+        },
+        {
+          "name": "author-role",
+          "docs": "The `tnw-text` element displaying the author's role."
+        },
+        {
+          "name": "avatar",
+          "docs": "The container for the author's avatar or randomly generated gradient avatar."
+        },
+        {
+          "name": "description",
+          "docs": "The `tnw-text` element displaying the testimonial description."
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "tnw-image",
+        "tnw-heading",
+        "tnw-text"
+      ],
+      "dependencyGraph": {
+        "tnw-testimonial-card": [
+          "tnw-image",
+          "tnw-heading",
+          "tnw-text"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/tnw-text/tnw-text.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-text",
@@ -11087,7 +11673,8 @@
         "tnw-card",
         "tnw-footer",
         "tnw-header-banner",
-        "tnw-navbar-menu"
+        "tnw-navbar-menu",
+        "tnw-testimonial-card"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -11104,6 +11691,9 @@
           "tnw-text"
         ],
         "tnw-navbar-menu": [
+          "tnw-text"
+        ],
+        "tnw-testimonial-card": [
           "tnw-text"
         ]
       }

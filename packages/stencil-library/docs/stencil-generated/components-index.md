@@ -23,6 +23,7 @@ This page lists all the library components.
 - [tnw-items-carousel](#tnw-items-carousel)
 - [tnw-label](#tnw-label)
 - [tnw-list](#tnw-list)
+- [tnw-multi-row-carousel](#tnw-multi-row-carousel)
 - [tnw-navbar](#tnw-navbar)
 - [tnw-navbar-dropdown-menu](#tnw-navbar-dropdown-menu)
 - [tnw-navbar-menu](#tnw-navbar-menu)
@@ -32,6 +33,7 @@ This page lists all the library components.
 - [tnw-scroll-to-top](#tnw-scroll-to-top)
 - [tnw-section](#tnw-section)
 - [tnw-select](#tnw-select)
+- [tnw-testimonial-card](#tnw-testimonial-card)
 - [tnw-text](#tnw-text)
 - [tnw-textarea](#tnw-textarea)
 
@@ -182,6 +184,13 @@ It allows you to create lists with various marker types, colors, and fonts, and 
 
 ---
 
+## tnw-multi-row-carousel
+
+The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+with multiple rows. Each row scrolls independently and can move in alternating directions.
+
+---
+
 ## tnw-navbar
 
 The `tnw-navbar` component creates a responsive, customizable navigation bar.
@@ -241,6 +250,12 @@ content alignment and padding.
 ⚠️ COMPONENT IN DEVELOPMENT
 
 The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
+
+---
+
+## tnw-testimonial-card
+
+The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
 
 ---
 

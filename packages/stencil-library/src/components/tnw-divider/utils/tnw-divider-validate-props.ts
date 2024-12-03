@@ -2,16 +2,16 @@
 /**
  * ⚠️ IMPORTANT:
  * 
- * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-multi-row-carousel.tsx` file.
+ * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-divider.tsx` file.
  * 
-const propsValues = [this.animationSpeed, this.rows];
+const propsValues = [this.color, this.variant];
 validateProps(propsValues);
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"animationSpeed","type":["number"],"isRequired":false},{"name":"rows","type":["number"],"isRequired":false}];
+  const props = [{"name":"color","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","none","primary","secondary","white"],"isRequired":false},{"name":"variant","type":["dashed","solid"],"isRequired":false}];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

@@ -340,22 +340,12 @@ export namespace Components {
          */
         "variant"?: ColorType;
     }
-    interface TnwDivider {
-        /**
-          * Color Variant of the divider
-         */
-        "color"?: BorderColorType;
-        /**
-          * Style of the divider
-         */
-        "variant"?: "solid" | "dashed";
-    }
     /**
      * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
      * and additional text. The component provides flexible options for colors, text layout, and custom slot content.
      * It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
      */
-    interface TnwFooter {
+    interface TnwCopyrightsFooter {
         /**
           * The background color for the footer.
          */
@@ -412,6 +402,50 @@ export namespace Components {
           * If true, the starting year will be set to the current year.
          */
         "useCurrentYearAsStartYear": boolean;
+        /**
+          * If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.
+         */
+        "useDivAsContainer": boolean;
+    }
+    interface TnwDivider {
+        /**
+          * Color Variant of the divider
+         */
+        "color"?: BorderColorType;
+        /**
+          * Style of the divider
+         */
+        "variant"?: "solid" | "dashed";
+    }
+    /**
+     * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
+     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+     */
+    interface TnwFooter {
+        /**
+          * The background color for the footer.
+         */
+        "backgroundColor": ColorType;
+        /**
+          * Center-align the footer content.
+         */
+        "centerContent": boolean;
+        /**
+          * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
+         */
+        "disableInternalContainer"?: boolean;
+        /**
+          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   newsletter: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
+         */
+        "footerData": string;
+        /**
+          * The color for the footer headings.
+         */
+        "headingColor": TextColorType;
+        /**
+          * The color for the footer content.
+         */
+        "textColor": TextColorType;
     }
     /**
      * The `tnw-header` component is designed to create a customizable and structured header for your application.
@@ -1408,6 +1442,17 @@ declare global {
         prototype: HTMLTnwContactBannerElement;
         new (): HTMLTnwContactBannerElement;
     };
+    /**
+     * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
+     * and additional text. The component provides flexible options for colors, text layout, and custom slot content.
+     * It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
+     */
+    interface HTMLTnwCopyrightsFooterElement extends Components.TnwCopyrightsFooter, HTMLStencilElement {
+    }
+    var HTMLTnwCopyrightsFooterElement: {
+        prototype: HTMLTnwCopyrightsFooterElement;
+        new (): HTMLTnwCopyrightsFooterElement;
+    };
     interface HTMLTnwDividerElement extends Components.TnwDivider, HTMLStencilElement {
     }
     var HTMLTnwDividerElement: {
@@ -1415,9 +1460,8 @@ declare global {
         new (): HTMLTnwDividerElement;
     };
     /**
-     * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
-     * and additional text. The component provides flexible options for colors, text layout, and custom slot content.
-     * It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
+     * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
+     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
      */
     interface HTMLTnwFooterElement extends Components.TnwFooter, HTMLStencilElement {
     }
@@ -1660,6 +1704,7 @@ declare global {
         "tnw-button": HTMLTnwButtonElement;
         "tnw-card": HTMLTnwCardElement;
         "tnw-contact-banner": HTMLTnwContactBannerElement;
+        "tnw-copyrights-footer": HTMLTnwCopyrightsFooterElement;
         "tnw-divider": HTMLTnwDividerElement;
         "tnw-footer": HTMLTnwFooterElement;
         "tnw-header": HTMLTnwHeaderElement;
@@ -2021,22 +2066,12 @@ declare namespace LocalJSX {
          */
         "variant"?: ColorType;
     }
-    interface TnwDivider {
-        /**
-          * Color Variant of the divider
-         */
-        "color"?: BorderColorType;
-        /**
-          * Style of the divider
-         */
-        "variant"?: "solid" | "dashed";
-    }
     /**
      * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
      * and additional text. The component provides flexible options for colors, text layout, and custom slot content.
      * It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
      */
-    interface TnwFooter {
+    interface TnwCopyrightsFooter {
         /**
           * The background color for the footer.
          */
@@ -2093,6 +2128,50 @@ declare namespace LocalJSX {
           * If true, the starting year will be set to the current year.
          */
         "useCurrentYearAsStartYear"?: boolean;
+        /**
+          * If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.
+         */
+        "useDivAsContainer"?: boolean;
+    }
+    interface TnwDivider {
+        /**
+          * Color Variant of the divider
+         */
+        "color"?: BorderColorType;
+        /**
+          * Style of the divider
+         */
+        "variant"?: "solid" | "dashed";
+    }
+    /**
+     * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
+     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+     */
+    interface TnwFooter {
+        /**
+          * The background color for the footer.
+         */
+        "backgroundColor"?: ColorType;
+        /**
+          * Center-align the footer content.
+         */
+        "centerContent"?: boolean;
+        /**
+          * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
+         */
+        "disableInternalContainer"?: boolean;
+        /**
+          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   newsletter: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
+         */
+        "footerData": string;
+        /**
+          * The color for the footer headings.
+         */
+        "headingColor"?: TextColorType;
+        /**
+          * The color for the footer content.
+         */
+        "textColor"?: TextColorType;
     }
     /**
      * The `tnw-header` component is designed to create a customizable and structured header for your application.
@@ -2995,6 +3074,7 @@ declare namespace LocalJSX {
         "tnw-button": TnwButton;
         "tnw-card": TnwCard;
         "tnw-contact-banner": TnwContactBanner;
+        "tnw-copyrights-footer": TnwCopyrightsFooter;
         "tnw-divider": TnwDivider;
         "tnw-footer": TnwFooter;
         "tnw-header": TnwHeader;
@@ -3071,11 +3151,16 @@ declare module "@stencil/core" {
              * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
              */
             "tnw-contact-banner": LocalJSX.TnwContactBanner & JSXBase.HTMLAttributes<HTMLTnwContactBannerElement>;
-            "tnw-divider": LocalJSX.TnwDivider & JSXBase.HTMLAttributes<HTMLTnwDividerElement>;
             /**
              * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
              * and additional text. The component provides flexible options for colors, text layout, and custom slot content.
              * It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
+             */
+            "tnw-copyrights-footer": LocalJSX.TnwCopyrightsFooter & JSXBase.HTMLAttributes<HTMLTnwCopyrightsFooterElement>;
+            "tnw-divider": LocalJSX.TnwDivider & JSXBase.HTMLAttributes<HTMLTnwDividerElement>;
+            /**
+             * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
+             * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
              */
             "tnw-footer": LocalJSX.TnwFooter & JSXBase.HTMLAttributes<HTMLTnwFooterElement>;
             /**

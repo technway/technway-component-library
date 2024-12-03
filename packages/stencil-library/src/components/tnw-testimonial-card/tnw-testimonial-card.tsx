@@ -104,7 +104,7 @@ export class TnwTestimonialCard {
   }
 
   componentWillLoad() {
-    const propsValues = [this.appearance, this.authorName, this.authorPhotoAlt, this.authorPhotoSrc, this.authorRole, this.borderRadius, this.text, this.padding, this.spacing, this.useGlassmorphismEffect, this.useRandomAvatar, this.variant];
+    const propsValues = [this.appearance, this.authorName, this.authorPhotoAlt, this.authorPhotoSrc, this.authorRole, this.borderRadius, this.padding, this.spacing, this.text, this.useGlassmorphismEffect, this.useRandomAvatar, this.variant];
     validateProps(propsValues);
   }
 

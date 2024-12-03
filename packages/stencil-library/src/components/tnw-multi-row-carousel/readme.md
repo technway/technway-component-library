@@ -20,11 +20,10 @@ with multiple rows. Each row scrolls independently and can move in alternating d
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                    | Type                | Default     |
-| ---------------- | ----------------- | ------------------------------------------------------------------------------ | ------------------- | ----------- |
-| `animationSpeed` | `animation-speed` | The speed of the row animation in milliseconds.                                | `number`            | `5000`      |
-| `direction`      | `direction`       | The direction of row movement. Alternates automatically unless explicitly set. | `"left" \| "right"` | `undefined` |
-| `rows`           | `rows`            | The number of rows in the carousel.                                            | `number`            | `3`         |
+| Property         | Attribute         | Description                                     | Type     | Default |
+| ---------------- | ----------------- | ----------------------------------------------- | -------- | ------- |
+| `animationSpeed` | `animation-speed` | The speed of the row animation in milliseconds. | `number` | `22000` |
+| `rows`           | `rows`            | The number of rows in the carousel.             | `number` | `2`     |
 
 
 ## Slots

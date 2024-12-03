@@ -7,11 +7,11 @@ This page provides an overview of statistics related to the components.
 | Statistic | Value |
 | --- | --- |
 | **Total Components** | `32` |
-| **Total Props** | `276` |
+| **Total Props** | `275` |
 | **Total Events** | `2` |
 | **Total Methods** | `0` |
 | **Total Slots** | `42` |
-| **Total Features** | `320` |
+| **Total Features** | `319` |
 |   |  |
 | **Shadow DOM Components** | `32` |
 | **Light DOM Components** | `0` |
@@ -177,7 +177,7 @@ This page provides an overview of statistics related to the components.
 ### tnw-multi-row-carousel
 | Feature | Count |
 | --- | --- |
-| **Props** | `3` |
+| **Props** | `2` |
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `1` |

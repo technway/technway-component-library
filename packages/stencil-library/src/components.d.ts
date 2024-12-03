@@ -852,10 +852,6 @@ export namespace Components {
          */
         "animationSpeed": number;
         /**
-          * The direction of row movement. Alternates automatically unless explicitly set.
-         */
-        "direction"?: 'left' | 'right';
-        /**
           * The number of rows in the carousel.
          */
         "rows": number;
@@ -2536,10 +2532,6 @@ declare namespace LocalJSX {
           * The speed of the row animation in milliseconds.
          */
         "animationSpeed"?: number;
-        /**
-          * The direction of row movement. Alternates automatically unless explicitly set.
-         */
-        "direction"?: 'left' | 'right';
         /**
           * The number of rows in the carousel.
          */

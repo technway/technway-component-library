@@ -1,6 +1,7 @@
 import { Component, Host, Prop, Element, State, h } from '@stencil/core';
 import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-multi-row-carousel.style';
+import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 
 /**
  * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
@@ -23,28 +24,29 @@ export class TnwMultiRowCarousel {
   /**
    * The number of rows in the carousel.
    */
-  @Prop() rows: number = 3;
+  @Prop() rows: number = 2;
 
   /**
    * The speed of the row animation in milliseconds.
    */
-  @Prop() animationSpeed: number = 5000;
-
-  /**
-   * The direction of row movement. Alternates automatically unless explicitly set.
-   */
-  @Prop() direction?: 'left' | 'right';
+  @Prop() animationSpeed: number = 22000;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
       this.componentStyles = new CSSStyleSheet();
       this.componentStyles.replaceSync(styles);
     }
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
   connectedCallback(): void {
     if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [this.componentStyles];
+      (this.el.shadowRoot as any).adoptedStyleSheets = [
+        extendedAppearanceStyleSheet,
+        borderRadiusStyleSheet,
+        this.componentStyles
+      ];
     } else {
       const style = document.createElement('style');
       style.textContent = styles;
@@ -52,48 +54,54 @@ export class TnwMultiRowCarousel {
     }
   }
 
-  componentWillLoad() {
+  componentDidLoad() {
     const slotContent = Array.from(this.getSlotContent());
     this.rowContents = this.distributeContentIntoRows(slotContent, this.rows);
   }
 
   private getSlotContent(): HTMLElement[] {
-    const slot = this.el.shadowRoot.querySelector('slot');
-    if (slot) {
-      const assignedElements = (slot as HTMLSlotElement).assignedElements({ flatten: true }) as HTMLElement[];
-      if (assignedElements.length > 0) {
-        console.log(`[${this.baseClass}] getSlotContent: Retrieved ${assignedElements.length} assigned slot items.`);
-        return assignedElements;
-      }
-    }
-  
-    // Save the current children into fallbackContent
     const fallbackContent = Array.from(this.el.children) as HTMLElement[];
-  
-    // Remove these elements from the DOM
     fallbackContent.forEach(child => child.remove());
-  
-    console.log(`[${this.baseClass}] getSlotContent: Saved ${fallbackContent.length} fallback children and removed them from DOM.`);
+
     return fallbackContent;
-  }  
+  }
 
   private distributeContentIntoRows(content: HTMLElement[], rows: number): HTMLElement[][] {
     const distributed: HTMLElement[][] = Array.from({ length: rows }, () => []);
     content.forEach((item, index) => {
       const rowIndex = index % rows;
-      distributed[rowIndex].push(item);
+      distributed[rowIndex].push(item.cloneNode(true) as HTMLElement);
     });
     return distributed;
   }
 
   private getRowStyles(rowIndex: number): { [key: string]: string } {
     const isEvenRow = rowIndex % 2 === 0;
-    const direction = this.direction || (isEvenRow ? 'left' : 'right');
-    const animationName = direction === 'left' ? 'scroll-left' : 'scroll-right';
+    const animationDirection = isEvenRow ? 'alternate' : 'alternate-reverse';
 
     return {
-      animation: `${animationName} ${this.animationSpeed}ms linear infinite`,
+      animationName: 'scroll-loop',
+      animationTimingFunction: 'ease-in-out',
+      animationIterationCount: 'infinite',
+      animationDirection: animationDirection,
+      animationDuration: `${this.animationSpeed}ms`,
+      animationPlayState: 'running',
+      transition: 'animation-play-state 0.3s ease',
     };
+  }
+
+  private handleRowHover(rowElement: HTMLElement, isHover: boolean): void {
+    rowElement.style.animationPlayState = isHover ? 'paused' : 'running';
+  }
+
+  private handleMouseEnter(event: MouseEvent): void {
+    const rowElement = event.currentTarget as HTMLElement;
+    this.handleRowHover(rowElement, true);
+  }
+
+  private handleMouseLeave(event: MouseEvent): void {
+    const rowElement = event.currentTarget as HTMLElement;
+    this.handleRowHover(rowElement, false);
   }
 
   render() {
@@ -104,11 +112,13 @@ export class TnwMultiRowCarousel {
             <div
               class={`${this.baseClass}__row`}
               style={this.getRowStyles(rowIndex)}
+              onMouseEnter={this.handleMouseEnter}
+              onMouseLeave={this.handleMouseLeave}
             >
               {row.map((item, itemIndex) => (
                 <div
                   class={`${this.baseClass}__item`}
-                  key={itemIndex}
+                  key={`${rowIndex}-${itemIndex}`}
                   innerHTML={item.outerHTML}
                 ></div>
               ))}
@@ -118,5 +128,4 @@ export class TnwMultiRowCarousel {
       </Host>
     );
   }
-
 }

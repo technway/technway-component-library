@@ -23,9 +23,8 @@ with multiple rows. Each row scrolls independently and can move in alternating d
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **animationSpeed** | <div>The speed of the row animation in milliseconds.</div> | `5000` | `number` |
-| **direction** | <div>The direction of row movement. Alternates automatically unless explicitly set.</div> | N/A | `"left"` \| `"right"` |
-| **rows** | <div>The number of rows in the carousel.</div> | `3` | `number` |
+| **animationSpeed** | <div>The speed of the row animation in milliseconds.</div> | `22000` | `number` |
+| **rows** | <div>The number of rows in the carousel.</div> | `2` | `number` |
 
 </div>
 

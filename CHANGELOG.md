@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/technway/technway-component-library/compare/root-v2.5.0...root-v2.6.0) (2024-12-03)
+
+
+### Features
+
+* **tnw-multi-row-carousel:** enhacne functionaliity and style ([4db88b6](https://github.com/technway/technway-component-library/commit/4db88b69016584bd250065ed6071eedd2015a08c))
+
 ## [2.5.0](https://github.com/technway/technway-component-library/compare/root-v2.4.0...root-v2.5.0) (2024-12-02)
 
 

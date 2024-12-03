@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.1](https://github.com/technway/technway-component-library/compare/root-v2.6.0...root-v2.6.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* **validations:** resolve components validations issues ([2096a3a](https://github.com/technway/technway-component-library/commit/2096a3a412be0cf8ffdd4955bc2f783502142761))
+
 ## [2.6.0](https://github.com/technway/technway-component-library/compare/root-v2.5.0...root-v2.6.0) (2024-12-03)
 
 

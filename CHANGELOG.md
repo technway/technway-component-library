@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/technway/technway-component-library/compare/root-v2.4.0...root-v2.5.0) (2024-12-02)
+
+
+### Features
+
+* **components:** create new 'tnw-testimonial-card' and 'tnw-multi-row-carousel' components ([eb8d2a9](https://github.com/technway/technway-component-library/commit/eb8d2a9b8e2c251e8647a005809c71047c01a0f6))
+
 ## [2.4.0](https://github.com/technway/technway-component-library/compare/root-v2.3.0...root-v2.4.0) (2024-12-01)
 
 

@@ -22,7 +22,7 @@ npm run g:components-stories <tag-name>
 
 # Generate the usage directory and file for documentation purposes
 npm run g:components-usage <tag-name>
-```usage
+```
 
 #### Scripts when the component is **implemented**:
 

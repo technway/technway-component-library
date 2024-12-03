@@ -90,7 +90,7 @@ It supports various typography-related properties, color, and alignment.
 
  - [tnw-accordion](../tnw-accordion)
  - [tnw-card](../tnw-card)
- - [tnw-footer](../tnw-footer)
+ - [tnw-copyrights-footer](../tnw-copyrights-footer)
  - [tnw-header-banner](../tnw-header-banner)
  - [tnw-navbar-menu](../tnw-navbar-menu)
  - [tnw-testimonial-card](../tnw-testimonial-card)
@@ -100,7 +100,7 @@ It supports various typography-related properties, color, and alignment.
 graph TD;
   tnw-accordion --> tnw-text
   tnw-card --> tnw-text
-  tnw-footer --> tnw-text
+  tnw-copyrights-footer --> tnw-text
   tnw-header-banner --> tnw-text
   tnw-navbar-menu --> tnw-text
   tnw-testimonial-card --> tnw-text

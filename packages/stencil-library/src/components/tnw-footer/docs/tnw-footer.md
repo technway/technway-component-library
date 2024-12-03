@@ -10,9 +10,8 @@
 
 ## Overview
 
-The `tnw-footer` component displays footer information such as the organization name, copyright years, 
-and additional text. The component provides flexible options for colors, text layout, and custom slot content.
-It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
+The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
+social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
 
 | Detail | Value |
 | --- | --- |
@@ -26,19 +25,24 @@ It can be customized to display dynamic or static years, as well as pre-defined 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
 | **backgroundColor** | <div>The background color for the footer.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **borderTopColor** | <div>The color of the top border of the footer.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **centerContent** | <div>Centering text</div> | `false` | `boolean` |
+| **centerContent** | <div>Center-align the footer content.</div> | `false` | `boolean` |
 | **disableInternalContainer** | <div>If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.</div> | `false` | `boolean` |
-| **enableSlot** | <div>If true, the footer will render custom content using a slot instead of the default content.</div> | `false` | `boolean` |
-| **endYear** | <div>The ending year to display in the footer. If `useCurrentYearAsEndYear` is true, this will default to the current year.</div> | N/A | `number` |
-| **organizationName** | <div>The name of the organization to display in the footer.</div> | N/A | `string` |
-| **organizationNameColor** | <div>The color of the organization name. Defaults to the same value as `textColor`.</div> | `this.textColor` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **postText** | <div>Text to display after the organization name.</div> | N/A | `string` |
-| **preText** | <div>Text to display before the organization name.</div> | N/A | `string` |
-| **startYear** | <div>The starting year to display in the footer. If `useCurrentYearAsStartYear` is true, this will default to the current year.</div> | N/A | `number` |
-| **textColor** | <div>The text color for the footer content.</div> | `'auto'` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **useCurrentYearAsEndYear** | <div>If true, the ending year will be set to the current year.</div> | `false` | `boolean` |
-| **useCurrentYearAsStartYear** | <div>If true, the starting year will be set to the current year.</div> | `false` | `boolean` |
+| **footerData** | <div>JSON data for dynamically populating the footer content.
+Expected structure:
+{
+  brand: { logo: string, name: string },
+  links: { heading: string, items: Array<{ label: string, url: string }> },
+  contact: { heading: string, email: string, phone: string },
+  socialmedia: Array<{ iconName: string, url: string }>,
+  newsletter: {
+    heading: string,
+    description: string,
+    placeholder: string,
+    buttonText: string
+  }
+}</div> | N/A | `string` |
+| **headingColor** | <div>The color for the footer headings.</div> | `'auto'` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **textColor** | <div>The color for the footer content.</div> | `'auto'` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
 
 </div>
 
@@ -46,13 +50,23 @@ It can be customized to display dynamic or static years, as well as pre-defined 
 
 | Part | Description |
 | --- | --- |
-| **footer** | The `footer` element that wraps the entire content of the footer. |
+| **brand** | No description provided. |
+| **contact** | No description provided. |
+| **container** | The container wrapping the footer sections. |
+| **footer** | The main `footer` element wrapping the entire component. |
+| **links** | No description provided. |
+| **newsletter** | No description provided. |
+| **socialmedia** | No description provided. |
 
 ## Slots
 
 | Slot | Description |
 | --- | --- |
-| **default** | Custom content slot for the footer. When `enableSlot` is true, this slot is used instead of the default content. |
+| **brand** | Slot for the brand logo and name. |
+| **contact** | Slot for contact information. |
+| **links** | Slot for useful links. |
+| **newsletter** | Slot for the newsletter subscription form. |
+| **socialmedia** | Slot for social media icons. |
 
 ## Usage & Examples
 

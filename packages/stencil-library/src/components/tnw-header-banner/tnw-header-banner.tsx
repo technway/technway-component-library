@@ -114,7 +114,7 @@ export class TnwHeaderBanner {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.buttonLabel, this.description, this.heading, this.stickyNavbar, this.subheading, this.theme, this.width];
+    const propsValues = [this.alignment, this.buttonLabel, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage];
     validateProps(propsValues);
   }
 

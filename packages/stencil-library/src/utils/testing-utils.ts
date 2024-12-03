@@ -27,7 +27,8 @@ const createPage = async (component: any, html: string, debug: boolean): Promise
             html: html,
         });
     } catch (error) {
-        logError(error, debug);
+        logError(error, true);
+        console.error(error);
         throw new Error('Failed to create spec page');
     }
 };
@@ -67,7 +68,7 @@ export const createSpecPage = async (
     elementSelector?: string,
     debug: boolean = false
 ): Promise<Element | null> => {
-    const page = await createPage(component, html, debug);
+    const page = await createPage(component, html, true);
 
     if (page?.root === null || page?.root === undefined) {
         throw new Error('No root element found in the spec page');
@@ -87,7 +88,7 @@ export const createSpecPage = async (
 export const checkError = async (component: any, html: string, expectedMessagePart: string, debug: boolean = false) => {
     let isErrorThrown = false;
     try {
-        await createSpecPage(component, html, undefined, debug);
+        await createSpecPage(component, html, undefined, true);
     } catch (error) {
         isErrorThrown = true;
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-02T12:59:10",
+  "timestamp": "2024-12-03T08:24:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -8025,39 +8025,13 @@
           "reflectToAttr": false,
           "docs": "The speed of the row animation in milliseconds.",
           "docsTags": [],
-          "default": "5000",
+          "default": "22000",
           "values": [
             {
               "type": "number"
             }
           ],
           "optional": false,
-          "required": false
-        },
-        {
-          "name": "direction",
-          "type": "\"left\" | \"right\"",
-          "complexType": {
-            "original": "'left' | 'right'",
-            "resolved": "\"left\" | \"right\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "direction",
-          "reflectToAttr": false,
-          "docs": "The direction of row movement. Alternates automatically unless explicitly set.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "left",
-              "type": "string"
-            },
-            {
-              "value": "right",
-              "type": "string"
-            }
-          ],
-          "optional": true,
           "required": false
         },
         {
@@ -8073,7 +8047,7 @@
           "reflectToAttr": false,
           "docs": "The number of rows in the carousel.",
           "docsTags": [],
-          "default": "3",
+          "default": "2",
           "values": [
             {
               "type": "number"

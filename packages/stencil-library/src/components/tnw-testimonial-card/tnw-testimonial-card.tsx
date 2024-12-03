@@ -139,7 +139,7 @@ export class TnwTestimonialCard {
 
   private renderAuthorDetails(): JSX.Element | null {
     if (!isNotEmptyString(this.authorName)) return null;
-
+    
     return (
       <div class={`${this.baseClass}__author-details`} part='author-details'>
         {isNotEmptyString(this.authorPhotoSrc) ?

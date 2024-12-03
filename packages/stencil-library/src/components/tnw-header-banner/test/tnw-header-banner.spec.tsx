@@ -5,7 +5,7 @@ describe('tnw-header-banner', () => {
 
   describe('Default and Required Prop Behavior', () => {
     it('renders correctly with default props', async () => {
-      const el = await createSpecPage(TnwHeaderBanner, `<tnw-header-banner></tnw-header-banner>`);
+      const el = await createSpecPage(TnwHeaderBanner, `<tnw-header-banner></tnw-header-banner>`, '', true);
       expect(el).toMatchSnapshot();
     });
   });

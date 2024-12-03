@@ -1,18 +1,22 @@
-import { Component, Element, Host, Prop, h } from '@stencil/core';
-import { getColorClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, isNotEmptyStringOrNumber } from '../../utils/utils';
+import { Component, Element, Fragment, Host, Prop, State, h } from '@stencil/core';
+import { getColorClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, parseJSONAsync } from '../../utils/utils';
 import { ColorType, TextColorType } from '../../utils/component-props-types';
-import { styles } from './tnw-footer.styles';
+import { styles } from './tnw-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';
-import { validateProps } from './utils/tnw-footer-validate-props';
+import { FooterData } from './utils/tnw-footer-data-types';
 
 /**
- * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
- * and additional text. The component provides flexible options for colors, text layout, and custom slot content.
- * It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
+ * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
+ * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
  * 
- * @slot - Custom content slot for the footer. When `enableSlot` is true, this slot is used instead of the default content.
+ * @slot brand - Slot for the brand logo and name.
+ * @slot links - Slot for useful links.
+ * @slot contact - Slot for contact information.
+ * @slot socialmedia - Slot for social media icons.
+ * @slot newsletter - Slot for the newsletter subscription form.
  * 
- * @part footer - The `footer` element that wraps the entire content of the footer.
+ * @part footer - The main `footer` element wrapping the entire component.
+ * @part container - The container wrapping the footer sections.
  */
 @Component({
   tag: 'tnw-footer',
@@ -24,50 +28,7 @@ export class TnwFooter {
 
   @Element() el!: HTMLTnwFooterElement;
 
-  /**
-   * The starting year to display in the footer. If `useCurrentYearAsStartYear` is true, this will default to the current year.
-   */
-  @Prop() startYear?: number;
-
-  /**
-   * The ending year to display in the footer. If `useCurrentYearAsEndYear` is true, this will default to the current year.
-   */
-  @Prop() endYear?: number;
-
-  /**
-   * If true, the starting year will be set to the current year.
-   */
-  @Prop() useCurrentYearAsStartYear: boolean = false;
-
-  /**
-   * If true, the ending year will be set to the current year.
-   */
-  @Prop() useCurrentYearAsEndYear: boolean = false;
-
-  /**
-   * The name of the organization to display in the footer.
-   */
-  @Prop() organizationName?: string;
-
-  /**
-   * Text to display before the organization name.
-   */
-  @Prop() preText?: string;
-
-  /**
-   * Text to display after the organization name.
-   */
-  @Prop() postText?: string;
-
-  /**
-   * The text color for the footer content.
-   */
-  @Prop() textColor?: TextColorType = 'auto';
-
-  /**
-   * The color of the organization name. Defaults to the same value as `textColor`.
-   */
-  @Prop() organizationNameColor?: TextColorType = this.textColor;
+  @State() parsedFooterData: FooterData | null = null;
 
   /**
    * The background color for the footer.
@@ -75,24 +36,42 @@ export class TnwFooter {
   @Prop() backgroundColor: ColorType = 'auto';
 
   /**
-   * The color of the top border of the footer.
+   * The color for the footer headings.
    */
-  @Prop() borderTopColor: ColorType = 'auto';
+  @Prop() headingColor: TextColorType = 'auto';
 
   /**
-   * If true, the footer will render custom content using a slot instead of the default content.
+   * The color for the footer content.
    */
-  @Prop() enableSlot?: boolean = false;
-
-  /**
-   * Centering text
-   */
-  @Prop() centerContent: boolean = false;
+  @Prop() textColor: TextColorType = 'auto';
 
   /**
    * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
    */
   @Prop() disableInternalContainer?: boolean = false;
+
+  /**
+   * Center-align the footer content.
+   */
+  @Prop() centerContent: boolean = false;
+
+  /**
+   * JSON data for dynamically populating the footer content.
+   * Expected structure:
+   * {
+   *   brand: { logo: string, name: string },
+   *   links: { heading: string, items: Array<{ label: string, url: string }> },
+   *   contact: { heading: string, email: string, phone: string },
+   *   socialmedia: Array<{ iconName: string, url: string }>,
+   *   newsletter: {
+   *     heading: string,
+   *     description: string,
+   *     placeholder: string,
+   *     buttonText: string
+   *   }
+   * }
+   */
+  @Prop() footerData!: string;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -107,113 +86,133 @@ export class TnwFooter {
         colorStyleSheet,
         containerStyleSheet,
         this.componentStyles,
-      ]
+      ];
     }
   }
 
-  componentWillLoad() {
-    const propsValues = [this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.enableSlot, this.endYear, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear];
-    validateProps(propsValues);
-  }
-
-  private getYearsRange(): string {
-    const { startYear, endYear, useCurrentYearAsStartYear, useCurrentYearAsEndYear } = this;
-    const currentYear = new Date().getFullYear();
-
-    const startYearValue: number = useCurrentYearAsStartYear ? currentYear : startYear;
-    const endYearValue: number = useCurrentYearAsEndYear ? currentYear : endYear;
-
-    if (isNotEmptyStringOrNumber(startYear)) {
-      if (isNotEmptyStringOrNumber(endYearValue)) {
-        return `${String(startYearValue)} - ${String(endYearValue)}`;
-      }
-      return String(startYearValue);
-    }
-
-    // If endYearValue is not null or undefined, return it
-    if (isNotEmptyStringOrNumber(endYearValue)) {
-      return String(endYearValue);
-    }
-
-    return '';
+  async componentWillLoad() {
+    this.parsedFooterData = await parseJSONAsync(this.footerData);
   }
 
   private getHostClasses(): string {
-    const { baseClass, borderTopColor, backgroundColor, centerContent } = this;
+    const { baseClass, backgroundColor, centerContent } = this;
 
     return [
       baseClass,
-      centerContent ? `${baseClass}--center` : ``,
-      isNotEmptyString(borderTopColor) ? `${baseClass}--borderTop` : ``,
+      centerContent ? `${baseClass}--center` : '',
       getColorClass('bg', backgroundColor),
-      getColorClass('border-top', borderTopColor),
     ].filter(Boolean).join(' ').trim();
   }
-
-  private renderPreText() {
-    if (!isNotEmptyString(this.preText)) {
-      return null;
-    }
+  
+  private renderBrand(brand?: { logo?: string; name?: string }) {
+    if (!brand || (!brand.logo && !brand.name)) return null;
 
     return (
-      <tnw-text textTag='span' text={this.preText} size='xs' color={this.textColor} />
+      <div class={`${this.baseClass}__brand`} part="brand">
+        {brand.logo && <img src={brand.logo} alt={`${brand.name || 'Brand'} logo`} />}
+        {brand.name && <span>{brand.name}</span>}
+      </div>
     );
   }
 
-  private renderOrganizationName() {
-    if (!isNotEmptyString(this.organizationName)) {
-      return null;
-    }
+  private renderLinks(links?: { heading?: string; items?: Array<{ label: string; url: string }> }) {
+    if (!links || !links.items?.length) return null;
 
     return (
-      <tnw-text textTag='span' text={this.organizationName} size='xs' color={this.organizationNameColor} />
+      <div class={`${this.baseClass}__links`} part="links">
+        {links.heading && <h3>{links.heading}</h3>}
+        <ul>
+          {links.items.map(link => (
+            <li>
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
-
-  private renderPostText() {
-    if (!isNotEmptyString(this.postText)) {
-      return null;
-    }
+  
+  private renderContact(contact?: { heading?: string; email?: string; phone?: string }) {
+    if (!contact || (!contact.email && !contact.phone)) return null;
 
     return (
-      <tnw-text textTag='span' text={this.postText} size='xs' color={this.textColor} />
+      <div class={`${this.baseClass}__contact`} part="contact">
+        {contact.heading && <h3>{contact.heading}</h3>}
+        {contact.email && (
+          <p>
+            Email: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          </p>
+        )}
+        {contact.phone && <p>Phone: {contact.phone}</p>}
+      </div>
     );
   }
-
-  private renderYearnRange() {
-    const yearsRange = this.getYearsRange();
-
-    if (!isNotEmptyString(yearsRange)) {
-      return null;
-    }
+  
+  private renderSocialMedia(socialmedia?: Array<{ iconName: string; url: string }>) {
+    if (!socialmedia?.length) return null;
 
     return (
-      <tnw-text textTag='span' text={yearsRange} size='xs' color={this.textColor} />
+      <div class={`${this.baseClass}__socialmedia`} part="socialmedia">
+        <ul>
+          {socialmedia.map(icon => (
+            <li>
+              <a href={icon.url} target="_blank" rel="noopener noreferrer">
+                <i class={`icon-${icon.iconName}`}></i>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
-
-  private renderContent() {
+  
+  private renderNewsletter(newsletter?: {
+    heading?: string;
+    description?: string;
+    placeholder?: string;
+    buttonText?: string;
+  }) {
+    if (!newsletter) return null;
+    
     return (
-      <p class={`${this.baseClass}__content`}>
-        {this.renderPreText()}
-        {this.renderOrganizationName()}
-        {this.renderPostText()}
-        {this.renderYearnRange()}
-      </p>
+      <div class={`${this.baseClass}__newsletter`} part="newsletter">
+        {newsletter.heading && <h3>{newsletter.heading}</h3>}
+        {newsletter.description && <p>{newsletter.description}</p>}
+        <form>
+          <input type="email" placeholder={newsletter.placeholder} />
+          <button type="submit">{newsletter.buttonText}</button>
+        </form>
+      </div>
     );
   }
 
   render() {
+    const { parsedFooterData } = this;
+  
     return (
       <Host class={this.getHostClasses()}>
-        <footer class={!this.disableInternalContainer ? 'container' : ''} part='footer'>
-          {this.enableSlot ? (
-            <slot />
+        <footer class={!this.disableInternalContainer ? 'container' : ''} part="container">
+          {parsedFooterData !== null ? (
+            <Fragment>
+              {this.renderBrand(parsedFooterData.brand!)}
+              {this.renderLinks(parsedFooterData.links!)}
+              {this.renderContact(parsedFooterData.contact!)}
+              {this.renderSocialMedia(parsedFooterData.socialmedia!)}
+              {this.renderNewsletter(parsedFooterData.newsletter!)}
+            </Fragment>
           ) : (
-            this.renderContent()
+            <Fragment>
+              <slot name="brand"></slot>
+              <slot name="links"></slot>
+              <slot name="contact"></slot>
+              <slot name="socialmedia"></slot>
+              <slot name="newsletter"></slot>
+            </Fragment>
           )}
         </footer>
       </Host>
     );
-  }
+  }  
 }

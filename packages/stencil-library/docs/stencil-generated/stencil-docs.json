@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-03T08:59:21",
+  "timestamp": "2024-12-03T18:42:40",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -3189,153 +3189,11 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "src/components/tnw-divider/tnw-divider.tsx",
+      "filePath": "src/components/tnw-copyrights-footer/tnw-copyrights-footer.tsx",
       "encapsulation": "shadow",
-      "tag": "tnw-divider",
-      "readme": "# tnw-divider\n\n\n",
-      "docs": "",
-      "docsTags": [],
-      "usage": {
-        "tnw-divider-usage": ""
-      },
-      "props": [
-        {
-          "name": "color",
-          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"none\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "BorderColorType",
-            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"none\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "BorderColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::BorderColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "color",
-          "reflectToAttr": false,
-          "docs": "Color Variant of the divider",
-          "docsTags": [],
-          "default": "'auto'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "gray100",
-              "type": "string"
-            },
-            {
-              "value": "gray200",
-              "type": "string"
-            },
-            {
-              "value": "gray300",
-              "type": "string"
-            },
-            {
-              "value": "gray400",
-              "type": "string"
-            },
-            {
-              "value": "gray500",
-              "type": "string"
-            },
-            {
-              "value": "gray600",
-              "type": "string"
-            },
-            {
-              "value": "gray700",
-              "type": "string"
-            },
-            {
-              "value": "gray800",
-              "type": "string"
-            },
-            {
-              "value": "gray900",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"dashed\" | \"solid\"",
-          "complexType": {
-            "original": "\"solid\" | \"dashed\"",
-            "resolved": "\"dashed\" | \"solid\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Style of the divider",
-          "docsTags": [],
-          "default": "\"solid\"",
-          "values": [
-            {
-              "value": "dashed",
-              "type": "string"
-            },
-            {
-              "value": "solid",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
-    },
-    {
-      "filePath": "src/components/tnw-footer/tnw-footer.tsx",
-      "encapsulation": "shadow",
-      "tag": "tnw-footer",
-      "readme": "# tnw-lower-footer\n\n\n",
-      "docs": "The `tnw-footer` component displays footer information such as the organization name, copyright years, \r\nand additional text. The component provides flexible options for colors, text layout, and custom slot content.\r\nIt can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.",
+      "tag": "tnw-copyrights-footer",
+      "readme": "# tnw-copyrights-footer\n\n\n",
+      "docs": "The `tnw-footer` component displays footer information such as the organization name, copyright years, \nand additional text. The component provides flexible options for colors, text layout, and custom slot content.\nIt can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.",
       "docsTags": [
         {
           "name": "slot",
@@ -3347,7 +3205,7 @@
         }
       ],
       "usage": {
-        "tnw-footer-usage": "### When to use:\r\n\r\n- **Displaying Footer Information**: Use `tnw-footer` to display essential information at the bottom of a webpage, such as organization names, copyright details, and important notes.\r\n- **Dynamic or Static Years**: The component is useful for displaying dynamic years (e.g., \"2023 - 2024\") or static date ranges.\r\n- **Customizable Footer Layout**: When you need a customizable footer that supports text alignment, background colors, and custom content via slots.\r\n\r\n### Use Cases:\r\n\r\n1. **Standard Footer with Organization Name and Years**:\r\n   Use this when you want to display your organization's name with a start and end year range, along with optional pretext (e.g., \"©\") and posttext (e.g., \"All Rights Reserved\").\r\n\r\n   @useStory Standard\r\n\r\n2. **Footer with Custom Slot Content**:\r\n   Use this case when you need to fully customize the content of the footer, such as including images, links, or any custom HTML content.\r\n\r\n   @useStory WithCustomSlot\r\n\r\n3. **Footer with Dynamic Years**:\r\n   Automatically display the current year, which is useful for keeping the footer up to date without manual adjustments.\r\n\r\n   @useStory DynamicYears\r\n\r\n### Additional Considerations:\r\n\r\n- **Custom Colors**: You can easily adjust the text color, background color, and top border color of the footer to match your brand’s design.\r\n- **Custom Slot Content**: When using the slot for custom content, make sure the `enableSlot` prop is set to `true` to render your custom HTML or elements in the footer.\r\n- **Text Alignment**: The footer supports centering the content when the `centerContent` prop is enabled, making it adaptable for different layout needs.\r\n"
+        "tnw-copyrights-footer-usage": "### When to use:\r\n\r\n- **Displaying Footer Information**: Use `tnw-footer` to display essential information at the bottom of a webpage, such as organization names, copyright details, and important notes.\r\n- **Dynamic or Static Years**: The component is useful for displaying dynamic years (e.g., \"2023 - 2024\") or static date ranges.\r\n- **Customizable Footer Layout**: When you need a customizable footer that supports text alignment, background colors, and custom content via slots.\r\n\r\n### Use Cases:\r\n\r\n1. **Standard Footer with Organization Name and Years**:\r\n   Use this when you want to display your organization's name with a start and end year range, along with optional pretext (e.g., \"©\") and posttext (e.g., \"All Rights Reserved\").\r\n\r\n   @useStory Standard\r\n\r\n2. **Footer with Custom Slot Content**:\r\n   Use this case when you need to fully customize the content of the footer, such as including images, links, or any custom HTML content.\r\n\r\n   @useStory WithCustomSlot\r\n\r\n3. **Footer with Dynamic Years**:\r\n   Automatically display the current year, which is useful for keeping the footer up to date without manual adjustments.\r\n\r\n   @useStory DynamicYears\r\n\r\n### Additional Considerations:\r\n\r\n- **Custom Colors**: You can easily adjust the text color, background color, and top border color of the footer to match your brand’s design.\r\n- **Custom Slot Content**: When using the slot for custom content, make sure the `enableSlot` prop is set to `true` to render your custom HTML or elements in the footer.\r\n- **Text Alignment**: The footer supports centering the content when the `centerContent` prop is enabled, making it adaptable for different layout needs.\r\n"
       },
       "props": [
         {
@@ -3856,6 +3714,28 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "useDivAsContainer",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "use-div-as-container",
+          "reflectToAttr": false,
+          "docs": "If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -3870,6 +3750,14 @@
       ],
       "parts": [
         {
+          "name": "container",
+          "docs": ""
+        },
+        {
+          "name": "content",
+          "docs": ""
+        },
+        {
           "name": "footer",
           "docs": "The `footer` element that wraps the entire content of the footer."
         }
@@ -3879,10 +3767,557 @@
         "tnw-text"
       ],
       "dependencyGraph": {
-        "tnw-footer": [
+        "tnw-copyrights-footer": [
           "tnw-text"
         ]
       }
+    },
+    {
+      "filePath": "src/components/tnw-divider/tnw-divider.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-divider",
+      "readme": "# tnw-divider\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {
+        "tnw-divider-usage": ""
+      },
+      "props": [
+        {
+          "name": "color",
+          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"none\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "BorderColorType",
+            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"none\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "BorderColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::BorderColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "Color Variant of the divider",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "gray100",
+              "type": "string"
+            },
+            {
+              "value": "gray200",
+              "type": "string"
+            },
+            {
+              "value": "gray300",
+              "type": "string"
+            },
+            {
+              "value": "gray400",
+              "type": "string"
+            },
+            {
+              "value": "gray500",
+              "type": "string"
+            },
+            {
+              "value": "gray600",
+              "type": "string"
+            },
+            {
+              "value": "gray700",
+              "type": "string"
+            },
+            {
+              "value": "gray800",
+              "type": "string"
+            },
+            {
+              "value": "gray900",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"dashed\" | \"solid\"",
+          "complexType": {
+            "original": "\"solid\" | \"dashed\"",
+            "resolved": "\"dashed\" | \"solid\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "Style of the divider",
+          "docsTags": [],
+          "default": "\"solid\"",
+          "values": [
+            {
+              "value": "dashed",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/tnw-footer/tnw-footer.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-footer",
+      "readme": "# tnw-lower-footer\n\n\n",
+      "docs": "The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, \r\nsocial media, and a newsletter subscription form. It is designed to be highly customizable and accessible.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "brand - Slot for the brand logo and name."
+        },
+        {
+          "name": "slot",
+          "text": "links - Slot for useful links."
+        },
+        {
+          "name": "slot",
+          "text": "contact - Slot for contact information."
+        },
+        {
+          "name": "slot",
+          "text": "socialmedia - Slot for social media icons."
+        },
+        {
+          "name": "slot",
+          "text": "newsletter - Slot for the newsletter subscription form."
+        },
+        {
+          "name": "part",
+          "text": "footer - The main `footer` element wrapping the entire component."
+        },
+        {
+          "name": "part",
+          "text": "container - The container wrapping the footer sections."
+        }
+      ],
+      "usage": {
+        "tnw-footer-usage": "### When to use:\r\n\r\n- **Displaying Footer Information**: Use `tnw-footer` to display essential information at the bottom of a webpage, such as organization names, copyright details, and important notes.\r\n- **Dynamic or Static Years**: The component is useful for displaying dynamic years (e.g., \"2023 - 2024\") or static date ranges.\r\n- **Customizable Footer Layout**: When you need a customizable footer that supports text alignment, background colors, and custom content via slots.\r\n\r\n### Use Cases:\r\n\r\n1. **Standard Footer with Organization Name and Years**:\r\n   Use this when you want to display your organization's name with a start and end year range, along with optional pretext (e.g., \"©\") and posttext (e.g., \"All Rights Reserved\").\r\n\r\n   @useStory Standard\r\n\r\n2. **Footer with Custom Slot Content**:\r\n   Use this case when you need to fully customize the content of the footer, such as including images, links, or any custom HTML content.\r\n\r\n   @useStory WithCustomSlot\r\n\r\n3. **Footer with Dynamic Years**:\r\n   Automatically display the current year, which is useful for keeping the footer up to date without manual adjustments.\r\n\r\n   @useStory DynamicYears\r\n\r\n### Additional Considerations:\r\n\r\n- **Custom Colors**: You can easily adjust the text color, background color, and top border color of the footer to match your brand’s design.\r\n- **Custom Slot Content**: When using the slot for custom content, make sure the `enableSlot` prop is set to `true` to render your custom HTML or elements in the footer.\r\n- **Text Alignment**: The footer supports centering the content when the `centerContent` prop is enabled, making it adaptable for different layout needs.\r\n"
+      },
+      "props": [
+        {
+          "name": "backgroundColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "background-color",
+          "reflectToAttr": false,
+          "docs": "The background color for the footer.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "centerContent",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "center-content",
+          "reflectToAttr": false,
+          "docs": "Center-align the footer content.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disableInternalContainer",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-internal-container",
+          "reflectToAttr": false,
+          "docs": "If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "footerData",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "footer-data",
+          "reflectToAttr": false,
+          "docs": "JSON data for dynamically populating the footer content.\r\nExpected structure:\r\n{\r\n  brand: { logo: string, name: string },\r\n  links: { heading: string, items: Array<{ label: string, url: string }> },\r\n  contact: { heading: string, email: string, phone: string },\r\n  socialmedia: Array<{ iconName: string, url: string }>,\r\n  newsletter: {\r\n    heading: string,\r\n    description: string,\r\n    placeholder: string,\r\n    buttonText: string\r\n  }\r\n}",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "headingColor",
+          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "TextColorType",
+            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "TextColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::TextColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "heading-color",
+          "reflectToAttr": false,
+          "docs": "The color for the footer headings.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "gray100",
+              "type": "string"
+            },
+            {
+              "value": "gray200",
+              "type": "string"
+            },
+            {
+              "value": "gray300",
+              "type": "string"
+            },
+            {
+              "value": "gray400",
+              "type": "string"
+            },
+            {
+              "value": "gray500",
+              "type": "string"
+            },
+            {
+              "value": "gray600",
+              "type": "string"
+            },
+            {
+              "value": "gray700",
+              "type": "string"
+            },
+            {
+              "value": "gray800",
+              "type": "string"
+            },
+            {
+              "value": "gray900",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "placeholder",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "textColor",
+          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "TextColorType",
+            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "TextColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::TextColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "text-color",
+          "reflectToAttr": false,
+          "docs": "The color for the footer content.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "gray100",
+              "type": "string"
+            },
+            {
+              "value": "gray200",
+              "type": "string"
+            },
+            {
+              "value": "gray300",
+              "type": "string"
+            },
+            {
+              "value": "gray400",
+              "type": "string"
+            },
+            {
+              "value": "gray500",
+              "type": "string"
+            },
+            {
+              "value": "gray600",
+              "type": "string"
+            },
+            {
+              "value": "gray700",
+              "type": "string"
+            },
+            {
+              "value": "gray800",
+              "type": "string"
+            },
+            {
+              "value": "gray900",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "placeholder",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "brand",
+          "docs": "Slot for the brand logo and name."
+        },
+        {
+          "name": "contact",
+          "docs": "Slot for contact information."
+        },
+        {
+          "name": "links",
+          "docs": "Slot for useful links."
+        },
+        {
+          "name": "newsletter",
+          "docs": "Slot for the newsletter subscription form."
+        },
+        {
+          "name": "socialmedia",
+          "docs": "Slot for social media icons."
+        }
+      ],
+      "parts": [
+        {
+          "name": "brand",
+          "docs": ""
+        },
+        {
+          "name": "contact",
+          "docs": ""
+        },
+        {
+          "name": "container",
+          "docs": "The container wrapping the footer sections."
+        },
+        {
+          "name": "footer",
+          "docs": "The main `footer` element wrapping the entire component."
+        },
+        {
+          "name": "links",
+          "docs": ""
+        },
+        {
+          "name": "newsletter",
+          "docs": ""
+        },
+        {
+          "name": "socialmedia",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "src/components/tnw-header/tnw-header.tsx",
@@ -8001,7 +8436,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-multi-row-carousel",
       "readme": "# tnw-multi-row-carousel\n\n\n",
-      "docs": "The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel \nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
+      "docs": "The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel \r\nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
       "docsTags": [
         {
           "name": "slot",
@@ -11645,7 +12080,7 @@
       "dependents": [
         "tnw-accordion",
         "tnw-card",
-        "tnw-footer",
+        "tnw-copyrights-footer",
         "tnw-header-banner",
         "tnw-navbar-menu",
         "tnw-testimonial-card"
@@ -11658,7 +12093,7 @@
         "tnw-card": [
           "tnw-text"
         ],
-        "tnw-footer": [
+        "tnw-copyrights-footer": [
           "tnw-text"
         ],
         "tnw-header-banner": [

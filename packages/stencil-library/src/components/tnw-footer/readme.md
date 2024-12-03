@@ -7,9 +7,8 @@
 
 ## Overview
 
-The `tnw-footer` component displays footer information such as the organization name, copyright years, 
-and additional text. The component provides flexible options for colors, text layout, and custom slot content.
-It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
+The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
+social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
 
 ## Usage
 
@@ -48,50 +47,39 @@ It can be customized to display dynamic or static years, as well as pre-defined 
 
 ## Properties
 
-| Property                    | Attribute                        | Description                                                                                                                | Type                                                                                                                                                                                                                     | Default          |
-| --------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `backgroundColor`           | `background-color`               | The background color for the footer.                                                                                       | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                                                                                                                                       | `'auto'`         |
-| `borderTopColor`            | `border-top-color`               | The color of the top border of the footer.                                                                                 | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                                                                                                                                       | `'auto'`         |
-| `centerContent`             | `center-content`                 | Centering text                                                                                                             | `boolean`                                                                                                                                                                                                                | `false`          |
-| `disableInternalContainer`  | `disable-internal-container`     | If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.      | `boolean`                                                                                                                                                                                                                | `false`          |
-| `enableSlot`                | `enable-slot`                    | If true, the footer will render custom content using a slot instead of the default content.                                | `boolean`                                                                                                                                                                                                                | `false`          |
-| `endYear`                   | `end-year`                       | The ending year to display in the footer. If `useCurrentYearAsEndYear` is true, this will default to the current year.     | `number`                                                                                                                                                                                                                 | `undefined`      |
-| `organizationName`          | `organization-name`              | The name of the organization to display in the footer.                                                                     | `string`                                                                                                                                                                                                                 | `undefined`      |
-| `organizationNameColor`     | `organization-name-color`        | The color of the organization name. Defaults to the same value as `textColor`.                                             | `"auto" \| "black" \| "gray100" \| "gray200" \| "gray300" \| "gray400" \| "gray500" \| "gray600" \| "gray700" \| "gray800" \| "gray900" \| "inverse" \| "light" \| "placeholder" \| "primary" \| "secondary" \| "white"` | `this.textColor` |
-| `postText`                  | `post-text`                      | Text to display after the organization name.                                                                               | `string`                                                                                                                                                                                                                 | `undefined`      |
-| `preText`                   | `pre-text`                       | Text to display before the organization name.                                                                              | `string`                                                                                                                                                                                                                 | `undefined`      |
-| `startYear`                 | `start-year`                     | The starting year to display in the footer. If `useCurrentYearAsStartYear` is true, this will default to the current year. | `number`                                                                                                                                                                                                                 | `undefined`      |
-| `textColor`                 | `text-color`                     | The text color for the footer content.                                                                                     | `"auto" \| "black" \| "gray100" \| "gray200" \| "gray300" \| "gray400" \| "gray500" \| "gray600" \| "gray700" \| "gray800" \| "gray900" \| "inverse" \| "light" \| "placeholder" \| "primary" \| "secondary" \| "white"` | `'auto'`         |
-| `useCurrentYearAsEndYear`   | `use-current-year-as-end-year`   | If true, the ending year will be set to the current year.                                                                  | `boolean`                                                                                                                                                                                                                | `false`          |
-| `useCurrentYearAsStartYear` | `use-current-year-as-start-year` | If true, the starting year will be set to the current year.                                                                | `boolean`                                                                                                                                                                                                                | `false`          |
+| Property                   | Attribute                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                    | Type                                                                                                                                                                                                                     | Default     |
+| -------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `backgroundColor`          | `background-color`           | The background color for the footer.                                                                                                                                                                                                                                                                                                                                                                                                           | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                                                                                                                                       | `'auto'`    |
+| `centerContent`            | `center-content`             | Center-align the footer content.                                                                                                                                                                                                                                                                                                                                                                                                               | `boolean`                                                                                                                                                                                                                | `false`     |
+| `disableInternalContainer` | `disable-internal-container` | If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.                                                                                                                                                                                                                                                                                                                          | `boolean`                                                                                                                                                                                                                | `false`     |
+| `footerData` _(required)_  | `footer-data`                | JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   newsletter: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } } | `string`                                                                                                                                                                                                                 | `undefined` |
+| `headingColor`             | `heading-color`              | The color for the footer headings.                                                                                                                                                                                                                                                                                                                                                                                                             | `"auto" \| "black" \| "gray100" \| "gray200" \| "gray300" \| "gray400" \| "gray500" \| "gray600" \| "gray700" \| "gray800" \| "gray900" \| "inverse" \| "light" \| "placeholder" \| "primary" \| "secondary" \| "white"` | `'auto'`    |
+| `textColor`                | `text-color`                 | The color for the footer content.                                                                                                                                                                                                                                                                                                                                                                                                              | `"auto" \| "black" \| "gray100" \| "gray200" \| "gray300" \| "gray400" \| "gray500" \| "gray600" \| "gray700" \| "gray800" \| "gray900" \| "inverse" \| "light" \| "placeholder" \| "primary" \| "secondary" \| "white"` | `'auto'`    |
 
 
 ## Slots
 
-| Slot | Description                                                                                                      |
-| ---- | ---------------------------------------------------------------------------------------------------------------- |
-|      | Custom content slot for the footer. When `enableSlot` is true, this slot is used instead of the default content. |
+| Slot            | Description                                |
+| --------------- | ------------------------------------------ |
+| `"brand"`       | Slot for the brand logo and name.          |
+| `"contact"`     | Slot for contact information.              |
+| `"links"`       | Slot for useful links.                     |
+| `"newsletter"`  | Slot for the newsletter subscription form. |
+| `"socialmedia"` | Slot for social media icons.               |
 
 
 ## Shadow Parts
 
-| Part       | Description                                                       |
-| ---------- | ----------------------------------------------------------------- |
-| `"footer"` | The `footer` element that wraps the entire content of the footer. |
+| Part            | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `"brand"`       |                                                          |
+| `"contact"`     |                                                          |
+| `"container"`   | The container wrapping the footer sections.              |
+| `"footer"`      | The main `footer` element wrapping the entire component. |
+| `"links"`       |                                                          |
+| `"newsletter"`  |                                                          |
+| `"socialmedia"` |                                                          |
 
-
-## Dependencies
-
-### Depends on
-
-- [tnw-text](../tnw-text)
-
-### Graph
-```mermaid
-graph TD;
-  tnw-footer --> tnw-text
-  style tnw-footer fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

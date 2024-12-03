@@ -2,6 +2,7 @@ import { Component, Host, Prop, Element, State, h } from '@stencil/core';
 import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-multi-row-carousel.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
+import { validateProps } from './utils/tnw-multi-row-carousel-validate-props';
 
 /**
  * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
@@ -52,6 +53,11 @@ export class TnwMultiRowCarousel {
       style.textContent = styles;
       this.el.shadowRoot?.appendChild(style);
     }
+  }
+
+  componentWillLoad() {
+    const propsValues = [this.animationSpeed, this.rows];
+    validateProps(propsValues);
   }
 
   componentDidLoad() {

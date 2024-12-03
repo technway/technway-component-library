@@ -11,7 +11,7 @@ validateProps(propsValues);
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"alignment","type":["center","end","start"],"isRequired":false},{"name":"backgroundColor","type":["auto","black","inverse","primary","secondary","white"],"isRequired":false},{"name":"borderBottomColor","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"centerBanner","type":["boolean"],"isRequired":false},{"name":"disableInternalContainer","type":["boolean"],"isRequired":false},{"name":"height","type":["auto","full","full-screen","lg","md","sm"],"isRequired":false},{"name":"minHeight","type":["auto","full","full-screen","lg","md","sm"],"isRequired":false}];
+  const props = [{"name":"alignment","type":["center","end","start"],"isRequired":false},{"name":"backgroundColor","type":["auto","black","inverse","primary","secondary","white"],"isRequired":false},{"name":"borderBottomColor","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"centerBanner","type":["boolean"],"isRequired":false},{"name":"disableInternalContainer","type":["boolean"],"isRequired":false},{"name":"height","type":["auto","full","full-screen","lg","md","sm","xl"],"isRequired":false},{"name":"minHeight","type":["auto","full","full-screen","lg","md","sm"],"isRequired":false}];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

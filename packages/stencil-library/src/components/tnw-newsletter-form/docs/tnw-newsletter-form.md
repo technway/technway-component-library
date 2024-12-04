@@ -1,0 +1,46 @@
+# tnw-newsletter-form
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Properties](#properties)
+- [Shadow Parts](#shadow-parts)
+- [Usage](#usage)
+
+## Overview
+
+The `tnw-newsletter-form` component does not have detailed documentation.
+
+| Detail | Value |
+| --- | --- |
+| HTML Component Tag | `<tnw-newsletter-form>` |
+| React Component Tag | `TnwNewsletterForm` |
+| Encapsulation | `shadow` |
+
+<div style="overflow-x: auto;">
+## Properties
+
+| Property | Description | Default | Type |
+| --- | --- | --- | --- |
+| **borderRadius** | <div>The border radius for the component. Set for both input and button</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
+| **buttonLabel** | <div>The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.</div> | `'Subscribe'` | `string` |
+| **enableButtonSlot** | <div>Whether to enable the button slot. If true, the buttonLabel prop will be ignored.</div> | `false` | `boolean` |
+| **inputId** | <div>The id for the email input</div> | N/A | `string` |
+| **inputPlaceholder** | <div>The placeholder for the email input</div> | `'Enter your email'` | `string` |
+| **successMessage** | <div>The message to display after successful subscription</div> | `'Thanks for subscribing!'` | `string` |
+| **theme** | <div>The theme for the component. It controls the color scheme of the component.</div> | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **variant** | <div>The variant for the component</div> | `'primary'` | `"primary"` \| `"secondary"` |
+
+</div>
+
+## Shadow Parts
+
+| Part | Description |
+| --- | --- |
+| **button** | No description provided. |
+| **input** | No description provided. |
+
+## Usage & Examples
+
+No usage is provided for this component.
+

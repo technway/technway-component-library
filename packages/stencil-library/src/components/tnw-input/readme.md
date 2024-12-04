@@ -72,7 +72,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 | `placeholder` _(required)_ | `placeholder`      | The placeholder text for the input.                                           | `string`                                                                                              | `undefined`  |
 | `type` _(required)_        | `type`             | The input type (e.g., text, password).                                        | `string`                                                                                              | `undefined`  |
 | `value`                    | `value`            | The initial value of the input.                                               | `string`                                                                                              | `''`         |
-| `variant`                  | `variant`          | Defines the color variant of the input.                                       | `"outlined" \| "underlined"`                                                                          | `'outlined'` |
+| `variant`                  | `variant`          | Defines the color variant of the input.                                       | `"none" \| "outlined" \| "underlined"`                                                                | `'outlined'` |
 
 
 ## Shadow Parts
@@ -87,6 +87,10 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 
 ## Dependencies
 
+### Used by
+
+ - [tnw-newsletter-form](../tnw-newsletter-form)
+
 ### Depends on
 
 - [tnw-label](../tnw-label)
@@ -97,6 +101,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 graph TD;
   tnw-input --> tnw-label
   tnw-input --> tnw-alert
+  tnw-newsletter-form --> tnw-input
   style tnw-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

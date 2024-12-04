@@ -46,6 +46,10 @@ export const styles = `
   color: var(--tnw-input-placeholder-focus-color, var(--${baseClass}-pl-foc-c));
 }
 
+.${baseClass}--none {
+  border: 0;
+}
+
 .${baseClass}--outlined {
   background: none;
   outline-width: var(--tnw-border-sm);

@@ -53,7 +53,7 @@ export class TnwInput {
   /**
    * Defines the color variant of the input.
    */
-  @Prop() variant?: 'outlined' | 'underlined' = 'outlined';
+  @Prop() variant?: 'outlined' | 'underlined' | 'none' = 'outlined';
 
   /**
    * If true, the label is visually hidden but still accessible to screen readers.

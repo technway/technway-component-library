@@ -6,9 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
-import { ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
+import { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
 export { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
-export { ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
+export { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
 export namespace Components {
     /**
      * The `tnw-accordion` component provides a collapsible/expandable section
@@ -768,7 +768,7 @@ export namespace Components {
         /**
           * Defines the color variant of the input.
          */
-        "variant"?: 'outlined' | 'underlined';
+        "variant"?: 'outlined' | 'underlined' | 'none';
     }
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
@@ -1003,6 +1003,40 @@ export namespace Components {
           * Specifies the aria label for the menu toggler icon for accessibility purposes.
          */
         "labelAria": string;
+    }
+    interface TnwNewsletterForm {
+        /**
+          * The border radius for the component. Set for both input and button
+         */
+        "borderRadius"?: BorderRadiusType1;
+        /**
+          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
+         */
+        "buttonLabel"?: string;
+        /**
+          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
+         */
+        "enableButtonSlot"?: boolean;
+        /**
+          * The id for the email input
+         */
+        "inputId"?: string;
+        /**
+          * The placeholder for the email input
+         */
+        "inputPlaceholder"?: string;
+        /**
+          * The message to display after successful subscription
+         */
+        "successMessage"?: string;
+        /**
+          * The theme for the component. It controls the color scheme of the component.
+         */
+        "theme"?: ColorType;
+        /**
+          * The variant for the component
+         */
+        "variant"?: 'primary' | 'secondary';
     }
     interface TnwPortfolioGrid {
         /**
@@ -1609,6 +1643,12 @@ declare global {
         prototype: HTMLTnwNavbarMenuTogglerElement;
         new (): HTMLTnwNavbarMenuTogglerElement;
     };
+    interface HTMLTnwNewsletterFormElement extends Components.TnwNewsletterForm, HTMLStencilElement {
+    }
+    var HTMLTnwNewsletterFormElement: {
+        prototype: HTMLTnwNewsletterFormElement;
+        new (): HTMLTnwNewsletterFormElement;
+    };
     interface HTMLTnwPortfolioGridElement extends Components.TnwPortfolioGrid, HTMLStencilElement {
     }
     var HTMLTnwPortfolioGridElement: {
@@ -1721,6 +1761,7 @@ declare global {
         "tnw-navbar-dropdown-menu": HTMLTnwNavbarDropdownMenuElement;
         "tnw-navbar-menu": HTMLTnwNavbarMenuElement;
         "tnw-navbar-menu-toggler": HTMLTnwNavbarMenuTogglerElement;
+        "tnw-newsletter-form": HTMLTnwNewsletterFormElement;
         "tnw-portfolio-grid": HTMLTnwPortfolioGridElement;
         "tnw-rating": HTMLTnwRatingElement;
         "tnw-scroll-to-top": HTMLTnwScrollToTopElement;
@@ -2494,7 +2535,7 @@ declare namespace LocalJSX {
         /**
           * Defines the color variant of the input.
          */
-        "variant"?: 'outlined' | 'underlined';
+        "variant"?: 'outlined' | 'underlined' | 'none';
     }
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
@@ -2729,6 +2770,40 @@ declare namespace LocalJSX {
           * Specifies the aria label for the menu toggler icon for accessibility purposes.
          */
         "labelAria"?: string;
+    }
+    interface TnwNewsletterForm {
+        /**
+          * The border radius for the component. Set for both input and button
+         */
+        "borderRadius"?: BorderRadiusType1;
+        /**
+          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
+         */
+        "buttonLabel"?: string;
+        /**
+          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
+         */
+        "enableButtonSlot"?: boolean;
+        /**
+          * The id for the email input
+         */
+        "inputId"?: string;
+        /**
+          * The placeholder for the email input
+         */
+        "inputPlaceholder"?: string;
+        /**
+          * The message to display after successful subscription
+         */
+        "successMessage"?: string;
+        /**
+          * The theme for the component. It controls the color scheme of the component.
+         */
+        "theme"?: ColorType;
+        /**
+          * The variant for the component
+         */
+        "variant"?: 'primary' | 'secondary';
     }
     interface TnwPortfolioGrid {
         /**
@@ -3091,6 +3166,7 @@ declare namespace LocalJSX {
         "tnw-navbar-dropdown-menu": TnwNavbarDropdownMenu;
         "tnw-navbar-menu": TnwNavbarMenu;
         "tnw-navbar-menu-toggler": TnwNavbarMenuToggler;
+        "tnw-newsletter-form": TnwNewsletterForm;
         "tnw-portfolio-grid": TnwPortfolioGrid;
         "tnw-rating": TnwRating;
         "tnw-scroll-to-top": TnwScrollToTop;
@@ -3233,6 +3309,7 @@ declare module "@stencil/core" {
              * The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.
              */
             "tnw-navbar-menu-toggler": LocalJSX.TnwNavbarMenuToggler & JSXBase.HTMLAttributes<HTMLTnwNavbarMenuTogglerElement>;
+            "tnw-newsletter-form": LocalJSX.TnwNewsletterForm & JSXBase.HTMLAttributes<HTMLTnwNewsletterFormElement>;
             "tnw-portfolio-grid": LocalJSX.TnwPortfolioGrid & JSXBase.HTMLAttributes<HTMLTnwPortfolioGridElement>;
             /**
              * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.

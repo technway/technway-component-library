@@ -144,6 +144,7 @@ export const config: Config = {
   testing: {
     browserHeadless: "new",
   },
+  preamble: 'Built with Stencil\nCopyright (c) Tecchnway.biz.',
   plugins: [
     nodePolyfills(),
     postcss({

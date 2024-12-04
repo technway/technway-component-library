@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-03T18:42:40",
+  "timestamp": "2024-12-04T04:49:03",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -1971,7 +1971,8 @@
       "dependents": [
         "tnw-accordion",
         "tnw-card",
-        "tnw-header-banner"
+        "tnw-header-banner",
+        "tnw-newsletter-form"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -1982,6 +1983,9 @@
           "tnw-button"
         ],
         "tnw-header-banner": [
+          "tnw-button"
+        ],
+        "tnw-newsletter-form": [
           "tnw-button"
         ]
       }
@@ -7276,10 +7280,10 @@
         },
         {
           "name": "variant",
-          "type": "\"outlined\" | \"underlined\"",
+          "type": "\"none\" | \"outlined\" | \"underlined\"",
           "complexType": {
-            "original": "'outlined' | 'underlined'",
-            "resolved": "\"outlined\" | \"underlined\"",
+            "original": "'outlined' | 'underlined' | 'none'",
+            "resolved": "\"none\" | \"outlined\" | \"underlined\"",
             "references": {}
           },
           "mutable": false,
@@ -7289,6 +7293,10 @@
           "docsTags": [],
           "default": "'outlined'",
           "values": [
+            {
+              "value": "none",
+              "type": "string"
+            },
             {
               "value": "outlined",
               "type": "string"
@@ -7325,7 +7333,9 @@
           "docs": "The `<label>` element for the input."
         }
       ],
-      "dependents": [],
+      "dependents": [
+        "tnw-newsletter-form"
+      ],
       "dependencies": [
         "tnw-label",
         "tnw-alert"
@@ -7334,6 +7344,9 @@
         "tnw-input": [
           "tnw-label",
           "tnw-alert"
+        ],
+        "tnw-newsletter-form": [
+          "tnw-input"
         ]
       }
     },
@@ -9665,6 +9678,307 @@
         ],
         "tnw-navbar": [
           "tnw-navbar-menu-toggler"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/tnw-newsletter-form/tnw-newsletter-form.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-newsletter-form",
+      "readme": "# tnw-newsletter-form\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {
+        "tnw-newsletter-form-usage": ""
+      },
+      "props": [
+        {
+          "name": "borderRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../components",
+                "id": "src/components.d.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-radius",
+          "reflectToAttr": false,
+          "docs": "The border radius for the component. Set for both input and button",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "buttonLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "button-label",
+          "reflectToAttr": false,
+          "docs": "The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.",
+          "docsTags": [],
+          "default": "'Subscribe'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "enableButtonSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-button-slot",
+          "reflectToAttr": false,
+          "docs": "Whether to enable the button slot. If true, the buttonLabel prop will be ignored.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "inputId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "input-id",
+          "reflectToAttr": false,
+          "docs": "The id for the email input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "inputPlaceholder",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "input-placeholder",
+          "reflectToAttr": false,
+          "docs": "The placeholder for the email input",
+          "docsTags": [],
+          "default": "'Enter your email'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "successMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "success-message",
+          "reflectToAttr": false,
+          "docs": "The message to display after successful subscription",
+          "docsTags": [],
+          "default": "'Thanks for subscribing!'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "The theme for the component. It controls the color scheme of the component.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"secondary\"",
+          "complexType": {
+            "original": "'primary' | 'secondary'",
+            "resolved": "\"primary\" | \"secondary\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The variant for the component",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "button",
+          "docs": ""
+        },
+        {
+          "name": "input",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "tnw-input",
+        "tnw-button"
+      ],
+      "dependencyGraph": {
+        "tnw-newsletter-form": [
+          "tnw-input",
+          "tnw-button"
+        ],
+        "tnw-input": [
+          "tnw-label",
+          "tnw-alert"
         ]
       }
     },
@@ -12784,6 +13098,11 @@
       "path": "src/utils/component-props-types.ts"
     },
     "src/components.d.ts::FontSizeType": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/components.d.ts"
+    },
+    "src/components.d.ts::BorderRadiusType": {
       "declaration": "any",
       "docstring": "",
       "path": "src/components.d.ts"

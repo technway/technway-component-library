@@ -57,6 +57,21 @@ export class TnwNewsletterForm {
    */
   @Prop() inputId?: string;
 
+  /**
+   * The action attribute for the form
+   */
+  @Prop() formAction?: string;
+
+  /**
+   * The method attribute for the form
+   */
+  @Prop() formMethod?: string;
+
+  /**
+   * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
+   */
+  @Prop() formAttributes?: string;
+
   constructor() {
     if (isCSSStyleSheetSupported()) {
       this.componentStyles = new CSSStyleSheet();
@@ -94,6 +109,30 @@ export class TnwNewsletterForm {
     ].filter(Boolean).join(' ').trim();
   }
 
+  /**
+   * Parse the given attributes string into a key-value pair object.
+   * The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
+   * If the format is invalid, an empty object is returned and a warning is logged to the console.
+   * @param attributes the string to be parsed
+   * @returns a key-value pair object containing the parsed attributes
+   */
+  private parseAttributes(attributes: string | undefined): Record<string, string> {
+    if (attributes === undefined) return {};
+    try {
+      return attributes
+        .split(';')
+        .filter(attr => attr.includes('='))
+        .reduce((acc, attr) => {
+          const [key, value] = attr.split('=').map(item => item.trim());
+          acc[key] = value;
+          return acc;
+        }, {} as Record<string, string>);
+    } catch {
+      console.warn('Invalid formAttributes format. Expected format: "key1=value1; key2=value2".');
+      return {};
+    }
+  }
+
   private renderInput() {
     return (
       <tnw-input
@@ -127,10 +166,18 @@ export class TnwNewsletterForm {
   }
 
   render() {
+    const parsedFormAttributes = this.parseAttributes(this.formAttributes);
+
     return (
       <Host class={this.getHostClasses()}>
-        {this.renderInput()}
-        {this.renderButton()}
+        <form
+          action={this.formAction}
+          method={this.formMethod}
+          {...parsedFormAttributes}
+        >
+          {this.renderInput()}
+          {this.renderButton()}
+        </form>
       </Host>
     );
   }

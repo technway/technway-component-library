@@ -1018,6 +1018,18 @@ export namespace Components {
          */
         "enableButtonSlot"?: boolean;
         /**
+          * The action attribute for the form
+         */
+        "formAction"?: string;
+        /**
+          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
+         */
+        "formAttributes"?: string;
+        /**
+          * The method attribute for the form
+         */
+        "formMethod"?: string;
+        /**
           * The id for the email input
          */
         "inputId"?: string;
@@ -2784,6 +2796,18 @@ declare namespace LocalJSX {
           * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
          */
         "enableButtonSlot"?: boolean;
+        /**
+          * The action attribute for the form
+         */
+        "formAction"?: string;
+        /**
+          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
+         */
+        "formAttributes"?: string;
+        /**
+          * The method attribute for the form
+         */
+        "formMethod"?: string;
         /**
           * The id for the email input
          */

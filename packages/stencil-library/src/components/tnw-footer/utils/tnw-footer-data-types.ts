@@ -8,6 +8,7 @@ export interface FooterData {
         items?: Array<{
             label: string; // The label for the link
             url: string; // The URL for the link
+            newTab?: boolean;
         }>;
     };
     contact?: {

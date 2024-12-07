@@ -54,6 +54,34 @@ social media, and a newsletter subscription form. It is designed to be highly cu
 | `"socialmedia"` |                                                          |
 
 
+## Dependencies
+
+### Depends on
+
+- [tnw-heading](../tnw-heading)
+- [tnw-image](../tnw-image)
+- [tnw-anchor](../tnw-anchor)
+- [tnw-text](../tnw-text)
+- [tnw-icon](../tnw-icon)
+- [tnw-newsletter-form](../tnw-newsletter-form)
+
+### Graph
+```mermaid
+graph TD;
+  tnw-footer --> tnw-heading
+  tnw-footer --> tnw-image
+  tnw-footer --> tnw-anchor
+  tnw-footer --> tnw-text
+  tnw-footer --> tnw-icon
+  tnw-footer --> tnw-newsletter-form
+  tnw-anchor --> tnw-icon
+  tnw-newsletter-form --> tnw-input
+  tnw-newsletter-form --> tnw-button
+  tnw-input --> tnw-label
+  tnw-input --> tnw-alert
+  style tnw-footer fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

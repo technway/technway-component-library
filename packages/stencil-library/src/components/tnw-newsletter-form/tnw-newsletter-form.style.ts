@@ -3,10 +3,18 @@ import { GLOBAL_PREFIX } from "../../utils/utils";
 const baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
 
 export const styles = `
+* {
+    box-sizing: border-box;
+}
+    
 :host {
+    box-sizing: border-box;
+}
+
+form {
     display: flex;
     align-items: stretch;
-    box-sizing: border-box;
+    width: 100%;
 }
 
 tnw-input {

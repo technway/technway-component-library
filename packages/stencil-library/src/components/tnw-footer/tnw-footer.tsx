@@ -103,71 +103,112 @@ export class TnwFooter {
       getColorClass('bg', backgroundColor),
     ].filter(Boolean).join(' ').trim();
   }
-  
-  private renderBrand(brand?: { logo?: string; name?: string }) {
+
+  private getFooterGridStyling() {
+    // let columnsNumber = 0;
+
+    // if (this.parsedFooterData?.brand) columnsNumber++;
+    // if (this.parsedFooterData?.links) columnsNumber++;
+    // if (this.parsedFooterData?.contact) columnsNumber++;
+    // if (this.parsedFooterData?.newsletter) columnsNumber += 2;
+
+    return {
+      gridTemplateColumns: `repeat(auto-fit, minmax(150px, 1fr))`,
+    }
+  }
+
+  private renderHeading(heading?: string) {
+    if (!heading) return null;
+
+    return (
+      <tnw-heading text={heading} level='h3' weight='600' size='sm' />
+    )
+  }
+
+  private renderBrand(
+    brand?: { logo?: string; name?: string },
+    socialmedia?: Array<{ iconName: string; url: string }>
+  ) {
     if (!brand || (!brand.logo && !brand.name)) return null;
 
     return (
-      <div class={`${this.baseClass}__brand`} part="brand">
-        {brand.logo && <img src={brand.logo} alt={`${brand.name || 'Brand'} logo`} />}
-        {brand.name && <span>{brand.name}</span>}
+      <div class={`${this.baseClass}__column ${this.baseClass}__brand`} part="brand">
+        {brand.logo && <tnw-image src={brand.logo} alt={`${brand.name || 'Brand'} logo`} />}
+
+        {this.renderSocialMedia(socialmedia)}
       </div>
     );
   }
 
-  private renderLinks(links?: { heading?: string; items?: Array<{ label: string; url: string }> }) {
+  private renderLinks(links?: { heading?: string; items?: Array<{ label: string; url: string, newTab?: boolean }> }) {
     if (!links || !links.items?.length) return null;
 
     return (
-      <div class={`${this.baseClass}__links`} part="links">
-        {links.heading && <h3>{links.heading}</h3>}
-        <ul>
+      <div class={`${this.baseClass}__column ${this.baseClass}__links`} part="links">
+        {this.renderHeading(links.heading)}
+        <ul class={`${this.baseClass}__list`}>
           {links.items.map(link => (
             <li>
-              <a href={link.url} target="_blank" rel="noopener noreferrer">
+              <tnw-anchor
+                class={`${this.baseClass}__list-item`}
+                href={link.url}
+                {...(link.newTab ? { newTab: true } : { newTab: false })}
+                textDecoration='underline'
+              >
                 {link.label}
-              </a>
+              </tnw-anchor>
             </li>
           ))}
         </ul>
       </div>
     );
   }
-  
+
   private renderContact(contact?: { heading?: string; email?: string; phone?: string }) {
     if (!contact || (!contact.email && !contact.phone)) return null;
 
     return (
-      <div class={`${this.baseClass}__contact`} part="contact">
-        {contact.heading && <h3>{contact.heading}</h3>}
-        {contact.email && (
-          <p>
-            Email: <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          </p>
-        )}
-        {contact.phone && <p>Phone: {contact.phone}</p>}
+      <div class={`${this.baseClass}__column ${this.baseClass}__contact`} part="contact">
+        {this.renderHeading(contact.heading)}
+        <ul class={`${this.baseClass}__list`}>
+          {contact.email && (
+            <li>
+              <tnw-anchor
+                class={`${this.baseClass}__list-item`}
+                href={`mailto:${contact.email}`}
+                text={contact.email}
+                newTab
+                textDecoration='underline'
+              />
+            </li>
+          )}
+          {contact.phone && (
+            <li>
+              <tnw-text
+                class={`${this.baseClass}__list-item`}
+                text={contact.phone}
+              />
+            </li>
+          )}
+        </ul>
       </div>
     );
   }
-  
+
   private renderSocialMedia(socialmedia?: Array<{ iconName: string; url: string }>) {
     if (!socialmedia?.length) return null;
 
     return (
       <div class={`${this.baseClass}__socialmedia`} part="socialmedia">
-        <ul>
-          {socialmedia.map(icon => (
-            <li>
-              <a href={icon.url} target="_blank" rel="noopener noreferrer">
-                <i class={`icon-${icon.iconName}`}></i>
-              </a>
-            </li>
-          ))}
-        </ul>
+        {socialmedia.map(icon => (
+          <tnw-anchor href={icon.url} newTab hideNewTabIcon textDecoration='none'>
+            <tnw-icon name={icon.iconName} size='md' />
+          </tnw-anchor>
+        ))}
       </div>
     );
   }
-  
+
   private renderNewsletter(newsletter?: {
     heading?: string;
     description?: string;
@@ -175,31 +216,49 @@ export class TnwFooter {
     buttonText?: string;
   }) {
     if (!newsletter) return null;
-    
+
     return (
-      <div class={`${this.baseClass}__newsletter`} part="newsletter">
-        {newsletter.heading && <h3>{newsletter.heading}</h3>}
-        {newsletter.description && <p>{newsletter.description}</p>}
-        <form>
-          <input type="email" placeholder={newsletter.placeholder} />
-          <button type="submit">{newsletter.buttonText}</button>
-        </form>
+      <div
+        class={`${this.baseClass}__column ${this.baseClass}__newsletter`}
+        style={{ gridColumn: "span 2" }}
+        part="newsletter"
+      >
+        {
+          newsletter.heading &&
+          <tnw-heading text={newsletter.heading} level='h3' weight='600' size='md' />
+        }
+        {
+          newsletter.description &&
+          <tnw-text
+            class={`${this.baseClass}__newsletter-description`}
+            text={newsletter.description}
+          />
+        }
+        <tnw-newsletter-form
+          inputPlaceholder={newsletter.placeholder}
+          buttonLabel={newsletter.buttonText}
+          variant='secondary'
+          borderRadius='full'
+        />
       </div>
     );
   }
 
   render() {
     const { parsedFooterData } = this;
-  
+
     return (
       <Host class={this.getHostClasses()}>
-        <footer class={!this.disableInternalContainer ? 'container' : ''} part="container">
+        <footer
+          class={!this.disableInternalContainer ? 'container' : ''}
+          part="container"
+          style={this.getFooterGridStyling()}
+        >
           {parsedFooterData !== null ? (
             <Fragment>
-              {this.renderBrand(parsedFooterData.brand!)}
+              {this.renderBrand(parsedFooterData.brand!, parsedFooterData.socialmedia!)}
               {this.renderLinks(parsedFooterData.links!)}
               {this.renderContact(parsedFooterData.contact!)}
-              {this.renderSocialMedia(parsedFooterData.socialmedia!)}
               {this.renderNewsletter(parsedFooterData.newsletter!)}
             </Fragment>
           ) : (
@@ -214,5 +273,5 @@ export class TnwFooter {
         </footer>
       </Host>
     );
-  }  
+  }
 }

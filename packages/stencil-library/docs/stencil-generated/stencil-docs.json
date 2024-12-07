@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-07T06:45:32",
+  "timestamp": "2024-12-07T19:11:20",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -1210,6 +1210,7 @@
         }
       ],
       "dependents": [
+        "tnw-footer",
         "tnw-navbar-dropdown-menu",
         "tnw-navbar-menu",
         "tnw-portfolio-grid"
@@ -1220,6 +1221,9 @@
       "dependencyGraph": {
         "tnw-anchor": [
           "tnw-icon"
+        ],
+        "tnw-footer": [
+          "tnw-anchor"
         ],
         "tnw-navbar-dropdown-menu": [
           "tnw-anchor"
@@ -4320,8 +4324,35 @@
         }
       ],
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
+      "dependencies": [
+        "tnw-heading",
+        "tnw-image",
+        "tnw-anchor",
+        "tnw-text",
+        "tnw-icon",
+        "tnw-newsletter-form"
+      ],
+      "dependencyGraph": {
+        "tnw-footer": [
+          "tnw-heading",
+          "tnw-image",
+          "tnw-anchor",
+          "tnw-text",
+          "tnw-icon",
+          "tnw-newsletter-form"
+        ],
+        "tnw-anchor": [
+          "tnw-icon"
+        ],
+        "tnw-newsletter-form": [
+          "tnw-input",
+          "tnw-button"
+        ],
+        "tnw-input": [
+          "tnw-label",
+          "tnw-alert"
+        ]
+      }
     },
     {
       "filePath": "src/components/tnw-header/tnw-header.tsx",
@@ -5757,12 +5788,16 @@
       ],
       "dependents": [
         "tnw-card",
+        "tnw-footer",
         "tnw-header-banner",
         "tnw-testimonial-card"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "tnw-card": [
+          "tnw-heading"
+        ],
+        "tnw-footer": [
           "tnw-heading"
         ],
         "tnw-header-banner": [
@@ -6263,6 +6298,7 @@
       "dependents": [
         "tnw-accordion",
         "tnw-anchor",
+        "tnw-footer",
         "tnw-items-carousel",
         "tnw-list",
         "tnw-navbar-menu",
@@ -6277,6 +6313,9 @@
           "tnw-icon"
         ],
         "tnw-anchor": [
+          "tnw-icon"
+        ],
+        "tnw-footer": [
           "tnw-icon"
         ],
         "tnw-items-carousel": [
@@ -6782,6 +6821,7 @@
       ],
       "dependents": [
         "tnw-card",
+        "tnw-footer",
         "tnw-header-banner",
         "tnw-portfolio-grid",
         "tnw-testimonial-card"
@@ -6789,6 +6829,9 @@
       "dependencies": [],
       "dependencyGraph": {
         "tnw-card": [
+          "tnw-image"
+        ],
+        "tnw-footer": [
           "tnw-image"
         ],
         "tnw-header-banner": [
@@ -9806,6 +9849,69 @@
           "required": false
         },
         {
+          "name": "formAction",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form-action",
+          "reflectToAttr": false,
+          "docs": "The action attribute for the form",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "formAttributes",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form-attributes",
+          "reflectToAttr": false,
+          "docs": "The attributes/data-attribute(s) for the form. The given string is expected to be in the format \"key1=value1; key2=value2\" or \"key1; key2=value2\".",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "formMethod",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form-method",
+          "reflectToAttr": false,
+          "docs": "The method attribute for the form",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "inputId",
           "type": "string",
           "complexType": {
@@ -9966,7 +10072,9 @@
           "docs": ""
         }
       ],
-      "dependents": [],
+      "dependents": [
+        "tnw-footer"
+      ],
       "dependencies": [
         "tnw-input",
         "tnw-button"
@@ -9979,6 +10087,9 @@
         "tnw-input": [
           "tnw-label",
           "tnw-alert"
+        ],
+        "tnw-footer": [
+          "tnw-newsletter-form"
         ]
       }
     },
@@ -12395,6 +12506,7 @@
         "tnw-accordion",
         "tnw-card",
         "tnw-copyrights-footer",
+        "tnw-footer",
         "tnw-header-banner",
         "tnw-navbar-menu",
         "tnw-testimonial-card"
@@ -12408,6 +12520,9 @@
           "tnw-text"
         ],
         "tnw-copyrights-footer": [
+          "tnw-text"
+        ],
+        "tnw-footer": [
           "tnw-text"
         ],
         "tnw-header-banner": [

@@ -92,6 +92,7 @@ along with the ability to use a different HTML tag for the heading element.
 ### Used by
 
  - [tnw-card](../tnw-card)
+ - [tnw-footer](../tnw-footer)
  - [tnw-header-banner](../tnw-header-banner)
  - [tnw-testimonial-card](../tnw-testimonial-card)
 
@@ -99,6 +100,7 @@ along with the ability to use a different HTML tag for the heading element.
 ```mermaid
 graph TD;
   tnw-card --> tnw-heading
+  tnw-footer --> tnw-heading
   tnw-header-banner --> tnw-heading
   tnw-testimonial-card --> tnw-heading
   style tnw-heading fill:#f9f,stroke:#333,stroke-width:4px

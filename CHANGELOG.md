@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.7.0](https://github.com/technway/technway-component-library/compare/root-v2.6.1...root-v2.7.0) (2024-12-07)
+
+
+### Features
+
+* **components:** improve tnw-copyrights-footer, tnw-newsletter-form, and tnw-footer ([cbe31c9](https://github.com/technway/technway-component-library/commit/cbe31c943d5255e597ea96eb0bdd56066ac5fa1d))
+* **components:** introduce tnw-footer component and update existing footer structure ([ea30a29](https://github.com/technway/technway-component-library/commit/ea30a29a6750fbead5d71036f3e3319f6f41443b))
+* **tnw-newsletter-form:** introduce new component ([23baeb7](https://github.com/technway/technway-component-library/commit/23baeb701053070d42e5a3e327423b62a3739052))
+
 ## [2.6.1](https://github.com/technway/technway-component-library/compare/root-v2.6.0...root-v2.6.1) (2024-12-03)
 
 

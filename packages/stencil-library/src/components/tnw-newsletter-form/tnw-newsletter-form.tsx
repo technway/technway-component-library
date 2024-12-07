@@ -3,8 +3,7 @@ import { BorderRadiusType } from '../../components';
 import { ColorType } from '../../utils/component-props-types';
 import { generateRandomId, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-newsletter-form.style';
-import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
-import { fontFamilyStyles } from '../../utils/shared-styles/typography.styles';
+import { borderRadiusStyleSheet, extendedAppearanceStyleSheet, fontFamilyStyleSheet } from '../../utils/shared-styles';
 
 @Component({
   tag: 'tnw-newsletter-form',
@@ -70,7 +69,7 @@ export class TnwNewsletterForm {
       (this.el.shadowRoot as any).adoptedStyleSheets = [
         extendedAppearanceStyleSheet,
         borderRadiusStyleSheet,
-        fontFamilyStyles,
+        fontFamilyStyleSheet,
         this.componentStyles
       ];
     }

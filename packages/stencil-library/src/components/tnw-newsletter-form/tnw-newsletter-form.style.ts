@@ -6,6 +6,7 @@ export const styles = `
 :host {
     display: flex;
     align-items: stretch;
+    box-sizing: border-box;
 }
 
 tnw-input {

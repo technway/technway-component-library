@@ -23,3 +23,9 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
 };
+
+export const SecondaryFullRounded = Template.bind({});
+SecondaryFullRounded.args = {
+  ...Secondary.args,
+  borderRadius: 'full',
+};

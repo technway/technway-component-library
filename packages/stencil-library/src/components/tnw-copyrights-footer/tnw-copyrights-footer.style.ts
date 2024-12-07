@@ -1,6 +1,6 @@
 import { GLOBAL_PREFIX } from "../../utils/utils";
 
-const baseClass = `${GLOBAL_PREFIX}-footer`;
+const baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
 
 export const styles = `
 * {

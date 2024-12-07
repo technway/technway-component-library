@@ -20,7 +20,7 @@ import { validateProps } from './utils/tnw-copyrights-footer-props';
 })
 export class TnwCopyrightsFooter {
 
-  private baseClass = `${GLOBAL_PREFIX}-footer`;
+  private baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
   private componentStyles: CSSStyleSheet;
 
   @Element() el!: HTMLTnwCopyrightsFooterElement;

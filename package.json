@@ -15,8 +15,5 @@
   "dependencies": {
     "root": "file:"
   },
-  "version": "2.7.0",
-  "scripts": {
-    "prepare": "husky"
-  }
+  "version": "2.7.0"
 }

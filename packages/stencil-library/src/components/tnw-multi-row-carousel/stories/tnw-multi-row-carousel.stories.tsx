@@ -16,8 +16,9 @@ export default {
 // const Template = (args) => getComponentTemplate(args, component);
 
 const Test = () =>  `
-<tnw-multi-row-carousel rows="2">
+<tnw-multi-row-carousel>
   <tnw-testimonial-card
+ slot="row-1"
  author-name="1 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -26,6 +27,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-1"
  author-name="2 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -34,6 +36,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-1"
  author-name="3 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -42,6 +45,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-1"
  author-name="4 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -50,6 +54,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-1"
  author-name="5 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -58,6 +63,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-2"
  author-name="6 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -66,6 +72,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-2"
  author-name="7 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -74,6 +81,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-2"
  author-name="8 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -82,6 +90,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-2"
  author-name="9 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."
@@ -90,6 +99,7 @@ const Test = () =>  `
 ></tnw-testimonial-card>
 
 <tnw-testimonial-card
+ slot="row-2"
  author-name="10 John Doe"
  author-role="CEO"
  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, et."

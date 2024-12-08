@@ -138,21 +138,42 @@ jobs:
               monorepo-tags: true
               token: ${{ secrets.GITHUB_TOKEN }}
 
-    # publish:
-    #     name: Publish to npm
-    #     runs-on: ubuntu-latest
-    #     needs: versioning
-    #     steps:
-    #         - name: Checkout repository
-    #           uses: actions/checkout@v3
+    publish:
+      runs-on: ubuntu-latest
 
-    #         - name: Set up Node.js with cache
-    #           uses: actions/setup-node@v3
-    #           with:
-    #               node-version: 20
-    #               cache: "npm"
+      steps:
+        # Checkout the repository
+        - name: Checkout code
+          uses: actions/checkout@v3
 
-    #         - name: Publish Updated Packages
-    #           env:
-    #               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    #           run: npx lerna publish from-package
+        # Setup Node.js
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: '16' # Specify your Node.js version
+            cache: 'npm'
+
+        # Install dependencies
+        - name: Install dependencies
+          run: npm install
+
+        # Run tests (optional)
+        - name: Run tests
+          run: npm test
+
+        # Setup Git (to allow Lerna to push tags and commits)
+        # - name: Setup Git
+        #   run: |
+        #     git config user.name "github-actions[bot]"
+        #     git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        # Authenticate with npm registry
+        - name: Authenticate with npm
+          run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+        # Run Lerna publish
+        - name: Publish with Lerna
+          run: npx lerna publish --yes --conventional-commits
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -156,56 +156,34 @@ export class TnwCopyrightsFooter {
     ].filter(Boolean).join(' ').trim();
   }
 
-  private renderPreText() {
-    if (!isNotEmptyString(this.preText)) {
-      return null;
-    }
-
-    return (
-      <tnw-text textTag='span' text={this.preText} size='xs' color={this.textColor} />
-    );
-  }
-
-  private renderOrganizationName() {
-    if (!isNotEmptyString(this.organizationName)) {
-      return null;
-    }
-
-    return (
-      <tnw-text textTag='span' text={this.organizationName} size='xs' color={this.organizationNameColor} />
-    );
-  }
-
-  private renderPostText() {
-    if (!isNotEmptyString(this.postText)) {
-      return null;
-    }
-
-    return (
-      <tnw-text textTag='span' text={this.postText} size='xs' color={this.textColor} />
-    );
-  }
-
-  private renderYearnRange() {
-    const yearsRange = this.getYearsRange();
-
-    if (!isNotEmptyString(yearsRange)) {
-      return null;
-    }
-
-    return (
-      <tnw-text textTag='span' text={yearsRange} size='xs' color={this.textColor} />
-    );
-  }
-
   private renderContent() {
+    const yearsRange = this.getYearsRange();
+    const contentParts: string[] = [];
+
+    if (isNotEmptyString(this.preText)) {
+      contentParts.push(this.preText);
+    }
+
+    if (isNotEmptyString(this.organizationName)) {
+      contentParts.push(this.organizationName);
+    }
+
+    if (isNotEmptyString(this.postText)) {
+      contentParts.push(this.postText);
+    }
+
+    if (isNotEmptyString(yearsRange)) {
+      contentParts.push(yearsRange);
+    }
+
     return (
-      <p class={`${this.baseClass}__content`} part='content'>
-        {this.renderPreText()}
-        {this.renderOrganizationName()}
-        {this.renderPostText()}
-        {this.renderYearnRange()}
-      </p>
+      <tnw-text
+        text={contentParts.join(' ')}
+        size="xs"
+        color={this.textColor}
+        class={`${this.baseClass}__content`}
+        part="content"
+      />
     );
   }
 
@@ -214,7 +192,7 @@ export class TnwCopyrightsFooter {
 
     return (
       <Host class={this.getHostClasses()}>
-        <FooterTag 
+        <FooterTag
           class={!this.disableInternalContainer ? 'container' : ''}
           part='container'
           aria-label="Copyright information"

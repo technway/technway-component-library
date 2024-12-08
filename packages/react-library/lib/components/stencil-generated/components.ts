@@ -17,6 +17,7 @@ import { TnwBadge as TnwBadgeElement, defineCustomElement as defineTnwBadge } fr
 import { TnwButton as TnwButtonElement, defineCustomElement as defineTnwButton } from "../../../../stencil-library/dist/components/tnw-button.js";
 import { TnwCard as TnwCardElement, defineCustomElement as defineTnwCard } from "../../../../stencil-library/dist/components/tnw-card.js";
 import { TnwContactBanner as TnwContactBannerElement, defineCustomElement as defineTnwContactBanner } from "../../../../stencil-library/dist/components/tnw-contact-banner.js";
+import { TnwCopyrightsFooter as TnwCopyrightsFooterElement, defineCustomElement as defineTnwCopyrightsFooter } from "../../../../stencil-library/dist/components/tnw-copyrights-footer.js";
 import { TnwDivider as TnwDividerElement, defineCustomElement as defineTnwDivider } from "../../../../stencil-library/dist/components/tnw-divider.js";
 import { TnwFooter as TnwFooterElement, defineCustomElement as defineTnwFooter } from "../../../../stencil-library/dist/components/tnw-footer.js";
 import { TnwHeaderBanner as TnwHeaderBannerElement, defineCustomElement as defineTnwHeaderBanner } from "../../../../stencil-library/dist/components/tnw-header-banner.js";
@@ -33,6 +34,7 @@ import { TnwNavbarDropdownMenu as TnwNavbarDropdownMenuElement, defineCustomElem
 import { TnwNavbarMenuToggler as TnwNavbarMenuTogglerElement, defineCustomElement as defineTnwNavbarMenuToggler } from "../../../../stencil-library/dist/components/tnw-navbar-menu-toggler.js";
 import { TnwNavbarMenu as TnwNavbarMenuElement, defineCustomElement as defineTnwNavbarMenu } from "../../../../stencil-library/dist/components/tnw-navbar-menu.js";
 import { TnwNavbar as TnwNavbarElement, defineCustomElement as defineTnwNavbar } from "../../../../stencil-library/dist/components/tnw-navbar.js";
+import { TnwNewsletterForm as TnwNewsletterFormElement, defineCustomElement as defineTnwNewsletterForm } from "../../../../stencil-library/dist/components/tnw-newsletter-form.js";
 import { TnwPortfolioGrid as TnwPortfolioGridElement, defineCustomElement as defineTnwPortfolioGrid } from "../../../../stencil-library/dist/components/tnw-portfolio-grid.js";
 import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating } from "../../../../stencil-library/dist/components/tnw-rating.js";
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "../../../../stencil-library/dist/components/tnw-scroll-to-top.js";
@@ -129,6 +131,17 @@ export const TnwContactBanner: StencilReactComponent<TnwContactBannerElement, Tn
     react: React,
     events: {} as TnwContactBannerEvents,
     defineCustomElement: defineTnwContactBanner
+});
+
+type TnwCopyrightsFooterEvents = NonNullable<unknown>;
+
+export const TnwCopyrightsFooter: StencilReactComponent<TnwCopyrightsFooterElement, TnwCopyrightsFooterEvents> = /*@__PURE__*/ createComponent<TnwCopyrightsFooterElement, TnwCopyrightsFooterEvents>({
+    tagName: 'tnw-copyrights-footer',
+    elementClass: TnwCopyrightsFooterElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as TnwCopyrightsFooterEvents,
+    defineCustomElement: defineTnwCopyrightsFooter
 });
 
 type TnwDividerEvents = NonNullable<unknown>;
@@ -305,6 +318,17 @@ export const TnwNavbarMenuToggler: StencilReactComponent<TnwNavbarMenuTogglerEle
     react: React,
     events: {} as TnwNavbarMenuTogglerEvents,
     defineCustomElement: defineTnwNavbarMenuToggler
+});
+
+type TnwNewsletterFormEvents = NonNullable<unknown>;
+
+export const TnwNewsletterForm: StencilReactComponent<TnwNewsletterFormElement, TnwNewsletterFormEvents> = /*@__PURE__*/ createComponent<TnwNewsletterFormElement, TnwNewsletterFormEvents>({
+    tagName: 'tnw-newsletter-form',
+    elementClass: TnwNewsletterFormElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as TnwNewsletterFormEvents,
+    defineCustomElement: defineTnwNewsletterForm
 });
 
 type TnwPortfolioGridEvents = NonNullable<unknown>;

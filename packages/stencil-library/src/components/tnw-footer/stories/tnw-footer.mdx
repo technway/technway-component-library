@@ -53,6 +53,7 @@ social media, and a newsletter subscription form. It is designed to be highly cu
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
 | **backgroundColor** | <div>The background color for the footer.</div> | \`'auto'\` | \`"auto"\` \\| \`"black"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
+| **borderTopColor** | <div>The color for the footer border.</div> | \`'auto'\` | \`"auto"\` \\| \`"black"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"none"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
 | **centerContent** | <div>Center-align the footer content.</div> | \`false\` | \`boolean\` |
 | **disableInternalContainer** | <div>If \`true\`, a container class will be added around the content to align it within the page layout. Default is \`false\`.</div> | \`false\` | \`boolean\` |
 | **footerData** | <div>JSON data for dynamically populating the footer content.
@@ -70,6 +71,8 @@ Expected structure:
   }
 }</div> | N/A | \`string\` |
 | **headingColor** | <div>The color for the footer headings.</div> | \`'auto'\` | \`"auto"\` \\| \`"black"\` \\| \`"gray100"\` \\| \`"gray200"\` \\| \`"gray300"\` \\| \`"gray400"\` \\| \`"gray500"\` \\| \`"gray600"\` \\| \`"gray700"\` \\| \`"gray800"\` \\| \`"gray900"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"placeholder"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
+| **margin** | <div>The margin top size applied to the footer.</div> | \`'none'\` | \`"2xl"\` \\| \`"3xl"\` \\| \`"4xl"\` \\| \`"lg"\` \\| \`"md"\` \\| \`"none"\` \\| \`"sm"\` \\| \`"xl"\` \\| \`"xs"\` |
+| **padding** | <div>The padding size applied to the footer.</div> | \`'xl'\` | \`"2xl"\` \\| \`"3xl"\` \\| \`"4xl"\` \\| \`"lg"\` \\| \`"md"\` \\| \`"none"\` \\| \`"sm"\` \\| \`"xl"\` \\| \`"xs"\` |
 | **textColor** | <div>The color for the footer content.</div> | \`'auto'\` | \`"auto"\` \\| \`"black"\` \\| \`"gray100"\` \\| \`"gray200"\` \\| \`"gray300"\` \\| \`"gray400"\` \\| \`"gray500"\` \\| \`"gray600"\` \\| \`"gray700"\` \\| \`"gray800"\` \\| \`"gray900"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"placeholder"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
 
 </div>
@@ -92,6 +95,7 @@ Expected structure:
 | --- | --- |
 | **brand** | Slot for the brand logo and name. |
 | **contact** | Slot for contact information. |
+| **copyrights** | Slot for copyright information. Use \`tnw-copyrights-footer\` instead. |
 | **links** | Slot for useful links. |
 | **newsletter** | Slot for the newsletter subscription form. |
 | **socialmedia** | Slot for social media icons. |

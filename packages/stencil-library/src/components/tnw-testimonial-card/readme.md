@@ -61,6 +61,8 @@ graph TD;
   tnw-testimonial-card --> tnw-image
   tnw-testimonial-card --> tnw-heading
   tnw-testimonial-card --> tnw-text
+  tnw-heading --> tnw-text
+  tnw-text --> tnw-text
   style tnw-testimonial-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

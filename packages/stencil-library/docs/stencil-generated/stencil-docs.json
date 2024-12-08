@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-08T09:23:40",
+  "timestamp": "2024-12-08T18:33:49",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -499,6 +499,9 @@
           "tnw-button",
           "tnw-icon",
           "tnw-text"
+        ],
+        "tnw-text": [
+          "tnw-text"
         ]
       }
     },
@@ -857,7 +860,7 @@
       "filePath": "src/components/tnw-anchor/tnw-anchor.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-anchor",
-      "readme": "# tnw-anchor\n\n\n",
+      "readme": "# tnw-anchor\r\n\r\n\r\n\r",
       "docs": "The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.\nThis component supports both text content and custom content via a slot, making it flexible for various use cases, such as wrapping other elements like images or icons.",
       "docsTags": [
         {
@@ -2716,6 +2719,12 @@
           "tnw-heading",
           "tnw-text",
           "tnw-button"
+        ],
+        "tnw-heading": [
+          "tnw-text"
+        ],
+        "tnw-text": [
+          "tnw-text"
         ]
       }
     },
@@ -3201,7 +3210,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-copyrights-footer",
       "readme": "# tnw-copyrights-footer\n\n\n",
-      "docs": "The `tnw-footer` component displays footer information such as the organization name, copyright years, \nand additional text. The component provides flexible options for colors, text layout, and custom slot content.\nIt can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.",
+      "docs": "The `tnw-footer` component displays footer information such as the organization name, copyright years, \r\nand additional text. The component provides flexible options for colors, text layout, and custom slot content.\r\nIt can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.",
       "docsTags": [
         {
           "name": "slot",
@@ -3777,6 +3786,9 @@
       "dependencyGraph": {
         "tnw-copyrights-footer": [
           "tnw-text"
+        ],
+        "tnw-text": [
+          "tnw-text"
         ]
       }
     },
@@ -3926,7 +3938,7 @@
       "filePath": "src/components/tnw-footer/tnw-footer.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-footer",
-      "readme": "# tnw-lower-footer\n\n\n",
+      "readme": "# tnw-lower-footer\r\n\r\n\r\n\r",
       "docs": "The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, \r\nsocial media, and a newsletter subscription form. It is designed to be highly customizable and accessible.",
       "docsTags": [
         {
@@ -4515,6 +4527,12 @@
           "tnw-text",
           "tnw-icon",
           "tnw-newsletter-form"
+        ],
+        "tnw-heading": [
+          "tnw-text"
+        ],
+        "tnw-text": [
+          "tnw-text"
         ],
         "tnw-anchor": [
           "tnw-icon"
@@ -5353,6 +5371,12 @@
           "tnw-text",
           "tnw-button",
           "tnw-image"
+        ],
+        "tnw-heading": [
+          "tnw-text"
+        ],
+        "tnw-text": [
+          "tnw-text"
         ]
       }
     },
@@ -5360,7 +5384,7 @@
       "filePath": "src/components/tnw-heading/tnw-heading.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-heading",
-      "readme": "# tnw-heading\n\n\n",
+      "readme": "# tnw-heading\r\n\r\n\r\n\r",
       "docs": "The `tnw-heading` component is used to render a customizable heading or title with various styling options.\nIt allows you to control the text alignment, color, size, weight, transformation, and line height, \nalong with the ability to use a different HTML tag for the heading element.",
       "docsTags": [
         {
@@ -5562,6 +5586,223 @@
             },
             {
               "value": "h6",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "highlight",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "highlight",
+          "reflectToAttr": false,
+          "docs": "Specifies which piece of text in the `text` prop should be bolded.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "highlightColor",
+          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "TextColorType",
+            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "TextColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::TextColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "highlight-color",
+          "reflectToAttr": false,
+          "docs": "Specifies the color of the highlighted text.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "gray100",
+              "type": "string"
+            },
+            {
+              "value": "gray200",
+              "type": "string"
+            },
+            {
+              "value": "gray300",
+              "type": "string"
+            },
+            {
+              "value": "gray400",
+              "type": "string"
+            },
+            {
+              "value": "gray500",
+              "type": "string"
+            },
+            {
+              "value": "gray600",
+              "type": "string"
+            },
+            {
+              "value": "gray700",
+              "type": "string"
+            },
+            {
+              "value": "gray800",
+              "type": "string"
+            },
+            {
+              "value": "gray900",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "placeholder",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "highlightTag",
+          "type": "\"em\" | \"mark\" | \"span\" | \"strong\"",
+          "complexType": {
+            "original": "\"span\" | \"strong\" | \"em\" | \"mark\"",
+            "resolved": "\"em\" | \"mark\" | \"span\" | \"strong\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "highlight-tag",
+          "reflectToAttr": false,
+          "docs": "Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.",
+          "docsTags": [],
+          "default": "\"span\"",
+          "values": [
+            {
+              "value": "em",
+              "type": "string"
+            },
+            {
+              "value": "mark",
+              "type": "string"
+            },
+            {
+              "value": "span",
+              "type": "string"
+            },
+            {
+              "value": "strong",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "highlightWeight",
+          "type": "\"100\" | \"200\" | \"300\" | \"400\" | \"500\" | \"600\" | \"700\" | \"800\" | \"900\" | \"heading\" | \"text\"",
+          "complexType": {
+            "original": "FontWeightType",
+            "resolved": "\"100\" | \"200\" | \"300\" | \"400\" | \"500\" | \"600\" | \"700\" | \"800\" | \"900\" | \"heading\" | \"text\"",
+            "references": {
+              "FontWeightType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::FontWeightType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "highlight-weight",
+          "reflectToAttr": false,
+          "docs": "Specifies the font weight of the highlighted text.",
+          "docsTags": [],
+          "default": "\"600\"",
+          "values": [
+            {
+              "value": "100",
+              "type": "string"
+            },
+            {
+              "value": "200",
+              "type": "string"
+            },
+            {
+              "value": "300",
+              "type": "string"
+            },
+            {
+              "value": "400",
+              "type": "string"
+            },
+            {
+              "value": "500",
+              "type": "string"
+            },
+            {
+              "value": "600",
+              "type": "string"
+            },
+            {
+              "value": "700",
+              "type": "string"
+            },
+            {
+              "value": "800",
+              "type": "string"
+            },
+            {
+              "value": "900",
+              "type": "string"
+            },
+            {
+              "value": "heading",
+              "type": "string"
+            },
+            {
+              "value": "text",
               "type": "string"
             }
           ],
@@ -5967,8 +6208,16 @@
         "tnw-header-banner",
         "tnw-testimonial-card"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "tnw-text"
+      ],
       "dependencyGraph": {
+        "tnw-heading": [
+          "tnw-text"
+        ],
+        "tnw-text": [
+          "tnw-text"
+        ],
         "tnw-card": [
           "tnw-heading"
         ],
@@ -5987,7 +6236,7 @@
       "filePath": "src/components/tnw-icon/tnw-icon.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-icon",
-      "readme": "# tnw-icon\n\n\n",
+      "readme": "# tnw-icon\r\n\r\n\r\n\r",
       "docs": "The `tnw-icon` component is a flexible icon element that supports various styles, sizes, and appearances. \nIt can be used as a standalone icon or to display custom SVG icons through the `svg` slot.",
       "docsTags": [
         {
@@ -6520,7 +6769,7 @@
       "filePath": "src/components/tnw-image/tnw-image.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-image",
-      "readme": "# tnw-image\n\n\n",
+      "readme": "# tnw-image\r\n\r\n\r\n\r",
       "docs": "The `tnw-image` component is used to display images with optional captions, lazy loading, and customizable styles. \nIt supports various properties to control the image source, dimensions, and appearance.",
       "docsTags": [
         {
@@ -8666,7 +8915,7 @@
       "filePath": "src/components/tnw-multi-row-carousel/tnw-multi-row-carousel.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-multi-row-carousel",
-      "readme": "# tnw-multi-row-carousel\n\n\n",
+      "readme": "# tnw-multi-row-carousel\r\n\r\n\r\n\r",
       "docs": "The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel \r\nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
       "docsTags": [
         {
@@ -9841,6 +10090,9 @@
         "tnw-anchor": [
           "tnw-icon"
         ],
+        "tnw-text": [
+          "tnw-text"
+        ],
         "tnw-navbar-dropdown-menu": [
           "tnw-anchor"
         ]
@@ -9903,7 +10155,7 @@
       "filePath": "src/components/tnw-newsletter-form/tnw-newsletter-form.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-newsletter-form",
-      "readme": "# tnw-newsletter-form\n\n\n",
+      "readme": "# tnw-newsletter-form\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {
@@ -12156,6 +12408,12 @@
           "tnw-image",
           "tnw-heading",
           "tnw-text"
+        ],
+        "tnw-heading": [
+          "tnw-text"
+        ],
+        "tnw-text": [
+          "tnw-text"
         ]
       }
     },
@@ -12163,7 +12421,7 @@
       "filePath": "src/components/tnw-text/tnw-text.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-text",
-      "readme": "# tnw-text\n\n\n",
+      "readme": "# tnw-text\r\n\r\n\r\n\r",
       "docs": "The `tnw-text` component is used to display descriptive text with customizable styling options. \nIt supports various typography-related properties, color, and alignment.",
       "docsTags": [
         {
@@ -12313,6 +12571,254 @@
             },
             {
               "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "displayMode",
+          "type": "\"block\" | \"inline\" | \"inline-block\"",
+          "complexType": {
+            "original": "\"block\" | \"inline-block\" | \"inline\"",
+            "resolved": "\"block\" | \"inline\" | \"inline-block\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "display-mode",
+          "reflectToAttr": false,
+          "docs": "Defines the display mode of the component. It's not recommended to use the `\"inline\"` display mode, use `\"inline-block\"` instead.",
+          "docsTags": [],
+          "default": "\"block\"",
+          "values": [
+            {
+              "value": "block",
+              "type": "string"
+            },
+            {
+              "value": "inline",
+              "type": "string"
+            },
+            {
+              "value": "inline-block",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "highlight",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "highlight",
+          "reflectToAttr": false,
+          "docs": "Specifies which piece of text in the `text` prop should be bolded.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "highlightColor",
+          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "TextColorType",
+            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "TextColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::TextColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "highlight-color",
+          "reflectToAttr": false,
+          "docs": "Specifies the color of the highlighted text.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "gray100",
+              "type": "string"
+            },
+            {
+              "value": "gray200",
+              "type": "string"
+            },
+            {
+              "value": "gray300",
+              "type": "string"
+            },
+            {
+              "value": "gray400",
+              "type": "string"
+            },
+            {
+              "value": "gray500",
+              "type": "string"
+            },
+            {
+              "value": "gray600",
+              "type": "string"
+            },
+            {
+              "value": "gray700",
+              "type": "string"
+            },
+            {
+              "value": "gray800",
+              "type": "string"
+            },
+            {
+              "value": "gray900",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "placeholder",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "highlightTag",
+          "type": "\"em\" | \"mark\" | \"span\" | \"strong\"",
+          "complexType": {
+            "original": "\"span\" | \"strong\" | \"em\" | \"mark\"",
+            "resolved": "\"em\" | \"mark\" | \"span\" | \"strong\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "highlight-tag",
+          "reflectToAttr": false,
+          "docs": "Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.",
+          "docsTags": [],
+          "default": "\"span\"",
+          "values": [
+            {
+              "value": "em",
+              "type": "string"
+            },
+            {
+              "value": "mark",
+              "type": "string"
+            },
+            {
+              "value": "span",
+              "type": "string"
+            },
+            {
+              "value": "strong",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "highlightWeight",
+          "type": "\"100\" | \"200\" | \"300\" | \"400\" | \"500\" | \"600\" | \"700\" | \"800\" | \"900\" | \"heading\" | \"text\"",
+          "complexType": {
+            "original": "FontWeightType",
+            "resolved": "\"100\" | \"200\" | \"300\" | \"400\" | \"500\" | \"600\" | \"700\" | \"800\" | \"900\" | \"heading\" | \"text\"",
+            "references": {
+              "FontWeightType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::FontWeightType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "highlight-weight",
+          "reflectToAttr": false,
+          "docs": "Specifies the font weight of the highlighted text.",
+          "docsTags": [],
+          "default": "\"600\"",
+          "values": [
+            {
+              "value": "100",
+              "type": "string"
+            },
+            {
+              "value": "200",
+              "type": "string"
+            },
+            {
+              "value": "300",
+              "type": "string"
+            },
+            {
+              "value": "400",
+              "type": "string"
+            },
+            {
+              "value": "500",
+              "type": "string"
+            },
+            {
+              "value": "600",
+              "type": "string"
+            },
+            {
+              "value": "700",
+              "type": "string"
+            },
+            {
+              "value": "800",
+              "type": "string"
+            },
+            {
+              "value": "900",
+              "type": "string"
+            },
+            {
+              "value": "heading",
+              "type": "string"
+            },
+            {
+              "value": "text",
               "type": "string"
             }
           ],
@@ -12522,10 +13028,10 @@
         },
         {
           "name": "textTag",
-          "type": "\"p\" | \"span\"",
+          "type": "\"em\" | \"mark\" | \"p\" | \"span\" | \"strong\"",
           "complexType": {
-            "original": "\"p\" | \"span\"",
-            "resolved": "\"p\" | \"span\"",
+            "original": "\"p\" | \"span\" | \"strong\" | \"em\" | \"mark\"",
+            "resolved": "\"em\" | \"mark\" | \"p\" | \"span\" | \"strong\"",
             "references": {}
           },
           "mutable": false,
@@ -12536,11 +13042,23 @@
           "default": "\"p\"",
           "values": [
             {
+              "value": "em",
+              "type": "string"
+            },
+            {
+              "value": "mark",
+              "type": "string"
+            },
+            {
               "value": "p",
               "type": "string"
             },
             {
               "value": "span",
+              "type": "string"
+            },
+            {
+              "value": "strong",
               "type": "string"
             }
           ],
@@ -12617,10 +13135,10 @@
         },
         {
           "name": "widthSize",
-          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
+          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\" | \"xl\"",
           "complexType": {
-            "original": "SizeType | \"xl\" | \"full\"",
-            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
+            "original": "SizeType | \"xl\" | \"full\" | null | \"unset\"",
+            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\" | \"xl\"",
             "references": {
               "SizeType": {
                 "location": "import",
@@ -12632,7 +13150,7 @@
           "mutable": false,
           "attr": "width-size",
           "reflectToAttr": false,
-          "docs": "The width size of the text.",
+          "docs": "The width size of the text. Use unset or null to avoid setting width.",
           "docsTags": [],
           "default": "'full'",
           "values": [
@@ -12650,6 +13168,10 @@
             },
             {
               "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "unset",
               "type": "string"
             },
             {
@@ -12683,11 +13205,18 @@
         "tnw-copyrights-footer",
         "tnw-footer",
         "tnw-header-banner",
+        "tnw-heading",
         "tnw-navbar-menu",
-        "tnw-testimonial-card"
+        "tnw-testimonial-card",
+        "tnw-text"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "tnw-text"
+      ],
       "dependencyGraph": {
+        "tnw-text": [
+          "tnw-text"
+        ],
         "tnw-accordion": [
           "tnw-text"
         ],
@@ -12701,6 +13230,9 @@
           "tnw-text"
         ],
         "tnw-header-banner": [
+          "tnw-text"
+        ],
+        "tnw-heading": [
           "tnw-text"
         ],
         "tnw-navbar-menu": [

@@ -572,6 +572,22 @@ export namespace Components {
          */
         "headingTag"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**
+          * Specifies which piece of text in the `text` prop should be bolded.
+         */
+        "highlight"?: string;
+        /**
+          * Specifies the color of the highlighted text.
+         */
+        "highlightColor"?: TextColorType;
+        /**
+          * Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.
+         */
+        "highlightTag"?: "span" | "strong" | "em" | "mark";
+        /**
+          * Specifies the font weight of the highlighted text.
+         */
+        "highlightWeight"?: FontWeightType;
+        /**
           * Specifies the HTML tag to be used for the heading.
          */
         "level": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -1280,6 +1296,26 @@ export namespace Components {
          */
         "color"?: TextColorType;
         /**
+          * Defines the display mode of the component. It's not recommended to use the `"inline"` display mode, use `"inline-block"` instead.
+         */
+        "displayMode": "block" | "inline-block" | "inline";
+        /**
+          * Specifies which piece of text in the `text` prop should be bolded.
+         */
+        "highlight"?: string;
+        /**
+          * Specifies the color of the highlighted text.
+         */
+        "highlightColor"?: TextColorType;
+        /**
+          * Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.
+         */
+        "highlightTag"?: "span" | "strong" | "em" | "mark";
+        /**
+          * Specifies the font weight of the highlighted text.
+         */
+        "highlightWeight"?: FontWeightType;
+        /**
           * Adjusts the line height of the text.
          */
         "lineHeight"?: LineHeightType;
@@ -1298,15 +1334,15 @@ export namespace Components {
         /**
           * Defines the HTML tag of the component.
          */
-        "textTag"?: "p" | "span";
+        "textTag"?: "p" | "span" | "strong" | "em" | "mark";
         /**
           * Specifies the font weight of the text.
          */
         "weight"?: FontWeightType;
         /**
-          * The width size of the text.
+          * The width size of the text. Use unset or null to avoid setting width.
          */
-        "widthSize"?: SizeType | "xl" | "full";
+        "widthSize"?: SizeType | "xl" | "full" | null | "unset";
     }
     /**
      * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.
@@ -2363,6 +2399,22 @@ declare namespace LocalJSX {
          */
         "headingTag"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
         /**
+          * Specifies which piece of text in the `text` prop should be bolded.
+         */
+        "highlight"?: string;
+        /**
+          * Specifies the color of the highlighted text.
+         */
+        "highlightColor"?: TextColorType;
+        /**
+          * Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.
+         */
+        "highlightTag"?: "span" | "strong" | "em" | "mark";
+        /**
+          * Specifies the font weight of the highlighted text.
+         */
+        "highlightWeight"?: FontWeightType;
+        /**
           * Specifies the HTML tag to be used for the heading.
          */
         "level"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -3075,6 +3127,26 @@ declare namespace LocalJSX {
          */
         "color"?: TextColorType;
         /**
+          * Defines the display mode of the component. It's not recommended to use the `"inline"` display mode, use `"inline-block"` instead.
+         */
+        "displayMode"?: "block" | "inline-block" | "inline";
+        /**
+          * Specifies which piece of text in the `text` prop should be bolded.
+         */
+        "highlight"?: string;
+        /**
+          * Specifies the color of the highlighted text.
+         */
+        "highlightColor"?: TextColorType;
+        /**
+          * Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.
+         */
+        "highlightTag"?: "span" | "strong" | "em" | "mark";
+        /**
+          * Specifies the font weight of the highlighted text.
+         */
+        "highlightWeight"?: FontWeightType;
+        /**
           * Adjusts the line height of the text.
          */
         "lineHeight"?: LineHeightType;
@@ -3093,15 +3165,15 @@ declare namespace LocalJSX {
         /**
           * Defines the HTML tag of the component.
          */
-        "textTag"?: "p" | "span";
+        "textTag"?: "p" | "span" | "strong" | "em" | "mark";
         /**
           * Specifies the font weight of the text.
          */
         "weight"?: FontWeightType;
         /**
-          * The width size of the text.
+          * The width size of the text. Use unset or null to avoid setting width.
          */
-        "widthSize"?: SizeType | "xl" | "full";
+        "widthSize"?: SizeType | "xl" | "full" | null | "unset";
     }
     /**
      * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.

@@ -93,6 +93,7 @@ It can be customized to display dynamic or static years, as well as pre-defined 
 ```mermaid
 graph TD;
   tnw-copyrights-footer --> tnw-text
+  tnw-text --> tnw-text
   style tnw-copyrights-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

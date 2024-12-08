@@ -114,6 +114,7 @@ graph TD;
   tnw-navbar-menu --> tnw-text
   tnw-navbar-menu --> tnw-navbar-dropdown-menu
   tnw-anchor --> tnw-icon
+  tnw-text --> tnw-text
   tnw-navbar-dropdown-menu --> tnw-anchor
   style tnw-navbar-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```

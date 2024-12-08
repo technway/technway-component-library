@@ -125,6 +125,8 @@ graph TD;
   tnw-card --> tnw-heading
   tnw-card --> tnw-text
   tnw-card --> tnw-button
+  tnw-heading --> tnw-text
+  tnw-text --> tnw-text
   style tnw-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

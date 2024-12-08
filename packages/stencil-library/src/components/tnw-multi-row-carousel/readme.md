@@ -7,7 +7,7 @@
 
 ## Overview
 
-The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
 with multiple rows. Each row scrolls independently and can move in alternating directions.
 
 ## Usage
@@ -28,9 +28,9 @@ with multiple rows. Each row scrolls independently and can move in alternating d
 
 ## Slots
 
-| Slot | Description                                                                                             |
-| ---- | ------------------------------------------------------------------------------------------------------- |
-|      | Default slot to provide the content for the carousel. Each row will auto-distribute the slot's content. |
+| Slot             | Description                                                                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"row-[number]"` | A slot for each row's content. Replace `[number]` with the row index (starting from 1). Ensure the number of slots matches the `rows` prop. |
 
 
 ----------------------------------------------

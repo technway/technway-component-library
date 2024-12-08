@@ -111,7 +111,7 @@ export class TnwFooter {
   }
 
   private getHostClasses(): string {
-    const { baseClass, backgroundColor, centerContent, borderTopColor, padding, margin } = this;
+    const { baseClass, backgroundColor, centerContent, borderTopColor, margin } = this;
 
     return [
       baseClass,
@@ -119,22 +119,19 @@ export class TnwFooter {
       isNotEmptyString(borderTopColor) || borderTopColor !== 'none' ? `${baseClass}--borderTop` : ``,
       getColorClass('bg', backgroundColor),
       getColorClass('border-top', borderTopColor),
-      `${baseClass}--padding-${padding}`,
       `${baseClass}--margin-top-${margin}`,
     ].filter(Boolean).join(' ').trim();
   }
 
-  private getFooterGridStyling() {
-    // let columnsNumber = 0;
+  private getContentClasses(): string {
+    const { baseClass, padding } = this;
 
-    // if (this.parsedFooterData?.brand) columnsNumber++;
-    // if (this.parsedFooterData?.links) columnsNumber++;
-    // if (this.parsedFooterData?.contact) columnsNumber++;
-    // if (this.parsedFooterData?.newsletter) columnsNumber += 2;
+    const contentClass = `${baseClass}__content`;
 
-    return {
-      gridTemplateColumns: `repeat(auto-fit, minmax(150px, 1fr))`,
-    }
+    return [
+      contentClass,
+      `${contentClass}--padding-${padding}`,
+    ].filter(Boolean).join(' ').trim();
   }
 
   private renderHeading(heading?: string) {
@@ -276,9 +273,10 @@ export class TnwFooter {
         <footer
           class={!this.disableInternalContainer ? 'container' : ''}
           part="container"
-          style={this.getFooterGridStyling()}
         >
-          <div class={`${this.baseClass}__content`}>
+          <div
+            class={this.getContentClasses()}
+          >
             {parsedFooterData !== null ? (
               <Fragment>
                 {this.renderBrand(parsedFooterData.brand!, parsedFooterData.socialmedia!)}

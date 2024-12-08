@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-08T07:49:51",
+  "timestamp": "2024-12-08T09:09:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -8667,11 +8667,11 @@
       "encapsulation": "shadow",
       "tag": "tnw-multi-row-carousel",
       "readme": "# tnw-multi-row-carousel\n\n\n",
-      "docs": "The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel \r\nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
+      "docs": "The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel \r\nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
       "docsTags": [
         {
           "name": "slot",
-          "text": "- Default slot to provide the content for the carousel. Each row will auto-distribute the slot's content."
+          "text": "row-[number] - A slot for each row's content. Replace `[number]` with the row index (starting from 1). Ensure the number of slots matches the `rows` prop."
         }
       ],
       "usage": {
@@ -8729,8 +8729,8 @@
       "styles": [],
       "slots": [
         {
-          "name": "",
-          "docs": "Default slot to provide the content for the carousel. Each row will auto-distribute the slot's content."
+          "name": "row-[number]",
+          "docs": "A slot for each row's content. Replace `[number]` with the row index (starting from 1). Ensure the number of slots matches the `rows` prop."
         }
       ],
       "parts": [],

@@ -1,6 +1,6 @@
-import { Component, Host, h, Prop, Element } from '@stencil/core';
+import { Component, Host, h, Prop, Element, Fragment } from '@stencil/core';
 import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextColorType, TextTransformType, SizeType } from '../../utils/component-props-types';
-import { getColorClass, getTextTransformClass, getTypographyClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
+import { getColorClass, getTextTransformClass, getTypographyClass, GLOBAL_PREFIX, isNotEmptyString, isNotEmptyStringOrNumber } from '../../utils/utils';
 import { validateProps } from './utils/tnw-text-validate-props';
 import { colorStyleSheet, typographyStyleSheet } from '../../utils/shared-styles';
 import { styles } from './tnw-text.styles';
@@ -28,6 +28,26 @@ export class TnwText {
    * The content of the component.
    */
   @Prop() text: string | number;
+
+  /**
+   * Specifies which piece of text in the `text` prop should be bolded.
+   */
+  @Prop() highlight?: string;
+
+  /**
+   * Specifies the color of the highlighted text.
+   */
+  @Prop() highlightColor?: TextColorType;
+
+  /**
+   * Specifies the font weight of the highlighted text.
+   */
+  @Prop() highlightWeight?: FontWeightType = "600";
+
+  /**
+   * Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.
+   */
+  @Prop() highlightTag?: "span" | "strong" | "em" | "mark" = "span";
 
   /**
    * Specifies the text alignment.
@@ -60,14 +80,19 @@ export class TnwText {
   @Prop() lineHeight?: LineHeightType = "1_75";
 
   /**
-   * The width size of the text.
+   * The width size of the text. Use unset or null to avoid setting width.
    */
-  @Prop() widthSize?: SizeType | "xl" | "full" = 'full';
+  @Prop() widthSize?: SizeType | "xl" | "full" | null | "unset" = 'full';
 
   /**
    * Defines the HTML tag of the component.
    */
-  @Prop() textTag?: "p" | "span" = "p";
+  @Prop() textTag?: "p" | "span" | "strong" | "em" | "mark" = "p";
+
+  /**
+   * Defines the display mode of the component. It's not recommended to use the `"inline"` display mode, use `"inline-block"` instead.
+   */
+  @Prop() displayMode: "block" | "inline-block" | "inline" = "block";
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -87,14 +112,15 @@ export class TnwText {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.color, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize];
+    const propsValues = [this.alignment, this.color, this.displayMode, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize];
     validateProps(propsValues);
   }
 
   private getHostClasses(): string {
-    const { baseClass, widthSize } = this;
+    const { baseClass, widthSize, displayMode } = this;
     return [
       baseClass,
+      `${baseClass}--${displayMode}`,
       isNotEmptyString(widthSize) ? `${baseClass}--width-${widthSize}` : ``,
     ].filter(Boolean).join(' ').trim();
   }
@@ -114,12 +140,69 @@ export class TnwText {
     ].filter(Boolean).join(' ').trim();
   }
 
+  private renderHighlightedText() {
+    const { text, highlight, highlightColor, highlightWeight, highlightTag } = this;
+
+    if (!isNotEmptyStringOrNumber(highlight)) return null;
+
+    let preText: string | number = text;
+    let highlightedText: string | number = null;
+    let postText: string | number = null;
+
+    const textString = text.toString();
+    const highlightString = highlight.toString();
+
+    const highlightIndex = textString.toLowerCase().indexOf(highlightString.toLowerCase());
+
+    if (highlightIndex !== -1) {
+      preText = textString.slice(0, highlightIndex).trimEnd();
+      highlightedText = textString.slice(highlightIndex, highlightIndex + highlightString.length);
+      postText = textString.slice(highlightIndex + highlightString.length).trimStart();
+    }
+
+    return (
+      <Fragment>
+        {isNotEmptyStringOrNumber(preText) && preText}
+        {isNotEmptyStringOrNumber(preText) && ' '}
+        {isNotEmptyStringOrNumber(highlightedText) && (
+          <tnw-text
+            text={highlightedText}
+            textTag={highlightTag}
+            weight={highlightWeight}
+            color={highlightColor}
+            displayMode='inline-block'
+            widthSize={null}
+          />
+        )}
+        {isNotEmptyStringOrNumber(postText) && ' '}
+        {isNotEmptyStringOrNumber(postText) && postText}
+      </Fragment>
+    );
+  }
+
+
+  private renderText() {
+    const { text } = this;
+
+    if (!isNotEmptyStringOrNumber(text)) return null;
+
+    if (this.renderHighlightedText() !== null) return this.renderHighlightedText();
+
+    return text;
+  }
+
   render() {
     const Tag = this.textTag;
 
     return (
       <Host class={this.getHostClasses()}>
-        <Tag class={this.getTextClasses()} part='text'>{this.text || <slot />}</Tag>
+        <Tag class={this.getTextClasses()} part='text'>
+          {
+            this.renderText() !== null ?
+              this.renderText() :
+              <slot />
+          }
+        </Tag>
       </Host>
     );
   }

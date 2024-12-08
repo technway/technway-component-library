@@ -78,6 +78,8 @@ graph TD;
   tnw-footer --> tnw-text
   tnw-footer --> tnw-icon
   tnw-footer --> tnw-newsletter-form
+  tnw-heading --> tnw-text
+  tnw-text --> tnw-text
   tnw-anchor --> tnw-icon
   tnw-newsletter-form --> tnw-input
   tnw-newsletter-form --> tnw-button

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tnw-text Default and Required Prop Behavior renders text with default class names when only required prop is provided 1`] = `
-<tnw-text class="tnw-text tnw-text--width-full" text="some text example">
+<tnw-text class="tnw-text tnw-text--block tnw-text--width-full" text="some text example">
   <template shadowrootmode="open">
     <p class="lh-1_75 tnw-text__inner" part="text">
       some text example

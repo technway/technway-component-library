@@ -108,6 +108,7 @@ graph TD;
   tnw-accordion --> tnw-button
   tnw-accordion --> tnw-icon
   tnw-accordion --> tnw-text
+  tnw-text --> tnw-text
   style tnw-accordion fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

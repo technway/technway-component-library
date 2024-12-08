@@ -105,6 +105,8 @@ graph TD;
   tnw-header-banner --> tnw-text
   tnw-header-banner --> tnw-button
   tnw-header-banner --> tnw-image
+  tnw-heading --> tnw-text
+  tnw-text --> tnw-text
   style tnw-header-banner fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

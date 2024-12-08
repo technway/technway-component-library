@@ -43,3 +43,9 @@ Bold.args = {
   ...Standard.args,
   weight: "600"
 };
+
+export const HighlighText = Template.bind({});
+HighlighText.args = {
+  text: "Highlighted Text: This is Important Text",
+  highlight: "Important"
+};

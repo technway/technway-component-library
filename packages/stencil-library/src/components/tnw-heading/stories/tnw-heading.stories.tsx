@@ -28,8 +28,8 @@ HeadingOne.args = {
 
 export const PrimaryColor = Template.bind({});
 PrimaryColor.args = {
-  text: "Highlighted Title: Using Primary Color",
-  color: "primary"
+  text: "Primary Title: Using Primary Color",
+  color: "primary",
 };
 
 export const Uppercase = Template.bind({});
@@ -49,4 +49,11 @@ SmallBoldTitle.args = {
   text: "Small Title: Perfect for Subtle Section Headings",
   size: "sm",
   weight: "700"
+};
+
+export const HighlighText = Template.bind({});
+HighlighText.args = {
+  text: "Highlighted Title: This is Important",
+  weight: "400",
+  highlight: "Important"
 };

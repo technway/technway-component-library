@@ -113,5 +113,6 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "express-session": "^1.18.0"
-  }
+  },
+  "gitHead": "1466386d2b505460ce14196f730bd4caa0afdc83"
 }

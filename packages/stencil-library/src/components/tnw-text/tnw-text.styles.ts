@@ -10,8 +10,17 @@ export const styles = `
     
 :host{
     --tnw-text-font: var(--tnw-font-text);
-    display: block;
     max-width: 100%;
+}
+
+:host(.${baseClass}--block) {
+  display: block;
+}
+:host(.${baseClass}--inline-block) {
+  display: inline-block;
+}
+:host(.${baseClass}--inline) {
+  display: inline;
 }
 
 :host(.${baseClass}--width-sm) {

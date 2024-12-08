@@ -1,4 +1,4 @@
-import { Component, Host, Prop, State, h, Element, Watch } from '@stencil/core';
+import { Component, Host, Prop, State, h, Element, Watch, Fragment } from '@stencil/core';
 import { GLOBAL_PREFIX, getColorClass, getTextTransformClass, getTypographyClass, isNotEmptyString } from '../../utils/utils';
 import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextColorType, TextTransformType, SizeType } from '../../utils/component-props-types';
 import { validateProps } from './utils/tnw-heading-validate-props';
@@ -32,6 +32,26 @@ export class TnwHeading {
    * The content of the heading. If no text is provided, the slot content will be used.
    */
   @Prop() text?: string;
+
+  /**
+   * Specifies which piece of text in the `text` prop should be bolded.
+   */
+  @Prop() highlight?: string;
+
+  /**
+   * Specifies the color of the highlighted text.
+   */
+  @Prop() highlightColor?: TextColorType;
+
+  /**
+   * Specifies the font weight of the highlighted text.
+   */
+  @Prop() highlightWeight?: FontWeightType = "600";
+
+  /**
+   * Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.
+   */
+  @Prop() highlightTag?: "span" | "strong" | "em" | "mark" = "span";
 
   /**
    * Specifies the HTML tag to be used for the heading.
@@ -110,7 +130,7 @@ export class TnwHeading {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.color, this.headingTag, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight, this.widthSize];
+    const propsValues = [this.alignment, this.color, this.headingTag, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight, this.widthSize];
     validateProps(propsValues);
 
     this.updateDefaultStyles();
@@ -161,13 +181,64 @@ export class TnwHeading {
     ].filter(Boolean).join(' ').trim();
   }
 
+  private renderHighlightedText() {
+    const { text, highlight, highlightColor, highlightWeight, highlightTag } = this;
+
+    if (!isNotEmptyString(highlight)) return null;
+
+    let preText = text;
+    let highlightedText = null;
+    let postText = null;
+
+    const highlightIndex = text.toLowerCase().indexOf(highlight.toLowerCase());
+
+    if (highlightIndex !== -1) {
+      preText = text.slice(0, highlightIndex).trimEnd();
+      highlightedText = text.slice(highlightIndex, highlightIndex + highlight.length);
+      postText = text.slice(highlightIndex + highlight.length).trimStart();
+    }
+
+    return (
+      <Fragment>
+        {isNotEmptyString(preText) && preText}
+        {isNotEmptyString(preText) && ' '}
+        {isNotEmptyString(highlightedText) && (
+          <tnw-text
+            text={highlightedText}
+            textTag={highlightTag}
+            weight={highlightWeight}
+            color={highlightColor}
+            displayMode='inline-block'
+            widthSize={null}
+          />
+        )}
+        {isNotEmptyString(postText) && ' '}
+        {isNotEmptyString(postText) && postText}
+      </Fragment>
+    );
+  }
+
+  private renderHeadingText() {
+    const { text } = this;
+
+    if (!isNotEmptyString(text)) return null;
+
+    if (this.renderHighlightedText() !== null) return this.renderHighlightedText();
+
+    return text;
+  }
+
   render() {
     const HeadingTag = this.level;
 
     return (
       <Host class={this.getHostClasses()}>
         <HeadingTag class={this.getHeadingClasses()} part='heading'>
-          {this.text || <slot />}
+          {
+            this.renderHeadingText() !== null ?
+              this.renderHighlightedText() :
+              <slot />
+          }
         </HeadingTag>
       </Host>
     );

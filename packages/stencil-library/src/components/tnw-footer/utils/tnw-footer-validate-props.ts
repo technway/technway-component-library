@@ -4,14 +4,14 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-footer.tsx` file.
  * 
-const propsValues = [this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.enableSlot, this.endYear, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear];
+const propsValues = [this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor];
 validateProps(propsValues);
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"backgroundColor","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"borderTopColor","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"centerContent","type":["boolean"],"isRequired":false},{"name":"disableInternalContainer","type":["boolean"],"isRequired":false},{"name":"enableSlot","type":["boolean"],"isRequired":false},{"name":"endYear","type":["number"],"isRequired":false},{"name":"organizationName","type":["string"],"isRequired":false},{"name":"organizationNameColor","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false},{"name":"postText","type":["string"],"isRequired":false},{"name":"preText","type":["string"],"isRequired":false},{"name":"startYear","type":["number"],"isRequired":false},{"name":"textColor","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false},{"name":"useCurrentYearAsEndYear","type":["boolean"],"isRequired":false},{"name":"useCurrentYearAsStartYear","type":["boolean"],"isRequired":false}];
+  const props = [{"name":"backgroundColor","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"borderTopColor","type":["auto","black","inverse","light","none","primary","secondary","white"],"isRequired":false},{"name":"centerContent","type":["boolean"],"isRequired":false},{"name":"disableInternalContainer","type":["boolean"],"isRequired":false},{"name":"footerData","type":["string"],"isRequired":true},{"name":"headingColor","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false},{"name":"margin","type":["2xl","3xl","4xl","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"padding","type":["2xl","3xl","4xl","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"textColor","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false}];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

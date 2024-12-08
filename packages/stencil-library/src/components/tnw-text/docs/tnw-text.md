@@ -26,13 +26,18 @@ It supports various typography-related properties, color, and alignment.
 | --- | --- | --- | --- |
 | **alignment** | <div>Specifies the text alignment.</div> | N/A | `"center"` \| `"end"` \| `"justify"` \| `"left"` \| `"right"` \| `"start"` |
 | **color** | <div>Sets the color of the text based on the available colors.</div> | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **displayMode** | <div>Defines the display mode of the component. It's not recommended to use the `"inline"` display mode, use `"inline-block"` instead.</div> | `"block"` | `"block"` \| `"inline"` \| `"inline-block"` |
+| **highlight** | <div>Specifies which piece of text in the `text` prop should be bolded.</div> | N/A | `string` |
+| **highlightColor** | <div>Specifies the color of the highlighted text.</div> | N/A | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **highlightTag** | <div>Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.</div> | `"span"` | `"em"` \| `"mark"` \| `"span"` \| `"strong"` |
+| **highlightWeight** | <div>Specifies the font weight of the highlighted text.</div> | `"600"` | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
 | **lineHeight** | <div>Adjusts the line height of the text.</div> | `"1_75"` | `"1"` \| `"1_25"` \| `"1_5"` \| `"1_75"` \| `"2"` \| `"2_25"` \| `"2_5"` |
 | **size** | <div>Defines the font size of the text.</div> | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
 | **text** | <div>The content of the component.</div> | N/A | `number` \| `string` |
 | **textCase** | <div>Controls the text transformation (e.g., uppercase, lowercase).</div> | N/A | `"capitalize"` \| `"lowercase"` \| `"normal-case"` \| `"uppercase"` |
-| **textTag** | <div>Defines the HTML tag of the component.</div> | `"p"` | `"p"` \| `"span"` |
+| **textTag** | <div>Defines the HTML tag of the component.</div> | `"p"` | `"em"` \| `"mark"` \| `"p"` \| `"span"` \| `"strong"` |
 | **weight** | <div>Specifies the font weight of the text.</div> | N/A | `"100"` \| `"200"` \| `"300"` \| `"400"` \| `"500"` \| `"600"` \| `"700"` \| `"800"` \| `"900"` \| `"heading"` \| `"text"` |
-| **widthSize** | <div>The width size of the text.</div> | `'full'` | `"full"` \| `"lg"` \| `"md"` \| `"sm"` \| `"xl"` |
+| **widthSize** | <div>The width size of the text. Use unset or null to avoid setting width.</div> | `'full'` | `"full"` \| `"lg"` \| `"md"` \| `"sm"` \| `"unset"` \| `"xl"` |
 
 </div>
 

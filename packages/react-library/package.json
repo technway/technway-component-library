@@ -1,6 +1,6 @@
 {
   "name": "@technway/react-library",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "> TODO: description",
   "author": "Khaled Alshibani <alshibanikhaleds@gmail.com>",
   "homepage": "https://github.com/technway/technway-component-library#readme",
@@ -30,7 +30,7 @@
   "dependencies": {
     "@stencil/react-output-target": "^0.7.4",
     "@technway/react-library": "file:",
-    "@technway/stencil-library": "^1.0.2"
+    "@technway/stencil-library": "^1.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",

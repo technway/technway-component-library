@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.8.0](https://github.com/technway/technway-component-library/compare/root-v2.7.0...root-v2.8.0) (2024-12-08)
+
+
+### Features
+
+* **components:** add highlight text support to typography components ([b61d42b](https://github.com/technway/technway-component-library/commit/b61d42b709072c0d614509515ee29d780d8d8daa))
+* **components:** improve tnw-footer and tnw-newsletter-form ([0894572](https://github.com/technway/technway-component-library/commit/08945725a614f5611cdd02bb6620419d45ab4ccd))
+* **tnw-card:** add 'largerImage' prop ([4583619](https://github.com/technway/technway-component-library/commit/458361904814e3894dd8633c806e721dfa372395))
+* **tnw-copyrights-footer:** centralize content within a single &lt;tnw-text&gt; element ([3680fbf](https://github.com/technway/technway-component-library/commit/3680fbfdef6f03961ee5e574952d23355b7ea2ad))
+* **tnw-footer:** add 'copyrights' slot and improve styling with new props ([44982b0](https://github.com/technway/technway-component-library/commit/44982b0968b68bad68905cf7b5a9df145da878d9))
+
+
+### Bug Fixes
+
+* **tnw-copyrights-footer:** resolve centereing content issue ([ea92a70](https://github.com/technway/technway-component-library/commit/ea92a70b01ce563b7bbae60750d76d5aad0f2ffb))
+* **tnw-multi-row-carousel:** resolve slot element assignment issues for React ([ef32210](https://github.com/technway/technway-component-library/commit/ef32210d0cf4b47ceb3e85408326662449b81a26))
+
 ## [2.7.0](https://github.com/technway/technway-component-library/compare/root-v2.6.1...root-v2.7.0) (2024-12-07)
 
 

@@ -4,7 +4,7 @@ exports[`tnw-copyrights-footer Default and Required Prop Behavior renders correc
 <tnw-copyrights-footer class="bg-auto border-t-auto tnw-copyrights-footer tnw-copyrights-footer--borderTop">
   <template shadowrootmode="open">
     <footer aria-label="Copyright information" class="container" part="container">
-      <p class="tnw-copyrights-footer__content" part="content"></p>
+      <tnw-text class="tnw-copyrights-footer__content" color="auto" part="content" size="xs" text=""></tnw-text>
     </footer>
   </template>
 </tnw-copyrights-footer>

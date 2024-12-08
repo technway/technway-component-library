@@ -31,9 +31,17 @@ export const styles = `
 :host(.${baseClass}--horizontal) .${imageClass} {
     height: 100%;
 }
-:host(.${baseClass}--horizontal) .${imageClass},
-:host(.${baseClass}--horizontal) .${contentClass} {
+
+:host(.${baseClass}--horizontal.${baseClass}--equal-image) .${imageClass},
+:host(.${baseClass}--horizontal.${baseClass}--equal-image) .${contentClass} {
     width: calc(50% - (var(--${baseClass}-gap-lg) / 2)) !important;
+}
+
+:host(.${baseClass}--horizontal.${baseClass}--larger-image) .${imageClass} {
+    width: calc(60% - (var(--${baseClass}-gap-lg) / 2)) !important;
+}
+:host(.${baseClass}--horizontal.${baseClass}--larger-image) .${contentClass} {
+    width: calc(40% - (var(--${baseClass}-gap-lg) / 2)) !important;
 }
 
 @media only screen and (max-width: 567px) {

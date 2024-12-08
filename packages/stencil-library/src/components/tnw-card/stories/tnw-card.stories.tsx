@@ -86,3 +86,11 @@ RoundedCorners.args = {
   ...OutlinedAppearance.args,
   borderRadius: "lg",
 };
+
+// Card with Larger Image
+export const LargerImage = VerticalTemplate.bind({});
+LargerImage.args = {
+  ...OutlinedAppearance.args,
+  layout: "horizontal",
+  largerImage: true,
+};

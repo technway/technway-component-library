@@ -266,6 +266,10 @@ export namespace Components {
          */
         "itemsAlignment"?: LogicalAlignmentType;
         /**
+          * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+         */
+        "largerImage"?: boolean;
+        /**
           * Specifies the layout orientation of the card, either 'vertical' or 'horizontal'.
          */
         "layout"?: LayoutType;
@@ -2092,6 +2096,10 @@ declare namespace LocalJSX {
           * Controls the alignment of items within the card.
          */
         "itemsAlignment"?: LogicalAlignmentType;
+        /**
+          * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+         */
+        "largerImage"?: boolean;
         /**
           * Specifies the layout orientation of the card, either 'vertical' or 'horizontal'.
          */

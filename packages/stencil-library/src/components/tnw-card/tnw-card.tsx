@@ -127,6 +127,11 @@ export class TnwCard {
    */
   @Prop() enableContentSlot?: boolean = false;
 
+  /**
+   * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+   */
+  @Prop() largerImage?: boolean = false;
+
   constructor() {
     if (isCSSStyleSheetSupported()) {
       this.componentStyles = new CSSStyleSheet();
@@ -150,13 +155,14 @@ export class TnwCard {
   }
 
   private getHostClasses() {
-    const { baseClass, variant, appearance, borderRadius, useGlassmorphismEffect, itemsAlignment, layout, padding, spacing } = this;
+    const { baseClass, variant, appearance, borderRadius, useGlassmorphismEffect, itemsAlignment, layout, padding, spacing, largerImage } = this;
     return [
       baseClass,
       `${baseClass}--${layout}`,
       isNotEmptyString(itemsAlignment) && itemsAlignment !== "center" ? `${baseClass}--${itemsAlignment}` : ``,
       itemsAlignment === 'center' && layout === 'horizontal' ? `${baseClass}--horizontal-center` : '',
       itemsAlignment === 'center' && layout === 'vertical' ? `${baseClass}--vertical-center` : '',
+      largerImage ? `${baseClass}--larger-image` : `${baseClass}--equal-image`,
       `${baseClass}--spacing-${spacing}`,
       appearance !== "none" ? `${baseClass}--padding-${padding}` : ``,
       useGlassmorphismEffect ? `${baseClass}--glassmorphism` : '',
@@ -174,7 +180,7 @@ export class TnwCard {
     ].filter(Boolean).join(' ').trim();
   }
 
-  private renderImage(): JSX.Element | null {
+  private renderImage() {
     if (this.enableImageSlot) {
       return (
         <div class={`${this.baseClass}__image`} part='image-container'>

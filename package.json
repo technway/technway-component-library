@@ -5,12 +5,18 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@types/node": "^22.10.1",
+    "husky": "^9.1.7",
     "lerna": "^8.1.2",
     "typescript": "^5.7.2"
   },
   "dependencies": {
     "root": "file:"
   },
-  "version": "2.7.0"
+  "version": "2.7.0",
+  "scripts": {
+    "prepare": "husky"
+  }
 }

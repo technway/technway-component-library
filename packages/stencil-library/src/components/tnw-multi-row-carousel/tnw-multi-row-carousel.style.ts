@@ -20,7 +20,8 @@ export const styles = `
   top: 0;
   bottom: 0;
   z-index: 1;
-  width: 175px;
+  width: 350px;
+  pointer-events: none;
 }
 
 .tnw-multi-row-carousel__container::before {
@@ -30,7 +31,7 @@ export const styles = `
     #fff 0%,
     rgba(255, 255, 255, 0.75) 25%,
     rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0.25) 75%,
+    rgba(255, 255, 255, 0.25) 95%,
     rgba(255, 255, 255, 0) 100%
   );
 }
@@ -41,7 +42,7 @@ export const styles = `
     #fff 0%,
     rgba(255, 255, 255, 0.75) 25%,
     rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0.25) 75%,
+    rgba(255, 255, 255, 0.25) 95%,
     rgba(255, 255, 255, 0) 100%
   );
 }
@@ -56,7 +57,9 @@ export const styles = `
 }
 
 ::slotted(*) {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
   max-width: 500px;
   margin-right: 20px;

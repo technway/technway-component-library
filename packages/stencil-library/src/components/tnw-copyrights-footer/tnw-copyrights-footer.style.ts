@@ -15,7 +15,8 @@ export const styles = `
     border-top-width: 1px;
     border-top-style: solid;
 }
-:host(.${baseClass}--center) footer {
+:host(.${baseClass}--center) > footer,
+:host(.${baseClass}--center) > div {
     display: flex;
     text-align: center;
     align-items: center;

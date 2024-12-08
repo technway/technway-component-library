@@ -427,6 +427,10 @@ export namespace Components {
          */
         "backgroundColor": ColorType;
         /**
+          * The color for the footer border.
+         */
+        "borderTopColor": ColorType | "none";
+        /**
           * Center-align the footer content.
          */
         "centerContent": boolean;
@@ -442,6 +446,14 @@ export namespace Components {
           * The color for the footer headings.
          */
         "headingColor": TextColorType;
+        /**
+          * The margin top size applied to the footer.
+         */
+        "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * The padding size applied to the footer.
+         */
+        "padding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
         /**
           * The color for the footer content.
          */
@@ -2206,6 +2218,10 @@ declare namespace LocalJSX {
          */
         "backgroundColor"?: ColorType;
         /**
+          * The color for the footer border.
+         */
+        "borderTopColor"?: ColorType | "none";
+        /**
           * Center-align the footer content.
          */
         "centerContent"?: boolean;
@@ -2221,6 +2237,14 @@ declare namespace LocalJSX {
           * The color for the footer headings.
          */
         "headingColor"?: TextColorType;
+        /**
+          * The margin top size applied to the footer.
+         */
+        "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * The padding size applied to the footer.
+         */
+        "padding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
         /**
           * The color for the footer content.
          */

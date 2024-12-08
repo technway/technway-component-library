@@ -33,8 +33,9 @@ export const styles = `
     right: 0;
     left: 0;
     bottom: 0;
-    height: 200px;
+    height: 350px;
     background-image: linear-gradient(to bottom, rgba(var(--tnw-background-color-rgb), 0), rgba(var(--tnw-background-color-rgb), 1));
+    pointer-events: none;
 }
 
 /* Spacings */

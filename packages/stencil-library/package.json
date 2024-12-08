@@ -49,7 +49,6 @@
     "sb": "storybook dev -p 6006",
     "start": "node api/index.ts",
     "deploy": "vercel --prod",
-    "prepare": "husky",
     "chromatic": "env-cmd -f ./.env node -e \"require('child_process').execSync('chromatic --project-token ' + process.env.CHROMATIC_PROJECT_TOKEN + ' --exit-zero-on-changes', { stdio: 'inherit' })\"",
     "g:css-utils": "node scripts/generate-responsive-css-utils.mjs",
     "g:component": "stencil generate",

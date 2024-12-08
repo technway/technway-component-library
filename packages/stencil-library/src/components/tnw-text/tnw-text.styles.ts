@@ -35,4 +35,8 @@ export const styles = `
     margin: 0;
     padding: 0;
 }
+
+p {
+  width: 100%;
+}
 `;

@@ -183,6 +183,7 @@ export class TnwCopyrightsFooter {
         color={this.textColor}
         class={`${this.baseClass}__content`}
         part="content"
+        alignment={this.centerContent ? 'center' : undefined}
       />
     );
   }

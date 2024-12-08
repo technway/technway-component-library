@@ -55,7 +55,7 @@ export const styles = `
   max-width: max-content;
 }
 
-.tnw-multi-row-carousel__item {
+::slotted(*) {
   display: inline-block;
   width: 100%;
   max-width: 500px;

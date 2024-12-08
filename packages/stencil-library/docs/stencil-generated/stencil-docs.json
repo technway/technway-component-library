@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-07T19:11:20",
+  "timestamp": "2024-12-08T04:51:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -3950,6 +3950,10 @@
           "text": "newsletter - Slot for the newsletter subscription form."
         },
         {
+          "name": "slot",
+          "text": "copyrights - Slot for copyright information. Use `tnw-copyrights-footer` instead."
+        },
+        {
           "name": "part",
           "text": "footer - The main `footer` element wrapping the entire component."
         },
@@ -3997,6 +4001,63 @@
             },
             {
               "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "borderTopColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"none\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType | \"none\"",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"none\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-top-color",
+          "reflectToAttr": false,
+          "docs": "The color for the footer border.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "none",
               "type": "string"
             },
             {
@@ -4174,6 +4235,116 @@
           "required": false
         },
         {
+          "name": "margin",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "margin",
+          "reflectToAttr": false,
+          "docs": "The margin top size applied to the footer.",
+          "docsTags": [],
+          "default": "'none'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "padding",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "padding",
+          "reflectToAttr": false,
+          "docs": "The padding size applied to the footer.",
+          "docsTags": [],
+          "default": "'xl'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "textColor",
           "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
           "complexType": {
@@ -4279,6 +4450,10 @@
         {
           "name": "contact",
           "docs": "Slot for contact information."
+        },
+        {
+          "name": "copyrights",
+          "docs": "Slot for copyright information. Use `tnw-copyrights-footer` instead."
         },
         {
           "name": "links",

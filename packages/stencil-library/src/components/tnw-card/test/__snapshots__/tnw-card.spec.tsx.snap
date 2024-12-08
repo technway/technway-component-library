@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TnwCard Custom Prop Behavior renders heading, subheading, description, and button based on prop values 1`] = `
-<tnw-card button-label="Click Me" class="rounded-default tnw-card tnw-card--spacing-sm tnw-card--vertical tnw-v-none" description="Card Description" heading="Card Heading" subheading="Card Subheading">
+<tnw-card button-label="Click Me" class="rounded-default tnw-card tnw-card--equal-image tnw-card--spacing-sm tnw-card--vertical tnw-v-none" description="Card Description" heading="Card Heading" subheading="Card Subheading">
   <template shadowrootmode="open">
     <div class="tnw-card__content tnw-card__content-start" part="content">
       <div class="tnw-card__content-heading">
@@ -16,7 +16,7 @@ exports[`TnwCard Custom Prop Behavior renders heading, subheading, description, 
 `;
 
 exports[`TnwCard Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-card class="rounded-default tnw-card tnw-card--spacing-sm tnw-card--vertical tnw-v-none">
+<tnw-card class="rounded-default tnw-card tnw-card--equal-image tnw-card--spacing-sm tnw-card--vertical tnw-v-none">
   <template shadowrootmode="open">
     <div class="tnw-card__content tnw-card__content-start" part="content">
       <div class="tnw-card__content-heading">

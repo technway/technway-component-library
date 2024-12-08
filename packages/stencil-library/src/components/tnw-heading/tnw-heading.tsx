@@ -222,7 +222,7 @@ export class TnwHeading {
     const { text } = this;
 
     if (!isNotEmptyString(text)) return null;
-
+    
     if (this.renderHighlightedText() !== null) return this.renderHighlightedText();
 
     return text;
@@ -236,7 +236,7 @@ export class TnwHeading {
         <HeadingTag class={this.getHeadingClasses()} part='heading'>
           {
             this.renderHeadingText() !== null ?
-              this.renderHighlightedText() :
+              this.renderHeadingText() :
               <slot />
           }
         </HeadingTag>

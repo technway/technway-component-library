@@ -139,7 +139,7 @@ export class TnwTestimonialCard {
 
   private renderAuthorDetails(): JSX.Element | null {
     if (!isNotEmptyString(this.authorName)) return null;
-    
+
     return (
       <div class={`${this.baseClass}__author-details`} part='author-details'>
         {isNotEmptyString(this.authorPhotoSrc) ?
@@ -149,7 +149,7 @@ export class TnwTestimonialCard {
         }
         <div class={`${this.baseClass}__author-details-section`}>
           <tnw-heading level="h3" size="sm" weight="600" text={this.authorName} class={`${this.baseClass}__author-name`} part='author-name' textCase='capitalize' />
-          <tnw-text text={this.authorRole} size="sm" weight="400" textCase="capitalize" class={`${this.baseClass}__author-role`} color='light' part='author-role' />
+          <tnw-text text={this.authorRole} size="sm" weight="300" textCase="capitalize" class={`${this.baseClass}__author-role`} color='light' part='author-role' />
         </div>
       </div>
     )
@@ -159,7 +159,13 @@ export class TnwTestimonialCard {
     return (
       <Host class={this.getHostClasses()}>
         {this.renderAuthorDetails()}
-        <tnw-text text={this.text} class={`${this.baseClass}__description`} part='description' lineHeight='1_5' />
+        <tnw-text
+          text={this.text}
+          class={`${this.baseClass}__description`}
+          part='description'
+          lineHeight='1_75'
+          weight='300'
+        />
       </Host>
     );
   }

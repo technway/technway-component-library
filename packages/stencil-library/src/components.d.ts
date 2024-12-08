@@ -889,7 +889,7 @@ export namespace Components {
         "weight"?: FontWeightType;
     }
     /**
-     * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+     * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
      * with multiple rows. Each row scrolls independently and can move in alternating directions.
      */
     interface TnwMultiRowCarousel {
@@ -1620,7 +1620,7 @@ declare global {
         new (): HTMLTnwListElement;
     };
     /**
-     * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+     * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
      * with multiple rows. Each row scrolls independently and can move in alternating directions.
      */
     interface HTMLTnwMultiRowCarouselElement extends Components.TnwMultiRowCarousel, HTMLStencilElement {
@@ -2680,7 +2680,7 @@ declare namespace LocalJSX {
         "weight"?: FontWeightType;
     }
     /**
-     * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+     * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
      * with multiple rows. Each row scrolls independently and can move in alternating directions.
      */
     interface TnwMultiRowCarousel {
@@ -3335,7 +3335,7 @@ declare module "@stencil/core" {
              */
             "tnw-list": LocalJSX.TnwList & JSXBase.HTMLAttributes<HTMLTnwListElement>;
             /**
-             * The `tnw-multi-row-carousel` provides an animated, infinitely scrolling carousel 
+             * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
              * with multiple rows. Each row scrolls independently and can move in alternating directions.
              */
             "tnw-multi-row-carousel": LocalJSX.TnwMultiRowCarousel & JSXBase.HTMLAttributes<HTMLTnwMultiRowCarouselElement>;

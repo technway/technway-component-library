@@ -30,34 +30,35 @@ export const styles: string = `
     justify-content: center;
 }
 
-footer {
+.${baseClass}__content {
     display: grid;
     gap: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
     
 /* Paddings Block */
-:host(.${baseClass}--padding-xs) {
+.${baseClass}__content--padding-xs {
     padding-block: var(--${baseClass}-spacing-xs);
 }
-:host(.${baseClass}--padding-sm) {
+.${baseClass}__content--padding-sm {
     padding-block: var(--${baseClass}-spacing-sm);
 }
-:host(.${baseClass}--padding-md) {
+.${baseClass}__content--padding-md {
     padding-block: var(--${baseClass}-spacing-md);
 }
-:host(.${baseClass}--padding-lg) {
+.${baseClass}__content--padding-lg {
     padding-block: var(--${baseClass}-spacing-lg);
 }
-:host(.${baseClass}--padding-xl) {
+.${baseClass}__content--padding-xl {
     padding-block: var(--${baseClass}-spacing-xl);
 }
-:host(.${baseClass}--padding-2xl) {
+.${baseClass}__content--padding-2xl {
     padding-block: var(--${baseClass}-spacing-2xl);
 }
-:host(.${baseClass}--padding-3xl) {
+.${baseClass}__content--padding-3xl {
     padding-block: var(--${baseClass}-spacing-3xl);
 }
-:host(.${baseClass}--padding-4xl) {
+.${baseClass}__content--padding-4xl {
     padding-block: var(--${baseClass}-spacing-4xl);
 }
 

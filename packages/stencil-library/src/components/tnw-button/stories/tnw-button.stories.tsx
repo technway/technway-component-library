@@ -21,6 +21,12 @@ Standard.args = {
   label: 'Click Me',
 };
 
+export const LightVariant = Template.bind({});
+LightVariant.args = {
+  ...Standard.args,
+  variant: "light",
+};
+
 // Button with Different Appearances
 export const Outlined = Template.bind({});
 Outlined.args = {
@@ -74,7 +80,6 @@ ButtonAsLink.args = {
   href: 'https://example.com',
   newTab: true,
 };
-
 
 // Large Button
 export const LargeSize = Template.bind({});

@@ -38,10 +38,10 @@ export const styles = `
 }
 
 :host(.${baseClass}--horizontal.${baseClass}--larger-image) .${imageClass} {
-    width: calc(60% - (var(--${baseClass}-gap-lg) / 2)) !important;
+    width: calc(55% - (var(--${baseClass}-gap-lg) / 2)) !important;
 }
 :host(.${baseClass}--horizontal.${baseClass}--larger-image) .${contentClass} {
-    width: calc(40% - (var(--${baseClass}-gap-lg) / 2)) !important;
+    width: calc(45% - (var(--${baseClass}-gap-lg) / 2)) !important;
 }
 
 @media only screen and (max-width: 567px) {

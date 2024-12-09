@@ -173,6 +173,14 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+        - name: "Build React Library"
+          run: |
+            cd packages/react-library && npm run build
+
+        - name: "Build Stencil Library"
+          run: |
+            cd packages/stencil-library && npm run build:stencil
+
         # Commit the changes made by `lerna version`
         - name: Commit version changes
           run: |

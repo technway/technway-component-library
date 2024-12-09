@@ -137,7 +137,6 @@ jobs:
                   release-type: node
                   monorepo-tags: true
                   token: ${{ secrets.GITHUB_TOKEN }}
-
     
     publish:
       runs-on: ubuntu-latest

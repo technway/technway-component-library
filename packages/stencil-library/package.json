@@ -106,7 +106,7 @@
     "storybook-addon-preview": "^2.3.0",
     "storybook-addon-rtl": "^1.0.1"
   },
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
     "@technway/stencil-library": "file:",
     "dotenv": "^16.4.5",

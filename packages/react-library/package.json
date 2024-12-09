@@ -4,7 +4,7 @@
   "description": "> TODO: description",
   "author": "Khaled Alshibani <alshibanikhaleds@gmail.com>",
   "homepage": "https://github.com/technway/technway-component-library#readme",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE.md",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",

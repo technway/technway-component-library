@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tnw-accordion Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-accordion accordion-id="accordion-1" class="rounded-default tnw-accordion tnw-accordion--hasPadding tnw-accordion--outlined tnw-accordion--outlined-auto" content="Accordion Content" the-title="Accordion Title">
+<tnw-accordion accordion-id="accordion-1" class="rounded-default tnw-accordion tnw-accordion--hasPadding tnw-accordion--outlined tnw-accordion--outlined-auto" content="Accordion Content" heading="Accordion Title">
   <template shadowrootmode="open">
     <style>
       * {
@@ -146,7 +146,7 @@ tnw-button {
           <div class="tnw-accordion__expand-icon">
             <tnw-icon color="auto" hiddenaria="" name="tnw-chevron-down" part="header-icon"></tnw-icon>
           </div>
-          <slot name="heading"></slot>
+          <tnw-text color="auto" part="header-text" size="xs" text="Accordion Title" weight="600"></tnw-text>
         </div>
       </tnw-button>
     </h3>

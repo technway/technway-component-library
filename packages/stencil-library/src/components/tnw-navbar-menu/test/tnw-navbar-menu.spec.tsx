@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwNavbarMenu } from '../tnw-navbar-menu';
 // import * as navbarStore from '../../../stores/navbar-store';
 
@@ -112,7 +112,7 @@ describe('TnwNavbarMenu', () => {
 
   describe('Error Handling', () => {
     it('throws an error when `itemsData` is not provided', async () => {
-      await checkError(TnwNavbarMenu, `<tnw-navbar-menu></tnw-navbar-menu>`, 'Required prop "itemsData"');
+      await checkSpecPageError(TnwNavbarMenu, `<tnw-navbar-menu></tnw-navbar-menu>`, 'Required prop "itemsData"');
     });
   });
 });

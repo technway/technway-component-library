@@ -37,15 +37,17 @@ const createPage = async (component: any, html: string, debug: boolean): Promise
  *
  * @param pageRoot The root element of the page.
  * @param elementSelector The selector for the element to query.
- * @param debug If true, any errors encountered will be logged to the console.
+ * @param enableShadowDom If true, the shadow DOM will be queried. Defaults to false.
+ * @param debug If true, any errors encountered will be logged to the console. Defaults to false.
  */
-export const queryElement = (pageRoot: HTMLElement, elementSelector?: string, debug: boolean = false): Element | null => {
+export const queryElement = (pageRoot: HTMLElement, elementSelector?: string, enableShadowDom: boolean = true, debug: boolean = false): Element | null => {
     if (!isNotEmptyString(elementSelector)) return pageRoot;
 
     try {
-        return (pageRoot.shadowRoot !== null && pageRoot.shadowRoot !== undefined)
+        return (enableShadowDom === true && pageRoot.shadowRoot !== null && pageRoot.shadowRoot !== undefined)
             ? pageRoot.shadowRoot.querySelector(elementSelector)
             : pageRoot.querySelector(elementSelector);
+
     } catch (error) {
         logError(error, debug);
         throw new Error(`Failed to query the element using selector "${elementSelector}".`);
@@ -65,6 +67,7 @@ export const createSpecPage = async (
     component: any,
     html: string,
     elementSelector?: string,
+    enableShadowDom?: boolean,
     debug: boolean = false
 ): Promise<Element | null> => {
     const page = await createPage(component, html, debug);
@@ -73,7 +76,7 @@ export const createSpecPage = async (
         throw new Error('No root element found in the spec page');
     }
 
-    return queryElement(page.root, elementSelector, debug);
+    return queryElement(page.root, elementSelector, enableShadowDom, debug);
 };
 
 /**

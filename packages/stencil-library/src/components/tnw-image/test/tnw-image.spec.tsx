@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwImage } from '../tnw-image';
 
 describe('tnw-image', () => {
@@ -56,19 +56,19 @@ describe('tnw-image', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when the required src prop is not provided', async () => {
-      await checkError(TnwImage, `<tnw-image alt="Image without src"></tnw-image>`, 'Required prop "src"');
+      await checkSpecPageError(TnwImage, `<tnw-image alt="Image without src"></tnw-image>`, 'Required prop "src"');
     });
 
     it('throws an error when the required alt prop is not provided', async () => {
-      await checkError(TnwImage, `<tnw-image src="https://example.com/image.jpg"></tnw-image>`, 'Required prop "alt"');
+      await checkSpecPageError(TnwImage, `<tnw-image src="https://example.com/image.jpg"></tnw-image>`, 'Required prop "alt"');
     });
 
     it('throws an error when an invalid aspectRatio prop is provided', async () => {
-      await checkError(TnwImage, `<tnw-image src="https://example.com/image.jpg" alt="Invalid Aspect Ratio" aspect-ratio="invalid"></tnw-image>`, 'Invalid prop value for "aspectRatio"');
+      await checkSpecPageError(TnwImage, `<tnw-image src="https://example.com/image.jpg" alt="Invalid Aspect Ratio" aspect-ratio="invalid"></tnw-image>`, 'Invalid prop value for "aspectRatio"');
     });
 
     it('throws an error when an invalid objectFit prop is provided', async () => {
-      await checkError(TnwImage, `<tnw-image src="https://example.com/image.jpg" alt="Invalid Object Fit" object-fit="invalid"></tnw-image>`, 'Invalid prop value for "objectFit"');
+      await checkSpecPageError(TnwImage, `<tnw-image src="https://example.com/image.jpg" alt="Invalid Object Fit" object-fit="invalid"></tnw-image>`, 'Invalid prop value for "objectFit"');
     });
   });
 });

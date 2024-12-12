@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwInput } from '../tnw-input';
 
 describe('tnw-input', () => {
@@ -82,15 +82,15 @@ describe('tnw-input', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when the `label` prop is missing', async () => {
-      await checkError(TnwInput, `<tnw-input input-id="username" type="text" placeholder="Enter username"></tnw-input>`, 'Required prop "label"');
+      await checkSpecPageError(TnwInput, `<tnw-input input-id="username" type="text" placeholder="Enter username"></tnw-input>`, 'Required prop "label"');
     });
 
     it('throws an error when the `inputId` prop is missing', async () => {
-      await checkError(TnwInput, `<tnw-input label="Username" type="text" placeholder="Enter username"></tnw-input>`, 'Required prop "inputId"');
+      await checkSpecPageError(TnwInput, `<tnw-input label="Username" type="text" placeholder="Enter username"></tnw-input>`, 'Required prop "inputId"');
     });
 
     it('throws an error when an invalid `variant` is provided', async () => {
-      await checkError(TnwInput, `<tnw-input label="Username" input-id="username" variant="invalid" placeholder="Enter username"></tnw-input>`, 'Invalid prop value for "variant"');
+      await checkSpecPageError(TnwInput, `<tnw-input label="Username" input-id="username" variant="invalid" placeholder="Enter username"></tnw-input>`, 'Invalid prop value for "variant"');
     });
   });
 });

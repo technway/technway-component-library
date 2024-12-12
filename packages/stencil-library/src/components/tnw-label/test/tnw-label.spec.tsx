@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwLabel } from '../tnw-label';
 
 describe('tnw-label', () => {
@@ -49,19 +49,19 @@ describe('tnw-label', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when the `text` prop is missing', async () => {
-      await checkError(TnwLabel, `<tnw-label html-for="username"></tnw-label>`, 'Required prop "text"');
+      await checkSpecPageError(TnwLabel, `<tnw-label html-for="username"></tnw-label>`, 'Required prop "text"');
     });
 
     it('throws an error when the `htmlFor` prop is missing', async () => {
-      await checkError(TnwLabel, `<tnw-label text="Username"></tnw-label>`, 'Required prop "htmlFor"');
+      await checkSpecPageError(TnwLabel, `<tnw-label text="Username"></tnw-label>`, 'Required prop "htmlFor"');
     });
 
     it('throws an error when an invalid `color` is provided', async () => {
-      await checkError(TnwLabel, `<tnw-label text="Username" html-for="username" color="invalid"></tnw-label>`, 'Invalid prop value for "color"');
+      await checkSpecPageError(TnwLabel, `<tnw-label text="Username" html-for="username" color="invalid"></tnw-label>`, 'Invalid prop value for "color"');
     });
 
     it('throws an error when an invalid `size` is provided', async () => {
-      await checkError(TnwLabel, `<tnw-label text="Username" html-for="username" size="invalid"></tnw-label>`, 'Invalid prop value for "size"');
+      await checkSpecPageError(TnwLabel, `<tnw-label text="Username" html-for="username" size="invalid"></tnw-label>`, 'Invalid prop value for "size"');
     });
   });
 });

@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwText } from '../tnw-text';
 
 const elementSelector: string = 'p';
@@ -61,11 +61,11 @@ describe('tnw-text', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('handles invalid alignment prop gracefully', async () => {
-      await checkError(TnwText, `<tnw-text text="Invalid Text" alignment="top"></tnw-text>`, 'Invalid prop value for "alignment"');
+      await checkSpecPageError(TnwText, `<tnw-text text="Invalid Text" alignment="top"></tnw-text>`, 'Invalid prop value for "alignment"');
     });
 
     it('throws an error when an invalid color prop is provided', async () => {
-      await checkError(TnwText, `<tnw-text text="Invalid Text" color="invalidColor"></tnw-text>`, 'Invalid prop value for "color"');
+      await checkSpecPageError(TnwText, `<tnw-text text="Invalid Text" color="invalidColor"></tnw-text>`, 'Invalid prop value for "color"');
     });
   });
 });

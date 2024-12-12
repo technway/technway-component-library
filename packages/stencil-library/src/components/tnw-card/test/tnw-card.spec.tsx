@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwCard } from '../tnw-card';
 
 describe('TnwCard', () => {
@@ -83,11 +83,11 @@ describe('TnwCard', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when an invalid `appearance` prop is provided', async () => {
-      await checkError(TnwCard, `<tnw-card appearance="invalid"></tnw-card>`, 'Invalid prop value for "appearance"');
+      await checkSpecPageError(TnwCard, `<tnw-card appearance="invalid"></tnw-card>`, 'Invalid prop value for "appearance"');
     });
 
     it('throws an error when an invalid `borderRadius` prop is provided', async () => {
-      await checkError(TnwCard, `<tnw-card border-radius="invalid"></tnw-card>`, 'Invalid prop value for "borderRadius"');
+      await checkSpecPageError(TnwCard, `<tnw-card border-radius="invalid"></tnw-card>`, 'Invalid prop value for "borderRadius"');
     });
 
     it('applies correct class for glassmorphism when `useGlassmorphismEffect` is true', async () => {

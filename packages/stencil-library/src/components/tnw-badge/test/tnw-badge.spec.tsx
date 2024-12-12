@@ -3,51 +3,99 @@ import { TnwBadge } from '../tnw-badge';
 
 describe('tnw-badge', () => {
   describe('Default and Required Prop Behavior', () => {
-    it('renders correctly with label', async () => {
-      const el = await createSpecPage(TnwBadge, `<tnw-badge label="New"></tnw-badge>`);
-      expect(el).toMatchSnapshot();
+    it('renders correctly with default values', async () => {
+      const host = await createSpecPage(
+        TnwBadge,
+        `<tnw-badge label="Default Badge"></tnw-badge>`
+      );
+      expect(host).toMatchSnapshot();
     });
 
-    it('renders with slot content when label is not provided', async () => {
-      const el = await createSpecPage(TnwBadge, `<tnw-badge><span>Custom Content</span></tnw-badge>`);
-      expect(el).toMatchSnapshot();
+    it('renders with default values for optional props when not provided', async () => {
+      const host = await createSpecPage(
+        TnwBadge,
+        `<tnw-badge label="Default Badge"></tnw-badge>`,
+      );
+      expect(host).toHaveClasses([
+        'tnw-badge',
+        'tnw-badge--sm',
+        'rounded-lg',
+        'tnw-extended-v-outlined-auto',
+      ]);
     });
   });
 
   describe('Custom Prop Behavior', () => {
-    it('displays correct label', async () => {
-      const el = await createSpecPage(TnwBadge, `<tnw-badge label="Badge"></tnw-badge>`);
-      expect(el?.shadowRoot?.textContent).toEqualText('Badge');
+    it('renders with a custom size class', async () => {
+      const host = await createSpecPage(
+        TnwBadge,
+        `<tnw-badge label="Large Badge" size="lg"></tnw-badge>`,
+      );
+      expect(host).toHaveClass('tnw-badge--lg');
     });
 
-    it('applies correct class when size prop is set', async () => {
-      const el = await createSpecPage(TnwBadge, `<tnw-badge label="Badge" size="md"></tnw-badge>`);
-      expect(el).toHaveClass('tnw-badge--md');
+    it('renders with a custom border radius class', async () => {
+      const host = await createSpecPage(
+        TnwBadge,
+        `<tnw-badge label="Rounded Badge" border-radius="circle"></tnw-badge>`,
+      );
+      expect(host).toHaveClass('rounded-circle');
     });
 
-    it('applies correct class when variant prop is set to "primary"', async () => {
-      const el = await createSpecPage(TnwBadge, `<tnw-badge label="Primary Badge" variant="primary"></tnw-badge>`);
-      expect(el).toHaveClass('tnw-extended-v-outlined-primary');
+    it('renders correct label', async () => {
+      const host = await createSpecPage(TnwBadge, `<tnw-badge label="Badge"></tnw-badge>`);
+      expect(host?.shadowRoot?.textContent).toEqualText('Badge');
     });
 
-    it('applies correct class when appearance is set to "solid"', async () => {
-      const el = await createSpecPage(TnwBadge, `<tnw-badge label="Solid Badge" appearance="solid"></tnw-badge>`);
-      expect(el).toHaveClass('tnw-extended-v-solid-auto');
+    it('renders with a custom variant and appearance', async () => {
+      const host = await createSpecPage(
+        TnwBadge,
+        `<tnw-badge label="Custom Badge" variant="success" appearance="solid"></tnw-badge>`,
+      );
+      console.log(host.outerHTML)
+      expect(host).toHaveClass('tnw-extended-v-solid-success');
     });
 
-    it('applies correct class when borderRadius prop is set', async () => {
-      const el = await createSpecPage(TnwBadge, `<tnw-badge label="Rounded Badge" border-radius="circle"></tnw-badge>`);
-      expect(el).toHaveClass('rounded-circle');
+    it('renders slot content when label is not provided', async () => {
+      const host = await createSpecPage(
+        TnwBadge,
+        `<tnw-badge><span>Custom Slot Content</span></tnw-badge>`
+      );
+      expect(host).toMatchSnapshot();
     });
   });
 
   describe('Error Handling and Edge Cases', () => {
-    it('throws an error when an invalid size prop is provided', async () => {
-      await checkSpecPageError(TnwBadge, `<tnw-badge label="Invalid Size" size="invalidSize"></tnw-badge>`, 'Invalid prop value for "size"');
+    it('throws an error when an invalid size is provided', async () => {
+      await checkSpecPageError(
+        TnwBadge,
+        `<tnw-badge label="Invalid Size" size="invalidSize"></tnw-badge>`,
+        'Invalid prop value for "size"'
+      );
     });
 
-    it('throws an error when an invalid variant prop is provided', async () => {
-      await checkSpecPageError(TnwBadge, `<tnw-badge label="Invalid Variant" variant="invalidVariant"></tnw-badge>`, 'Invalid prop value for "variant"');
+    it('throws an error when an invalid border radius is provided', async () => {
+      await checkSpecPageError(
+        TnwBadge,
+        `<tnw-badge label="Invalid Border Radius" border-radius="invalidValue"></tnw-badge>`,
+        'Invalid prop value for "borderRadius"'
+      );
+    });
+
+    it('throws an error when an invalid variant is provided', async () => {
+      await checkSpecPageError(
+        TnwBadge,
+        `<tnw-badge label="Invalid Variant" variant="invalidVariant"></tnw-badge>`,
+        'Invalid prop value for "variant"'
+      );
+    });
+
+    it('throws an error when an invalid appearance is provided', async () => {
+      await checkSpecPageError(
+        TnwBadge,
+        `<tnw-badge label="Invalid Appearance" appearance="invalidAppearance"></tnw-badge>`,
+        'Invalid prop value for "appearance"'
+      );
     });
   });
 });

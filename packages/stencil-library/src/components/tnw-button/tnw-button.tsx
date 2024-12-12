@@ -151,7 +151,7 @@ export class TnwButton {
     <button
       class={this.getButtonClasses()}
       type={this.type}
-      disabled={this.disabled}
+      disabled={this.disabled !== false ? true : undefined}
       part='button'
     >
       {this.renderButtonContent()}

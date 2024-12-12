@@ -39,7 +39,7 @@ const createPage = async (component: any, html: string, debug: boolean): Promise
  * @param elementSelector The selector for the element to query.
  * @param debug If true, any errors encountered will be logged to the console.
  */
-const queryElement = (pageRoot: HTMLElement, elementSelector?: string, debug: boolean = false): Element | null => {
+export const queryElement = (pageRoot: HTMLElement, elementSelector?: string, debug: boolean = false): Element | null => {
     if (!isNotEmptyString(elementSelector)) return pageRoot;
 
     try {
@@ -84,7 +84,7 @@ export const createSpecPage = async (
  * @param debug - If true, the error is logged to the console for easier debugging. Default is false.
  * @returns Nothing, but expects the error to be thrown.
  */
-export const checkError = async (component: any, html: string, expectedMessagePart: string, debug: boolean = false) => {
+export const checkSpecPageError = async (component: any, html: string, expectedMessagePart: string, debug: boolean = false) => {
     let isErrorThrown = false;
     try {
         await createSpecPage(component, html, undefined, debug);

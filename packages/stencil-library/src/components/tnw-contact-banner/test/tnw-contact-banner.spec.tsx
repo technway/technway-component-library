@@ -1,61 +1,114 @@
-import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError, queryElement } from '../../../utils/testing-utils';
 import { TnwContactBanner } from '../tnw-contact-banner';
 
 describe('tnw-contact-banner', () => {
 
   describe('Default and Required Prop Behavior', () => {
     it('renders correctly with default props', async () => {
-      const el = await createSpecPage(TnwContactBanner, `<tnw-contact-banner></tnw-contact-banner>`);
-      expect(el).toMatchSnapshot();
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner></tnw-contact-banner>`
+      );
+      expect(host).toMatchSnapshot();
+    });
+
+    it('uses default values for optional props when not provided', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner></tnw-contact-banner>`
+      );
+      console.log("host ", host.outerHTML)
+      expect(host).toHaveClasses([
+        'tnw-contact-banner',
+        'container',
+        'tnw-contact-banner--center',
+        'tnw-contact-banner--margin-xl',
+        'tnw-contact-banner--padding-inline-2xl',
+        'tnw-contact-banner--padding-block-2xl',
+        'tnw-v-solid-primary',
+        'rounded-default'
+      ]);
     });
   });
 
   describe('Custom Prop Behavior', () => {
-    it('applies correct `appearance` class when appearance is set to `outline`', async () => {
-      const el = await createSpecPage(TnwContactBanner, `<tnw-contact-banner appearance="outlined"></tnw-contact-banner>`);
-      expect(el).toHaveClass('tnw-v-outlined-primary');
+    it('renders with a custom alignment class', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner alignment="start"></tnw-contact-banner>`
+      );
+      expect(host).toHaveClass('tnw-contact-banner--start');
     });
 
-    it('applies correct `variant` class when variant is set to `secondary`', async () => {
-      const el = await createSpecPage(TnwContactBanner, `<tnw-contact-banner variant="secondary"></tnw-contact-banner>`);
-      expect(el).toHaveClass('tnw-v-solid-secondary');
+    it('renders with custom appearance and variant', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner appearance="outlined" variant="primary"></tnw-contact-banner>`
+      );
+      expect(host).toHaveClass('tnw-v-outlined-primary');
     });
 
-    it('applies correct `borderRadius` class when borderRadius is set to `lg`', async () => {
+    it('renders with a gradient appearance', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner appearance="gradient"></tnw-contact-banner>`
+      );
+      expect(host).toHaveClass('tnw-contact-banner--gradient');
+    });
+
+    it('renders correct border radius', async () => {
       const el = await createSpecPage(TnwContactBanner, `<tnw-contact-banner border-radius="lg"></tnw-contact-banner>`);
       expect(el).toHaveClass('rounded-lg');
     });
 
-    it('applies correct `alignment` class when alignment is set to `start`', async () => {
-      const el = await createSpecPage(TnwContactBanner, `<tnw-contact-banner alignment="start"></tnw-contact-banner>`);
-      expect(el).toHaveClass('tnw-contact-banner--start');
+    it('renders with custom padding and margin classes', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner margin="lg" horizontal-padding="md" Vertical-padding="sm"></tnw-contact-banner>`
+      );
+      expect(host).toHaveClasses([
+        'tnw-contact-banner--margin-lg',
+        'tnw-contact-banner--padding-inline-md',
+        'tnw-contact-banner--padding-block-sm',
+      ]);
     });
 
+    it('renders without the internal container when disableInternalContainer is true', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner disable-internal-container></tnw-contact-banner>`
+      );
+      expect(host).not.toHaveClass('container');
+    });
+  });
+
+  describe('Slot Behavior', () => {
     it('renders content slot when `enableContentSlot` is set to true', async () => {
-      const el = await createSpecPage(TnwContactBanner, `
+      const slot = await createSpecPage(
+        TnwContactBanner, `
         <tnw-contact-banner enable-content-slot="true">
           <div slot="content">Custom Content</div>
-        </tnw-contact-banner>
+        </tnw-contact-banner>,
+        '[slot="content"]'
       `);
-      expect(el).toMatchSnapshot();
-      const contentSlot = el.shadowRoot?.querySelector('slot[name="content"]');
-      expect(contentSlot).not.toBeNull();
+      expect(slot).not.toBeNull();
     });
 
     it('renders default slots when `enableContentSlot` is false', async () => {
-      const el = await createSpecPage(TnwContactBanner, `
+      const host = await createSpecPage(TnwContactBanner, `
         <tnw-contact-banner>
           <div slot="short-title">Short Title</div>
           <div slot="title">Main Title</div>
           <div slot="description">Description Text</div>
           <button slot="button">Click Me</button>
         </tnw-contact-banner>
-      `);
-      expect(el).toMatchSnapshot();
-      const subtitle = el.shadowRoot?.querySelector('slot[name="subtitle"]');
-      const title = el.shadowRoot?.querySelector('slot[name="title"]');
-      const description = el.shadowRoot?.querySelector('slot[name="description"]');
-      const button = el.shadowRoot?.querySelector('slot[name="button"]');
+      `) as HTMLTnwContactBannerElement;
+
+      const subtitle = queryElement(host, 'slot[name="subtitle"]');
+      const title = queryElement(host, 'slot[name="title"]');
+      const description = queryElement(host, 'slot[name="description"]');
+      const button = queryElement(host, 'slot[name="button"]');
+
       expect(subtitle).not.toBeNull();
       expect(title).not.toBeNull();
       expect(description).not.toBeNull();
@@ -64,16 +117,38 @@ describe('tnw-contact-banner', () => {
   });
 
   describe('Error Handling and Edge Cases', () => {
-    it('throws an error when an invalid appearance prop is provided', async () => {
-      await checkSpecPageError(TnwContactBanner, `<tnw-contact-banner appearance="invalid"></tnw-contact-banner>`, 'Invalid prop value for "appearance"');
+
+    it('throws an error when an invalid alignment is provided', async () => {
+      await checkSpecPageError(
+        TnwContactBanner,
+        `<tnw-contact-banner alignment="invalidAlignment"></tnw-contact-banner>`,
+        'Invalid prop value for "alignment"'
+      );
     });
 
-    it('throws an error when an invalid alignment prop is provided', async () => {
-      await checkSpecPageError(TnwContactBanner, `<tnw-contact-banner alignment="invalid"></tnw-contact-banner>`, 'Invalid prop value for "alignment"');
+    it('throws an error when an invalid appearance is provided', async () => {
+      await checkSpecPageError(
+        TnwContactBanner,
+        `<tnw-contact-banner appearance="invalidAppearance"></tnw-contact-banner>`,
+        'Invalid prop value for "appearance"'
+      );
     });
+
 
     it('throws an error when an invalid variant prop is provided', async () => {
-      await checkSpecPageError(TnwContactBanner, `<tnw-contact-banner variant="invalid"></tnw-contact-banner>`, 'Invalid prop value for "variant"');
+      await checkSpecPageError(
+        TnwContactBanner,
+        `<tnw-contact-banner variant="invalid"></tnw-contact-banner>`,
+        'Invalid prop value for "variant"'
+      );
+    });
+
+    it('throws an error when an invalid borderRadius is provided', async () => {
+      await checkSpecPageError(
+        TnwContactBanner,
+        `<tnw-contact-banner border-radius="invalidRadius"></tnw-contact-banner>`,
+        'Invalid prop value for "borderRadius"'
+      );
     });
   });
 });

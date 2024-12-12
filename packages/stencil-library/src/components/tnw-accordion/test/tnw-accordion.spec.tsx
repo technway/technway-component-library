@@ -4,79 +4,78 @@ import { TnwAccordion } from '../tnw-accordion';
 describe('tnw-accordion', () => {
     describe('Default and Required Prop Behavior', () => {
         it('renders correctly with default props', async () => {
-            const el = await createSpecPage(
+            const host = await createSpecPage(
                 TnwAccordion,
                 `<tnw-accordion heading="Accordion Title" content="Accordion Content" accordion-id="accordion-1"></tnw-accordion>`,
-                '',
-                true
-            );
-            expect(el).toMatchSnapshot();
+            ) as HTMLTnwAccordionElement;
+            expect(host).toMatchSnapshot();
         });
     });
 
     describe('Custom Prop Behavior', () => {
         it('applies correct `variant` class when variant prop is set to `primary`', async () => {
-            const el = await createSpecPage(
+            const host = await createSpecPage(
                 TnwAccordion,
                 `<tnw-accordion variant="primary"></tnw-accordion>`,
-                '',
-                true
-            );
-            expect(el).toHaveClass('tnw-accordion--outlined-primary');
+            ) as HTMLTnwAccordionElement;
+            expect(host).toHaveClass('tnw-accordion--outlined-primary');
         });
 
         it('applies correct `appearance` class when appearance prop is set to `solid`', async () => {
-            const el = await createSpecPage(TnwAccordion, `<tnw-accordion appearance="solid"></tnw-accordion>`);
-            expect(el).toHaveClass('tnw-accordion--solid-auto');
+            const host = await createSpecPage(
+                TnwAccordion,
+                `<tnw-accordion appearance="solid"></tnw-accordion>`
+            ) as HTMLTnwAccordionElement;
+            expect(host).toHaveClass('tnw-accordion--solid-auto');
         });
 
         it('applies correct `borderRadius` class when borderRadius prop is set', async () => {
-            const el = await createSpecPage(TnwAccordion, `<tnw-accordion border-radius="lg"></tnw-accordion>`);
-            expect(el).toHaveClass('rounded-lg');
+            const host = await createSpecPage(
+                TnwAccordion,
+                `<tnw-accordion border-radius="lg"></tnw-accordion>`
+            ) as HTMLTnwAccordionElement;
+            expect(host).toHaveClass('rounded-lg');
         });
 
         it('disables the expand icon rotation when `disableExpandIconRotate` is true', async () => {
-            const el = await createSpecPage(TnwAccordion, `<tnw-accordion disable-expand-icon-rotate="true"></tnw-accordion>`);
-            const icon = el.shadowRoot?.querySelector('.tnw-accordion__expand-icon--rotated');
+            const icon = await createSpecPage(
+                TnwAccordion,
+                `<tnw-accordion disable-expand-icon-rotate="true"></tnw-accordion>`,
+                '.tnw-accordion__expand-icon--rotated'
+            ) as HTMLTnwAccordionElement;
             expect(icon).toBeNull();
         });
 
         it('renders custom heading slot when provided', async () => {
-            const el = await createSpecPage(
+            const slot = await createSpecPage(
                 TnwAccordion,
-                `
-                    <tnw-accordion>
-                        <div slot="heading">Custom Heading</div>
-                    </tnw-accordion>
-                `
-            );
-            const slot = el.shadowRoot?.querySelector('slot[name="heading"]');
+                `<tnw-accordion>
+                    <div slot="heading">Custom Heading</div>
+                </tnw-accordion>`,
+                'slot[name="heading"]'
+            ) as HTMLTnwAccordionElement;
             expect(slot).toBeTruthy();
         });
 
         it('renders custom body slot when provided', async () => {
-            const el = await createSpecPage(
+            const slot = await createSpecPage(
                 TnwAccordion,
-                `
-                    <tnw-accordion>
-                        <div slot="body">Custom Body</div>
-                    </tnw-accordion>
-                `
-            );
-            const slot = el.shadowRoot?.querySelector('slot[name="body"]');
+                `<tnw-accordion>
+                    <div slot="body">Custom Body</div>
+                </tnw-accordion>`,
+                'slot[name="body"]'
+            ) as HTMLTnwAccordionElement;
             expect(slot).toBeTruthy();
         });
 
         it('renders custom expand icon slot when `enableCustomExpandIcon` is true', async () => {
-            const el = await createSpecPage(
+            const slot = await createSpecPage(
                 TnwAccordion,
-                `
-                    <tnw-accordion enable-custom-expand-icon="true">
-                        <div slot="expand-icon">Custom Icon</div>
-                    </tnw-accordion>
-                `
-            );
-            const slot = el.shadowRoot?.querySelector('slot[name="expand-icon"]');
+                `<tnw-accordion enable-custom-expand-icon="true">
+                    <div slot="expand-icon">Custom Icon</div>
+                </tnw-accordion>`,
+                'slot[name="expand-icon"]'
+            ) as HTMLTnwAccordionElement;
             expect(slot).toBeTruthy();
         });
     });

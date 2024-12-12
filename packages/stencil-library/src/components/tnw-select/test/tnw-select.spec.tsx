@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwSelect } from '../tnw-select';
 
 describe('tnw-select', () => {
@@ -68,12 +68,12 @@ describe('tnw-select', () => {
 
     describe('Error Handling and Edge Cases', () => {
         it('throws an error when options data is not provided', async () => {
-            await checkError(TnwSelect, `<tnw-select></tnw-select>`, 'Required prop "optionsData"');
+            await checkSpecPageError(TnwSelect, `<tnw-select></tnw-select>`, 'Required prop "optionsData"');
         });
 
         // it('throws an error when no value is provided for options', async () => {
         //     const invalidOptionsData = JSON.stringify([{ "label": "Option 1" }]);
-        //     await checkError(TnwSelect, `<tnw-select options-data='${invalidOptionsData}'></tnw-select>`, 'Each option must have a "value" property');
+        //     await checkSpecPageError(TnwSelect, `<tnw-select options-data='${invalidOptionsData}'></tnw-select>`, 'Each option must have a "value" property');
         // });
     });
 });

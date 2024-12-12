@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwHeading } from '../tnw-heading';
 
 const elementSelector: string = 'h2';
@@ -111,7 +111,7 @@ describe('tnw-heading', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('handles invalid level prop gracefully', async () => {
-      await checkError(TnwHeading, `<tnw-heading text="Invalid Heading" level="invalid"></tnw-heading>`, 'Invalid prop value for "level"');
+      await checkSpecPageError(TnwHeading, `<tnw-heading text="Invalid Heading" level="invalid"></tnw-heading>`, 'Invalid prop value for "level"');
     });
   });
 });

@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwCopyrightsFooter } from '../tnw-copyrights-footer';
 
 describe('tnw-copyrights-footer', () => {
@@ -84,15 +84,15 @@ describe('tnw-copyrights-footer', () => {
         });
 
         // it('throws an error when `startYear` is greater than `endYear`', async () => {
-        //     await checkError(TnwCopyrightsFooter, `<tnw-copyrights-footer start-year="2025" end-year="2020"></tnw-copyrights-footer>`, 'Invalid start and end year range');
+        //     await checkSpecPageError(TnwCopyrightsFooter, `<tnw-copyrights-footer start-year="2025" end-year="2020"></tnw-copyrights-footer>`, 'Invalid start and end year range');
         // });
 
         it('throws an error when an invalid `textColor` is provided', async () => {
-            await checkError(TnwCopyrightsFooter, `<tnw-copyrights-footer text-color="invalid"></tnw-copyrights-footer>`, 'Invalid prop value for "textColor"');
+            await checkSpecPageError(TnwCopyrightsFooter, `<tnw-copyrights-footer text-color="invalid"></tnw-copyrights-footer>`, 'Invalid prop value for "textColor"');
         });
 
         it('throws an error when an invalid `backgroundColor` is provided', async () => {
-            await checkError(TnwCopyrightsFooter, `<tnw-copyrights-footer background-color="invalid"></tnw-copyrights-footer>`, 'Invalid prop value for "backgroundColor"');
+            await checkSpecPageError(TnwCopyrightsFooter, `<tnw-copyrights-footer background-color="invalid"></tnw-copyrights-footer>`, 'Invalid prop value for "backgroundColor"');
         });
     });
 });

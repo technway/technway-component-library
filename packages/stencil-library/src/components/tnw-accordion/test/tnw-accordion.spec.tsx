@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwAccordion } from '../tnw-accordion';
 
 describe('tnw-accordion', () => {
@@ -133,7 +133,7 @@ describe('tnw-accordion', () => {
 
     describe('Error Handling and Edge Cases', () => {
         it('throws an error when an invalid `variant` prop is provided', async () => {
-            await checkError(
+            await checkSpecPageError(
                 TnwAccordion,
                 `<tnw-accordion variant="invalid"></tnw-accordion>`,
                 'Invalid prop value for "variant"'
@@ -141,7 +141,7 @@ describe('tnw-accordion', () => {
         });
 
         it('throws an error when an invalid `appearance` prop is provided', async () => {
-            await checkError(
+            await checkSpecPageError(
                 TnwAccordion,
                 `<tnw-accordion appearance="invalid"></tnw-accordion>`,
                 'Invalid prop value for "appearance"'

@@ -39,7 +39,7 @@ describe('tnw-navbar-dropdown-menu', () => {
 
   // describe('Error Handling and Edge Cases', () => {
   //   it('throws an error when itemsData prop is missing', async () => {
-  //     await checkError(TnwNavbarDropdownMenu, `<tnw-navbar-dropdown-menu></tnw-navbar-dropdown-menu>`, 'Required prop "itemsData"');
+  //     await checkSpecPageError(TnwNavbarDropdownMenu, `<tnw-navbar-dropdown-menu></tnw-navbar-dropdown-menu>`, 'Required prop "itemsData"');
   //   });
   // });
 });

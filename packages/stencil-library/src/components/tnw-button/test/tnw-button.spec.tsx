@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwButton } from '../tnw-button';
 
 describe('tnw-button', () => {
@@ -77,7 +77,7 @@ describe('tnw-button', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when an invalid size prop is provided', async () => {
-      await checkError(TnwButton, `<tnw-button label="Invalid Size" size="invalidSize"></tnw-button>`, 'Invalid prop value for "size"');
+      await checkSpecPageError(TnwButton, `<tnw-button label="Invalid Size" size="invalidSize"></tnw-button>`, 'Invalid prop value for "size"');
     });
   });
 });

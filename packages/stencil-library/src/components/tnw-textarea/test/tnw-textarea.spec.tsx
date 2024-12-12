@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwTextarea } from '../tnw-textarea';
 
 describe('tnw-textarea', () => {
@@ -94,15 +94,15 @@ describe('tnw-textarea', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when the `label` prop is missing', async () => {
-      await checkError(TnwTextarea, `<tnw-textarea textarea-id="message" placeholder="Enter message"></tnw-textarea>`, 'Required prop "label"');
+      await checkSpecPageError(TnwTextarea, `<tnw-textarea textarea-id="message" placeholder="Enter message"></tnw-textarea>`, 'Required prop "label"');
     });
 
     it('throws an error when the `textareaId` prop is missing', async () => {
-      await checkError(TnwTextarea, `<tnw-textarea label="Message" placeholder="Enter message"></tnw-textarea>`, 'Required prop "textareaId"');
+      await checkSpecPageError(TnwTextarea, `<tnw-textarea label="Message" placeholder="Enter message"></tnw-textarea>`, 'Required prop "textareaId"');
     });
 
     it('throws an error when an invalid `variant` is provided', async () => {
-      await checkError(TnwTextarea, `<tnw-textarea label="Message" textarea-id="message" variant="invalid" placeholder="Enter message"></tnw-textarea>`, 'Invalid prop value for "variant"');
+      await checkSpecPageError(TnwTextarea, `<tnw-textarea label="Message" textarea-id="message" variant="invalid" placeholder="Enter message"></tnw-textarea>`, 'Invalid prop value for "variant"');
     });
   });
 });

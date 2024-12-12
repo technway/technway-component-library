@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwScrollToTop } from '../tnw-scroll-to-top';
 
 describe('tnw-scroll-to-top', () => {
@@ -77,15 +77,15 @@ describe('tnw-scroll-to-top', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when an invalid `size` prop is provided', async () => {
-      await checkError(TnwScrollToTop, `<tnw-scroll-to-top size="invalidSize"></tnw-scroll-to-top>`, 'Invalid prop value for "size"');
+      await checkSpecPageError(TnwScrollToTop, `<tnw-scroll-to-top size="invalidSize"></tnw-scroll-to-top>`, 'Invalid prop value for "size"');
     });
 
     it('throws an error when an invalid `variant` prop is provided', async () => {
-      await checkError(TnwScrollToTop, `<tnw-scroll-to-top variant="invalidVariant"></tnw-scroll-to-top>`, 'Invalid prop value for "variant"');
+      await checkSpecPageError(TnwScrollToTop, `<tnw-scroll-to-top variant="invalidVariant"></tnw-scroll-to-top>`, 'Invalid prop value for "variant"');
     });
 
     it('throws an error when an invalid `borderRadius` prop is provided', async () => {
-      await checkError(TnwScrollToTop, `<tnw-scroll-to-top border-radius="invalidRadius"></tnw-scroll-to-top>`, 'Invalid prop value for "borderRadius"');
+      await checkSpecPageError(TnwScrollToTop, `<tnw-scroll-to-top border-radius="invalidRadius"></tnw-scroll-to-top>`, 'Invalid prop value for "borderRadius"');
     });
   });
 });

@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwRating } from '../tnw-rating';
 
 describe('tnw-rating', () => {
@@ -51,19 +51,19 @@ describe('tnw-rating', () => {
 
   describe('Error Handling and Edge Cases', () => {
     // it('throws an error when `rating` is greater than `totalStars`', async () => {
-    //   await checkError(TnwRating, `<tnw-rating total-stars="5" rating="6"></tnw-rating>`, 'Invalid prop value for "rating"');
+    //   await checkSpecPageError(TnwRating, `<tnw-rating total-stars="5" rating="6"></tnw-rating>`, 'Invalid prop value for "rating"');
     // });
 
     // it('throws an error when `totalStars` is less than 1', async () => {
-    //   await checkError(TnwRating, `<tnw-rating total-stars="0"></tnw-rating>`, 'Invalid prop value for "totalStars"');
+    //   await checkSpecPageError(TnwRating, `<tnw-rating total-stars="0"></tnw-rating>`, 'Invalid prop value for "totalStars"');
     // });
 
     it('throws an error when an invalid `starSize` is provided', async () => {
-      await checkError(TnwRating, `<tnw-rating total-stars="5" star-size="invalid"></tnw-rating>`, 'Invalid prop value for "starSize"');
+      await checkSpecPageError(TnwRating, `<tnw-rating total-stars="5" star-size="invalid"></tnw-rating>`, 'Invalid prop value for "starSize"');
     });
 
     it('throws an error when an invalid `filledStarColor` is provided', async () => {
-      await checkError(TnwRating, `<tnw-rating total-stars="5" filled-star-color="invalid"></tnw-rating>`, 'Invalid prop value for "filledStarColor"');
+      await checkSpecPageError(TnwRating, `<tnw-rating total-stars="5" filled-star-color="invalid"></tnw-rating>`, 'Invalid prop value for "filledStarColor"');
     });
   });
 });

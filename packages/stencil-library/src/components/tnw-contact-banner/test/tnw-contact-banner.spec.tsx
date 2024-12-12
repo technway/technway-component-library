@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwContactBanner } from '../tnw-contact-banner';
 
 describe('tnw-contact-banner', () => {
@@ -65,15 +65,15 @@ describe('tnw-contact-banner', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when an invalid appearance prop is provided', async () => {
-      await checkError(TnwContactBanner, `<tnw-contact-banner appearance="invalid"></tnw-contact-banner>`, 'Invalid prop value for "appearance"');
+      await checkSpecPageError(TnwContactBanner, `<tnw-contact-banner appearance="invalid"></tnw-contact-banner>`, 'Invalid prop value for "appearance"');
     });
 
     it('throws an error when an invalid alignment prop is provided', async () => {
-      await checkError(TnwContactBanner, `<tnw-contact-banner alignment="invalid"></tnw-contact-banner>`, 'Invalid prop value for "alignment"');
+      await checkSpecPageError(TnwContactBanner, `<tnw-contact-banner alignment="invalid"></tnw-contact-banner>`, 'Invalid prop value for "alignment"');
     });
 
     it('throws an error when an invalid variant prop is provided', async () => {
-      await checkError(TnwContactBanner, `<tnw-contact-banner variant="invalid"></tnw-contact-banner>`, 'Invalid prop value for "variant"');
+      await checkSpecPageError(TnwContactBanner, `<tnw-contact-banner variant="invalid"></tnw-contact-banner>`, 'Invalid prop value for "variant"');
     });
   });
 });

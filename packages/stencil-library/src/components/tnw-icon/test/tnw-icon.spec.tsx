@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwIcon } from '../tnw-icon';
 
 describe('tnw-icon', () => {
@@ -60,15 +60,15 @@ describe('tnw-icon', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error if `name` prop is missing and `enableSvg` is not true', async () => {
-      await checkError(TnwIcon, `<tnw-icon></tnw-icon>`, 'The "name" prop is required when the "enableSvg" prop is not provided.');
+      await checkSpecPageError(TnwIcon, `<tnw-icon></tnw-icon>`, 'The "name" prop is required when the "enableSvg" prop is not provided.');
     });
 
     it('throws an error when an invalid `appearance` prop is provided', async () => {
-      await checkError(TnwIcon, `<tnw-icon name="home" appearance="invalid"></tnw-icon>`, 'Invalid prop value for "appearance"');
+      await checkSpecPageError(TnwIcon, `<tnw-icon name="home" appearance="invalid"></tnw-icon>`, 'Invalid prop value for "appearance"');
     });
 
     it('throws an error when an invalid `variant` prop is provided', async () => {
-      await checkError(TnwIcon, `<tnw-icon name="home" variant="invalid"></tnw-icon>`, 'Invalid prop value for "variant"');
+      await checkSpecPageError(TnwIcon, `<tnw-icon name="home" variant="invalid"></tnw-icon>`, 'Invalid prop value for "variant"');
     });
   });
 });

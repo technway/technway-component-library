@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwSection } from '../tnw-section';
 
 describe('TnwSection', () => {
@@ -60,11 +60,11 @@ describe('TnwSection', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when invalid `appearance` prop is provided', async () => {
-      await checkError(TnwSection, `<tnw-section appearance="invalid"></tnw-section>`, 'Invalid prop value for "appearance"');
+      await checkSpecPageError(TnwSection, `<tnw-section appearance="invalid"></tnw-section>`, 'Invalid prop value for "appearance"');
     });
 
     it('throws an error when invalid `padding` prop is provided', async () => {
-      await checkError(TnwSection, `<tnw-section padding="invalid"></tnw-section>`, 'Invalid prop value for "padding"');
+      await checkSpecPageError(TnwSection, `<tnw-section padding="invalid"></tnw-section>`, 'Invalid prop value for "padding"');
     });
 
     it('renders without internal container when `disableInternalContainer` is true', async () => {

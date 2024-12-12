@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwBadge } from '../tnw-badge';
 
 describe('tnw-badge', () => {
@@ -43,11 +43,11 @@ describe('tnw-badge', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when an invalid size prop is provided', async () => {
-      await checkError(TnwBadge, `<tnw-badge label="Invalid Size" size="invalidSize"></tnw-badge>`, 'Invalid prop value for "size"');
+      await checkSpecPageError(TnwBadge, `<tnw-badge label="Invalid Size" size="invalidSize"></tnw-badge>`, 'Invalid prop value for "size"');
     });
 
     it('throws an error when an invalid variant prop is provided', async () => {
-      await checkError(TnwBadge, `<tnw-badge label="Invalid Variant" variant="invalidVariant"></tnw-badge>`, 'Invalid prop value for "variant"');
+      await checkSpecPageError(TnwBadge, `<tnw-badge label="Invalid Variant" variant="invalidVariant"></tnw-badge>`, 'Invalid prop value for "variant"');
     });
   });
 });

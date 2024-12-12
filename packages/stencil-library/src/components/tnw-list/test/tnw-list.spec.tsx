@@ -1,4 +1,4 @@
-import { createSpecPage, checkError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwList } from '../tnw-list';
 import * as utils from '../../../utils/utils';
 
@@ -109,16 +109,16 @@ describe('tnw-list', () => {
 
   describe('Error Handling and Edge Cases', () => {
     it('throws an error when the `listData` prop is missing', async () => {
-      await checkError(TnwList, `<tnw-list></tnw-list>`, 'Required prop "listData"');
+      await checkSpecPageError(TnwList, `<tnw-list></tnw-list>`, 'Required prop "listData"');
     });
 
     it('throws an error when `listData` contains invalid JSON', async () => {
       parseJSONAsyncMock.mockRejectedValueOnce(new Error('Invalid JSON'));
-      await checkError(TnwList, `<tnw-list list-data='invalid'></tnw-list>`, 'Invalid JSON in "listData"');
+      await checkSpecPageError(TnwList, `<tnw-list list-data='invalid'></tnw-list>`, 'Invalid JSON in "listData"');
     });
 
     it('throws an error when an invalid `markerType` is provided', async () => {
-      await checkError(TnwList, `<tnw-list list-data='${defaultListData}' marker-type="invalid"></tnw-list>`, 'Invalid prop value for "markerType"');
+      await checkSpecPageError(TnwList, `<tnw-list list-data='${defaultListData}' marker-type="invalid"></tnw-list>`, 'Invalid prop value for "markerType"');
     });
   });
 });

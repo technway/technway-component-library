@@ -421,8 +421,7 @@ export function parseJSONAsync(jsonString: string): Promise<any> {
       const result = JSON.parse(jsonString);
       resolve(result);
     } catch (error) {
-      console.error('Error parsing JSON:', error);
-      resolve([]);
+      throw new Error(`Error parsing JSON: ${error.message}`);
     }
   });
 }

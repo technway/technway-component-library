@@ -27,7 +27,7 @@ async function getTemplateContent(componentTag) {
         const propsValuesForArgs = propsNames.map(name => `this.${name}`).join(', ');
 
         const content = getScriptTemplate(templatePath)
-            .replace(/PROPS_ARRAY/g, JSON.stringify(props))
+            .replace(/PROPS_ARRAY/g, JSON.stringify(props, null, 2))
             .replace(/PROPS_NAMES_FOR_ARGS/g, propsValuesForArgs)
             .replace(/COMPONENT_TAG/g, componentTag);
 

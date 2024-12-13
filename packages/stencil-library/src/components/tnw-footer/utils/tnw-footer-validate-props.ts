@@ -11,7 +11,132 @@ validateProps(propsValues);
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"backgroundColor","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"borderTopColor","type":["auto","black","inverse","light","none","primary","secondary","white"],"isRequired":false},{"name":"centerContent","type":["boolean"],"isRequired":false},{"name":"disableInternalContainer","type":["boolean"],"isRequired":false},{"name":"footerData","type":["string"],"isRequired":true},{"name":"headingColor","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false},{"name":"margin","type":["2xl","3xl","4xl","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"padding","type":["2xl","3xl","4xl","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"textColor","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false}];
+  const props = [
+  {
+    "name": "backgroundColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "borderTopColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "none",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "centerContent",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "disableInternalContainer",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "footerData",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "headingColor",
+    "type": [
+      "auto",
+      "black",
+      "gray100",
+      "gray200",
+      "gray300",
+      "gray400",
+      "gray500",
+      "gray600",
+      "gray700",
+      "gray800",
+      "gray900",
+      "inverse",
+      "light",
+      "placeholder",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "margin",
+    "type": [
+      "2xl",
+      "3xl",
+      "4xl",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "padding",
+    "type": [
+      "2xl",
+      "3xl",
+      "4xl",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "textColor",
+    "type": [
+      "auto",
+      "black",
+      "gray100",
+      "gray200",
+      "gray300",
+      "gray400",
+      "gray500",
+      "gray600",
+      "gray700",
+      "gray800",
+      "gray900",
+      "inverse",
+      "light",
+      "placeholder",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

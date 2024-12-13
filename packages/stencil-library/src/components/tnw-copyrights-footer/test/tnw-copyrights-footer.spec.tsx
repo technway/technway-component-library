@@ -1,4 +1,4 @@
-import { createSpecPage, checkSpecPageError, queryElement } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwCopyrightsFooter } from '../tnw-copyrights-footer';
 
 describe('tnw-copyrights-footer', () => {

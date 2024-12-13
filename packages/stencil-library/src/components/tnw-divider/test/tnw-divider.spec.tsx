@@ -1,4 +1,3 @@
-import { newSpecPage } from '@stencil/core/testing';
 import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwDivider } from '../tnw-divider';
 

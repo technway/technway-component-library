@@ -5,6 +5,7 @@ import { validateProps } from './utils/tnw-heading-validate-props';
 import { styles } from './tnw-heading.styles';
 import { typographyStyleSheet, colorStyleSheet } from '../../utils/shared-styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { validateHighlightText } from '../../utils/component-validations';
 
 /**
  * The `tnw-heading` component is used to render a customizable heading or title with various styling options.
@@ -133,6 +134,10 @@ export class TnwHeading {
     const propsValues = [this.alignment, this.color, this.headingTag, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight, this.widthSize];
     validateProps(propsValues);
 
+    if (isNotEmptyString(this.highlight)) {
+      validateHighlightText(this.text, this.highlight);
+    }
+
     this.updateDefaultStyles();
   }
 
@@ -222,7 +227,7 @@ export class TnwHeading {
     const { text } = this;
 
     if (!isNotEmptyString(text)) return null;
-    
+
     if (this.renderHighlightedText() !== null) return this.renderHighlightedText();
 
     return text;

@@ -1,117 +1,214 @@
-import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError, queryElement } from '../../../utils/testing-utils';
 import { TnwHeading } from '../tnw-heading';
-
-const elementSelector: string = 'h2';
 
 describe('tnw-heading', () => {
 
   describe('Default and Required Prop Behavior', () => {
-    it('renders correctly with default props', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading"></tnw-heading>`);
-      expect(headingElement).toMatchSnapshot();
+    it('renders correctly with default values', async () => {
+      const host = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading></tnw-heading>`
+      );
+      expect(host).toMatchSnapshot();
     });
 
-    it('uses default heading tag when no tag is provided', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading with default tag"></tnw-heading>`, elementSelector);
-      expect(headingElement.tagName).toBe('H2');
+    it('uses default heading level when no level is provided', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading text="Heading with default level"></tnw-heading>`,
+        'h2'
+      );
+      expect(heading.tagName).toBe('H2');
     });
 
-    it('renders with default line height when no value is provided', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading with default line-height"></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('lh-1_5');
-    });
-
-    it('does not use text font when no value is provided for useTextFont', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading with default font"></tnw-heading>`, elementSelector);
-      expect(headingElement).not.toHaveClass('tnw-heading--textFont');
-    });
-  });
-
-  describe('Heading Tag Rendering', () => {
-    it('renders the correct HTML tag based on level prop', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 1" level="h1"></tnw-heading>`, "h1");
-      expect(headingElement.tagName).toBe('H1');
-    });
-
-    it('renders correctly for h1 tag with default props', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading level="h1" text="Test Heading"></tnw-heading>`, "h1");
-      expect(headingElement).toHaveClasses(['fw-700', 'fs-5xl']);
-    });
-
-    it('renders correctly for h2 tag with default props', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading level="h2" text="Test Heading"></tnw-heading>`, "h2");
-      expect(headingElement).toHaveClasses(['fw-600', 'fs-heading']);
-    });
-
-    it('renders correctly for h3 tag with default props', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading level="h3" text="Test Heading"></tnw-heading>`, "h3");
-      expect(headingElement).toHaveClasses(['fw-400', 'fs-xl']);
-    });
-
-    it('renders the correct HTML tag for h4', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 4" level="h4"></tnw-heading>`, "h4");
-      expect(headingElement.tagName).toBe('H4');
-    });
-
-    it('renders the correct HTML tag for h5', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 5" level="h5"></tnw-heading>`, "h5");
-      expect(headingElement.tagName).toBe('H5');
-    });
-
-    it('renders the correct HTML tag for h6', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Heading 6" level="h6"></tnw-heading>`, "h6");
-      expect(headingElement.tagName).toBe('H6');
+    it('applies default classes for size, weight, and level', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading></tnw-heading>`,
+        'h2'
+      );
+      expect(heading).toHaveClasses([
+        'tnw-heading__inner',
+        'fs-heading',
+        'fw-600',
+        'lh-1_5',
+      ]);
     });
   });
 
   describe('Custom Prop Behavior', () => {
-    it('renders the correct class when alignment prop is "center"', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading" alignment="center"></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('ta-center');
-    });
-
-    it('renders the correct class when color prop is "primary"', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading" color="primary"></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('color-primary');
-    });
-
-    it('renders the correct class when weight prop is "900"', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading" weight="900"></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('fw-900');
-    });
-
-    it('renders the correct class when size prop is "xs"', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading" size="xs"></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('fs-xs');
-    });
-
-    it('renders the correct class when textCase prop is "capitalize"', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading" text-case="capitalize"></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('capitalize');
-    });
-
-    it('renders the correct class when lineHeight prop is "1_75"', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading" line-height="1_75"></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('lh-1_75');
-    });
-
-    it('renders the correct class when useTextFont prop is true', async () => {
-      const headingElement = await createSpecPage(TnwHeading, `<tnw-heading text="Test Heading" use-text-font></tnw-heading>`, elementSelector);
-      expect(headingElement).toHaveClass('tnw-heading__inner--textFont');
-    });
-
-    it('renders correctly with a combination of custom props', async () => {
-      const headingElement = await createSpecPage(
+    it('renders a heading with custom text', async () => {
+      const heading = await createSpecPage(
         TnwHeading,
-        `<tnw-heading text="Custom Heading" level="h3" alignment="center" color="primary" weight="900" size="xs" text-case="uppercase" line-height="1_75" use-text-font></tnw-heading>`
+        `<tnw-heading text="Custom Heading"></tnw-heading>`,
+        'h2'
       );
-      expect(headingElement).toMatchSnapshot();
+      expect(heading.textContent).toBe('Custom Heading');
+    });
+
+    it('renders the specified heading level', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading level="h1"></tnw-heading>`,
+        'h1'
+      );
+      expect(heading).not.toBeNull();
+    });
+
+    it('applies a custom font size', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading size="lg"></tnw-heading>`,
+        '.tnw-heading__inner'
+      );
+      expect(heading).toHaveClass('fs-lg');
+    });
+
+    it('applies a custom font weight', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading weight="700"></tnw-heading>`,
+        '.tnw-heading__inner'
+      );
+      expect(heading).toHaveClass('fw-700');
+    });
+
+    it('renders highlighted text with correct properties', async () => {
+      const highlightedText = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading text="This is a heading" highlight="heading" highlight-color="primary" highlight-weight="700" highlight-tag="mark"></tnw-heading>`,
+        'tnw-text[text="heading"]'
+      ) as HTMLTnwHeadingElement ;
+      expect(highlightedText).not.toBeNull();
+      expect(highlightedText.getAttribute('color')).toBe('primary');
+      expect(highlightedText.getAttribute('weight')).toBe('700');
+      expect(queryElement(highlightedText, 'mark')).not.toBeNull;
+    });
+
+    it('renders text alignment class', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading alignment="center"></tnw-heading>`,
+        '.tnw-heading__inner'
+      );
+      expect(heading).toHaveClass('ta-center');
+    });
+
+    it('applies text transformation', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading text-case="uppercase"></tnw-heading>`,
+        '.tnw-heading__inner'
+      );
+      expect(heading).toHaveClass('uppercase');
+    });
+
+
+    it('renders correctly for h1 level with its default props styles', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading level="h1" text="Test Heading"></tnw-heading>`,
+        "h1"
+      );
+      expect(heading).toHaveClasses(['fw-700', 'fs-5xl']);
+    });
+
+    it('renders correctly for h2 level with its default props styles', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading level="h2" text="Test Heading"></tnw-heading>`,
+        "h2"
+      );
+      expect(heading).toHaveClasses(['fw-600', 'fs-heading']);
+    });
+
+    it('renders correctly for h3 level with its default props styles', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading level="h3" text="Test Heading"></tnw-heading>`,
+        "h3"
+      );
+      expect(heading).toHaveClasses(['fw-400', 'fs-xl']);
+    });
+  });
+
+
+  describe('Slot Behavior', () => {
+    it('renders slot content when text prop is not provided', async () => {
+      const slotContent = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading>
+          <span>Slot Content</span>
+        </tnw-heading>`,
+        'span',
+        false
+      );
+      expect(slotContent).not.toBeNull();
+      expect(slotContent.textContent).toBe('Slot Content');
+    });
+
+    it('prioritizes the text prop over slot content', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading text="Prop Text">
+          <span>Slot Content</span>
+        </tnw-heading>`,
+        '.tnw-heading__inner'
+      );
+      expect(heading.textContent).toBe('Prop Text');
     });
   });
 
   describe('Error Handling and Edge Cases', () => {
-    it('handles invalid level prop gracefully', async () => {
-      await checkSpecPageError(TnwHeading, `<tnw-heading text="Invalid Heading" level="invalid"></tnw-heading>`, 'Invalid prop value for "level"');
+
+    it('throws an error for an invalid heading level', async () => {
+      await checkSpecPageError(
+        TnwHeading,
+        `<tnw-heading level="invalidLevel"></tnw-heading>`,
+        'Invalid prop value for "level"'
+      );
+    });
+
+    it('throws an error for an invalid font size', async () => {
+      await checkSpecPageError(
+        TnwHeading,
+        `<tnw-heading size="invalidSize"></tnw-heading>`,
+        'Invalid prop value for "size"'
+      );
+    });
+
+    it('throws an error for an invalid font weight', async () => {
+      await checkSpecPageError(
+        TnwHeading,
+        `<tnw-heading weight="invalidWeight"></tnw-heading>`,
+        'Invalid prop value for "weight"'
+      );
+    });
+
+    it('throws an error for an invalid text case', async () => {
+      await checkSpecPageError(
+        TnwHeading,
+        `<tnw-heading text-case="invalidCase"></tnw-heading>`,
+        'Invalid prop value for "textCase"'
+      );
+    });
+
+    describe('Highlight Prop Validation', () => {
+      it('throws an error when the highlight text is invalid', async () => {
+        await checkSpecPageError(
+          TnwHeading,
+          `<tnw-heading text="This is a test" highlight="absent"></tnw-heading>`,
+          'Highlight text "absent" not found in the provided text'
+        );
+      });
+
+      it('throws an error for empty text with not empty highlight', async () => {
+        await checkSpecPageError(
+          TnwHeading,
+          `<tnw-heading text="" highlight="test"></tnw-heading>`,
+          'Main text must be a non-empty string to validate highlight text'
+        );
+      });
     });
   });
 });

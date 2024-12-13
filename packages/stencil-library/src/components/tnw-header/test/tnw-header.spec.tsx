@@ -160,4 +160,38 @@ describe('tnw-header', () => {
       );
     });
   });
+
+  describe('Error Handling and Edge Cases', () => {
+    it('throws an error for an invalid alignment value', async () => {
+      await checkSpecPageError(
+        TnwHeader,
+        `<tnw-header alignment="invalidValue"></tnw-header>`,
+        'Invalid prop value for "alignment"'
+      );
+    });
+
+    it('throws an error for an invalid height value', async () => {
+      await checkSpecPageError(
+        TnwHeader,
+        `<tnw-header height="invalidSize"></tnw-header>`,
+        'Invalid prop value for "height"'
+      );
+    });
+
+    it('throws an error for an invalid min-height value', async () => {
+      await checkSpecPageError(
+        TnwHeader,
+        `<tnw-header min-height="invalidSize"></tnw-header>`,
+        'Invalid prop value for "minHeight"'
+      );
+    });
+
+    it('throws an error for an invalid background color', async () => {
+      await checkSpecPageError(
+        TnwHeader,
+        `<tnw-header background-color="invalidColor"></tnw-header>`,
+        'Invalid prop value for "backgroundColor"'
+      );
+    });
+  });
 });

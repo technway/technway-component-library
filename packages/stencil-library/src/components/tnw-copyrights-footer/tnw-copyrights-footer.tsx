@@ -4,6 +4,7 @@ import { ColorType, TextColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-copyrights-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-copyrights-footer-props';
+import { validateYearsProps } from './utils/tnw-copyrights-footer-validate-years-props';
 
 /**
  * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -118,8 +119,41 @@ export class TnwCopyrightsFooter {
   }
 
   componentWillLoad() {
-    const propsValues = [this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.enableSlot, this.endYear, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear];
-    validateProps(propsValues);
+    const {
+      startYear,
+      endYear,
+      useCurrentYearAsStartYear,
+      useCurrentYearAsEndYear,
+      backgroundColor,
+      borderTopColor,
+      centerContent,
+      disableInternalContainer,
+      enableSlot,
+      organizationName,
+      organizationNameColor,
+      postText,
+      preText,
+      textColor,
+    } = this;
+
+    validateYearsProps(startYear, endYear, useCurrentYearAsStartYear, useCurrentYearAsEndYear);
+
+    validateProps([
+      backgroundColor,
+      borderTopColor,
+      centerContent,
+      disableInternalContainer,
+      enableSlot,
+      endYear,
+      organizationName,
+      organizationNameColor,
+      postText,
+      preText,
+      startYear,
+      textColor,
+      useCurrentYearAsEndYear,
+      useCurrentYearAsStartYear,
+    ]);
   }
 
   private getYearsRange(): string {
@@ -129,7 +163,7 @@ export class TnwCopyrightsFooter {
     const startYearValue: number = useCurrentYearAsStartYear ? currentYear : startYear;
     const endYearValue: number = useCurrentYearAsEndYear ? currentYear : endYear;
 
-    if (isNotEmptyStringOrNumber(startYear)) {
+    if (isNotEmptyStringOrNumber(startYearValue)) {
       if (isNotEmptyStringOrNumber(endYearValue)) {
         return `${String(startYearValue)} - ${String(endYearValue)}`;
       }

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tnw-icon Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-icon class="color-auto rounded-default tnw-extended-v-none tnw-icon tnw-icon--font-sm" name="home">
+exports[`tnw-icon Default and Required Prop Behavior renders correctly with default values 1`] = `
+<tnw-icon class="color-auto rounded-default tnw-extended-v-none tnw-icon tnw-icon--font-sm" name="default-icon">
   <template shadowrootmode="open">
-    <i aria-label="home" class="icon-home" part="icon"></i>
+    <i aria-label="default-icon" class="icon-default-icon" part="icon"></i>
   </template>
 </tnw-icon>
 `;

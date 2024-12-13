@@ -55,12 +55,6 @@ describe('tnw-contact-banner', () => {
       );
       expect(host).toHaveClass('tnw-contact-banner--gradient');
     });
-
-    it('renders correct border radius', async () => {
-      const el = await createSpecPage(TnwContactBanner, `<tnw-contact-banner border-radius="lg"></tnw-contact-banner>`);
-      expect(el).toHaveClass('rounded-lg');
-    });
-
     it('renders with custom padding and margin classes', async () => {
       const host = await createSpecPage(
         TnwContactBanner,
@@ -71,6 +65,14 @@ describe('tnw-contact-banner', () => {
         'tnw-contact-banner--padding-inline-md',
         'tnw-contact-banner--padding-block-sm',
       ]);
+    });
+
+    it('renders correct border radius', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner border-radius="lg"></tnw-contact-banner>`
+      );
+      expect(host).toHaveClass('rounded-lg');
     });
 
     it('renders without the internal container when disableInternalContainer is true', async () => {

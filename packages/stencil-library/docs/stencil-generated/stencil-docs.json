@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-12T10:48:06",
+  "timestamp": "2024-12-13T13:42:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -4173,7 +4173,7 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": false
         },
         {
           "name": "headingColor",

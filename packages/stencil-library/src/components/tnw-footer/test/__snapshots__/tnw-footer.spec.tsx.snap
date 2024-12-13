@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-footer Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-footer class="bg-auto border-t-auto tnw-footer tnw-footer--borderTop tnw-footer--margin-top-none">
+  <template shadowrootmode="open">
+    <footer class="container" part="container">
+      <div class="tnw-footer__content tnw-footer__content--padding-xl">
+        <slot name="brand"></slot>
+        <slot name="links"></slot>
+        <slot name="contact"></slot>
+        <slot name="socialmedia"></slot>
+        <slot name="newsletter"></slot>
+      </div>
+      <slot name="copyrights"></slot>
+    </footer>
+  </template>
+</tnw-footer>
+`;

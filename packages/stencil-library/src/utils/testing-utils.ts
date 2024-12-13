@@ -90,7 +90,7 @@ export const createSpecPage = async (
 export const checkSpecPageError = async (component: any, html: string, expectedMessagePart: string, debug: boolean = false) => {
     let isErrorThrown = false;
     try {
-        await createSpecPage(component, html, undefined, debug);
+        await createSpecPage(component, html, undefined, false, debug);
     } catch (error) {
         isErrorThrown = true;
 

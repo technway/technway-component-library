@@ -2276,7 +2276,7 @@ declare namespace LocalJSX {
         /**
           * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   newsletter: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
          */
-        "footerData": string;
+        "footerData"?: string;
         /**
           * The color for the footer headings.
          */

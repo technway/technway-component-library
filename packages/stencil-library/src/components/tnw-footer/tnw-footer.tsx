@@ -4,6 +4,7 @@ import { ColorType, TextColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';
 import { FooterData } from './utils/tnw-footer-data-types';
+import { validateProps } from './utils/tnw-footer-validate-props';
 
 /**
  * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
@@ -87,7 +88,7 @@ export class TnwFooter {
    *   }
    * }
    */
-  @Prop() footerData!: string;
+  @Prop() footerData: string;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -107,8 +108,14 @@ export class TnwFooter {
   }
 
   async componentWillLoad() {
-    this.parsedFooterData = await parseJSONAsync(this.footerData);
+    if (this.footerData !== undefined) {
+      this.parsedFooterData = await parseJSONAsync(this.footerData);
+    }
+
+    const propsValues = [this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor];
+    validateProps(propsValues);
   }
+
 
   private getHostClasses(): string {
     const { baseClass, backgroundColor, centerContent, borderTopColor, margin } = this;

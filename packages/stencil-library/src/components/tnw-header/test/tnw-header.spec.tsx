@@ -1,71 +1,163 @@
-import { createSpecPage } from '../../../utils/testing-utils';
+import { checkSpecPageError, createSpecPage, queryElement } from '../../../utils/testing-utils';
 import { TnwHeader } from '../tnw-header';
 
 describe('tnw-header', () => {
   describe('Default and Required Prop Behavior', () => {
-    it('renders with default props', async () => {
-      const el = await createSpecPage(TnwHeader, `<tnw-header></tnw-header>`);
-      expect(el).toMatchSnapshot();
+    it('renders correctly with default values', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header></tnw-header>`
+      );
+      expect(host).toMatchSnapshot();
+    });
+
+    it('applies default classes for height', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header></tnw-header>`
+      );
+      console.log(host.outerHTML);
+      expect(host).toHaveClasses([
+        'tnw-header',
+        'h-auto',
+        'min-h-auto',
+      ]);
     });
   });
 
   describe('Custom Prop Behavior', () => {
-    it('applies the correct background color class when backgroundColor prop is set', async () => {
-      const el = await createSpecPage(TnwHeader, `<tnw-header background-color="primary"></tnw-header>`);
-      expect(el).toHaveClass('bg-primary');
+    it('applies the correct background color class', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header background-color="primary"></tnw-header>`
+      );
+      expect(host).toHaveClass('bg-primary');
     });
 
-    it('applies the correct border-bottom color class when borderBottomColor prop is set', async () => {
-      const el = await createSpecPage(TnwHeader, `<tnw-header border-bottom-color="secondary"></tnw-header>`);
-      expect(el).toHaveClass('border-b-secondary');
+    it('applies the correct border-bottom color class', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header border-bottom-color="secondary"></tnw-header>`
+      );
+      console.log(host.outerHTML);
+      expect(host).toHaveClasses([
+        'tnw-header--borderBottom',
+        'border-b-secondary'
+      ]);
     });
 
-    it('applies the correct height class when height prop is set to full', async () => {
-      const el = await createSpecPage(TnwHeader, `<tnw-header height="full"></tnw-header>`);
-      expect(el).toHaveClass('h-full');
+    it('applies the correct height class', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header height="full"></tnw-header>`
+      );
+      expect(host).toHaveClass('h-full');
     });
 
-    it('applies the correct minHeight class when minHeight prop is set to full-screen', async () => {
-      const el = await createSpecPage(TnwHeader, `<tnw-header min-height="full-screen"></tnw-header>`);
-      expect(el).toHaveClass('min-h-full-screen');
+    it('applies the correct min-height class', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header min-height="full-screen"></tnw-header>`
+      );
+      expect(host).toHaveClass('min-h-full-screen');
     });
 
-    it('applies the correct content alignment class when alignment prop is set to center', async () => {
-      const el = await createSpecPage(TnwHeader, `<tnw-header alignment="center"></tnw-header>`);
-      const content = el.shadowRoot?.querySelector('.tnw-header__content');
-      expect(content).toHaveClass('tnw-header__content--center');
-    });
-
-    it('applies the correct class when centerBanner prop is set to true', async () => {
-      const el = await createSpecPage(TnwHeader, `<tnw-header center-banner="true"></tnw-header>`);
-      const host = el.shadowRoot?.host;
+    it('applies the centerBanner class when center-banner is true', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header center-banner></tnw-header>`
+      );
       expect(host).toHaveClass('tnw-header--centerBanner');
     });
 
-    it('does not apply the container class when disableInternalContainer is true', async () => {
-      const el = await createSpecPage(TnwHeader, `<tnw-header disable-internal-container></tnw-header>`);
-      const content = el.shadowRoot?.querySelector('.tnw-header__content');
+    it('applies the correct alignment class', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header alignment="center"></tnw-header>`
+      ) as HTMLTnwHeaderElement;
+      const content = queryElement(host, '.tnw-header__content');
+      expect(content).toHaveClass('tnw-header__content--center');
+    });
+
+    it('adds the container class when disable-internal-container is false', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header></tnw-header>`
+      ) as HTMLTnwHeaderElement;
+      const content = queryElement(host, '.tnw-header__content');
+      expect(content).toHaveClass('container');
+    });
+
+    it('does not add the container class when disable-internal-container is true', async () => {
+      const host = await createSpecPage(
+        TnwHeader,
+        `<tnw-header disable-internal-container></tnw-header>`
+      ) as HTMLTnwHeaderElement;
+      const content = queryElement(host, '.tnw-header__content');
       expect(content).not.toHaveClass('container');
     });
+  });
 
-    it('renders navbar slot content correctly', async () => {
-      const el = await createSpecPage(TnwHeader, `
-        <tnw-header>
-          <div slot="navbar">Navbar Content</div>
-        </tnw-header>
-      `);
-      const slot = el.shadowRoot?.querySelector('slot[name="navbar"]');
-      expect(slot).not.toBeNull();
+  describe('Slot Behavior', () => {
+    it('renders content inside the navbar slot', async () => {
+      const navbarSlot = await createSpecPage(
+        TnwHeader,
+        `<tnw-header>
+          <div slot="navbar">Navigation Bar</div>
+        </tnw-header>`,
+        '[slot="navbar"]',
+        false
+      ) as HTMLTnwHeaderElement;
+
+      expect(navbarSlot).not.toBeNull();
+      expect(navbarSlot.textContent).toBe('Navigation Bar');
     });
 
-    it('renders banner slot content correctly', async () => {
-      const el = await createSpecPage(TnwHeader, `
-        <tnw-header>
+    it('renders content inside the banner slot', async () => {
+      const slotContent = await createSpecPage(
+        TnwHeader,
+        `<tnw-header>
           <div slot="banner">Banner Content</div>
-        </tnw-header>
-      `);
-      const slot = el.shadowRoot?.querySelector('slot[name="banner"]');
-      expect(slot).not.toBeNull();
+        </tnw-header>`,
+        '[slot="banner"]',
+        false
+      ) as HTMLTnwHeaderElement;
+      expect(slotContent).not.toBeNull();
+      expect(slotContent.textContent).toBe('Banner Content');
+    });
+  });
+
+  describe('Error Handling and Edge Cases', () => {
+    it('throws an error for an invalid alignment value', async () => {
+      await checkSpecPageError(
+        TnwHeader,
+        `<tnw-header alignment="invalidValue"></tnw-header>`,
+        'Invalid prop value for "alignment"'
+      );
+    });
+
+    it('throws an error for an invalid height value', async () => {
+      await checkSpecPageError(
+        TnwHeader,
+        `<tnw-header height="invalidSize"></tnw-header>`,
+        'Invalid prop value for "height"'
+      );
+    });
+
+    it('throws an error for an invalid min-height value', async () => {
+      await checkSpecPageError(
+        TnwHeader,
+        `<tnw-header min-height="invalidSize"></tnw-header>`,
+        'Invalid prop value for "minHeight"'
+      );
+    });
+
+    it('throws an error for an invalid background color', async () => {
+      await checkSpecPageError(
+        TnwHeader,
+        `<tnw-header background-color="invalidColor"></tnw-header>`,
+        'Invalid prop value for "backgroundColor"'
+      );
     });
   });
 });

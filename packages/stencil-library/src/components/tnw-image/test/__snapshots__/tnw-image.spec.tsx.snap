@@ -1,22 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tnw-image Custom Prop Behavior renders caption when caption prop is provided 1`] = `
-<tnw-image alt="Image with Caption" caption="This is a caption" class="tnw-image--width-full" src="https://example.com/image.jpg">
+exports[`tnw-image Default and Required Prop Behavior renders correctly with default values 1`] = `
+<tnw-image alt="Default Image" class="tnw-image--width-full" src="image.jpg">
   <template shadowrootmode="open">
-    <figure class="tnw-image__figure" part="figure">
-      <img alt="Image with Caption" class="rounded-default tnw-image" loading="eager" part="image" src="https://example.com/image.jpg">
-      <figcaption class="tnw-image__figure-caption" part="figcaption">
-        This is a caption
-      </figcaption>
-    </figure>
-  </template>
-</tnw-image>
-`;
-
-exports[`tnw-image Default and Required Prop Behavior renders correctly with required src and alt props 1`] = `
-<tnw-image alt="Example Image" class="tnw-image--width-full" src="https://example.com/image.jpg">
-  <template shadowrootmode="open">
-    <img alt="Example Image" class="rounded-default tnw-image" loading="eager" part="image" src="https://example.com/image.jpg">
+    <img alt="Default Image" class="rounded-default tnw-image" loading="eager" part="image" src="image.jpg">
   </template>
 </tnw-image>
 `;

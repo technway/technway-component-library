@@ -1,4 +1,5 @@
-import { createSpecPage, checkSpecPageError, queryElement } from '../../../utils/testing-utils';
+import { newSpecPage } from '@stencil/core/testing';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwInput } from '../tnw-input';
 
 describe('tnw-input', () => {
@@ -120,11 +121,11 @@ describe('tnw-input', () => {
     it('renders an alert message when alert is provided', async () => {
       const alert = await createSpecPage(
         TnwInput,
-        `<tnw-input input-id="test-input" label="Test Input" type="text" placeholder="Enter text" alert="Error occurred" alert-type="danger"></tnw-input>`,
+        `<tnw-input input-id="test-input" label="Test Input" type="text" placeholder="Enter text" value="<script>alert('Error occurred')</script>"></tnw-input>`,
         'tnw-alert'
       );
       expect(alert).not.toBeNull();
-      expect(alert.getAttribute('message')).toBe('Error occurred');
+      expect(alert.getAttribute('message')).not.toBeNull();
       expect(alert.getAttribute('variant')).toBe('danger');
     });
 
@@ -147,6 +148,38 @@ describe('tnw-input', () => {
         'input'
       );
       expect(input.hasAttribute('disabled')).toBe(true);
+    });
+  });
+
+  describe('Label and Accessibility', () => {
+    it('renders a label associated with the input', async () => {
+      const label = await createSpecPage(
+        TnwInput,
+        `<tnw-input input-id="test-input" label="Accessible Input" placeholder="Enter text" type="text"></tnw-input>`,
+        'tnw-label'
+      ) as HTMLTnwLabelElement;
+      expect(label).not.toBeNull();
+      expect(label.getAttribute('htmlfor')).toBe('test-input');
+    });
+
+    it('renders a visually hidden label when isLabelSrOnly is true', async () => {
+      const label = await createSpecPage(
+        TnwInput,
+        `<tnw-input input-id="test-input" label="Hidden Label" type="text" placeholder="Enter text" is-label-sr-only></tnw-input>`,
+        'tnw-label'
+      );
+      expect(label.getAttribute('is-sr-only')).not.toBeUndefined();
+      expect(label.getAttribute('is-sr-only')).not.toBe('false');
+    });
+
+    it('sets aria attributes when the input is required or has an alert', async () => {
+      const input = await createSpecPage(
+        TnwInput,
+        `<tnw-input input-id="test-input" label="Accessible Input" type="text" is-required alert="Error Message" placeholder="Enter text" pattern="[1-9]+" value="ABCD"></tnw-input>`,
+        'input'
+      );
+      expect(input.getAttribute('aria-required')).toBe('true');
+      expect(input.getAttribute('aria-invalid')).toBe('true');
     });
   });
 
@@ -176,35 +209,177 @@ describe('tnw-input', () => {
     });
   });
 
-  describe('Label and Accessibility', () => {
-    it('renders a label associated with the input', async () => {
-      const label = await createSpecPage(
-        TnwInput,
-        `<tnw-input input-id="test-input" label="Accessible Input" placeholder="Enter text" type="text"></tnw-input>`,
-        'tnw-label'
-      ) as HTMLTnwLabelElement;
-      expect(label).not.toBeNull();
-      expect(label.getAttribute('htmlfor')).toBe('test-input');
+  describe('Security Tests', () => {
+    describe('SQL Injection Validation Tests', () => {
+      it('sanitize input initialized value', async () => {
+        const page = await newSpecPage({
+          components: [TnwInput],
+          html: `<tnw-input 
+                input-id="input-3" 
+                label="Number Input" 
+                type="text" 
+                placeholder="Enter a number"
+                sanitize-input
+                value="<script>test</script>"
+              >
+              </tnw-input>`,
+        });
+
+        const host = page.root as HTMLTnwInputElement;
+        const inputElement = host.shadowRoot.querySelector('input') as HTMLInputElement;
+        const alertElement = host.shadowRoot.querySelector('tnw-alert') as HTMLTnwAlertElement;
+
+        expect(alertElement).toBeNull();
+        expect(inputElement.value).toBe('test');
+      });
+
+      it('sanitize input value on change event', async () => {
+        const page = await newSpecPage({
+          components: [TnwInput],
+          html: `<tnw-input 
+                input-id="input-3" 
+                label="Number Input" 
+                type="text" 
+                placeholder="Enter a number"
+                sanitize-input
+              >
+              </tnw-input>`,
+        });
+
+        const host = page.root as HTMLTnwInputElement;
+
+        await page.waitForChanges();
+
+        const inputElement = host.shadowRoot.querySelector('input') as HTMLInputElement;
+
+        await page.waitForChanges();
+        inputElement.value = '<script>test</script>';
+        await page.waitForChanges();
+        inputElement.dispatchEvent(new CustomEvent('change', {}));
+        await page.waitForChanges();
+
+        const alertElement = host.shadowRoot.querySelector('tnw-alert') as HTMLTnwAlertElement;
+        expect(alertElement).toBeNull();
+
+        expect(inputElement.value).toBe('test');
+      });
+
+      it('displays an alert message for invalid input on change event', async () => {
+        const page = await newSpecPage({
+          components: [TnwInput],
+          html: `<tnw-input 
+                input-id="input-3" 
+                label="Number Input" 
+                type="text" 
+                placeholder="Enter a number"
+              >
+              </tnw-input>`,
+        });
+
+        const host = page.root as HTMLTnwInputElement;
+
+        await page.waitForChanges();
+
+        const inputElement = host.shadowRoot.querySelector('input') as HTMLInputElement;
+
+        await page.waitForChanges();
+        inputElement.value = '<script>test</script>';
+        await page.waitForChanges();
+        inputElement.dispatchEvent(new CustomEvent('change', {}));
+        await page.waitForChanges();
+
+        const alertElement = host.shadowRoot.querySelector('tnw-alert') as HTMLTnwAlertElement;
+        expect(alertElement).not.toBeNull();
+
+        const alertMessage = alertElement?.getAttribute('message');
+        expect(alertMessage).toContain('Invalid SQL patterns detected.');
+      });
+
+      it('does not display an alert for valid input', async () => {
+        const page = await newSpecPage({
+          components: [TnwInput],
+          html: `<tnw-input 
+                input-id="input-4" 
+                label="Number Input" 
+                type="text" 
+                placeholder="Enter a number">
+              </tnw-input>`,
+        });
+
+        const host = page.root as HTMLTnwInputElement;
+
+        await page.waitForChanges();
+
+        const inputElement = host.shadowRoot.querySelector('input') as HTMLInputElement;
+
+        inputElement.value = '12345';
+        inputElement.dispatchEvent(new CustomEvent('change', {}));
+        await page.waitForChanges();
+
+        const alertElement = host.shadowRoot.querySelector('tnw-alert') as HTMLTnwAlertElement;
+
+        expect(alertElement).toBeNull();
+      });
     });
 
-    it('renders a visually hidden label when isLabelSrOnly is true', async () => {
-      const label = await createSpecPage(
-        TnwInput,
-        `<tnw-input input-id="test-input" label="Hidden Label" type="text" placeholder="Enter text" is-label-sr-only></tnw-input>`,
-        'tnw-label'
-      );
-      expect(label.getAttribute('is-sr-only')).not.toBeUndefined();
-      expect(label.getAttribute('is-sr-only')).not.toBe('false');
+    describe('Pattern Validation Tests', () => {
+      it('displays an alert message for input not matching the pattern', async () => {
+        const page = await newSpecPage({
+          components: [TnwInput],
+          html: `<tnw-input 
+                  input-id="input-pattern-test" 
+                  label="Pattern Test Input" 
+                  type="text" 
+                  placeholder="Enter a number" 
+                  pattern="^[0-9]+$"
+                >
+                </tnw-input>`,
+        });
+
+        const host = page.root as HTMLTnwInputElement;
+
+        await page.waitForChanges();
+
+        const inputElement = host.shadowRoot.querySelector('input') as HTMLInputElement;
+
+        inputElement.value = 'abc';
+        inputElement.dispatchEvent(new CustomEvent('change', {}));
+        await page.waitForChanges();
+
+        const alertElement = host.shadowRoot.querySelector('tnw-alert') as HTMLTnwAlertElement;
+
+        expect(alertElement).not.toBeNull();
+        expect(alertElement?.getAttribute('message')).toBe('Input does not match the required pattern.');
+      });
+
+      it('does not display an alert for input matching the pattern', async () => {
+        const page = await newSpecPage({
+          components: [TnwInput],
+          html: `<tnw-input 
+                  input-id="input-pattern-test" 
+                  label="Pattern Test Input" 
+                  type="text" 
+                  placeholder="Enter a number" 
+                  pattern="^[0-9]+$"
+                >
+                </tnw-input>`,
+        });
+
+        const host = page.root as HTMLTnwInputElement;
+
+        await page.waitForChanges();
+
+        const inputElement = host.shadowRoot.querySelector('input') as HTMLInputElement;
+
+        inputElement.value = '12345';
+        inputElement.dispatchEvent(new CustomEvent('change', {}));
+        await page.waitForChanges();
+
+        const alertElement = host.shadowRoot.querySelector('tnw-alert') as HTMLTnwAlertElement;
+
+        expect(alertElement).toBeNull();
+      });
     });
 
-    it('sets aria attributes when the input is required or has an alert', async () => {
-      const input = await createSpecPage(
-        TnwInput,
-        `<tnw-input input-id="test-input" label="Accessible Input" type="text" is-required alert="Error Message" placeholder="Enter text" alert-type="danger"></tnw-input>`,
-        'input'
-      );
-      expect(input.getAttribute('aria-required')).toBe('true');
-      expect(input.getAttribute('aria-invalid')).toBe('true');
-    });
   });
 });

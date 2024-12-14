@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-14T06:47:19",
+  "timestamp": "2024-12-14T20:47:50",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -7320,62 +7320,6 @@
       },
       "props": [
         {
-          "name": "alert",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "alert",
-          "reflectToAttr": false,
-          "docs": "alert displayed when the input is invalid.",
-          "docsTags": [],
-          "default": "''",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "alertType",
-          "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
-          "complexType": {
-            "original": "\"danger\" | \"warning\" | \"success\" | \"info\"",
-            "resolved": "\"danger\" | \"info\" | \"success\" | \"warning\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "alert-type",
-          "reflectToAttr": false,
-          "docs": "Indicates if the input is in an invalid state.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "danger",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "autoComplete",
           "type": "string",
           "complexType": {
@@ -7725,6 +7669,28 @@
           "required": true
         },
         {
+          "name": "sanitizeInput",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "sanitize-input",
+          "reflectToAttr": false,
+          "docs": "Determines whether the input value should be sanitized during change events to prevent SQL injection attacks.\nIf set to `true`, the input will be sanitized before being validated.\nIf set to `false`, the input will still undergo validation but without sanitization.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "type",
           "type": "string",
           "complexType": {
@@ -7800,7 +7766,36 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "inputChanged",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input value changes. The event's payload contains the new value.",
+          "docsTags": []
+        },
+        {
+          "event": "validationFailed",
+          "detail": "{ inputId: string; error: string; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ inputId: string; error: string }",
+            "resolved": "{ inputId: string; error: string; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when validation fails.\n\nThe event payload contains:\n- `inputId`: The unique ID of the input element.\n- `error`: A string message explaining the validation failure.",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [],

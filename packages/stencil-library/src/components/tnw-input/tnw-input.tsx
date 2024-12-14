@@ -1,11 +1,12 @@
-import { Component, Prop, Host, h, Element, State } from '@stencil/core';
+import { Component, Prop, Host, h, Element, State, Watch, Event, EventEmitter } from '@stencil/core';
 import { getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-input.styles';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { BorderRadiusType } from '../../utils/component-props-types';
 import { createStore } from '@stencil/store';
-import { validateProps } from './utils/tnw-input-validate-props';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { containsSQLInjectionPatterns, sanitizeInput } from '../../utils/security-utils';
+import { validateProps } from './utils/tnw-input-validate-props';
 
 /**
  * The `tnw-input` component is a customizable input field that supports various input types, validation, and appearance options.
@@ -28,6 +29,9 @@ export class TnwInput {
 
   @State() store = createStore({
     inputValue: this.value,
+    alertMessage: this.helpText,
+    alertType: undefined,
+    isInvalid: this.isInvalid
   });
 
   /**
@@ -106,16 +110,6 @@ export class TnwInput {
   @Prop() disabled?: boolean = false;
 
   /**
-   * Indicates if the input is in an invalid state.
-   */
-  @Prop() alertType?: "danger" | "warning" | "success" | "info";
-
-  /**
-   * alert displayed when the input is invalid.
-   */
-  @Prop() alert?: string = '';
-
-  /**
    * The help text providing additional information about the input.
    */
   @Prop() helpText?: string = '';
@@ -124,6 +118,27 @@ export class TnwInput {
    * The border radius of the input.
    */
   @Prop() borderRadius?: BorderRadiusType = 'default';
+
+  /**
+   * Determines whether the input value should be sanitized during change events to prevent SQL injection attacks.
+   * If set to `true`, the input will be sanitized before being validated.
+   * If set to `false`, the input will still undergo validation but without sanitization.
+   */
+  @Prop() sanitizeInput?: boolean = false;
+
+  /**
+   * Event emitted when the input value changes. The event's payload contains the new value.
+   */
+  @Event() inputChanged: EventEmitter<string>;
+
+  /**
+   * Event emitted when validation fails.
+   * 
+   * The event payload contains:
+   * - `inputId`: The unique ID of the input element.
+   * - `error`: A string message explaining the validation failure.
+   */
+  @Event() validationFailed: EventEmitter<{ inputId: string; error: string }>;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -143,17 +158,68 @@ export class TnwInput {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alert, this.alertType, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isInvalid, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.type, this.value, this.variant];
-    validateProps(propsValues);
+    validateProps([this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isInvalid, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value, this.variant]);
+
+    this.initStore();
+    this.validateInput(this.value || '');
   }
 
-  private handleInput = (event: Event) => {
+  @Watch('value')
+  handleValueChange(newValue: string) {
+    this.store.set('inputValue', newValue);
+    this.validateInput(newValue);
+  }
+
+  @Watch('isInvalid')
+  handleIsInvalidChange(newValue: boolean) {
+    this.store.set('isInvalid', newValue);
+  }
+
+  private initStore() {
+    this.store.set('inputValue', this.value || '');
+    this.store.set('alertMessage', this.helpText || '');
+    this.store.set('alertType', undefined);
+    this.store.set('isInvalid', this.isInvalid || false);
+  }
+
+  private validateInput(value: string): void {
+    try {
+      const sanitizedValue = this.sanitizeInput ? sanitizeInput(value) : value;
+      /**
+       * Check for SQL injection patterns. Only perform this check if `sanitizeInput` prop is false.
+       */
+      if (!this.sanitizeInput && containsSQLInjectionPatterns(sanitizedValue)) {
+        throw new Error('Invalid SQL patterns detected.');
+      }
+      
+      // Check for pattern mismatch
+      if (this.pattern && !new RegExp(this.pattern).test(sanitizedValue)) {
+        throw new Error('Input does not match the required pattern.');
+      }
+
+      this.store.set('inputValue', sanitizedValue);
+      this.store.set('alertMessage', '');
+      this.store.set('alertType', undefined);
+      this.store.set('isInvalid', false);
+    } catch (error) {
+      const errorMsg = error.message || this.helpText;
+      this.store.set('alertMessage', errorMsg);
+      this.store.set('alertType', 'danger');
+      this.store.set('isInvalid', true);
+      this.validationFailed.emit({ inputId: this.inputId, error: errorMsg });
+    }
+  }
+
+  private handleInputOnChange = (event: Event) => {
     const input = event.target as HTMLInputElement;
-    this.store.set('inputValue', input.value);
+    
+    this.validateInput(input.value);
+    this.inputChanged.emit(input.value);
   };
 
   private getInputClasses(): string {
-    const { baseClass, variant, alertType } = this;
+    const { baseClass, variant } = this;
+    const alertType = this.store.get('alertType');
 
     return [
       baseClass,
@@ -161,6 +227,18 @@ export class TnwInput {
       isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
       getBorderRadiusClass(this.borderRadius),
     ].filter(Boolean).join(' ').trim();
+  }
+
+  private getAriaAttributes(): Record<string, string | null> {
+    return {
+      'aria-invalid': this.store.get('isInvalid') ? 'true' : null,
+      'aria-required': this.isRequired ? 'true' : null,
+      'aria-describedby': [
+        isNotEmptyString(this.store.get('alertMessage')) ? `${this.inputId}-${this.store.get('alertType')}` : null,
+        isNotEmptyString(this.helpText) ? `${this.inputId}-help` : null,
+      ].filter(Boolean).join(' '),
+      'aria-labelledby': isNotEmptyString(this.label) ? this.inputId : null,
+    };
   }
 
   private renderLabel() {
@@ -180,16 +258,19 @@ export class TnwInput {
   }
 
   private renderAlert(): JSX.Element | null {
-    if (!isNotEmptyString(this.alert)) {
+    const alertMessage = this.store.get('alertMessage');
+    const alertType = this.store.get('alertType');
+
+    if (!isNotEmptyString(alertMessage)) {
       return null;
     }
 
     return (
       <tnw-alert
-        message={this.alert}
-        variant={this.alertType}
-        alertId={`${this.inputId}-${this.alertType}`}
-        part='alert'
+        message={alertMessage}
+        variant={alertType}
+        alertId={`${this.inputId}-${alertType}`}
+        part="alert"
       />
     );
   }
@@ -203,7 +284,7 @@ export class TnwInput {
       <tnw-alert
         message={this.helpText}
         alertId={`${this.inputId}-help`}
-        part='help-text'
+        part="help-text"
       />
     );
   }
@@ -212,7 +293,6 @@ export class TnwInput {
     return (
       <Host>
         {this.renderLabel()}
-
         <input
           class={this.getInputClasses()}
           id={this.inputId}
@@ -226,16 +306,10 @@ export class TnwInput {
           pattern={this.pattern}
           autocomplete={this.autoComplete}
           disabled={this.disabled}
-          aria-invalid={isNotEmptyString(this.alert) ? 'true' : null}
-          aria-required={this.isRequired ? 'true' : null}
-          aria-describedby={
-            [isNotEmptyString(this.alert) ? `${this.inputId}-${this.alertType}` : null, isNotEmptyString(this.helpText) ? `${this.inputId}-help` : null].filter(Boolean).join(' ')
-          }
-          aria-labelledby={isNotEmptyString(this.label) ? this.inputId : null}
-          onInput={this.handleInput}
+          {...this.getAriaAttributes()}
+          onChange={this.handleInputOnChange}
           part='input'
         />
-
         {this.renderAlert() || this.renderHelpText()}
       </Host>
     );

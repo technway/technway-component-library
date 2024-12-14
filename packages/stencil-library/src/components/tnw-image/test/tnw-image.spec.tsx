@@ -1,4 +1,4 @@
-import { createSpecPage, checkSpecPageError, queryElement } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwImage } from '../tnw-image';
 
 describe('tnw-image', () => {

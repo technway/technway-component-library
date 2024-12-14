@@ -17,7 +17,6 @@ describe('tnw-contact-banner', () => {
         TnwContactBanner,
         `<tnw-contact-banner></tnw-contact-banner>`
       );
-      console.log("host ", host.outerHTML)
       expect(host).toHaveClasses([
         'tnw-contact-banner',
         'container',

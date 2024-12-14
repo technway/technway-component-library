@@ -726,14 +726,6 @@ export namespace Components {
      */
     interface TnwInput {
         /**
-          * alert displayed when the input is invalid.
-         */
-        "alert"?: string;
-        /**
-          * Indicates if the input is in an invalid state.
-         */
-        "alertType"?: "danger" | "warning" | "success" | "info";
-        /**
           * The autocomplete setting for the input.
          */
         "autoComplete"?: string;
@@ -789,6 +781,10 @@ export namespace Components {
           * The placeholder text for the input.
          */
         "placeholder": string;
+        /**
+          * Determines whether the input value should be sanitized during change events to prevent SQL injection attacks. If set to `true`, the input will be sanitized before being validated. If set to `false`, the input will still undergo validation but without sanitization.
+         */
+        "sanitizeInput"?: boolean;
         /**
           * The input type (e.g., text, password).
          */
@@ -1439,6 +1435,10 @@ export interface TnwAccordionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwAccordionElement;
 }
+export interface TnwInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwInputElement;
+}
 export interface TnwSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwSelectElement;
@@ -1620,11 +1620,23 @@ declare global {
         prototype: HTMLTnwImageElement;
         new (): HTMLTnwImageElement;
     };
+    interface HTMLTnwInputElementEventMap {
+        "inputChanged": string;
+        "validationFailed": { inputId: string; error: string };
+    }
     /**
      * The `tnw-input` component is a customizable input field that supports various input types, validation, and appearance options.
      * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
      */
     interface HTMLTnwInputElement extends Components.TnwInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwInputElementEventMap>(type: K, listener: (this: HTMLTnwInputElement, ev: TnwInputCustomEvent<HTMLTnwInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwInputElementEventMap>(type: K, listener: (this: HTMLTnwInputElement, ev: TnwInputCustomEvent<HTMLTnwInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLTnwInputElement: {
         prototype: HTMLTnwInputElement;
@@ -2559,14 +2571,6 @@ declare namespace LocalJSX {
      */
     interface TnwInput {
         /**
-          * alert displayed when the input is invalid.
-         */
-        "alert"?: string;
-        /**
-          * Indicates if the input is in an invalid state.
-         */
-        "alertType"?: "danger" | "warning" | "success" | "info";
-        /**
           * The autocomplete setting for the input.
          */
         "autoComplete"?: string;
@@ -2615,6 +2619,14 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Event emitted when the input value changes. The event's payload contains the new value.
+         */
+        "onInputChanged"?: (event: TnwInputCustomEvent<string>) => void;
+        /**
+          * Event emitted when validation fails.  The event payload contains: - `inputId`: The unique ID of the input element. - `error`: A string message explaining the validation failure.
+         */
+        "onValidationFailed"?: (event: TnwInputCustomEvent<{ inputId: string; error: string }>) => void;
+        /**
           * A regex pattern to validate the input.
          */
         "pattern"?: string;
@@ -2622,6 +2634,10 @@ declare namespace LocalJSX {
           * The placeholder text for the input.
          */
         "placeholder": string;
+        /**
+          * Determines whether the input value should be sanitized during change events to prevent SQL injection attacks. If set to `true`, the input will be sanitized before being validated. If set to `false`, the input will still undergo validation but without sanitization.
+         */
+        "sanitizeInput"?: boolean;
         /**
           * The input type (e.g., text, password).
          */

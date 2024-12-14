@@ -81,21 +81,38 @@ export class TnwLabel {
   }
 
   private getClasses(): string {
-    const { baseClass, color, size, weight, textCase, isSrOnly } = this;
+    const { baseClass, color, size, weight, textCase } = this;
 
     return [
       baseClass,
       `${baseClass}--${size}`,
-      isSrOnly ? `sr-only` : ``,
       getColorClass('color', color),
       getTypographyClass('fw', weight),
       getTextTransformClass(textCase),
     ].filter(Boolean).join(' ').trim();
   }
 
+  private getSrOnlyClasses(): Record<string | number, string & {}> {
+    if (!this.isSrOnly) {
+      return {};
+    }
+
+    return {
+      position: 'absolute',
+      width: '1px',
+      height: '1px',
+      padding: '0',
+      margin: '-1px',
+      overflow: 'hidden',
+      clip: 'rect(0, 0, 0, 0)',
+      whiteSpace: 'nowrap',
+      border: '0',
+    } as const;
+  }
+
   render() {
     return (
-      <Host>
+      <Host style={this.getSrOnlyClasses()}>
         <label class={this.getClasses()} htmlFor={this.htmlFor} part='label'>
           {this.text}
         </label>

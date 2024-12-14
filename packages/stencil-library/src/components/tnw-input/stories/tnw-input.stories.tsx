@@ -89,3 +89,20 @@ HiddenLabel.args = {
   inputId: 'input-hidden-label',
   isLabelSrOnly: true,
 };
+
+// Input with initially sanitized value
+export const SanitizedValue = Template.bind({});
+SanitizedValue.args = {
+  ...Standard.args,
+  inputId: 'input-hidden-label',
+  sanitizeInput: true,
+  value: "'; DROP TABLE users; --",
+};
+
+// Input without initially not sanitized value
+export const NotSanitizedValue = Template.bind({});
+NotSanitizedValue.args = {
+  ...Standard.args,
+  inputId: 'input-hidden-label',
+  value: "'; DROP TABLE users; --",
+};

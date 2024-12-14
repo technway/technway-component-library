@@ -52,7 +52,6 @@ describe('tnw-badge', () => {
         TnwBadge,
         `<tnw-badge label="Custom Badge" variant="success" appearance="solid"></tnw-badge>`,
       );
-      console.log(host.outerHTML)
       expect(host).toHaveClass('tnw-extended-v-solid-success');
     });
 

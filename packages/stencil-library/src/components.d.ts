@@ -805,6 +805,7 @@ export namespace Components {
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
      * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.
+     * @deprecated Since v1.0.8
      */
     interface TnwItemsCarousel {
         /**
@@ -1632,6 +1633,7 @@ declare global {
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
      * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.
+     * @deprecated Since v1.0.8
      */
     interface HTMLTnwItemsCarouselElement extends Components.TnwItemsCarousel, HTMLStencilElement {
     }
@@ -2636,6 +2638,7 @@ declare namespace LocalJSX {
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
      * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.
+     * @deprecated Since v1.0.8
      */
     interface TnwItemsCarousel {
         /**
@@ -3402,6 +3405,7 @@ declare module "@stencil/core" {
             /**
              * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
              * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.
+             * @deprecated Since v1.0.8
              */
             "tnw-items-carousel": LocalJSX.TnwItemsCarousel & JSXBase.HTMLAttributes<HTMLTnwItemsCarouselElement>;
             /**

@@ -110,6 +110,11 @@ export function generateMarkdownForComponentsIndex(components: JsonDocsComponent
 export function generateMarkdownForComponent(component: JsonDocsComponent): string {
   let content = `# ${component.tag}\n\n`;
 
+  // Deprecation Notices
+  if (isNotEmptyString(component.deprecation)) {
+    content += `<span style="color: #d9534f; font-weight: bold;">⚠️ Deprecated: ${component.deprecation}</span>\n\n`;
+  }
+
   // Table of Contents
   content += `## Table of Contents\n\n`;
   content += `- [Overview](#overview)\n`;

@@ -10,7 +10,6 @@ describe('tnw-label', () => {
 
     it('displays the correct text content', async () => {
       const el = await createSpecPage(TnwLabel, `<tnw-label text="Email" html-for="email"></tnw-label>`, 'label');
-      console.log(el.outerHTML)
       expect(el?.textContent).toBe('Email');
     });
 

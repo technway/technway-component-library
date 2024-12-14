@@ -46,7 +46,6 @@ describe('tnw-image', () => {
         TnwImage,
         `<tnw-image src="image.jpg" alt="Image" height-size="lg"></tnw-image>`,
       );
-      console.log(host.outerHTML);
       expect(host).toHaveClass('tnw-image--height-lg');
     });
 

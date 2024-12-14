@@ -17,6 +17,8 @@ import { validateProps } from './utils/tnw-items-carousel-validate-props';
  * @part carousel-slide - The wrapper element for each slide in the carousel.
  * @part controls-container - The container `div` element that wraps the carousel controls.
  * @part control - The `button` element for the control (next/previous buttons).
+ * 
+ * @deprecated Since v1.0.8
  */
 @Component({
   tag: 'tnw-items-carousel',

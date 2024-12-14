@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-13T13:42:09",
+  "timestamp": "2024-12-14T06:47:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -7869,6 +7869,10 @@
         {
           "name": "part",
           "text": "control - The `button` element for the control (next/previous buttons)."
+        },
+        {
+          "name": "deprecated",
+          "text": "Since v1.0.8"
         }
       ],
       "usage": {
@@ -8098,7 +8102,8 @@
         "tnw-items-carousel": [
           "tnw-icon"
         ]
-      }
+      },
+      "deprecation": "Since v1.0.8"
     },
     {
       "filePath": "src/components/tnw-label/tnw-label.tsx",

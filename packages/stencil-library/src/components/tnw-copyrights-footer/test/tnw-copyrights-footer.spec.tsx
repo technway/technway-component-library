@@ -31,7 +31,6 @@ describe('tnw-copyrights-footer', () => {
                 `<tnw-copyrights-footer use-current-year-as-start-year="true"></tnw-copyrights-footer>`,
                 'tnw-text'
             );
-            console.log('content', content.outerHTML);
             expect(content.getAttribute('text')).toContain(String(currentYear));
         });
 
@@ -52,7 +51,6 @@ describe('tnw-copyrights-footer', () => {
                 TnwCopyrightsFooter,
                 `<tnw-copyrights-footer background-color="primary" border-top-color="secondary"></tnw-copyrights-footer>`
             );
-            console.log('classes', host.outerHTML);
             expect(host).toHaveClasses([
                 'bg-primary',
                 'tnw-copyrights-footer--borderTop',

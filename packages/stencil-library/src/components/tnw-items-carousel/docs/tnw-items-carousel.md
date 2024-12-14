@@ -1,5 +1,7 @@
 # tnw-items-carousel
 
+<span style="color: #d9534f; font-weight: bold;">⚠️ Deprecated: Since v1.0.8</span>
+
 ## Table of Contents
 
 - [Overview](#overview)

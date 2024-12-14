@@ -5,6 +5,8 @@
 <!-- Auto Generated Below -->
 
 
+> **[DEPRECATED]** Since v1.0.8
+
 ## Overview
 
 The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.

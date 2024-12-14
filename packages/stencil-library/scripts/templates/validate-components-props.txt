@@ -4,8 +4,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `COMPONENT_TAG.tsx` file.
  * 
-const propsValues = [PROPS_NAMES_FOR_ARGS];
-validateProps(propsValues);
+validateProps([PROPS_NAMES_FOR_ARGS]);
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

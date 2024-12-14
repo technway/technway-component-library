@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tnw-label Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-label html-for="username" text="Username">
+exports[`tnw-label Default and Required Prop Behavior renders correctly with required props 1`] = `
+<tnw-label html-for="input-id" text="Label Text">
   <template shadowrootmode="open">
-    <label class="fw-500 tnw-label tnw-label--sm" htmlfor="username" part="label">
-      Username
+    <label class="fw-500 tnw-label tnw-label--sm" htmlfor="input-id" part="label">
+      Label Text
     </label>
   </template>
 </tnw-label>

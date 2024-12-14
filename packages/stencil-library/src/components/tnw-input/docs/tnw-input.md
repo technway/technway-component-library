@@ -5,6 +5,7 @@
 - [Overview](#overview)
 - [Properties](#properties)
 - [Shadow Parts](#shadow-parts)
+- [Events](#events)
 - [Usage](#usage)
 
 ## Overview
@@ -23,8 +24,6 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **alert** | <div>alert displayed when the input is invalid.</div> | `''` | `string` |
-| **alertType** | <div>Indicates if the input is in an invalid state.</div> | N/A | `"danger"` \| `"info"` \| `"success"` \| `"warning"` |
 | **autoComplete** | <div>The autocomplete setting for the input.</div> | `'off'` | `string` |
 | **borderRadius** | <div>The border radius of the input.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **disabled** | <div>Disables the input if set to true.</div> | `false` | `boolean` |
@@ -39,6 +38,9 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 | **name** | <div>The name of the input field.</div> | `''` | `string` |
 | **pattern** | <div>A regex pattern to validate the input.</div> | `''` | `string` |
 | **placeholder** | <div>The placeholder text for the input.</div> | N/A | `string` |
+| **sanitizeInput** | <div>Determines whether the input value should be sanitized during change events to prevent SQL injection attacks.
+If set to `true`, the input will be sanitized before being validated.
+If set to `false`, the input will still undergo validation but without sanitization.</div> | `false` | `boolean` |
 | **type** | <div>The input type (e.g., text, password).</div> | N/A | `string` |
 | **value** | <div>The initial value of the input.</div> | `''` | `string` |
 | **variant** | <div>Defines the color variant of the input.</div> | `'outlined'` | `"none"` \| `"outlined"` \| `"underlined"` |
@@ -53,6 +55,17 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 | **help-text** | The help text providing additional context for the input. |
 | **input** | The main `<input>` element. |
 | **label** | The `<label>` element for the input. |
+
+## Events
+
+| Event | Description |
+| --- | --- |
+| **inputChanged** | Event emitted when the input value changes. The event's payload contains the new value. |
+| **validationFailed** | Event emitted when validation fails.
+
+The event payload contains:
+- `inputId`: The unique ID of the input element.
+- `error`: A string message explaining the validation failure. |
 
 ## Usage & Examples
 

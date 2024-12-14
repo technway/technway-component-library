@@ -44,9 +44,17 @@ export const queryElement = (pageRoot: HTMLElement, elementSelector?: string, en
     if (!isNotEmptyString(elementSelector)) return pageRoot;
 
     try {
-        return (enableShadowDom === true && pageRoot.shadowRoot !== null && pageRoot.shadowRoot !== undefined)
-            ? pageRoot.shadowRoot.querySelector(elementSelector)
-            : pageRoot.querySelector(elementSelector);
+        const queryRoot = enableShadowDom && pageRoot.shadowRoot ? pageRoot.shadowRoot : pageRoot;
+        const element = queryRoot.querySelector(elementSelector);
+        
+        if (debug) {
+            console.log("Received page root:", pageRoot.outerHTML);
+            console.log(`Querying element with selector "${elementSelector}"`);
+            console.log('Enable Shadow DOM:', enableShadowDom);
+            console.log('Element found:', element);
+        }
+        
+        return element;
 
     } catch (error) {
         logError(error, debug);
@@ -111,3 +119,5 @@ export const checkSpecPageError = async (component: any, html: string, expectedM
     }
     expect(isErrorThrown).toBe(true);
 };
+
+    

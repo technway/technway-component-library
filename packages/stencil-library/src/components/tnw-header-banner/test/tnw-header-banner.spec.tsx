@@ -17,7 +17,6 @@ describe('tnw-header-banner', () => {
         TnwHeaderBanner,
         `<tnw-header-banner></tnw-header-banner>`
       );
-      console.log(host.outerHTML);
       expect(host).toHaveClasses([
         'tnw-header-banner',
       ]);

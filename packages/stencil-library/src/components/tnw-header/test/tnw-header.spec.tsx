@@ -16,7 +16,6 @@ describe('tnw-header', () => {
         TnwHeader,
         `<tnw-header></tnw-header>`
       );
-      console.log(host.outerHTML);
       expect(host).toHaveClasses([
         'tnw-header',
         'h-auto',
@@ -39,7 +38,6 @@ describe('tnw-header', () => {
         TnwHeader,
         `<tnw-header border-bottom-color="secondary"></tnw-header>`
       );
-      console.log(host.outerHTML);
       expect(host).toHaveClasses([
         'tnw-header--borderBottom',
         'border-b-secondary'

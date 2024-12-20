@@ -1,14 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tnw-list Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-list list-data="[{&quot;text&quot;:&quot;Item 1&quot;},{&quot;text&quot;:&quot;Item 2&quot;}]">
+exports[`tnw-list Default and Required Prop Behavior renders correctly with valid list data 1`] = `
+<tnw-list list-data="{&quot;listTag&quot;:&quot;ul&quot;,&quot;markerType&quot;:&quot;circle&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;Introduction&quot;,&quot;iconName&quot;:&quot;tnw-folder&quot;,&quot;url&quot;:&quot;https://example.com/introduction&quot;,&quot;newTab&quot;:true,&quot;subList&quot;:{&quot;listTag&quot;:&quot;ol&quot;,&quot;markerType&quot;:&quot;decimal&quot;,&quot;items&quot;:[{&quot;text&quot;:&quot;What is a list?&quot;},{&quot;text&quot;:&quot;How to use it&quot;}]}},{&quot;text&quot;:&quot;Conclusion&quot;,&quot;iconName&quot;:&quot;tnw-folder&quot;}]}">
   <template shadowrootmode="open">
-    <ul class="tnw-list tnw-list--disc tnw-list--inside" part="list">
+    <ul class="tnw-list tnw-list--circle tnw-list--inside" part="list">
       <li class="lh-1_75 tnw-list__item" part="item">
-        Item 1
+        <tnw-icon class="tnw-list__icon" name="tnw-folder" part="icon" size="xs"></tnw-icon>
+        <tnw-anchor href="https://example.com/introduction" text="Introduction" textdecoration="none"></tnw-anchor>
+        <ol class="tnw-list__sub-list tnw-list__sub-list--decimal tnw-list__sub-list--inside" part="sub-list">
+          <li class="lh-1_75 tnw-list__item" part="item">
+            What is a list?
+          </li>
+          <li class="lh-1_75 tnw-list__item" part="item">
+            How to use it
+          </li>
+        </ol>
       </li>
       <li class="lh-1_75 tnw-list__item" part="item">
-        Item 2
+        <tnw-icon class="tnw-list__icon" name="tnw-folder" part="icon" size="xs"></tnw-icon>
+        Conclusion
       </li>
     </ul>
   </template>

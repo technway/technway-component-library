@@ -63,7 +63,6 @@ It allows you to create lists with various marker types, colors, and fonts, and 
 | `lineHeight`            | `line-height`     | Adjusts the line height of the list items.                                                     | `"1" \| "1_25" \| "1_5" \| "1_75" \| "2" \| "2_25" \| "2_5"`                                                                                                                                                             | `"1_75"`    |
 | `listData` _(required)_ | `list-data`       | A JSON string representing the list data. Each item can contain `text` and an optional `icon`. | `string`                                                                                                                                                                                                                 | `undefined` |
 | `markerPosition`        | `marker-position` | Specifies the position of the list marker relative to the text.                                | `"inside" \| "outside"`                                                                                                                                                                                                  | `'inside'`  |
-| `markerType`            | `marker-type`     | Defines the type of list marker to use.                                                        | `"circle" \| "decimal" \| "disc" \| "lower-roman" \| "none" \| "square" \| "upper-roman"`                                                                                                                                | `'disc'`    |
 | `size`                  | `size`            | Defines the font size of the list items.                                                       | `"2xl" \| "3xl" \| "4xl" \| "5xl" \| "6xl" \| "7xl" \| "8xl" \| "9xl" \| "heading" \| "lg" \| "md" \| "sm" \| "text" \| "xl" \| "xs"`                                                                                    | `undefined` |
 | `textCase`              | `text-case`       | Controls the list items text transformation (e.g., uppercase, lowercase).                      | `"capitalize" \| "lowercase" \| "normal-case" \| "uppercase"`                                                                                                                                                            | `undefined` |
 | `weight`                | `weight`          | Specifies the font weight of the list items.                                                   | `"100" \| "200" \| "300" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "heading" \| "text"`                                                                                                                   | `undefined` |
@@ -83,11 +82,14 @@ It allows you to create lists with various marker types, colors, and fonts, and 
 ### Depends on
 
 - [tnw-icon](../tnw-icon)
+- [tnw-anchor](../tnw-anchor)
 
 ### Graph
 ```mermaid
 graph TD;
   tnw-list --> tnw-icon
+  tnw-list --> tnw-anchor
+  tnw-anchor --> tnw-icon
   style tnw-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

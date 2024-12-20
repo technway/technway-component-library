@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.0](https://github.com/technway/technway-component-library/compare/root-v2.8.1...root-v2.9.0) (2024-12-20)
+=======
 # [1.1.0](https://github.com/technway/technway-component-library/compare/v1.0.7...v1.1.0) (2024-12-20)
 
 
@@ -17,8 +19,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **tnw-input:** implement pattern validation and security enhancements ([89052b3](https://github.com/technway/technway-component-library/commit/89052b30c21f16816e8722410677194c958742cc))
 * **tnw-items-carousel:** deprecate component ([0ad83dd](https://github.com/technway/technway-component-library/commit/0ad83dd592ac7c19296d8642773a196620ac7d86))
 * **tnw-list:** enhance component with new features and improvements ([1b1e25c](https://github.com/technway/technway-component-library/commit/1b1e25c7f15c18b4c554cecac9c96d5485ebf7d5))
-
-
 
 
 

@@ -6,12 +6,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for suggesting a feature! Please provide the following details:
+        Thank you for suggesting a feature! To help us better understand your request, please fill out the following details. Providing as much detail as possible will make it easier for us to evaluate your proposal.
   - type: dropdown
     id: library
     attributes:
-      label: Library
-      description: Which library does this feature relate to?
+      label: Affected Library
+      description: Which library does this feature request relate to?
       options:
         - Stencil Library
         - React Library
@@ -21,21 +21,47 @@ body:
     id: feature_description
     attributes:
       label: Feature Description
-      description: What feature would you like to see?
-      placeholder: Describe the feature you'd like to see implemented.
+      description: What feature would you like to see implemented?
+      placeholder: Provide a clear and concise description of the feature.
     validations:
       required: true
   - type: textarea
-    id: use_case
+    id: why_is_this_feature_needed
     attributes:
-      label: Use Case
-      description: How would this feature improve your workflow?
-      placeholder: Describe the use case for this feature.
+      label: Why Is This Feature Needed? 
+      description: Explain why this feature is important and how it will benefit users.
+      placeholder: Describe the motivation or problem this feature would solve.
     validations:
       required: true
   - type: textarea
-    id: alternatives
+    id: proposed_solution
     attributes:
-      label: Alternatives
-      description: Are there any alternatives you've considered?
-      placeholder: Describe any alternative solutions or features you've considered.
+      label: Proposed Solution
+      description: How do you envision this feature working? Include any specific implementation ideas, if applicable.
+      placeholder: Provide a detailed description of the proposed solution.
+    validations:
+      required: false
+  - type: textarea
+    id: example_scenario
+    attributes:
+      label: Example Scenario
+      description: Provide an example scenario or use case for this feature. How would it be used in practice?
+      placeholder: "e.g., When using the Stencil Library's Button component, I want to..."
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives_considered
+    attributes:
+      label: Alternatives Considered
+      description: Are there other ways to achieve the same result? If so, why do they not meet your needs?
+      placeholder: Describe any alternative approaches or solutions you’ve considered.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Acknowledgment
+      description: By submitting this request, you acknowledge that it may take time to evaluate and implement the feature.
+      options:
+        - label: I understand and agree
+          required: true

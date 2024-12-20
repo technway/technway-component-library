@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-14T20:47:50",
+  "timestamp": "2024-12-20T08:41:15",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -1214,6 +1214,7 @@
       ],
       "dependents": [
         "tnw-footer",
+        "tnw-list",
         "tnw-navbar-dropdown-menu",
         "tnw-navbar-menu",
         "tnw-portfolio-grid"
@@ -1226,6 +1227,9 @@
           "tnw-icon"
         ],
         "tnw-footer": [
+          "tnw-anchor"
+        ],
+        "tnw-list": [
           "tnw-anchor"
         ],
         "tnw-navbar-dropdown-menu": [
@@ -8665,53 +8669,6 @@
           "required": false
         },
         {
-          "name": "markerType",
-          "type": "\"circle\" | \"decimal\" | \"disc\" | \"lower-roman\" | \"none\" | \"square\" | \"upper-roman\"",
-          "complexType": {
-            "original": "'disc' | 'circle' | 'square' | 'decimal' | 'lower-roman' | 'upper-roman' | 'none'",
-            "resolved": "\"circle\" | \"decimal\" | \"disc\" | \"lower-roman\" | \"none\" | \"square\" | \"upper-roman\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "marker-type",
-          "reflectToAttr": false,
-          "docs": "Defines the type of list marker to use.",
-          "docsTags": [],
-          "default": "'disc'",
-          "values": [
-            {
-              "value": "circle",
-              "type": "string"
-            },
-            {
-              "value": "decimal",
-              "type": "string"
-            },
-            {
-              "value": "disc",
-              "type": "string"
-            },
-            {
-              "value": "lower-roman",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "square",
-              "type": "string"
-            },
-            {
-              "value": "upper-roman",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "size",
           "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -8925,10 +8882,15 @@
       ],
       "dependents": [],
       "dependencies": [
-        "tnw-icon"
+        "tnw-icon",
+        "tnw-anchor"
       ],
       "dependencyGraph": {
         "tnw-list": [
+          "tnw-icon",
+          "tnw-anchor"
+        ],
+        "tnw-anchor": [
           "tnw-icon"
         ]
       }

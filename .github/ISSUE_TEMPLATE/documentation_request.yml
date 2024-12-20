@@ -1,0 +1,33 @@
+name: Documentation Request
+description: Suggest updates or improvements to the documentation.
+title: "[DOCS] - "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please let us know how we can improve the documentation:
+  - type: dropdown
+    id: library
+    attributes:
+      label: Library
+      description: Which library does this documentation request relate to?
+      options:
+        - React Library
+        - Stencil Library
+    validations:
+      required: true
+  - type: textarea
+    id: documentation_area
+    attributes:
+      label: Documentation Area
+      description: Which section of the documentation needs improvement?
+      placeholder: Component API, usage examples, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: improvement_details
+    attributes:
+      label: Suggested Improvements
+      description: Provide details about the changes or additions you'd like to see.
+      placeholder: Describe what should be added, updated, or clarified.

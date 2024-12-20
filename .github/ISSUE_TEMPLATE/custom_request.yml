@@ -1,0 +1,24 @@
+name: Custom Request
+description: Create a custom issue that doesn't fit into other categories.
+title: "[CUSTOM] - "
+labels: [custom-request]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to submit an issue or request that doesn't fit into any other category:
+  - type: dropdown
+    id: library
+    attributes:
+      label: Library
+      description: Which library is related to your request?
+      options:
+        - React Library
+        - Stencil Library
+        - Other
+  - type: textarea
+    id: description
+    attributes:
+      label: Request Description
+      description: Provide a detailed description of your request or issue.
+      placeholder: Provide details about your request.

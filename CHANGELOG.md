@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.9.0](https://github.com/technway/technway-component-library/compare/root-v2.8.1...root-v2.9.0) (2024-12-20)
+=======
+# [1.1.0](https://github.com/technway/technway-component-library/compare/v1.0.7...v1.1.0) (2024-12-20)
+
+
+### Bug Fixes
+
+* **tnw-button:** resolve disabled attribute issue ([6a726ff](https://github.com/technway/technway-component-library/commit/6a726ff1421d950f5d4ec2971eef55ebcece2284))
 
 
 ### Features
@@ -14,9 +21,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **tnw-list:** enhance component with new features and improvements ([1b1e25c](https://github.com/technway/technway-component-library/commit/1b1e25c7f15c18b4c554cecac9c96d5485ebf7d5))
 
 
-### Bug Fixes
-
-* **tnw-button:** resolve disabled attribute issue ([6a726ff](https://github.com/technway/technway-component-library/commit/6a726ff1421d950f5d4ec2971eef55ebcece2284))
 
 ## [1.0.11](https://github.com/technway/technway-component-library/compare/v1.0.7...v1.0.11) (2024-12-09)
 

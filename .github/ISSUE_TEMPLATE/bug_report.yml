@@ -13,8 +13,8 @@ body:
       label: Affected Library
       description: Which library does the issue relate to?
       options:
-        - React Library
         - Stencil Library
+        - React Library
     validations:
       required: true
   - type: textarea

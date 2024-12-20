@@ -13,8 +13,8 @@ body:
       label: Library
       description: Which library does this documentation request relate to?
       options:
-        - React Library
         - Stencil Library
+        - React Library
     validations:
       required: true
   - type: textarea

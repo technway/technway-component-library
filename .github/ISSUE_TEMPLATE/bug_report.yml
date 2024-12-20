@@ -1,12 +1,12 @@
 name: Bug Report
-description: Report a bug or unexpected behavior.
+description: Report a bug or unexpected behavior in the library.
 title: "[BUG] - "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for reporting a bug! Please fill out the details below to help us investigate.
+        Thank you for reporting a bug! Please fill out the following details to help us investigate and resolve the issue.
   - type: dropdown
     id: library
     attributes:
@@ -20,17 +20,17 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: Describe the Bug
-      description: Provide a clear and concise description of the problem.
-      placeholder: A clear and concise description of what the bug is.
+      label: Bug Description
+      description: Provide a clear and concise description of the bug.
+      placeholder: "Describe what the bug is."
     validations:
       required: true
   - type: textarea
-    id: reproduction_steps
+    id: steps_to_reproduce
     attributes:
       label: Steps to Reproduce
-      description: Provide the steps to reproduce the issue.
-      placeholder: "1. Go to...\n2. Click on...\n3. Observe the issue."
+      description: Provide the steps needed to reproduce the issue.
+      placeholder: "1. Go to...\n2. Click on...\n3. See the error."
     validations:
       required: true
   - type: textarea
@@ -38,20 +38,47 @@ body:
     attributes:
       label: Expected Behavior
       description: What did you expect to happen?
-      placeholder: Describe what you expected to happen.
+      placeholder: "Describe the expected behavior."
+    validations:
+      required: true
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: "Describe the actual behavior you observed."
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Provide details about your environment.
+      placeholder: "e.g., OS: Windows 10, Browser: Chrome 112, Library Version: 1.0.0"
     validations:
       required: true
   - type: textarea
     id: logs
     attributes:
-      label: Relevant Logs or Console Output
-      description: Paste any relevant logs or console output.
+      label: Logs or Console Output
+      description: Paste any relevant logs or console output here. It will automatically be formatted.
+      placeholder: "Paste logs or error messages here."
       render: shell
+    validations:
+      required: false
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context or screenshots about the issue.
+      placeholder: "Provide any other relevant information here."
+    validations:
+      required: false
   - type: checkboxes
     id: terms
     attributes:
-      label: Code of Conduct Agreement
-      description: By submitting this issue, you agree to follow our Code of Conduct.
+      label: Acknowledgment
+      description: By submitting this bug report, you acknowledge that it may take time to investigate and resolve the issue.
       options:
-        - label: I agree to follow the Code of Conduct
+        - label: I understand and agree
           required: true

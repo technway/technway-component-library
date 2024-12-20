@@ -13,8 +13,8 @@ body:
       label: Library
       description: Which library is related to your request?
       options:
-        - React Library
         - Stencil Library
+        - React Library
         - Other
   - type: textarea
     id: description

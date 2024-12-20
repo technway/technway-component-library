@@ -889,10 +889,6 @@ export namespace Components {
          */
         "markerPosition"?: 'inside' | 'outside';
         /**
-          * Defines the type of list marker to use.
-         */
-        "markerType"?: 'disc' | 'circle' | 'square' | 'decimal' | 'lower-roman' | 'upper-roman' | 'none';
-        /**
           * Defines the font size of the list items.
          */
         "size"?: FontSizeType;
@@ -2741,10 +2737,6 @@ declare namespace LocalJSX {
           * Specifies the position of the list marker relative to the text.
          */
         "markerPosition"?: 'inside' | 'outside';
-        /**
-          * Defines the type of list marker to use.
-         */
-        "markerType"?: 'disc' | 'circle' | 'square' | 'decimal' | 'lower-roman' | 'upper-roman' | 'none';
         /**
           * Defines the font size of the list items.
          */

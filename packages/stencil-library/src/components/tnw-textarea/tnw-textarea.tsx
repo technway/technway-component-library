@@ -1,10 +1,11 @@
-import { Component, Host, Prop, h, State, Element } from '@stencil/core';
-import { getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { Component, Host, Prop, h, State, Element, Event, EventEmitter } from '@stencil/core';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
 import { createStore } from '@stencil/store';
 import { BorderRadiusType } from '../../utils/component-props-types';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { styles } from './tnw-textarea.styles';
 import { validateProps } from './utils/tnw-textarea-validate-props';
+import { containsSQLInjectionPatterns, sanitizeInput } from '../../utils/security-utils';
 
 /**
  * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.
@@ -26,12 +27,26 @@ export class TnwTextarea {
 
   @State() store = createStore({
     textareaValue: this.value,
+    alertMessage: this.helpText,
+    alertType: undefined,
+    isInvalid: false,
+    uniqueId: undefined,
   });
 
   /**
    * The label for the textarea.
    */
   @Prop() label!: string;
+
+  /**
+   * The unique ID for the textarea element. If not provided, a random ID will be generated.
+   */
+  @Prop() textareaId?: string;
+
+  /**
+   * The placeholder text for the textarea.
+   */
+  @Prop() placeholder!: string;
 
   /**
    * Defines the color variant of the textarea.
@@ -42,11 +57,6 @@ export class TnwTextarea {
    * If true, the label is visually hidden but still accessible to screen readers.
    */
   @Prop() isLabelSrOnly?: boolean;
-
-  /**
-   * The unique ID for the textarea element.
-   */
-  @Prop() textareaId!: string;
 
   /**
    * The name of the textarea field.
@@ -62,16 +72,6 @@ export class TnwTextarea {
    * Marks the textarea as required.
    */
   @Prop() isRequired?: boolean = false;
-
-  /**
-   * The placeholder text for the textarea.
-   */
-  @Prop() placeholder!: string;
-
-  /**
-   * Indicates if the textarea has invalid data.
-   */
-  @Prop() isInvalid?: boolean = false;
 
   /**
    * The maximum number of characters allowed in the textarea.
@@ -104,16 +104,6 @@ export class TnwTextarea {
   @Prop() autoComplete?: string = '';
 
   /**
-   * Error alert displayed when the textarea is invalid.
-   */
-  @Prop() alert?: string = '';
-
-  /**
-   * Indicates if the textarea is in an invalid state.
-   */
-  @Prop() alertType?: "danger" | "warning" | "success" | "info";
-
-  /**
    * The help text providing additional information about the textarea.
    */
   @Prop() helpText?: string = '';
@@ -127,6 +117,27 @@ export class TnwTextarea {
    * The border radius of the textarea.
    */
   @Prop() borderRadius?: BorderRadiusType = 'default';
+
+  /**
+   * Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.
+   * If set to `true`, the textarea will be sanitized before being validated.
+   * If set to `false`, the textarea will still undergo validation but without sanitization.
+   */
+  @Prop() sanitizeTextarea?: boolean = false;
+
+  /**
+   * Event emitted when the textarea value changes. The event's payload contains the new value.
+   */
+  @Event() textareaChanged: EventEmitter<string>;
+
+  /**
+   * Event emitted when validation fails.
+   * 
+   * The event payload contains:
+   * - `textareaId`: The unique ID of the textarea element.
+   * - `error`: A string message explaining the validation failure.
+   */
+  @Event() validationFailed: EventEmitter<{ textareaId: string; error: string }>;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -143,21 +154,200 @@ export class TnwTextarea {
         this.componentStyles
       ];
     }
+
+    this.setUniqueId();
   }
 
   componentWillLoad() {
-    const propsValues = [this.alert, this.alertType, this.autoComplete, this.borderRadius, this.cols, this.disabled, this.helpText, this.isInvalid, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.placeholder, this.resize, this.rows, this.textareaId, this.value, this.variant];
-    validateProps(propsValues);
+    validateProps([this.autoComplete, this.borderRadius, this.cols, this.disabled, this.helpText, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.placeholder, this.resize, this.rows, this.sanitizeTextarea, this.textareaId, this.value, this.variant]);
+
+    /**
+     * Initialize the store with the initial value.
+     */
+    this.setStore(this.value);
   }
 
-  private handleInput = (event: Event) => {
+  /**
+   * Sets a unique ID for the textarea element.
+   * 
+   * This method checks if `textareaId` is a non-empty string. If it is, 
+   * it stores `textareaId` as `uniqueId` in the store. Otherwise, it 
+   * generates a random ID and stores it as `uniqueId`.
+   */
+  private setUniqueId(): void {
+    if (isNotEmptyString(this.textareaId)) {
+      this.store.set('uniqueId', this.textareaId);
+    } else {
+      this.store.set('uniqueId', generateRandomId(this.baseClass))
+    }
+  }
+
+  /**
+   * Sets the store values for the textarea component.
+   *
+   * @param value - The value to be set in the store. Optional.
+   * @param sanitizeValue - A flag indicating whether the value should be sanitized. Optional.
+   *
+   * This method attempts to set the store value and resets any alert messages or validation states.
+   * If an error occurs during this process, it sets the appropriate alert messages and validation states,
+   * and emits a validationFailed event with the textarea ID and error message.
+   *
+   * @throws Will set an error message in the store and emit a validationFailed event if an error occurs.
+   */
+  private setStore(value?: string, sanitizeValue?: boolean): void {
+    try {
+      this.setStoreValue(value, sanitizeValue);
+
+      this.store.set('alertMessage', '');
+      this.store.set('alertType', undefined);
+      this.store.set('isInvalid', false);
+    } catch (error) {
+      console.log('Validation error detected:', error.message);
+      const errorMsg = error.message || this.helpText;
+      this.store.set('alertMessage', errorMsg);
+      this.store.set('alertType', 'danger');
+      this.store.set('isInvalid', true);
+      this.validationFailed.emit({ textareaId: this.uniqueId, error: errorMsg });
+    }
+  }
+
+  /**
+   * Sanitizes the textarea value based on the provided parameters.
+   *
+   * @param value - The textarea value to be sanitized. Defaults to the value from the store.
+   * @param sanitizeValue - A boolean flag indicating whether to sanitize the textarea value. Defaults to true.
+   * @returns The sanitized or original textarea value based on the sanitizeValue flag.
+   */
+  private sanitizeValue(
+    value: string = this.store.get("textareaValue"),
+    sanitizeValue: boolean = true
+  ): string {
+    const validatedValue =
+      sanitizeValue && this.sanitizeTextarea
+        ? sanitizeInput(value) :
+        value;
+
+    return validatedValue;
+  }
+
+  /**
+   * Validates the textarea value based on various criteria such as SQL injection patterns,
+   * pattern mismatch, minimum length, and maximum length.
+   *
+   * @param value - The textarea value to be validated.
+   * @param sanitizeValue - A boolean indicating whether the value should be sanitized before validation.
+   * 
+   * @throws {Error} If the textarea contains SQL injection patterns.
+   * @throws {Error} If the textarea is shorter than the minimum length.
+   * @throws {Error} If the textarea is longer than the maximum length.
+   */
+  private validateTextarea(value?: string, sanitizeValue?: boolean): void {
+    const validatedValue = this.sanitizeValue(value, sanitizeValue) || '';
+
+    // Check for SQL injection patterns
+    if (containsSQLInjectionPatterns(validatedValue)) {
+      console.log('SQL injection pattern detected:', validatedValue);
+      throw new Error('Invalid SQL patterns detected.');
+    }
+
+    // Check for minLength violation
+    if (this.minlength && validatedValue.length < this.minlength) {
+      throw new Error(`Text is too short. Minimum length is "${this.minlength}" characters.`);
+    }
+
+    // check for maxLength violation
+    if (this.maxlength && validatedValue.length > this.maxlength) {
+      throw new Error(`Text is too long. Maximum length is "${this.maxlength}" characters.`);
+    }
+  }
+
+  /**
+   * Sets the value in the store after sanitizing and validating it.
+   *
+   * @param value - The value to be set in the store. If not provided, defaults to an empty string.
+   * @param sanitizeValue - A flag indicating whether the value should be sanitized before setting it in the store.
+   */
+  private setStoreValue(value?: string, sanitizeValue?: boolean): void {
+    const validatedValue = this.sanitizeValue(value, sanitizeValue) || '';
+
+    this.validateTextarea(validatedValue, sanitizeValue);
+
+    this.store.set('textareaValue', validatedValue);
+  }
+
+  /**
+   * Handles the textarea change event.
+   *
+   * @param event - The textarea change event.
+   *
+   * This method performs the following actions:
+   * 1. Retrieves the textarea element from the event target.
+   * 2. Extracts the value from the textarea element.
+   * 3. Validates the extracted value. If the sanitizeTextarea prop is set to true, the value is sanitized.
+   * 4. Updates the store with the new value.
+   * 5. Emits the `textareaChanged` event with the new value.
+   * 6. Sets the textarea element's value to the validated value.
+   */
+  private handleTextareaOnChange = (event: Event) => {
     const textarea = event.target as HTMLTextAreaElement;
-    this.store.set('textareaValue', textarea.value);
-  };
+    const value: string = textarea.value;
+    
+    this.setStore(value)
+    const validatedValue = this.sanitizeValue(value);
+    console.log("validatedValue ", validatedValue)
+    this.textareaChanged.emit(validatedValue);
+    textarea.value = this.sanitizeValue(validatedValue);
+  }
 
+  /**
+   * Handles the input event on the textarea element.
+   *
+   * @param event - The input event triggered by the user.
+   * 
+   * This method performs the following actions:
+   * 1. Retrieves the textarea element from the event target.
+   * 2. Extracts the value from the textarea element.
+   * 3. Updates the store with the new value. It validates the textarea dynamically and displays alerts if necessary.
+   *    The value isn't sanitized even if the sanitizeTextarea prop is set to true.
+   *    It's sanitized only when the input change event is triggered.
+   */
+  private handleTextareaOnInput = (event: Event) => {
+    const textarea = event.target as HTMLTextAreaElement;
+    const value: string = textarea.value;
 
+    this.setStore(value, false);
+  }
 
-  private renderLabel() {
+  private get uniqueId(): string {
+    return this.store.get('uniqueId');
+  }
+
+  private getAriaAttributes(): Record<string, string | null> {
+    return {
+      'aria-invalid': this.store.get('isInvalid') ? 'true' : null,
+      'aria-describedby': [
+        isNotEmptyString(this.store.get('alertMessage')) ? `${this.uniqueId}-${this.store.get('alertType')}` : null,
+        isNotEmptyString(this.helpText) ? `${this.uniqueId}-help` : null,
+      ].filter(Boolean).join(' '),
+      'aria-labelledby': isNotEmptyString(this.label) ? this.uniqueId : null,
+    };
+  }
+
+  private getTextareaClasses(): string {
+    const { baseClass, variant, disabled, resize } = this;
+    const alertType = this.store.get('alertType');
+
+    return [
+      baseClass,
+      `${baseClass}--${variant}`,
+      disabled ? `${baseClass}--disabled` : '',
+      `${baseClass}--resize-${resize}`,
+      isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
+      getBorderRadiusClass(this.borderRadius),
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private renderLabel(): JSX.Element | null {
     if (!isNotEmptyString(this.label)) {
       return null;
     }
@@ -166,7 +356,7 @@ export class TnwTextarea {
       <tnw-label
         class={this.isLabelSrOnly ? 'sr-only' : ''}
         text={this.label}
-        htmlFor={this.textareaId}
+        htmlFor={this.uniqueId}
         isSrOnly={this.isLabelSrOnly}
         part='label'
       ></tnw-label>
@@ -174,21 +364,24 @@ export class TnwTextarea {
   }
 
   private renderAlert(): JSX.Element | null {
-    if (!isNotEmptyString(this.alert)) {
+    const alertMessage = this.store.get('alertMessage');
+    const alertType = this.store.get('alertType');
+
+    if (!isNotEmptyString(alertMessage)) {
       return null;
     }
 
     return (
       <tnw-alert
-        message={this.alert}
-        variant={this.alertType}
-        alertId={`${this.textareaId}-${this.alertType}`}
-        part='alert'
+        message={alertMessage}
+        variant={alertType}
+        alertId={`${this.uniqueId}-${alertType}`}
+        part="alert"
       />
     );
   }
 
-  private renderHelpText() {
+  private renderHelpText(): JSX.Element | null {
     if (!isNotEmptyString(this.helpText)) {
       return null;
     }
@@ -196,23 +389,10 @@ export class TnwTextarea {
     return (
       <tnw-alert
         message={this.helpText}
-        alertId={`${this.textareaId}-help`}
-        part='help-text'
+        alertId={`${this.uniqueId}-help`}
+        part="help-text"
       />
     );
-  }
-
-  private getTextareaClasses(): string {
-    const { baseClass, variant, resize, alertType, borderRadius, disabled } = this;
-
-    return [
-      baseClass,
-      `${baseClass}--${variant}`,
-      `${baseClass}--resize-${resize}`,
-      disabled ? `${baseClass}--disabled` : '',
-      isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
-      getBorderRadiusClass(borderRadius),
-    ].filter(Boolean).join(' ').trim();
   }
 
   render() {
@@ -222,9 +402,8 @@ export class TnwTextarea {
 
         <textarea
           class={this.getTextareaClasses()}
-          id={this.textareaId}
+          id={this.uniqueId}
           name={this.name}
-          value={this.store.get('textareaValue')}
           required={this.isRequired}
           placeholder={this.placeholder}
           maxlength={this.maxlength}
@@ -233,12 +412,12 @@ export class TnwTextarea {
           cols={this.cols}
           autocomplete={this.autoComplete}
           disabled={this.disabled}
-          aria-invalid={this.isInvalid ? 'true' : null}
-          aria-required={this.isRequired ? 'true' : null}
-          aria-labelledby={isNotEmptyString(this.label) ? this.textareaId : null}
-          onInput={this.handleInput}
-          part='textarea'
-        ></textarea>
+          value={this.store.get('textareaValue')}
+          {...this.getAriaAttributes()}
+          onInput={this.handleTextareaOnInput}
+          onChange={this.handleTextareaOnChange}
+          part="textarea"
+        />
 
         {this.renderAlert() || this.renderHelpText()}
       </Host>

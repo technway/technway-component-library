@@ -1,7 +1,6 @@
 name: Documentation Request
 description: Suggest updates or improvements to the documentation.
 title: "[DOCS] - "
-labels: ["documentation"]
 body:
   - type: markdown
     attributes:

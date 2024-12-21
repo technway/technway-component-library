@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tnw-textarea Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-textarea label="Message" placeholder="Enter message" textarea-id="message">
+exports[`tnw-textarea Default and Required Prop Behavior renders correctly with default values 1`] = `
+<tnw-textarea label="Default Textarea" placeholder="Enter text" textarea-id="test-textarea">
   <template shadowrootmode="open">
-    <tnw-label htmlfor="message" part="label" text="Message"></tnw-label><textarea aria-labelledby="message" autocomplete="" class="rounded-default tnw-textarea tnw-textarea--outlined tnw-textarea--resize-vertical" id="message" part="textarea" placeholder="Enter message" rows="3"></textarea>
+    <tnw-label htmlfor="test-textarea" part="label" text="Default Textarea"></tnw-label><textarea aria-describedby="" aria-labelledby="test-textarea" autocomplete="" class="rounded-default tnw-textarea tnw-textarea--outlined tnw-textarea--resize-vertical" id="test-textarea" part="textarea" placeholder="Enter text" rows="3" value=""></textarea>
   </template>
 </tnw-textarea>
 `;

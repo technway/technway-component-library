@@ -4,7 +4,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-input.tsx` file.
  * 
-validateProps([this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isInvalid, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value, this.variant]);
+validateProps([this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value, this.variant]);
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
@@ -53,13 +53,6 @@ export function validateProps(propsValues: any[]): void {
     "name": "inputId",
     "type": [
       "string"
-    ],
-    "isRequired": true
-  },
-  {
-    "name": "isInvalid",
-    "type": [
-      "boolean"
     ],
     "isRequired": false
   },

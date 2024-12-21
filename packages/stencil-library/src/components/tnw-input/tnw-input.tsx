@@ -1,5 +1,5 @@
-import { Component, Prop, Host, h, Element, State, Watch, Event, EventEmitter } from '@stencil/core';
-import { getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
+import { Component, Prop, Host, h, Element, State, Event, EventEmitter } from '@stencil/core';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-input.styles';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { BorderRadiusType } from '../../utils/component-props-types';
@@ -12,8 +12,8 @@ import { validateProps } from './utils/tnw-input-validate-props';
  * The `tnw-input` component is a customizable input field that supports various input types, validation, and appearance options.
  * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
  * 
+ * @part input - The `<input>` element itself.
  * @part label - The `<label>` element for the input.
- * @part input - The main `<input>` element.
  * @part alert - The alert message for validation errors or other information.
  * @part help-text - The help text providing additional context for the input.
  */
@@ -31,7 +31,8 @@ export class TnwInput {
     inputValue: this.value,
     alertMessage: this.helpText,
     alertType: undefined,
-    isInvalid: this.isInvalid
+    isInvalid: false,
+    uniqueId: undefined,
   });
 
   /**
@@ -40,9 +41,9 @@ export class TnwInput {
   @Prop() label!: string;
 
   /**
-   * The unique ID for the input element.
+   * The unique ID for the input element. If not provided, a random ID will be generated.
    */
-  @Prop() inputId!: string;
+  @Prop() inputId?: string;
 
   /**
    * The input type (e.g., text, password).
@@ -78,11 +79,6 @@ export class TnwInput {
    * Marks the input as required.
    */
   @Prop() isRequired?: boolean = false;
-
-  /**
-   * Indicates if the input has invalid data.
-   */
-  @Prop() isInvalid?: boolean = false;
 
   /**
    * The maximum number of characters allowed in the input.
@@ -155,49 +151,50 @@ export class TnwInput {
         this.componentStyles,
       ];
     }
+
+    this.setUniqueId();
   }
 
   componentWillLoad() {
-    validateProps([this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isInvalid, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value, this.variant]);
+    validateProps([this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value, this.variant]);
 
-    this.initStore();
-    this.validateInput(this.value || '');
+    /**
+     * Initialize the store with the initial value.
+     */
+    this.setStore(this.value);
   }
 
-  @Watch('value')
-  handleValueChange(newValue: string) {
-    this.store.set('inputValue', newValue);
-    this.validateInput(newValue);
+  /**
+   * Sets a unique ID for the input element.
+   * 
+   * This method checks if `inputId` is a non-empty string. If it is, 
+   * it stores `inputId` as `uniqueId` in the store. Otherwise, it 
+   * generates a random ID and stores it as `uniqueId`.
+   */
+  private setUniqueId(): void {
+    if (isNotEmptyString(this.inputId)) {
+      this.store.set('uniqueId', this.inputId);
+    } else {
+      this.store.set('uniqueId', generateRandomId(this.baseClass))
+    }
   }
 
-  @Watch('isInvalid')
-  handleIsInvalidChange(newValue: boolean) {
-    this.store.set('isInvalid', newValue);
-  }
-
-  private initStore() {
-    this.store.set('inputValue', this.value || '');
-    this.store.set('alertMessage', this.helpText || '');
-    this.store.set('alertType', undefined);
-    this.store.set('isInvalid', this.isInvalid || false);
-  }
-
-  private validateInput(value: string): void {
+  /**
+   * Sets the store values for the input component.
+   *
+   * @param value - The value to be set in the store. Optional.
+   * @param sanitizeValue - A flag indicating whether the value should be sanitized. Optional.
+   *
+   * This method attempts to set the store value and resets any alert messages or validation states.
+   * If an error occurs during this process, it sets the appropriate alert messages and validation states,
+   * and emits a validationFailed event with the input ID and error message.
+   *
+   * @throws Will set an error message in the store and emit a validationFailed event if an error occurs.
+   */
+  private setStore(value?: string, sanitizeValue?: boolean): void {
     try {
-      const sanitizedValue = this.sanitizeInput ? sanitizeInput(value) : value;
-      /**
-       * Check for SQL injection patterns. Only perform this check if `sanitizeInput` prop is false.
-       */
-      if (!this.sanitizeInput && containsSQLInjectionPatterns(sanitizedValue)) {
-        throw new Error('Invalid SQL patterns detected.');
-      }
-      
-      // Check for pattern mismatch
-      if (this.pattern && !new RegExp(this.pattern).test(sanitizedValue)) {
-        throw new Error('Input does not match the required pattern.');
-      }
+      this.setStoreValue(value, sanitizeValue);
 
-      this.store.set('inputValue', sanitizedValue);
       this.store.set('alertMessage', '');
       this.store.set('alertType', undefined);
       this.store.set('isInvalid', false);
@@ -206,16 +203,136 @@ export class TnwInput {
       this.store.set('alertMessage', errorMsg);
       this.store.set('alertType', 'danger');
       this.store.set('isInvalid', true);
-      this.validationFailed.emit({ inputId: this.inputId, error: errorMsg });
+      this.validationFailed.emit({ inputId: this.uniqueId, error: errorMsg });
     }
   }
 
+  /**
+   * Sanitizes the input value based on the provided parameters.
+   *
+   * @param value - The input value to be sanitized. Defaults to the value from the store.
+   * @param sanitizeValue - A boolean flag indicating whether to sanitize the input value. Defaults to true.
+   * @returns The sanitized or original input value based on the sanitizeValue flag.
+   */
+  private sanitizeValue(
+    value: string = this.store.get("inputValue"),
+    sanitizeValue: boolean = true
+  ): string {
+    const validatedValue =
+      sanitizeValue && this.sanitizeInput
+        ? sanitizeInput(value) :
+        value;
+
+    return validatedValue;
+  }
+
+  /**
+   * Validates the input value based on various criteria such as SQL injection patterns,
+   * pattern mismatch, minimum length, and maximum length.
+   *
+   * @param value - The input value to be validated.
+   * @param sanitizeValue - A boolean indicating whether the value should be sanitized before validation.
+   * 
+   * @throws {Error} If the input contains SQL injection patterns.
+   * @throws {Error} If the input does not match the required pattern.
+   * @throws {Error} If the input is shorter than the minimum length.
+   * @throws {Error} If the input is longer than the maximum length.
+   */
+  private validateInput(value?: string, sanitizeValue?: boolean): void {
+    const validatedValue = this.sanitizeValue(value, sanitizeValue) || '';
+
+    // Check for SQL injection patterns
+    if (containsSQLInjectionPatterns(validatedValue)) {
+      throw new Error('Invalid SQL patterns detected.');
+    }
+
+    // Check for pattern mismatch
+    if (this.pattern && !new RegExp(this.pattern).test(validatedValue)) {
+      throw new Error('Input does not match the required pattern.');
+    }
+
+    // Check for minLength violation
+    if (this.minlength && validatedValue.length < this.minlength) {
+      throw new Error(`Input is too short. Minimum length is "${this.minlength}" characters.`);
+    }
+
+    // check for maxLength violation
+    if (this.maxlength && validatedValue.length > this.maxlength) {
+      throw new Error(`Input is too long. Maximum length is "${this.maxlength}" characters.`);
+    }
+  }
+
+  /**
+   * Sets the value in the store after sanitizing and validating it.
+   *
+   * @param value - The value to be set in the store. If not provided, defaults to an empty string.
+   * @param sanitizeValue - A flag indicating whether the value should be sanitized before setting it in the store.
+   */
+  private setStoreValue(value?: string, sanitizeValue?: boolean): void {
+    const validatedValue = this.sanitizeValue(value, sanitizeValue) || '';
+
+    this.validateInput(validatedValue, sanitizeValue);
+
+    this.store.set('inputValue', validatedValue);
+  }
+
+  /**
+   * Handles the input change event.
+   *
+   * @param event - The input change event.
+   *
+   * This method performs the following actions:
+   * 1. Retrieves the input element from the event target.
+   * 2. Extracts the value from the input element.
+   * 3. Validates the extracted value. If the sanitizeInput prop is set to true, the value is sanitized.
+   * 4. Updates the store with the new value.
+   * 5. Emits the `inputChanged` event with the new value.
+   * 6. Sets the input element's value to the validated value.
+   */
   private handleInputOnChange = (event: Event) => {
     const input = event.target as HTMLInputElement;
-    
-    this.validateInput(input.value);
-    this.inputChanged.emit(input.value);
-  };
+    const value: string = input.value;
+    const validatedValue = this.sanitizeValue(value);
+
+    this.setStore(value)
+
+    this.inputChanged.emit(validatedValue);
+    input.value = this.sanitizeValue(validatedValue);
+  }
+
+  /**
+   * Handles the input event on the input element.
+   *
+   * @param event - The input event triggered by the user.
+   * 
+   * This method performs the following actions:
+   * 1. Retrieves the input element from the event target.
+   * 2. Extracts the value from the input element.
+   * 3. Updates the store with the new value. It validates the input dynamically and displays alerts if necessary.
+   *    The value isn't sanitized even if the sanitizeInput prop is set to true.
+   *    It's sanitized only when the input change event is triggered.
+   */
+  private handleInputOnInput = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    const value: string = input.value;
+
+    this.setStore(value, false);
+  }
+
+  private get uniqueId(): string {
+    return this.store.get('uniqueId');
+  }
+
+  private getAriaAttributes(): Record<string, string | null> {
+    return {
+      'aria-invalid': this.store.get('isInvalid') ? 'true' : null,
+      'aria-describedby': [
+        isNotEmptyString(this.store.get('alertMessage')) ? `${this.uniqueId}-${this.store.get('alertType')}` : null,
+        isNotEmptyString(this.helpText) ? `${this.uniqueId}-help` : null,
+      ].filter(Boolean).join(' '),
+      'aria-labelledby': isNotEmptyString(this.label) ? this.uniqueId : null,
+    };
+  }
 
   private getInputClasses(): string {
     const { baseClass, variant } = this;
@@ -229,18 +346,6 @@ export class TnwInput {
     ].filter(Boolean).join(' ').trim();
   }
 
-  private getAriaAttributes(): Record<string, string | null> {
-    return {
-      'aria-invalid': this.store.get('isInvalid') ? 'true' : null,
-      'aria-required': this.isRequired ? 'true' : null,
-      'aria-describedby': [
-        isNotEmptyString(this.store.get('alertMessage')) ? `${this.inputId}-${this.store.get('alertType')}` : null,
-        isNotEmptyString(this.helpText) ? `${this.inputId}-help` : null,
-      ].filter(Boolean).join(' '),
-      'aria-labelledby': isNotEmptyString(this.label) ? this.inputId : null,
-    };
-  }
-
   private renderLabel() {
     if (!isNotEmptyString(this.label)) {
       return null;
@@ -250,7 +355,7 @@ export class TnwInput {
       <tnw-label
         class={this.isLabelSrOnly ? 'sr-only' : ''}
         text={this.label}
-        htmlFor={this.inputId}
+        htmlFor={this.uniqueId}
         isSrOnly={this.isLabelSrOnly}
         part='label'
       ></tnw-label>
@@ -269,7 +374,7 @@ export class TnwInput {
       <tnw-alert
         message={alertMessage}
         variant={alertType}
-        alertId={`${this.inputId}-${alertType}`}
+        alertId={`${this.uniqueId}-${alertType}`}
         part="alert"
       />
     );
@@ -283,7 +388,7 @@ export class TnwInput {
     return (
       <tnw-alert
         message={this.helpText}
-        alertId={`${this.inputId}-help`}
+        alertId={`${this.uniqueId}-help`}
         part="help-text"
       />
     );
@@ -295,7 +400,7 @@ export class TnwInput {
         {this.renderLabel()}
         <input
           class={this.getInputClasses()}
-          id={this.inputId}
+          id={this.uniqueId}
           type={this.type}
           name={this.name}
           value={this.store.get('inputValue')}
@@ -307,6 +412,7 @@ export class TnwInput {
           autocomplete={this.autoComplete}
           disabled={this.disabled}
           {...this.getAriaAttributes()}
+          onInput={this.handleInputOnInput}
           onChange={this.handleInputOnChange}
           part='input'
         />

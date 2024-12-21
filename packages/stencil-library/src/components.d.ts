@@ -742,13 +742,9 @@ export namespace Components {
          */
         "helpText"?: string;
         /**
-          * The unique ID for the input element.
+          * The unique ID for the input element. If not provided, a random ID will be generated.
          */
-        "inputId": string;
-        /**
-          * Indicates if the input has invalid data.
-         */
-        "isInvalid"?: boolean;
+        "inputId"?: string;
         /**
           * If true, the label is visually hidden but still accessible to screen readers.
          */
@@ -1346,14 +1342,6 @@ export namespace Components {
      */
     interface TnwTextarea {
         /**
-          * Error alert displayed when the textarea is invalid.
-         */
-        "alert"?: string;
-        /**
-          * Indicates if the textarea is in an invalid state.
-         */
-        "alertType"?: "danger" | "warning" | "success" | "info";
-        /**
           * The autocomplete setting for the textarea.
          */
         "autoComplete"?: string;
@@ -1373,10 +1361,6 @@ export namespace Components {
           * The help text providing additional information about the textarea.
          */
         "helpText"?: string;
-        /**
-          * Indicates if the textarea has invalid data.
-         */
-        "isInvalid"?: boolean;
         /**
           * If true, the label is visually hidden but still accessible to screen readers.
          */
@@ -1414,9 +1398,13 @@ export namespace Components {
          */
         "rows": number;
         /**
-          * The unique ID for the textarea element.
+          * Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks. If set to `true`, the textarea will be sanitized before being validated. If set to `false`, the textarea will still undergo validation but without sanitization.
          */
-        "textareaId": string;
+        "sanitizeTextarea"?: boolean;
+        /**
+          * The unique ID for the textarea element. If not provided, a random ID will be generated.
+         */
+        "textareaId"?: string;
         /**
           * The initial value of the textarea.
          */
@@ -1438,6 +1426,10 @@ export interface TnwInputCustomEvent<T> extends CustomEvent<T> {
 export interface TnwSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwSelectElement;
+}
+export interface TnwTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwTextareaElement;
 }
 declare global {
     interface HTMLTnwAccordionElementEventMap {
@@ -1800,10 +1792,22 @@ declare global {
         prototype: HTMLTnwTextElement;
         new (): HTMLTnwTextElement;
     };
+    interface HTMLTnwTextareaElementEventMap {
+        "textareaChanged": string;
+        "validationFailed": { textareaId: string; error: string };
+    }
     /**
      * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.
      */
     interface HTMLTnwTextareaElement extends Components.TnwTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwTextareaElementEventMap>(type: K, listener: (this: HTMLTnwTextareaElement, ev: TnwTextareaCustomEvent<HTMLTnwTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwTextareaElementEventMap>(type: K, listener: (this: HTMLTnwTextareaElement, ev: TnwTextareaCustomEvent<HTMLTnwTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLTnwTextareaElement: {
         prototype: HTMLTnwTextareaElement;
@@ -2583,13 +2587,9 @@ declare namespace LocalJSX {
          */
         "helpText"?: string;
         /**
-          * The unique ID for the input element.
+          * The unique ID for the input element. If not provided, a random ID will be generated.
          */
-        "inputId": string;
-        /**
-          * Indicates if the input has invalid data.
-         */
-        "isInvalid"?: boolean;
+        "inputId"?: string;
         /**
           * If true, the label is visually hidden but still accessible to screen readers.
          */
@@ -3199,14 +3199,6 @@ declare namespace LocalJSX {
      */
     interface TnwTextarea {
         /**
-          * Error alert displayed when the textarea is invalid.
-         */
-        "alert"?: string;
-        /**
-          * Indicates if the textarea is in an invalid state.
-         */
-        "alertType"?: "danger" | "warning" | "success" | "info";
-        /**
           * The autocomplete setting for the textarea.
          */
         "autoComplete"?: string;
@@ -3226,10 +3218,6 @@ declare namespace LocalJSX {
           * The help text providing additional information about the textarea.
          */
         "helpText"?: string;
-        /**
-          * Indicates if the textarea has invalid data.
-         */
-        "isInvalid"?: boolean;
         /**
           * If true, the label is visually hidden but still accessible to screen readers.
          */
@@ -3255,6 +3243,14 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Event emitted when the textarea value changes. The event's payload contains the new value.
+         */
+        "onTextareaChanged"?: (event: TnwTextareaCustomEvent<string>) => void;
+        /**
+          * Event emitted when validation fails.  The event payload contains: - `textareaId`: The unique ID of the textarea element. - `error`: A string message explaining the validation failure.
+         */
+        "onValidationFailed"?: (event: TnwTextareaCustomEvent<{ textareaId: string; error: string }>) => void;
+        /**
           * The placeholder text for the textarea.
          */
         "placeholder": string;
@@ -3267,9 +3263,13 @@ declare namespace LocalJSX {
          */
         "rows"?: number;
         /**
-          * The unique ID for the textarea element.
+          * Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks. If set to `true`, the textarea will be sanitized before being validated. If set to `false`, the textarea will still undergo validation but without sanitization.
          */
-        "textareaId": string;
+        "sanitizeTextarea"?: boolean;
+        /**
+          * The unique ID for the textarea element. If not provided, a random ID will be generated.
+         */
+        "textareaId"?: string;
         /**
           * The initial value of the textarea.
          */

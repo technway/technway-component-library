@@ -91,3 +91,18 @@ HiddenLabel.args = {
   textareaId: 'textarea8',
   isLabelSrOnly: true,
 };
+
+// Textarea with initially sanitized value
+export const SanitizedValue = Template.bind({});
+SanitizedValue.args = {
+  ...Standard.args,
+  sanitizeTextarea: true,
+  value: "'; DROP TABLE users; --",
+};
+
+// Textarea without initially not sanitized value
+export const NotSanitizedValue = Template.bind({});
+NotSanitizedValue.args = {
+  ...Standard.args,
+  value: "'; DROP TABLE users; --",
+};

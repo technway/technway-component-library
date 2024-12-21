@@ -1,7 +1,6 @@
 name: Custom Request
 description: Create a custom issue that doesn't fit into other categories.
 title: "[CUSTOM] - "
-labels: [custom-request]
 body:
   - type: markdown
     attributes:

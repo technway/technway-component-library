@@ -28,8 +28,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 | **borderRadius** | <div>The border radius of the input.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **disabled** | <div>Disables the input if set to true.</div> | `false` | `boolean` |
 | **helpText** | <div>The help text providing additional information about the input.</div> | `''` | `string` |
-| **inputId** | <div>The unique ID for the input element.</div> | N/A | `string` |
-| **isInvalid** | <div>Indicates if the input has invalid data.</div> | `false` | `boolean` |
+| **inputId** | <div>The unique ID for the input element. If not provided, a random ID will be generated.</div> | N/A | `string` |
 | **isLabelSrOnly** | <div>If true, the label is visually hidden but still accessible to screen readers.</div> | N/A | `boolean` |
 | **isRequired** | <div>Marks the input as required.</div> | `false` | `boolean` |
 | **label** | <div>The label for the input.</div> | N/A | `string` |
@@ -53,7 +52,7 @@ If set to `false`, the input will still undergo validation but without sanitizat
 | --- | --- |
 | **alert** | The alert message for validation errors or other information. |
 | **help-text** | The help text providing additional context for the input. |
-| **input** | The main `<input>` element. |
+| **input** | The `<input>` element itself. |
 | **label** | The `<label>` element for the input. |
 
 ## Events

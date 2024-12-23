@@ -51,7 +51,7 @@ export const queryElement = (pageRoot: HTMLElement, elementSelector?: string, en
             console.log("Received page root:", pageRoot.outerHTML);
             console.log(`Querying element with selector "${elementSelector}"`);
             console.log('Enable Shadow DOM:', enableShadowDom);
-            console.log('Element found:', element);
+            console.log('Element found:', element.outerHTML);
         }
         
         return element;

@@ -4,14 +4,208 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-text.tsx` file.
  * 
-const propsValues = [this.alignment, this.color, this.displayMode, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize];
-validateProps(propsValues);
+validateProps([this.alignment, this.color, this.displayMode, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize]);
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"alignment","type":["center","end","justify","left","right","start"],"isRequired":false},{"name":"color","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false},{"name":"displayMode","type":["block","inline","inline-block"],"isRequired":false},{"name":"highlight","type":["string"],"isRequired":false},{"name":"highlightColor","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false},{"name":"highlightTag","type":["em","mark","span","strong"],"isRequired":false},{"name":"highlightWeight","type":["100","200","300","400","500","600","700","800","900","heading","text"],"isRequired":false},{"name":"lineHeight","type":["1","1_25","1_5","1_75","2","2_25","2_5"],"isRequired":false},{"name":"size","type":["2xl","3xl","4xl","5xl","6xl","7xl","8xl","9xl","heading","lg","md","sm","text","xl","xs"],"isRequired":false},{"name":"text","type":["number","string"],"isRequired":false},{"name":"textCase","type":["capitalize","lowercase","normal-case","uppercase"],"isRequired":false},{"name":"textTag","type":["em","mark","p","span","strong"],"isRequired":false},{"name":"weight","type":["100","200","300","400","500","600","700","800","900","heading","text"],"isRequired":false},{"name":"widthSize","type":["full","lg","md","sm","unset","xl"],"isRequired":false}];
+  const props = [
+  {
+    "name": "alignment",
+    "type": [
+      "center",
+      "end",
+      "justify",
+      "left",
+      "right",
+      "start"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "color",
+    "type": [
+      "auto",
+      "black",
+      "gray100",
+      "gray200",
+      "gray300",
+      "gray400",
+      "gray500",
+      "gray600",
+      "gray700",
+      "gray800",
+      "gray900",
+      "inverse",
+      "light",
+      "placeholder",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "displayMode",
+    "type": [
+      "block",
+      "inline",
+      "inline-block"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "highlight",
+    "type": [
+      "number",
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "highlightColor",
+    "type": [
+      "auto",
+      "black",
+      "gray100",
+      "gray200",
+      "gray300",
+      "gray400",
+      "gray500",
+      "gray600",
+      "gray700",
+      "gray800",
+      "gray900",
+      "inverse",
+      "light",
+      "placeholder",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "highlightTag",
+    "type": [
+      "em",
+      "mark",
+      "span",
+      "strong"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "highlightWeight",
+    "type": [
+      "100",
+      "200",
+      "300",
+      "400",
+      "500",
+      "600",
+      "700",
+      "800",
+      "900",
+      "heading",
+      "text"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "lineHeight",
+    "type": [
+      "1",
+      "1_25",
+      "1_5",
+      "1_75",
+      "2",
+      "2_25",
+      "2_5"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "size",
+    "type": [
+      "2xl",
+      "3xl",
+      "4xl",
+      "5xl",
+      "6xl",
+      "7xl",
+      "8xl",
+      "9xl",
+      "heading",
+      "lg",
+      "md",
+      "sm",
+      "text",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "text",
+    "type": [
+      "number",
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "textCase",
+    "type": [
+      "capitalize",
+      "lowercase",
+      "normal-case",
+      "uppercase"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "textTag",
+    "type": [
+      "em",
+      "mark",
+      "p",
+      "span",
+      "strong"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "weight",
+    "type": [
+      "100",
+      "200",
+      "300",
+      "400",
+      "500",
+      "600",
+      "700",
+      "800",
+      "900",
+      "heading",
+      "text"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "widthSize",
+    "type": [
+      "full",
+      "lg",
+      "md",
+      "sm",
+      "unset",
+      "xl"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

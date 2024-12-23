@@ -1295,7 +1295,7 @@ export namespace Components {
         /**
           * Specifies which piece of text in the `text` prop should be bolded.
          */
-        "highlight"?: string;
+        "highlight"?: string | number;
         /**
           * Specifies the color of the highlighted text.
          */
@@ -1333,9 +1333,9 @@ export namespace Components {
          */
         "weight"?: FontWeightType;
         /**
-          * The width size of the text. Use unset or null to avoid setting width.
+          * The width size of the text. Use unset to avoid setting width.
          */
-        "widthSize"?: SizeType | "xl" | "full" | null | "unset";
+        "widthSize"?: SizeType | "xl" | "full" | "unset";
     }
     /**
      * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.
@@ -3152,7 +3152,7 @@ declare namespace LocalJSX {
         /**
           * Specifies which piece of text in the `text` prop should be bolded.
          */
-        "highlight"?: string;
+        "highlight"?: string | number;
         /**
           * Specifies the color of the highlighted text.
          */
@@ -3190,9 +3190,9 @@ declare namespace LocalJSX {
          */
         "weight"?: FontWeightType;
         /**
-          * The width size of the text. Use unset or null to avoid setting width.
+          * The width size of the text. Use unset to avoid setting width.
          */
-        "widthSize"?: SizeType | "xl" | "full" | null | "unset";
+        "widthSize"?: SizeType | "xl" | "full" | "unset";
     }
     /**
      * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.

@@ -62,7 +62,7 @@ It supports various typography-related properties, color, and alignment.
 | `alignment`       | `alignment`        | Specifies the text alignment.                                                                                                     | `"center" \| "end" \| "justify" \| "left" \| "right" \| "start"`                                                                                                                                                         | `undefined` |
 | `color`           | `color`            | Sets the color of the text based on the available colors.                                                                         | `"auto" \| "black" \| "gray100" \| "gray200" \| "gray300" \| "gray400" \| "gray500" \| "gray600" \| "gray700" \| "gray800" \| "gray900" \| "inverse" \| "light" \| "placeholder" \| "primary" \| "secondary" \| "white"` | `undefined` |
 | `displayMode`     | `display-mode`     | Defines the display mode of the component. It's not recommended to use the `"inline"` display mode, use `"inline-block"` instead. | `"block" \| "inline" \| "inline-block"`                                                                                                                                                                                  | `"block"`   |
-| `highlight`       | `highlight`        | Specifies which piece of text in the `text` prop should be bolded.                                                                | `string`                                                                                                                                                                                                                 | `undefined` |
+| `highlight`       | `highlight`        | Specifies which piece of text in the `text` prop should be bolded.                                                                | `number \| string`                                                                                                                                                                                                       | `undefined` |
 | `highlightColor`  | `highlight-color`  | Specifies the color of the highlighted text.                                                                                      | `"auto" \| "black" \| "gray100" \| "gray200" \| "gray300" \| "gray400" \| "gray500" \| "gray600" \| "gray700" \| "gray800" \| "gray900" \| "inverse" \| "light" \| "placeholder" \| "primary" \| "secondary" \| "white"` | `undefined` |
 | `highlightTag`    | `highlight-tag`    | Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.                                              | `"em" \| "mark" \| "span" \| "strong"`                                                                                                                                                                                   | `"span"`    |
 | `highlightWeight` | `highlight-weight` | Specifies the font weight of the highlighted text.                                                                                | `"100" \| "200" \| "300" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "heading" \| "text"`                                                                                                                   | `"600"`     |
@@ -72,7 +72,7 @@ It supports various typography-related properties, color, and alignment.
 | `textCase`        | `text-case`        | Controls the text transformation (e.g., uppercase, lowercase).                                                                    | `"capitalize" \| "lowercase" \| "normal-case" \| "uppercase"`                                                                                                                                                            | `undefined` |
 | `textTag`         | `text-tag`         | Defines the HTML tag of the component.                                                                                            | `"em" \| "mark" \| "p" \| "span" \| "strong"`                                                                                                                                                                            | `"p"`       |
 | `weight`          | `weight`           | Specifies the font weight of the text.                                                                                            | `"100" \| "200" \| "300" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "heading" \| "text"`                                                                                                                   | `undefined` |
-| `widthSize`       | `width-size`       | The width size of the text. Use unset or null to avoid setting width.                                                             | `"full" \| "lg" \| "md" \| "sm" \| "unset" \| "xl"`                                                                                                                                                                      | `'full'`    |
+| `widthSize`       | `width-size`       | The width size of the text. Use unset to avoid setting width.                                                                     | `"full" \| "lg" \| "md" \| "sm" \| "unset" \| "xl"`                                                                                                                                                                      | `'full'`    |
 
 
 ## Slots
@@ -84,9 +84,10 @@ It supports various typography-related properties, color, and alignment.
 
 ## Shadow Parts
 
-| Part     | Description                    |
-| -------- | ------------------------------ |
-| `"text"` | The main text content element. |
+| Part                 | Description                           |
+| -------------------- | ------------------------------------- |
+| `"highlighted-text"` | The highlighted text content element. |
+| `"text"`             | The main text content element.        |
 
 
 ## Dependencies

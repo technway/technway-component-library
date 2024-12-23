@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-21T17:56:59",
+  "timestamp": "2024-12-23T09:36:31",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -5420,6 +5420,10 @@
         {
           "name": "part",
           "text": "heading - The root `heading` element rendered by the component."
+        },
+        {
+          "name": "part",
+          "text": "highlighted-text - The highlighted text content element."
         }
       ],
       "usage": {
@@ -6226,6 +6230,10 @@
         {
           "name": "heading",
           "docs": "The root `heading` element rendered by the component."
+        },
+        {
+          "name": "highlighted-text",
+          "docs": "The highlighted text content element."
         }
       ],
       "dependents": [
@@ -12393,6 +12401,10 @@
         {
           "name": "part",
           "text": "text - The main text content element."
+        },
+        {
+          "name": "part",
+          "text": "highlighted-text - The highlighted text content element."
         }
       ],
       "usage": {
@@ -12572,10 +12584,10 @@
         },
         {
           "name": "highlight",
-          "type": "string",
+          "type": "number | string",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "string | number",
+            "resolved": "number | string",
             "references": {}
           },
           "mutable": false,
@@ -12584,6 +12596,9 @@
           "docs": "Specifies which piece of text in the `text` prop should be bolded.",
           "docsTags": [],
           "values": [
+            {
+              "type": "number"
+            },
             {
               "type": "string"
             }
@@ -13099,7 +13114,7 @@
           "name": "widthSize",
           "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\" | \"xl\"",
           "complexType": {
-            "original": "SizeType | \"xl\" | \"full\" | null | \"unset\"",
+            "original": "SizeType | \"xl\" | \"full\" | \"unset\"",
             "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\" | \"xl\"",
             "references": {
               "SizeType": {
@@ -13112,7 +13127,7 @@
           "mutable": false,
           "attr": "width-size",
           "reflectToAttr": false,
-          "docs": "The width size of the text. Use unset or null to avoid setting width.",
+          "docs": "The width size of the text. Use unset to avoid setting width.",
           "docsTags": [],
           "default": "'full'",
           "values": [
@@ -13156,6 +13171,10 @@
         }
       ],
       "parts": [
+        {
+          "name": "highlighted-text",
+          "docs": "The highlighted text content element."
+        },
         {
           "name": "text",
           "docs": "The main text content element."
@@ -13209,7 +13228,7 @@
       "filePath": "src/components/tnw-textarea/tnw-textarea.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-textarea",
-      "readme": "# tnw-textarea\n\n\n",
+      "readme": "# tnw-textarea\r\n\r\n\r\n\r",
       "docs": "The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.",
       "docsTags": [
         {
@@ -13606,7 +13625,7 @@
           "mutable": false,
           "attr": "sanitize-textarea",
           "reflectToAttr": false,
-          "docs": "Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.\nIf set to `true`, the textarea will be sanitized before being validated.\nIf set to `false`, the textarea will still undergo validation but without sanitization.",
+          "docs": "Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.\r\nIf set to `true`, the textarea will be sanitized before being validated.\r\nIf set to `false`, the textarea will still undergo validation but without sanitization.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13715,7 +13734,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when validation fails.\n\nThe event payload contains:\n- `textareaId`: The unique ID of the textarea element.\n- `error`: A string message explaining the validation failure.",
+          "docs": "Event emitted when validation fails.\r\n\r\nThe event payload contains:\r\n- `textareaId`: The unique ID of the textarea element.\r\n- `error`: A string message explaining the validation failure.",
           "docsTags": []
         }
       ],

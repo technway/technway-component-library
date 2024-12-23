@@ -78,7 +78,7 @@ describe('tnw-heading', () => {
         TnwHeading,
         `<tnw-heading text="This is a heading" highlight="heading" highlight-color="primary" highlight-weight="700" highlight-tag="mark"></tnw-heading>`,
         'tnw-text[text="heading"]'
-      ) as HTMLTnwHeadingElement ;
+      ) as HTMLTnwHeadingElement;
       expect(highlightedText).not.toBeNull();
       expect(highlightedText.getAttribute('color')).toBe('primary');
       expect(highlightedText.getAttribute('weight')).toBe('700');
@@ -130,8 +130,36 @@ describe('tnw-heading', () => {
       );
       expect(heading).toHaveClasses(['fw-400', 'fs-xl']);
     });
-  });
 
+    it('applies a custom width size class', async () => {
+      const host = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading width-size="lg"></tnw-heading>`,
+      );
+      expect(host).toHaveClass('tnw-heading--width-lg');
+    });
+
+    it('applies a custom line height class', async () => {
+      const heading = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading line-height="1_75"></tnw-heading>`,
+        '.tnw-heading__inner'
+      );
+      expect(heading).toHaveClass('lh-1_75');
+    });
+
+    it('renders custom highlighted text with properties', async () => {
+      const highlightedText = await createSpecPage(
+        TnwHeading,
+        `<tnw-heading text="Example Text" highlight="Example" highlight-color="secondary" highlight-weight="800" highlight-tag="strong"></tnw-heading>`,
+        'tnw-text'
+      ) as HTMLTnwTextElement;
+      expect(highlightedText).not.toBeNull();
+      expect(highlightedText.getAttribute('color')).toBe('secondary');
+      expect(highlightedText.getAttribute('weight')).toBe('800');
+      expect(highlightedText.getAttribute('texttag')).toBe('strong');
+    });
+  });
 
   describe('Slot Behavior', () => {
     it('renders slot content when text prop is not provided', async () => {

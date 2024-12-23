@@ -55,5 +55,6 @@ export const HighlighText = Template.bind({});
 HighlighText.args = {
   text: "Highlighted Title: This is Important",
   weight: "400",
-  highlight: "Important"
+  highlight: "Important",
+  highlightTag: "mark"
 };

@@ -5,6 +5,7 @@ import { validateProps } from './utils/tnw-text-validate-props';
 import { colorStyleSheet, typographyStyleSheet } from '../../utils/shared-styles';
 import { styles } from './tnw-text.styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { validateHighlightText } from '../../utils/component-validations';
 
 /**
  * The `tnw-text` component is used to display descriptive text with customizable styling options. 
@@ -13,6 +14,7 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
  * @slot - Use the default slot to add custom content inside the text tag.
  * 
  * @part text - The main text content element.
+ * @part highlighted-text - The highlighted text content element.
  */
 @Component({
   tag: 'tnw-text',
@@ -32,7 +34,7 @@ export class TnwText {
   /**
    * Specifies which piece of text in the `text` prop should be bolded.
    */
-  @Prop() highlight?: string;
+  @Prop() highlight?: string | number;
 
   /**
    * Specifies the color of the highlighted text.
@@ -80,9 +82,9 @@ export class TnwText {
   @Prop() lineHeight?: LineHeightType = "1_75";
 
   /**
-   * The width size of the text. Use unset or null to avoid setting width.
+   * The width size of the text. Use unset to avoid setting width.
    */
-  @Prop() widthSize?: SizeType | "xl" | "full" | null | "unset" = 'full';
+  @Prop() widthSize?: SizeType | "xl" | "full" | "unset" = 'full';
 
   /**
    * Defines the HTML tag of the component.
@@ -112,8 +114,11 @@ export class TnwText {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.color, this.displayMode, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize];
-    validateProps(propsValues);
+    validateProps([this.alignment, this.color, this.displayMode, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize]);
+
+    if (isNotEmptyStringOrNumber(this.highlight)) {
+      validateHighlightText(this.text as string, this.highlight as string);
+    }
   }
 
   private getHostClasses(): string {
@@ -171,7 +176,8 @@ export class TnwText {
             weight={highlightWeight}
             color={highlightColor}
             displayMode='inline-block'
-            widthSize={null}
+            widthSize={"unset"}
+            part='highlighted-text'
           />
         )}
         {isNotEmptyStringOrNumber(postText) && ' '}

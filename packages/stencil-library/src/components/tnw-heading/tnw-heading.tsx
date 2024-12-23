@@ -15,6 +15,7 @@ import { validateHighlightText } from '../../utils/component-validations';
  * @slot - Use the default slot to add custom content inside the heading tag.
  * 
  * @part heading - The root `heading` element rendered by the component.
+ * @part highlighted-text - The highlighted text content element.
  */
 @Component({
   tag: 'tnw-heading',
@@ -131,8 +132,7 @@ export class TnwHeading {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.color, this.headingTag, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight, this.widthSize];
-    validateProps(propsValues);
+    validateProps([this.alignment, this.color, this.headingTag, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.level, this.lineHeight, this.size, this.text, this.textCase, this.useTextFont, this.weight, this.widthSize]);
 
     if (isNotEmptyString(this.highlight)) {
       validateHighlightText(this.text, this.highlight);
@@ -215,6 +215,7 @@ export class TnwHeading {
             color={highlightColor}
             displayMode='inline-block'
             widthSize={null}
+            part='highlighted-text'
           />
         )}
         {isNotEmptyString(postText) && ' '}

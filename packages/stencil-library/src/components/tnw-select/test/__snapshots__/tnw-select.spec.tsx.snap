@@ -1,13 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tnw-select Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-select class="tnw-select" options-data="[]">
+<tnw-select accessibility-id="test-id" class="tnw-select tnw-select--md" options-data="[{&quot;label&quot;:&quot;Option 1&quot;,&quot;value&quot;:&quot;1&quot;}]">
   <template shadowrootmode="open">
-    <button aria-describedby="tnw-select-description" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="tnw-select-label" class="rounded-default tnw-select__button" data-select-toggler part="button">
-      Select an option
-      <tnw-icon name="tnw-chevron-down" slot="icon-end"></tnw-icon>
+    <button aria-controls="test-id" aria-expanded="false" aria-haspopup="listbox" class="rounded-default tnw-select__button" data-select-toggler id="Select an option-label-test-id" part="button" role="combobox" tabindex="0">
+      <div class="tnw-select__button-content">
+        <span class="tnw-select__button-label">
+          Select an option
+        </span>
+      </div>
+      <tnw-icon name="tnw-chevron-down"></tnw-icon>
     </button>
-    <ul class="rounded-default tnw-select__dropdown" data-select part="dropdown" role="listbox"></ul>
+    <ul aria-labelledby="Select an option-label-test-id" class="rounded-default tnw-select__dropdown" data-select id="test-id" part="dropdown" role="listbox" tabindex="-1">
+      <li aria-disabled="false" aria-selected="false" class="tnw-select__option" data-select-option data-value="1" part="option" role="option" tabindex="0">
+        <span class="tnw-select__option-label">
+          Option 1
+        </span>
+      </li>
+    </ul>
   </template>
 </tnw-select>
 `;

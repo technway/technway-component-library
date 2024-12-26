@@ -7,18 +7,18 @@ This page provides an overview of statistics related to the components.
 | Statistic | Value |
 | --- | --- |
 | **Total Components** | `34` |
-| **Total Props** | `301` |
-| **Total Events** | `6` |
-| **Total Methods** | `0` |
-| **Total Slots** | `48` |
-| **Total Features** | `355` |
+| **Total Props** | `308` |
+| **Total Events** | `9` |
+| **Total Methods** | `3` |
+| **Total Slots** | `47` |
+| **Total Features** | `367` |
 |   |  |
 | **Shadow DOM Components** | `34` |
 | **Light DOM Components** | `0` |
 | **Components with Props** | `34` |
-| **Components with Events** | `4` |
-| **Components with Methods** | `0` |
-| **Components with Slots** | `21` |
+| **Components with Events** | `5` |
+| **Components with Methods** | `1` |
+| **Components with Slots** | `20` |
 
 ## Detailed Component Statistics
 
@@ -57,7 +57,7 @@ This page provides an overview of statistics related to the components.
 ### tnw-badge
 | Feature | Count |
 | --- | --- |
-| **Props** | `5` |
+| **Props** | `7` |
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `1` |
@@ -244,13 +244,13 @@ This page provides an overview of statistics related to the components.
 | **Props** | `6` |
 | **Events** | `0` |
 | **Methods** | `0` |
-| **Slots** | `1` |
+| **Slots** | `0` |
 
 ### tnw-scroll-to-top
 | Feature | Count |
 | --- | --- |
 | **Props** | `7` |
-| **Events** | `0` |
+| **Events** | `2` |
 | **Methods** | `0` |
 | **Slots** | `1` |
 
@@ -265,9 +265,9 @@ This page provides an overview of statistics related to the components.
 ### tnw-select
 | Feature | Count |
 | --- | --- |
-| **Props** | `4` |
-| **Events** | `1` |
-| **Methods** | `0` |
+| **Props** | `9` |
+| **Events** | `2` |
+| **Methods** | `3` |
 | **Slots** | `0` |
 
 ### tnw-testimonial-card

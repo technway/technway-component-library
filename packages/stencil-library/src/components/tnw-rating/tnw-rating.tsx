@@ -9,8 +9,6 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
 /**
  * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
  * 
- * @slot - Slot for custom icons. Use the default slot to insert custom content for rating stars.
- * 
  * @part default-icon - The `tnw-icon` element used to render the default star icons.
  */
 @Component({

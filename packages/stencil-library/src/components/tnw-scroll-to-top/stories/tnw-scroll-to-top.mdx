@@ -34,6 +34,7 @@ import * as stories from './tnw-scroll-to-top.stories';
 - [Properties](#properties)
 - [Slots](#slots)
 - [Shadow Parts](#shadow-parts)
+- [Events](#events)
 - [Usage](#usage)
 
 ## Overview
@@ -74,6 +75,18 @@ It supports customization of the icon, size, appearance, and allows for the use 
 | Slot | Description |
 | --- | --- |
 | **icon-svg** | Use this slot to provide a custom SVG icon for the scroll-to-top button. |
+
+## Events
+
+| Event | Description |
+| --- | --- |
+| **scrollToTopClicked** | Emitted when the scroll-to-top button is clicked.
+The \`detail\` object contains:
+- \`scrollY\`: The current scroll position when clicked. |
+| **visible** | Emitted when the scroll-to-top button becomes visible.
+The \`detail\` object contains:
+- \`isVisible\`: \`true\`
+- \`scrollY\`: The current scroll position. |
 
 ## Usage & Examples
 

@@ -6,11 +6,10 @@
 - [Properties](#properties)
 - [Shadow Parts](#shadow-parts)
 - [Events](#events)
+- [Methods](#methods)
 - [Usage](#usage)
 
 ## Overview
-
-⚠️ COMPONENT IN DEVELOPMENT
 
 The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
 
@@ -25,11 +24,22 @@ The `tnw-select` component provides a custom dropdown select element with suppor
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
+| **accessibilityId** | <div>No description provided.</div> | N/A | `string` |
 | **borderRadius** | <div>Border radius of the select.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **defaultOption** | <div>The default option that should be selected on component load.</div> | N/A | `string` |
+| **disabled** | <div>No description provided.</div> | `false` | `boolean` |
+| **fullWidth** | <div>No description provided.</div> | `false` | `boolean` |
 | **label** | <div>The label to display when no option is selected.</div> | `'Select an option'` | `string` |
+| **optionAppearance** | <div>The appearance of the select options. if bordered a border top and bottom will be added to the options.</div> | `'standard'` | `"bordered"` \| `"standard"` |
 | **optionsData** | <div>JSON string representing the options available in the select dropdown.
 Each option can include a label, value, ariaLabel, and disabled state.</div> | N/A | `string` |
+| **size** | <div>No description provided.</div> | `'md'` | `"lg"` \| `"md"` \| `"sm"` |
+| **variant** | <div>Specifies the variant of the select component.
+
+- `standard`: Default variant without any additional icons or images.
+- `withIconName`: Variant that includes an icon by name.
+- `withSvgIcon`: Variant that includes an SVG icon.
+- `withImage`: Variant that includes an image.
+- `withStatus`: Variant that includes a status indicator.</div> | `'standard'` | `"standard"` \| `"withIconName"` \| `"withImage"` \| `"withStatus"` \| `"withSvgIcon"` |
 
 </div>
 
@@ -45,7 +55,16 @@ Each option can include a label, value, ariaLabel, and disabled state.</div> | N
 
 | Event | Description |
 | --- | --- |
+| **dropdownToggled** | Emitted when the dropdown is toggled open or closed. |
 | **optionSelected** | Emitted when an option is selected from the dropdown. |
+
+## Methods
+
+| Method | Description |
+| --- | --- |
+| **getSelectedOption**() | Retrieves the currently selected option. |
+| **resetSelectedOption**() | Resets the selected option to the default or placeholder label. |
+| **toggleDropdown**() | Programmatically toggles the dropdown open or closed. |
 
 ## Usage & Examples
 

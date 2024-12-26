@@ -78,6 +78,14 @@ It supports customization of the icon, size, appearance, and allows for the use 
 | `variant`             | `variant`                | Defines the color variant of the scroll-to-top button.                    | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'primary'`           |
 
 
+## Events
+
+| Event                | Description                                                                                                                                          | Type                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| `scrollToTopClicked` | Emitted when the scroll-to-top button is clicked. The `detail` object contains: - `scrollY`: The current scroll position when clicked.               | `CustomEvent<{ scrollY: number; }>`                     |
+| `visible`            | Emitted when the scroll-to-top button becomes visible. The `detail` object contains: - `isVisible`: `true` - `scrollY`: The current scroll position. | `CustomEvent<{ isVisible: boolean; scrollY: number; }>` |
+
+
 ## Slots
 
 | Slot         | Description                                                              |

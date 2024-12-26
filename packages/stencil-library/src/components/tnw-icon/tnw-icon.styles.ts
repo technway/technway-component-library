@@ -17,6 +17,8 @@ export const styles = `
   cursor: pointer;
 }
 
+:host(.${baseClass}--padding-3xs),
+:host(.${baseClass}--padding-2xs),
 :host(.${baseClass}--padding-xs) {
   padding: 2px;
 }
@@ -39,8 +41,14 @@ export const styles = `
   padding: 20px;
 }
 
-:host(.${baseClass}--font-xs) {
+:host(.${baseClass}--font-3xs) {
+  --${baseClass}-fs: 10px;
+}
+:host(.${baseClass}--font-2xs) {
   --${baseClass}-fs: 12px;
+}
+:host(.${baseClass}--font-xs) {
+  --${baseClass}-fs: 14px;
 }
 :host(.${baseClass}--font-sm) {
   --${baseClass}-fs: 16px;
@@ -95,6 +103,16 @@ export const styles = `
   }
 }
 
+:host(.${baseClass}--svg-3xs) {
+  width: 16px;
+  height: 16px;
+}
+
+:host(.${baseClass}--svg-2xs) {
+  width: 18px;
+  height: 18px;
+}
+
 :host(.${baseClass}--svg-xs) {
   width: 22px;
   height: 22px;
@@ -130,7 +148,7 @@ i {
   display: inline-block;
 }
   
-svg {
+::slotted(svg) {
   fill: inherit;
   width: 100%;
   height: 100%;

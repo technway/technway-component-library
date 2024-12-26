@@ -4,14 +4,86 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-badge.tsx` file.
  * 
-const propsValues = [this.appearance, this.borderRadius, this.label, this.size, this.variant];
-validateProps(propsValues);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.label, this.size, this.variant]);
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"appearance","type":["mixed","none","outlined","solid","transparent"],"isRequired":false},{"name":"borderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"label","type":["number","string"],"isRequired":false},{"name":"size","type":["lg","md","sm"],"isRequired":false},{"name":"variant","type":["auto","black","danger","info","inverse","light","primary","secondary","success","warning","white"],"isRequired":false}];
+  const props = [
+  {
+    "name": "appearance",
+    "type": [
+      "mixed",
+      "none",
+      "outlined",
+      "solid",
+      "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "danger",
+      "info",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "borderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "label",
+    "type": [
+      "number",
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "size",
+    "type": [
+      "lg",
+      "md",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "variant",
+    "type": [
+      "image",
+      "numeric",
+      "status",
+      "textual"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

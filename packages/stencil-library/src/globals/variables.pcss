@@ -46,6 +46,7 @@
 
   --tnw-border-color: var(--border-color, #ccc);
   --tnw-border-color-rgb: var(--border-color-rgb, 204, 204, 204);
+  --tnw-border-color-focus: var(--border-color-focus, #6e6e6e);
   --tnw-border-color-inverse: var(--border-color-inverse, #2d2d2d);
   --tnw-border-color-inverse-rgb: var(--border-color-inverse-rgb, 51, 42, 41);
   --tnw-border-color-opacity: var(--border-color-opacity, rgba(150, 150, 150, 0.301));
@@ -200,7 +201,8 @@
   --tnw-gradient-x-bg-to-transparent: var(--gradient-x-bg-to-transparent, linear-gradient(to right, var(--tnw-background-color), transparent));
 
   /* Shadows */
-  --tnw-shadow: var(--shadow, rgba(160, 160, 160, 0.35));
+  --tnw-shadow-color: rgba(160, 160, 160, 0.35);
+  --tnw-shadow: var(--shadow, var(--tnw-shadow-color));
   --tnw-shadow-primary: var(--shadow-prim, var(--tnw-primary-color));
   --tnw-shadow-primary-lite: var(--shadow-primary-lite, rgba(var(--tnw-primary-color-rgb), 0.3));
 

@@ -539,7 +539,7 @@ export function enforceGroupedPropsUsage(checks: PropGroupCheck[]): void {
  * @returns {boolean} True if the string is not empty, false otherwise.
  */
 export function isNotEmptyString(s: string | null | undefined): boolean {
-  return typeof s === "string" && s.trim() !== '';
+  return typeof s === "string" && s.trim() !== '' && s !== null && s !== undefined;
 }
 
 
@@ -603,7 +603,7 @@ export const isAdoptedStyleSheetsSupported = (): boolean => {
  * @param length - The length of the random string portion. If a value less than 4 is provided, 4 will be used. Default is 9.
  * @returns A unique identifier string in the format: 'prefix-<randomString>-suffix', where prefix and suffix are optional.
  */
-export function generateRandomId(prefix?: string, suffix?: string, length: number = 9): string {
+export function generateRandomId(prefix?: string, length: number = 9, suffix?: string): string {
   const minLength = 4;
   const validLength = Math.max(length, minLength);
   const randomString = Math.random().toString(36).slice(2, 2 + validLength);

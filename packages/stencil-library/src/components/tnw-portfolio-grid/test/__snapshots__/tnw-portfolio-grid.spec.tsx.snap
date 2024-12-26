@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-portfolio-grid Default and Required Prop Behavior renders correctly with default props 1`] = `
+<tnw-portfolio-grid class="tnw-portfolio-grid" items-data="[{&quot;src&quot;:&quot;image.jpg&quot;,&quot;alt&quot;:&quot;An image&quot;}]">
+  <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    display: block;
+
+    --tnw-portfolio-grid-spacing-xs: var(--tnw-spacing-xs);
+    --tnw-portfolio-grid-spacing-sm: var(--tnw-spacing-sm);
+    --tnw-portfolio-grid-spacing-md: var(--tnw-spacing-md);
+    --tnw-portfolio-grid-spacing-lg: var(--tnw-spacing-lg);
+    --tnw-portfolio-grid-spacing-xl: var(--tnw-spacing-xl);
+}
+
+.tnw-portfolio-grid__content {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.tnw-portfolio-grid__content--gradient-fade {
+    position: relative;
+}
+.tnw-portfolio-grid__content--gradient-fade::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 350px;
+    background-image: linear-gradient(to bottom, rgba(var(--tnw-background-color-rgb), 0), rgba(var(--tnw-background-color-rgb), 1));
+    pointer-events: none;
+}
+
+/* Spacings */
+.tnw-portfolio-grid__content--spacing-xs {
+    gap: var(--tnw-portfolio-grid-spacing-xs);
+}
+.tnw-portfolio-grid__content--spacing-sm {
+    gap: var(--tnw-portfolio-grid-spacing-sm);
+}
+.tnw-portfolio-grid__content--spacing-md {
+    gap: var(--tnw-portfolio-grid-spacing-md);
+}
+.tnw-portfolio-grid__content--spacing-lg {
+    gap: var(--tnw-portfolio-grid-spacing-lg);
+}
+.tnw-portfolio-grid__content--spacing-xl {
+    gap: var(--tnw-portfolio-grid-spacing-xl);
+}
+
+tnw-anchor,
+tnw-anchor::part(anchor) {
+    width: 100%;
+    height: 100%;
+}
+    </style>
+    <style></style>
+    <div class="tnw-portfolio-grid__content tnw-portfolio-grid__content--spacing-sm" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="tnw-portfolio-grid__item">
+        <tnw-image alt="An image" heightsize="full" objectfit="cover" src="image.jpg" widthsize="full"></tnw-image>
+      </div>
+    </div>
+  </template>
+</tnw-portfolio-grid>
+`;

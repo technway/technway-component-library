@@ -262,8 +262,6 @@ content alignment and padding.
 
 ## tnw-select
 
-⚠️ COMPONENT IN DEVELOPMENT
-
 The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
 
 ---

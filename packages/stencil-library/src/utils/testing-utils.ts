@@ -95,7 +95,12 @@ export const createSpecPage = async (
  * @param debug - If true, the error is logged to the console for easier debugging. Default is false.
  * @returns Nothing, but expects the error to be thrown.
  */
-export const checkSpecPageError = async (component: any, html: string, expectedMessagePart: string, debug: boolean = false) => {
+export const checkSpecPageError = async (
+    component: any,
+     html: string,
+      expectedMessagePart: string, 
+      debug: boolean = false
+    ) => {
     let isErrorThrown = false;
     try {
         await createSpecPage(component, html, undefined, false, debug);

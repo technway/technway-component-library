@@ -7,8 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
 import { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
+import { TnwSelectOption } from "./components/tnw-select/utils/tnw-select-data-types";
 export { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
 export { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
+export { TnwSelectOption } from "./components/tnw-select/utils/tnw-select-data-types";
 export namespace Components {
     /**
      * The `tnw-accordion` component provides a collapsible/expandable section
@@ -151,21 +153,29 @@ export namespace Components {
          */
         "appearance"?: OptionalAppearanceType;
         /**
-          * The border radius of the badge.
+          * The color appearance color of the badge, determining the overall color scheme.
+         */
+        "appearanceColor"?: ExtendedColorType;
+        /**
+          * The border radius of the badge. it will be ignored if variant is not textual.
          */
         "borderRadius"?: BorderRadiusType;
         /**
-          * The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot.
+          * The source URL of the image to display inside the badge when the variant is set to 'image'. If not provided, the badge will not display an image.
+         */
+        "imageSrc"?: string;
+        /**
+          * The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot. If the variant is `numeric`, the label will be limited to 99+.
          */
         "label"?: string | number;
         /**
-          * The size of the badge.
+          * The size of the badge. controls padding if the variant is textual, else it controls width with height.
          */
         "size"?: SizeType;
         /**
-          * The color variant of the badge, determining the overall color scheme.
+          * Specifies the variant of the badge.  - `image`: The badge will display an image. label will be ignored. - `color`: The badge will display a color. label and slot will be ignored. - `textual`: The badge will display text. label will be displayed. - `numeric`: The badge will display a number. even if the number is larger 99, the number displayed will be 99+.   The label will be limited to 99+.
          */
-        "variant"?: ExtendedColorType;
+        "variant"?: 'image' | 'status' | 'textual' | 'numeric';
     }
     /**
      * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
@@ -638,7 +648,7 @@ export namespace Components {
          */
         "borderRadius"?: BorderRadiusType;
         /**
-          * Sets the color of the icon. This will be used to set the color of the icon element.
+          * Sets the color of the icon. This will be used to set the color of the icon element. Not supported when svg is enabled.
          */
         "color"?: TextColorType;
         /**
@@ -664,7 +674,7 @@ export namespace Components {
         /**
           * Specifies the size of the icon. The size means that the icon will have the width same as the height.
          */
-        "size"?: ExtendedSizeType;
+        "size"?: ExtendedSizeType | "2xs" | "3xs" | "2xl" | "3xl";
         /**
           * Adds a tooltip to the icon, which will be displayed on hover. This is required when `enableSvg` is not set to `true`.
          */
@@ -1201,26 +1211,45 @@ export namespace Components {
         "variant"?: ColorType;
     }
     /**
-     * ⚠️ COMPONENT IN DEVELOPMENT
      * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
      */
     interface TnwSelect {
+        "accessibilityId"?: string;
         /**
           * Border radius of the select.
          */
         "borderRadius"?: BorderRadiusType;
+        "disabled"?: boolean;
+        "fullWidth"?: boolean;
         /**
-          * The default option that should be selected on component load.
+          * Retrieves the currently selected option.
          */
-        "defaultOption"?: string;
+        "getSelectedOption": () => Promise<TnwSelectOption | undefined>;
         /**
           * The label to display when no option is selected.
          */
         "label"?: string;
         /**
+          * The appearance of the select options. if bordered a border top and bottom will be added to the options.
+         */
+        "optionAppearance"?: 'standard' | 'bordered';
+        /**
           * JSON string representing the options available in the select dropdown. Each option can include a label, value, ariaLabel, and disabled state.
          */
         "optionsData": string;
+        /**
+          * Resets the selected option to the default or placeholder label.
+         */
+        "resetSelectedOption": () => Promise<void>;
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Programmatically toggles the dropdown open or closed.
+         */
+        "toggleDropdown": () => Promise<void>;
+        /**
+          * Specifies the variant of the select component.  - `standard`: Default variant without any additional icons or images. - `withIconName`: Variant that includes an icon by name. - `withSvgIcon`: Variant that includes an SVG icon. - `withImage`: Variant that includes an image. - `withStatus`: Variant that includes a status indicator.
+         */
+        "variant"?: "standard" | 'withIconName' | 'withSvgIcon' | 'withImage' | 'withStatus';
     }
     /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
@@ -1422,6 +1451,10 @@ export interface TnwAccordionCustomEvent<T> extends CustomEvent<T> {
 export interface TnwInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwInputElement;
+}
+export interface TnwScrollToTopCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwScrollToTopElement;
 }
 export interface TnwSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1730,12 +1763,24 @@ declare global {
         prototype: HTMLTnwRatingElement;
         new (): HTMLTnwRatingElement;
     };
+    interface HTMLTnwScrollToTopElementEventMap {
+        "visible": { isVisible: boolean; scrollY: number };
+        "scrollToTopClicked": { scrollY: number };
+    }
     /**
      * The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.
      * The button becomes visible when the user scrolls down a certain distance.
      * It supports customization of the icon, size, appearance, and allows for the use of a custom SVG icon.
      */
     interface HTMLTnwScrollToTopElement extends Components.TnwScrollToTop, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwScrollToTopElementEventMap>(type: K, listener: (this: HTMLTnwScrollToTopElement, ev: TnwScrollToTopCustomEvent<HTMLTnwScrollToTopElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwScrollToTopElementEventMap>(type: K, listener: (this: HTMLTnwScrollToTopElement, ev: TnwScrollToTopCustomEvent<HTMLTnwScrollToTopElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLTnwScrollToTopElement: {
         prototype: HTMLTnwScrollToTopElement;
@@ -1753,10 +1798,10 @@ declare global {
         new (): HTMLTnwSectionElement;
     };
     interface HTMLTnwSelectElementEventMap {
-        "optionSelected": string;
+        "optionSelected": TnwSelectOption;
+        "dropdownToggled": { isOpen: boolean };
     }
     /**
-     * ⚠️ COMPONENT IN DEVELOPMENT
      * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
      */
     interface HTMLTnwSelectElement extends Components.TnwSelect, HTMLStencilElement {
@@ -1996,21 +2041,29 @@ declare namespace LocalJSX {
          */
         "appearance"?: OptionalAppearanceType;
         /**
-          * The border radius of the badge.
+          * The color appearance color of the badge, determining the overall color scheme.
+         */
+        "appearanceColor"?: ExtendedColorType;
+        /**
+          * The border radius of the badge. it will be ignored if variant is not textual.
          */
         "borderRadius"?: BorderRadiusType;
         /**
-          * The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot.
+          * The source URL of the image to display inside the badge when the variant is set to 'image'. If not provided, the badge will not display an image.
+         */
+        "imageSrc"?: string;
+        /**
+          * The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot. If the variant is `numeric`, the label will be limited to 99+.
          */
         "label"?: string | number;
         /**
-          * The size of the badge.
+          * The size of the badge. controls padding if the variant is textual, else it controls width with height.
          */
         "size"?: SizeType;
         /**
-          * The color variant of the badge, determining the overall color scheme.
+          * Specifies the variant of the badge.  - `image`: The badge will display an image. label will be ignored. - `color`: The badge will display a color. label and slot will be ignored. - `textual`: The badge will display text. label will be displayed. - `numeric`: The badge will display a number. even if the number is larger 99, the number displayed will be 99+.   The label will be limited to 99+.
          */
-        "variant"?: ExtendedColorType;
+        "variant"?: 'image' | 'status' | 'textual' | 'numeric';
     }
     /**
      * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
@@ -2483,7 +2536,7 @@ declare namespace LocalJSX {
          */
         "borderRadius"?: BorderRadiusType;
         /**
-          * Sets the color of the icon. This will be used to set the color of the icon element.
+          * Sets the color of the icon. This will be used to set the color of the icon element. Not supported when svg is enabled.
          */
         "color"?: TextColorType;
         /**
@@ -2509,7 +2562,7 @@ declare namespace LocalJSX {
         /**
           * Specifies the size of the icon. The size means that the icon will have the width same as the height.
          */
-        "size"?: ExtendedSizeType;
+        "size"?: ExtendedSizeType | "2xs" | "3xs" | "2xl" | "3xl";
         /**
           * Adds a tooltip to the icon, which will be displayed on hover. This is required when `enableSvg` is not set to `true`.
          */
@@ -2998,6 +3051,14 @@ declare namespace LocalJSX {
          */
         "enableCustomSvgIcon"?: boolean;
         /**
+          * Emitted when the scroll-to-top button is clicked. The `detail` object contains: - `scrollY`: The current scroll position when clicked.
+         */
+        "onScrollToTopClicked"?: (event: TnwScrollToTopCustomEvent<{ scrollY: number }>) => void;
+        /**
+          * Emitted when the scroll-to-top button becomes visible. The `detail` object contains: - `isVisible`: `true` - `scrollY`: The current scroll position.
+         */
+        "onVisible"?: (event: TnwScrollToTopCustomEvent<{ isVisible: boolean; scrollY: number }>) => void;
+        /**
           * Specifies the size of the scroll-to-top button.
          */
         "size"?: ExtendedSizeType;
@@ -3054,30 +3115,41 @@ declare namespace LocalJSX {
         "variant"?: ColorType;
     }
     /**
-     * ⚠️ COMPONENT IN DEVELOPMENT
      * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
      */
     interface TnwSelect {
+        "accessibilityId"?: string;
         /**
           * Border radius of the select.
          */
         "borderRadius"?: BorderRadiusType;
-        /**
-          * The default option that should be selected on component load.
-         */
-        "defaultOption"?: string;
+        "disabled"?: boolean;
+        "fullWidth"?: boolean;
         /**
           * The label to display when no option is selected.
          */
         "label"?: string;
         /**
+          * Emitted when the dropdown is toggled open or closed.
+         */
+        "onDropdownToggled"?: (event: TnwSelectCustomEvent<{ isOpen: boolean }>) => void;
+        /**
           * Emitted when an option is selected from the dropdown.
          */
-        "onOptionSelected"?: (event: TnwSelectCustomEvent<string>) => void;
+        "onOptionSelected"?: (event: TnwSelectCustomEvent<TnwSelectOption>) => void;
+        /**
+          * The appearance of the select options. if bordered a border top and bottom will be added to the options.
+         */
+        "optionAppearance"?: 'standard' | 'bordered';
         /**
           * JSON string representing the options available in the select dropdown. Each option can include a label, value, ariaLabel, and disabled state.
          */
         "optionsData": string;
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Specifies the variant of the select component.  - `standard`: Default variant without any additional icons or images. - `withIconName`: Variant that includes an icon by name. - `withSvgIcon`: Variant that includes an SVG icon. - `withImage`: Variant that includes an image. - `withStatus`: Variant that includes a status indicator.
+         */
+        "variant"?: "standard" | 'withIconName' | 'withSvgIcon' | 'withImage' | 'withStatus';
     }
     /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
@@ -3468,7 +3540,6 @@ declare module "@stencil/core" {
              */
             "tnw-section": LocalJSX.TnwSection & JSXBase.HTMLAttributes<HTMLTnwSectionElement>;
             /**
-             * ⚠️ COMPONENT IN DEVELOPMENT
              * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
              */
             "tnw-select": LocalJSX.TnwSelect & JSXBase.HTMLAttributes<HTMLTnwSelectElement>;

@@ -61,13 +61,6 @@ The `tnw-rating` component is used to display a star-based rating system, allowi
 | `totalStars`      | `total-stars`       | The total number of stars to display in the rating component.                  | `number`                                                                           | `5`                      |
 
 
-## Slots
-
-| Slot | Description                                                                            |
-| ---- | -------------------------------------------------------------------------------------- |
-|      | Slot for custom icons. Use the default slot to insert custom content for rating stars. |
-
-
 ## Shadow Parts
 
 | Part             | Description                                                   |

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-23T09:36:31",
+  "timestamp": "2024-12-26T10:57:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -1305,6 +1305,75 @@
           "required": false
         },
         {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+          "complexType": {
+            "original": "ExtendedColorType",
+            "resolved": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+            "references": {
+              "ExtendedColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ExtendedColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "The color appearance color of the badge, determining the overall color scheme.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -1321,7 +1390,7 @@
           "mutable": false,
           "attr": "border-radius",
           "reflectToAttr": false,
-          "docs": "The border radius of the badge.",
+          "docs": "The border radius of the badge. it will be ignored if variant is not textual.",
           "docsTags": [],
           "default": "'lg'",
           "values": [
@@ -1374,6 +1443,27 @@
           "required": false
         },
         {
+          "name": "imageSrc",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "image-src",
+          "reflectToAttr": false,
+          "docs": "The source URL of the image to display inside the badge when the variant is set to 'image'.\nIf not provided, the badge will not display an image.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "label",
           "type": "number | string",
           "complexType": {
@@ -1384,7 +1474,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot.",
+          "docs": "The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot.\nIf the variant is `numeric`, the label will be limited to 99+.",
           "docsTags": [],
           "values": [
             {
@@ -1414,7 +1504,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The size of the badge.",
+          "docs": "The size of the badge. controls padding if the variant is textual, else it controls width with height.",
           "docsTags": [],
           "default": "'sm'",
           "values": [
@@ -1436,67 +1526,33 @@
         },
         {
           "name": "variant",
-          "type": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+          "type": "\"image\" | \"numeric\" | \"status\" | \"textual\"",
           "complexType": {
-            "original": "ExtendedColorType",
-            "resolved": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
-            "references": {
-              "ExtendedColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ExtendedColorType"
-              }
-            }
+            "original": "'image' | 'status' | 'textual' | 'numeric'",
+            "resolved": "\"image\" | \"numeric\" | \"status\" | \"textual\"",
+            "references": {}
           },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "The color variant of the badge, determining the overall color scheme.",
+          "docs": "Specifies the variant of the badge.\n\n- `image`: The badge will display an image. label will be ignored.\n- `color`: The badge will display a color. label and slot will be ignored.\n- `textual`: The badge will display text. label will be displayed.\n- `numeric`: The badge will display a number. even if the number is larger 99, the number displayed will be 99+.\n  The label will be limited to 99+.",
           "docsTags": [],
-          "default": "'auto'",
+          "default": "'textual'",
           "values": [
             {
-              "value": "auto",
+              "value": "image",
               "type": "string"
             },
             {
-              "value": "black",
+              "value": "numeric",
               "type": "string"
             },
             {
-              "value": "danger",
+              "value": "status",
               "type": "string"
             },
             {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            },
-            {
-              "value": "white",
+              "value": "textual",
               "type": "string"
             }
           ],
@@ -1515,9 +1571,15 @@
         }
       ],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "tnw-select"
+      ],
       "dependencies": [],
-      "dependencyGraph": {}
+      "dependencyGraph": {
+        "tnw-select": [
+          "tnw-badge"
+        ]
+      }
     },
     {
       "filePath": "src/components/tnw-button/tnw-button.tsx",
@@ -6417,7 +6479,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": false,
-          "docs": "Sets the color of the icon. This will be used to set the color of the icon element.",
+          "docs": "Sets the color of the icon. This will be used to set the color of the icon element.\nNot supported when svg is enabled.",
           "docsTags": [],
           "default": "'auto'",
           "values": [
@@ -6603,10 +6665,10 @@
         },
         {
           "name": "size",
-          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+          "type": "\"2xl\" | \"2xs\" | \"3xl\" | \"3xs\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
-            "original": "ExtendedSizeType",
-            "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+            "original": "ExtendedSizeType | \"2xs\" | \"3xs\" | \"2xl\" | \"3xl\"",
+            "resolved": "\"2xl\" | \"2xs\" | \"3xl\" | \"3xs\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
             "references": {
               "ExtendedSizeType": {
                 "location": "import",
@@ -6622,6 +6684,22 @@
           "docsTags": [],
           "default": "'sm'",
           "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "2xs",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "3xs",
+              "type": "string"
+            },
             {
               "value": "lg",
               "type": "string"
@@ -10641,10 +10719,6 @@
       "docs": "The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.",
       "docsTags": [
         {
-          "name": "slot",
-          "text": "- Slot for custom icons. Use the default slot to insert custom content for rating stars."
-        },
-        {
           "name": "part",
           "text": "default-icon - The `tnw-icon` element used to render the default star icons."
         }
@@ -10875,12 +10949,7 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [
-        {
-          "name": "",
-          "docs": "Slot for custom icons. Use the default slot to insert custom content for rating stars."
-        }
-      ],
+      "slots": [],
       "parts": [
         {
           "name": "default-icon",
@@ -11223,7 +11292,36 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "scrollToTopClicked",
+          "detail": "{ scrollY: number; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ scrollY: number }",
+            "resolved": "{ scrollY: number; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the scroll-to-top button is clicked.\nThe `detail` object contains:\n- `scrollY`: The current scroll position when clicked.",
+          "docsTags": []
+        },
+        {
+          "event": "visible",
+          "detail": "{ isVisible: boolean; scrollY: number; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ isVisible: boolean; scrollY: number }",
+            "resolved": "{ isVisible: boolean; scrollY: number; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the scroll-to-top button becomes visible.\nThe `detail` object contains:\n- `isVisible`: `true`\n- `scrollY`: The current scroll position.",
+          "docsTags": []
+        }
+      ],
       "listeners": [
         {
           "event": "scroll",
@@ -11708,7 +11806,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-select",
       "readme": "# tnw-select\n\n\n",
-      "docs": "⚠️ COMPONENT IN DEVELOPMENT\n\nThe `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.",
+      "docs": "The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.",
       "docsTags": [
         {
           "name": "part",
@@ -11727,6 +11825,27 @@
         "tnw-select-usage": ""
       },
       "props": [
+        {
+          "name": "accessibilityId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accessibility-id",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
@@ -11797,21 +11916,44 @@
           "required": false
         },
         {
-          "name": "defaultOption",
-          "type": "string",
+          "name": "disabled",
+          "type": "boolean",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "boolean",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
-          "attr": "default-option",
+          "attr": "disabled",
           "reflectToAttr": false,
-          "docs": "The default option that should be selected on component load.",
+          "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
-              "type": "string"
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "full-width",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -11840,6 +11982,33 @@
           "required": false
         },
         {
+          "name": "optionAppearance",
+          "type": "\"bordered\" | \"standard\"",
+          "complexType": {
+            "original": "'standard' | 'bordered'",
+            "resolved": "\"bordered\" | \"standard\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "option-appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the select options. if bordered a border top and bottom will be added to the options.",
+          "docsTags": [],
+          "default": "'standard'",
+          "values": [
+            {
+              "value": "bordered",
+              "type": "string"
+            },
+            {
+              "value": "standard",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "optionsData",
           "type": "string",
           "complexType": {
@@ -11859,18 +12028,184 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "'sm' | 'md' | 'lg'",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"withIconName\" | \"withImage\" | \"withStatus\" | \"withSvgIcon\"",
+          "complexType": {
+            "original": "\"standard\" | 'withIconName' | 'withSvgIcon' | 'withImage' | 'withStatus'",
+            "resolved": "\"standard\" | \"withIconName\" | \"withImage\" | \"withStatus\" | \"withSvgIcon\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "Specifies the variant of the select component.\n\n- `standard`: Default variant without any additional icons or images.\n- `withIconName`: Variant that includes an icon by name.\n- `withSvgIcon`: Variant that includes an SVG icon.\n- `withImage`: Variant that includes an image.\n- `withStatus`: Variant that includes a status indicator.",
+          "docsTags": [],
+          "default": "'standard'",
+          "values": [
+            {
+              "value": "standard",
+              "type": "string"
+            },
+            {
+              "value": "withIconName",
+              "type": "string"
+            },
+            {
+              "value": "withImage",
+              "type": "string"
+            },
+            {
+              "value": "withStatus",
+              "type": "string"
+            },
+            {
+              "value": "withSvgIcon",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getSelectedOption",
+          "returns": {
+            "type": "Promise<TnwSelectOption>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<TnwSelectOption | undefined>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "TnwSelectOption": {
+                "location": "import",
+                "path": "./utils/tnw-select-data-types",
+                "id": "src/components/tnw-select/utils/tnw-select-data-types.ts::TnwSelectOption"
+              }
+            },
+            "return": "Promise<TnwSelectOption>"
+          },
+          "signature": "getSelectedOption() => Promise<TnwSelectOption | undefined>",
+          "parameters": [],
+          "docs": "Retrieves the currently selected option.",
+          "docsTags": []
+        },
+        {
+          "name": "resetSelectedOption",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "resetSelectedOption() => Promise<void>",
+          "parameters": [],
+          "docs": "Resets the selected option to the default or placeholder label.",
+          "docsTags": []
+        },
+        {
+          "name": "toggleDropdown",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "toggleDropdown() => Promise<void>",
+          "parameters": [],
+          "docs": "Programmatically toggles the dropdown open or closed.",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
-          "event": "optionSelected",
-          "detail": "string",
+          "event": "dropdownToggled",
+          "detail": "{ isOpen: boolean; }",
           "bubbles": true,
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "{ isOpen: boolean }",
+            "resolved": "{ isOpen: boolean; }",
             "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the dropdown is toggled open or closed.",
+          "docsTags": []
+        },
+        {
+          "event": "optionSelected",
+          "detail": "TnwBaseSelectOption | TnwSelectOptionWithIconName | TnwSelectOptionWithImage | TnwSelectOptionWithStatus | TnwSelectOptionWithSvgIcon",
+          "bubbles": true,
+          "complexType": {
+            "original": "TnwSelectOption",
+            "resolved": "TnwBaseSelectOption | TnwSelectOptionWithIconName | TnwSelectOptionWithImage | TnwSelectOptionWithStatus | TnwSelectOptionWithSvgIcon",
+            "references": {
+              "TnwSelectOption": {
+                "location": "import",
+                "path": "./utils/tnw-select-data-types",
+                "id": "src/components/tnw-select/utils/tnw-select-data-types.ts::TnwSelectOption"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -11897,11 +12232,13 @@
       ],
       "dependents": [],
       "dependencies": [
-        "tnw-icon"
+        "tnw-icon",
+        "tnw-badge"
       ],
       "dependencyGraph": {
         "tnw-select": [
-          "tnw-icon"
+          "tnw-icon",
+          "tnw-badge"
         ]
       }
     },
@@ -13892,6 +14229,11 @@
       "declaration": "export type DirectionalAppearanceType =\r\n    | \"transparent\"\r\n    | \"solid\"\r\n    | \"mixed\"\r\n    | \"outlined\"\r\n    | \"outlined-block\"\r\n    | \"outlined-top\"\r\n    | \"outlined-bottom\"\r\n    | \"outlined-inline\"\r\n    | \"outlined-right\"\r\n    | \"outlined-left\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
+    },
+    "src/components/tnw-select/utils/tnw-select-data-types.ts::TnwSelectOption": {
+      "declaration": "export type TnwSelectOption =\r\n    | TnwBaseSelectOption\r\n    | TnwSelectOptionWithIconName\r\n    | TnwSelectOptionWithSvgIcon\r\n    | TnwSelectOptionWithImage\r\n    | TnwSelectOptionWithStatus;",
+      "docstring": "",
+      "path": "src/components/tnw-select/utils/tnw-select-data-types.ts"
     }
   }
 }

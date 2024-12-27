@@ -1,10 +1,14 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-badge.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.label, this.size, this.variant]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.imageSrc, this.label, this.size, this.variant]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-badge`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
@@ -53,6 +57,13 @@ export function validateProps(propsValues: any[]): void {
       "sm",
       "xl",
       "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "imageSrc",
+    "type": [
+      "string"
     ],
     "isRequired": false
   },

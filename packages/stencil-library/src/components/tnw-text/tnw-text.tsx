@@ -203,11 +203,8 @@ export class TnwText {
     return (
       <Host class={this.getHostClasses()}>
         <Tag class={this.getTextClasses()} part='text'>
-          {
-            this.renderText() !== null ?
-              this.renderText() :
-              <slot />
-          }
+          {this.renderText()}
+          <slot />
         </Tag>
       </Host>
     );

@@ -35,7 +35,7 @@ UserInterfaceState.xcuserstate
 
 # Storybook and testing-related files
 storybook.log
-notes-for-commits.txt
+*.ignore.txt
 .vercel
 *storybook.log
 /test-results/

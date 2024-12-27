@@ -1,17 +1,134 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-button.tsx` file.
  * 
-const propsValues = [this.appearance, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverVariant, this.href, this.label, this.newTab, this.size, this.type, this.variant];
-validateProps(propsValues);
+validateProps([this.appearance, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverVariant, this.href, this.label, this.newTab, this.size, this.type, this.variant]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-button`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"appearance","type":["mixed","none","outlined","solid","transparent"],"isRequired":false},{"name":"borderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"disabled","type":["boolean"],"isRequired":false},{"name":"hoverAppearance","type":["none","outlined","solid"],"isRequired":false},{"name":"hoverVariant","type":["auto","black","inverse","primary","secondary","white"],"isRequired":false},{"name":"href","type":["string"],"isRequired":false},{"name":"label","type":["string"],"isRequired":false},{"name":"newTab","type":["boolean"],"isRequired":false},{"name":"size","type":["lg","md","sm","xl","xs"],"isRequired":false},{"name":"type","type":["button","submit"],"isRequired":false},{"name":"variant","type":["auto","black","danger","info","inverse","light","primary","secondary","success","warning","white"],"isRequired":false}];
+  const props = [
+  {
+    "name": "appearance",
+    "type": [
+      "mixed",
+      "none",
+      "outlined",
+      "solid",
+      "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "borderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "disabled",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "hoverAppearance",
+    "type": [
+      "none",
+      "outlined",
+      "solid"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "hoverVariant",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "href",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "label",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "newTab",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "size",
+    "type": [
+      "lg",
+      "md",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "type",
+    "type": [
+      "button",
+      "submit"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "variant",
+    "type": [
+      "auto",
+      "black",
+      "danger",
+      "info",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "white"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

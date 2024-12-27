@@ -79,6 +79,7 @@ This component supports both text content and custom content via a slot, making 
 | Part       | Description                                                                                     |
 | ---------- | ----------------------------------------------------------------------------------------------- |
 | `"anchor"` | The `<a>` element that serves as the anchor link. Use this part for styling the anchor element. |
+| `"icon"`   | No description provided.                                                                        |
 
 
 ## Dependencies
@@ -87,8 +88,7 @@ This component supports both text content and custom content via a slot, making 
 
  - [tnw-footer](../tnw-footer)
  - [tnw-list](../tnw-list)
- - [tnw-navbar-dropdown-menu](../tnw-navbar-menu/tnw-navbar-dropdown-menu)
- - [tnw-navbar-menu](../tnw-navbar-menu)
+ - [tnw-navbar](../tnw-navbar)
  - [tnw-portfolio-grid](../tnw-portfolio-grid)
 
 ### Depends on
@@ -101,8 +101,7 @@ graph TD;
   tnw-anchor --> tnw-icon
   tnw-footer --> tnw-anchor
   tnw-list --> tnw-anchor
-  tnw-navbar-dropdown-menu --> tnw-anchor
-  tnw-navbar-menu --> tnw-anchor
+  tnw-navbar --> tnw-anchor
   tnw-portfolio-grid --> tnw-anchor
   style tnw-anchor fill:#f9f,stroke:#333,stroke-width:4px
 ```

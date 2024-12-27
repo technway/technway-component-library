@@ -6,10 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
-import { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
+import { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1 } from "./components";
 import { TnwSelectOption } from "./components/tnw-select/utils/tnw-select-data-types";
 export { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
-export { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1, FontSizeType as FontSizeType1 } from "./components";
+export { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1 } from "./components";
 export { TnwSelectOption } from "./components/tnw-select/utils/tnw-select-data-types";
 export namespace Components {
     /**
@@ -917,9 +917,22 @@ export namespace Components {
          */
         "animationSpeed": number;
         /**
+          * Pauses the animation of all carousel rows. Emits a `tnwRowPause` event for each row that is paused.
+         */
+        "pauseAll": () => Promise<void>;
+        /**
+          * Resumes the animation of all carousel rows. Emits a `tnwRowResume` event for each row that is resumed.
+         */
+        "resumeAll": () => Promise<void>;
+        /**
           * The number of rows in the carousel.
          */
         "rows": number;
+        /**
+          * Toggles the animation state of a specific row between paused and running. Emits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.
+          * @param rowIndex - The zero-based index of the row to toggle
+         */
+        "toggleRow": (rowIndex: number) => Promise<void>;
     }
     /**
      * The `tnw-navbar` component creates a responsive, customizable navigation bar.
@@ -931,109 +944,53 @@ export namespace Components {
          */
         "appearance"?: OptionalAppearanceType | "outlined-bottom";
         /**
+          * Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
+         */
+        "appearanceStyle"?: ColorType;
+        /**
           * Sets the border-radius of the navigation bar.
          */
         "borderRadius"?: BorderRadiusType;
-        /**
-          * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
-         */
-        "burgerMenuPlacement"?: 'start' | 'end';
         /**
           * If true, the navigation bar content will not be wrapped in a container for centering and padding.
          */
         "disableInternalContainer"?: boolean;
         /**
-          * When true, the middle slot will be centered exactly in the horizontal center of the screen.
+          * If true, the CTA slot is enabled.
          */
-        "exactCenterMiddleSlot": boolean;
+        "enableCtaSlot"?: boolean;
+        /**
+          * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
+         */
+        "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
+        /**
+          * The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.
+         */
+        "logoData"?: string;
+        /**
+          * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
+         */
+        "menuData"?: string;
+        /**
+          * When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.
+         */
+        "menuExactCenter": boolean;
+        /**
+          * Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.
+         */
+        "menuPlacement"?: 'start' | 'middle' | 'end';
         /**
           * Sets the padding size of the navigation bar.
          */
-        "paddingSize"?: SizeType;
+        "padding"?: SizeType | 'none';
         /**
           * Makes the navigation bar sticky at the top of the viewport when set to true.
          */
         "sticky"?: boolean;
         /**
-          * Enables the end slot for custom content, like user actions or profile links.
+          * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
          */
-        "useEndSlot"?: boolean;
-        /**
-          * Enables a glassmorphism effect for the navigation bar. When true, the navbar will have a frosted glass appearance.
-         */
-        "useGlassmorphismEffect": boolean;
-        /**
-          * Enables the middle slot for custom content, typically used for navigation links.
-         */
-        "useMiddleSlot"?: boolean;
-        /**
-          * Enables the start slot for custom content, such as logos or menus.
-         */
-        "useStartSlot"?: boolean;
-        /**
-          * Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
-         */
-        "variant"?: ColorType;
-    }
-    /**
-     * The `tnw-navbar-dropdown-menu` component is designed to be used within the `tnw-navbar-menu` component to handle dropdown navigation menus.
-     */
-    interface TnwNavbarDropdownMenu {
-        /**
-          * The JSON string representing the dropdown menu items. Each item should include a `label`, `link`, and optional newTab.
-         */
-        "itemsData": string;
-        /**
-          * The size of the items.
-         */
-        "itemsSize"?: FontSizeType1;
-    }
-    /**
-     * The `tnw-navbar-menu` component is designed to be used inside the `tnw-navbar` component. It provides a flexible and responsive navigation menu, which can be configured with various alignment options, hover effects, and styles.
-     * The menu supports nested submenus, text color customization, and adaptive behavior based on breakpoints.
-     */
-    interface TnwNavbarMenu {
-        /**
-          * Hides the menu below a specified breakpoint width (in pixels).
-         */
-        "hideBelowBreakpoint": "1024" | "767";
-        /**
-          * Sets the border-radius of the menu items.
-         */
-        "itemsBorderRadius"?: BorderRadiusType;
-        /**
-          * Sets the text color of the menu items.
-         */
-        "itemsColor"?: TextColorType;
-        /**
-          * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
-         */
-        "itemsData": string;
-        /**
-          * Defines the appearance of the hover effect for the menu items (e.g., solid, outlined).
-         */
-        "itemsHoverAppearance"?: "solid" | "outlined" | "color" | "none";
-        /**
-          * Sets the hover effect for the menu items.
-         */
-        "itemsHoverEffect"?: 'contrast' | 'opacity';
-        /**
-          * Sets the hover variant color for the menu items.
-         */
-        "itemsHoverVariant"?: 'auto' | 'inverse' | 'primary' | 'secondary' | 'black' | 'white';
-        /**
-          * Sets the font size of the menu items.
-         */
-        "itemsSize"?: FontSizeType;
-    }
-    /**
-     * The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.
-     */
-    interface TnwNavbarMenuToggler {
-        /**
-          * Specifies the aria label for the menu toggler icon for accessibility purposes.
-         */
-        "labelAria": string;
+        "togglerPlacement"?: 'start' | 'end';
     }
     interface TnwNewsletterForm {
         /**
@@ -1452,6 +1409,14 @@ export interface TnwInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwInputElement;
 }
+export interface TnwMultiRowCarouselCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwMultiRowCarouselElement;
+}
+export interface TnwNavbarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwNavbarElement;
+}
 export interface TnwScrollToTopCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwScrollToTopElement;
@@ -1694,53 +1659,50 @@ declare global {
         prototype: HTMLTnwListElement;
         new (): HTMLTnwListElement;
     };
+    interface HTMLTnwMultiRowCarouselElementEventMap {
+        "tnwRowPause": number;
+        "tnwRowResume": number;
+    }
     /**
      * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
      * with multiple rows. Each row scrolls independently and can move in alternating directions.
      */
     interface HTMLTnwMultiRowCarouselElement extends Components.TnwMultiRowCarousel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwMultiRowCarouselElementEventMap>(type: K, listener: (this: HTMLTnwMultiRowCarouselElement, ev: TnwMultiRowCarouselCustomEvent<HTMLTnwMultiRowCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwMultiRowCarouselElementEventMap>(type: K, listener: (this: HTMLTnwMultiRowCarouselElement, ev: TnwMultiRowCarouselCustomEvent<HTMLTnwMultiRowCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLTnwMultiRowCarouselElement: {
         prototype: HTMLTnwMultiRowCarouselElement;
         new (): HTMLTnwMultiRowCarouselElement;
     };
+    interface HTMLTnwNavbarElementEventMap {
+        "tnwBreakpointChange": { breakpoint: "1024" | "767" | "567" | "1439" };
+        "tnwMenuToggle": { isOpen: boolean };
+        "tnwScrollChange": { scrollY: number };
+    }
     /**
      * The `tnw-navbar` component creates a responsive, customizable navigation bar.
      * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
      */
     interface HTMLTnwNavbarElement extends Components.TnwNavbar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwNavbarElementEventMap>(type: K, listener: (this: HTMLTnwNavbarElement, ev: TnwNavbarCustomEvent<HTMLTnwNavbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwNavbarElementEventMap>(type: K, listener: (this: HTMLTnwNavbarElement, ev: TnwNavbarCustomEvent<HTMLTnwNavbarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLTnwNavbarElement: {
         prototype: HTMLTnwNavbarElement;
         new (): HTMLTnwNavbarElement;
-    };
-    /**
-     * The `tnw-navbar-dropdown-menu` component is designed to be used within the `tnw-navbar-menu` component to handle dropdown navigation menus.
-     */
-    interface HTMLTnwNavbarDropdownMenuElement extends Components.TnwNavbarDropdownMenu, HTMLStencilElement {
-    }
-    var HTMLTnwNavbarDropdownMenuElement: {
-        prototype: HTMLTnwNavbarDropdownMenuElement;
-        new (): HTMLTnwNavbarDropdownMenuElement;
-    };
-    /**
-     * The `tnw-navbar-menu` component is designed to be used inside the `tnw-navbar` component. It provides a flexible and responsive navigation menu, which can be configured with various alignment options, hover effects, and styles.
-     * The menu supports nested submenus, text color customization, and adaptive behavior based on breakpoints.
-     */
-    interface HTMLTnwNavbarMenuElement extends Components.TnwNavbarMenu, HTMLStencilElement {
-    }
-    var HTMLTnwNavbarMenuElement: {
-        prototype: HTMLTnwNavbarMenuElement;
-        new (): HTMLTnwNavbarMenuElement;
-    };
-    /**
-     * The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.
-     */
-    interface HTMLTnwNavbarMenuTogglerElement extends Components.TnwNavbarMenuToggler, HTMLStencilElement {
-    }
-    var HTMLTnwNavbarMenuTogglerElement: {
-        prototype: HTMLTnwNavbarMenuTogglerElement;
-        new (): HTMLTnwNavbarMenuTogglerElement;
     };
     interface HTMLTnwNewsletterFormElement extends Components.TnwNewsletterForm, HTMLStencilElement {
     }
@@ -1881,9 +1843,6 @@ declare global {
         "tnw-list": HTMLTnwListElement;
         "tnw-multi-row-carousel": HTMLTnwMultiRowCarouselElement;
         "tnw-navbar": HTMLTnwNavbarElement;
-        "tnw-navbar-dropdown-menu": HTMLTnwNavbarDropdownMenuElement;
-        "tnw-navbar-menu": HTMLTnwNavbarMenuElement;
-        "tnw-navbar-menu-toggler": HTMLTnwNavbarMenuTogglerElement;
         "tnw-newsletter-form": HTMLTnwNewsletterFormElement;
         "tnw-portfolio-grid": HTMLTnwPortfolioGridElement;
         "tnw-rating": HTMLTnwRatingElement;
@@ -2813,6 +2772,14 @@ declare namespace LocalJSX {
          */
         "animationSpeed"?: number;
         /**
+          * Event emitted when a row's animation is paused. The event detail contains the index of the paused row (zero-based).
+         */
+        "onTnwRowPause"?: (event: TnwMultiRowCarouselCustomEvent<number>) => void;
+        /**
+          * Event emitted when a row's animation is resumed. The event detail contains the index of the resumed row (zero-based).
+         */
+        "onTnwRowResume"?: (event: TnwMultiRowCarouselCustomEvent<number>) => void;
+        /**
           * The number of rows in the carousel.
          */
         "rows"?: number;
@@ -2827,109 +2794,65 @@ declare namespace LocalJSX {
          */
         "appearance"?: OptionalAppearanceType | "outlined-bottom";
         /**
+          * Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
+         */
+        "appearanceStyle"?: ColorType;
+        /**
           * Sets the border-radius of the navigation bar.
          */
         "borderRadius"?: BorderRadiusType;
-        /**
-          * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
-         */
-        "burgerMenuPlacement"?: 'start' | 'end';
         /**
           * If true, the navigation bar content will not be wrapped in a container for centering and padding.
          */
         "disableInternalContainer"?: boolean;
         /**
-          * When true, the middle slot will be centered exactly in the horizontal center of the screen.
+          * If true, the CTA slot is enabled.
          */
-        "exactCenterMiddleSlot"?: boolean;
+        "enableCtaSlot"?: boolean;
+        /**
+          * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
+         */
+        "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
+        /**
+          * The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.
+         */
+        "logoData"?: string;
+        /**
+          * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
+         */
+        "menuData"?: string;
+        /**
+          * When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.
+         */
+        "menuExactCenter"?: boolean;
+        /**
+          * Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.
+         */
+        "menuPlacement"?: 'start' | 'middle' | 'end';
+        /**
+          * Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }
+         */
+        "onTnwBreakpointChange"?: (event: TnwNavbarCustomEvent<{ breakpoint: "1024" | "767" | "567" | "1439" }>) => void;
+        /**
+          * Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean }
+         */
+        "onTnwMenuToggle"?: (event: TnwNavbarCustomEvent<{ isOpen: boolean }>) => void;
+        /**
+          * Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number }
+         */
+        "onTnwScrollChange"?: (event: TnwNavbarCustomEvent<{ scrollY: number }>) => void;
         /**
           * Sets the padding size of the navigation bar.
          */
-        "paddingSize"?: SizeType;
+        "padding"?: SizeType | 'none';
         /**
           * Makes the navigation bar sticky at the top of the viewport when set to true.
          */
         "sticky"?: boolean;
         /**
-          * Enables the end slot for custom content, like user actions or profile links.
+          * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
          */
-        "useEndSlot"?: boolean;
-        /**
-          * Enables a glassmorphism effect for the navigation bar. When true, the navbar will have a frosted glass appearance.
-         */
-        "useGlassmorphismEffect"?: boolean;
-        /**
-          * Enables the middle slot for custom content, typically used for navigation links.
-         */
-        "useMiddleSlot"?: boolean;
-        /**
-          * Enables the start slot for custom content, such as logos or menus.
-         */
-        "useStartSlot"?: boolean;
-        /**
-          * Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
-         */
-        "variant"?: ColorType;
-    }
-    /**
-     * The `tnw-navbar-dropdown-menu` component is designed to be used within the `tnw-navbar-menu` component to handle dropdown navigation menus.
-     */
-    interface TnwNavbarDropdownMenu {
-        /**
-          * The JSON string representing the dropdown menu items. Each item should include a `label`, `link`, and optional newTab.
-         */
-        "itemsData": string;
-        /**
-          * The size of the items.
-         */
-        "itemsSize"?: FontSizeType1;
-    }
-    /**
-     * The `tnw-navbar-menu` component is designed to be used inside the `tnw-navbar` component. It provides a flexible and responsive navigation menu, which can be configured with various alignment options, hover effects, and styles.
-     * The menu supports nested submenus, text color customization, and adaptive behavior based on breakpoints.
-     */
-    interface TnwNavbarMenu {
-        /**
-          * Hides the menu below a specified breakpoint width (in pixels).
-         */
-        "hideBelowBreakpoint"?: "1024" | "767";
-        /**
-          * Sets the border-radius of the menu items.
-         */
-        "itemsBorderRadius"?: BorderRadiusType;
-        /**
-          * Sets the text color of the menu items.
-         */
-        "itemsColor"?: TextColorType;
-        /**
-          * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
-         */
-        "itemsData": string;
-        /**
-          * Defines the appearance of the hover effect for the menu items (e.g., solid, outlined).
-         */
-        "itemsHoverAppearance"?: "solid" | "outlined" | "color" | "none";
-        /**
-          * Sets the hover effect for the menu items.
-         */
-        "itemsHoverEffect"?: 'contrast' | 'opacity';
-        /**
-          * Sets the hover variant color for the menu items.
-         */
-        "itemsHoverVariant"?: 'auto' | 'inverse' | 'primary' | 'secondary' | 'black' | 'white';
-        /**
-          * Sets the font size of the menu items.
-         */
-        "itemsSize"?: FontSizeType;
-    }
-    /**
-     * The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.
-     */
-    interface TnwNavbarMenuToggler {
-        /**
-          * Specifies the aria label for the menu toggler icon for accessibility purposes.
-         */
-        "labelAria"?: string;
+        "togglerPlacement"?: 'start' | 'end';
     }
     interface TnwNewsletterForm {
         /**
@@ -3374,9 +3297,6 @@ declare namespace LocalJSX {
         "tnw-list": TnwList;
         "tnw-multi-row-carousel": TnwMultiRowCarousel;
         "tnw-navbar": TnwNavbar;
-        "tnw-navbar-dropdown-menu": TnwNavbarDropdownMenu;
-        "tnw-navbar-menu": TnwNavbarMenu;
-        "tnw-navbar-menu-toggler": TnwNavbarMenuToggler;
         "tnw-newsletter-form": TnwNewsletterForm;
         "tnw-portfolio-grid": TnwPortfolioGrid;
         "tnw-rating": TnwRating;
@@ -3508,19 +3428,6 @@ declare module "@stencil/core" {
              * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
              */
             "tnw-navbar": LocalJSX.TnwNavbar & JSXBase.HTMLAttributes<HTMLTnwNavbarElement>;
-            /**
-             * The `tnw-navbar-dropdown-menu` component is designed to be used within the `tnw-navbar-menu` component to handle dropdown navigation menus.
-             */
-            "tnw-navbar-dropdown-menu": LocalJSX.TnwNavbarDropdownMenu & JSXBase.HTMLAttributes<HTMLTnwNavbarDropdownMenuElement>;
-            /**
-             * The `tnw-navbar-menu` component is designed to be used inside the `tnw-navbar` component. It provides a flexible and responsive navigation menu, which can be configured with various alignment options, hover effects, and styles.
-             * The menu supports nested submenus, text color customization, and adaptive behavior based on breakpoints.
-             */
-            "tnw-navbar-menu": LocalJSX.TnwNavbarMenu & JSXBase.HTMLAttributes<HTMLTnwNavbarMenuElement>;
-            /**
-             * The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.
-             */
-            "tnw-navbar-menu-toggler": LocalJSX.TnwNavbarMenuToggler & JSXBase.HTMLAttributes<HTMLTnwNavbarMenuTogglerElement>;
             "tnw-newsletter-form": LocalJSX.TnwNewsletterForm & JSXBase.HTMLAttributes<HTMLTnwNewsletterFormElement>;
             "tnw-portfolio-grid": LocalJSX.TnwPortfolioGrid & JSXBase.HTMLAttributes<HTMLTnwPortfolioGridElement>;
             /**

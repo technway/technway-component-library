@@ -1,86 +1,75 @@
-import { GLOBAL_PREFIX } from "../../utils/utils";
+import { GLOBAL_PREFIX } from "../../../../utils/utils";
 
 const baseClass = `${GLOBAL_PREFIX}-navbar-menu`;
 const itemClass = `${baseClass}__item`;
 
-export const styles = `
-* {
-    box-sizing: border-box;
-}
-    
-:host {
-    display: block;
-}
+const closedMenuStyles = () => (`
+    position: absolute;
+    opacity: 0;
+    transform: translateY(-10px);
+    z-index: -1;
+    visibility: hidden;
+    left: unset;
+    top: unset;
+    border-radius: var(--tnw-rounded-default);    
+`);
+const openedMenuStyles = () => (`
+    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out, visibility 250ms ease-in-out;
+    padding: 40px 30px;
+    top: 130%;
+    left: 0;
+    right: 0;
+    border: var(--tnw-border-sm) solid var(--tnw-primary-color-opacity) !important;
+    background-color: var(--tnw-background-color) !important;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+`);
 
-ul {
+export const styles = `
+.${baseClass} {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 20px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-@media only screen and (max-width: 1024px) {
-    :host(.${baseClass}--hideBelow-1024) {
-        position: absolute;
-        opacity: 0;
-        transform: translateY(-10px);
-        z-index: -1;
-        visibility: hidden;
-        left: unset;
-        top: unset;
-        border-radius: var(--tnw-rounded-default);
+@media only screen and (max-width: 1439px) {
+    .${baseClass}--hideMenuBelow-1439 {
+        ${closedMenuStyles()}
     }
-    :host(.${baseClass}--hideBelow-1024):host(.${baseClass}--opened) {
-        transition: opacity 250ms ease-in-out, transform 250ms ease-in-out, visibility 250ms ease-in-out;
-        padding: 40px 30px;
-        top: 115%;
-        left: 0;
-        right: 0;
-        border: var(--tnw-border-sm) solid var(--tnw-primary-color-opacity) !important;
-        background-color: var(--tnw-background-color) !important;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-    :host(.${baseClass}--hideBelow-1024):host(.${baseClass}--opened) ul {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 30px;
+    .${baseClass}--hideMenuBelow-1439.${baseClass}--opened {
+        ${openedMenuStyles()}
     }
 }
-
+@media only screen and (max-width: 1024px) {
+    .${baseClass}--hideMenuBelow-1024 {
+        ${closedMenuStyles()}
+    }
+    .${baseClass}--hideMenuBelow-1024.${baseClass}--opened {
+        ${openedMenuStyles()}
+    }
+}
 @media only screen and (max-width: 767px) {
-    :host(.${baseClass}--hideBelow-767) {
-        position: absolute;
-        opacity: 0;
-        transform: translateY(-10px);
-        z-index: -1;
-        visibility: hidden;
-        left: unset;
-        top: unset;
-        border-radius: var(--tnw-rounded-default);
+    .${baseClass}--hideMenuBelow-767 {
+        ${closedMenuStyles()}
     }
-    :host(.${baseClass}--hideBelow-767):host(.${baseClass}--opened) {
-        transition: opacity 250ms ease-in-out, transform 250ms ease-in-out, visibility 250ms ease-in-out;
-        padding: 40px 30px;
-        top: 115%;
-        left: 0;
-        right: 0;
-        border: var(--tnw-border-sm) solid var(--tnw-primary-color-opacity) !important;
-        background-color: var(--tnw-background-color) !important;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        borderRadius: var(--tnw-border-radius-default);
+    .${baseClass}--hideMenuBelow-767.${baseClass}--opened {
+        ${openedMenuStyles()}
     }
-    :host(.${baseClass}--hideBelow-767):host(.${baseClass}--opened) ul {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 30px;
+}
+@media only screen and (max-width: 567px) {
+    .${baseClass}--hideMenuBelow-567 {
+        ${closedMenuStyles()}
+    }
+    .${baseClass}--hideMenuBelow-567.${baseClass}--opened {
+        ${openedMenuStyles()}   
     }
 }
 
@@ -91,8 +80,8 @@ ul {
 .${itemClass},
 tnw-anchor::part(anchor),
 tnw-text::part(text),
-tnw-icon::part(icon) {
-    transition: 0.25s all ease-in-out;
+tnw-anchor::part(icon) {
+    transition: 0.18s all ease-in-out;
 }
 
 .${itemClass}--hasSubmenu {
@@ -118,32 +107,32 @@ tnw-icon::part(icon) {
 
 .${itemClass}--color-auto:hover tnw-anchor::part(anchor),
 .${itemClass}--color-auto:hover tnw-text::part(text),
-.${itemClass}--color-auto:hover tnw-icon::part(icon) {
+.${itemClass}--color-auto:hover tnw-anchor::part(icon) {
     color: var(--tnw-text-color);
 }
 .${itemClass}--color-inverse:hover tnw-anchor::part(anchor),
 .${itemClass}--color-inverse:hover tnw-text::part(text),
-.${itemClass}--color-inverse:hover tnw-icon::part(icon) {
+.${itemClass}--color-inverse:hover tnw-anchor::part(icon) {
     color: var(--tnw-text-color-inverse);
 }
 .${itemClass}--color-primary:hover tnw-anchor::part(anchor),
 .${itemClass}--color-primary:hover tnw-text::part(text),
-.${itemClass}--color-primary:hover tnw-icon::part(icon) {
+.${itemClass}--color-primary:hover tnw-anchor::part(icon) {
     color: var(--tnw-primary-color);
 }
 .${itemClass}--color-secondary:hover tnw-anchor::part(anchor),
 .${itemClass}--color-secondary:hover tnw-text::part(text),
-.${itemClass}--color-secondary:hover tnw-icon::part(icon) {
+.${itemClass}--color-secondary:hover tnw-anchor::part(icon) {
     color: var(--tnw-secondary-color);
 }
 .${itemClass}--color-black:hover tnw-anchor::part(anchor),
 .${itemClass}--color-black:hover tnw-text::part(text),
-.${itemClass}--color-black:hover tnw-icon::part(icon) {
+.${itemClass}--color-black:hover tnw-anchor::part(icon) {
     color: var(--tnw-black);
 }
 .${itemClass}--color-white:hover tnw-anchor::part(anchor),
 .${itemClass}--color-white:hover tnw-text::part(text),
-.${itemClass}--color-white:hover tnw-icon::part(icon) {
+.${itemClass}--color-white:hover tnw-anchor::part(icon) {
     color: var(--tnw-white);
 }
 
@@ -152,9 +141,10 @@ tnw-icon::part(icon) {
     padding: 5px 10px;
 }
 
-.${itemClass}--outlined:hover {
+.${itemClass}--outlined {
     border-width: 1px;
     border-style: solid;
+    border-color: transparent;
 }
 .${itemClass}--outlined-auto:hover {
     border-color: var(--tnw-border-color);
@@ -179,8 +169,8 @@ tnw-icon::part(icon) {
     background-color: var(--tnw-background-color);
 }
 .${itemClass}--solid-auto:hover tnw-anchor::part(anchor),
-.${itemClass}--solid-auto:hover tnw-anchor::text(text),
-.${itemClass}--solid-auto:hover tnw-icon::part(icon) {
+.${itemClass}--solid-auto:hover tnw-text::part(text),
+.${itemClass}--solid-auto:hover tnw-anchor::part(icon) {
     color: var(--tnw-text-color);
 }
 .${itemClass}--solid-inverse:hover {
@@ -188,7 +178,7 @@ tnw-icon::part(icon) {
 }
 .${itemClass}--solid-inverse:hover tnw-anchor::part(anchor),
 .${itemClass}--solid-inverse:hover tnw-text::part(text),
-.${itemClass}--solid-inverse:hover tnw-icon::part(icon) {
+.${itemClass}--solid-inverse:hover tnw-anchor::part(icon) {
     color: var(--tnw-text-color-inverse);
 }
 .${itemClass}--solid-primary:hover {
@@ -196,7 +186,7 @@ tnw-icon::part(icon) {
 }
 .${itemClass}--solid-primary:hover tnw-anchor::part(anchor),
 .${itemClass}--solid-primary:hover tnw-text::part(text),
-.${itemClass}--solid-primary:hover tnw-icon::part(icon) {
+.${itemClass}--solid-primary:hover tnw-anchor::part(icon) {
     color: var(--tnw-white);
 }
 .${itemClass}--solid-secondary:hover {
@@ -204,7 +194,7 @@ tnw-icon::part(icon) {
 }
 .${itemClass}--solid-secondary:hover tnw-anchor::part(anchor),
 .${itemClass}--solid-secondary:hover tnw-text::part(text),
-.${itemClass}--solid-secondary:hover tnw-icon::part(icon) {
+.${itemClass}--solid-secondary:hover tnw-anchor::part(icon) {
     color: var(--tnw-white);
 }
 .${itemClass}--solid-black:hover {
@@ -212,7 +202,7 @@ tnw-icon::part(icon) {
 }
 .${itemClass}--solid-black:hover tnw-anchor::part(anchor),
 .${itemClass}--solid-black:hover tnw-text::part(text),
-.${itemClass}--solid-black:hover tnw-icon::part(icon) {
+.${itemClass}--solid-black:hover tnw-anchor::part(icon) {
     color: var(--tnw-white);
 }
 .${itemClass}--solid-white:hover {
@@ -220,7 +210,7 @@ tnw-icon::part(icon) {
 }
 .${itemClass}--solid-white:hover tnw-anchor::part(anchor),
 .${itemClass}--solid-white:hover tnw-text::part(text),
-.${itemClass}--solid-white:hover tnw-icon::part(icon) {
+.${itemClass}--solid-white:hover tnw-anchor::part(icon) {
     color: var(--tnw-black);
 }
 
@@ -228,7 +218,7 @@ tnw-icon::part(icon) {
     filter: contrast(1.1);  
 }
 .${itemClass}--opacity:hover {
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 tnw-text::part(text) {

@@ -90,8 +90,7 @@ It can be used as a standalone icon or to display custom SVG icons through the `
  - [tnw-footer](../tnw-footer)
  - [tnw-items-carousel](../tnw-items-carousel)
  - [tnw-list](../tnw-list)
- - [tnw-navbar-menu](../tnw-navbar-menu)
- - [tnw-navbar-menu-toggler](../tnw-navbar/tnw-navbar-menu-toggler)
+ - [tnw-navbar](../tnw-navbar)
  - [tnw-rating](../tnw-rating)
  - [tnw-scroll-to-top](../tnw-scroll-to-top)
  - [tnw-select](../tnw-select)
@@ -104,8 +103,7 @@ graph TD;
   tnw-footer --> tnw-icon
   tnw-items-carousel --> tnw-icon
   tnw-list --> tnw-icon
-  tnw-navbar-menu --> tnw-icon
-  tnw-navbar-menu-toggler --> tnw-icon
+  tnw-navbar --> tnw-icon
   tnw-rating --> tnw-icon
   tnw-scroll-to-top --> tnw-icon
   tnw-select --> tnw-icon

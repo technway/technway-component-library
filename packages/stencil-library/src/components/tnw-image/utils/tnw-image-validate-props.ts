@@ -1,17 +1,135 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-image.tsx` file.
  * 
-const propsValues = [this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize];
-validateProps(propsValues);
+validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-image`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"BorderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"alt","type":["string"],"isRequired":true},{"name":"aspectRatio","type":["16_9","1_1","21_9","3_4","4_3","9_16","9_21","initial"],"isRequired":false},{"name":"caption","type":["string"],"isRequired":false},{"name":"heightSize","type":["full","lg","md","sm"],"isRequired":false},{"name":"lazyLoading","type":["boolean"],"isRequired":false},{"name":"objectFit","type":["contain","cover","fill","none","scale-down"],"isRequired":false},{"name":"objectPosition","type":["bottom","bottom-left","bottom-right","center","center-bottom","center-left","center-right","center-top","initial","left","left-bottom","left-top","right","right-bottom","right-top","top","top-left","top-right"],"isRequired":false},{"name":"src","type":["string"],"isRequired":true},{"name":"widthSize","type":["full","lg","md","sm"],"isRequired":false}];
+  const props = [
+  {
+    "name": "BorderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "alt",
+    "type": [
+      "string"
+    ],
+    "isRequired": true
+  },
+  {
+    "name": "aspectRatio",
+    "type": [
+      "16_9",
+      "1_1",
+      "21_9",
+      "3_4",
+      "4_3",
+      "9_16",
+      "9_21",
+      "initial"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "caption",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "heightSize",
+    "type": [
+      "full",
+      "lg",
+      "md",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "lazyLoading",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "objectFit",
+    "type": [
+      "contain",
+      "cover",
+      "fill",
+      "none",
+      "scale-down"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "objectPosition",
+    "type": [
+      "bottom",
+      "bottom-left",
+      "bottom-right",
+      "center",
+      "center-bottom",
+      "center-left",
+      "center-right",
+      "center-top",
+      "initial",
+      "left",
+      "left-bottom",
+      "left-top",
+      "right",
+      "right-bottom",
+      "right-top",
+      "top",
+      "top-left",
+      "top-right"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "src",
+    "type": [
+      "string"
+    ],
+    "isRequired": true
+  },
+  {
+    "name": "widthSize",
+    "type": [
+      "full",
+      "lg",
+      "md",
+      "sm"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

@@ -1,10 +1,14 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-select.tsx` file.
  * 
 validateProps([this.accessibilityId, this.borderRadius, this.disabled, this.fullWidth, this.label, this.optionAppearance, this.optionsData, this.size, this.variant]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-select`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

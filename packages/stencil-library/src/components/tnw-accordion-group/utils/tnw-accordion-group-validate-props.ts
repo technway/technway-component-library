@@ -1,17 +1,28 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-accordion-group.tsx` file.
  * 
-const propsValues = [this.singleExpand];
-validateProps(propsValues);
+validateProps([this.singleExpand]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-accordion-group`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"singleExpand","type":["boolean"],"isRequired":false}];
+  const props = [
+  {
+    "name": "singleExpand",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

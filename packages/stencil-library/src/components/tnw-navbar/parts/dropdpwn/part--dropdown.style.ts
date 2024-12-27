@@ -1,14 +1,10 @@
-import { GLOBAL_PREFIX } from "../../../utils/utils";
+import { GLOBAL_PREFIX } from "../../../../utils/utils";
 
 const baseClass = `${GLOBAL_PREFIX}-navbar-dropdown-menu`;
 const listClass = `${baseClass}__list`;
 
 export const styles = `
-* {
-    box-sizing: border-box;
-}
-    
-:host {
+.${baseClass} {
     display: none;
     opacity: 0;
     z-index: -1;
@@ -34,13 +30,13 @@ export const styles = `
 
 
 @media only screen and (max-width: 1024px) {
-    :host(.${baseClass}--bp-1024) {    
+    .${baseClass}--bp-1024 {    
         position: unset;
         min-width: unset;
         transform: unset !important;
         padding-top: 10px;
     }   
-    :host(.${baseClass}--bp-1024) .${listClass} {
+    .${baseClass}--bp-1024 .${listClass} {
         padding: 0;
         border: 0;
         background: transparent;
@@ -48,13 +44,13 @@ export const styles = `
 }
 
 @media only screen and (max-width: 767px) {
-    :host(.${baseClass}--bp-767) {    
+    .${baseClass}--bp-767 {    
         position: unset;
         min-width: unset;
         transform: unset !important;
         padding-top: 10px;
     }      
-    :host(.${baseClass}--bp-767) .${listClass} {
+    .${baseClass}--bp-767 .${listClass} {
         padding: 0;
         border: 0;
         background: transparent;        

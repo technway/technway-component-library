@@ -1,10 +1,14 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-text.tsx` file.
  * 
 validateProps([this.alignment, this.color, this.displayMode, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-text`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

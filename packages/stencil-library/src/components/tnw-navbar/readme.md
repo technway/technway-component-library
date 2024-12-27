@@ -26,32 +26,7 @@ It supports various appearance styles, optional glassmorphism effects, and flexi
 1. **Navbar Without Logo**:
    This configuration is useful when you need a simple navigation bar without a logo, but with a structured navigation menu and action button.
 
-   @useStory WithoutLogo
-
-2. **Navbar with Logo and Menu**:
-   Perfect for applications that need a logo, navigation menu in the middle, and a button or additional actions at the end.
-
-   @useStory WithLogo
-
-3. **Outlined Navbar**:
-   Adds an outline to the navbar for a more distinct separation from the page content. Useful for clear visual hierarchy.
-
-   @useStory Outlined
-
-4. **Underlined Navbar**:
-   Creates a navbar with a bottom border. This is ideal for navigation bars where you want a minimalist underline appearance.
-
-   @useStory Underlined
-
-5. **Navbar with Rounded Corners**:
-   Provides a rounded corner effect, offering a softer UI design. It can be combined with other appearances for modern design aesthetics.
-
-   @useStory RoundedCorners
-
-6. **Glassmorphism Navbar**:
-   For applications that require a more modern design with glassmorphism effects. This is ideal for websites or apps with a futuristic or elegant design approach.
-
-   @useStory GlassmorphismEffect
+   @notuseStory WithoutLogo
 
 ### Additional Considerations:
 
@@ -63,53 +38,69 @@ It supports various appearance styles, optional glassmorphism effects, and flexi
 
 ## Properties
 
-| Property                   | Attribute                    | Description                                                                                                                            | Type                                                                                                  | Default     |
-| -------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
-| `appearance`               | `appearance`                 | Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.                   | `"mixed" \| "none" \| "outlined" \| "outlined-bottom" \| "solid" \| "transparent"`                    | `'solid'`   |
-| `borderRadius`             | `border-radius`              | Sets the border-radius of the navigation bar.                                                                                          | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `'default'` |
-| `burgerMenuPlacement`      | `burger-menu-placement`      | Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.                                        | `"end" \| "start"`                                                                                    | `'end'`     |
-| `disableInternalContainer` | `disable-internal-container` | If true, the navigation bar content will not be wrapped in a container for centering and padding.                                      | `boolean`                                                                                             | `false`     |
-| `exactCenterMiddleSlot`    | `exact-center-middle-slot`   | When true, the middle slot will be centered exactly in the horizontal center of the screen.                                            | `boolean`                                                                                             | `false`     |
-| `paddingSize`              | `padding-size`               | Sets the padding size of the navigation bar.                                                                                           | `"lg" \| "md" \| "sm"`                                                                                | `undefined` |
-| `sticky`                   | `sticky`                     | Makes the navigation bar sticky at the top of the viewport when set to true.                                                           | `boolean`                                                                                             | `false`     |
-| `useEndSlot`               | `use-end-slot`               | Enables the end slot for custom content, like user actions or profile links.                                                           | `boolean`                                                                                             | `false`     |
-| `useGlassmorphismEffect`   | `use-glassmorphism-effect`   | Enables a glassmorphism effect for the navigation bar. When true, the navbar will have a frosted glass appearance.                     | `boolean`                                                                                             | `false`     |
-| `useMiddleSlot`            | `use-middle-slot`            | Enables the middle slot for custom content, typically used for navigation links.                                                       | `boolean`                                                                                             | `false`     |
-| `useStartSlot`             | `use-start-slot`             | Enables the start slot for custom content, such as logos or menus.                                                                     | `boolean`                                                                                             | `false`     |
-| `variant`                  | `variant`                    | Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc. | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'auto'`    |
+| Property                   | Attribute                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Type                                                                                                  | Default     |
+| -------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
+| `appearance`               | `appearance`                 | Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.                                                                                                                                                                                                                                                                                                                                                                                          | `"mixed" \| "none" \| "outlined" \| "outlined-bottom" \| "solid" \| "transparent"`                    | `'solid'`   |
+| `appearanceStyle`          | `appearance-style`           | Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.                                                                                                                                                                                                                                                                                                                                                               | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'auto'`    |
+| `borderRadius`             | `border-radius`              | Sets the border-radius of the navigation bar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `'default'` |
+| `disableInternalContainer` | `disable-internal-container` | If true, the navigation bar content will not be wrapped in a container for centering and padding.                                                                                                                                                                                                                                                                                                                                                                                                             | `boolean`                                                                                             | `false`     |
+| `enableCtaSlot`            | `enable-cta-slot`            | If true, the CTA slot is enabled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `boolean`                                                                                             | `false`     |
+| `hideMenuBelow`            | `hide-menu-below`            | The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.                                                                                                                                                                                                                                                                                                                                                                                                                | `"1024" \| "1439" \| "567" \| "767" \| boolean`                                                       | `false`     |
+| `logoData`                 | `logo-data`                  | The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.                                                                                                                                                                                                                                                                                | `string`                                                                                              | `undefined` |
+| `menuData`                 | `menu-data`                  | The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab.. | `string`                                                                                              | `undefined` |
+| `menuExactCenter`          | `menu-exact-center`          | When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.                                                                                                                                                                                                                                                                                                                                                                               | `boolean`                                                                                             | `false`     |
+| `menuPlacement`            | `menu-placement`             | Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.                                                                                                                                                                                                                                                                                                                                                                                                                      | `"end" \| "middle" \| "start"`                                                                        | `'middle'`  |
+| `padding`                  | `padding`                    | Sets the padding size of the navigation bar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `"lg" \| "md" \| "none" \| "sm"`                                                                      | `'none'`    |
+| `sticky`                   | `sticky`                     | Makes the navigation bar sticky at the top of the viewport when set to true.                                                                                                                                                                                                                                                                                                                                                                                                                                  | `boolean`                                                                                             | `false`     |
+| `togglerPlacement`         | `toggler-placement`          | Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.                                                                                                                                                                                                                                                                                                                                                                                                               | `"end" \| "start"`                                                                                    | `'end'`     |
+
+
+## Events
+
+| Event                 | Description                                                                                                          | Type                                                               |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `tnwBreakpointChange` | Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }                | `CustomEvent<{ breakpoint: "1024" \| "767" \| "567" \| "1439"; }>` |
+| `tnwMenuToggle`       | Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean }                                  | `CustomEvent<{ isOpen: boolean; }>`                                |
+| `tnwScrollChange`     | Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number } | `CustomEvent<{ scrollY: number; }>`                                |
 
 
 ## Slots
 
-| Slot       | Description                                                                                                           |
-| ---------- | --------------------------------------------------------------------------------------------------------------------- |
-| `"end"`    | Slot for the end content (e.g., call-to-action, search, user profile). This slot can be used if `useEndSlot` is true. |
-| `"middle"` | Slot for the middle content (e.g., navigation menu). This slot can be used if `useMiddleSlot` is true.                |
-| `"start"`  | Slot for the start content (e.g., logo). This slot can be used if `useStartSlot` is true.                             |
+| Slot    | Description                                                                                                                                  |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"cta"` | The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`. |
 
 
 ## Shadow Parts
 
-| Part                   | Description                                                     |
-| ---------------------- | --------------------------------------------------------------- |
-| `"controls-container"` | The container for navigation controls like menu togglers.       |
-| `"end"`                | The container element for the end content inside the navbar.    |
-| `"middle"`             | The container element for the middle content inside the navbar. |
-| `"navbar"`             | The root navigation element `<nav>`.                            |
-| `"start"`              | The container element for the start content inside the navbar.  |
+| Part             | Description                                             |
+| ---------------- | ------------------------------------------------------- |
+| `"menu"`         | the container for the navigation menu items.            |
+| `"menu-item"`    | an individual menu item.                                |
+| `"menu-link"`    | a link within a menu item.                              |
+| `"navbar"`       | the outermost `nav` element that wraps all the content. |
+| `"toggler"`      | the button that toggles the menu visibility.            |
+| `"toggler-icon"` | the icon displayed within the toggler button.           |
 
 
 ## Dependencies
 
 ### Depends on
 
-- [tnw-navbar-menu-toggler](tnw-navbar-menu-toggler)
+- [tnw-icon](../tnw-icon)
+- [tnw-anchor](../tnw-anchor)
+- [tnw-text](../tnw-text)
+- [tnw-image](../tnw-image)
 
 ### Graph
 ```mermaid
 graph TD;
-  tnw-navbar --> tnw-navbar-menu-toggler
-  tnw-navbar-menu-toggler --> tnw-icon
+  tnw-navbar --> tnw-icon
+  tnw-navbar --> tnw-anchor
+  tnw-navbar --> tnw-text
+  tnw-navbar --> tnw-image
+  tnw-anchor --> tnw-icon
+  tnw-text --> tnw-text
   style tnw-navbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -40,6 +40,7 @@ This component supports both text content and custom content via a slot, making 
 | Part | Description |
 | --- | --- |
 | **anchor** | The `<a>` element that serves as the anchor link. Use this part for styling the anchor element. |
+| **icon** | No description provided. |
 
 ## Slots
 

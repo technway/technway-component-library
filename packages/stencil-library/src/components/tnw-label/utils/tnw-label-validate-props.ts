@@ -1,17 +1,102 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-label.tsx` file.
  * 
-const propsValues = [this.color, this.htmlFor, this.isSrOnly, this.size, this.text, this.textCase, this.weight];
-validateProps(propsValues);
+validateProps([this.color, this.htmlFor, this.isSrOnly, this.size, this.text, this.textCase, this.weight]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-label`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"color","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","placeholder","primary","secondary","white"],"isRequired":false},{"name":"htmlFor","type":["string"],"isRequired":true},{"name":"isSrOnly","type":["boolean"],"isRequired":false},{"name":"size","type":["lg","md","sm"],"isRequired":false},{"name":"text","type":["number","string"],"isRequired":true},{"name":"textCase","type":["capitalize","lowercase","normal-case","uppercase"],"isRequired":false},{"name":"weight","type":["100","200","300","400","500","600","700","800","900","heading","text"],"isRequired":false}];
+  const props = [
+  {
+    "name": "color",
+    "type": [
+      "auto",
+      "black",
+      "gray100",
+      "gray200",
+      "gray300",
+      "gray400",
+      "gray500",
+      "gray600",
+      "gray700",
+      "gray800",
+      "gray900",
+      "inverse",
+      "light",
+      "placeholder",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "htmlFor",
+    "type": [
+      "string"
+    ],
+    "isRequired": true
+  },
+  {
+    "name": "isSrOnly",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "size",
+    "type": [
+      "lg",
+      "md",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "text",
+    "type": [
+      "number",
+      "string"
+    ],
+    "isRequired": true
+  },
+  {
+    "name": "textCase",
+    "type": [
+      "capitalize",
+      "lowercase",
+      "normal-case",
+      "uppercase"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "weight",
+    "type": [
+      "100",
+      "200",
+      "300",
+      "400",
+      "500",
+      "600",
+      "700",
+      "800",
+      "900",
+      "heading",
+      "text"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

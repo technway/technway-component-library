@@ -1,10 +1,14 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `COMPONENT_TAG.tsx` file.
  * 
 validateProps([PROPS_NAMES_FOR_ARGS]);
+ *
+ * GENERATED USING `npm run g:components-validations COMPONENT_TAG`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

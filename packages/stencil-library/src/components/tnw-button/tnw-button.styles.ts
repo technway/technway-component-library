@@ -207,4 +207,8 @@ export const styles = `
 .${elementClass}--has-padding {
     padding: var(--${baseClass}-p);
 }
+
+a {
+    text-decoration: none;
+}
 `;

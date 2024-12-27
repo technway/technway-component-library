@@ -1,17 +1,53 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-portfolio-grid.tsx` file.
  * 
-const propsValues = [this.columns, this.itemsData, this.showGradientFade, this.spacing];
-validateProps(propsValues);
+validateProps([this.columns, this.itemsData, this.showGradientFade, this.spacing]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-portfolio-grid`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"columns","type":["number"],"isRequired":false},{"name":"itemsData","type":["string"],"isRequired":true},{"name":"showGradientFade","type":["boolean"],"isRequired":false},{"name":"spacing","type":["lg","md","sm","xl","xs"],"isRequired":false}];
+  const props = [
+  {
+    "name": "columns",
+    "type": [
+      "number"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "itemsData",
+    "type": [
+      "string"
+    ],
+    "isRequired": true
+  },
+  {
+    "name": "showGradientFade",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "spacing",
+    "type": [
+      "lg",
+      "md",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

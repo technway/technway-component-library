@@ -1,17 +1,99 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-scroll-to-top.tsx` file.
  * 
-const propsValues = [this.appearance, this.borderRadius, this.color, this.customIconName, this.enableCustomSvgIcon, this.size, this.variant];
-validateProps(propsValues);
+validateProps([this.appearance, this.borderRadius, this.color, this.customIconName, this.enableCustomSvgIcon, this.size, this.variant]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-scroll-to-top`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"appearance","type":["mixed","outlined","solid","transparent"],"isRequired":false},{"name":"borderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"color","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"customIconName","type":["string"],"isRequired":false},{"name":"enableCustomSvgIcon","type":["boolean"],"isRequired":false},{"name":"size","type":["lg","md","sm","xl","xs"],"isRequired":false},{"name":"variant","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false}];
+  const props = [
+  {
+    "name": "appearance",
+    "type": [
+      "mixed",
+      "outlined",
+      "solid",
+      "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "borderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "color",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "customIconName",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "enableCustomSvgIcon",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "size",
+    "type": [
+      "lg",
+      "md",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "variant",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

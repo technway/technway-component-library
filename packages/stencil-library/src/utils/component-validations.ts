@@ -29,6 +29,24 @@ export function validateHighlightText(text: string, highlight?: string): void {
 }
 
 /**
+ * Checks if a value is a positive number greater than or equal to 1.
+ * 
+ * @param value - The number to validate
+ * @returns True if the value is a number and greater than or equal to 1, false otherwise
+ * 
+ * @example
+ * ```typescript
+ * isValuePositive(5); // returns true
+ * isValuePositive(0); // returns false
+ * isValuePositive(-1); // returns false
+ * isValuePositive('5'); // returns false
+ * ```
+ */
+export function isValuePositive(value: number): boolean {
+    return typeof value === 'number' && value >= 1;
+}
+
+/**
  * Configuration object for validating component properties.
  * 
  * @typedef {Object} ValidationConfig

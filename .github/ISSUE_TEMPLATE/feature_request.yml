@@ -27,9 +27,17 @@ body:
   - type: textarea
     id: why_is_this_feature_needed
     attributes:
-      label: Why Is This Feature Needed? 
+      label: Why Is This Feature Needed?
       description: Explain why this feature is important and how it will benefit users.
       placeholder: Describe the motivation or problem this feature would solve.
+    validations:
+      required: true
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Behavior
+      description: Describe the current behavior or limitations that this feature aims to address.
+      placeholder: Describe the current behavior or limitations that this feature aims to address.
     validations:
       required: true
   - type: textarea

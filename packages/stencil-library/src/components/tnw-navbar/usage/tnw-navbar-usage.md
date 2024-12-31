@@ -10,32 +10,7 @@
 1. **Navbar Without Logo**:
    This configuration is useful when you need a simple navigation bar without a logo, but with a structured navigation menu and action button.
 
-   @useStory WithoutLogo
-
-2. **Navbar with Logo and Menu**:
-   Perfect for applications that need a logo, navigation menu in the middle, and a button or additional actions at the end.
-
-   @useStory WithLogo
-
-3. **Outlined Navbar**:
-   Adds an outline to the navbar for a more distinct separation from the page content. Useful for clear visual hierarchy.
-
-   @useStory Outlined
-
-4. **Underlined Navbar**:
-   Creates a navbar with a bottom border. This is ideal for navigation bars where you want a minimalist underline appearance.
-
-   @useStory Underlined
-
-5. **Navbar with Rounded Corners**:
-   Provides a rounded corner effect, offering a softer UI design. It can be combined with other appearances for modern design aesthetics.
-
-   @useStory RoundedCorners
-
-6. **Glassmorphism Navbar**:
-   For applications that require a more modern design with glassmorphism effects. This is ideal for websites or apps with a futuristic or elegant design approach.
-
-   @useStory GlassmorphismEffect
+   @notuseStory WithoutLogo
 
 ### Additional Considerations:
 

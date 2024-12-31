@@ -6,6 +6,7 @@
 - [Properties](#properties)
 - [Slots](#slots)
 - [Shadow Parts](#shadow-parts)
+- [Events](#events)
 - [Usage](#usage)
 
 ## Overview
@@ -25,17 +26,18 @@ It supports various appearance styles, optional glassmorphism effects, and flexi
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
 | **appearance** | <div>Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.</div> | `'solid'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"outlined-bottom"` \| `"solid"` \| `"transparent"` |
+| **appearanceStyle** | <div>Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 | **borderRadius** | <div>Sets the border-radius of the navigation bar.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **burgerMenuPlacement** | <div>Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.</div> | `'end'` | `"end"` \| `"start"` |
 | **disableInternalContainer** | <div>If true, the navigation bar content will not be wrapped in a container for centering and padding.</div> | `false` | `boolean` |
-| **exactCenterMiddleSlot** | <div>When true, the middle slot will be centered exactly in the horizontal center of the screen.</div> | `false` | `boolean` |
-| **paddingSize** | <div>Sets the padding size of the navigation bar.</div> | N/A | `"lg"` \| `"md"` \| `"sm"` |
+| **enableCtaSlot** | <div>If true, the CTA slot is enabled.</div> | `false` | `boolean` |
+| **hideMenuBelow** | <div>The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.</div> | `false` | `"1024"` \| `"1439"` \| `"567"` \| `"767"` \| `boolean` |
+| **logoData** | <div>The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.</div> | N/A | `string` |
+| **menuData** | <div>The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..</div> | N/A | `string` |
+| **menuExactCenter** | <div>When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.</div> | `false` | `boolean` |
+| **menuPlacement** | <div>Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.</div> | `'middle'` | `"end"` \| `"middle"` \| `"start"` |
+| **padding** | <div>Sets the padding size of the navigation bar.</div> | `'none'` | `"lg"` \| `"md"` \| `"none"` \| `"sm"` |
 | **sticky** | <div>Makes the navigation bar sticky at the top of the viewport when set to true.</div> | `false` | `boolean` |
-| **useEndSlot** | <div>Enables the end slot for custom content, like user actions or profile links.</div> | `false` | `boolean` |
-| **useGlassmorphismEffect** | <div>Enables a glassmorphism effect for the navigation bar. When true, the navbar will have a frosted glass appearance.</div> | `false` | `boolean` |
-| **useMiddleSlot** | <div>Enables the middle slot for custom content, typically used for navigation links.</div> | `false` | `boolean` |
-| **useStartSlot** | <div>Enables the start slot for custom content, such as logos or menus.</div> | `false` | `boolean` |
-| **variant** | <div>Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **togglerPlacement** | <div>Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.</div> | `'end'` | `"end"` \| `"start"` |
 
 </div>
 
@@ -43,19 +45,26 @@ It supports various appearance styles, optional glassmorphism effects, and flexi
 
 | Part | Description |
 | --- | --- |
-| **controls-container** | The container for navigation controls like menu togglers. |
-| **end** | The container element for the end content inside the navbar. |
-| **middle** | The container element for the middle content inside the navbar. |
-| **navbar** | The root navigation element `<nav>`. |
-| **start** | The container element for the start content inside the navbar. |
+| **menu** | the container for the navigation menu items. |
+| **menu-item** | an individual menu item. |
+| **menu-link** | a link within a menu item. |
+| **navbar** | the outermost `nav` element that wraps all the content. |
+| **toggler** | the button that toggles the menu visibility. |
+| **toggler-icon** | the icon displayed within the toggler button. |
 
 ## Slots
 
 | Slot | Description |
 | --- | --- |
-| **end** | Slot for the end content (e.g., call-to-action, search, user profile). This slot can be used if `useEndSlot` is true. |
-| **middle** | Slot for the middle content (e.g., navigation menu). This slot can be used if `useMiddleSlot` is true. |
-| **start** | Slot for the start content (e.g., logo). This slot can be used if `useStartSlot` is true. |
+| **cta** | The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`. |
+
+## Events
+
+| Event | Description |
+| --- | --- |
+| **tnwBreakpointChange** | Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string } |
+| **tnwMenuToggle** | Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean } |
+| **tnwScrollChange** | Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number } |
 
 ## Usage & Examples
 
@@ -71,32 +80,7 @@ It supports various appearance styles, optional glassmorphism effects, and flexi
 1. **Navbar Without Logo**:
    This configuration is useful when you need a simple navigation bar without a logo, but with a structured navigation menu and action button.
 
-   @useStory WithoutLogo
-
-2. **Navbar with Logo and Menu**:
-   Perfect for applications that need a logo, navigation menu in the middle, and a button or additional actions at the end.
-
-   @useStory WithLogo
-
-3. **Outlined Navbar**:
-   Adds an outline to the navbar for a more distinct separation from the page content. Useful for clear visual hierarchy.
-
-   @useStory Outlined
-
-4. **Underlined Navbar**:
-   Creates a navbar with a bottom border. This is ideal for navigation bars where you want a minimalist underline appearance.
-
-   @useStory Underlined
-
-5. **Navbar with Rounded Corners**:
-   Provides a rounded corner effect, offering a softer UI design. It can be combined with other appearances for modern design aesthetics.
-
-   @useStory RoundedCorners
-
-6. **Glassmorphism Navbar**:
-   For applications that require a more modern design with glassmorphism effects. This is ideal for websites or apps with a futuristic or elegant design approach.
-
-   @useStory GlassmorphismEffect
+   @notuseStory WithoutLogo
 
 ### Additional Considerations:
 

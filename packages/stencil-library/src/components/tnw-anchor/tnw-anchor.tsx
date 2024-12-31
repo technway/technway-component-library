@@ -10,9 +10,10 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
  * The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.
  * This component supports both text content and custom content via a slot, making it flexible for various use cases, such as wrapping other elements like images or icons.
  * 
- * @slot - Default slot for custom content (e.g., an image, icon, or complex HTML structure). This slot can only be used if the `text` prop is not set.
+ * @slot - Default slot for custom content (e.g., an image, icon, or complex HTML structure).
  * 
  * @part anchor - The `<a>` element that serves as the anchor link. Use this part for styling the anchor element.
+ * @part icon - The `<tnw-icon>` element that displays the "new tab" icon. Only rendered if the property `hideNewTabIcon` is set to `false`.
  */
 @Component({
   tag: 'tnw-anchor',
@@ -109,7 +110,6 @@ export class TnwAnchor {
     const { href, labelAriaValue, text, newTab, baseClass, hideNewTabIcon } = this;
     const target = newTab ? "_blank" : undefined;
     const rel = newTab ? "noopener noreferrer" : undefined;
-    const newTabIcon = !hideNewTabIcon && newTab ? <tnw-icon class={`${baseClass}__newTab-icon`} name='tnw-arrow-up-right' hiddenAria={true} color={this.color} size='xs' /> : null;
 
     return (
       <Host>
@@ -121,8 +121,19 @@ export class TnwAnchor {
           rel={rel}
           part='anchor'
         >
-          {isNotEmptyString(text) ? text : <slot />}
-          {newTabIcon}
+          {isNotEmptyString(text) && text}
+          {(!hideNewTabIcon && newTab) ? (
+            <tnw-icon
+              class={`${baseClass}__newTab-icon`}
+              name='tnw-arrow-up-right'
+              hiddenAria={true}
+              color={this.color}
+              size='xs'
+              part='icon'
+            />
+          ) : (
+            <slot />
+          )}
         </a>
       </Host>
     );

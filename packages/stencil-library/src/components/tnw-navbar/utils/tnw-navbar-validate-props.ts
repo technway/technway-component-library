@@ -1,17 +1,143 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-navbar.tsx` file.
  * 
-const propsValues = [this.appearance, this.borderRadius, this.burgerMenuPlacement, this.disableInternalContainer, this.exactCenterMiddleSlot, this.paddingSize, this.sticky, this.useEndSlot, this.useGlassmorphismEffect, this.useMiddleSlot, this.useStartSlot, this.variant];
-validateProps(propsValues);
+validateProps([this.appearance, this.appearanceStyle, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.hideMenuBelow, this.logoData, this.menuData, this.menuExactCenter, this.menuPlacement, this.padding, this.sticky, this.togglerPlacement]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-navbar`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"appearance","type":["mixed","none","outlined","outlined-bottom","solid","transparent"],"isRequired":false},{"name":"borderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"burgerMenuPlacement","type":["end","start"],"isRequired":false},{"name":"disableInternalContainer","type":["boolean"],"isRequired":false},{"name":"exactCenterMiddleSlot","type":["boolean"],"isRequired":false},{"name":"paddingSize","type":["lg","md","sm"],"isRequired":false},{"name":"sticky","type":["boolean"],"isRequired":false},{"name":"useEndSlot","type":["boolean"],"isRequired":false},{"name":"useGlassmorphismEffect","type":["boolean"],"isRequired":false},{"name":"useMiddleSlot","type":["boolean"],"isRequired":false},{"name":"useStartSlot","type":["boolean"],"isRequired":false},{"name":"variant","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false}];
+  const props = [
+  {
+    "name": "appearance",
+    "type": [
+      "mixed",
+      "none",
+      "outlined",
+      "outlined-bottom",
+      "solid",
+      "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceStyle",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "borderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "disableInternalContainer",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "enableCtaSlot",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "hideMenuBelow",
+    "type": [
+      "1024",
+      "1439",
+      "567",
+      "767",
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "logoData",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "menuData",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "menuExactCenter",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "menuPlacement",
+    "type": [
+      "end",
+      "middle",
+      "start"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "padding",
+    "type": [
+      "lg",
+      "md",
+      "none",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "sticky",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "togglerPlacement",
+    "type": [
+      "end",
+      "start"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

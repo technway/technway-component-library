@@ -1,17 +1,35 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-multi-row-carousel.tsx` file.
  * 
-const propsValues = [this.animationSpeed, this.rows];
-validateProps(propsValues);
+validateProps([this.animationSpeed, this.rows]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-multi-row-carousel`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"animationSpeed","type":["number"],"isRequired":false},{"name":"rows","type":["number"],"isRequired":false}];
+  const props = [
+  {
+    "name": "animationSpeed",
+    "type": [
+      "number"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "rows",
+    "type": [
+      "number"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

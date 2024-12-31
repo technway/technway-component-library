@@ -4,7 +4,6 @@
 
 - [Overview](#overview)
 - [Properties](#properties)
-- [Slots](#slots)
 - [Shadow Parts](#shadow-parts)
 - [Usage](#usage)
 
@@ -37,12 +36,6 @@ The `tnw-rating` component is used to display a star-based rating system, allowi
 | Part | Description |
 | --- | --- |
 | **default-icon** | The `tnw-icon` element used to render the default star icons. |
-
-## Slots
-
-| Slot | Description |
-| --- | --- |
-| **default** | Slot for custom icons. Use the default slot to insert custom content for rating stars. |
 
 ## Usage & Examples
 

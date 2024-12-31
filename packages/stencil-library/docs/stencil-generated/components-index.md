@@ -26,9 +26,6 @@ This page lists all the library components.
 - [tnw-list](#tnw-list)
 - [tnw-multi-row-carousel](#tnw-multi-row-carousel)
 - [tnw-navbar](#tnw-navbar)
-- [tnw-navbar-dropdown-menu](#tnw-navbar-dropdown-menu)
-- [tnw-navbar-menu](#tnw-navbar-menu)
-- [tnw-navbar-menu-toggler](#tnw-navbar-menu-toggler)
 - [tnw-newsletter-form](#tnw-newsletter-form)
 - [tnw-portfolio-grid](#tnw-portfolio-grid)
 - [tnw-rating](#tnw-rating)
@@ -207,25 +204,6 @@ It supports various appearance styles, optional glassmorphism effects, and flexi
 
 ---
 
-## tnw-navbar-dropdown-menu
-
-The `tnw-navbar-dropdown-menu` component is designed to be used within the `tnw-navbar-menu` component to handle dropdown navigation menus.
-
----
-
-## tnw-navbar-menu
-
-The `tnw-navbar-menu` component is designed to be used inside the `tnw-navbar` component. It provides a flexible and responsive navigation menu, which can be configured with various alignment options, hover effects, and styles.
-The menu supports nested submenus, text color customization, and adaptive behavior based on breakpoints.
-
----
-
-## tnw-navbar-menu-toggler
-
-The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.
-
----
-
 ## tnw-newsletter-form
 
 _No overview available for this component._
@@ -261,8 +239,6 @@ content alignment and padding.
 ---
 
 ## tnw-select
-
-⚠️ COMPONENT IN DEVELOPMENT
 
 The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
 

@@ -1,17 +1,89 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-alert.tsx` file.
  * 
-const propsValues = [this.alertId, this.appearance, this.borderRadius, this.isHidden, this.message, this.size, this.variant];
-validateProps(propsValues);
+validateProps([this.alertId, this.appearance, this.borderRadius, this.isHidden, this.message, this.size, this.variant]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-alert`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"alertId","type":["string"],"isRequired":true},{"name":"appearance","type":["mixed","none","outlined","solid","transparent"],"isRequired":false},{"name":"borderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"isHidden","type":["boolean"],"isRequired":false},{"name":"message","type":["string"],"isRequired":true},{"name":"size","type":["lg","md","sm"],"isRequired":false},{"name":"variant","type":["danger","info","success","warning"],"isRequired":false}];
+  const props = [
+  {
+    "name": "alertId",
+    "type": [
+      "string"
+    ],
+    "isRequired": true
+  },
+  {
+    "name": "appearance",
+    "type": [
+      "mixed",
+      "none",
+      "outlined",
+      "solid",
+      "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "borderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "isHidden",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "message",
+    "type": [
+      "string"
+    ],
+    "isRequired": true
+  },
+  {
+    "name": "size",
+    "type": [
+      "lg",
+      "md",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "variant",
+    "type": [
+      "danger",
+      "info",
+      "success",
+      "warning"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

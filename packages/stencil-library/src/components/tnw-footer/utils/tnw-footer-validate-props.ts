@@ -1,11 +1,14 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-footer.tsx` file.
  * 
-const propsValues = [this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor];
-validateProps(propsValues);
+validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-footer`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

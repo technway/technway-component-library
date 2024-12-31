@@ -1,4 +1,4 @@
-import { Component, Host, Prop, State, Listen, Element, h } from '@stencil/core';
+import { Component, Host, Prop, State, Listen, Element, h, Event, EventEmitter } from '@stencil/core';
 import { AppearanceType, BorderRadiusType, ColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-scroll-to-top-validate-props';
@@ -61,10 +61,27 @@ export class TnwScrollToTop {
    */
   @Prop() enableCustomSvgIcon?: boolean = false;
 
+  /**
+   * Emitted when the scroll-to-top button becomes visible.
+   * The `detail` object contains:
+   * - `isVisible`: `true`
+   * - `scrollY`: The current scroll position.
+   */
+  @Event() visible: EventEmitter<{ isVisible: boolean; scrollY: number }>;
+
+  /**
+   * Emitted when the scroll-to-top button is clicked.
+   * The `detail` object contains:
+   * - `scrollY`: The current scroll position when clicked.
+   */
+  @Event() scrollToTopClicked: EventEmitter<{ scrollY: number }>;
+
   @Listen('scroll', { target: 'window' })
   handleScroll() {
+    const wasVisible: boolean = this.isVisible;
     this.isVisible = window.scrollY > 300;
-    this.handleVisibility();
+
+    this.handleVisibility(wasVisible);
   }
 
   constructor() {
@@ -89,16 +106,18 @@ export class TnwScrollToTop {
     validateProps(propsValues);
   }
 
-  private handleVisibility(): void {
-    if (this.isVisible) {
+  private handleVisibility(wasVisible: boolean): void {
+    if (this.isVisible && !wasVisible) {
       this.el.classList.add(`${this.baseClass}--visible`);
-    } else {
+      this.visible.emit({ isVisible: true, scrollY: window.scrollY });
+    } else if (!this.isVisible && wasVisible) {
       this.el.classList.remove(`${this.baseClass}--visible`);
     }
   }
 
   private scrollToTop(): () => void {
     return () => {
+      this.scrollToTopClicked.emit({ scrollY: window.scrollY });
       window.scrollTo({
         top: 0,
         behavior: 'smooth',

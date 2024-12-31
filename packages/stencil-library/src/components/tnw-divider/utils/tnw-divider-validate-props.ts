@@ -1,17 +1,52 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-divider.tsx` file.
  * 
-const propsValues = [this.color, this.variant];
-validateProps(propsValues);
+validateProps([this.color, this.variant]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-divider`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"color","type":["auto","black","gray100","gray200","gray300","gray400","gray500","gray600","gray700","gray800","gray900","inverse","light","none","primary","secondary","white"],"isRequired":false},{"name":"variant","type":["dashed","solid"],"isRequired":false}];
+  const props = [
+  {
+    "name": "color",
+    "type": [
+      "auto",
+      "black",
+      "gray100",
+      "gray200",
+      "gray300",
+      "gray400",
+      "gray500",
+      "gray600",
+      "gray700",
+      "gray800",
+      "gray900",
+      "inverse",
+      "light",
+      "none",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "variant",
+    "type": [
+      "dashed",
+      "solid"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

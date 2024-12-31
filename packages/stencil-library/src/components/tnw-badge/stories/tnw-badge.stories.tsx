@@ -25,7 +25,7 @@ Standard.args = {
 export const OutlinedPrimary = Template.bind({});
 OutlinedPrimary.args = {
   ...Standard.args,
-  variant: 'primary',
+  appearanceColor: 'primary',
   appearance: 'outlined',
 };
 
@@ -42,14 +42,30 @@ LargeBadge.args = {
   size: 'lg',
 };
 
-// Badge with No Label (Slot-based Content)
-export const IconOnlyBadge = Template.bind({});
-IconOnlyBadge.args = {
-  label: '',
-  defaultSlot: `<i>🚀</i>`,
+export const NumericBadge = Template.bind({});
+NumericBadge.args = {
+  variant: 'numeric',
+  label: "asdasd",
+  size: 'md',
 };
 
-export const NumberBadge = Template.bind({});
-NumberBadge.args = {
-  label: 99,
+export const NumericBadge2 = Template.bind({});
+NumericBadge2.args = {
+  variant: 'numeric',
+  label: 6,
+  appearance: 'solid',
+  appearanceColor: 'primary'
+};
+
+export const StatusBadge = Template.bind({});
+StatusBadge.args = {
+  variant: 'status',
+  appearance: 'solid',
+  appearanceColor: 'success',
+};
+
+export const ImageBadge = Template.bind({});
+ImageBadge.args = {
+  variant: 'image',
+  imageSrc: 'https://randomuser.me/api/portraits/men/10.jpg',
 };

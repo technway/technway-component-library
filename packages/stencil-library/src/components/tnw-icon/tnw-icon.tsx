@@ -41,13 +41,14 @@ export class TnwIcon {
 
   /**
    * Sets the color of the icon. This will be used to set the color of the icon element.
+   * Not supported when svg is enabled.
    */
   @Prop() color?: TextColorType = 'auto';
 
   /**
    * Specifies the size of the icon. The size means that the icon will have the width same as the height.
    */
-  @Prop() size?: ExtendedSizeType = 'sm';
+  @Prop() size?: ExtendedSizeType | "2xs" | "3xs" | "2xl" | "3xl" = 'sm';
 
   /**
    * Adds a tooltip to the icon, which will be displayed on hover. This is required when `enableSvg` is not set to `true`.

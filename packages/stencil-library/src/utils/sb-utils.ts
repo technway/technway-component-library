@@ -255,7 +255,7 @@ export function getComponentTemplate(
     includeCustomUtils: boolean = false,
     nSlotsNumber?: number,
     customClassNames: string[] = [],
-    debug: boolean = false
+    debug: boolean = true
 ): string {
 
     const tag = getComponentTagName(component);

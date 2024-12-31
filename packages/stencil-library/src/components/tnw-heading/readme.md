@@ -86,9 +86,10 @@ along with the ability to use a different HTML tag for the heading element.
 
 ## Shadow Parts
 
-| Part        | Description                                           |
-| ----------- | ----------------------------------------------------- |
-| `"heading"` | The root `heading` element rendered by the component. |
+| Part                 | Description                                           |
+| -------------------- | ----------------------------------------------------- |
+| `"heading"`          | The root `heading` element rendered by the component. |
+| `"highlighted-text"` | The highlighted text content element.                 |
 
 
 ## Dependencies

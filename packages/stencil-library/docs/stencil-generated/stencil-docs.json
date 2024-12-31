@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-21T17:56:59",
+  "timestamp": "2024-12-31T17:10:41",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -870,6 +870,10 @@
         {
           "name": "part",
           "text": "anchor - The `<a>` element that serves as the anchor link. Use this part for styling the anchor element."
+        },
+        {
+          "name": "part",
+          "text": "icon - No description provided."
         }
       ],
       "usage": {
@@ -1210,13 +1214,16 @@
         {
           "name": "anchor",
           "docs": "The `<a>` element that serves as the anchor link. Use this part for styling the anchor element."
+        },
+        {
+          "name": "icon",
+          "docs": "No description provided."
         }
       ],
       "dependents": [
         "tnw-footer",
         "tnw-list",
-        "tnw-navbar-dropdown-menu",
-        "tnw-navbar-menu",
+        "tnw-navbar",
         "tnw-portfolio-grid"
       ],
       "dependencies": [
@@ -1232,10 +1239,7 @@
         "tnw-list": [
           "tnw-anchor"
         ],
-        "tnw-navbar-dropdown-menu": [
-          "tnw-anchor"
-        ],
-        "tnw-navbar-menu": [
+        "tnw-navbar": [
           "tnw-anchor"
         ],
         "tnw-portfolio-grid": [
@@ -1247,8 +1251,8 @@
       "filePath": "src/components/tnw-badge/tnw-badge.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-badge",
-      "readme": "# tnw-badge\n\n\n",
-      "docs": "The `tnw-badge` component is used to display small pieces of information, such as labels, statuses, or counts, in a compact and visually distinct way.\nThis component supports various customization options including different variants, appearances, and sizes, making it versatile for a wide range of use cases.",
+      "readme": "# tnw-badge\r\n\r\n\r\n\r",
+      "docs": "The `tnw-badge` component is used to display small pieces of information, such as labels, statuses, or counts, in a compact and visually distinct way.\r\nThis component supports various customization options including different variants, appearances, and sizes, making it versatile for a wide range of use cases.",
       "docsTags": [
         {
           "name": "slot",
@@ -1305,6 +1309,75 @@
           "required": false
         },
         {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+          "complexType": {
+            "original": "ExtendedColorType",
+            "resolved": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+            "references": {
+              "ExtendedColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ExtendedColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "The color appearance color of the badge, determining the overall color scheme.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -1321,7 +1394,7 @@
           "mutable": false,
           "attr": "border-radius",
           "reflectToAttr": false,
-          "docs": "The border radius of the badge.",
+          "docs": "The border radius of the badge. it will be ignored if variant is not textual.",
           "docsTags": [],
           "default": "'lg'",
           "values": [
@@ -1374,6 +1447,27 @@
           "required": false
         },
         {
+          "name": "imageSrc",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "image-src",
+          "reflectToAttr": false,
+          "docs": "The source URL of the image to display inside the badge when the variant is set to 'image'.\r\nIf not provided, the badge will not display an image.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "label",
           "type": "number | string",
           "complexType": {
@@ -1384,7 +1478,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot.",
+          "docs": "The text or label displayed inside the badge. If not provided, custom content can be inserted via the slot.\r\nIf the variant is `numeric`, the label will be limited to 99+.",
           "docsTags": [],
           "values": [
             {
@@ -1414,7 +1508,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The size of the badge.",
+          "docs": "The size of the badge. controls padding if the variant is textual, else it controls width with height.",
           "docsTags": [],
           "default": "'sm'",
           "values": [
@@ -1436,67 +1530,33 @@
         },
         {
           "name": "variant",
-          "type": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+          "type": "\"image\" | \"numeric\" | \"status\" | \"textual\"",
           "complexType": {
-            "original": "ExtendedColorType",
-            "resolved": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
-            "references": {
-              "ExtendedColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ExtendedColorType"
-              }
-            }
+            "original": "'image' | 'status' | 'textual' | 'numeric'",
+            "resolved": "\"image\" | \"numeric\" | \"status\" | \"textual\"",
+            "references": {}
           },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "The color variant of the badge, determining the overall color scheme.",
+          "docs": "Specifies the variant of the badge.\r\n\r\n- `image`: The badge will display an image. label will be ignored.\r\n- `color`: The badge will display a color. label and slot will be ignored.\r\n- `textual`: The badge will display text. label will be displayed.\r\n- `numeric`: The badge will display a number. even if the number is larger 99, the number displayed will be 99+.\r\n  The label will be limited to 99+.",
           "docsTags": [],
-          "default": "'auto'",
+          "default": "'textual'",
           "values": [
             {
-              "value": "auto",
+              "value": "image",
               "type": "string"
             },
             {
-              "value": "black",
+              "value": "numeric",
               "type": "string"
             },
             {
-              "value": "danger",
+              "value": "status",
               "type": "string"
             },
             {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            },
-            {
-              "value": "white",
+              "value": "textual",
               "type": "string"
             }
           ],
@@ -1515,15 +1575,21 @@
         }
       ],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "tnw-select"
+      ],
       "dependencies": [],
-      "dependencyGraph": {}
+      "dependencyGraph": {
+        "tnw-select": [
+          "tnw-badge"
+        ]
+      }
     },
     {
       "filePath": "src/components/tnw-button/tnw-button.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-button",
-      "readme": "# tnw-button\n\n\n",
+      "readme": "# tnw-button\r\n\r\n\r\n\r",
       "docs": "The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.\r\nIt supports various styles, sizes, and appearances, and allows for custom content to be inserted via a slot.\r\nBy default, the component renders a button element, but it can also render an anchor element if the `href` prop is provided.",
       "docsTags": [
         {
@@ -5420,6 +5486,10 @@
         {
           "name": "part",
           "text": "heading - The root `heading` element rendered by the component."
+        },
+        {
+          "name": "part",
+          "text": "highlighted-text - The highlighted text content element."
         }
       ],
       "usage": {
@@ -6226,6 +6296,10 @@
         {
           "name": "heading",
           "docs": "The root `heading` element rendered by the component."
+        },
+        {
+          "name": "highlighted-text",
+          "docs": "The highlighted text content element."
         }
       ],
       "dependents": [
@@ -6263,7 +6337,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-icon",
       "readme": "# tnw-icon\r\n\r\n\r\n\r",
-      "docs": "The `tnw-icon` component is a flexible icon element that supports various styles, sizes, and appearances. \nIt can be used as a standalone icon or to display custom SVG icons through the `svg` slot.",
+      "docs": "The `tnw-icon` component is a flexible icon element that supports various styles, sizes, and appearances. \r\nIt can be used as a standalone icon or to display custom SVG icons through the `svg` slot.",
       "docsTags": [
         {
           "name": "slot",
@@ -6409,7 +6483,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": false,
-          "docs": "Sets the color of the icon. This will be used to set the color of the icon element.",
+          "docs": "Sets the color of the icon. This will be used to set the color of the icon element.\r\nNot supported when svg is enabled.",
           "docsTags": [],
           "default": "'auto'",
           "values": [
@@ -6595,10 +6669,10 @@
         },
         {
           "name": "size",
-          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+          "type": "\"2xl\" | \"2xs\" | \"3xl\" | \"3xs\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
-            "original": "ExtendedSizeType",
-            "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+            "original": "ExtendedSizeType | \"2xs\" | \"3xs\" | \"2xl\" | \"3xl\"",
+            "resolved": "\"2xl\" | \"2xs\" | \"3xl\" | \"3xs\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
             "references": {
               "ExtendedSizeType": {
                 "location": "import",
@@ -6614,6 +6688,22 @@
           "docsTags": [],
           "default": "'sm'",
           "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "2xs",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "3xs",
+              "type": "string"
+            },
             {
               "value": "lg",
               "type": "string"
@@ -6751,8 +6841,7 @@
         "tnw-footer",
         "tnw-items-carousel",
         "tnw-list",
-        "tnw-navbar-menu",
-        "tnw-navbar-menu-toggler",
+        "tnw-navbar",
         "tnw-rating",
         "tnw-scroll-to-top",
         "tnw-select"
@@ -6774,10 +6863,7 @@
         "tnw-list": [
           "tnw-icon"
         ],
-        "tnw-navbar-menu": [
-          "tnw-icon"
-        ],
-        "tnw-navbar-menu-toggler": [
+        "tnw-navbar": [
           "tnw-icon"
         ],
         "tnw-rating": [
@@ -7273,6 +7359,7 @@
         "tnw-card",
         "tnw-footer",
         "tnw-header-banner",
+        "tnw-navbar",
         "tnw-portfolio-grid",
         "tnw-testimonial-card"
       ],
@@ -7285,6 +7372,9 @@
           "tnw-image"
         ],
         "tnw-header-banner": [
+          "tnw-image"
+        ],
+        "tnw-navbar": [
           "tnw-image"
         ],
         "tnw-portfolio-grid": [
@@ -8934,8 +9024,133 @@
           "required": false
         }
       ],
-      "methods": [],
-      "events": [],
+      "methods": [
+        {
+          "name": "pauseAll",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "pauseAll() => Promise<void>",
+          "parameters": [],
+          "docs": "Pauses the animation of all carousel rows.\r\nEmits a `tnwRowPause` event for each row that is paused.",
+          "docsTags": []
+        },
+        {
+          "name": "resumeAll",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "resumeAll() => Promise<void>",
+          "parameters": [],
+          "docs": "Resumes the animation of all carousel rows.\r\nEmits a `tnwRowResume` event for each row that is resumed.",
+          "docsTags": []
+        },
+        {
+          "name": "toggleRow",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(rowIndex: number) => Promise<void>",
+            "parameters": [
+              {
+                "name": "rowIndex",
+                "type": "number",
+                "docs": "- The zero-based index of the row to toggle"
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "toggleRow(rowIndex: number) => Promise<void>",
+          "parameters": [
+            {
+              "name": "rowIndex",
+              "type": "number",
+              "docs": "- The zero-based index of the row to toggle"
+            }
+          ],
+          "docs": "Toggles the animation state of a specific row between paused and running.\r\nEmits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "rowIndex - The zero-based index of the row to toggle"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": "tnwRowPause",
+          "detail": "number",
+          "bubbles": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when a row's animation is paused.\r\nThe event detail contains the index of the paused row (zero-based).",
+          "docsTags": []
+        },
+        {
+          "event": "tnwRowResume",
+          "detail": "number",
+          "bubbles": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when a row's animation is resumed.\r\nThe event detail contains the index of the resumed row (zero-based).",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [
@@ -8957,40 +9172,36 @@
       "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\nIt supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
       "docsTags": [
         {
+          "name": "part",
+          "text": "navbar - the outermost `nav` element that wraps all the content."
+        },
+        {
+          "name": "part",
+          "text": "menu - the container for the navigation menu items."
+        },
+        {
+          "name": "part",
+          "text": "menu-item - an individual menu item."
+        },
+        {
+          "name": "part",
+          "text": "menu-link - a link within a menu item."
+        },
+        {
+          "name": "part",
+          "text": "toggler - the button that toggles the menu visibility."
+        },
+        {
+          "name": "part",
+          "text": "toggler-icon - the icon displayed within the toggler button."
+        },
+        {
           "name": "slot",
-          "text": "start - Slot for the start content (e.g., logo). This slot can be used if `useStartSlot` is true."
-        },
-        {
-          "name": "slot",
-          "text": "middle - Slot for the middle content (e.g., navigation menu). This slot can be used if `useMiddleSlot` is true."
-        },
-        {
-          "name": "slot",
-          "text": "end - Slot for the end content (e.g., call-to-action, search, user profile). This slot can be used if `useEndSlot` is true."
-        },
-        {
-          "name": "part",
-          "text": "navbar - The root navigation element `<nav>`."
-        },
-        {
-          "name": "part",
-          "text": "start - The container element for the start content inside the navbar."
-        },
-        {
-          "name": "part",
-          "text": "middle - The container element for the middle content inside the navbar."
-        },
-        {
-          "name": "part",
-          "text": "end - The container element for the end content inside the navbar."
-        },
-        {
-          "name": "part",
-          "text": "controls-container - The container for navigation controls like menu togglers."
+          "text": "cta - The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`."
         }
       ],
       "usage": {
-        "tnw-navbar-usage": "### When to use:\r\n\r\n- **Standard Navigation Bars**: Use the `tnw-navbar` component to create a responsive, structured navigation system for your application.\r\n- **Customizable Layout**: Ideal for applications requiring customizable content areas (start, middle, end) with different layouts or slots.\r\n- **Sticky and Fixed Navbar**: When you need a sticky or fixed navigation bar that stays at the top of the viewport during scrolling.\r\n- **Glassmorphism Effect**: To add a frosted glass effect to your navbar for a modern UI design, use the glassmorphism option.\r\n\r\n### Use Cases:\r\n\r\n1. **Navbar Without Logo**:\r\n   This configuration is useful when you need a simple navigation bar without a logo, but with a structured navigation menu and action button.\r\n\r\n   @useStory WithoutLogo\r\n\r\n2. **Navbar with Logo and Menu**:\r\n   Perfect for applications that need a logo, navigation menu in the middle, and a button or additional actions at the end.\r\n\r\n   @useStory WithLogo\r\n\r\n3. **Outlined Navbar**:\r\n   Adds an outline to the navbar for a more distinct separation from the page content. Useful for clear visual hierarchy.\r\n\r\n   @useStory Outlined\r\n\r\n4. **Underlined Navbar**:\r\n   Creates a navbar with a bottom border. This is ideal for navigation bars where you want a minimalist underline appearance.\r\n\r\n   @useStory Underlined\r\n\r\n5. **Navbar with Rounded Corners**:\r\n   Provides a rounded corner effect, offering a softer UI design. It can be combined with other appearances for modern design aesthetics.\r\n\r\n   @useStory RoundedCorners\r\n\r\n6. **Glassmorphism Navbar**:\r\n   For applications that require a more modern design with glassmorphism effects. This is ideal for websites or apps with a futuristic or elegant design approach.\r\n\r\n   @useStory GlassmorphismEffect\r\n\r\n### Additional Considerations:\r\n\r\n- **Responsive Design**: The `tnw-navbar` component is responsive by default, ensuring your navigation works on various screen sizes.\r\n- **Custom Controls**: You can easily customize the menu toggler position (start or end) and use slots for custom icons or actions within the navbar.\r\n- **Glassmorphism and Appearance Styles**: Take advantage of the appearance customization to create transparent, outlined, or solid navigation bars, with additional glassmorphism effects."
+        "tnw-navbar-usage": "### When to use:\r\n\r\n- **Standard Navigation Bars**: Use the `tnw-navbar` component to create a responsive, structured navigation system for your application.\r\n- **Customizable Layout**: Ideal for applications requiring customizable content areas (start, middle, end) with different layouts or slots.\r\n- **Sticky and Fixed Navbar**: When you need a sticky or fixed navigation bar that stays at the top of the viewport during scrolling.\r\n- **Glassmorphism Effect**: To add a frosted glass effect to your navbar for a modern UI design, use the glassmorphism option.\r\n\r\n### Use Cases:\r\n\r\n1. **Navbar Without Logo**:\r\n   This configuration is useful when you need a simple navigation bar without a logo, but with a structured navigation menu and action button.\r\n\r\n   @notuseStory WithoutLogo\r\n\r\n### Additional Considerations:\r\n\r\n- **Responsive Design**: The `tnw-navbar` component is responsive by default, ensuring your navigation works on various screen sizes.\r\n- **Custom Controls**: You can easily customize the menu toggler position (start or end) and use slots for custom icons or actions within the navbar.\r\n- **Glassmorphism and Appearance Styles**: Take advantage of the appearance customization to create transparent, outlined, or solid navigation bars, with additional glassmorphism effects."
       },
       "props": [
         {
@@ -9036,6 +9247,59 @@
             },
             {
               "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearanceStyle",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-style",
+          "reflectToAttr": false,
+          "docs": "Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -9112,33 +9376,6 @@
           "required": false
         },
         {
-          "name": "burgerMenuPlacement",
-          "type": "\"end\" | \"start\"",
-          "complexType": {
-            "original": "'start' | 'end'",
-            "resolved": "\"end\" | \"start\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "burger-menu-placement",
-          "reflectToAttr": false,
-          "docs": "Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.",
-          "docsTags": [],
-          "default": "'end'",
-          "values": [
-            {
-              "value": "end",
-              "type": "string"
-            },
-            {
-              "value": "start",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "disableInternalContainer",
           "type": "boolean",
           "complexType": {
@@ -9161,7 +9398,7 @@
           "required": false
         },
         {
-          "name": "exactCenterMiddleSlot",
+          "name": "enableCtaSlot",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -9169,9 +9406,111 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "exact-center-middle-slot",
+          "attr": "enable-cta-slot",
           "reflectToAttr": false,
-          "docs": "When true, the middle slot will be centered exactly in the horizontal center of the screen.",
+          "docs": "If true, the CTA slot is enabled.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hideMenuBelow",
+          "type": "\"1024\" | \"1439\" | \"567\" | \"767\" | boolean",
+          "complexType": {
+            "original": "\"1024\" | \"767\" | \"567\" | \"1439\" | false",
+            "resolved": "\"1024\" | \"1439\" | \"567\" | \"767\" | boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-menu-below",
+          "reflectToAttr": false,
+          "docs": "The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "value": "1024",
+              "type": "string"
+            },
+            {
+              "value": "1439",
+              "type": "string"
+            },
+            {
+              "value": "567",
+              "type": "string"
+            },
+            {
+              "value": "767",
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "logoData",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "logo-data",
+          "reflectToAttr": false,
+          "docs": "The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "menuData",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "menu-data",
+          "reflectToAttr": false,
+          "docs": "The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "menuExactCenter",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "menu-exact-center",
+          "reflectToAttr": false,
+          "docs": "When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -9183,11 +9522,42 @@
           "required": false
         },
         {
-          "name": "paddingSize",
-          "type": "\"lg\" | \"md\" | \"sm\"",
+          "name": "menuPlacement",
+          "type": "\"end\" | \"middle\" | \"start\"",
           "complexType": {
-            "original": "SizeType",
-            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "original": "'start' | 'middle' | 'end'",
+            "resolved": "\"end\" | \"middle\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "menu-placement",
+          "reflectToAttr": false,
+          "docs": "Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.",
+          "docsTags": [],
+          "default": "'middle'",
+          "values": [
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "middle",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "padding",
+          "type": "\"lg\" | \"md\" | \"none\" | \"sm\"",
+          "complexType": {
+            "original": "SizeType | 'none'",
+            "resolved": "\"lg\" | \"md\" | \"none\" | \"sm\"",
             "references": {
               "SizeType": {
                 "location": "import",
@@ -9197,10 +9567,11 @@
             }
           },
           "mutable": false,
-          "attr": "padding-size",
+          "attr": "padding",
           "reflectToAttr": false,
           "docs": "Sets the padding size of the navigation bar.",
           "docsTags": [],
+          "default": "'none'",
           "values": [
             {
               "value": "lg",
@@ -9208,6 +9579,10 @@
             },
             {
               "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
               "type": "string"
             },
             {
@@ -9241,140 +9616,26 @@
           "required": false
         },
         {
-          "name": "useEndSlot",
-          "type": "boolean",
+          "name": "togglerPlacement",
+          "type": "\"end\" | \"start\"",
           "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
+            "original": "'start' | 'end'",
+            "resolved": "\"end\" | \"start\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "use-end-slot",
+          "attr": "toggler-placement",
           "reflectToAttr": false,
-          "docs": "Enables the end slot for custom content, like user actions or profile links.",
+          "docs": "Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.",
           "docsTags": [],
-          "default": "false",
+          "default": "'end'",
           "values": [
             {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "useGlassmorphismEffect",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "use-glassmorphism-effect",
-          "reflectToAttr": false,
-          "docs": "Enables a glassmorphism effect for the navigation bar. When true, the navbar will have a frosted glass appearance.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "useMiddleSlot",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "use-middle-slot",
-          "reflectToAttr": false,
-          "docs": "Enables the middle slot for custom content, typically used for navigation links.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "useStartSlot",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "use-start-slot",
-          "reflectToAttr": false,
-          "docs": "Enables the start slot for custom content, such as logos or menus.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "ColorType",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "ColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Specifies the background color variant of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.",
-          "docsTags": [],
-          "default": "'auto'",
-          "values": [
-            {
-              "value": "auto",
+              "value": "end",
               "type": "string"
             },
             {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
+              "value": "start",
               "type": "string"
             }
           ],
@@ -9383,733 +9644,103 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "tnwBreakpointChange",
+          "detail": "{ breakpoint: \"1024\" | \"767\" | \"567\" | \"1439\"; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ breakpoint: \"1024\" | \"767\" | \"567\" | \"1439\" }",
+            "resolved": "{ breakpoint: \"1024\" | \"767\" | \"567\" | \"1439\"; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }",
+          "docsTags": []
+        },
+        {
+          "event": "tnwMenuToggle",
+          "detail": "{ isOpen: boolean; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ isOpen: boolean }",
+            "resolved": "{ isOpen: boolean; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean }",
+          "docsTags": []
+        },
+        {
+          "event": "tnwScrollChange",
+          "detail": "{ scrollY: number; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ scrollY: number }",
+            "resolved": "{ scrollY: number; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number }",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [
         {
-          "name": "end",
-          "docs": "Slot for the end content (e.g., call-to-action, search, user profile). This slot can be used if `useEndSlot` is true."
-        },
-        {
-          "name": "middle",
-          "docs": "Slot for the middle content (e.g., navigation menu). This slot can be used if `useMiddleSlot` is true."
-        },
-        {
-          "name": "start",
-          "docs": "Slot for the start content (e.g., logo). This slot can be used if `useStartSlot` is true."
+          "name": "cta",
+          "docs": "The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`."
         }
       ],
       "parts": [
         {
-          "name": "controls-container",
-          "docs": "The container for navigation controls like menu togglers."
+          "name": "menu",
+          "docs": "the container for the navigation menu items."
         },
         {
-          "name": "end",
-          "docs": "The container element for the end content inside the navbar."
+          "name": "menu-item",
+          "docs": "an individual menu item."
         },
         {
-          "name": "middle",
-          "docs": "The container element for the middle content inside the navbar."
+          "name": "menu-link",
+          "docs": "a link within a menu item."
         },
         {
           "name": "navbar",
-          "docs": "The root navigation element `<nav>`."
+          "docs": "the outermost `nav` element that wraps all the content."
         },
         {
-          "name": "start",
-          "docs": "The container element for the start content inside the navbar."
+          "name": "toggler",
+          "docs": "the button that toggles the menu visibility."
+        },
+        {
+          "name": "toggler-icon",
+          "docs": "the icon displayed within the toggler button."
         }
       ],
       "dependents": [],
       "dependencies": [
-        "tnw-navbar-menu-toggler"
+        "tnw-icon",
+        "tnw-anchor",
+        "tnw-text",
+        "tnw-image"
       ],
       "dependencyGraph": {
         "tnw-navbar": [
-          "tnw-navbar-menu-toggler"
-        ],
-        "tnw-navbar-menu-toggler": [
-          "tnw-icon"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/tnw-navbar-menu/tnw-navbar-dropdown-menu/tnw-navbar-dropdown-menu.tsx",
-      "encapsulation": "shadow",
-      "tag": "tnw-navbar-dropdown-menu",
-      "readme": "# tnw-navbar-dropdown-menu\n\n\n",
-      "docs": "The `tnw-navbar-dropdown-menu` component is designed to be used within the `tnw-navbar-menu` component to handle dropdown navigation menus.",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "itemsData",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "items-data",
-          "reflectToAttr": false,
-          "docs": "The JSON string representing the dropdown menu items. Each item should include a `label`, `link`, and optional newTab.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "itemsSize",
-          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
-          "complexType": {
-            "original": "FontSizeType",
-            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
-            "references": {
-              "FontSizeType": {
-                "location": "import",
-                "path": "../../../components",
-                "id": "src/components.d.ts::FontSizeType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "items-size",
-          "reflectToAttr": false,
-          "docs": "The size of the items.",
-          "docsTags": [],
-          "default": "'sm'",
-          "values": [
-            {
-              "value": "2xl",
-              "type": "string"
-            },
-            {
-              "value": "3xl",
-              "type": "string"
-            },
-            {
-              "value": "4xl",
-              "type": "string"
-            },
-            {
-              "value": "5xl",
-              "type": "string"
-            },
-            {
-              "value": "6xl",
-              "type": "string"
-            },
-            {
-              "value": "7xl",
-              "type": "string"
-            },
-            {
-              "value": "8xl",
-              "type": "string"
-            },
-            {
-              "value": "9xl",
-              "type": "string"
-            },
-            {
-              "value": "heading",
-              "type": "string"
-            },
-            {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "text",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xs",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "tnw-navbar-menu"
-      ],
-      "dependencies": [
-        "tnw-anchor"
-      ],
-      "dependencyGraph": {
-        "tnw-navbar-dropdown-menu": [
-          "tnw-anchor"
-        ],
-        "tnw-anchor": [
-          "tnw-icon"
-        ],
-        "tnw-navbar-menu": [
-          "tnw-navbar-dropdown-menu"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/tnw-navbar-menu/tnw-navbar-menu.tsx",
-      "encapsulation": "shadow",
-      "tag": "tnw-navbar-menu",
-      "readme": "# tnw-navbar-menu\n\n\n",
-      "docs": "The `tnw-navbar-menu` component is designed to be used inside the `tnw-navbar` component. It provides a flexible and responsive navigation menu, which can be configured with various alignment options, hover effects, and styles.\nThe menu supports nested submenus, text color customization, and adaptive behavior based on breakpoints.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "- Slot for custom menu content. The menu items will be rendered based on the provided `itemsData` prop."
-        },
-        {
-          "name": "part",
-          "text": "menu - The root `<ul>` element that contains the entire menu."
-        },
-        {
-          "name": "part",
-          "text": "item - The `<li>` elements representing individual menu items."
-        },
-        {
-          "name": "part",
-          "text": "link - The anchor or span element inside each item, representing the clickable or text content."
-        },
-        {
-          "name": "part",
-          "text": "submenu - The `<tnw-navbar-dropdown-menu>` element for nested submenu items."
-        }
-      ],
-      "usage": {
-        "tnw-navbar-menu-usage": "### When to use:\r\n\r\n- **Responsive Navigation Menus**: The `tnw-navbar-menu` component is ideal for creating responsive and customizable menus that adapt to different screen sizes.\r\n- **Submenu Support**: Use it when you need a multi-level menu structure, where items can have nested submenus.\r\n- **Customizable Hover Effects**: This component is perfect if you want to apply different hover effects, like color changes, contrast, or opacity adjustments, to menu items.\r\n- **Navigation Menus with Icon Support**: This component is also useful when you need to include icons, like dropdown indicators, alongside menu items.\r\n\r\n### Use Cases:\r\n\r\n1. **Default Navbar Menu**:\r\n   Use the default configuration for simple navigation menus with clickable items that link to different pages.\r\n\r\n   @useStory Default\r\n\r\n2. **Navbar Menu with Submenu**:\r\n   This example demonstrates how to use the component when your menu items include submenus, ideal for complex navigation structures.\r\n\r\n   @useStory WithSubmenu\r\n\r\n3. **Small Menu Items**:\r\n   Use small-sized menu items for compact layouts or minimalist designs.\r\n\r\n   @useStory SmallItemsSize\r\n\r\n4. **Primary Color with Solid Hover Effect**:\r\n   This example applies a solid hover effect with primary color variants for a more vibrant, interactive experience.\r\n\r\n   @useStory PrimaryColorSolidHover\r\n\r\n5. **Color Hover with Contrast Effect**:\r\n   Apply a color-based hover effect with contrast changes to highlight menu items as users interact with them.\r\n\r\n   @useStory ColorHover\r\n\r\n6. **Menu with Large Border Radius**:\r\n   Use this configuration if your design requires menu items with rounded corners for a more modern or soft visual appearance.\r\n\r\n   @useStory WithBorderRadius\r\n\r\n7. **Hide Navbar Below a Specific Breakpoint**:\r\n   Use this configuration to hide the navbar when the viewport width is below a defined breakpoint, such as 1024px, for mobile responsiveness.\r\n\r\n   @useStory HideBelow1024px\r\n\r\n### Additional Considerations:\r\n\r\n- **Customizable Hover Effects**: You can configure the hover appearance (solid, outlined, color) and apply hover effects (contrast, opacity) for an interactive and visually dynamic menu.\r\n- **Submenu Management**: If your menu requires multiple layers of navigation, the `tnw-navbar-menu` component allows you to define and manage nested submenus.\r\n- **Breakpoint Flexibility**: The component supports hiding the menu below specific breakpoints, ensuring responsiveness on different devices."
-      },
-      "props": [
-        {
-          "name": "hideBelowBreakpoint",
-          "type": "\"1024\" | \"767\"",
-          "complexType": {
-            "original": "\"1024\" | \"767\"",
-            "resolved": "\"1024\" | \"767\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "hide-below-breakpoint",
-          "reflectToAttr": false,
-          "docs": "Hides the menu below a specified breakpoint width (in pixels).",
-          "docsTags": [],
-          "default": "\"767\"",
-          "values": [
-            {
-              "value": "1024",
-              "type": "string"
-            },
-            {
-              "value": "767",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "itemsBorderRadius",
-          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-          "complexType": {
-            "original": "BorderRadiusType",
-            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-            "references": {
-              "BorderRadiusType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::BorderRadiusType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "items-border-radius",
-          "reflectToAttr": false,
-          "docs": "Sets the border-radius of the menu items.",
-          "docsTags": [],
-          "default": "'default'",
-          "values": [
-            {
-              "value": "2xl",
-              "type": "string"
-            },
-            {
-              "value": "3xl",
-              "type": "string"
-            },
-            {
-              "value": "circle",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "full",
-              "type": "string"
-            },
-            {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xs",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "itemsColor",
-          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "TextColorType",
-            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "TextColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::TextColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "items-color",
-          "reflectToAttr": false,
-          "docs": "Sets the text color of the menu items.",
-          "docsTags": [],
-          "default": "'auto'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "gray100",
-              "type": "string"
-            },
-            {
-              "value": "gray200",
-              "type": "string"
-            },
-            {
-              "value": "gray300",
-              "type": "string"
-            },
-            {
-              "value": "gray400",
-              "type": "string"
-            },
-            {
-              "value": "gray500",
-              "type": "string"
-            },
-            {
-              "value": "gray600",
-              "type": "string"
-            },
-            {
-              "value": "gray700",
-              "type": "string"
-            },
-            {
-              "value": "gray800",
-              "type": "string"
-            },
-            {
-              "value": "gray900",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "placeholder",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "itemsData",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "items-data",
-          "reflectToAttr": false,
-          "docs": "The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "itemsHoverAppearance",
-          "type": "\"color\" | \"none\" | \"outlined\" | \"solid\"",
-          "complexType": {
-            "original": "\"solid\" | \"outlined\" | \"color\" | \"none\"",
-            "resolved": "\"color\" | \"none\" | \"outlined\" | \"solid\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "items-hover-appearance",
-          "reflectToAttr": false,
-          "docs": "Defines the appearance of the hover effect for the menu items (e.g., solid, outlined).",
-          "docsTags": [],
-          "default": "'color'",
-          "values": [
-            {
-              "value": "color",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "outlined",
-              "type": "string"
-            },
-            {
-              "value": "solid",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "itemsHoverEffect",
-          "type": "\"contrast\" | \"opacity\"",
-          "complexType": {
-            "original": "'contrast' | 'opacity'",
-            "resolved": "\"contrast\" | \"opacity\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "items-hover-effect",
-          "reflectToAttr": false,
-          "docs": "Sets the hover effect for the menu items.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "contrast",
-              "type": "string"
-            },
-            {
-              "value": "opacity",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "itemsHoverVariant",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "'auto' | 'inverse' | 'primary' | 'secondary' | 'black' | 'white'",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "items-hover-variant",
-          "reflectToAttr": false,
-          "docs": "Sets the hover variant color for the menu items.",
-          "docsTags": [],
-          "default": "\"primary\"",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "itemsSize",
-          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
-          "complexType": {
-            "original": "FontSizeType",
-            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
-            "references": {
-              "FontSizeType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::FontSizeType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "items-size",
-          "reflectToAttr": false,
-          "docs": "Sets the font size of the menu items.",
-          "docsTags": [],
-          "default": "'sm'",
-          "values": [
-            {
-              "value": "2xl",
-              "type": "string"
-            },
-            {
-              "value": "3xl",
-              "type": "string"
-            },
-            {
-              "value": "4xl",
-              "type": "string"
-            },
-            {
-              "value": "5xl",
-              "type": "string"
-            },
-            {
-              "value": "6xl",
-              "type": "string"
-            },
-            {
-              "value": "7xl",
-              "type": "string"
-            },
-            {
-              "value": "8xl",
-              "type": "string"
-            },
-            {
-              "value": "9xl",
-              "type": "string"
-            },
-            {
-              "value": "heading",
-              "type": "string"
-            },
-            {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "text",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xs",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [
-        {
-          "name": "",
-          "docs": "Slot for custom menu content. The menu items will be rendered based on the provided `itemsData` prop."
-        }
-      ],
-      "parts": [
-        {
-          "name": "item",
-          "docs": "The `<li>` elements representing individual menu items."
-        },
-        {
-          "name": "link",
-          "docs": "The anchor or span element inside each item, representing the clickable or text content."
-        },
-        {
-          "name": "menu",
-          "docs": "The root `<ul>` element that contains the entire menu."
-        },
-        {
-          "name": "submenu",
-          "docs": "The `<tnw-navbar-dropdown-menu>` element for nested submenu items."
-        }
-      ],
-      "dependents": [],
-      "dependencies": [
-        "tnw-anchor",
-        "tnw-icon",
-        "tnw-text",
-        "tnw-navbar-dropdown-menu"
-      ],
-      "dependencyGraph": {
-        "tnw-navbar-menu": [
-          "tnw-anchor",
           "tnw-icon",
+          "tnw-anchor",
           "tnw-text",
-          "tnw-navbar-dropdown-menu"
+          "tnw-image"
         ],
         "tnw-anchor": [
           "tnw-icon"
         ],
         "tnw-text": [
           "tnw-text"
-        ],
-        "tnw-navbar-dropdown-menu": [
-          "tnw-anchor"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/tnw-navbar/tnw-navbar-menu-toggler/tnw-navbar-menu-toggler.tsx",
-      "encapsulation": "shadow",
-      "tag": "tnw-navbar-menu-toggler",
-      "readme": "# tnw-navbar-menu-toggler\n\n\n",
-      "docs": "The `tnw-navbar-menu-toggler` component is designed to be used within the `tnw-navbar` component to handle `tnw-navbar-menu` responsive visibility.",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "labelAria",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "label-aria",
-          "reflectToAttr": false,
-          "docs": "Specifies the aria label for the menu toggler icon for accessibility purposes.",
-          "docsTags": [],
-          "default": "'Toggle Navbar Menu'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "tnw-navbar"
-      ],
-      "dependencies": [
-        "tnw-icon"
-      ],
-      "dependencyGraph": {
-        "tnw-navbar-menu-toggler": [
-          "tnw-icon"
-        ],
-        "tnw-navbar": [
-          "tnw-navbar-menu-toggler"
         ]
       }
     },
@@ -10629,13 +10260,9 @@
       "filePath": "src/components/tnw-rating/tnw-rating.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-rating",
-      "readme": "# tnw-rating\n\n\n",
+      "readme": "# tnw-rating\r\n\r\n\r\n\r",
       "docs": "The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.",
       "docsTags": [
-        {
-          "name": "slot",
-          "text": "- Slot for custom icons. Use the default slot to insert custom content for rating stars."
-        },
         {
           "name": "part",
           "text": "default-icon - The `tnw-icon` element used to render the default star icons."
@@ -10867,12 +10494,7 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [
-        {
-          "name": "",
-          "docs": "Slot for custom icons. Use the default slot to insert custom content for rating stars."
-        }
-      ],
+      "slots": [],
       "parts": [
         {
           "name": "default-icon",
@@ -10893,8 +10515,8 @@
       "filePath": "src/components/tnw-scroll-to-top/tnw-scroll-to-top.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-scroll-to-top",
-      "readme": "# tnw-scroll-to-top\n\n\n",
-      "docs": "The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.\nThe button becomes visible when the user scrolls down a certain distance.\nIt supports customization of the icon, size, appearance, and allows for the use of a custom SVG icon.",
+      "readme": "# tnw-scroll-to-top\r\n\r\n\r\n\r",
+      "docs": "The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.\r\nThe button becomes visible when the user scrolls down a certain distance.\r\nIt supports customization of the icon, size, appearance, and allows for the use of a custom SVG icon.",
       "docsTags": [
         {
           "name": "slot",
@@ -11215,7 +10837,36 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "scrollToTopClicked",
+          "detail": "{ scrollY: number; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ scrollY: number }",
+            "resolved": "{ scrollY: number; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the scroll-to-top button is clicked.\r\nThe `detail` object contains:\r\n- `scrollY`: The current scroll position when clicked.",
+          "docsTags": []
+        },
+        {
+          "event": "visible",
+          "detail": "{ isVisible: boolean; scrollY: number; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ isVisible: boolean; scrollY: number }",
+            "resolved": "{ isVisible: boolean; scrollY: number; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the scroll-to-top button becomes visible.\r\nThe `detail` object contains:\r\n- `isVisible`: `true`\r\n- `scrollY`: The current scroll position.",
+          "docsTags": []
+        }
+      ],
       "listeners": [
         {
           "event": "scroll",
@@ -11699,8 +11350,8 @@
       "filePath": "src/components/tnw-select/tnw-select.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-select",
-      "readme": "# tnw-select\n\n\n",
-      "docs": "⚠️ COMPONENT IN DEVELOPMENT\n\nThe `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.",
+      "readme": "# tnw-select\r\n\r\n\r\n\r",
+      "docs": "The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.",
       "docsTags": [
         {
           "name": "part",
@@ -11719,6 +11370,27 @@
         "tnw-select-usage": ""
       },
       "props": [
+        {
+          "name": "accessibilityId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accessibility-id",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
@@ -11789,21 +11461,44 @@
           "required": false
         },
         {
-          "name": "defaultOption",
-          "type": "string",
+          "name": "disabled",
+          "type": "boolean",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "boolean",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
-          "attr": "default-option",
+          "attr": "disabled",
           "reflectToAttr": false,
-          "docs": "The default option that should be selected on component load.",
+          "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
-              "type": "string"
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "full-width",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -11832,6 +11527,33 @@
           "required": false
         },
         {
+          "name": "optionAppearance",
+          "type": "\"bordered\" | \"standard\"",
+          "complexType": {
+            "original": "'standard' | 'bordered'",
+            "resolved": "\"bordered\" | \"standard\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "option-appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the select options. if bordered a border top and bottom will be added to the options.",
+          "docsTags": [],
+          "default": "'standard'",
+          "values": [
+            {
+              "value": "bordered",
+              "type": "string"
+            },
+            {
+              "value": "standard",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "optionsData",
           "type": "string",
           "complexType": {
@@ -11842,7 +11564,7 @@
           "mutable": false,
           "attr": "options-data",
           "reflectToAttr": false,
-          "docs": "JSON string representing the options available in the select dropdown.\nEach option can include a label, value, ariaLabel, and disabled state.",
+          "docs": "JSON string representing the options available in the select dropdown.\r\nEach option can include a label, value, ariaLabel, and disabled state.",
           "docsTags": [],
           "values": [
             {
@@ -11851,18 +11573,184 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "'sm' | 'md' | 'lg'",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"withIconName\" | \"withImage\" | \"withStatus\" | \"withSvgIcon\"",
+          "complexType": {
+            "original": "\"standard\" | 'withIconName' | 'withSvgIcon' | 'withImage' | 'withStatus'",
+            "resolved": "\"standard\" | \"withIconName\" | \"withImage\" | \"withStatus\" | \"withSvgIcon\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "Specifies the variant of the select component.\r\n\r\n- `standard`: Default variant without any additional icons or images.\r\n- `withIconName`: Variant that includes an icon by name.\r\n- `withSvgIcon`: Variant that includes an SVG icon.\r\n- `withImage`: Variant that includes an image.\r\n- `withStatus`: Variant that includes a status indicator.",
+          "docsTags": [],
+          "default": "'standard'",
+          "values": [
+            {
+              "value": "standard",
+              "type": "string"
+            },
+            {
+              "value": "withIconName",
+              "type": "string"
+            },
+            {
+              "value": "withImage",
+              "type": "string"
+            },
+            {
+              "value": "withStatus",
+              "type": "string"
+            },
+            {
+              "value": "withSvgIcon",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getSelectedOption",
+          "returns": {
+            "type": "Promise<TnwSelectOption>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<TnwSelectOption | undefined>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "TnwSelectOption": {
+                "location": "import",
+                "path": "./utils/tnw-select-data-types",
+                "id": "src/components/tnw-select/utils/tnw-select-data-types.ts::TnwSelectOption"
+              }
+            },
+            "return": "Promise<TnwSelectOption>"
+          },
+          "signature": "getSelectedOption() => Promise<TnwSelectOption | undefined>",
+          "parameters": [],
+          "docs": "Retrieves the currently selected option.",
+          "docsTags": []
+        },
+        {
+          "name": "resetSelectedOption",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "resetSelectedOption() => Promise<void>",
+          "parameters": [],
+          "docs": "Resets the selected option to the default or placeholder label.",
+          "docsTags": []
+        },
+        {
+          "name": "toggleDropdown",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "toggleDropdown() => Promise<void>",
+          "parameters": [],
+          "docs": "Programmatically toggles the dropdown open or closed.",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
-          "event": "optionSelected",
-          "detail": "string",
+          "event": "dropdownToggled",
+          "detail": "{ isOpen: boolean; }",
           "bubbles": true,
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "{ isOpen: boolean }",
+            "resolved": "{ isOpen: boolean; }",
             "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the dropdown is toggled open or closed.",
+          "docsTags": []
+        },
+        {
+          "event": "optionSelected",
+          "detail": "TnwBaseSelectOption | TnwSelectOptionWithIconName | TnwSelectOptionWithImage | TnwSelectOptionWithStatus | TnwSelectOptionWithSvgIcon",
+          "bubbles": true,
+          "complexType": {
+            "original": "TnwSelectOption",
+            "resolved": "TnwBaseSelectOption | TnwSelectOptionWithIconName | TnwSelectOptionWithImage | TnwSelectOptionWithStatus | TnwSelectOptionWithSvgIcon",
+            "references": {
+              "TnwSelectOption": {
+                "location": "import",
+                "path": "./utils/tnw-select-data-types",
+                "id": "src/components/tnw-select/utils/tnw-select-data-types.ts::TnwSelectOption"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -11889,11 +11777,13 @@
       ],
       "dependents": [],
       "dependencies": [
-        "tnw-icon"
+        "tnw-icon",
+        "tnw-badge"
       ],
       "dependencyGraph": {
         "tnw-select": [
-          "tnw-icon"
+          "tnw-icon",
+          "tnw-badge"
         ]
       }
     },
@@ -12384,7 +12274,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-text",
       "readme": "# tnw-text\r\n\r\n\r\n\r",
-      "docs": "The `tnw-text` component is used to display descriptive text with customizable styling options. \nIt supports various typography-related properties, color, and alignment.",
+      "docs": "The `tnw-text` component is used to display descriptive text with customizable styling options. \r\nIt supports various typography-related properties, color, and alignment.",
       "docsTags": [
         {
           "name": "slot",
@@ -12393,6 +12283,10 @@
         {
           "name": "part",
           "text": "text - The main text content element."
+        },
+        {
+          "name": "part",
+          "text": "highlighted-text - The highlighted text content element."
         }
       ],
       "usage": {
@@ -12572,10 +12466,10 @@
         },
         {
           "name": "highlight",
-          "type": "string",
+          "type": "number | string",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "string | number",
+            "resolved": "number | string",
             "references": {}
           },
           "mutable": false,
@@ -12584,6 +12478,9 @@
           "docs": "Specifies which piece of text in the `text` prop should be bolded.",
           "docsTags": [],
           "values": [
+            {
+              "type": "number"
+            },
             {
               "type": "string"
             }
@@ -13099,7 +12996,7 @@
           "name": "widthSize",
           "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\" | \"xl\"",
           "complexType": {
-            "original": "SizeType | \"xl\" | \"full\" | null | \"unset\"",
+            "original": "SizeType | \"xl\" | \"full\" | \"unset\"",
             "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\" | \"xl\"",
             "references": {
               "SizeType": {
@@ -13112,7 +13009,7 @@
           "mutable": false,
           "attr": "width-size",
           "reflectToAttr": false,
-          "docs": "The width size of the text. Use unset or null to avoid setting width.",
+          "docs": "The width size of the text. Use unset to avoid setting width.",
           "docsTags": [],
           "default": "'full'",
           "values": [
@@ -13157,6 +13054,10 @@
       ],
       "parts": [
         {
+          "name": "highlighted-text",
+          "docs": "The highlighted text content element."
+        },
+        {
           "name": "text",
           "docs": "The main text content element."
         }
@@ -13168,7 +13069,7 @@
         "tnw-footer",
         "tnw-header-banner",
         "tnw-heading",
-        "tnw-navbar-menu",
+        "tnw-navbar",
         "tnw-testimonial-card",
         "tnw-text"
       ],
@@ -13197,7 +13098,7 @@
         "tnw-heading": [
           "tnw-text"
         ],
-        "tnw-navbar-menu": [
+        "tnw-navbar": [
           "tnw-text"
         ],
         "tnw-testimonial-card": [
@@ -13209,7 +13110,7 @@
       "filePath": "src/components/tnw-textarea/tnw-textarea.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-textarea",
-      "readme": "# tnw-textarea\n\n\n",
+      "readme": "# tnw-textarea\r\n\r\n\r\n\r",
       "docs": "The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.",
       "docsTags": [
         {
@@ -13606,7 +13507,7 @@
           "mutable": false,
           "attr": "sanitize-textarea",
           "reflectToAttr": false,
-          "docs": "Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.\nIf set to `true`, the textarea will be sanitized before being validated.\nIf set to `false`, the textarea will still undergo validation but without sanitization.",
+          "docs": "Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.\r\nIf set to `true`, the textarea will be sanitized before being validated.\r\nIf set to `false`, the textarea will still undergo validation but without sanitization.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13715,7 +13616,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when validation fails.\n\nThe event payload contains:\n- `textareaId`: The unique ID of the textarea element.\n- `error`: A string message explaining the validation failure.",
+          "docs": "Event emitted when validation fails.\r\n\r\nThe event payload contains:\r\n- `textareaId`: The unique ID of the textarea element.\r\n- `error`: A string message explaining the validation failure.",
           "docsTags": []
         }
       ],
@@ -13854,11 +13755,6 @@
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/components.d.ts::FontSizeType": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "src/components.d.ts"
-    },
     "src/components.d.ts::BorderRadiusType": {
       "declaration": "any",
       "docstring": "",
@@ -13873,6 +13769,11 @@
       "declaration": "export type DirectionalAppearanceType =\r\n    | \"transparent\"\r\n    | \"solid\"\r\n    | \"mixed\"\r\n    | \"outlined\"\r\n    | \"outlined-block\"\r\n    | \"outlined-top\"\r\n    | \"outlined-bottom\"\r\n    | \"outlined-inline\"\r\n    | \"outlined-right\"\r\n    | \"outlined-left\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
+    },
+    "src/components/tnw-select/utils/tnw-select-data-types.ts::TnwSelectOption": {
+      "declaration": "export type TnwSelectOption =\r\n    | TnwBaseSelectOption\r\n    | TnwSelectOptionWithIconName\r\n    | TnwSelectOptionWithSvgIcon\r\n    | TnwSelectOptionWithImage\r\n    | TnwSelectOptionWithStatus;",
+      "docstring": "",
+      "path": "src/components/tnw-select/utils/tnw-select-data-types.ts"
     }
   }
 }

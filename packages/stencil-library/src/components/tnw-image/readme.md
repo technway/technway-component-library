@@ -82,6 +82,7 @@ It supports various properties to control the image source, dimensions, and appe
  - [tnw-card](../tnw-card)
  - [tnw-footer](../tnw-footer)
  - [tnw-header-banner](../tnw-header-banner)
+ - [tnw-navbar](../tnw-navbar)
  - [tnw-portfolio-grid](../tnw-portfolio-grid)
  - [tnw-testimonial-card](../tnw-testimonial-card)
 
@@ -91,6 +92,7 @@ graph TD;
   tnw-card --> tnw-image
   tnw-footer --> tnw-image
   tnw-header-banner --> tnw-image
+  tnw-navbar --> tnw-image
   tnw-portfolio-grid --> tnw-image
   tnw-testimonial-card --> tnw-image
   style tnw-image fill:#f9f,stroke:#333,stroke-width:4px

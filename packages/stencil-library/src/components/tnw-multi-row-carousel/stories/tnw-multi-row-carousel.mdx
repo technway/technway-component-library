@@ -33,6 +33,8 @@ import * as stories from './tnw-multi-row-carousel.stories';
 - [Overview](#overview)
 - [Properties](#properties)
 - [Slots](#slots)
+- [Events](#events)
+- [Methods](#methods)
 - [Usage](#usage)
 
 ## Overview
@@ -61,6 +63,26 @@ with multiple rows. Each row scrolls independently and can move in alternating d
 | Slot | Description |
 | --- | --- |
 | **row-[number]** | A slot for each row's content. Replace \`[number]\` with the row index (starting from 1). Ensure the number of slots matches the \`rows\` prop. |
+
+## Events
+
+| Event | Description |
+| --- | --- |
+| **tnwRowPause** | Event emitted when a row's animation is paused.
+The event detail contains the index of the paused row (zero-based). |
+| **tnwRowResume** | Event emitted when a row's animation is resumed.
+The event detail contains the index of the resumed row (zero-based). |
+
+## Methods
+
+| Method | Description |
+| --- | --- |
+| **pauseAll**() | Pauses the animation of all carousel rows.
+Emits a \`tnwRowPause\` event for each row that is paused. |
+| **resumeAll**() | Resumes the animation of all carousel rows.
+Emits a \`tnwRowResume\` event for each row that is resumed. |
+| **toggleRow**(rowIndex) | Toggles the animation state of a specific row between paused and running.
+Emits either a \`tnwRowPause\` or \`tnwRowResume\` event depending on the new state. |
 
 ## Usage & Examples
 

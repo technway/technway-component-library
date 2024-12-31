@@ -1,17 +1,101 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-select.tsx` file.
  * 
-const propsValues = [this.borderRadius, this.defaultOption, this.label, this.optionsData];
-validateProps(propsValues);
+validateProps([this.accessibilityId, this.borderRadius, this.disabled, this.fullWidth, this.label, this.optionAppearance, this.optionsData, this.size, this.variant]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-select`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"borderRadius","type":["2xl","3xl","circle","default","full","lg","md","none","sm","xl","xs"],"isRequired":false},{"name":"defaultOption","type":["string"],"isRequired":false},{"name":"label","type":["string"],"isRequired":false},{"name":"optionsData","type":["string"],"isRequired":true}];
+  const props = [
+  {
+    "name": "accessibilityId",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "borderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "disabled",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "fullWidth",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "label",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "optionAppearance",
+    "type": [
+      "bordered",
+      "standard"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "optionsData",
+    "type": [
+      "string"
+    ],
+    "isRequired": true
+  },
+  {
+    "name": "size",
+    "type": [
+      "lg",
+      "md",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "variant",
+    "type": [
+      "standard",
+      "withIconName",
+      "withImage",
+      "withStatus",
+      "withSvgIcon"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

@@ -27,13 +27,13 @@ describe('tnw-navbar', () => {
       expect(page?.classList.contains('tnw-navbar--sticky')).toBe(true);
     });
 
-    it('renders menu toggler in start position when `burgerMenuPlacement` is set to start', async () => {
+    it('renders menu toggler in start position when `togglerPlacement` is set to start', async () => {
       const page = await createSpecPage(TnwNavbar, `<tnw-navbar use-start-slot="true" burger-menu-placement="start"></tnw-navbar>`);
       const startSlot = page.shadowRoot?.querySelector('.tnw-navbar__start');
       expect(startSlot?.querySelector('tnw-navbar-menu-toggler')).not.toBeNull();
     });
 
-    it('renders menu toggler in end position when `burgerMenuPlacement` is set to end', async () => {
+    it('renders menu toggler in end position when `togglerPlacement` is set to end', async () => {
       const page = await createSpecPage(TnwNavbar, `<tnw-navbar use-end-slot="true" burger-menu-placement="end"></tnw-navbar>`);
       const endSlot = page.shadowRoot?.querySelector('.tnw-navbar__end');
       expect(endSlot?.querySelector('tnw-navbar-menu-toggler')).not.toBeNull();

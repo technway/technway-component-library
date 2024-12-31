@@ -1,17 +1,79 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-rating.tsx` file.
  * 
-const propsValues = [this.emptyStarColor, this.filledStarColor, this.hideEmptyStars, this.rating, this.starSize, this.totalStars];
-validateProps(propsValues);
+validateProps([this.emptyStarColor, this.filledStarColor, this.hideEmptyStars, this.rating, this.starSize, this.totalStars]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-rating`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"emptyStarColor","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"filledStarColor","type":["auto","black","inverse","light","primary","secondary","white"],"isRequired":false},{"name":"hideEmptyStars","type":["boolean"],"isRequired":false},{"name":"rating","type":["number"],"isRequired":false},{"name":"starSize","type":["lg","md","sm","xl","xs"],"isRequired":false},{"name":"totalStars","type":["number"],"isRequired":false}];
+  const props = [
+  {
+    "name": "emptyStarColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "filledStarColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "hideEmptyStars",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "rating",
+    "type": [
+      "number"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "starSize",
+    "type": [
+      "lg",
+      "md",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "totalStars",
+    "type": [
+      "number"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

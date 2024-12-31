@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-testimonial-card Default and Required Prop Behavior renders correctly with required props 1`] = `
+<tnw-testimonial-card author-name="John Doe" class="rounded-default tnw-testimonial-card tnw-testimonial-card--padding-sm tnw-testimonial-card--spacing-sm tnw-v-outlined-auto" text="Great service!">
+  <template shadowrootmode="open">
+    <div class="tnw-testimonial-card__author-details" part="author-details">
+      <div class="tnw-testimonial-card__author-details-section">
+        <tnw-heading class="tnw-testimonial-card__author-name" level="h3" part="author-name" size="sm" text="John Doe" textcase="capitalize" weight="600"></tnw-heading>
+        <tnw-text class="tnw-testimonial-card__author-role" color="light" part="author-role" size="sm" textcase="capitalize" weight="300"></tnw-text>
+      </div>
+    </div>
+    <tnw-text class="tnw-testimonial-card__description" lineheight="1_75" part="description" text="Great service!" weight="300"></tnw-text>
+  </template>
+</tnw-testimonial-card>
+`;
+
+exports[`tnw-testimonial-card Slot Behavior renders slot content for description when text is not provided 1`] = `
+<tnw-testimonial-card author-name="John Doe" class="rounded-default tnw-testimonial-card tnw-testimonial-card--padding-sm tnw-testimonial-card--spacing-sm tnw-v-outlined-auto">
+  <template shadowrootmode="open">
+    <div class="tnw-testimonial-card__author-details" part="author-details">
+      <div class="tnw-testimonial-card__author-details-section">
+        <tnw-heading class="tnw-testimonial-card__author-name" level="h3" part="author-name" size="sm" text="John Doe" textcase="capitalize" weight="600"></tnw-heading>
+        <tnw-text class="tnw-testimonial-card__author-role" color="light" part="author-role" size="sm" textcase="capitalize" weight="300"></tnw-text>
+      </div>
+    </div>
+    <tnw-text class="tnw-testimonial-card__description" lineheight="1_75" part="description" weight="300"></tnw-text>
+  </template>
+  <span>
+    Custom Testimonial Content
+  </span>
+</tnw-testimonial-card>
+`;

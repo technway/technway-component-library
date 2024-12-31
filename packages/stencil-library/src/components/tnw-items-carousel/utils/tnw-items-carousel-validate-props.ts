@@ -1,17 +1,75 @@
 
 /**
+ * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
+ *
  * ⚠️ IMPORTANT:
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-items-carousel.tsx` file.
  * 
-const propsValues = [this.controlsSize, this.enableControlsSlots, this.fitWithContainer, this.hideControls, this.showEdgesShadows, this.slidesCount, this.slidesSize];
-validateProps(propsValues);
+validateProps([this.controlsSize, this.enableControlsSlots, this.fitWithContainer, this.hideControls, this.showEdgesShadows, this.slidesCount, this.slidesSize]);
+ *
+ * GENERATED USING `npm run g:components-validations tnw-items-carousel`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
-  const props = [{"name":"controlsSize","type":["lg","md","sm"],"isRequired":false},{"name":"enableControlsSlots","type":["boolean"],"isRequired":false},{"name":"fitWithContainer","type":["boolean"],"isRequired":false},{"name":"hideControls","type":["boolean"],"isRequired":false},{"name":"showEdgesShadows","type":["boolean"],"isRequired":false},{"name":"slidesCount","type":["number"],"isRequired":false},{"name":"slidesSize","type":["lg","md","none","sm"],"isRequired":false}];
+  const props = [
+  {
+    "name": "controlsSize",
+    "type": [
+      "lg",
+      "md",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "enableControlsSlots",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "fitWithContainer",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "hideControls",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "showEdgesShadows",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "slidesCount",
+    "type": [
+      "number"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "slidesSize",
+    "type": [
+      "lg",
+      "md",
+      "none",
+      "sm"
+    ],
+    "isRequired": false
+  }
+];
 
   // Iterate over all the properties of the component
   props.forEach((prop, i) => {

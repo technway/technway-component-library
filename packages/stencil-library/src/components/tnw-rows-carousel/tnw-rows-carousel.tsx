@@ -15,7 +15,7 @@ import { isValuePositive } from '../../utils/component-validations';
   shadow: true,
 })
 export class TnwRowsCarousel {
-  private baseClass = `${GLOBAL_PREFIX}-multi-row-carousel`;
+  private baseClass = `${GLOBAL_PREFIX}-rows-carousel`;
   private componentStyles: CSSStyleSheet;
 
   @Element() el!: HTMLTnwRowsCarouselElement;

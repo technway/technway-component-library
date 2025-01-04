@@ -1,6 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { TnwRowsCarousel } from '../tnw-rows-carousel';
 import { checkSpecPageError, createSpecPage } from '../../../utils/testing-utils';
+import { TnwRowsCarousel } from '../tnw-rows-carousel';
 
 describe('tnw-rows-carousel', () => {
     describe('Default and Required Prop Behavior', () => {

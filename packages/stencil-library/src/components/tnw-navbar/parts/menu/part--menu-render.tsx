@@ -34,7 +34,6 @@ export const renderMenu = (
     isMenuOpened: boolean,
     menuPosition: 'start' | 'middle' | 'end'
 ) => {
-    
     const menuItems: MenuItem[] = processParsedMenuData(parsedMenuData).items;
     const hideMenuBelow = processParsedMenuData(parsedMenuData).hideMenuBelow;
     const itemsSize = processParsedMenuData(parsedMenuData).itemsSize;
@@ -50,6 +49,10 @@ export const renderMenu = (
         isMenuOpened,
         menuPosition,
     );
+
+    if (menuItems === null || menuItems === undefined || menuItems.length === 0) {
+        return null;
+    }
 
     return (
         <ul class={menuClasses} data-nav-menu part="menu">

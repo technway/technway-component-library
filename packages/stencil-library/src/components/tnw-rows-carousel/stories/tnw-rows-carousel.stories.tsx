@@ -3,7 +3,7 @@ import { generateComponentArgTypes, getComponentByTagName } from "../../../utils
 const component = getComponentByTagName('tnw-rows-carousel');
 
 export default {
-  title: 'Components/Multi Row Carousel',
+  title: 'Components/Rows Carousel',
   parameters: {
     actions: { disable: true },
     status: {

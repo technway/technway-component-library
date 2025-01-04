@@ -118,6 +118,16 @@ export class TnwNavbar {
     }
   }
 
+  @Watch('logoData')
+  parseLogoData(newValue: string) {
+    try {
+      this.parsedLogoData = newValue ? JSON.parse(newValue) : null;
+    } catch (error) {
+      console.error('Invalid logo data JSON', error);
+      this.parsedLogoData = null;
+    }
+  }
+
   /**
    * Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }
    */
@@ -162,6 +172,8 @@ export class TnwNavbar {
     // Manually parse menu data on initial load
     if (this.menuData) {
       this.parseMenuData(this.menuData);
+    }
+    if (this.logoData) {
       this.parseLogoData(this.logoData);
     }
   }
@@ -169,15 +181,6 @@ export class TnwNavbar {
   disconnectedCallback() {
     if (this.sticky) {
       window.removeEventListener('scroll', this.handleScroll);
-    }
-  }
-
-  private parseLogoData(logoData: string) {
-    try {
-      this.parsedLogoData = logoData ? JSON.parse(logoData) : null;
-    } catch (error) {
-      console.error('Navbar: Error parsing logo data', error);
-      this.parsedLogoData = null;
     }
   }
 
@@ -212,6 +215,10 @@ export class TnwNavbar {
   }
 
   private menuToggler(): JSX.Element {
+    if (this.menu() === null) {
+      return null;
+    }
+
     return (
       renderToggler({
         isOpen: this.isVisible,
@@ -255,8 +262,8 @@ export class TnwNavbar {
   private renderContent(): JSX.Element {
     return (
       <nav class={this.getContentClasses()} part='navbar'>
-        {this.togglerPlacement === 'start' && this.menuToggler()}
         <div class={`${this.baseClass}__start`}>
+          {this.togglerPlacement === 'start' && this.menuToggler()}
           {this.logo()}
           {this.menuPlacement === 'start' && this.menu()}
         </div>

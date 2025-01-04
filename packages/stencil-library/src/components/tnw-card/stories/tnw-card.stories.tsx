@@ -63,7 +63,7 @@ export const OutlinedAppearance = HorizontalTemplate.bind({});
 OutlinedAppearance.args = {
   ...Default.args,
   appearance: 'outlined',
-  variant: 'auto',
+  appearanceColor: 'auto',
   padding: 'sm',
 };
 
@@ -74,9 +74,9 @@ SolidAppearance.args = {
   heading: 'Card Heading',
   subheading: 'Card Subheading',
   description: 'This is a description of the card. It provides additional details about the content.',
-  buttonSlot: `<tnw-button slot="button" label="Button" variant="white"></tnw-button>`,
+  buttonSlot: `<tnw-button slot="button" label="Button" appearance-color="white"></tnw-button>`,
   appearance: 'solid',
-  variant: 'inverse',
+  appearanceColor: 'inverse',
   padding: 'sm',
 };
 

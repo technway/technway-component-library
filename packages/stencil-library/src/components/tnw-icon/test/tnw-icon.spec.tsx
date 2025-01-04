@@ -37,13 +37,12 @@ describe('tnw-icon', () => {
       expect(icon).toHaveClass('icon-custom-icon');
     });
 
-    it('applies custom appearance color class', async () => {
-      const icon = await createSpecPage(
+    it('applies custom appearance classes', async () => {
+      const host = await createSpecPage(
         TnwIcon,
-        `<tnw-icon name="custom-icon" appearance-color="primary"></tnw-icon>`,
-        'i'
+        `<tnw-icon name="custom-icon" appearance="outlined" appearance-color="primary"></tnw-icon>`
       );
-      expect(icon).toHaveClass('tnw-extended-v-primary');
+      expect(host).toHaveClass('tnw-extended-v-outlined-primary');
     });
 
     it('renders an SVG icon when enableSvg is true', async () => {

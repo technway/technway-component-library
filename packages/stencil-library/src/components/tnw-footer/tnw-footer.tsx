@@ -112,8 +112,7 @@ export class TnwFooter {
       this.parsedFooterData = await parseJSONAsync(this.footerData);
     }
 
-    const propsValues = [this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor];
-    validateProps(propsValues);
+    validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor]);
   }
 
 

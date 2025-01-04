@@ -4,7 +4,11 @@ import { ColorType } from '../../utils/component-props-types';
 import { generateRandomId, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-newsletter-form.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet, fontFamilyStyleSheet } from '../../utils/shared-styles';
+import { validateProps } from './utils/tnw-newsletter-form-validate-props';
 
+/**
+ * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+ */
 @Component({
   tag: 'tnw-newsletter-form',
   shadow: true,
@@ -39,6 +43,8 @@ export class TnwNewsletterForm {
 
   /**
    * The variant for the component
+   * - Primary: The button is next to the input
+   * - Secondary: The button is inside the input
    */
   @Prop() variant?: 'primary' | 'secondary' = 'primary';
 
@@ -92,6 +98,7 @@ export class TnwNewsletterForm {
 
   componentWillLoad() {
     this.setInputId();
+    validateProps([this.borderRadius, this.buttonLabel, this.enableButtonSlot, this.formAction, this.formAttributes, this.formMethod, this.inputId, this.inputPlaceholder, this.successMessage, this.theme, this.variant]);
   }
 
   private setInputId() {
@@ -143,7 +150,7 @@ export class TnwNewsletterForm {
         borderRadius={this.borderRadius}
         isRequired={true}
         isLabelSrOnly={true}
-        variant="outlined"
+        appearance="outlined"
         part='input'
       />
     );
@@ -159,7 +166,7 @@ export class TnwNewsletterForm {
         label={this.buttonLabel}
         borderRadius={this.borderRadius}
         appearance='solid'
-        variant={this.theme}
+        appearanceColor={this.theme}
         part='button'
       />
     )

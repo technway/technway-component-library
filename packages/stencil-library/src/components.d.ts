@@ -23,15 +23,19 @@ export namespace Components {
          */
         "accordionId": string;
         /**
-          * The appearance style of the accordion.
+          * The appearance color of the accordion.
          */
         "appearance"?: "none" | "transparent" | "solid" | "outlined" | "underlined";
+        /**
+          * The appearance color of the accordion, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The border radius of the accordion.
          */
         "borderRadius": BorderRadiusType;
         /**
-          * The color variant of the accordion text.
+          * The text color of the accordion text.
          */
         "color"?: TextColorType;
         /**
@@ -54,10 +58,6 @@ export namespace Components {
           * The heading of the accordion item, displayed in the header.
          */
         "heading": string;
-        /**
-          * The color variant of the accordion, determining the overall color scheme.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-accordion-group` component serves as a container for multiple `tnw-accordion` components.
@@ -85,6 +85,10 @@ export namespace Components {
          */
         "appearance"?: OptionalAppearanceType;
         /**
+          * The appearance color of the alert, defining the type of message being displayed.
+         */
+        "appearanceColor"?: "danger" | "warning" | "success" | "info";
+        /**
           * The border radius of the alert.
          */
         "borderRadius"?: BorderRadiusType;
@@ -100,10 +104,6 @@ export namespace Components {
           * Defines the font size of the alert message.
          */
         "size"?: SizeType;
-        /**
-          * The color variant of the alert, defining the type of message being displayed.
-         */
-        "variant"?: "danger" | "warning" | "success" | "info";
     }
     /**
      * The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.
@@ -184,9 +184,13 @@ export namespace Components {
      */
     interface TnwButton {
         /**
-          * Specifies the appearance style of the button.
+          * Specifies the appearance color of the button.
          */
         "appearance"?: OptionalAppearanceType;
+        /**
+          * Defines the appearance color of the button.
+         */
+        "appearanceColor"?: ExtendedColorType;
         /**
           * Specifies the border radius of the button.
          */
@@ -196,13 +200,13 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Specifies the hover appearance style for the button.
+          * Specifies the hover appearance color for the button.
          */
         "hoverAppearance"?: 'none' | 'solid' | 'outlined';
         /**
-          * Specifies the hover variant color for the button color.
+          * Specifies the hover appearance color color for the button color.
          */
-        "hoverVariant"?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto';
+        "hoverAppearanceColor"?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto';
         /**
           * If provided, the button will render as a link with this `href`.
          */
@@ -223,22 +227,22 @@ export namespace Components {
           * Specifies the button type.
          */
         "type"?: 'button' | 'submit';
-        /**
-          * Defines the color variant of the button.
-         */
-        "variant"?: ExtendedColorType;
     }
     /**
      * The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a 
-     * card layout. It supports various customization options for layout orientation, appearance styles, spacing, 
+     * card layout. It supports various customization options for layout orientation, appearance colors, spacing, 
      * and content alignment. The card can display images, headings, subheadings, descriptions, and buttons, 
      * with slots for each, allowing full customization.
      */
     interface TnwCard {
         /**
-          * The appearance style of the card.
+          * The appearance color of the card.
          */
         "appearance"?: OptionalAppearanceType;
+        /**
+          * The color appearance color of the card, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The border radius applied to the card.
          */
@@ -307,14 +311,10 @@ export namespace Components {
           * If `true`, the card will have a glassmorphism effect applied to its background.
          */
         "useGlassmorphismEffect"?: boolean;
-        /**
-          * The color variant of the card, determining the overall color scheme.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-     * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
      */
     interface TnwContactBanner {
         /**
@@ -329,6 +329,10 @@ export namespace Components {
           * Defines the visual appearance of the banner (e.g., solid, outline).
          */
         "appearance"?: AppearanceType | 'gradient';
+        /**
+          * Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * Defines the border radius of the banner.
          */
@@ -349,10 +353,6 @@ export namespace Components {
           * Defines the margin of the banner.
          */
         "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
-        /**
-          * Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -421,6 +421,10 @@ export namespace Components {
          */
         "useDivAsContainer": boolean;
     }
+    /**
+     * The `tnw-divider` component creates a horizontal or vertical line to visually separate content.
+     * It provides customizable styles and color options to fit different design requirements.
+     */
     interface TnwDivider {
         /**
           * Color Variant of the divider
@@ -640,9 +644,13 @@ export namespace Components {
      */
     interface TnwIcon {
         /**
-          * Determines the visual appearance style of the icon (e.g., solid, outlined).
+          * Determines the visual appearance color of the icon (e.g., solid, outlined).
          */
         "appearance"?: OptionalAppearanceType;
+        /**
+          * Defines the appearance color of the icon.
+         */
+        "appearanceColor"?: ExtendedColorType;
         /**
           * Determines the border radius of the icon.
          */
@@ -679,10 +687,6 @@ export namespace Components {
           * Adds a tooltip to the icon, which will be displayed on hover. This is required when `enableSvg` is not set to `true`.
          */
         "tooltip"?: string;
-        /**
-          * Defines the color variant of the icon.
-         */
-        "variant"?: ExtendedColorType;
     }
     /**
      * The `tnw-image` component is used to display images with optional captions, lazy loading, and customizable styles. 
@@ -735,6 +739,10 @@ export namespace Components {
      * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
      */
     interface TnwInput {
+        /**
+          * Defines the appearance of the input.
+         */
+        "appearance"?: 'outlined' | 'underlined' | 'none';
         /**
           * The autocomplete setting for the input.
          */
@@ -799,10 +807,6 @@ export namespace Components {
           * The initial value of the input.
          */
         "value"?: string;
-        /**
-          * Defines the color variant of the input.
-         */
-        "variant"?: 'outlined' | 'underlined' | 'none';
     }
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
@@ -908,45 +912,18 @@ export namespace Components {
         "weight"?: FontWeightType;
     }
     /**
-     * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
-     * with multiple rows. Each row scrolls independently and can move in alternating directions.
-     */
-    interface TnwMultiRowCarousel {
-        /**
-          * The speed of the row animation in milliseconds.
-         */
-        "animationSpeed": number;
-        /**
-          * Pauses the animation of all carousel rows. Emits a `tnwRowPause` event for each row that is paused.
-         */
-        "pauseAll": () => Promise<void>;
-        /**
-          * Resumes the animation of all carousel rows. Emits a `tnwRowResume` event for each row that is resumed.
-         */
-        "resumeAll": () => Promise<void>;
-        /**
-          * The number of rows in the carousel.
-         */
-        "rows": number;
-        /**
-          * Toggles the animation state of a specific row between paused and running. Emits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.
-          * @param rowIndex - The zero-based index of the row to toggle
-         */
-        "toggleRow": (rowIndex: number) => Promise<void>;
-    }
-    /**
      * The `tnw-navbar` component creates a responsive, customizable navigation bar.
-     * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
+     * It supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
      */
     interface TnwNavbar {
         /**
-          * Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
+          * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
          */
         "appearance"?: OptionalAppearanceType | "outlined-bottom";
         /**
-          * Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
+          * Specifies the appearance color of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
          */
-        "appearanceStyle"?: ColorType;
+        "appearanceColor"?: ColorType;
         /**
           * Sets the border-radius of the navigation bar.
          */
@@ -992,6 +969,9 @@ export namespace Components {
          */
         "togglerPlacement"?: 'start' | 'end';
     }
+    /**
+     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+     */
     interface TnwNewsletterForm {
         /**
           * The border radius for the component. Set for both input and button
@@ -1034,10 +1014,13 @@ export namespace Components {
          */
         "theme"?: ColorType;
         /**
-          * The variant for the component
+          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
          */
         "variant"?: 'primary' | 'secondary';
     }
+    /**
+     * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
+     */
     interface TnwPortfolioGrid {
         /**
           * Number of columns in the grid layout. Default is 3.
@@ -1086,15 +1069,46 @@ export namespace Components {
         "totalStars": number;
     }
     /**
+     * The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel 
+     * with multiple rows. Each row scrolls independently and can move in alternating directions.
+     */
+    interface TnwRowsCarousel {
+        /**
+          * The speed of the row animation in milliseconds.
+         */
+        "animationSpeed": number;
+        /**
+          * Pauses the animation of all carousel rows. Emits a `tnwRowPause` event for each row that is paused.
+         */
+        "pauseAll": () => Promise<void>;
+        /**
+          * Resumes the animation of all carousel rows. Emits a `tnwRowResume` event for each row that is resumed.
+         */
+        "resumeAll": () => Promise<void>;
+        /**
+          * The number of rows in the carousel.
+         */
+        "rows": number;
+        /**
+          * Toggles the animation state of a specific row between paused and running. Emits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.
+          * @param rowIndex - The zero-based index of the row to toggle
+         */
+        "toggleRow": (rowIndex: number) => Promise<void>;
+    }
+    /**
      * The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.
      * The button becomes visible when the user scrolls down a certain distance.
      * It supports customization of the icon, size, appearance, and allows for the use of a custom SVG icon.
      */
     interface TnwScrollToTop {
         /**
-          * Determines the appearance style of the scroll-to-top button.
+          * Determines the appearance of the scroll-to-top button.
          */
         "appearance"?: AppearanceType;
+        /**
+          * Defines the appearance color of the scroll-to-top button.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * Determines the border radius.
          */
@@ -1115,14 +1129,10 @@ export namespace Components {
           * Specifies the size of the scroll-to-top button.
          */
         "size"?: ExtendedSizeType;
-        /**
-          * Defines the color variant of the scroll-to-top button.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
-     * It supports various appearance styles, optional glassmorphism effects, and an internal container to handle
+     * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
      * content alignment and padding.
      */
     interface TnwSection {
@@ -1134,6 +1144,10 @@ export namespace Components {
           * Defines the appearance style of the section.
          */
         "appearance"?: DirectionalAppearanceType;
+        /**
+          * Specifies the appearance color for the section's appearance.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * If `true`, the section body will be wrapped in a container.
          */
@@ -1162,21 +1176,26 @@ export namespace Components {
           * If `true`, the section will have a glassmorphism effect applied to its background.
          */
         "useGlassmorphismEffect"?: boolean;
-        /**
-          * Specifies the color variant for the section's appearance.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
      */
     interface TnwSelect {
+        /**
+          * A custom accessibility ID for the select component. Can be used to provide a specific identifier for screen readers or testing.
+         */
         "accessibilityId"?: string;
         /**
           * Border radius of the select.
          */
         "borderRadius"?: BorderRadiusType;
+        /**
+          * If `true`, the select component will be disabled and cannot be interacted with.
+         */
         "disabled"?: boolean;
+        /**
+          * If `true`, the select component will expand to fill the full width of its container. Default is `false`, which means the component will size based on its content.
+         */
         "fullWidth"?: boolean;
         /**
           * Retrieves the currently selected option.
@@ -1198,6 +1217,9 @@ export namespace Components {
           * Resets the selected option to the default or placeholder label.
          */
         "resetSelectedOption": () => Promise<void>;
+        /**
+          * Controls the size of the select component. Options are 'sm' (small), 'md' (medium), or 'lg' (large). Default is 'md' (medium).
+         */
         "size"?: 'sm' | 'md' | 'lg';
         /**
           * Programmatically toggles the dropdown open or closed.
@@ -1216,6 +1238,10 @@ export namespace Components {
           * The appearance style of the card.
          */
         "appearance"?: OptionalAppearanceType;
+        /**
+          * The color appearance color of the card, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The name of the author.
          */
@@ -1256,10 +1282,6 @@ export namespace Components {
           * If `true`, a random gradient avatar will be generated when no photo is provided.
          */
         "useRandomAvatar"?: boolean;
-        /**
-          * The color variant of the card, determining the overall color scheme.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-text` component is used to display descriptive text with customizable styling options. 
@@ -1328,6 +1350,10 @@ export namespace Components {
      */
     interface TnwTextarea {
         /**
+          * Defines the appearance of the textarea.
+         */
+        "appearance"?: 'outlined' | 'underlined';
+        /**
           * The autocomplete setting for the textarea.
          */
         "autoComplete"?: string;
@@ -1395,10 +1421,6 @@ export namespace Components {
           * The initial value of the textarea.
          */
         "value"?: string;
-        /**
-          * Defines the color variant of the textarea.
-         */
-        "variant"?: 'outlined' | 'underlined';
     }
 }
 export interface TnwAccordionCustomEvent<T> extends CustomEvent<T> {
@@ -1409,13 +1431,13 @@ export interface TnwInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwInputElement;
 }
-export interface TnwMultiRowCarouselCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLTnwMultiRowCarouselElement;
-}
 export interface TnwNavbarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwNavbarElement;
+}
+export interface TnwRowsCarouselCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwRowsCarouselElement;
 }
 export interface TnwScrollToTopCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1507,7 +1529,7 @@ declare global {
     };
     /**
      * The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a 
-     * card layout. It supports various customization options for layout orientation, appearance styles, spacing, 
+     * card layout. It supports various customization options for layout orientation, appearance colors, spacing, 
      * and content alignment. The card can display images, headings, subheadings, descriptions, and buttons, 
      * with slots for each, allowing full customization.
      */
@@ -1519,7 +1541,7 @@ declare global {
     };
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-     * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
      */
     interface HTMLTnwContactBannerElement extends Components.TnwContactBanner, HTMLStencilElement {
     }
@@ -1538,6 +1560,10 @@ declare global {
         prototype: HTMLTnwCopyrightsFooterElement;
         new (): HTMLTnwCopyrightsFooterElement;
     };
+    /**
+     * The `tnw-divider` component creates a horizontal or vertical line to visually separate content.
+     * It provides customizable styles and color options to fit different design requirements.
+     */
     interface HTMLTnwDividerElement extends Components.TnwDivider, HTMLStencilElement {
     }
     var HTMLTnwDividerElement: {
@@ -1659,28 +1685,6 @@ declare global {
         prototype: HTMLTnwListElement;
         new (): HTMLTnwListElement;
     };
-    interface HTMLTnwMultiRowCarouselElementEventMap {
-        "tnwRowPause": number;
-        "tnwRowResume": number;
-    }
-    /**
-     * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
-     * with multiple rows. Each row scrolls independently and can move in alternating directions.
-     */
-    interface HTMLTnwMultiRowCarouselElement extends Components.TnwMultiRowCarousel, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLTnwMultiRowCarouselElementEventMap>(type: K, listener: (this: HTMLTnwMultiRowCarouselElement, ev: TnwMultiRowCarouselCustomEvent<HTMLTnwMultiRowCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLTnwMultiRowCarouselElementEventMap>(type: K, listener: (this: HTMLTnwMultiRowCarouselElement, ev: TnwMultiRowCarouselCustomEvent<HTMLTnwMultiRowCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLTnwMultiRowCarouselElement: {
-        prototype: HTMLTnwMultiRowCarouselElement;
-        new (): HTMLTnwMultiRowCarouselElement;
-    };
     interface HTMLTnwNavbarElementEventMap {
         "tnwBreakpointChange": { breakpoint: "1024" | "767" | "567" | "1439" };
         "tnwMenuToggle": { isOpen: boolean };
@@ -1688,7 +1692,7 @@ declare global {
     }
     /**
      * The `tnw-navbar` component creates a responsive, customizable navigation bar.
-     * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
+     * It supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
      */
     interface HTMLTnwNavbarElement extends Components.TnwNavbar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLTnwNavbarElementEventMap>(type: K, listener: (this: HTMLTnwNavbarElement, ev: TnwNavbarCustomEvent<HTMLTnwNavbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1704,12 +1708,18 @@ declare global {
         prototype: HTMLTnwNavbarElement;
         new (): HTMLTnwNavbarElement;
     };
+    /**
+     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+     */
     interface HTMLTnwNewsletterFormElement extends Components.TnwNewsletterForm, HTMLStencilElement {
     }
     var HTMLTnwNewsletterFormElement: {
         prototype: HTMLTnwNewsletterFormElement;
         new (): HTMLTnwNewsletterFormElement;
     };
+    /**
+     * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
+     */
     interface HTMLTnwPortfolioGridElement extends Components.TnwPortfolioGrid, HTMLStencilElement {
     }
     var HTMLTnwPortfolioGridElement: {
@@ -1724,6 +1734,28 @@ declare global {
     var HTMLTnwRatingElement: {
         prototype: HTMLTnwRatingElement;
         new (): HTMLTnwRatingElement;
+    };
+    interface HTMLTnwRowsCarouselElementEventMap {
+        "tnwRowPause": number;
+        "tnwRowResume": number;
+    }
+    /**
+     * The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel 
+     * with multiple rows. Each row scrolls independently and can move in alternating directions.
+     */
+    interface HTMLTnwRowsCarouselElement extends Components.TnwRowsCarousel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwRowsCarouselElementEventMap>(type: K, listener: (this: HTMLTnwRowsCarouselElement, ev: TnwRowsCarouselCustomEvent<HTMLTnwRowsCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwRowsCarouselElementEventMap>(type: K, listener: (this: HTMLTnwRowsCarouselElement, ev: TnwRowsCarouselCustomEvent<HTMLTnwRowsCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLTnwRowsCarouselElement: {
+        prototype: HTMLTnwRowsCarouselElement;
+        new (): HTMLTnwRowsCarouselElement;
     };
     interface HTMLTnwScrollToTopElementEventMap {
         "visible": { isVisible: boolean; scrollY: number };
@@ -1750,7 +1782,7 @@ declare global {
     };
     /**
      * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
-     * It supports various appearance styles, optional glassmorphism effects, and an internal container to handle
+     * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
      * content alignment and padding.
      */
     interface HTMLTnwSectionElement extends Components.TnwSection, HTMLStencilElement {
@@ -1841,11 +1873,11 @@ declare global {
         "tnw-items-carousel": HTMLTnwItemsCarouselElement;
         "tnw-label": HTMLTnwLabelElement;
         "tnw-list": HTMLTnwListElement;
-        "tnw-multi-row-carousel": HTMLTnwMultiRowCarouselElement;
         "tnw-navbar": HTMLTnwNavbarElement;
         "tnw-newsletter-form": HTMLTnwNewsletterFormElement;
         "tnw-portfolio-grid": HTMLTnwPortfolioGridElement;
         "tnw-rating": HTMLTnwRatingElement;
+        "tnw-rows-carousel": HTMLTnwRowsCarouselElement;
         "tnw-scroll-to-top": HTMLTnwScrollToTopElement;
         "tnw-section": HTMLTnwSectionElement;
         "tnw-select": HTMLTnwSelectElement;
@@ -1866,15 +1898,19 @@ declare namespace LocalJSX {
          */
         "accordionId"?: string;
         /**
-          * The appearance style of the accordion.
+          * The appearance color of the accordion.
          */
         "appearance"?: "none" | "transparent" | "solid" | "outlined" | "underlined";
+        /**
+          * The appearance color of the accordion, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The border radius of the accordion.
          */
         "borderRadius"?: BorderRadiusType;
         /**
-          * The color variant of the accordion text.
+          * The text color of the accordion text.
          */
         "color"?: TextColorType;
         /**
@@ -1901,10 +1937,6 @@ declare namespace LocalJSX {
           * Emit an event when the accordion item is expanded or collapsed. type: {EventEmitter<{ id: string, expanded: boolean }>}
          */
         "onAccordionToggled"?: (event: TnwAccordionCustomEvent<{ id: string, expanded: boolean }>) => void;
-        /**
-          * The color variant of the accordion, determining the overall color scheme.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-accordion-group` component serves as a container for multiple `tnw-accordion` components.
@@ -1932,6 +1964,10 @@ declare namespace LocalJSX {
          */
         "appearance"?: OptionalAppearanceType;
         /**
+          * The appearance color of the alert, defining the type of message being displayed.
+         */
+        "appearanceColor"?: "danger" | "warning" | "success" | "info";
+        /**
           * The border radius of the alert.
          */
         "borderRadius"?: BorderRadiusType;
@@ -1947,10 +1983,6 @@ declare namespace LocalJSX {
           * Defines the font size of the alert message.
          */
         "size"?: SizeType;
-        /**
-          * The color variant of the alert, defining the type of message being displayed.
-         */
-        "variant"?: "danger" | "warning" | "success" | "info";
     }
     /**
      * The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.
@@ -2031,9 +2063,13 @@ declare namespace LocalJSX {
      */
     interface TnwButton {
         /**
-          * Specifies the appearance style of the button.
+          * Specifies the appearance color of the button.
          */
         "appearance"?: OptionalAppearanceType;
+        /**
+          * Defines the appearance color of the button.
+         */
+        "appearanceColor"?: ExtendedColorType;
         /**
           * Specifies the border radius of the button.
          */
@@ -2043,13 +2079,13 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Specifies the hover appearance style for the button.
+          * Specifies the hover appearance color for the button.
          */
         "hoverAppearance"?: 'none' | 'solid' | 'outlined';
         /**
-          * Specifies the hover variant color for the button color.
+          * Specifies the hover appearance color color for the button color.
          */
-        "hoverVariant"?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto';
+        "hoverAppearanceColor"?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto';
         /**
           * If provided, the button will render as a link with this `href`.
          */
@@ -2070,22 +2106,22 @@ declare namespace LocalJSX {
           * Specifies the button type.
          */
         "type"?: 'button' | 'submit';
-        /**
-          * Defines the color variant of the button.
-         */
-        "variant"?: ExtendedColorType;
     }
     /**
      * The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a 
-     * card layout. It supports various customization options for layout orientation, appearance styles, spacing, 
+     * card layout. It supports various customization options for layout orientation, appearance colors, spacing, 
      * and content alignment. The card can display images, headings, subheadings, descriptions, and buttons, 
      * with slots for each, allowing full customization.
      */
     interface TnwCard {
         /**
-          * The appearance style of the card.
+          * The appearance color of the card.
          */
         "appearance"?: OptionalAppearanceType;
+        /**
+          * The color appearance color of the card, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The border radius applied to the card.
          */
@@ -2154,14 +2190,10 @@ declare namespace LocalJSX {
           * If `true`, the card will have a glassmorphism effect applied to its background.
          */
         "useGlassmorphismEffect"?: boolean;
-        /**
-          * The color variant of the card, determining the overall color scheme.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-     * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
      */
     interface TnwContactBanner {
         /**
@@ -2176,6 +2208,10 @@ declare namespace LocalJSX {
           * Defines the visual appearance of the banner (e.g., solid, outline).
          */
         "appearance"?: AppearanceType | 'gradient';
+        /**
+          * Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * Defines the border radius of the banner.
          */
@@ -2196,10 +2232,6 @@ declare namespace LocalJSX {
           * Defines the margin of the banner.
          */
         "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
-        /**
-          * Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -2268,6 +2300,10 @@ declare namespace LocalJSX {
          */
         "useDivAsContainer"?: boolean;
     }
+    /**
+     * The `tnw-divider` component creates a horizontal or vertical line to visually separate content.
+     * It provides customizable styles and color options to fit different design requirements.
+     */
     interface TnwDivider {
         /**
           * Color Variant of the divider
@@ -2487,9 +2523,13 @@ declare namespace LocalJSX {
      */
     interface TnwIcon {
         /**
-          * Determines the visual appearance style of the icon (e.g., solid, outlined).
+          * Determines the visual appearance color of the icon (e.g., solid, outlined).
          */
         "appearance"?: OptionalAppearanceType;
+        /**
+          * Defines the appearance color of the icon.
+         */
+        "appearanceColor"?: ExtendedColorType;
         /**
           * Determines the border radius of the icon.
          */
@@ -2526,10 +2566,6 @@ declare namespace LocalJSX {
           * Adds a tooltip to the icon, which will be displayed on hover. This is required when `enableSvg` is not set to `true`.
          */
         "tooltip"?: string;
-        /**
-          * Defines the color variant of the icon.
-         */
-        "variant"?: ExtendedColorType;
     }
     /**
      * The `tnw-image` component is used to display images with optional captions, lazy loading, and customizable styles. 
@@ -2582,6 +2618,10 @@ declare namespace LocalJSX {
      * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
      */
     interface TnwInput {
+        /**
+          * Defines the appearance of the input.
+         */
+        "appearance"?: 'outlined' | 'underlined' | 'none';
         /**
           * The autocomplete setting for the input.
          */
@@ -2654,10 +2694,6 @@ declare namespace LocalJSX {
           * The initial value of the input.
          */
         "value"?: string;
-        /**
-          * Defines the color variant of the input.
-         */
-        "variant"?: 'outlined' | 'underlined' | 'none';
     }
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
@@ -2763,40 +2799,18 @@ declare namespace LocalJSX {
         "weight"?: FontWeightType;
     }
     /**
-     * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
-     * with multiple rows. Each row scrolls independently and can move in alternating directions.
-     */
-    interface TnwMultiRowCarousel {
-        /**
-          * The speed of the row animation in milliseconds.
-         */
-        "animationSpeed"?: number;
-        /**
-          * Event emitted when a row's animation is paused. The event detail contains the index of the paused row (zero-based).
-         */
-        "onTnwRowPause"?: (event: TnwMultiRowCarouselCustomEvent<number>) => void;
-        /**
-          * Event emitted when a row's animation is resumed. The event detail contains the index of the resumed row (zero-based).
-         */
-        "onTnwRowResume"?: (event: TnwMultiRowCarouselCustomEvent<number>) => void;
-        /**
-          * The number of rows in the carousel.
-         */
-        "rows"?: number;
-    }
-    /**
      * The `tnw-navbar` component creates a responsive, customizable navigation bar.
-     * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
+     * It supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
      */
     interface TnwNavbar {
         /**
-          * Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
+          * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
          */
         "appearance"?: OptionalAppearanceType | "outlined-bottom";
         /**
-          * Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
+          * Specifies the appearance color of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
          */
-        "appearanceStyle"?: ColorType;
+        "appearanceColor"?: ColorType;
         /**
           * Sets the border-radius of the navigation bar.
          */
@@ -2854,6 +2868,9 @@ declare namespace LocalJSX {
          */
         "togglerPlacement"?: 'start' | 'end';
     }
+    /**
+     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+     */
     interface TnwNewsletterForm {
         /**
           * The border radius for the component. Set for both input and button
@@ -2896,10 +2913,13 @@ declare namespace LocalJSX {
          */
         "theme"?: ColorType;
         /**
-          * The variant for the component
+          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
          */
         "variant"?: 'primary' | 'secondary';
     }
+    /**
+     * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
+     */
     interface TnwPortfolioGrid {
         /**
           * Number of columns in the grid layout. Default is 3.
@@ -2948,15 +2968,41 @@ declare namespace LocalJSX {
         "totalStars"?: number;
     }
     /**
+     * The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel 
+     * with multiple rows. Each row scrolls independently and can move in alternating directions.
+     */
+    interface TnwRowsCarousel {
+        /**
+          * The speed of the row animation in milliseconds.
+         */
+        "animationSpeed"?: number;
+        /**
+          * Event emitted when a row's animation is paused. The event detail contains the index of the paused row (zero-based).
+         */
+        "onTnwRowPause"?: (event: TnwRowsCarouselCustomEvent<number>) => void;
+        /**
+          * Event emitted when a row's animation is resumed. The event detail contains the index of the resumed row (zero-based).
+         */
+        "onTnwRowResume"?: (event: TnwRowsCarouselCustomEvent<number>) => void;
+        /**
+          * The number of rows in the carousel.
+         */
+        "rows"?: number;
+    }
+    /**
      * The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.
      * The button becomes visible when the user scrolls down a certain distance.
      * It supports customization of the icon, size, appearance, and allows for the use of a custom SVG icon.
      */
     interface TnwScrollToTop {
         /**
-          * Determines the appearance style of the scroll-to-top button.
+          * Determines the appearance of the scroll-to-top button.
          */
         "appearance"?: AppearanceType;
+        /**
+          * Defines the appearance color of the scroll-to-top button.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * Determines the border radius.
          */
@@ -2985,14 +3031,10 @@ declare namespace LocalJSX {
           * Specifies the size of the scroll-to-top button.
          */
         "size"?: ExtendedSizeType;
-        /**
-          * Defines the color variant of the scroll-to-top button.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
-     * It supports various appearance styles, optional glassmorphism effects, and an internal container to handle
+     * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
      * content alignment and padding.
      */
     interface TnwSection {
@@ -3004,6 +3046,10 @@ declare namespace LocalJSX {
           * Defines the appearance style of the section.
          */
         "appearance"?: DirectionalAppearanceType;
+        /**
+          * Specifies the appearance color for the section's appearance.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * If `true`, the section body will be wrapped in a container.
          */
@@ -3032,21 +3078,26 @@ declare namespace LocalJSX {
           * If `true`, the section will have a glassmorphism effect applied to its background.
          */
         "useGlassmorphismEffect"?: boolean;
-        /**
-          * Specifies the color variant for the section's appearance.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
      */
     interface TnwSelect {
+        /**
+          * A custom accessibility ID for the select component. Can be used to provide a specific identifier for screen readers or testing.
+         */
         "accessibilityId"?: string;
         /**
           * Border radius of the select.
          */
         "borderRadius"?: BorderRadiusType;
+        /**
+          * If `true`, the select component will be disabled and cannot be interacted with.
+         */
         "disabled"?: boolean;
+        /**
+          * If `true`, the select component will expand to fill the full width of its container. Default is `false`, which means the component will size based on its content.
+         */
         "fullWidth"?: boolean;
         /**
           * The label to display when no option is selected.
@@ -3068,6 +3119,9 @@ declare namespace LocalJSX {
           * JSON string representing the options available in the select dropdown. Each option can include a label, value, ariaLabel, and disabled state.
          */
         "optionsData": string;
+        /**
+          * Controls the size of the select component. Options are 'sm' (small), 'md' (medium), or 'lg' (large). Default is 'md' (medium).
+         */
         "size"?: 'sm' | 'md' | 'lg';
         /**
           * Specifies the variant of the select component.  - `standard`: Default variant without any additional icons or images. - `withIconName`: Variant that includes an icon by name. - `withSvgIcon`: Variant that includes an SVG icon. - `withImage`: Variant that includes an image. - `withStatus`: Variant that includes a status indicator.
@@ -3082,6 +3136,10 @@ declare namespace LocalJSX {
           * The appearance style of the card.
          */
         "appearance"?: OptionalAppearanceType;
+        /**
+          * The color appearance color of the card, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The name of the author.
          */
@@ -3122,10 +3180,6 @@ declare namespace LocalJSX {
           * If `true`, a random gradient avatar will be generated when no photo is provided.
          */
         "useRandomAvatar"?: boolean;
-        /**
-          * The color variant of the card, determining the overall color scheme.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-text` component is used to display descriptive text with customizable styling options. 
@@ -3193,6 +3247,10 @@ declare namespace LocalJSX {
      * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.
      */
     interface TnwTextarea {
+        /**
+          * Defines the appearance of the textarea.
+         */
+        "appearance"?: 'outlined' | 'underlined';
         /**
           * The autocomplete setting for the textarea.
          */
@@ -3269,10 +3327,6 @@ declare namespace LocalJSX {
           * The initial value of the textarea.
          */
         "value"?: string;
-        /**
-          * Defines the color variant of the textarea.
-         */
-        "variant"?: 'outlined' | 'underlined';
     }
     interface IntrinsicElements {
         "tnw-accordion": TnwAccordion;
@@ -3295,11 +3349,11 @@ declare namespace LocalJSX {
         "tnw-items-carousel": TnwItemsCarousel;
         "tnw-label": TnwLabel;
         "tnw-list": TnwList;
-        "tnw-multi-row-carousel": TnwMultiRowCarousel;
         "tnw-navbar": TnwNavbar;
         "tnw-newsletter-form": TnwNewsletterForm;
         "tnw-portfolio-grid": TnwPortfolioGrid;
         "tnw-rating": TnwRating;
+        "tnw-rows-carousel": TnwRowsCarousel;
         "tnw-scroll-to-top": TnwScrollToTop;
         "tnw-section": TnwSection;
         "tnw-select": TnwSelect;
@@ -3348,14 +3402,14 @@ declare module "@stencil/core" {
             "tnw-button": LocalJSX.TnwButton & JSXBase.HTMLAttributes<HTMLTnwButtonElement>;
             /**
              * The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a 
-             * card layout. It supports various customization options for layout orientation, appearance styles, spacing, 
+             * card layout. It supports various customization options for layout orientation, appearance colors, spacing, 
              * and content alignment. The card can display images, headings, subheadings, descriptions, and buttons, 
              * with slots for each, allowing full customization.
              */
             "tnw-card": LocalJSX.TnwCard & JSXBase.HTMLAttributes<HTMLTnwCardElement>;
             /**
              * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-             * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+             * It supports various appearances and colors, and allows for custom content to be inserted via slots.
              */
             "tnw-contact-banner": LocalJSX.TnwContactBanner & JSXBase.HTMLAttributes<HTMLTnwContactBannerElement>;
             /**
@@ -3364,6 +3418,10 @@ declare module "@stencil/core" {
              * It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
              */
             "tnw-copyrights-footer": LocalJSX.TnwCopyrightsFooter & JSXBase.HTMLAttributes<HTMLTnwCopyrightsFooterElement>;
+            /**
+             * The `tnw-divider` component creates a horizontal or vertical line to visually separate content.
+             * It provides customizable styles and color options to fit different design requirements.
+             */
             "tnw-divider": LocalJSX.TnwDivider & JSXBase.HTMLAttributes<HTMLTnwDividerElement>;
             /**
              * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
@@ -3419,21 +3477,27 @@ declare module "@stencil/core" {
              */
             "tnw-list": LocalJSX.TnwList & JSXBase.HTMLAttributes<HTMLTnwListElement>;
             /**
-             * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
-             * with multiple rows. Each row scrolls independently and can move in alternating directions.
-             */
-            "tnw-multi-row-carousel": LocalJSX.TnwMultiRowCarousel & JSXBase.HTMLAttributes<HTMLTnwMultiRowCarouselElement>;
-            /**
              * The `tnw-navbar` component creates a responsive, customizable navigation bar.
-             * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
+             * It supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
              */
             "tnw-navbar": LocalJSX.TnwNavbar & JSXBase.HTMLAttributes<HTMLTnwNavbarElement>;
+            /**
+             * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+             */
             "tnw-newsletter-form": LocalJSX.TnwNewsletterForm & JSXBase.HTMLAttributes<HTMLTnwNewsletterFormElement>;
+            /**
+             * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
+             */
             "tnw-portfolio-grid": LocalJSX.TnwPortfolioGrid & JSXBase.HTMLAttributes<HTMLTnwPortfolioGridElement>;
             /**
              * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
              */
             "tnw-rating": LocalJSX.TnwRating & JSXBase.HTMLAttributes<HTMLTnwRatingElement>;
+            /**
+             * The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel 
+             * with multiple rows. Each row scrolls independently and can move in alternating directions.
+             */
+            "tnw-rows-carousel": LocalJSX.TnwRowsCarousel & JSXBase.HTMLAttributes<HTMLTnwRowsCarouselElement>;
             /**
              * The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.
              * The button becomes visible when the user scrolls down a certain distance.
@@ -3442,7 +3506,7 @@ declare module "@stencil/core" {
             "tnw-scroll-to-top": LocalJSX.TnwScrollToTop & JSXBase.HTMLAttributes<HTMLTnwScrollToTopElement>;
             /**
              * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
-             * It supports various appearance styles, optional glassmorphism effects, and an internal container to handle
+             * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
              * content alignment and padding.
              */
             "tnw-section": LocalJSX.TnwSection & JSXBase.HTMLAttributes<HTMLTnwSectionElement>;

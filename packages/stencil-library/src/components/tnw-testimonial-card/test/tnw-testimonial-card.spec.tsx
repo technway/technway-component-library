@@ -43,10 +43,10 @@ describe('tnw-testimonial-card', () => {
             expect(host).toHaveClass('rounded-circle');
         });
 
-        it('renders with a custom variant and appearance', async () => {
+        it('renders with a custom appearanceColor and appearance', async () => {
             const host = await createSpecPage(
                 TnwTestimonialCard,
-                `<tnw-testimonial-card author-name="John Doe" text="Nice design!" variant="primary" appearance="solid"></tnw-testimonial-card>`
+                `<tnw-testimonial-card author-name="John Doe" text="Nice design!" appearance-color="primary" appearance="solid"></tnw-testimonial-card>`
             );
             expect(host).toHaveClass('tnw-v-solid-primary');
         });
@@ -113,11 +113,11 @@ describe('tnw-testimonial-card', () => {
             );
         });
 
-        it('throws an error when an invalid appearance and variant combination is provided', async () => {
+        it('throws an error when an invalid appearance and appearanceColor combination is provided', async () => {
             await checkSpecPageError(
                 TnwTestimonialCard,
-                `<tnw-testimonial-card author-name="Jane Doe" text="Invalid appearance" appearance="invalidAppearance" variant="invalidVariant"></tnw-testimonial-card>`,
-                'Invalid prop value for "appearance" or "variant"'
+                `<tnw-testimonial-card author-name="Jane Doe" text="Invalid appearance" appearance="invalidAppearance" appearance-color="invalidVariant"></tnw-testimonial-card>`,
+                'Invalid prop value for "appearance" or "appearanceColor"'
             );
         });
 

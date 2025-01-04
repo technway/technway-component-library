@@ -30,12 +30,12 @@ export class TnwIcon {
   @Prop() name?: string;
 
   /**
-   * Defines the color variant of the icon.
+   * Defines the appearance color of the icon.
    */
-  @Prop() variant?: ExtendedColorType = 'auto';
+  @Prop() appearanceColor?: ExtendedColorType = 'auto';
 
   /**
-   * Determines the visual appearance style of the icon (e.g., solid, outlined).
+   * Determines the visual appearance color of the icon (e.g., solid, outlined).
    */
   @Prop() appearance?: OptionalAppearanceType = 'none';
 
@@ -97,8 +97,7 @@ export class TnwIcon {
   }
 
   componentWillLoad() {
-    const propsValues = [this.appearance, this.borderRadius, this.color, this.enableSvg, this.hiddenAria, this.isButton, this.labelAria, this.name, this.size, this.tooltip, this.variant];
-    validateProps(propsValues);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.enableSvg, this.hiddenAria, this.isButton, this.labelAria, this.name, this.size, this.tooltip]);
 
     enforceRequiredPropsWhenConditionMissing(this.getConditionalPropsChecks());
     enforceGroupedPropsUsage(this.getGroupedPropsChecks());
@@ -118,8 +117,8 @@ export class TnwIcon {
   private getGroupedPropsChecks(): PropGroupCheck[] {
     return [
       {
-        propNames: ['appearance', 'variant'],
-        propValues: [this.appearance, this.variant],
+        propNames: ['appearance', 'appearanceColor'],
+        propValues: [this.appearance, this.appearanceColor],
       }
     ];
   }
@@ -130,7 +129,7 @@ export class TnwIcon {
   }
 
   private getHostClasses(): string {
-    const { baseClass, size, variant, appearance, isButton, color } = this;
+    const { baseClass, size, appearanceColor, appearance, isButton, color } = this;
 
     const clickable = isButton ? `${baseClass}--clickable` : ``;
 
@@ -139,7 +138,7 @@ export class TnwIcon {
       this.enableSvg ? `${baseClass}--svg-${size}` : `${baseClass}--font-${size}`,
       this.appearance !== 'none' ? `${baseClass}--padding-${size}` : ``,
       getColorClass('color', color),
-      getExtendedAppearanceClass(appearance, variant),
+      getExtendedAppearanceClass(appearance, appearanceColor),
       getBorderRadiusClass(this.borderRadius),
       clickable,
     ].filter(Boolean).join(' ').trim();

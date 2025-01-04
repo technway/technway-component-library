@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-button.tsx` file.
  * 
-validateProps([this.appearance, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverVariant, this.href, this.label, this.newTab, this.size, this.type, this.variant]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.href, this.label, this.newTab, this.size, this.type]);
  *
  * GENERATED USING `npm run g:components-validations tnw-button`
  */
@@ -23,6 +23,23 @@ export function validateProps(propsValues: any[]): void {
       "outlined",
       "solid",
       "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "danger",
+      "info",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "white"
     ],
     "isRequired": false
   },
@@ -60,7 +77,7 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
-    "name": "hoverVariant",
+    "name": "hoverAppearanceColor",
     "type": [
       "auto",
       "black",
@@ -108,23 +125,6 @@ export function validateProps(propsValues: any[]): void {
     "type": [
       "button",
       "submit"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "auto",
-      "black",
-      "danger",
-      "info",
-      "inverse",
-      "light",
-      "primary",
-      "secondary",
-      "success",
-      "warning",
-      "white"
     ],
     "isRequired": false
   }

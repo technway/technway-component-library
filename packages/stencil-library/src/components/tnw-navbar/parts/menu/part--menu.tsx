@@ -16,7 +16,7 @@ export {
 export const renderNavbarMenu = (
     menuData: Menu,
     menuProps: Partial<Menu> = {
-        itemsHoverAppearanceStyle: 'auto',
+        itemsHoverAppearanceColor: 'auto',
         itemsHoverAppearance: 'none',
         itemsBorderRadius: 'default',
         itemsHoverEffect: undefined

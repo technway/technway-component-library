@@ -15,7 +15,7 @@
  * ```ts
  * componentWillLoad() {
  *   this.shadowRoot.adoptedStyleSheets = [
- *     appearanceStyleSheet,
+ *     appearanceColorSheet,
  *     colorStyleSheet,
  *     typographyStyleSheet,
  *   ];
@@ -27,7 +27,7 @@
  * `replaceSync()` if needed.
  * 
  * Categories:
- * - Appearance Styles
+ * - appearance colors
  * - Border Styles
  * - Color Styles
  * - Global Styles
@@ -37,7 +37,7 @@
  * - Typography Styles
  */
 import { isCSSStyleSheetSupported } from "../utils";
-import { appearanceStyles, directionalAppearanceStyles, extendedAppearanceStyles } from "./appearance.styles";
+import { appearanceColors, directionalAppearanceStyles, extendedAppearanceStyles } from "./appearance.styles";
 import { borderColorStyles, borderWidthStyles, borderRadiusStyles } from "./border.styles";
 import { colorStyles, backgroundColorStyles, placeholderColorStyles } from "./color.styles";
 import { a11yStyles, containerStyles, globalStyles, resetStyles } from "./global.styles";
@@ -53,14 +53,14 @@ import { fontSizeStyles, fontWeightStyles, fontFamilyStyles, lineHeightStyles, t
  * with different visual states (e.g., primary, secondary, success, warning, danger).
  * 
  * Available stylesheets:
- * - `appearanceStyleSheet`: defines the base appearance (e.g., primary, secondary states).
+ * - `appearanceColorSheet`: defines the base appearance (e.g., primary, secondary states).
  * - `extendedAppearanceStyleSheet`: defines extended appearance states (e.g., success, warning, danger).
  * - `appearanceHoverStyleSheet`: defines appearance changes on hover for interactive elements.
  * - `extendedAppearanceHoverStyleSheet`: extends hover states for success, warning, danger.
  */
-export const appearanceStyleSheet = isCSSStyleSheetSupported() ? new CSSStyleSheet() : null;
-if (appearanceStyleSheet !== null) {
-    appearanceStyleSheet.replaceSync(appearanceStyles);
+export const appearanceColorSheet = isCSSStyleSheetSupported() ? new CSSStyleSheet() : null;
+if (appearanceColorSheet !== null) {
+    appearanceColorSheet.replaceSync(appearanceColors);
 }
 
 export const extendedAppearanceStyleSheet = isCSSStyleSheetSupported() ? new CSSStyleSheet() : null;

@@ -67,9 +67,9 @@ export class TnwTestimonialCard {
   @Prop() appearance?: OptionalAppearanceType = 'outlined';
 
   /**
-   * The color variant of the card, determining the overall color scheme.
+   * The color appearance color of the card, determining the overall color scheme.
    */
-  @Prop() variant?: ColorType = 'auto';
+  @Prop() appearanceColor?: ColorType = 'auto';
 
   /**
    * The border radius applied to the card.
@@ -104,18 +104,17 @@ export class TnwTestimonialCard {
   }
 
   componentWillLoad() {
-    const propsValues = [this.appearance, this.authorName, this.authorPhotoAlt, this.authorPhotoSrc, this.authorRole, this.borderRadius, this.padding, this.spacing, this.text, this.useGlassmorphismEffect, this.useRandomAvatar, this.variant];
-    validateProps(propsValues);
+    validateProps([this.appearance, this.appearanceColor, this.authorName, this.authorPhotoAlt, this.authorPhotoSrc, this.authorRole, this.borderRadius, this.padding, this.spacing, this.text, this.useGlassmorphismEffect, this.useRandomAvatar]);
   }
 
   private getHostClasses(): string {
-    const { baseClass, variant, appearance, borderRadius, useGlassmorphismEffect, padding, spacing } = this;
+    const { baseClass, appearanceColor, appearance, borderRadius, useGlassmorphismEffect, padding, spacing } = this;
     return [
       baseClass,
       `${baseClass}--spacing-${spacing}`,
       appearance !== "none" ? `${baseClass}--padding-${padding}` : ``,
       useGlassmorphismEffect ? `${baseClass}--glassmorphism` : '',
-      getAppearanceClass(appearance, variant),
+      getAppearanceClass(appearance, appearanceColor),
       getBorderRadiusClass(borderRadius),
     ].filter(Boolean).join(' ').trim();
   }

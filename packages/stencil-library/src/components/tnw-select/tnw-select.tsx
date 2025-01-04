@@ -47,12 +47,28 @@ export class TnwSelect {
    */
   @Prop() borderRadius?: BorderRadiusType = 'default';
 
+  /**
+   * Controls the size of the select component.
+   * Options are 'sm' (small), 'md' (medium), or 'lg' (large).
+   * Default is 'md' (medium).
+   */
   @Prop() size?: 'sm' | 'md' | 'lg' = 'md';
 
+  /**
+   * If `true`, the select component will be disabled and cannot be interacted with.
+   */
   @Prop() disabled?: boolean = false;
 
+  /**
+   * If `true`, the select component will expand to fill the full width of its container.
+   * Default is `false`, which means the component will size based on its content.
+   */
   @Prop() fullWidth?: boolean = false;
 
+  /**
+   * A custom accessibility ID for the select component.
+   * Can be used to provide a specific identifier for screen readers or testing.
+   */
   @Prop() accessibilityId?: string;
 
   /**
@@ -238,7 +254,7 @@ export class TnwSelect {
   private handleOptionKeyDown(event: KeyboardEvent) {
     const options = this.parsedOptionsData;
     const currentFocusedOption = this.el.shadowRoot?.querySelector<HTMLElement>('li[data-select-option]:focus');
-    const currentIndex = currentFocusedOption ? 
+    const currentIndex = currentFocusedOption ?
       options.findIndex(opt => opt.value === currentFocusedOption.dataset.value) : -1;
 
     switch (event.key) {

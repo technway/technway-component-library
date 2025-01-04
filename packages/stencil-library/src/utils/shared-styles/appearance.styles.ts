@@ -1,4 +1,4 @@
-export const appearanceStyles = `
+export const appearanceColors = `
 .tnw-v-none {
   background: none !important;
   border: 0 !important;

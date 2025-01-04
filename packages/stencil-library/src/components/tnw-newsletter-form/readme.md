@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+
 ## Usage
 
 ### Tnw-newsletter-form-usage
@@ -27,7 +31,7 @@
 | `inputPlaceholder` | `input-placeholder`  | The placeholder for the email input                                                                                                                | `string`                                                                                              | `'Enter your email'`        |
 | `successMessage`   | `success-message`    | The message to display after successful subscription                                                                                               | `string`                                                                                              | `'Thanks for subscribing!'` |
 | `theme`            | `theme`              | The theme for the component. It controls the color scheme of the component.                                                                        | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'primary'`                 |
-| `variant`          | `variant`            | The variant for the component                                                                                                                      | `"primary" \| "secondary"`                                                                            | `'primary'`                 |
+| `variant`          | `variant`            | The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input                               | `"primary" \| "secondary"`                                                                            | `'primary'`                 |
 
 
 ## Shadow Parts

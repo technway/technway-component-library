@@ -83,7 +83,7 @@ export class TnwBadge {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.label, this.size, this.variant]);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.imageSrc, this.label, this.size, this.variant]);
 
     this.initDisplayedLabel();
 

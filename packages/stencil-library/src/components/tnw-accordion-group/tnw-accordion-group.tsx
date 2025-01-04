@@ -23,8 +23,7 @@ export class TnwAccordionGroup {
   @Prop() singleExpand?: boolean = false;
 
   componentWillLoad() {
-    const propsValues = [this.singleExpand];
-    validateProps(propsValues);
+    validateProps([this.singleExpand]);
   }
 
   /**

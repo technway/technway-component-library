@@ -74,7 +74,6 @@ describe('tnw-label', () => {
         `<tnw-label text="Label Text" html-for="input-id"></tnw-label>`,
         'label'
       );
-      console.log('labelElement ', labelElement.outerHTML);
       expect(labelElement?.getAttribute('htmlFor')).toBe('input-id');
     });
   });

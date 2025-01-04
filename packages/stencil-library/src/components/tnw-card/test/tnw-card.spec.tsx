@@ -59,10 +59,10 @@ describe('tnw-card', () => {
       expect(host).toHaveClass('tnw-card--horizontal');
     });
 
-    it('renders with a custom appearance and variant', async () => {
+    it('renders with a custom appearance and appearance color', async () => {
       const host = await createSpecPage(
         TnwCard,
-        `<tnw-card appearance="solid" variant="primary"></tnw-card>`,
+        `<tnw-card appearance="solid" appearance-color="primary"></tnw-card>`,
       );
       expect(host).toHaveClass('tnw-v-solid-primary');
     });

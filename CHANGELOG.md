@@ -127,7 +127,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **tnw-copyrights-footer:** resolve centereing content issue ([ea92a70](https://github.com/technway/technway-component-library/commit/ea92a70b01ce563b7bbae60750d76d5aad0f2ffb))
-* **tnw-multi-row-carousel:** resolve slot element assignment issues for React ([ef32210](https://github.com/technway/technway-component-library/commit/ef32210d0cf4b47ceb3e85408326662449b81a26))
+* **tnw-rows-carousel:** resolve slot element assignment issues for React ([ef32210](https://github.com/technway/technway-component-library/commit/ef32210d0cf4b47ceb3e85408326662449b81a26))
 
 ## [2.7.0](https://github.com/technway/technway-component-library/compare/root-v2.6.1...root-v2.7.0) (2024-12-07)
 
@@ -150,14 +150,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **tnw-multi-row-carousel:** enhacne functionaliity and style ([4db88b6](https://github.com/technway/technway-component-library/commit/4db88b69016584bd250065ed6071eedd2015a08c))
+* **tnw-rows-carousel:** enhacne functionaliity and style ([4db88b6](https://github.com/technway/technway-component-library/commit/4db88b69016584bd250065ed6071eedd2015a08c))
 
 ## [2.5.0](https://github.com/technway/technway-component-library/compare/root-v2.4.0...root-v2.5.0) (2024-12-02)
 
 
 ### Features
 
-* **components:** create new 'tnw-testimonial-card' and 'tnw-multi-row-carousel' components ([eb8d2a9](https://github.com/technway/technway-component-library/commit/eb8d2a9b8e2c251e8647a005809c71047c01a0f6))
+* **components:** create new 'tnw-testimonial-card' and 'tnw-rows-carousel' components ([eb8d2a9](https://github.com/technway/technway-component-library/commit/eb8d2a9b8e2c251e8647a005809c71047c01a0f6))
 
 ## [2.4.0](https://github.com/technway/technway-component-library/compare/root-v2.3.0...root-v2.4.0) (2024-12-01)
 

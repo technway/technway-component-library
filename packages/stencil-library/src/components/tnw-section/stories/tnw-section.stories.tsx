@@ -40,7 +40,7 @@ WithGlassmorphism.args = {
 export const SolidAppearance = Template.bind({});
 SolidAppearance.args = {
   appearance: 'solid',
-  variant: 'primary',
+  appearanceColor: 'primary',
   headerSlot: `
     <tnw-heading slot="header" text="Solid Appearance Header" size="lg" color="white"></tnw-heading>
   `,
@@ -48,7 +48,7 @@ SolidAppearance.args = {
     <tnw-text slot="body" text="This is a section with a solid primary background appearance." size="md" color="white"></tnw-text>
   `,
   footerSlot: `
-    <tnw-button slot="footer" label="Get Started" variant="white"></tnw-button>
+    <tnw-button slot="footer" label="Get Started" appearanceColor="white"></tnw-button>
   `,
 };
 

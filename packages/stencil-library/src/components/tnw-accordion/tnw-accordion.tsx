@@ -33,6 +33,11 @@ export class TnwAccordion {
 
   @State() uniqueId: string;
 
+  // To DO:
+  /**
+   * Add variant prop for the placement of icon or some other style changes
+   */
+
   /**
    * The heading of the accordion item, displayed in the header.
    */
@@ -54,17 +59,17 @@ export class TnwAccordion {
   @Prop() accordionId: string;
 
   /**
-   * The color variant of the accordion, determining the overall color scheme.
+   * The appearance color of the accordion, determining the overall color scheme.
    */
-  @Prop() variant?: ColorType = 'auto';
+  @Prop() appearanceColor?: ColorType = 'auto';
 
   /**
-   * The color variant of the accordion text.
+   * The text color of the accordion text.
    */
   @Prop() color?: TextColorType;
 
   /**
-   * The appearance style of the accordion.
+   * The appearance color of the accordion.
    */
   @Prop() appearance?: "none" | "transparent" | "solid" | "outlined" | "underlined" = 'outlined';
 
@@ -103,8 +108,7 @@ export class TnwAccordion {
   }
 
   componentWillLoad() {
-    const propsValues = [this.accordionId, this.appearance, this.borderRadius, this.color, this.content, this.disableExpandIconRotate, this.enableCustomExpandIcon, this.expand, this.heading, this.variant];
-    validateProps(propsValues);
+    validateProps([this.accordionId, this.appearance, this.appearanceColor, this.borderRadius, this.color, this.content, this.disableExpandIconRotate, this.enableCustomExpandIcon, this.expand, this.heading]);
   }
 
   private initializeStyles() {
@@ -181,7 +185,7 @@ export class TnwAccordion {
   }
 
   private getHostClasses(): string {
-    const { baseClass, appearance, variant, borderRadius } = this;
+    const { baseClass, appearance, appearanceColor, borderRadius } = this;
 
     return [
       baseClass,
@@ -207,9 +211,9 @@ export class TnwAccordion {
       appearance !== 'none' ? `${baseClass}--hasPadding` : ``,
 
       /**
-       * Add variant class if the appearance is not none
+       * Add appearanceColor class if the appearance is not none
        */
-      appearance !== 'none' ? `${baseClass}--${appearance}-${variant}` : ``,
+      appearance !== 'none' ? `${baseClass}--${appearance}-${appearanceColor}` : ``,
 
       /**
        * Add border radius class only if the appearance is either solid or outlined
@@ -228,14 +232,14 @@ export class TnwAccordion {
   }
 
   private getTextColor(): TextColorType {
-    const { color, variant, appearance } = this;
+    const { color, appearanceColor, appearance } = this;
 
     if (isNotEmptyString(color)) {
       return color;
     }
 
     if (appearance === 'solid') {
-      switch (variant) {
+      switch (appearanceColor) {
         case 'primary':
           return 'white';
 
@@ -258,7 +262,7 @@ export class TnwAccordion {
           return 'black';
 
         default:
-          return variant;
+          return appearanceColor;
       }
     }
 

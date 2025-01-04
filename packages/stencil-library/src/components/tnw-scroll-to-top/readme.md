@@ -69,13 +69,13 @@ It supports customization of the icon, size, appearance, and allows for the use 
 
 | Property              | Attribute                | Description                                                               | Type                                                                                                  | Default               |
 | --------------------- | ------------------------ | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------- |
-| `appearance`          | `appearance`             | Determines the appearance style of the scroll-to-top button.              | `"mixed" \| "outlined" \| "solid" \| "transparent"`                                                   | `'solid'`             |
+| `appearance`          | `appearance`             | Determines the appearance of the scroll-to-top button.                    | `"mixed" \| "outlined" \| "solid" \| "transparent"`                                                   | `'solid'`             |
+| `appearanceColor`     | `appearance-color`       | Defines the appearance color of the scroll-to-top button.                 | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'primary'`           |
 | `borderRadius`        | `border-radius`          | Determines the border radius.                                             | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `"default"`           |
 | `color`               | `color`                  | Determines the color of the icon.                                         | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `undefined`           |
 | `customIconName`      | `custom-icon-name`       | The name of the custom icon to be used for the scroll-to-top button.      | `string`                                                                                              | `'tnw-arrow-thin-up'` |
 | `enableCustomSvgIcon` | `enable-custom-svg-icon` | If true, a custom SVG icon provided via the `icon-svg` slot will be used. | `boolean`                                                                                             | `false`               |
 | `size`                | `size`                   | Specifies the size of the scroll-to-top button.                           | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                                                | `'md'`                |
-| `variant`             | `variant`                | Defines the color variant of the scroll-to-top button.                    | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'primary'`           |
 
 
 ## Events

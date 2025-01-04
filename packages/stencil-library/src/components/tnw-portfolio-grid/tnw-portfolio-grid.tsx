@@ -5,6 +5,9 @@ import { TnwPortfolioGridItem } from './utils/types';
 import { ExtendedSizeType } from '../../components';
 import { validateProps } from './utils/tnw-portfolio-grid-validate-props';
 
+/**
+ * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
+ */
 @Component({
   tag: 'tnw-portfolio-grid',
   shadow: true,
@@ -48,8 +51,7 @@ export class TnwPortfolioGrid {
   async componentWillLoad() {
     this.parsedItemsData = await parseJSONAsync(this.itemsData);
 
-    const propsValues = [this.columns, this.itemsData, this.showGradientFade, this.spacing];
-    validateProps(propsValues);
+    validateProps([this.columns, this.itemsData, this.showGradientFade, this.spacing]);
   }
 
   private initializeStyles() {

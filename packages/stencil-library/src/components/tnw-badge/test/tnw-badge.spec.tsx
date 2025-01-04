@@ -124,7 +124,6 @@ describe('tnw-badge', () => {
       ) as HTMLTnwBadgeElement;
       const slot = queryElement(host, 'slot');
       const slotContent = queryElement(host, 'span', false);
-      console.log("host ", host.outerHTML);
       expect(slot).toBeTruthy();
       expect(slotContent).toBeTruthy();
     });

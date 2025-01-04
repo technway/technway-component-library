@@ -2,7 +2,7 @@ import { Component, Element, Host, Prop, h, Event, EventEmitter, Watch, State } 
 import { SizeType, BorderRadiusType, ColorType, OptionalAppearanceType } from '../../utils/component-props-types';
 import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-navbar.style';
-import { appearanceStyleSheet, borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
+import { appearanceColorSheet, borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-navbar-validate-props';
 import { renderToggler } from './parts/toggler/part--toggler';
 import { renderMenu } from './parts/menu/part--menu-render';
@@ -12,7 +12,7 @@ import { renderNavbarLogo } from './parts/logo/part--logo';
 
 /**
  * The `tnw-navbar` component creates a responsive, customizable navigation bar.
- * It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
+ * It supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
  * 
  * @part navbar - the outermost `nav` element that wraps all the content.
  * @part menu - the container for the navigation menu items.
@@ -39,14 +39,14 @@ export class TnwNavbar {
   @State() isVisible: boolean = false;
 
   /**
-   * Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
+   * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
    */
   @Prop() appearance?: OptionalAppearanceType | "outlined-bottom" = 'solid';
 
   /**
-   * Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
+   * Specifies the appearance color of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
    */
-  @Prop() appearanceStyle?: ColorType = 'auto';
+  @Prop() appearanceColor?: ColorType = 'auto';
 
   /**
    * Makes the navigation bar sticky at the top of the viewport when set to true.
@@ -118,6 +118,16 @@ export class TnwNavbar {
     }
   }
 
+  @Watch('logoData')
+  parseLogoData(newValue: string) {
+    try {
+      this.parsedLogoData = newValue ? JSON.parse(newValue) : null;
+    } catch (error) {
+      console.error('Invalid logo data JSON', error);
+      this.parsedLogoData = null;
+    }
+  }
+
   /**
    * Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }
    */
@@ -145,7 +155,7 @@ export class TnwNavbar {
       (this.el.shadowRoot as any).adoptedStyleSheets = [
         containerStyleSheet,
         borderRadiusStyleSheet,
-        appearanceStyleSheet,
+        appearanceColorSheet,
         extendedAppearanceStyleSheet,
         this.componentStyles
       ];
@@ -157,11 +167,13 @@ export class TnwNavbar {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceStyle, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.hideMenuBelow, this.logoData, this.menuData, this.menuExactCenter, this.menuPlacement, this.padding, this.sticky, this.togglerPlacement]);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.hideMenuBelow, this.logoData, this.menuData, this.menuExactCenter, this.menuPlacement, this.padding, this.sticky, this.togglerPlacement]);
 
     // Manually parse menu data on initial load
     if (this.menuData) {
       this.parseMenuData(this.menuData);
+    }
+    if (this.logoData) {
       this.parseLogoData(this.logoData);
     }
   }
@@ -169,15 +181,6 @@ export class TnwNavbar {
   disconnectedCallback() {
     if (this.sticky) {
       window.removeEventListener('scroll', this.handleScroll);
-    }
-  }
-
-  private parseLogoData(logoData: string) {
-    try {
-      this.parsedLogoData = logoData ? JSON.parse(logoData) : null;
-    } catch (error) {
-      console.error('Navbar: Error parsing logo data', error);
-      this.parsedLogoData = null;
     }
   }
 
@@ -191,7 +194,7 @@ export class TnwNavbar {
   }
 
   private getContentClasses(): string {
-    const { baseClass, appearance, appearanceStyle, borderRadius, padding } = this;
+    const { baseClass, appearance, appearanceColor, borderRadius, padding } = this;
 
     const contentClass = `${baseClass}__content`;
 
@@ -201,7 +204,7 @@ export class TnwNavbar {
       (appearance === 'outlined-bottom') ? `${contentClass}--paddingBottom-${padding}` : ``,
       borderRadius !== 'none' ? getBorderRadiusClass(borderRadius) : ``,
       // Add appearance class if the appearance is not outlined
-      appearance !== 'outlined-bottom' ? getAppearanceClass(appearance, appearanceStyle) : (appearance === 'outlined-bottom' ? `${contentClass}--outlined-bottom ${contentClass}--${appearanceStyle}` : ''),
+      appearance !== 'outlined-bottom' ? getAppearanceClass(appearance, appearanceColor) : (appearance === 'outlined-bottom' ? `${contentClass}--outlined-bottom ${contentClass}--${appearanceColor}` : ''),
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -212,6 +215,10 @@ export class TnwNavbar {
   }
 
   private menuToggler(): JSX.Element {
+    if (this.menu() === null) {
+      return null;
+    }
+
     return (
       renderToggler({
         isOpen: this.isVisible,
@@ -255,8 +262,8 @@ export class TnwNavbar {
   private renderContent(): JSX.Element {
     return (
       <nav class={this.getContentClasses()} part='navbar'>
-        {this.togglerPlacement === 'start' && this.menuToggler()}
         <div class={`${this.baseClass}__start`}>
+          {this.togglerPlacement === 'start' && this.menuToggler()}
           {this.logo()}
           {this.menuPlacement === 'start' && this.menu()}
         </div>

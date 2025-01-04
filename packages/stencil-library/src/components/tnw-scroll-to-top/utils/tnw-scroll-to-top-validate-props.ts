@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-scroll-to-top.tsx` file.
  * 
-validateProps([this.appearance, this.borderRadius, this.color, this.customIconName, this.enableCustomSvgIcon, this.size, this.variant]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.customIconName, this.enableCustomSvgIcon, this.size]);
  *
  * GENERATED USING `npm run g:components-validations tnw-scroll-to-top`
  */
@@ -22,6 +22,19 @@ export function validateProps(propsValues: any[]): void {
       "outlined",
       "solid",
       "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
     ],
     "isRequired": false
   },
@@ -77,19 +90,6 @@ export function validateProps(propsValues: any[]): void {
       "sm",
       "xl",
       "xs"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "auto",
-      "black",
-      "inverse",
-      "light",
-      "primary",
-      "secondary",
-      "white"
     ],
     "isRequired": false
   }

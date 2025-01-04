@@ -39,10 +39,10 @@ describe('tnw-contact-banner', () => {
       expect(host).toHaveClass('tnw-contact-banner--start');
     });
 
-    it('renders with custom appearance and variant', async () => {
+    it('renders with custom appearance and appearanceColor', async () => {
       const host = await createSpecPage(
         TnwContactBanner,
-        `<tnw-contact-banner appearance="outlined" variant="primary"></tnw-contact-banner>`
+        `<tnw-contact-banner appearance="outlined" appearance-color="primary"></tnw-contact-banner>`
       );
       expect(host).toHaveClass('tnw-v-outlined-primary');
     });
@@ -136,11 +136,11 @@ describe('tnw-contact-banner', () => {
     });
 
 
-    it('throws an error when an invalid variant prop is provided', async () => {
+    it('throws an error when an invalid appearanceColor prop is provided', async () => {
       await checkSpecPageError(
         TnwContactBanner,
-        `<tnw-contact-banner variant="invalid"></tnw-contact-banner>`,
-        'Invalid prop value for "variant"'
+        `<tnw-contact-banner appearance-color="invalid"></tnw-contact-banner>`,
+        'Invalid prop value for "appearanceColor"'
       );
     });
 

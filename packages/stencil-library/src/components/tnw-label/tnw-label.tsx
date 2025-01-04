@@ -76,8 +76,7 @@ export class TnwLabel {
   }
 
   componentWillLoad() {
-    const propsValues = [this.color, this.htmlFor, this.isSrOnly, this.size, this.text, this.textCase, this.weight];
-    validateProps(propsValues);
+    validateProps([this.color, this.htmlFor, this.isSrOnly, this.size, this.text, this.textCase, this.weight]);
   }
 
   private getClasses(): string {

@@ -7,7 +7,7 @@ import { validateProps } from './utils/tnw-contact-banner-validate-props';
 
 /**
  * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
- * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+ * It supports various appearances and colors, and allows for custom content to be inserted via slots.
  * 
  * @slot subtitle - Use this slot to insert a short title or subtitle in the banner.
  * @slot title - Use this slot to insert the main title or heading of the banner.
@@ -32,9 +32,9 @@ export class TnwContactBanner {
 	@Prop() appearance?: AppearanceType | 'gradient' = 'solid';
 
 	/**
-	 * Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.
+	 * Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.
 	 */
-	@Prop() variant?: ColorType = 'primary';
+	@Prop() appearanceColor?: ColorType = 'primary';
 
 	/**
 	 * If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.
@@ -85,12 +85,11 @@ export class TnwContactBanner {
 	}
 
 	componentWillLoad() {
-		const propsValues = [this.VerticalPadding, this.alignment, this.appearance, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin, this.variant];
-		validateProps(propsValues);
+		validateProps([this.VerticalPadding, this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin]);
 	}
 
 	private getHostClasses(): string {
-		const { baseClass, appearance, variant, alignment, borderRadius, margin, horizontalPadding, VerticalPadding, disableInternalContainer } = this;
+		const { baseClass, appearance, appearanceColor, alignment, borderRadius, margin, horizontalPadding, VerticalPadding, disableInternalContainer } = this;
 
 		return [
 			baseClass,
@@ -99,7 +98,7 @@ export class TnwContactBanner {
 			`${baseClass}--margin-${margin}`,
 			`${baseClass}--padding-inline-${horizontalPadding}`,
 			`${baseClass}--padding-block-${VerticalPadding}`,
-			appearance === 'gradient' ? `${baseClass}--gradient` : getAppearanceClass(appearance, variant),
+			appearance === 'gradient' ? `${baseClass}--gradient` : getAppearanceClass(appearance, appearanceColor),
 			getBorderRadiusClass(borderRadius),
 		].filter(Boolean).join(' ').trim();
 	}

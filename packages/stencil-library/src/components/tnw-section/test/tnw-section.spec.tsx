@@ -82,10 +82,10 @@ describe('tnw-section', () => {
       expect(host).not.toHaveClass('container');
     });
 
-    it('applies correct appearance and variant classes', async () => {
+    it('applies correct appearance and appearanceColor classes', async () => {
       const host = await createSpecPage(
         TnwSection,
-        `<tnw-section appearance="solid" variant="primary"></tnw-section>`
+        `<tnw-section appearance="solid" appearance-color="primary"></tnw-section>`
       );
       expect(host).toHaveClass('tnw-directional-v-solid-primary');
     });
@@ -151,11 +151,11 @@ describe('tnw-section', () => {
       );
     });
 
-    it('throws an error when an invalid variant prop is provided', async () => {
+    it('throws an error when an invalid appearanceColor prop is provided', async () => {
       await checkSpecPageError(
         TnwSection,
-        `<tnw-section variant="invalid"></tnw-section>`,
-        'Invalid prop value for "variant"'
+        `<tnw-section appearance-color="invalid"></tnw-section>`,
+        'Invalid prop value for "appearanceColor"'
       );
     });
 

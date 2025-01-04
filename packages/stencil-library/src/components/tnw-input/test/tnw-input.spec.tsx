@@ -53,10 +53,10 @@ describe('tnw-input', () => {
       expect(input.getAttribute('value')).toBe('Initial Value');
     });
 
-    it('applies a custom variant class', async () => {
+    it('applies a custom appearance class', async () => {
       const input = await createSpecPage(
         TnwInput,
-        `<tnw-input label="Test Input" type="text" placeholder="Enter text" variant="underlined"></tnw-input>`,
+        `<tnw-input label="Test Input" type="text" placeholder="Enter text" appearance="underlined"></tnw-input>`,
         'input'
       );
       expect(input).toHaveClass('tnw-input--underlined');
@@ -183,7 +183,7 @@ describe('tnw-input', () => {
       );
       expect(alert).not.toBeNull();
       expect(alert.getAttribute('message')).not.toBeNull();
-      expect(alert.getAttribute('variant')).toBe('danger');
+      expect(alert.getAttribute('appearance')).toBe('danger');
     });
 
     it('renders help text when helpText is provided', async () => {
@@ -204,7 +204,7 @@ describe('tnw-input', () => {
       );
       expect(alert).not.toBeNull();
       expect(alert.getAttribute('message')).toBe('Input does not match the required pattern.');
-      expect(alert.getAttribute('variant')).toBe('danger');
+      expect(alert.getAttribute('appearance')).toBe('danger');
     });
 
     it('sets alertMessage and alertType when input value exceeds maxlength', async () => {
@@ -215,7 +215,7 @@ describe('tnw-input', () => {
       );
       expect(alert).not.toBeNull();
       expect(alert.getAttribute('message')).toBe('Input is too long. Maximum length is "10" characters.');
-      expect(alert.getAttribute('variant')).toBe('danger');
+      expect(alert.getAttribute('appearance')).toBe('danger');
     });
 
     it('sets alertMessage and alertType when input value is below minlength', async () => {
@@ -226,7 +226,7 @@ describe('tnw-input', () => {
       );
       expect(alert).not.toBeNull();
       expect(alert.getAttribute('message')).toBe('Input is too short. Minimum length is "5" characters.');
-      expect(alert.getAttribute('variant')).toBe('danger');
+      expect(alert.getAttribute('appearance')).toBe('danger');
     });
 
     it('does not display an alert when alertMessage and alertType are not triggered', async () => {

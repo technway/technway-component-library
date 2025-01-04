@@ -7,7 +7,7 @@ import { validateProps } from './utils/tnw-card-validate-props';
 
 /**
  * The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a 
- * card layout. It supports various customization options for layout orientation, appearance styles, spacing, 
+ * card layout. It supports various customization options for layout orientation, appearance colors, spacing, 
  * and content alignment. The card can display images, headings, subheadings, descriptions, and buttons, 
  * with slots for each, allowing full customization.
  * 
@@ -88,14 +88,14 @@ export class TnwCard {
   @Prop() padding?: SizeType | "none";
 
   /**
-   * The appearance style of the card.
+   * The appearance color of the card.
    */
   @Prop() appearance?: OptionalAppearanceType = 'none';
 
   /**
-   * The color variant of the card, determining the overall color scheme.
+   * The color appearance color of the card, determining the overall color scheme.
    */
-  @Prop() variant?: ColorType = 'auto';
+  @Prop() appearanceColor?: ColorType = 'auto';
 
   /**
    * If `true`, the card content will be displayed before the image.
@@ -150,12 +150,11 @@ export class TnwCard {
   }
 
   componentWillLoad() {
-    const propsValues = [this.appearance, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect, this.variant];
-    validateProps(propsValues);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
   }
 
   private getHostClasses() {
-    const { baseClass, variant, appearance, borderRadius, useGlassmorphismEffect, itemsAlignment, layout, padding, spacing, largerImage } = this;
+    const { baseClass, appearanceColor, appearance, borderRadius, useGlassmorphismEffect, itemsAlignment, layout, padding, spacing, largerImage } = this;
     return [
       baseClass,
       `${baseClass}--${layout}`,
@@ -166,7 +165,7 @@ export class TnwCard {
       `${baseClass}--spacing-${spacing}`,
       appearance !== "none" ? `${baseClass}--padding-${padding}` : ``,
       useGlassmorphismEffect ? `${baseClass}--glassmorphism` : '',
-      getAppearanceClass(appearance, variant),
+      getAppearanceClass(appearance, appearanceColor),
       getBorderRadiusClass(borderRadius),
     ].filter(Boolean).join(' ').trim();
   }

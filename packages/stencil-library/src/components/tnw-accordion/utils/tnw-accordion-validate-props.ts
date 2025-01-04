@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-accordion.tsx` file.
  * 
-validateProps([this.accordionId, this.appearance, this.borderRadius, this.color, this.content, this.disableExpandIconRotate, this.enableCustomExpandIcon, this.expand, this.heading, this.variant]);
+validateProps([this.accordionId, this.appearance, this.appearanceColor, this.borderRadius, this.color, this.content, this.disableExpandIconRotate, this.enableCustomExpandIcon, this.expand, this.heading]);
  *
  * GENERATED USING `npm run g:components-validations tnw-accordion`
  */
@@ -30,6 +30,19 @@ export function validateProps(propsValues: any[]): void {
       "solid",
       "transparent",
       "underlined"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
     ],
     "isRequired": false
   },
@@ -105,19 +118,6 @@ export function validateProps(propsValues: any[]): void {
     "name": "heading",
     "type": [
       "string"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "auto",
-      "black",
-      "inverse",
-      "light",
-      "primary",
-      "secondary",
-      "white"
     ],
     "isRequired": false
   }

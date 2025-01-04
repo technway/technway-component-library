@@ -16,9 +16,17 @@ export default {
 const Template = (args) => getComponentTemplate(args, component);
 
 const logoData = JSON.stringify({
-  src: "https://technway.biz/wp-content/themes/technwaytheme/assets/images/logo.webp",
+  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxWWEG4C9hkGOnLP_7J5mn0e50rnj4zi_OQ&s",
   alt: 'Company Logo',
-  width: '130px',
+  width: '40px',
+});
+
+const logoWithLinkData = JSON.stringify({
+  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxWWEG4C9hkGOnLP_7J5mn0e50rnj4zi_OQ&s",
+  alt: 'Company Logo',
+  width: '40px',
+  link: '/',
+  ariaLabel: 'Go to Technway Website',
 });
 
 const menuData = JSON.stringify({
@@ -40,7 +48,7 @@ const menuData = JSON.stringify({
   hideMenuBelow: '1024',
   itemsSize: 'sm',
   itemsColor: 'auto',
-  itemsHoverAppearanceStyle: 'primary',
+  itemsHoverAppearanceColor: 'primary',
   itemsHoverAppearance: 'color',
   itemsBorderRadius: 'default',
 });
@@ -66,7 +74,7 @@ export const Outlined = Template.bind({});
 Outlined.args = {
   ...Default.args,
   appearance: 'outlined',
-  appearanceStyle: 'light',
+  appearanceColor: 'light',
   padding: 'md',
 };
 
@@ -74,7 +82,7 @@ export const BottomOutlined = Template.bind({});
 BottomOutlined.args = {
   ...Default.args,
   appearance: 'outlined-bottom',
-  appearanceStyle: 'light',
+  appearanceColor: 'light',
   padding: 'md',
   borderRadius: 'none',
 };
@@ -83,7 +91,7 @@ export const Transparent = Template.bind({});
 Transparent.args = {
   ...Default.args,
   appearance: 'transparent',
-  appearanceStyle: 'light',
+  appearanceColor: 'light',
 };
 
 export const MenuStartPlacement = Template.bind({});
@@ -107,5 +115,12 @@ disableInternalContainer.args = {
 export const menuExactCenter = Template.bind({});
 menuExactCenter.args = {
   ...Default.args,
+  menuExactCenter: true,
+};
+
+export const logoWithLink = Template.bind({});
+logoWithLink.args = {
+  ...Default.args,
+  logoDataJson: logoWithLinkData,
   menuExactCenter: true,
 };

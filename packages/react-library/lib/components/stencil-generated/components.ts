@@ -9,6 +9,7 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
+import { type TnwSelectCustomEvent, type TnwSelectOption } from "../../../../stencil-library";
 import { TnwAccordionGroup as TnwAccordionGroupElement, defineCustomElement as defineTnwAccordionGroup } from "../../../../stencil-library/dist/components/tnw-accordion-group.js";
 import { TnwAccordion as TnwAccordionElement, defineCustomElement as defineTnwAccordion } from "../../../../stencil-library/dist/components/tnw-accordion.js";
 import { TnwAlert as TnwAlertElement, defineCustomElement as defineTnwAlert } from "../../../../stencil-library/dist/components/tnw-alert.js";
@@ -29,14 +30,11 @@ import { TnwInput as TnwInputElement, defineCustomElement as defineTnwInput } fr
 import { TnwItemsCarousel as TnwItemsCarouselElement, defineCustomElement as defineTnwItemsCarousel } from "../../../../stencil-library/dist/components/tnw-items-carousel.js";
 import { TnwLabel as TnwLabelElement, defineCustomElement as defineTnwLabel } from "../../../../stencil-library/dist/components/tnw-label.js";
 import { TnwList as TnwListElement, defineCustomElement as defineTnwList } from "../../../../stencil-library/dist/components/tnw-list.js";
-import { TnwRowsCarousel as TnwRowsCarouselElement, defineCustomElement as defineTnwRowsCarousel } from "../../../../stencil-library/dist/components/tnw-rows-carousel.js";
-import { TnwNavbarDropdownMenu as TnwNavbarDropdownMenuElement, defineCustomElement as defineTnwNavbarDropdownMenu } from "../../../../stencil-library/dist/components/tnw-navbar-dropdown-menu.js";
-import { TnwNavbarMenuToggler as TnwNavbarMenuTogglerElement, defineCustomElement as defineTnwNavbarMenuToggler } from "../../../../stencil-library/dist/components/tnw-navbar-menu-toggler.js";
-import { TnwNavbarMenu as TnwNavbarMenuElement, defineCustomElement as defineTnwNavbarMenu } from "../../../../stencil-library/dist/components/tnw-navbar-menu.js";
 import { TnwNavbar as TnwNavbarElement, defineCustomElement as defineTnwNavbar } from "../../../../stencil-library/dist/components/tnw-navbar.js";
 import { TnwNewsletterForm as TnwNewsletterFormElement, defineCustomElement as defineTnwNewsletterForm } from "../../../../stencil-library/dist/components/tnw-newsletter-form.js";
 import { TnwPortfolioGrid as TnwPortfolioGridElement, defineCustomElement as defineTnwPortfolioGrid } from "../../../../stencil-library/dist/components/tnw-portfolio-grid.js";
 import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating } from "../../../../stencil-library/dist/components/tnw-rating.js";
+import { TnwRowsCarousel as TnwRowsCarouselElement, defineCustomElement as defineTnwRowsCarousel } from "../../../../stencil-library/dist/components/tnw-rows-carousel.js";
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "../../../../stencil-library/dist/components/tnw-scroll-to-top.js";
 import { TnwSection as TnwSectionElement, defineCustomElement as defineTnwSection } from "../../../../stencil-library/dist/components/tnw-section.js";
 import { TnwSelect as TnwSelectElement, defineCustomElement as defineTnwSelect } from "../../../../stencil-library/dist/components/tnw-select.js";
@@ -221,14 +219,20 @@ export const TnwImage: StencilReactComponent<TnwImageElement, TnwImageEvents> = 
     defineCustomElement: defineTnwImage
 });
 
-type TnwInputEvents = NonNullable<unknown>;
+type TnwInputEvents = {
+    onInputChanged: EventName<CustomEvent<string>>,
+    onValidationFailed: EventName<CustomEvent<{ inputId: string; error: string }>>
+};
 
 export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = /*@__PURE__*/ createComponent<TnwInputElement, TnwInputEvents>({
     tagName: 'tnw-input',
     elementClass: TnwInputElement,
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
-    events: {} as TnwInputEvents,
+    events: {
+        onInputChanged: 'inputChanged',
+        onValidationFailed: 'validationFailed'
+    } as TnwInputEvents,
     defineCustomElement: defineTnwInput
 });
 
@@ -265,59 +269,23 @@ export const TnwList: StencilReactComponent<TnwListElement, TnwListEvents> = /*@
     defineCustomElement: defineTnwList
 });
 
-type TnwRowsCarouselEvents = NonNullable<unknown>;
-
-export const TnwRowsCarousel: StencilReactComponent<TnwRowsCarouselElement, TnwRowsCarouselEvents> = /*@__PURE__*/ createComponent<TnwRowsCarouselElement, TnwRowsCarouselEvents>({
-    tagName: 'tnw-rows-carousel',
-    elementClass: TnwRowsCarouselElement,
-    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
-    react: React,
-    events: {} as TnwRowsCarouselEvents,
-    defineCustomElement: defineTnwRowsCarousel
-});
-
-type TnwNavbarEvents = NonNullable<unknown>;
+type TnwNavbarEvents = {
+    onTnwBreakpointChange: EventName<CustomEvent<{ breakpoint: "1024" | "767" | "567" | "1439" }>>,
+    onTnwMenuToggle: EventName<CustomEvent<{ isOpen: boolean }>>,
+    onTnwScrollChange: EventName<CustomEvent<{ scrollY: number }>>
+};
 
 export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents> = /*@__PURE__*/ createComponent<TnwNavbarElement, TnwNavbarEvents>({
     tagName: 'tnw-navbar',
     elementClass: TnwNavbarElement,
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
-    events: {} as TnwNavbarEvents,
+    events: {
+        onTnwBreakpointChange: 'tnwBreakpointChange',
+        onTnwMenuToggle: 'tnwMenuToggle',
+        onTnwScrollChange: 'tnwScrollChange'
+    } as TnwNavbarEvents,
     defineCustomElement: defineTnwNavbar
-});
-
-type TnwNavbarDropdownMenuEvents = NonNullable<unknown>;
-
-export const TnwNavbarDropdownMenu: StencilReactComponent<TnwNavbarDropdownMenuElement, TnwNavbarDropdownMenuEvents> = /*@__PURE__*/ createComponent<TnwNavbarDropdownMenuElement, TnwNavbarDropdownMenuEvents>({
-    tagName: 'tnw-navbar-dropdown-menu',
-    elementClass: TnwNavbarDropdownMenuElement,
-    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
-    react: React,
-    events: {} as TnwNavbarDropdownMenuEvents,
-    defineCustomElement: defineTnwNavbarDropdownMenu
-});
-
-type TnwNavbarMenuEvents = NonNullable<unknown>;
-
-export const TnwNavbarMenu: StencilReactComponent<TnwNavbarMenuElement, TnwNavbarMenuEvents> = /*@__PURE__*/ createComponent<TnwNavbarMenuElement, TnwNavbarMenuEvents>({
-    tagName: 'tnw-navbar-menu',
-    elementClass: TnwNavbarMenuElement,
-    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
-    react: React,
-    events: {} as TnwNavbarMenuEvents,
-    defineCustomElement: defineTnwNavbarMenu
-});
-
-type TnwNavbarMenuTogglerEvents = NonNullable<unknown>;
-
-export const TnwNavbarMenuToggler: StencilReactComponent<TnwNavbarMenuTogglerElement, TnwNavbarMenuTogglerEvents> = /*@__PURE__*/ createComponent<TnwNavbarMenuTogglerElement, TnwNavbarMenuTogglerEvents>({
-    tagName: 'tnw-navbar-menu-toggler',
-    elementClass: TnwNavbarMenuTogglerElement,
-    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
-    react: React,
-    events: {} as TnwNavbarMenuTogglerEvents,
-    defineCustomElement: defineTnwNavbarMenuToggler
 });
 
 type TnwNewsletterFormEvents = NonNullable<unknown>;
@@ -353,14 +321,37 @@ export const TnwRating: StencilReactComponent<TnwRatingElement, TnwRatingEvents>
     defineCustomElement: defineTnwRating
 });
 
-type TnwScrollToTopEvents = NonNullable<unknown>;
+type TnwRowsCarouselEvents = {
+    onTnwRowPause: EventName<CustomEvent<number>>,
+    onTnwRowResume: EventName<CustomEvent<number>>
+};
+
+export const TnwRowsCarousel: StencilReactComponent<TnwRowsCarouselElement, TnwRowsCarouselEvents> = /*@__PURE__*/ createComponent<TnwRowsCarouselElement, TnwRowsCarouselEvents>({
+    tagName: 'tnw-rows-carousel',
+    elementClass: TnwRowsCarouselElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {
+        onTnwRowPause: 'tnwRowPause',
+        onTnwRowResume: 'tnwRowResume'
+    } as TnwRowsCarouselEvents,
+    defineCustomElement: defineTnwRowsCarousel
+});
+
+type TnwScrollToTopEvents = {
+    onVisible: EventName<CustomEvent<{ isVisible: boolean; scrollY: number }>>,
+    onScrollToTopClicked: EventName<CustomEvent<{ scrollY: number }>>
+};
 
 export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScrollToTopEvents> = /*@__PURE__*/ createComponent<TnwScrollToTopElement, TnwScrollToTopEvents>({
     tagName: 'tnw-scroll-to-top',
     elementClass: TnwScrollToTopElement,
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
-    events: {} as TnwScrollToTopEvents,
+    events: {
+        onVisible: 'visible',
+        onScrollToTopClicked: 'scrollToTopClicked'
+    } as TnwScrollToTopEvents,
     defineCustomElement: defineTnwScrollToTop
 });
 
@@ -375,14 +366,20 @@ export const TnwSection: StencilReactComponent<TnwSectionElement, TnwSectionEven
     defineCustomElement: defineTnwSection
 });
 
-type TnwSelectEvents = { onOptionSelected: EventName<CustomEvent<string>> };
+type TnwSelectEvents = {
+    onOptionSelected: EventName<TnwSelectCustomEvent<TnwSelectOption>>,
+    onDropdownToggled: EventName<CustomEvent<{ isOpen: boolean }>>
+};
 
 export const TnwSelect: StencilReactComponent<TnwSelectElement, TnwSelectEvents> = /*@__PURE__*/ createComponent<TnwSelectElement, TnwSelectEvents>({
     tagName: 'tnw-select',
     elementClass: TnwSelectElement,
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
-    events: { onOptionSelected: 'optionSelected' } as TnwSelectEvents,
+    events: {
+        onOptionSelected: 'optionSelected',
+        onDropdownToggled: 'dropdownToggled'
+    } as TnwSelectEvents,
     defineCustomElement: defineTnwSelect
 });
 
@@ -408,13 +405,19 @@ export const TnwText: StencilReactComponent<TnwTextElement, TnwTextEvents> = /*@
     defineCustomElement: defineTnwText
 });
 
-type TnwTextareaEvents = NonNullable<unknown>;
+type TnwTextareaEvents = {
+    onTextareaChanged: EventName<CustomEvent<string>>,
+    onValidationFailed: EventName<CustomEvent<{ textareaId: string; error: string }>>
+};
 
 export const TnwTextarea: StencilReactComponent<TnwTextareaElement, TnwTextareaEvents> = /*@__PURE__*/ createComponent<TnwTextareaElement, TnwTextareaEvents>({
     tagName: 'tnw-textarea',
     elementClass: TnwTextareaElement,
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
-    events: {} as TnwTextareaEvents,
+    events: {
+        onTextareaChanged: 'textareaChanged',
+        onValidationFailed: 'validationFailed'
+    } as TnwTextareaEvents,
     defineCustomElement: defineTnwTextarea
 });

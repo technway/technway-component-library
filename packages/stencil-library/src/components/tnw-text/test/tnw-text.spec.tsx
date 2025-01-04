@@ -82,7 +82,6 @@ describe('tnw-text', () => {
         'tnw-text'
       ) as HTMLTnwTextElement;
       const highlightedText = queryElement(highlightedHost, 'strong');
-      console.log(highlightedText.outerHTML)
       expect(highlightedText).not.toBeNull();
       expect(highlightedText).toHaveClass('color-secondary');
       expect(highlightedText).toHaveClass('fw-700');

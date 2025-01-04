@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-card.tsx` file.
  * 
-validateProps([this.appearance, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect, this.variant]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
  *
  * GENERATED USING `npm run g:components-validations tnw-card`
  */
@@ -23,6 +23,19 @@ export function validateProps(propsValues: any[]): void {
       "outlined",
       "solid",
       "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
     ],
     "isRequired": false
   },
@@ -165,19 +178,6 @@ export function validateProps(propsValues: any[]): void {
     "name": "useGlassmorphismEffect",
     "type": [
       "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "auto",
-      "black",
-      "inverse",
-      "light",
-      "primary",
-      "secondary",
-      "white"
     ],
     "isRequired": false
   }

@@ -7,7 +7,7 @@ import { validateProps } from './utils/tnw-contact-banner-validate-props';
 
 /**
  * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
- * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+ * It supports various appearances and colors, and allows for custom content to be inserted via slots.
  * 
  * @slot subtitle - Use this slot to insert a short title or subtitle in the banner.
  * @slot title - Use this slot to insert the main title or heading of the banner.

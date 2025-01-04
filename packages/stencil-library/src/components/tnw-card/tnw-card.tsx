@@ -93,9 +93,9 @@ export class TnwCard {
   @Prop() appearance?: OptionalAppearanceType = 'none';
 
   /**
-   * The color variant of the card, determining the overall color scheme.
+   * The color appearance color of the card, determining the overall color scheme.
    */
-  @Prop() variant?: ColorType = 'auto';
+  @Prop() appearanceColor?: ColorType = 'auto';
 
   /**
    * If `true`, the card content will be displayed before the image.
@@ -150,11 +150,11 @@ export class TnwCard {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect, this.variant]);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
   }
 
   private getHostClasses() {
-    const { baseClass, variant, appearance, borderRadius, useGlassmorphismEffect, itemsAlignment, layout, padding, spacing, largerImage } = this;
+    const { baseClass, appearanceColor, appearance, borderRadius, useGlassmorphismEffect, itemsAlignment, layout, padding, spacing, largerImage } = this;
     return [
       baseClass,
       `${baseClass}--${layout}`,
@@ -165,7 +165,7 @@ export class TnwCard {
       `${baseClass}--spacing-${spacing}`,
       appearance !== "none" ? `${baseClass}--padding-${padding}` : ``,
       useGlassmorphismEffect ? `${baseClass}--glassmorphism` : '',
-      getAppearanceClass(appearance, variant),
+      getAppearanceClass(appearance, appearanceColor),
       getBorderRadiusClass(borderRadius),
     ].filter(Boolean).join(' ').trim();
   }

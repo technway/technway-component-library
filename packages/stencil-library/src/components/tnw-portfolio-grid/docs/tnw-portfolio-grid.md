@@ -8,7 +8,7 @@
 
 ## Overview
 
-The `tnw-portfolio-grid` component does not have detailed documentation.
+The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
 
 | Detail | Value |
 | --- | --- |

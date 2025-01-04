@@ -51,8 +51,7 @@ export class TnwPortfolioGrid {
   async componentWillLoad() {
     this.parsedItemsData = await parseJSONAsync(this.itemsData);
 
-    const propsValues = [this.columns, this.itemsData, this.showGradientFade, this.spacing];
-    validateProps(propsValues);
+    validateProps([this.columns, this.itemsData, this.showGradientFade, this.spacing]);
   }
 
   private initializeStyles() {

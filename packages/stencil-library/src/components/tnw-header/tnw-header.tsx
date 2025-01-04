@@ -76,8 +76,7 @@ export class TnwHeader {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.backgroundColor, this.borderBottomColor, this.centerBanner, this.disableInternalContainer, this.height, this.minHeight];
-    validateProps(propsValues);
+    validateProps([this.alignment, this.backgroundColor, this.borderBottomColor, this.centerBanner, this.disableInternalContainer, this.height, this.minHeight]);
   }
 
   private getHostClasses(): string {

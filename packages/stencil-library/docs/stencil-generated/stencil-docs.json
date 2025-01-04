@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-04T11:38:40",
+  "timestamp": "2025-01-04T13:45:18",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -82,7 +82,7 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "The appearance style of the accordion.",
+          "docs": "The appearance color of the accordion.",
           "docsTags": [],
           "default": "'outlined'",
           "values": [
@@ -104,6 +104,59 @@
             },
             {
               "value": "underlined",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "The appearance color of the accordion, determining the overall color scheme.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -196,7 +249,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": false,
-          "docs": "The color variant of the accordion text.",
+          "docs": "The text color of the accordion text.",
           "docsTags": [],
           "values": [
             {
@@ -377,59 +430,6 @@
             }
           ],
           "optional": false,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "ColorType",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "ColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "The color variant of the accordion, determining the overall color scheme.",
-          "docsTags": [],
-          "default": "'auto'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
           "required": false
         }
       ],
@@ -648,6 +648,40 @@
           "required": false
         },
         {
+          "name": "appearanceColor",
+          "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "\"danger\" | \"warning\" | \"success\" | \"info\"",
+            "resolved": "\"danger\" | \"info\" | \"success\" | \"warning\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "The appearance color of the alert, defining the type of message being displayed.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -790,40 +824,6 @@
             },
             {
               "value": "sm",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
-          "complexType": {
-            "original": "\"danger\" | \"warning\" | \"success\" | \"info\"",
-            "resolved": "\"danger\" | \"info\" | \"success\" | \"warning\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "The color variant of the alert, defining the type of message being displayed.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "danger",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
               "type": "string"
             }
           ],
@@ -1626,7 +1626,7 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "Specifies the appearance style of the button.",
+          "docs": "Specifies the appearance color of the button.",
           "docsTags": [],
           "default": "'solid'",
           "values": [
@@ -1648,6 +1648,75 @@
             },
             {
               "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+          "complexType": {
+            "original": "ExtendedColorType",
+            "resolved": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+            "references": {
+              "ExtendedColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ExtendedColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "Defines the appearance color of the button.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -1756,7 +1825,7 @@
           "mutable": false,
           "attr": "hover-appearance",
           "reflectToAttr": false,
-          "docs": "Specifies the hover appearance style for the button.",
+          "docs": "Specifies the hover appearance color for the button.",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -1777,7 +1846,7 @@
           "required": false
         },
         {
-          "name": "hoverVariant",
+          "name": "hoverAppearanceColor",
           "type": "\"auto\" | \"black\" | \"inverse\" | \"primary\" | \"secondary\" | \"white\"",
           "complexType": {
             "original": "'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto'",
@@ -1785,9 +1854,9 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "hover-variant",
+          "attr": "hover-appearance-color",
           "reflectToAttr": false,
-          "docs": "Specifies the hover variant color for the button color.",
+          "docs": "Specifies the hover appearance color color for the button color.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -1954,75 +2023,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
-          "complexType": {
-            "original": "ExtendedColorType",
-            "resolved": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
-            "references": {
-              "ExtendedColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ExtendedColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Defines the color variant of the button.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "danger",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [],
@@ -2072,7 +2072,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-card",
       "readme": "# tnw-card\n\n\n",
-      "docs": "The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a \ncard layout. It supports various customization options for layout orientation, appearance styles, spacing, \nand content alignment. The card can display images, headings, subheadings, descriptions, and buttons, \nwith slots for each, allowing full customization.",
+      "docs": "The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a \ncard layout. It supports various customization options for layout orientation, appearance colors, spacing, \nand content alignment. The card can display images, headings, subheadings, descriptions, and buttons, \nwith slots for each, allowing full customization.",
       "docsTags": [
         {
           "name": "slot",
@@ -2152,7 +2152,7 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "The appearance style of the card.",
+          "docs": "The appearance color of the card.",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -2990,6 +2990,59 @@
           "required": false
         },
         {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -3206,59 +3259,6 @@
             },
             {
               "value": "xs",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "ColorType",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "ColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
               "type": "string"
             }
           ],
@@ -3889,7 +3889,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-divider",
       "readme": "# tnw-divider\n\n\n",
-      "docs": "",
+      "docs": "The `tnw-divider` component creates a horizontal or vertical line to visually separate content.\nIt provides customizable styles and color options to fit different design requirements.",
       "docsTags": [],
       "usage": {
         "tnw-divider-usage": ""
@@ -6369,7 +6369,7 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "Determines the visual appearance style of the icon (e.g., solid, outlined).",
+          "docs": "Determines the visual appearance color of the icon (e.g., solid, outlined).",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -6391,6 +6391,75 @@
             },
             {
               "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+          "complexType": {
+            "original": "ExtendedColorType",
+            "resolved": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
+            "references": {
+              "ExtendedColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ExtendedColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "Defines the appearance color of the icon.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -6743,75 +6812,6 @@
           "docsTags": [],
           "values": [
             {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
-          "complexType": {
-            "original": "ExtendedColorType",
-            "resolved": "\"auto\" | \"black\" | \"danger\" | \"info\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
-            "references": {
-              "ExtendedColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ExtendedColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Defines the color variant of the icon.",
-          "docsTags": [],
-          "default": "'auto'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "danger",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            },
-            {
-              "value": "white",
               "type": "string"
             }
           ],
@@ -7414,6 +7414,37 @@
       },
       "props": [
         {
+          "name": "appearance",
+          "type": "\"none\" | \"outlined\" | \"underlined\"",
+          "complexType": {
+            "original": "'outlined' | 'underlined' | 'none'",
+            "resolved": "\"none\" | \"outlined\" | \"underlined\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "Defines the appearance of the input.",
+          "docsTags": [],
+          "default": "'outlined'",
+          "values": [
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            },
+            {
+              "value": "underlined",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "autoComplete",
           "type": "string",
           "complexType": {
@@ -7799,37 +7830,6 @@
           "default": "''",
           "values": [
             {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"none\" | \"outlined\" | \"underlined\"",
-          "complexType": {
-            "original": "'outlined' | 'underlined' | 'none'",
-            "resolved": "\"none\" | \"outlined\" | \"underlined\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Defines the color variant of the input.",
-          "docsTags": [],
-          "default": "'outlined'",
-          "values": [
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "outlined",
-              "type": "string"
-            },
-            {
-              "value": "underlined",
               "type": "string"
             }
           ],
@@ -8964,212 +8964,11 @@
       }
     },
     {
-      "filePath": "src/components/tnw-multi-row-carousel/tnw-multi-row-carousel.tsx",
-      "encapsulation": "shadow",
-      "tag": "tnw-multi-row-carousel",
-      "readme": "# tnw-multi-row-carousel\r\n\r\n\r\n\r",
-      "docs": "The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel \r\nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "row-[number] - A slot for each row's content. Replace `[number]` with the row index (starting from 1). Ensure the number of slots matches the `rows` prop."
-        }
-      ],
-      "usage": {
-        "tnw-multi-row-carousel-usage": ""
-      },
-      "props": [
-        {
-          "name": "animationSpeed",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "animation-speed",
-          "reflectToAttr": false,
-          "docs": "The speed of the row animation in milliseconds.",
-          "docsTags": [],
-          "default": "22000",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "rows",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "rows",
-          "reflectToAttr": false,
-          "docs": "The number of rows in the carousel.",
-          "docsTags": [],
-          "default": "2",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "pauseAll",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "HTMLElement": {
-                "location": "global",
-                "id": "global::HTMLElement"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "pauseAll() => Promise<void>",
-          "parameters": [],
-          "docs": "Pauses the animation of all carousel rows.\r\nEmits a `tnwRowPause` event for each row that is paused.",
-          "docsTags": []
-        },
-        {
-          "name": "resumeAll",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "HTMLElement": {
-                "location": "global",
-                "id": "global::HTMLElement"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "resumeAll() => Promise<void>",
-          "parameters": [],
-          "docs": "Resumes the animation of all carousel rows.\r\nEmits a `tnwRowResume` event for each row that is resumed.",
-          "docsTags": []
-        },
-        {
-          "name": "toggleRow",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "(rowIndex: number) => Promise<void>",
-            "parameters": [
-              {
-                "name": "rowIndex",
-                "type": "number",
-                "docs": "- The zero-based index of the row to toggle"
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "HTMLElement": {
-                "location": "global",
-                "id": "global::HTMLElement"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "toggleRow(rowIndex: number) => Promise<void>",
-          "parameters": [
-            {
-              "name": "rowIndex",
-              "type": "number",
-              "docs": "- The zero-based index of the row to toggle"
-            }
-          ],
-          "docs": "Toggles the animation state of a specific row between paused and running.\r\nEmits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.",
-          "docsTags": [
-            {
-              "name": "param",
-              "text": "rowIndex - The zero-based index of the row to toggle"
-            }
-          ]
-        }
-      ],
-      "events": [
-        {
-          "event": "tnwRowPause",
-          "detail": "number",
-          "bubbles": true,
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Event emitted when a row's animation is paused.\r\nThe event detail contains the index of the paused row (zero-based).",
-          "docsTags": []
-        },
-        {
-          "event": "tnwRowResume",
-          "detail": "number",
-          "bubbles": true,
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Event emitted when a row's animation is resumed.\r\nThe event detail contains the index of the resumed row (zero-based).",
-          "docsTags": []
-        }
-      ],
-      "listeners": [],
-      "styles": [],
-      "slots": [
-        {
-          "name": "row-[number]",
-          "docs": "A slot for each row's content. Replace `[number]` with the row index (starting from 1). Ensure the number of slots matches the `rows` prop."
-        }
-      ],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
-    },
-    {
       "filePath": "src/components/tnw-navbar/tnw-navbar.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-navbar",
       "readme": "# tnw-navbar\r\n\r\n\r\n\r",
-      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\r\nIt supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
+      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\r\nIt supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
       "docsTags": [
         {
           "name": "part",
@@ -9201,7 +9000,7 @@
         }
       ],
       "usage": {
-        "tnw-navbar-usage": "### When to use:\r\n\r\n- **Standard Navigation Bars**: Use the `tnw-navbar` component to create a responsive, structured navigation system for your application.\r\n- **Customizable Layout**: Ideal for applications requiring customizable content areas (start, middle, end) with different layouts or slots.\r\n- **Sticky and Fixed Navbar**: When you need a sticky or fixed navigation bar that stays at the top of the viewport during scrolling.\r\n- **Glassmorphism Effect**: To add a frosted glass effect to your navbar for a modern UI design, use the glassmorphism option.\r\n\r\n### Use Cases:\r\n\r\n1. **Navbar Without Logo**:\r\n   This configuration is useful when you need a simple navigation bar without a logo, but with a structured navigation menu and action button.\r\n\r\n   @notuseStory WithoutLogo\r\n\r\n### Additional Considerations:\r\n\r\n- **Responsive Design**: The `tnw-navbar` component is responsive by default, ensuring your navigation works on various screen sizes.\r\n- **Custom Controls**: You can easily customize the menu toggler position (start or end) and use slots for custom icons or actions within the navbar.\r\n- **Glassmorphism and Appearance Styles**: Take advantage of the appearance customization to create transparent, outlined, or solid navigation bars, with additional glassmorphism effects."
+        "tnw-navbar-usage": "### When to use:\r\n\r\n- **Standard Navigation Bars**: Use the `tnw-navbar` component to create a responsive, structured navigation system for your application.\r\n- **Customizable Layout**: Ideal for applications requiring customizable content areas (start, middle, end) with different layouts or slots.\r\n- **Sticky and Fixed Navbar**: When you need a sticky or fixed navigation bar that stays at the top of the viewport during scrolling.\r\n- **Glassmorphism Effect**: To add a frosted glass effect to your navbar for a modern UI design, use the glassmorphism option.\r\n\r\n### Use Cases:\r\n\r\n1. **Navbar Without Logo**:\r\n   This configuration is useful when you need a simple navigation bar without a logo, but with a structured navigation menu and action button.\r\n\r\n   @notuseStory WithoutLogo\r\n\r\n### Additional Considerations:\r\n\r\n- **Responsive Design**: The `tnw-navbar` component is responsive by default, ensuring your navigation works on various screen sizes.\r\n- **Custom Controls**: You can easily customize the menu toggler position (start or end) and use slots for custom icons or actions within the navbar.\r\n- **Glassmorphism and appearance colors**: Take advantage of the appearance customization to create transparent, outlined, or solid navigation bars, with additional glassmorphism effects."
       },
       "props": [
         {
@@ -9221,7 +9020,7 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "Determines the appearance style of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.",
+          "docs": "Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.",
           "docsTags": [],
           "default": "'solid'",
           "values": [
@@ -9254,7 +9053,7 @@
           "required": false
         },
         {
-          "name": "appearanceStyle",
+          "name": "appearanceColor",
           "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
           "complexType": {
             "original": "ColorType",
@@ -9268,9 +9067,9 @@
             }
           },
           "mutable": false,
-          "attr": "appearance-style",
+          "attr": "appearance-color",
           "reflectToAttr": false,
-          "docs": "Specifies the background color appearance style of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.",
+          "docs": "Specifies the appearance color of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.",
           "docsTags": [],
           "default": "'auto'",
           "values": [
@@ -9749,7 +9548,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-newsletter-form",
       "readme": "# tnw-newsletter-form\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The `tnw-newsletter-form` component provides a customizable newsletter subscription form.",
       "docsTags": [],
       "usage": {
         "tnw-newsletter-form-usage": ""
@@ -10060,7 +9859,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "The variant for the component",
+          "docs": "The variant for the component\r\n- Primary: The button is next to the input\r\n- Secondary: The button is inside the input",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -10118,7 +9917,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-portfolio-grid",
       "readme": "# tnw-portfolio-grid\n\n\n",
-      "docs": "",
+      "docs": "The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.",
       "docsTags": [],
       "usage": {
         "tnw-portfolio-grid-usage": ""
@@ -10512,6 +10311,207 @@
       }
     },
     {
+      "filePath": "src/components/tnw-rows-carousel/tnw-rows-carousel.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-rows-carousel",
+      "readme": "# tnw-rows-carousel\r\n\r\n\r\n\r",
+      "docs": "The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel \r\nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "row-[number] - A slot for each row's content. Replace `[number]` with the row index (starting from 1). Ensure the number of slots matches the `rows` prop."
+        }
+      ],
+      "usage": {
+        "tnw-rows-carousel-usage": ""
+      },
+      "props": [
+        {
+          "name": "animationSpeed",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "animation-speed",
+          "reflectToAttr": false,
+          "docs": "The speed of the row animation in milliseconds.",
+          "docsTags": [],
+          "default": "22000",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rows",
+          "reflectToAttr": false,
+          "docs": "The number of rows in the carousel.",
+          "docsTags": [],
+          "default": "2",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "pauseAll",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "pauseAll() => Promise<void>",
+          "parameters": [],
+          "docs": "Pauses the animation of all carousel rows.\r\nEmits a `tnwRowPause` event for each row that is paused.",
+          "docsTags": []
+        },
+        {
+          "name": "resumeAll",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "resumeAll() => Promise<void>",
+          "parameters": [],
+          "docs": "Resumes the animation of all carousel rows.\r\nEmits a `tnwRowResume` event for each row that is resumed.",
+          "docsTags": []
+        },
+        {
+          "name": "toggleRow",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(rowIndex: number) => Promise<void>",
+            "parameters": [
+              {
+                "name": "rowIndex",
+                "type": "number",
+                "docs": "- The zero-based index of the row to toggle"
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "toggleRow(rowIndex: number) => Promise<void>",
+          "parameters": [
+            {
+              "name": "rowIndex",
+              "type": "number",
+              "docs": "- The zero-based index of the row to toggle"
+            }
+          ],
+          "docs": "Toggles the animation state of a specific row between paused and running.\r\nEmits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "rowIndex - The zero-based index of the row to toggle"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": "tnwRowPause",
+          "detail": "number",
+          "bubbles": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when a row's animation is paused.\r\nThe event detail contains the index of the paused row (zero-based).",
+          "docsTags": []
+        },
+        {
+          "event": "tnwRowResume",
+          "detail": "number",
+          "bubbles": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when a row's animation is resumed.\r\nThe event detail contains the index of the resumed row (zero-based).",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "row-[number]",
+          "docs": "A slot for each row's content. Replace `[number]` with the row index (starting from 1). Ensure the number of slots matches the `rows` prop."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
       "filePath": "src/components/tnw-scroll-to-top/tnw-scroll-to-top.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-scroll-to-top",
@@ -10548,7 +10548,7 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "Determines the appearance style of the scroll-to-top button.",
+          "docs": "Determines the appearance of the scroll-to-top button.",
           "docsTags": [],
           "default": "'solid'",
           "values": [
@@ -10566,6 +10566,59 @@
             },
             {
               "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "Defines the appearance color of the scroll-to-top button.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -10781,59 +10834,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "ColorType",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "ColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Defines the color variant of the scroll-to-top button.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [],
@@ -10903,7 +10903,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-section",
       "readme": "# tnw-section\n\n\n",
-      "docs": "The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.\nIt supports various appearance styles, optional glassmorphism effects, and an internal container to handle\ncontent alignment and padding.",
+      "docs": "The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.\nIt supports various appearance colors, optional glassmorphism effects, and an internal container to handle\ncontent alignment and padding.",
       "docsTags": [
         {
           "name": "slot",
@@ -11015,6 +11015,59 @@
             },
             {
               "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "Specifies the appearance color for the section's appearance.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -11263,59 +11316,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "ColorType",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "ColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Specifies the color variant for the section's appearance.",
-          "docsTags": [],
-          "default": "'auto'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [],
@@ -11381,7 +11381,7 @@
           "mutable": false,
           "attr": "accessibility-id",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A custom accessibility ID for the select component.\r\nCan be used to provide a specific identifier for screen readers or testing.",
           "docsTags": [],
           "values": [
             {
@@ -11471,7 +11471,7 @@
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If `true`, the select component will be disabled and cannot be interacted with.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -11493,7 +11493,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If `true`, the select component will expand to fill the full width of its container.\r\nDefault is `false`, which means the component will size based on its content.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -11585,7 +11585,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Controls the size of the select component.\r\nOptions are 'sm' (small), 'md' (medium), or 'lg' (large).\r\nDefault is 'md' (medium).",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -11862,6 +11862,59 @@
             },
             {
               "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "The color appearance color of the card, determining the overall color scheme.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -12159,59 +12212,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "ColorType",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "ColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "The color variant of the card, determining the overall color scheme.",
-          "docsTags": [],
-          "default": "'auto'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
             }
           ],
           "optional": true,
@@ -13135,6 +13135,33 @@
       },
       "props": [
         {
+          "name": "appearance",
+          "type": "\"outlined\" | \"underlined\"",
+          "complexType": {
+            "original": "'outlined' | 'underlined'",
+            "resolved": "\"outlined\" | \"underlined\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "Defines the appearance of the textarea.",
+          "docsTags": [],
+          "default": "'outlined'",
+          "values": [
+            {
+              "value": "outlined",
+              "type": "string"
+            },
+            {
+              "value": "underlined",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "autoComplete",
           "type": "string",
           "complexType": {
@@ -13555,33 +13582,6 @@
           "default": "''",
           "values": [
             {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"outlined\" | \"underlined\"",
-          "complexType": {
-            "original": "'outlined' | 'underlined'",
-            "resolved": "\"outlined\" | \"underlined\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Defines the color variant of the textarea.",
-          "docsTags": [],
-          "default": "'outlined'",
-          "values": [
-            {
-              "value": "outlined",
-              "type": "string"
-            },
-            {
-              "value": "underlined",
               "type": "string"
             }
           ],

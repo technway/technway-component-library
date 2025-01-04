@@ -24,7 +24,7 @@ Standard.args = {
 export const LightVariant = Template.bind({});
 LightVariant.args = {
   ...Standard.args,
-  variant: "light",
+  appearanceColor: "light",
 };
 
 // Button with Different Appearances

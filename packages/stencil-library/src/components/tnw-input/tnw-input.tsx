@@ -56,9 +56,9 @@ export class TnwInput {
   @Prop() placeholder!: string;
 
   /**
-   * Defines the color variant of the input.
+   * Defines the appearance of the input.
    */
-  @Prop() variant?: 'outlined' | 'underlined' | 'none' = 'outlined';
+  @Prop() appearance?: 'outlined' | 'underlined' | 'none' = 'outlined';
 
   /**
    * If true, the label is visually hidden but still accessible to screen readers.
@@ -156,7 +156,7 @@ export class TnwInput {
   }
 
   componentWillLoad() {
-    validateProps([this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value, this.variant]);
+    validateProps([this.appearance, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
 
     /**
      * Initialize the store with the initial value.
@@ -335,12 +335,12 @@ export class TnwInput {
   }
 
   private getInputClasses(): string {
-    const { baseClass, variant } = this;
+    const { baseClass, appearance } = this;
     const alertType = this.store.get('alertType');
 
     return [
       baseClass,
-      `${baseClass}--${variant}`,
+      `${baseClass}--${appearance}`,
       isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
       getBorderRadiusClass(this.borderRadius),
     ].filter(Boolean).join(' ').trim();
@@ -373,7 +373,7 @@ export class TnwInput {
     return (
       <tnw-alert
         message={alertMessage}
-        variant={alertType}
+        appearanceColor={alertType}
         alertId={`${this.uniqueId}-${alertType}`}
         part="alert"
       />

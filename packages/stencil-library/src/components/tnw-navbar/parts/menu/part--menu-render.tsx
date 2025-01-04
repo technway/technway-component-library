@@ -9,7 +9,7 @@ function processParsedMenuData(parsedMenuData: Menu) {
     const hideMenuBelow = parsedMenuData.hideMenuBelow;
     const itemsSize = parsedMenuData.itemsSize;
     const itemsColor = parsedMenuData.itemsColor;
-    const itemsHoverAppearanceStyle = parsedMenuData.itemsHoverAppearanceStyle;
+    const itemsHoverAppearanceColor = parsedMenuData.itemsHoverAppearanceColor;
     const itemsHoverEffect = parsedMenuData.itemsHoverEffect;
     const itemsHoverAppearance = parsedMenuData.itemsHoverAppearance;
     const itemsBorderRadius = parsedMenuData.itemsBorderRadius;
@@ -20,7 +20,7 @@ function processParsedMenuData(parsedMenuData: Menu) {
         hideMenuBelow,
         itemsSize,
         itemsColor,
-        itemsHoverAppearanceStyle,
+        itemsHoverAppearanceColor,
         itemsHoverEffect,
         itemsHoverAppearance,
         itemsBorderRadius,
@@ -40,7 +40,7 @@ export const renderMenu = (
     const itemsSize = processParsedMenuData(parsedMenuData).itemsSize;
     const itemsColor = processParsedMenuData(parsedMenuData).itemsColor;
     const menuInvisibilityBreakpoint = processParsedMenuData(parsedMenuData).menuInvisibilityBreakpoint;
-    const itemsHoverAppearanceStyle = processParsedMenuData(parsedMenuData).itemsHoverAppearanceStyle;
+    const itemsHoverAppearanceColor = processParsedMenuData(parsedMenuData).itemsHoverAppearanceColor;
     const itemsHoverEffect = processParsedMenuData(parsedMenuData).itemsHoverEffect;
     const itemsHoverAppearance = processParsedMenuData(parsedMenuData).itemsHoverAppearance;
     const itemsBorderRadius = processParsedMenuData(parsedMenuData).itemsBorderRadius;
@@ -58,7 +58,7 @@ export const renderMenu = (
                     <li
                         class={getItemClasses(
                             !isArrayEmpty(item.subMenu),
-                            itemsHoverAppearanceStyle,
+                            itemsHoverAppearanceColor,
                             itemsHoverAppearance,
                             itemsBorderRadius,
                             itemsHoverEffect

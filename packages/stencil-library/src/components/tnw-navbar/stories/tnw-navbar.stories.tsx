@@ -40,7 +40,7 @@ const menuData = JSON.stringify({
   hideMenuBelow: '1024',
   itemsSize: 'sm',
   itemsColor: 'auto',
-  itemsHoverAppearanceStyle: 'primary',
+  itemsHoverAppearanceColor: 'primary',
   itemsHoverAppearance: 'color',
   itemsBorderRadius: 'default',
 });
@@ -66,7 +66,7 @@ export const Outlined = Template.bind({});
 Outlined.args = {
   ...Default.args,
   appearance: 'outlined',
-  appearanceStyle: 'light',
+  appearanceColor: 'light',
   padding: 'md',
 };
 
@@ -74,7 +74,7 @@ export const BottomOutlined = Template.bind({});
 BottomOutlined.args = {
   ...Default.args,
   appearance: 'outlined-bottom',
-  appearanceStyle: 'light',
+  appearanceColor: 'light',
   padding: 'md',
   borderRadius: 'none',
 };
@@ -83,7 +83,7 @@ export const Transparent = Template.bind({});
 Transparent.args = {
   ...Default.args,
   appearance: 'transparent',
-  appearanceStyle: 'light',
+  appearanceColor: 'light',
 };
 
 export const MenuStartPlacement = Template.bind({});

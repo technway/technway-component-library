@@ -32,12 +32,12 @@ export class TnwScrollToTop {
   @Prop() size?: ExtendedSizeType = 'md';
 
   /**
-   * Defines the color variant of the scroll-to-top button.
+   * Defines the appearance color of the scroll-to-top button.
    */
-  @Prop() variant?: ColorType = 'primary';
+  @Prop() appearanceColor?: ColorType = 'primary';
 
   /**
-   * Determines the appearance style of the scroll-to-top button.
+   * Determines the appearance of the scroll-to-top button.
    */
   @Prop() appearance?: AppearanceType = 'solid';
 
@@ -102,8 +102,7 @@ export class TnwScrollToTop {
   }
 
   componentWillLoad() {
-    const propsValues = [this.appearance, this.borderRadius, this.color, this.customIconName, this.enableCustomSvgIcon, this.size, this.variant];
-    validateProps(propsValues);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.customIconName, this.enableCustomSvgIcon, this.size]);
   }
 
   private handleVisibility(wasVisible: boolean): void {
@@ -131,7 +130,7 @@ export class TnwScrollToTop {
         <tnw-icon
           name={this.customIconName}
           size={this.size}
-          variant={this.variant}
+          appearanceColor={this.appearanceColor}
           appearance={this.appearance}
           color={this.color}
           isButton={true}

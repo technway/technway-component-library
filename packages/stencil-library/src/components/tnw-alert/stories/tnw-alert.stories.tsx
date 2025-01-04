@@ -27,7 +27,7 @@ export const InfoAlert = Template.bind({});
 InfoAlert.args = {
   alertId: 'alert-info',
   message: 'Enter a valid email address.',
-  variant: 'info',
+  appearanceColor: 'info',
 };
 
 // Success Alert
@@ -35,7 +35,7 @@ export const SuccessAlert = Template.bind({});
 SuccessAlert.args = {
   alertId: 'alert-success',
   message: 'Your operation was successful!',
-  variant: 'success',
+  appearanceColor: 'success',
 };
 
 // Warning Alert
@@ -43,7 +43,7 @@ export const WarningAlert = Template.bind({});
 WarningAlert.args = {
   alertId: 'alert-warning',
   message: 'Please check your inputs before proceeding.',
-  variant: 'warning',
+  appearanceColor: 'warning',
 };
 
 // Danger Alert
@@ -51,7 +51,7 @@ export const DangerAlert = Template.bind({});
 DangerAlert.args = {
   alertId: 'alert-danger',
   message: 'An error occurred. Please try again.',
-  variant: 'danger',
+  appearanceColor: 'danger',
 };
 
 // Info Alert With Outlined Appearance

@@ -50,10 +50,10 @@ describe('tnw-textarea', () => {
       expect(textarea.getAttribute('value')).toBe('Initial Value');
     });
 
-    it('applies a custom variant class', async () => {
+    it('applies a custom appearance class', async () => {
       const textarea = await createSpecPage(
         TnwTextarea,
-        `<tnw-textarea label="Test Textarea" placeholder="Enter text" variant="underlined"></tnw-textarea>`,
+        `<tnw-textarea label="Test Textarea" placeholder="Enter text" appearance="underlined"></tnw-textarea>`,
         'textarea'
       );
       expect(textarea).toHaveClass('tnw-textarea--underlined');
@@ -171,7 +171,7 @@ describe('tnw-textarea', () => {
       );
       expect(alert).not.toBeNull();
       expect(alert.getAttribute('message')).not.toBeNull();
-      expect(alert.getAttribute('variant')).toBe('danger');
+      expect(alert.getAttribute('appearance')).toBe('danger');
     });
 
     it('renders help text when helpText is provided', async () => {
@@ -192,7 +192,7 @@ describe('tnw-textarea', () => {
       );
       expect(alert).not.toBeNull();
       expect(alert.getAttribute('message')).toBe('Text is too long. Maximum length is "10" characters.');
-      expect(alert.getAttribute('variant')).toBe('danger');
+      expect(alert.getAttribute('appearance')).toBe('danger');
     });
 
     it('sets alertMessage and alertType when textarea value is below minlength', async () => {
@@ -203,7 +203,7 @@ describe('tnw-textarea', () => {
       );
       expect(alert).not.toBeNull();
       expect(alert.getAttribute('message')).toBe('Text is too short. Minimum length is "5" characters.');
-      expect(alert.getAttribute('variant')).toBe('danger');
+      expect(alert.getAttribute('appearance')).toBe('danger');
     });
 
     it('does not display an alert when alertMessage and alertType are not triggered', async () => {

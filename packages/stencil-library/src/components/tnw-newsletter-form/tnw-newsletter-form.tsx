@@ -5,6 +5,9 @@ import { generateRandomId, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSSt
 import { styles } from './tnw-newsletter-form.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet, fontFamilyStyleSheet } from '../../utils/shared-styles';
 
+/**
+ * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+ */
 @Component({
   tag: 'tnw-newsletter-form',
   shadow: true,

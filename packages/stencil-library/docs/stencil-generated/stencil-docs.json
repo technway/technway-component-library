@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-31T17:10:41",
+  "timestamp": "2025-01-04T11:38:40",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -861,11 +861,11 @@
       "encapsulation": "shadow",
       "tag": "tnw-anchor",
       "readme": "# tnw-anchor\r\n\r\n\r\n\r",
-      "docs": "The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.\nThis component supports both text content and custom content via a slot, making it flexible for various use cases, such as wrapping other elements like images or icons.",
+      "docs": "The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.\r\nThis component supports both text content and custom content via a slot, making it flexible for various use cases, such as wrapping other elements like images or icons.",
       "docsTags": [
         {
           "name": "slot",
-          "text": "- Default slot for custom content (e.g., an image, icon, or complex HTML structure). This slot can only be used if the `text` prop is not set."
+          "text": "- Default slot for custom content (e.g., an image, icon, or complex HTML structure)."
         },
         {
           "name": "part",
@@ -873,7 +873,7 @@
         },
         {
           "name": "part",
-          "text": "icon - No description provided."
+          "text": "icon - The `<tnw-icon>` element that displays the \"new tab\" icon. Only rendered if the property `hideNewTabIcon` is set to `false`."
         }
       ],
       "usage": {
@@ -1207,7 +1207,7 @@
       "slots": [
         {
           "name": "",
-          "docs": "Default slot for custom content (e.g., an image, icon, or complex HTML structure). This slot can only be used if the `text` prop is not set."
+          "docs": "Default slot for custom content (e.g., an image, icon, or complex HTML structure)."
         }
       ],
       "parts": [
@@ -1217,7 +1217,7 @@
         },
         {
           "name": "icon",
-          "docs": "No description provided."
+          "docs": "The `<tnw-icon>` element that displays the \"new tab\" icon. Only rendered if the property `hideNewTabIcon` is set to `false`."
         }
       ],
       "dependents": [
@@ -9168,8 +9168,8 @@
       "filePath": "src/components/tnw-navbar/tnw-navbar.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-navbar",
-      "readme": "# tnw-navbar\n\n\n",
-      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\nIt supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
+      "readme": "# tnw-navbar\r\n\r\n\r\n\r",
+      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\r\nIt supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
       "docsTags": [
         {
           "name": "part",

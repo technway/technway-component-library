@@ -374,7 +374,7 @@ export class TnwTextarea {
     return (
       <tnw-alert
         message={alertMessage}
-        appearanceColor={alertType}
+        appearance={alertType}
         alertId={`${this.uniqueId}-${alertType}`}
         part="alert"
       />

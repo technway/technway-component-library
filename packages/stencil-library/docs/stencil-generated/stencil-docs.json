@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-04T13:45:18",
+  "timestamp": "2025-01-04T17:44:08",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -2181,6 +2181,59 @@
           "required": false
         },
         {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "The color appearance color of the card, determining the overall color scheme.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -2679,59 +2732,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "ColorType",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "ColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "The color variant of the card, determining the overall color scheme.",
-          "docsTags": [],
-          "default": "'auto'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [],
@@ -2825,7 +2825,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-contact-banner",
       "readme": "# tnw-contact-banner\n\n\n",
-      "docs": "The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.\nIt supports various appearances and color variants, and allows for custom content to be inserted via slots.",
+      "docs": "The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.\nIt supports various appearances and colors, and allows for custom content to be inserted via slots.",
       "docsTags": [
         {
           "name": "slot",
@@ -8968,7 +8968,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-navbar",
       "readme": "# tnw-navbar\r\n\r\n\r\n\r",
-      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\r\nIt supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
+      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\nIt supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
       "docsTags": [
         {
           "name": "part",
@@ -10315,7 +10315,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-rows-carousel",
       "readme": "# tnw-rows-carousel\r\n\r\n\r\n\r",
-      "docs": "The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel \r\nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
+      "docs": "The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel \nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
       "docsTags": [
         {
           "name": "slot",
@@ -10395,7 +10395,7 @@
           },
           "signature": "pauseAll() => Promise<void>",
           "parameters": [],
-          "docs": "Pauses the animation of all carousel rows.\r\nEmits a `tnwRowPause` event for each row that is paused.",
+          "docs": "Pauses the animation of all carousel rows.\nEmits a `tnwRowPause` event for each row that is paused.",
           "docsTags": []
         },
         {
@@ -10421,7 +10421,7 @@
           },
           "signature": "resumeAll() => Promise<void>",
           "parameters": [],
-          "docs": "Resumes the animation of all carousel rows.\r\nEmits a `tnwRowResume` event for each row that is resumed.",
+          "docs": "Resumes the animation of all carousel rows.\nEmits a `tnwRowResume` event for each row that is resumed.",
           "docsTags": []
         },
         {
@@ -10459,7 +10459,7 @@
               "docs": "- The zero-based index of the row to toggle"
             }
           ],
-          "docs": "Toggles the animation state of a specific row between paused and running.\r\nEmits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.",
+          "docs": "Toggles the animation state of a specific row between paused and running.\nEmits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.",
           "docsTags": [
             {
               "name": "param",
@@ -10480,7 +10480,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when a row's animation is paused.\r\nThe event detail contains the index of the paused row (zero-based).",
+          "docs": "Event emitted when a row's animation is paused.\nThe event detail contains the index of the paused row (zero-based).",
           "docsTags": []
         },
         {
@@ -10494,7 +10494,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when a row's animation is resumed.\r\nThe event detail contains the index of the resumed row (zero-based).",
+          "docs": "Event emitted when a row's animation is resumed.\nThe event detail contains the index of the resumed row (zero-based).",
           "docsTags": []
         }
       ],
@@ -13534,7 +13534,7 @@
           "mutable": false,
           "attr": "sanitize-textarea",
           "reflectToAttr": false,
-          "docs": "Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.\r\nIf set to `true`, the textarea will be sanitized before being validated.\r\nIf set to `false`, the textarea will still undergo validation but without sanitization.",
+          "docs": "Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.\nIf set to `true`, the textarea will be sanitized before being validated.\nIf set to `false`, the textarea will still undergo validation but without sanitization.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13616,7 +13616,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when validation fails.\r\n\r\nThe event payload contains:\r\n- `textareaId`: The unique ID of the textarea element.\r\n- `error`: A string message explaining the validation failure.",
+          "docs": "Event emitted when validation fails.\n\nThe event payload contains:\n- `textareaId`: The unique ID of the textarea element.\n- `error`: A string message explaining the validation failure.",
           "docsTags": []
         }
       ],

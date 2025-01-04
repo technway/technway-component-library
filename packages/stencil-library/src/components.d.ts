@@ -240,6 +240,10 @@ export namespace Components {
          */
         "appearance"?: OptionalAppearanceType;
         /**
+          * The color appearance color of the card, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
+        /**
           * The border radius applied to the card.
          */
         "borderRadius"?: BorderRadiusType;
@@ -307,14 +311,10 @@ export namespace Components {
           * If `true`, the card will have a glassmorphism effect applied to its background.
          */
         "useGlassmorphismEffect"?: boolean;
-        /**
-          * The color variant of the card, determining the overall color scheme.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-     * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
      */
     interface TnwContactBanner {
         /**
@@ -1541,7 +1541,7 @@ declare global {
     };
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-     * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
      */
     interface HTMLTnwContactBannerElement extends Components.TnwContactBanner, HTMLStencilElement {
     }
@@ -2119,6 +2119,10 @@ declare namespace LocalJSX {
          */
         "appearance"?: OptionalAppearanceType;
         /**
+          * The color appearance color of the card, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
+        /**
           * The border radius applied to the card.
          */
         "borderRadius"?: BorderRadiusType;
@@ -2186,14 +2190,10 @@ declare namespace LocalJSX {
           * If `true`, the card will have a glassmorphism effect applied to its background.
          */
         "useGlassmorphismEffect"?: boolean;
-        /**
-          * The color variant of the card, determining the overall color scheme.
-         */
-        "variant"?: ColorType;
     }
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-     * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
      */
     interface TnwContactBanner {
         /**
@@ -3409,7 +3409,7 @@ declare module "@stencil/core" {
             "tnw-card": LocalJSX.TnwCard & JSXBase.HTMLAttributes<HTMLTnwCardElement>;
             /**
              * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-             * It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+             * It supports various appearances and colors, and allows for custom content to be inserted via slots.
              */
             "tnw-contact-banner": LocalJSX.TnwContactBanner & JSXBase.HTMLAttributes<HTMLTnwContactBannerElement>;
             /**

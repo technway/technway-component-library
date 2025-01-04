@@ -4,6 +4,7 @@ import { ColorType, TextColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-copyrights-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-copyrights-footer-validate-props';
+import { validateYearsProps } from './utils/tnw-copyrights-footer-validate-years-props';
 
 /**
  * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -119,6 +120,7 @@ export class TnwCopyrightsFooter {
 
   componentWillLoad() {
     validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.enableSlot, this.endYear, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useDivAsContainer]);
+    validateYearsProps(this.startYear, this.endYear, this.useCurrentYearAsStartYear, this.useCurrentYearAsEndYear);
   }
 
   private getYearsRange(): string {

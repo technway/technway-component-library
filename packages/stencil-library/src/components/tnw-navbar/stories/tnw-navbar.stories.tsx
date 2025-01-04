@@ -16,9 +16,17 @@ export default {
 const Template = (args) => getComponentTemplate(args, component);
 
 const logoData = JSON.stringify({
-  src: "https://technway.biz/wp-content/themes/technwaytheme/assets/images/logo.webp",
+  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxWWEG4C9hkGOnLP_7J5mn0e50rnj4zi_OQ&s",
   alt: 'Company Logo',
-  width: '130px',
+  width: '40px',
+});
+
+const logoWithLinkData = JSON.stringify({
+  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxWWEG4C9hkGOnLP_7J5mn0e50rnj4zi_OQ&s",
+  alt: 'Company Logo',
+  width: '40px',
+  link: '/',
+  ariaLabel: 'Go to Technway Website',
 });
 
 const menuData = JSON.stringify({
@@ -107,5 +115,12 @@ disableInternalContainer.args = {
 export const menuExactCenter = Template.bind({});
 menuExactCenter.args = {
   ...Default.args,
+  menuExactCenter: true,
+};
+
+export const logoWithLink = Template.bind({});
+logoWithLink.args = {
+  ...Default.args,
+  logoDataJson: logoWithLinkData,
   menuExactCenter: true,
 };

@@ -373,7 +373,7 @@ export class TnwInput {
     return (
       <tnw-alert
         message={alertMessage}
-        appearanceColor={alertType}
+        appearance={alertType}
         alertId={`${this.uniqueId}-${alertType}`}
         part="alert"
       />

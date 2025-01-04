@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-04T17:44:08",
+  "timestamp": "2025-01-04T18:53:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.22.3",
@@ -8968,7 +8968,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-navbar",
       "readme": "# tnw-navbar\r\n\r\n\r\n\r",
-      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\nIt supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
+      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\r\nIt supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
       "docsTags": [
         {
           "name": "part",

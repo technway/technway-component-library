@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-icon.tsx` file.
  * 
-validateProps([this.appearance, this.borderRadius, this.color, this.enableSvg, this.hiddenAria, this.isButton, this.labelAria, this.name, this.size, this.tooltip, this.variant]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.enableSvg, this.hiddenAria, this.isButton, this.labelAria, this.name, this.size, this.tooltip]);
  *
  * GENERATED USING `npm run g:components-validations tnw-icon`
  */
@@ -23,6 +23,23 @@ export function validateProps(propsValues: any[]): void {
       "outlined",
       "solid",
       "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "danger",
+      "info",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "white"
     ],
     "isRequired": false
   },
@@ -120,23 +137,6 @@ export function validateProps(propsValues: any[]): void {
     "name": "tooltip",
     "type": [
       "string"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "auto",
-      "black",
-      "danger",
-      "info",
-      "inverse",
-      "light",
-      "primary",
-      "secondary",
-      "success",
-      "warning",
-      "white"
     ],
     "isRequired": false
   }

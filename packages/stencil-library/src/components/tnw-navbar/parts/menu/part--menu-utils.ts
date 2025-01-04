@@ -20,7 +20,7 @@ export function getMenuClasses(
 // Utility: Get Menu Item Classes
 export function getItemClasses(
     hasSubmenu: boolean,
-    itemsHoverAppearanceStyle: 'auto' | 'inverse' | 'primary' | 'secondary' | 'black' | 'white' = 'auto',
+    itemsHoverAppearanceColor: 'auto' | 'inverse' | 'primary' | 'secondary' | 'black' | 'white' = 'auto',
     itemsHoverAppearance: "solid" | "outlined" | "color" | "none" = 'none',
     itemsBorderRadius: BorderRadiusType = 'default',
     itemsHoverEffect?: 'contrast' | 'opacity'
@@ -31,7 +31,7 @@ export function getItemClasses(
         itemClass,
         `${itemClass}--${itemsHoverAppearance}`,
         (itemsHoverAppearance === 'outlined' || itemsHoverAppearance === 'solid') && `${itemClass}--hasPadding`,
-        `${itemClass}--${itemsHoverAppearance}-${itemsHoverAppearanceStyle}`,
+        `${itemClass}--${itemsHoverAppearance}-${itemsHoverAppearanceColor}`,
         isNotEmptyString(itemsHoverEffect) ? `${itemClass}--${itemsHoverEffect}` : '',
         (itemsHoverAppearance === 'solid' || itemsHoverAppearance === 'outlined') && getBorderRadiusClass(itemsBorderRadius),
         hasSubmenu ? `${itemClass}--hasSubmenu` : '',

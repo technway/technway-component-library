@@ -5,7 +5,7 @@ export const styles = `
   overflow: hidden;
 }
 
-.tnw-multi-row-carousel__container {
+.tnw-rows-carousel__container {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -13,8 +13,8 @@ export const styles = `
   overflow: hidden;
 }
 
-.tnw-multi-row-carousel__container::before,
-.tnw-multi-row-carousel__container::after {
+.tnw-rows-carousel__container::before,
+.tnw-rows-carousel__container::after {
   content: '';
   position: absolute;
   top: 0;
@@ -24,7 +24,7 @@ export const styles = `
   pointer-events: none;
 }
 
-.tnw-multi-row-carousel__container::before {
+.tnw-rows-carousel__container::before {
   left: 0;
   background: linear-gradient(
     to right,
@@ -35,7 +35,7 @@ export const styles = `
     rgba(255, 255, 255, 0) 100%
   );
 }
-.tnw-multi-row-carousel__container::after {
+.tnw-rows-carousel__container::after {
   right: 0;
   background: linear-gradient(
     to left,
@@ -47,7 +47,7 @@ export const styles = `
   );
 }
 
-.tnw-multi-row-carousel__row {
+.tnw-rows-carousel__row {
   display: flex;
   animation-timing-function: linear;
   flex-shrink: 0;

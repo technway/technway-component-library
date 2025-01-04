@@ -92,8 +92,7 @@ export class TnwImage {
   }
 
   componentWillLoad() {
-    const propsValues = [this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize];
-    validateProps(propsValues);
+    validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
   }
 
   private getImageClasses(): string {

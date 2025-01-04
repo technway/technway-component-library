@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-contact-banner.tsx` file.
  * 
-validateProps([this.VerticalPadding, this.alignment, this.appearance, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin, this.variant]);
+validateProps([this.VerticalPadding, this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin]);
  *
  * GENERATED USING `npm run g:components-validations tnw-contact-banner`
  */
@@ -47,6 +47,19 @@ export function validateProps(propsValues: any[]): void {
       "outlined",
       "solid",
       "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
     ],
     "isRequired": false
   },
@@ -108,19 +121,6 @@ export function validateProps(propsValues: any[]): void {
       "sm",
       "xl",
       "xs"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "auto",
-      "black",
-      "inverse",
-      "light",
-      "primary",
-      "secondary",
-      "white"
     ],
     "isRequired": false
   }

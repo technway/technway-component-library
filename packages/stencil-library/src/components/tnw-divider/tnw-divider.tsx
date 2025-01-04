@@ -4,6 +4,10 @@ import { BorderColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-divider.styles';
 import { validateProps } from './utils/tnw-divider-validate-props';
 
+/**
+ * The `tnw-divider` component creates a horizontal or vertical line to visually separate content.
+ * It provides customizable styles and color options to fit different design requirements.
+ */
 @Component({
   tag: 'tnw-divider',
   shadow: true,
@@ -40,8 +44,7 @@ export class TnwDivider {
   }
 
   componentWillLoad() {
-    const propsValues = [this.color, this.variant];
-    validateProps(propsValues);
+    validateProps([this.color, this.variant]);
   }
 
   private getHostClasses() {

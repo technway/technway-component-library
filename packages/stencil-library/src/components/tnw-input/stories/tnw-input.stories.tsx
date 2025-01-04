@@ -62,19 +62,19 @@ PasswordInputWithSuccess.args = {
   autoComplete: 'current-password',
 };
 
-// Input with Underlined Variant
+// Input with Underlined Appearance
 export const UnderlinedInput = Template.bind({});
 UnderlinedInput.args = {
   label: 'Phone Number',
   inputId: 'input-phone',
   placeholder: 'Enter your phone number',
   type: 'tel',
-  variant: 'underlined',
+  appearance: 'underlined',
   borderRadius: 'none',
   autoComplete: 'tel',
 };
 
-// Input with Underlined Variant
+// Input with Underlined Appearance
 export const FullRounded = Template.bind({});
 FullRounded.args = {
   ...Standard.args,

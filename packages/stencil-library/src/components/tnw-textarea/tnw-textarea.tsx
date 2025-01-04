@@ -49,9 +49,9 @@ export class TnwTextarea {
   @Prop() placeholder!: string;
 
   /**
-   * Defines the color variant of the textarea.
+   * Defines the appearance of the textarea.
    */
-  @Prop() variant?: 'outlined' | 'underlined' = 'outlined';
+  @Prop() appearance?: 'outlined' | 'underlined' = 'outlined';
 
   /**
    * If true, the label is visually hidden but still accessible to screen readers.
@@ -159,7 +159,7 @@ export class TnwTextarea {
   }
 
   componentWillLoad() {
-    validateProps([this.autoComplete, this.borderRadius, this.cols, this.disabled, this.helpText, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.placeholder, this.resize, this.rows, this.sanitizeTextarea, this.textareaId, this.value, this.variant]);
+    validateProps([this.appearance, this.autoComplete, this.borderRadius, this.cols, this.disabled, this.helpText, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.placeholder, this.resize, this.rows, this.sanitizeTextarea, this.textareaId, this.value]);
 
     /**
      * Initialize the store with the initial value.
@@ -334,12 +334,12 @@ export class TnwTextarea {
   }
 
   private getTextareaClasses(): string {
-    const { baseClass, variant, disabled, resize } = this;
+    const { baseClass, appearance, disabled, resize } = this;
     const alertType = this.store.get('alertType');
 
     return [
       baseClass,
-      `${baseClass}--${variant}`,
+      `${baseClass}--${appearance}`,
       disabled ? `${baseClass}--disabled` : '',
       `${baseClass}--resize-${resize}`,
       isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
@@ -374,7 +374,7 @@ export class TnwTextarea {
     return (
       <tnw-alert
         message={alertMessage}
-        variant={alertType}
+        appearance={alertType}
         alertId={`${this.uniqueId}-${alertType}`}
         part="alert"
       />

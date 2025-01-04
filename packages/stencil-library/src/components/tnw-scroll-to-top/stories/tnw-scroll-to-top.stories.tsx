@@ -34,7 +34,7 @@ Large.args = {
 // Scroll To Top with Different Color
 export const SecondaryOutlined = Template.bind({});
 SecondaryOutlined.args = {
-  variant: 'secondary',
+  appearanceColor: 'secondary',
   appearance: 'outlined',
 };
 
@@ -60,5 +60,5 @@ CustomSvgIcon.args = {
 export const CircledBlack = Template.bind({});
 CircledBlack.args = {
   borderRadius: 'circle',
-  variant: 'black',
+  appearanceColor: 'black',
 };

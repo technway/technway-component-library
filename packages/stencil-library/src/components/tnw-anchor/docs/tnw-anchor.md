@@ -40,13 +40,13 @@ This component supports both text content and custom content via a slot, making 
 | Part | Description |
 | --- | --- |
 | **anchor** | The `<a>` element that serves as the anchor link. Use this part for styling the anchor element. |
-| **icon** | No description provided. |
+| **icon** | The `<tnw-icon>` element that displays the "new tab" icon. Only rendered if the property `hideNewTabIcon` is set to `false`. |
 
 ## Slots
 
 | Slot | Description |
 | --- | --- |
-| **default** | Default slot for custom content (e.g., an image, icon, or complex HTML structure). This slot can only be used if the `text` prop is not set. |
+| **default** | Default slot for custom content (e.g., an image, icon, or complex HTML structure). |
 
 ## Usage & Examples
 

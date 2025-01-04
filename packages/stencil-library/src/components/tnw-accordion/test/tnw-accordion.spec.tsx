@@ -13,10 +13,10 @@ describe('tnw-accordion', () => {
     });
 
     describe('Custom Prop Behavior', () => {
-        it('applies correct `variant` class when variant prop is set to `primary`', async () => {
+        it('applies correct `appearanceColor` class when appearanceColor prop is set to `primary`', async () => {
             const host = await createSpecPage(
                 TnwAccordion,
-                `<tnw-accordion variant="primary"></tnw-accordion>`,
+                `<tnw-accordion appearance-color="primary"></tnw-accordion>`,
             ) as HTMLTnwAccordionElement;
             expect(host).toHaveClass('tnw-accordion--outlined-primary');
         });
@@ -131,11 +131,11 @@ describe('tnw-accordion', () => {
     // });
 
     describe('Error Handling and Edge Cases', () => {
-        it('throws an error when an invalid `variant` prop is provided', async () => {
+        it('throws an error when an invalid `appearanceColor` prop is provided', async () => {
             await checkSpecPageError(
                 TnwAccordion,
-                `<tnw-accordion variant="invalid"></tnw-accordion>`,
-                'Invalid prop value for "variant"'
+                `<tnw-accordion appearance-color="invalid"></tnw-accordion>`,
+                'Invalid prop value for "appearanceColor"'
             );
         });
 
@@ -155,7 +155,7 @@ describe('tnw-accordion', () => {
 
             expect(el.expand).toBe(false);
             expect(el.appearance).toBe('outlined');
-            expect(el.variant).toBe('auto');
+            expect(el.appearanceColor).toBe('auto');
             expect(el.borderRadius).toBe('default');
         });
     });

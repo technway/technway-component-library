@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-navbar.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceStyle, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.hideMenuBelow, this.logoData, this.menuData, this.menuExactCenter, this.menuPlacement, this.padding, this.sticky, this.togglerPlacement]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.hideMenuBelow, this.logoData, this.menuData, this.menuExactCenter, this.menuPlacement, this.padding, this.sticky, this.togglerPlacement]);
  *
  * GENERATED USING `npm run g:components-validations tnw-navbar`
  */
@@ -28,7 +28,7 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
-    "name": "appearanceStyle",
+    "name": "appearanceColor",
     "type": [
       "auto",
       "black",

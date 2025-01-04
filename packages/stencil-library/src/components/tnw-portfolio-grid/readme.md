@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
+
 ## Usage
 
 ### Tnw-portfolio-grid-usage

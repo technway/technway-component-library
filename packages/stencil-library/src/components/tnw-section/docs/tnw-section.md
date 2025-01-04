@@ -11,7 +11,7 @@
 ## Overview
 
 The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
-It supports various appearance styles, optional glassmorphism effects, and an internal container to handle
+It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
 content alignment and padding.
 
 | Detail | Value |
@@ -27,6 +27,7 @@ content alignment and padding.
 | --- | --- | --- | --- |
 | **alignment** | <div>The alignment of the section content.</div> | `"start"` | `"center"` \| `"end"` \| `"start"` |
 | **appearance** | <div>Defines the appearance style of the section.</div> | N/A | `"mixed"` \| `"outlined"` \| `"outlined-block"` \| `"outlined-bottom"` \| `"outlined-inline"` \| `"outlined-left"` \| `"outlined-right"` \| `"outlined-top"` \| `"solid"` \| `"transparent"` |
+| **appearanceColor** | <div>Specifies the appearance color for the section's appearance.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 | **disableInternalContainer** | <div>If `true`, the section body will be wrapped in a container.</div> | `false` | `boolean` |
 | **isFirstSection** | <div>If `true`, the section is the first section on the page, and top padding/margin will not be applied.</div> | `false` | `boolean` |
 | **isLastSection** | <div>If `true`, the section is the last section on the page, and bottom padding/margin will not be applied.</div> | `false` | `boolean` |
@@ -34,7 +35,6 @@ content alignment and padding.
 | **padding** | <div>The padding size applied to the section.</div> | `'xl'` | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **spacing** | <div>The spacing size between the section slots.</div> | `'md'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **useGlassmorphismEffect** | <div>If `true`, the section will have a glassmorphism effect applied to its background.</div> | `false` | `boolean` |
-| **variant** | <div>Specifies the color variant for the section's appearance.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 
 </div>
 

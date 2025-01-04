@@ -8,7 +8,7 @@ import { containerStyleSheet } from '../../utils/shared-styles';
 
 /**
  * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
- * It supports various appearance styles, optional glassmorphism effects, and an internal container to handle
+ * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
  * content alignment and padding.
  * 
  * @slot header - Slot for the section header content, used for section titles.
@@ -38,9 +38,9 @@ export class TnwSection {
   @Prop() appearance?: DirectionalAppearanceType;
 
   /**
-   * Specifies the color variant for the section's appearance.
+   * Specifies the appearance color for the section's appearance.
    */
-  @Prop() variant?: ColorType = 'auto';
+  @Prop() appearanceColor?: ColorType = 'auto';
 
   /**
    * If `true`, the section body will be wrapped in a container.
@@ -94,12 +94,11 @@ export class TnwSection {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alignment, this.appearance, this.disableInternalContainer, this.isFirstSection, this.isLastSection, this.margin, this.padding, this.spacing, this.useGlassmorphismEffect, this.variant];
-    validateProps(propsValues);
+    validateProps([this.alignment, this.appearance, this.appearanceColor, this.disableInternalContainer, this.isFirstSection, this.isLastSection, this.margin, this.padding, this.spacing, this.useGlassmorphismEffect]);
   }
 
   private getHostClasses() {
-    const { baseClass, useGlassmorphismEffect, appearance, variant, padding, margin, isFirstSection, isLastSection } = this;
+    const { baseClass, useGlassmorphismEffect, appearance, appearanceColor, padding, margin, isFirstSection, isLastSection } = this;
 
     const glassmorphismClass = useGlassmorphismEffect ? `${baseClass}--glassmorphism` : '';
 
@@ -111,7 +110,7 @@ export class TnwSection {
       isFirstSection ? `${baseClass}--first` : '',
       isLastSection ? `${baseClass}--last` : '',
       glassmorphismClass,
-      getDirectionalAppearanceClass(appearance, variant),
+      getDirectionalAppearanceClass(appearance, appearanceColor),
     ]
       .filter(Boolean).join(' ').trim();
   }

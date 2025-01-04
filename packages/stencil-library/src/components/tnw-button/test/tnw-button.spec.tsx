@@ -33,10 +33,10 @@ describe('tnw-button', () => {
       expect(host).toHaveClass('tnw-button--lg');
     });
 
-    it('renders with custom appearance and variant', async () => {
+    it('renders with custom appearance and appearance-color', async () => {
       const host = await createSpecPage(
         TnwButton,
-        `<tnw-button label="Secondary Button" appearance="outlined" variant="secondary"></tnw-button>`,
+        `<tnw-button label="Secondary Button" appearance="outlined" appearance-color="secondary"></tnw-button>`,
       );
       expect(host).toHaveClass('tnw-extended-v-outlined-secondary');
     });
@@ -77,10 +77,10 @@ describe('tnw-button', () => {
       expect(host).toHaveClass('rounded-circle');
     });
 
-    it('renders with hover appearance and variant classes', async () => {
+    it('renders with hover appearance and appearance-color classes', async () => {
       const host = await createSpecPage(
         TnwButton,
-        `<tnw-button label="Hover Button" hover-appearance="solid" hover-variant="primary"></tnw-button>`,
+        `<tnw-button label="Hover Button" hover-appearance="solid" hover-appearance-color="primary"></tnw-button>`,
       );
       expect(host).toHaveClass('tnw-button--hover-solid-primary');
     });

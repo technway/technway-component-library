@@ -8,7 +8,7 @@
 ## Overview
 
 The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
-It supports various appearances and color variants, and allows for custom content to be inserted via slots.
+It supports various appearances and colors, and allows for custom content to be inserted via slots.
 
 ## Usage
 
@@ -57,12 +57,12 @@ It supports various appearances and color variants, and allows for custom conten
 | `VerticalPadding`          | `vertical-padding`           | Defines the vertical padding of the banner.                                                                                                                                          | `"2xl" \| "3xl" \| "4xl" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"`                           | `'2xl'`     |
 | `alignment`                | `alignment`                  | If `true`, the banner will center its content.                                                                                                                                       | `"center" \| "end" \| "start"`                                                                        | `'center'`  |
 | `appearance`               | `appearance`                 | Defines the visual appearance of the banner (e.g., solid, outline).                                                                                                                  | `"gradient" \| "mixed" \| "outlined" \| "solid" \| "transparent"`                                     | `'solid'`   |
+| `appearanceColor`          | `appearance-color`           | Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.                                                                          | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'primary'` |
 | `borderRadius`             | `border-radius`              | Defines the border radius of the banner.                                                                                                                                             | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `'default'` |
 | `disableInternalContainer` | `disable-internal-container` | If `true`, the section body will be wrapped in a container for centering and padding.                                                                                                | `boolean`                                                                                             | `false`     |
 | `enableContentSlot`        | `enable-content-slot`        | If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used. | `boolean`                                                                                             | `false`     |
 | `horizontalPadding`        | `horizontal-padding`         | Defines the horizontal padding of the banner.                                                                                                                                        | `"2xl" \| "3xl" \| "4xl" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"`                           | `'2xl'`     |
 | `margin`                   | `margin`                     | Defines the margin of the banner.                                                                                                                                                    | `"2xl" \| "3xl" \| "4xl" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"`                           | `'xl'`      |
-| `variant`                  | `variant`                    | Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.                                                                             | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'primary'` |
 
 
 ## Slots

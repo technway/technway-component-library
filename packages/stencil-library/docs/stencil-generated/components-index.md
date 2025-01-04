@@ -24,11 +24,11 @@ This page lists all the library components.
 - [tnw-items-carousel](#tnw-items-carousel)
 - [tnw-label](#tnw-label)
 - [tnw-list](#tnw-list)
-- [tnw-multi-row-carousel](#tnw-multi-row-carousel)
 - [tnw-navbar](#tnw-navbar)
 - [tnw-newsletter-form](#tnw-newsletter-form)
 - [tnw-portfolio-grid](#tnw-portfolio-grid)
 - [tnw-rating](#tnw-rating)
+- [tnw-rows-carousel](#tnw-rows-carousel)
 - [tnw-scroll-to-top](#tnw-scroll-to-top)
 - [tnw-section](#tnw-section)
 - [tnw-select](#tnw-select)
@@ -90,7 +90,7 @@ By default, the component renders a button element, but it can also render an an
 ## tnw-card
 
 The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a 
-card layout. It supports various customization options for layout orientation, appearance styles, spacing, 
+card layout. It supports various customization options for layout orientation, appearance colors, spacing, 
 and content alignment. The card can display images, headings, subheadings, descriptions, and buttons, 
 with slots for each, allowing full customization.
 
@@ -113,7 +113,8 @@ It can be customized to display dynamic or static years, as well as pre-defined 
 
 ## tnw-divider
 
-_No overview available for this component._
+The `tnw-divider` component creates a horizontal or vertical line to visually separate content.
+It provides customizable styles and color options to fit different design requirements.
 
 ---
 
@@ -190,35 +191,35 @@ It allows you to create lists with various marker types, colors, and fonts, and 
 
 ---
 
-## tnw-multi-row-carousel
-
-The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
-with multiple rows. Each row scrolls independently and can move in alternating directions.
-
----
-
 ## tnw-navbar
 
 The `tnw-navbar` component creates a responsive, customizable navigation bar.
-It supports various appearance styles, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
+It supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
 
 ---
 
 ## tnw-newsletter-form
 
-_No overview available for this component._
+The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
 
 ---
 
 ## tnw-portfolio-grid
 
-_No overview available for this component._
+The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
 
 ---
 
 ## tnw-rating
 
 The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
+
+---
+
+## tnw-rows-carousel
+
+The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel 
+with multiple rows. Each row scrolls independently and can move in alternating directions.
 
 ---
 
@@ -233,7 +234,7 @@ It supports customization of the icon, size, appearance, and allows for the use 
 ## tnw-section
 
 The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
-It supports various appearance styles, optional glassmorphism effects, and an internal container to handle
+It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
 content alignment and padding.
 
 ---

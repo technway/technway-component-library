@@ -42,9 +42,9 @@ export class TnwAlert {
   @Prop() appearance?: OptionalAppearanceType = 'transparent';
 
   /**
-   * The color variant of the alert, defining the type of message being displayed.
+   * The appearance color of the alert, defining the type of message being displayed.
    */
-  @Prop() variant?: "danger" | "warning" | "success" | "info";
+  @Prop() appearanceColor?: "danger" | "warning" | "success" | "info";
 
   /**
    * Controls whether the alert is visible or hidden. When `true`, the component does not render
@@ -72,16 +72,15 @@ export class TnwAlert {
   }
 
   componentWillLoad() {
-    const propsValues = [this.alertId, this.appearance, this.borderRadius, this.isHidden, this.message, this.size, this.variant];
-    validateProps(propsValues);
+    validateProps([this.alertId, this.appearance, this.appearanceColor, this.borderRadius, this.isHidden, this.message, this.size]);
   }
 
   private getHostClasses() {
-    const { variant, baseClass, size } = this;
+    const { appearanceColor, baseClass, size } = this;
     return [
       `${baseClass}--${size}`,
       this.appearance !== 'none' && this.appearance !== 'transparent' ? `${baseClass}--hasPadding` : ``,
-      getExtendedAppearanceClass(this.appearance, variant),
+      getExtendedAppearanceClass(this.appearance, appearanceColor),
       getBorderRadiusClass(this.borderRadius),
     ].join(' ');
   }

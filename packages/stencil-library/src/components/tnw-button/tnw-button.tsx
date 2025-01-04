@@ -36,12 +36,12 @@ export class TnwButton {
   @Prop() type?: 'button' | 'submit' = 'button';
 
   /**
-   * Defines the color variant of the button.
+   * Defines the appearance color of the button.
    */
-  @Prop() variant?: ExtendedColorType = 'primary';
+  @Prop() appearanceColor?: ExtendedColorType = 'primary';
 
   /**
-   * Specifies the appearance style of the button.
+   * Specifies the appearance color of the button.
    */
   @Prop() appearance?: OptionalAppearanceType = 'solid';
 
@@ -51,14 +51,14 @@ export class TnwButton {
   @Prop() size?: ExtendedSizeType = 'md';
 
   /**
-   * Specifies the hover appearance style for the button.
+   * Specifies the hover appearance color for the button.
    */
   @Prop() hoverAppearance?: 'none' | 'solid' | 'outlined' = 'none';
 
   /**
-   * Specifies the hover variant color for the button color.
+   * Specifies the hover appearance color color for the button color.
    */
-  @Prop() hoverVariant?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto' = 'primary';
+  @Prop() hoverAppearanceColor?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto' = 'primary';
 
   /**
    * If provided, the button will render as a link with this `href`.
@@ -96,21 +96,20 @@ export class TnwButton {
   }
 
   componentWillLoad() {
-    const propsValues = [this.appearance, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverVariant, this.href, this.label, this.newTab, this.size, this.type, this.variant];
-    validateProps(propsValues);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.href, this.label, this.newTab, this.size, this.type]);
   }
 
   private getHostClasses(): string {
-    const { baseClass, variant, appearance, size, hoverAppearance, hoverVariant, disabled } = this;
+    const { baseClass, appearanceColor, appearance, size, hoverAppearance, hoverAppearanceColor, disabled } = this;
 
     const classesArray = [size];
 
     return [
       baseClass,
       disabled ? `${baseClass}--disabled` : '',
-      hoverAppearance !== 'none' ? `${baseClass}--hover-${hoverAppearance}-${hoverVariant}` : ``,
+      hoverAppearance !== 'none' ? `${baseClass}--hover-${hoverAppearance}-${hoverAppearanceColor}` : ``,
       getClassNames(classesArray, baseClass),
-      getExtendedAppearanceClass(appearance, variant),
+      getExtendedAppearanceClass(appearance, appearanceColor),
       getBorderRadiusClass(this.borderRadius),
     ].filter(Boolean).join(' ').trim();
   }

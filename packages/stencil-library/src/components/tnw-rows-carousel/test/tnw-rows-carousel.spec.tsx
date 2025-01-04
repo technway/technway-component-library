@@ -1,13 +1,13 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { TnwMultiRowCarousel } from '../tnw-multi-row-carousel';
+import { TnwRowsCarousel } from '../tnw-rows-carousel';
 import { checkSpecPageError, createSpecPage } from '../../../utils/testing-utils';
 
-describe('tnw-multi-row-carousel', () => {
+describe('tnw-rows-carousel', () => {
     describe('Default and Required Prop Behavior', () => {
         it('renders with default props', async () => {
             const host = await createSpecPage(
-                TnwMultiRowCarousel,
-                '<tnw-multi-row-carousel></tnw-multi-row-carousel>'
+                TnwRowsCarousel,
+                '<tnw-rows-carousel></tnw-rows-carousel>'
             );
 
             expect(host).toMatchSnapshot();
@@ -15,21 +15,21 @@ describe('tnw-multi-row-carousel', () => {
 
         it('uses default animation speed value (22000) when not specified', async () => {
             const page = await newSpecPage({
-                components: [TnwMultiRowCarousel],
-                html: '<tnw-multi-row-carousel></tnw-multi-row-carousel>',
+                components: [TnwRowsCarousel],
+                html: '<tnw-rows-carousel></tnw-rows-carousel>',
             });
 
-            const firstRow = page.root.shadowRoot.querySelector('.tnw-multi-row-carousel__row') as HTMLElement;
+            const firstRow = page.root.shadowRoot.querySelector('.tnw-rows-carousel__row') as HTMLElement;
             expect(firstRow.style.animationDuration).toBe('22000ms');
         });
 
         it('uses default value (2) when not specified', async () => {
             const host = await createSpecPage(
-                TnwMultiRowCarousel,
-                '<tnw-multi-row-carousel></tnw-multi-row-carousel>'
+                TnwRowsCarousel,
+                '<tnw-rows-carousel></tnw-rows-carousel>'
             );
 
-            const rows = host.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+            const rows = host.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
             expect(rows.length).toBe(2);
         });
     });
@@ -37,11 +37,11 @@ describe('tnw-multi-row-carousel', () => {
     describe('Custom Prop Behavior', () => {
         it('renders with custom number of rows', async () => {
             const host = await createSpecPage(
-                TnwMultiRowCarousel,
-                '<tnw-multi-row-carousel rows="4"></tnw-multi-row-carousel>'
+                TnwRowsCarousel,
+                '<tnw-rows-carousel rows="4"></tnw-rows-carousel>'
             );
 
-            const rows = host.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+            const rows = host.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
             expect(rows.length).toBe(4);
         });
 
@@ -50,11 +50,11 @@ describe('tnw-multi-row-carousel', () => {
 
             for (const rowCount of validRows) {
                 const host = await createSpecPage(
-                    TnwMultiRowCarousel,
-                    `<tnw-multi-row-carousel rows="${rowCount}"></tnw-multi-row-carousel>`
+                    TnwRowsCarousel,
+                    `<tnw-rows-carousel rows="${rowCount}"></tnw-rows-carousel>`
                 );
 
-                const rows = host.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+                const rows = host.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
                 expect(rows.length).toBe(rowCount);
             }
         });
@@ -64,22 +64,22 @@ describe('tnw-multi-row-carousel', () => {
 
             for (const speed of validSpeeds) {
                 const page = await newSpecPage({
-                    components: [TnwMultiRowCarousel],
-                    html: `<tnw-multi-row-carousel animation-speed="${speed}"></tnw-multi-row-carousel>`,
+                    components: [TnwRowsCarousel],
+                    html: `<tnw-rows-carousel animation-speed="${speed}"></tnw-rows-carousel>`,
                 });
 
-                const firstRow = page.root.shadowRoot.querySelector('.tnw-multi-row-carousel__row') as HTMLElement;
+                const firstRow = page.root.shadowRoot.querySelector('.tnw-rows-carousel__row') as HTMLElement;
                 expect(firstRow.style.animationDuration).toBe(`${speed}ms`);
             }
         });
 
         it('handles multiple valid props together', async () => {
             const host = await createSpecPage(
-                TnwMultiRowCarousel,
-                '<tnw-multi-row-carousel rows="3" animation-speed="5000"></tnw-multi-row-carousel>'
+                TnwRowsCarousel,
+                '<tnw-rows-carousel rows="3" animation-speed="5000"></tnw-rows-carousel>'
             );
 
-            const rows = host.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+            const rows = host.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
             expect(rows.length).toBe(3);
 
             rows.forEach((row: HTMLElement) => {
@@ -91,11 +91,11 @@ describe('tnw-multi-row-carousel', () => {
     describe('Events and Functionality', () => {
         it('applies correct animation styles to rows', async () => {
             const page = await newSpecPage({
-                components: [TnwMultiRowCarousel],
-                html: '<tnw-multi-row-carousel animation-speed="5000"></tnw-multi-row-carousel>',
+                components: [TnwRowsCarousel],
+                html: '<tnw-rows-carousel animation-speed="5000"></tnw-rows-carousel>',
             });
 
-            const rows = page.root.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+            const rows = page.root.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
 
             // Check first row styles (odd row)
             const firstRow = rows[0] as HTMLElement;
@@ -113,11 +113,11 @@ describe('tnw-multi-row-carousel', () => {
 
         it('handles mouse events correctly', async () => {
             const page = await newSpecPage({
-                components: [TnwMultiRowCarousel],
-                html: '<tnw-multi-row-carousel></tnw-multi-row-carousel>',
+                components: [TnwRowsCarousel],
+                html: '<tnw-rows-carousel></tnw-rows-carousel>',
             });
 
-            const firstRow = page.root.shadowRoot.querySelector('.tnw-multi-row-carousel__row') as HTMLElement;
+            const firstRow = page.root.shadowRoot.querySelector('.tnw-rows-carousel__row') as HTMLElement;
 
             // Simulate mouse enter
             firstRow.dispatchEvent(new MouseEvent('mouseenter'));
@@ -132,8 +132,8 @@ describe('tnw-multi-row-carousel', () => {
 
         it('emits events in correct order during mouse interaction', async () => {
             const page = await newSpecPage({
-                components: [TnwMultiRowCarousel],
-                html: '<tnw-multi-row-carousel></tnw-multi-row-carousel>',
+                components: [TnwRowsCarousel],
+                html: '<tnw-rows-carousel></tnw-rows-carousel>',
             });
 
             const pauseSpy = jest.fn();
@@ -141,7 +141,7 @@ describe('tnw-multi-row-carousel', () => {
             page.root.addEventListener('tnwRowPause', pauseSpy);
             page.root.addEventListener('tnwRowResume', resumeSpy);
 
-            const firstRow = page.root.shadowRoot.querySelector('.tnw-multi-row-carousel__row') as HTMLElement;
+            const firstRow = page.root.shadowRoot.querySelector('.tnw-rows-carousel__row') as HTMLElement;
 
             // Test mouseenter
             firstRow.dispatchEvent(new MouseEvent('mouseenter'));
@@ -161,12 +161,12 @@ describe('tnw-multi-row-carousel', () => {
     describe('Slot Behavior', () => {
         it('renders slots correctly', async () => {
             const page = await newSpecPage({
-                components: [TnwMultiRowCarousel],
+                components: [TnwRowsCarousel],
                 html: `
-                    <tnw-multi-row-carousel rows="2">
+                    <tnw-rows-carousel rows="2">
                         <div slot="row-1">Row 1 Content</div>
                         <div slot="row-2">Row 2 Content</div>
-                    </tnw-multi-row-carousel>
+                    </tnw-rows-carousel>
                     `,
             });
 
@@ -181,13 +181,13 @@ describe('tnw-multi-row-carousel', () => {
 
         it('public methods control animation state correctly', async () => {
             const page = await newSpecPage({
-                components: [TnwMultiRowCarousel],
-                html: '<tnw-multi-row-carousel rows="3"></tnw-multi-row-carousel>',
+                components: [TnwRowsCarousel],
+                html: '<tnw-rows-carousel rows="3"></tnw-rows-carousel>',
             });
 
             // Test pauseAll
             await page.root.pauseAll();
-            const rows = page.root.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+            const rows = page.root.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
             rows.forEach((row: HTMLElement) => {
                 expect(row.style.animationPlayState).toBe('paused');
             });
@@ -207,14 +207,14 @@ describe('tnw-multi-row-carousel', () => {
 
         describe('Public API Methods', () => {
             let page: any;
-            let component: TnwMultiRowCarousel;
+            let component: TnwRowsCarousel;
             let pauseSpy: jest.Mock;
             let resumeSpy: jest.Mock;
 
             beforeEach(async () => {
                 page = await newSpecPage({
-                    components: [TnwMultiRowCarousel],
-                    html: '<tnw-multi-row-carousel rows="3"></tnw-multi-row-carousel>',
+                    components: [TnwRowsCarousel],
+                    html: '<tnw-rows-carousel rows="3"></tnw-rows-carousel>',
                 });
                 component = page.rootInstance;
                 pauseSpy = jest.fn();
@@ -225,7 +225,7 @@ describe('tnw-multi-row-carousel', () => {
 
             it('pauseAll() pauses all rows and emits events', async () => {
                 await component.pauseAll();
-                const rows = page.root.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+                const rows = page.root.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
 
                 rows.forEach((row: HTMLElement, index: number) => {
                     expect(row.style.animationPlayState).toBe('paused');
@@ -244,7 +244,7 @@ describe('tnw-multi-row-carousel', () => {
                 resumeSpy.mockClear();
 
                 await component.resumeAll();
-                const rows = page.root.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+                const rows = page.root.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
 
                 rows.forEach((row: HTMLElement, index: number) => {
                     expect(row.style.animationPlayState).toBe('running');
@@ -260,7 +260,7 @@ describe('tnw-multi-row-carousel', () => {
                 it('toggles specific row animation state', async () => {
                     await component.toggleRow(1); // Toggle middle row
 
-                    const rows = page.root.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+                    const rows = page.root.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
                     expect(rows[0].style.animationPlayState).toBe('running');
                     expect(rows[1].style.animationPlayState).toBe('paused');
                     expect(rows[2].style.animationPlayState).toBe('running');
@@ -273,7 +273,7 @@ describe('tnw-multi-row-carousel', () => {
                     await component.toggleRow(-1);
                     await component.toggleRow(999);
 
-                    const rows = page.root.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+                    const rows = page.root.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
                     rows.forEach(row => {
                         expect(row.style.animationPlayState).toBe('running');
                     });
@@ -289,7 +289,7 @@ describe('tnw-multi-row-carousel', () => {
 
                     await component.toggleRow(0);
 
-                    const rows = page.root.shadowRoot.querySelectorAll('.tnw-multi-row-carousel__row');
+                    const rows = page.root.shadowRoot.querySelectorAll('.tnw-rows-carousel__row');
                     expect(rows[0].style.animationPlayState).toBe('running');
                     expect(resumeSpy).toHaveBeenCalledWith(
                         expect.objectContaining({ detail: 0 })
@@ -302,32 +302,32 @@ describe('tnw-multi-row-carousel', () => {
     describe('Error Handling', () => {
         it('Throws error for negative rows', async () => {
             await checkSpecPageError(
-                TnwMultiRowCarousel,
-                `<tnw-multi-row-carousel rows="0"></tnw-multi-row-carousel>`,
+                TnwRowsCarousel,
+                `<tnw-rows-carousel rows="0"></tnw-rows-carousel>`,
                 'rows must be a positive number'
             );
         });
 
         it('warns for negative animation speed', async () => {
             await checkSpecPageError(
-                TnwMultiRowCarousel,
-                `<tnw-multi-row-carousel animation-speed="-1000"></tnw-multi-row-carousel>`,
+                TnwRowsCarousel,
+                `<tnw-rows-carousel animation-speed="-1000"></tnw-rows-carousel>`,
                 'animationSpeed must be a positive number'
             );
         });
 
         it('warns for invalid rows prop types', async () => {
             await checkSpecPageError(
-                TnwMultiRowCarousel,
-                `<tnw-multi-row-carousel rows="hello"></tnw-multi-row-carousel>`,
+                TnwRowsCarousel,
+                `<tnw-rows-carousel rows="hello"></tnw-rows-carousel>`,
                 'Invalid prop value for "rows"'
             );
         });
 
         it('warns for invalid animationSpeed prop types', async () => {
             await checkSpecPageError(
-                TnwMultiRowCarousel,
-                `<tnw-multi-row-carousel animation-speed="hello"></tnw-multi-row-carousel>`,
+                TnwRowsCarousel,
+                `<tnw-rows-carousel animation-speed="hello"></tnw-rows-carousel>`,
                 'Invalid prop value for "animationSpeed"'
             );
         });

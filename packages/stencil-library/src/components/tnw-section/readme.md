@@ -8,7 +8,7 @@
 ## Overview
 
 The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
-It supports various appearance styles, optional glassmorphism effects, and an internal container to handle
+It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
 content alignment and padding.
 
 ## Usage
@@ -72,6 +72,7 @@ content alignment and padding.
 | -------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `alignment`                | `alignment`                  | The alignment of the section content.                                                                  | `"center" \| "end" \| "start"`                                                                                                                                             | `"start"`   |
 | `appearance`               | `appearance`                 | Defines the appearance style of the section.                                                           | `"mixed" \| "outlined" \| "outlined-block" \| "outlined-bottom" \| "outlined-inline" \| "outlined-left" \| "outlined-right" \| "outlined-top" \| "solid" \| "transparent"` | `undefined` |
+| `appearanceColor`          | `appearance-color`           | Specifies the appearance color for the section's appearance.                                           | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                                                                                         | `'auto'`    |
 | `disableInternalContainer` | `disable-internal-container` | If `true`, the section body will be wrapped in a container.                                            | `boolean`                                                                                                                                                                  | `false`     |
 | `isFirstSection`           | `is-first-section`           | If `true`, the section is the first section on the page, and top padding/margin will not be applied.   | `boolean`                                                                                                                                                                  | `false`     |
 | `isLastSection`            | `is-last-section`            | If `true`, the section is the last section on the page, and bottom padding/margin will not be applied. | `boolean`                                                                                                                                                                  | `false`     |
@@ -79,7 +80,6 @@ content alignment and padding.
 | `padding`                  | `padding`                    | The padding size applied to the section.                                                               | `"2xl" \| "3xl" \| "4xl" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"`                                                                                                | `'xl'`      |
 | `spacing`                  | `spacing`                    | The spacing size between the section slots.                                                            | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                                                                                                                     | `'md'`      |
 | `useGlassmorphismEffect`   | `use-glassmorphism-effect`   | If `true`, the section will have a glassmorphism effect applied to its background.                     | `boolean`                                                                                                                                                                  | `false`     |
-| `variant`                  | `variant`                    | Specifies the color variant for the section's appearance.                                              | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                                                                                         | `'auto'`    |
 
 
 ## Slots

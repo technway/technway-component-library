@@ -68,8 +68,7 @@ export class TnwRating {
   }
 
   componentWillLoad() {
-    const propsValues = [this.emptyStarColor, this.filledStarColor, this.hideEmptyStars, this.rating, this.starSize, this.totalStars];
-    validateProps(propsValues);
+    validateProps([this.emptyStarColor, this.filledStarColor, this.hideEmptyStars, this.rating, this.starSize, this.totalStars]);
   }
 
   private getDefaultIcon(isFilled: boolean): JSX.Element {

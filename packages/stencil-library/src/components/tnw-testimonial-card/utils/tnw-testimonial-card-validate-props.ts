@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-testimonial-card.tsx` file.
  * 
-validateProps([this.appearance, this.authorName, this.authorPhotoAlt, this.authorPhotoSrc, this.authorRole, this.borderRadius, this.padding, this.spacing, this.text, this.useGlassmorphismEffect, this.useRandomAvatar, this.variant]);
+validateProps([this.appearance, this.appearanceColor, this.authorName, this.authorPhotoAlt, this.authorPhotoSrc, this.authorRole, this.borderRadius, this.padding, this.spacing, this.text, this.useGlassmorphismEffect, this.useRandomAvatar]);
  *
  * GENERATED USING `npm run g:components-validations tnw-testimonial-card`
  */
@@ -23,6 +23,19 @@ export function validateProps(propsValues: any[]): void {
       "outlined",
       "solid",
       "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
     ],
     "isRequired": false
   },
@@ -108,19 +121,6 @@ export function validateProps(propsValues: any[]): void {
     "name": "useRandomAvatar",
     "type": [
       "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "auto",
-      "black",
-      "inverse",
-      "light",
-      "primary",
-      "secondary",
-      "white"
     ],
     "isRequired": false
   }

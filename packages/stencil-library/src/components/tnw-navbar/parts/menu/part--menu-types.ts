@@ -5,7 +5,7 @@ export interface Menu {
     hideMenuBelow: "1024" | "767" | "567" | "1439" | false;
     itemsSize: FontSizeType;
     itemsColor: TextColorType;
-    itemsHoverAppearanceStyle: 'auto' | 'inverse' | 'primary' | 'secondary' | 'black' | 'white';
+    itemsHoverAppearanceColor: 'auto' | 'inverse' | 'primary' | 'secondary' | 'black' | 'white';
     itemsHoverEffect: 'contrast' | 'opacity';
     itemsHoverAppearance: "solid" | "outlined" | "color" | "none";
     itemsBorderRadius: BorderRadiusType;
@@ -23,7 +23,7 @@ export const navbarMenuDefaults: Menu = {
     hideMenuBelow: false,
     itemsSize: 'sm',
     itemsColor: 'auto',
-    itemsHoverAppearanceStyle: 'auto',
+    itemsHoverAppearanceColor: 'auto',
     itemsHoverEffect: 'opacity',
     itemsHoverAppearance: 'none',
     itemsBorderRadius: 'default'

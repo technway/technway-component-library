@@ -24,15 +24,19 @@ The `tnw-select` component provides a custom dropdown select element with suppor
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **accessibilityId** | <div>No description provided.</div> | N/A | `string` |
+| **accessibilityId** | <div>A custom accessibility ID for the select component.
+Can be used to provide a specific identifier for screen readers or testing.</div> | N/A | `string` |
 | **borderRadius** | <div>Border radius of the select.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **disabled** | <div>No description provided.</div> | `false` | `boolean` |
-| **fullWidth** | <div>No description provided.</div> | `false` | `boolean` |
+| **disabled** | <div>If `true`, the select component will be disabled and cannot be interacted with.</div> | `false` | `boolean` |
+| **fullWidth** | <div>If `true`, the select component will expand to fill the full width of its container.
+Default is `false`, which means the component will size based on its content.</div> | `false` | `boolean` |
 | **label** | <div>The label to display when no option is selected.</div> | `'Select an option'` | `string` |
 | **optionAppearance** | <div>The appearance of the select options. if bordered a border top and bottom will be added to the options.</div> | `'standard'` | `"bordered"` \| `"standard"` |
 | **optionsData** | <div>JSON string representing the options available in the select dropdown.
 Each option can include a label, value, ariaLabel, and disabled state.</div> | N/A | `string` |
-| **size** | <div>No description provided.</div> | `'md'` | `"lg"` \| `"md"` \| `"sm"` |
+| **size** | <div>Controls the size of the select component.
+Options are 'sm' (small), 'md' (medium), or 'lg' (large).
+Default is 'md' (medium).</div> | `'md'` | `"lg"` \| `"md"` \| `"sm"` |
 | **variant** | <div>Specifies the variant of the select component.
 
 - `standard`: Default variant without any additional icons or images.

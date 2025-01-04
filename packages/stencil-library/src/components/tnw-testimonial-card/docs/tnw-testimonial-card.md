@@ -23,6 +23,7 @@ The `tnw-testimonial-card` component is a versatile component designed to displa
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
 | **appearance** | <div>The appearance style of the card.</div> | `'outlined'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
+| **appearanceColor** | <div>The color appearance color of the card, determining the overall color scheme.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 | **authorName** | <div>The name of the author.</div> | N/A | `string` |
 | **authorPhotoAlt** | <div>Alternative text for the author's photo.</div> | N/A | `string` |
 | **authorPhotoSrc** | <div>The URL of the author's photo.</div> | N/A | `string` |
@@ -33,7 +34,6 @@ The `tnw-testimonial-card` component is a versatile component designed to displa
 | **text** | <div>The text of the testimonial.</div> | N/A | `string` |
 | **useGlassmorphismEffect** | <div>If `true`, the card will have a glassmorphism effect applied to its background.</div> | `false` | `boolean` |
 | **useRandomAvatar** | <div>If `true`, a random gradient avatar will be generated when no photo is provided.</div> | `false` | `boolean` |
-| **variant** | <div>The color variant of the card, determining the overall color scheme.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 
 </div>
 

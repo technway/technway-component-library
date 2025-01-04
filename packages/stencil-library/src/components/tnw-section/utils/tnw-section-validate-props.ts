@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-section.tsx` file.
  * 
-validateProps([this.alignment, this.appearance, this.disableInternalContainer, this.isFirstSection, this.isLastSection, this.margin, this.padding, this.spacing, this.useGlassmorphismEffect, this.variant]);
+validateProps([this.alignment, this.appearance, this.appearanceColor, this.disableInternalContainer, this.isFirstSection, this.isLastSection, this.margin, this.padding, this.spacing, this.useGlassmorphismEffect]);
  *
  * GENERATED USING `npm run g:components-validations tnw-section`
  */
@@ -37,6 +37,19 @@ export function validateProps(propsValues: any[]): void {
       "outlined-top",
       "solid",
       "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "auto",
+      "black",
+      "inverse",
+      "light",
+      "primary",
+      "secondary",
+      "white"
     ],
     "isRequired": false
   },
@@ -106,19 +119,6 @@ export function validateProps(propsValues: any[]): void {
     "name": "useGlassmorphismEffect",
     "type": [
       "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "auto",
-      "black",
-      "inverse",
-      "light",
-      "primary",
-      "secondary",
-      "white"
     ],
     "isRequired": false
   }

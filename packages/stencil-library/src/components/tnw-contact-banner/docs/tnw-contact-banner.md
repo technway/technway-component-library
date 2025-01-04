@@ -26,12 +26,12 @@ It supports various appearances and color variants, and allows for custom conten
 | **VerticalPadding** | <div>Defines the vertical padding of the banner.</div> | `'2xl'` | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **alignment** | <div>If `true`, the banner will center its content.</div> | `'center'` | `"center"` \| `"end"` \| `"start"` |
 | **appearance** | <div>Defines the visual appearance of the banner (e.g., solid, outline).</div> | `'solid'` | `"gradient"` \| `"mixed"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
+| **appearanceColor** | <div>Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.</div> | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 | **borderRadius** | <div>Defines the border radius of the banner.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **disableInternalContainer** | <div>If `true`, the section body will be wrapped in a container for centering and padding.</div> | `false` | `boolean` |
 | **enableContentSlot** | <div>If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.</div> | `false` | `boolean` |
 | **horizontalPadding** | <div>Defines the horizontal padding of the banner.</div> | `'2xl'` | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **margin** | <div>Defines the margin of the banner.</div> | `'xl'` | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **variant** | <div>Specifies the primary color variant of the banner. if appearance is gradient, this prop will be ignored.</div> | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 
 </div>
 

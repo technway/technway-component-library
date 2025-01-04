@@ -19,7 +19,7 @@ describe('tnw-scroll-to-top', () => {
       )) as HTMLTnwScrollToTopElement;
 
       expect(el.size).toBe('md');
-      expect(el.variant).toBe('primary');
+      expect(el.appearanceColor).toBe('primary');
       expect(el.appearance).toBe('solid');
       expect(el.borderRadius).toBe('default');
       expect(el.customIconName).toBe('tnw-arrow-thin-up');
@@ -36,12 +36,12 @@ describe('tnw-scroll-to-top', () => {
       expect(host.getAttribute("size")).toBe('lg');
     });
 
-    it('renders with a custom variant and appearance', async () => {
+    it('renders with a custom appearanceColor and appearance', async () => {
       const host = await createSpecPage(
         TnwScrollToTop,
-        `<tnw-scroll-to-top variant="secondary" appearance="outlined"></tnw-scroll-to-top>`
+        `<tnw-scroll-to-top appearance-color="secondary" appearance="outlined"></tnw-scroll-to-top>`
       );
-      expect(host.getAttribute('variant')).toBe('secondary');
+      expect(host.getAttribute('appearance-color')).toBe('secondary');
       expect(host.getAttribute('appearance')).toBe('outlined');
     });
 
@@ -227,11 +227,11 @@ describe('tnw-scroll-to-top', () => {
       );
     });
 
-    it('throws an error when an invalid variant prop is provided', async () => {
+    it('throws an error when an invalid appearanceColor prop is provided', async () => {
       await checkSpecPageError(
         TnwScrollToTop,
-        `<tnw-scroll-to-top variant="invalid"></tnw-scroll-to-top>`,
-        'Invalid prop value for "variant"'
+        `<tnw-scroll-to-top appearance-color="invalid"></tnw-scroll-to-top>`,
+        'Invalid prop value for "appearanceColor"'
       );
     });
 

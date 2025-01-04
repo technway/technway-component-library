@@ -11,7 +11,7 @@
 ## Overview
 
 The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a 
-card layout. It supports various customization options for layout orientation, appearance styles, spacing, 
+card layout. It supports various customization options for layout orientation, appearance colors, spacing, 
 and content alignment. The card can display images, headings, subheadings, descriptions, and buttons, 
 with slots for each, allowing full customization.
 
@@ -26,7 +26,7 @@ with slots for each, allowing full customization.
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **appearance** | <div>The appearance style of the card.</div> | `'none'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
+| **appearance** | <div>The appearance color of the card.</div> | `'none'` | `"mixed"` \| `"none"` \| `"outlined"` \| `"solid"` \| `"transparent"` |
 | **borderRadius** | <div>The border radius applied to the card.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **buttonLabel** | <div>The label for the card's button.</div> | N/A | `string` |
 | **description** | <div>The card's description text.</div> | N/A | `string` |

@@ -4,11 +4,11 @@
  *
  * ⚠️ IMPORTANT:
  * 
- * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-multi-row-carousel.tsx` file.
+ * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-rows-carousel.tsx` file.
  * 
 validateProps([this.animationSpeed, this.rows]);
  *
- * GENERATED USING `npm run g:components-validations tnw-multi-row-carousel`
+ * GENERATED USING `npm run g:components-validations tnw-rows-carousel`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

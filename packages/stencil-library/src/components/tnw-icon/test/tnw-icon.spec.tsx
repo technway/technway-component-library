@@ -37,6 +37,15 @@ describe('tnw-icon', () => {
       expect(icon).toHaveClass('icon-custom-icon');
     });
 
+    it('applies custom appearance color class', async () => {
+      const icon = await createSpecPage(
+        TnwIcon,
+        `<tnw-icon name="custom-icon" appearance-color="primary"></tnw-icon>`,
+        'i'
+      );
+      expect(icon).toHaveClass('tnw-extended-v-primary');
+    });
+
     it('renders an SVG icon when enableSvg is true', async () => {
       const svgSlot = await createSpecPage(
         TnwIcon,

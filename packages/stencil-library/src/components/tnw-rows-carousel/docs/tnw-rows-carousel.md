@@ -1,4 +1,4 @@
-# tnw-multi-row-carousel
+# tnw-rows-carousel
 
 ## Table of Contents
 
@@ -11,13 +11,13 @@
 
 ## Overview
 
-The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
+The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel 
 with multiple rows. Each row scrolls independently and can move in alternating directions.
 
 | Detail | Value |
 | --- | --- |
-| HTML Component Tag | `<tnw-multi-row-carousel>` |
-| React Component Tag | `TnwMultiRowCarousel` |
+| HTML Component Tag | `<tnw-rows-carousel>` |
+| React Component Tag | `TnwRowsCarousel` |
 | Encapsulation | `shadow` |
 
 <div style="overflow-x: auto;">

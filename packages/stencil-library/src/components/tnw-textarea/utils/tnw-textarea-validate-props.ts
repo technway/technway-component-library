@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-textarea.tsx` file.
  * 
-validateProps([this.autoComplete, this.borderRadius, this.cols, this.disabled, this.helpText, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.placeholder, this.resize, this.rows, this.sanitizeTextarea, this.textareaId, this.value, this.variant]);
+validateProps([this.appearance, this.autoComplete, this.borderRadius, this.cols, this.disabled, this.helpText, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.placeholder, this.resize, this.rows, this.sanitizeTextarea, this.textareaId, this.value]);
  *
  * GENERATED USING `npm run g:components-validations tnw-textarea`
  */
@@ -15,6 +15,14 @@ import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
   const props = [
+  {
+    "name": "appearance",
+    "type": [
+      "outlined",
+      "underlined"
+    ],
+    "isRequired": false
+  },
   {
     "name": "autoComplete",
     "type": [
@@ -144,14 +152,6 @@ export function validateProps(propsValues: any[]): void {
     "name": "value",
     "type": [
       "string"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "outlined",
-      "underlined"
     ],
     "isRequired": false
   }

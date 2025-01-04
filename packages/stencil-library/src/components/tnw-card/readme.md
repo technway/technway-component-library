@@ -8,7 +8,7 @@
 ## Overview
 
 The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a 
-card layout. It supports various customization options for layout orientation, appearance styles, spacing, 
+card layout. It supports various customization options for layout orientation, appearance colors, spacing, 
 and content alignment. The card can display images, headings, subheadings, descriptions, and buttons, 
 with slots for each, allowing full customization.
 
@@ -63,7 +63,7 @@ with slots for each, allowing full customization.
 
 | Property                 | Attribute                  | Description                                                                                                                                 | Type                                                                                                  | Default      |
 | ------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------ |
-| `appearance`             | `appearance`               | The appearance style of the card.                                                                                                           | `"mixed" \| "none" \| "outlined" \| "solid" \| "transparent"`                                         | `'none'`     |
+| `appearance`             | `appearance`               | The appearance color of the card.                                                                                                           | `"mixed" \| "none" \| "outlined" \| "solid" \| "transparent"`                                         | `'none'`     |
 | `borderRadius`           | `border-radius`            | The border radius applied to the card.                                                                                                      | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `'default'`  |
 | `buttonLabel`            | `button-label`             | The label for the card's button.                                                                                                            | `string`                                                                                              | `undefined`  |
 | `description`            | `description`              | The card's description text.                                                                                                                | `string`                                                                                              | `undefined`  |

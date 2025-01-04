@@ -36,8 +36,8 @@ describe('tnw-alert', () => {
       expect(host).toHaveClass('tnw-alert--lg');
     });
 
-    it('applies correct variant and appearance classes when both props are set', async () => {
-      const host = await createSpecPage(TnwAlert, `<tnw-alert alert-id="alert1" message="Warning alert" variant="warning" appearance="solid"></tnw-alert>`);
+    it('applies correct appearanceColor and appearance classes when both props are set', async () => {
+      const host = await createSpecPage(TnwAlert, `<tnw-alert alert-id="alert1" message="Warning alert" appearance-color="warning" appearance="solid"></tnw-alert>`);
       expect(host).toHaveClass('tnw-extended-v-solid-warning');
     });
 
@@ -66,8 +66,8 @@ describe('tnw-alert', () => {
       await checkSpecPageError(TnwAlert, `<tnw-alert alert-id="alert1" message="Invalid size" size="invalidSize"></tnw-alert>`, 'Invalid prop value for "size"');
     });
 
-    it('throws an error when an invalid variant prop is provided', async () => {
-      await checkSpecPageError(TnwAlert, `<tnw-alert alert-id="alert1" message="Invalid variant" variant="invalidVariant"></tnw-alert>`, 'Invalid prop value for "variant"');
+    it('throws an error when an invalid appearanceColor prop is provided', async () => {
+      await checkSpecPageError(TnwAlert, `<tnw-alert alert-id="alert1" message="Invalid appearanceColor" appearance-color="invalidAppearanceColor"></tnw-alert>`, 'Invalid prop value for "appearanceColor"');
     });
 
     it('throws an error when an unsupported borderRadius value is provided', async () => {

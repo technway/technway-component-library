@@ -5,6 +5,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The `tnw-divider` component creates a horizontal or vertical line to visually separate content.
+It provides customizable styles and color options to fit different design requirements.
+
 ## Usage
 
 ### Tnw-divider-usage

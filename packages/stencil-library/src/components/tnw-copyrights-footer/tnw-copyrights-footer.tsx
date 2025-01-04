@@ -3,8 +3,7 @@ import { getColorClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyle
 import { ColorType, TextColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-copyrights-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';
-import { validateProps } from './utils/tnw-copyrights-footer-props';
-import { validateYearsProps } from './utils/tnw-copyrights-footer-validate-years-props';
+import { validateProps } from './utils/tnw-copyrights-footer-validate-props';
 
 /**
  * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -119,41 +118,7 @@ export class TnwCopyrightsFooter {
   }
 
   componentWillLoad() {
-    const {
-      startYear,
-      endYear,
-      useCurrentYearAsStartYear,
-      useCurrentYearAsEndYear,
-      backgroundColor,
-      borderTopColor,
-      centerContent,
-      disableInternalContainer,
-      enableSlot,
-      organizationName,
-      organizationNameColor,
-      postText,
-      preText,
-      textColor,
-    } = this;
-
-    validateYearsProps(startYear, endYear, useCurrentYearAsStartYear, useCurrentYearAsEndYear);
-
-    validateProps([
-      backgroundColor,
-      borderTopColor,
-      centerContent,
-      disableInternalContainer,
-      enableSlot,
-      endYear,
-      organizationName,
-      organizationNameColor,
-      postText,
-      preText,
-      startYear,
-      textColor,
-      useCurrentYearAsEndYear,
-      useCurrentYearAsStartYear,
-    ]);
+    validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.enableSlot, this.endYear, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useDivAsContainer]);
   }
 
   private getYearsRange(): string {

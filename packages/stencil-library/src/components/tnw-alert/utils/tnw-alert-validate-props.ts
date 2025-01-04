@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-alert.tsx` file.
  * 
-validateProps([this.alertId, this.appearance, this.borderRadius, this.isHidden, this.message, this.size, this.variant]);
+validateProps([this.alertId, this.appearance, this.appearanceColor, this.borderRadius, this.isHidden, this.message, this.size]);
  *
  * GENERATED USING `npm run g:components-validations tnw-alert`
  */
@@ -30,6 +30,16 @@ export function validateProps(propsValues: any[]): void {
       "outlined",
       "solid",
       "transparent"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "appearanceColor",
+    "type": [
+      "danger",
+      "info",
+      "success",
+      "warning"
     ],
     "isRequired": false
   },
@@ -70,16 +80,6 @@ export function validateProps(propsValues: any[]): void {
       "lg",
       "md",
       "sm"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "variant",
-    "type": [
-      "danger",
-      "info",
-      "success",
-      "warning"
     ],
     "isRequired": false
   }

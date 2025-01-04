@@ -22,6 +22,7 @@ The `tnw-testimonial-card` component is a versatile component designed to displa
 | Property                 | Attribute                  | Description                                                                      | Type                                                                                                  | Default      |
 | ------------------------ | -------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------ |
 | `appearance`             | `appearance`               | The appearance style of the card.                                                | `"mixed" \| "none" \| "outlined" \| "solid" \| "transparent"`                                         | `'outlined'` |
+| `appearanceColor`        | `appearance-color`         | The color appearance color of the card, determining the overall color scheme.    | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'auto'`     |
 | `authorName`             | `author-name`              | The name of the author.                                                          | `string`                                                                                              | `undefined`  |
 | `authorPhotoAlt`         | `author-photo-alt`         | Alternative text for the author's photo.                                         | `string`                                                                                              | `undefined`  |
 | `authorPhotoSrc`         | `author-photo-src`         | The URL of the author's photo.                                                   | `string`                                                                                              | `undefined`  |
@@ -32,7 +33,6 @@ The `tnw-testimonial-card` component is a versatile component designed to displa
 | `text`                   | `text`                     | The text of the testimonial.                                                     | `string`                                                                                              | `undefined`  |
 | `useGlassmorphismEffect` | `use-glassmorphism-effect` | If `true`, the card will have a glassmorphism effect applied to its background.  | `boolean`                                                                                             | `false`      |
 | `useRandomAvatar`        | `use-random-avatar`        | If `true`, a random gradient avatar will be generated when no photo is provided. | `boolean`                                                                                             | `false`      |
-| `variant`                | `variant`                  | The color variant of the card, determining the overall color scheme.             | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'auto'`     |
 
 
 ## Shadow Parts

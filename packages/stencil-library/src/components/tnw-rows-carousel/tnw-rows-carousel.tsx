@@ -1,24 +1,24 @@
 import { Component, Host, Prop, Element, h, Event, EventEmitter, Method } from '@stencil/core';
 import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
-import { validateProps } from './utils/tnw-multi-row-carousel-validate-props';
-import { styles } from './tnw-multi-row-carousel.style';
+import { validateProps } from './utils/tnw-rows-carousel-validate-props';
+import { styles } from './tnw-rows-carousel.style';
 import { isValuePositive } from '../../utils/component-validations';
 
 /**
- * The `tnw-multi-row-carousel` component provides an animated, infinitely scrolling carousel 
+ * The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel 
  * with multiple rows. Each row scrolls independently and can move in alternating directions.
  *
  * @slot row-[number] - A slot for each row's content. Replace `[number]` with the row index (starting from 1). Ensure the number of slots matches the `rows` prop.
  */
 @Component({
-  tag: 'tnw-multi-row-carousel',
+  tag: 'tnw-rows-carousel',
   shadow: true,
 })
-export class TnwMultiRowCarousel {
+export class TnwRowsCarousel {
   private baseClass = `${GLOBAL_PREFIX}-multi-row-carousel`;
   private componentStyles: CSSStyleSheet;
 
-  @Element() el!: HTMLTnwMultiRowCarouselElement;
+  @Element() el!: HTMLTnwRowsCarouselElement;
 
   /**
    * The number of rows in the carousel.

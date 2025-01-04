@@ -1,6 +1,6 @@
 import { generateComponentArgTypes, getComponentByTagName } from "../../../utils/sb-utils";
 
-const component = getComponentByTagName('tnw-multi-row-carousel');
+const component = getComponentByTagName('tnw-rows-carousel');
 
 export default {
   title: 'Components/Multi Row Carousel',
@@ -16,7 +16,7 @@ export default {
 // const Template = (args) => getComponentTemplate(args, component);
 
 const Test = () =>  `
-<tnw-multi-row-carousel>
+<tnw-rows-carousel>
   <tnw-testimonial-card
  slot="row-1"
  author-name="1 John Doe"
@@ -107,6 +107,6 @@ const Test = () =>  `
  use-random-avatar="true"
 ></tnw-testimonial-card>
 
-</tnw-multi-row-carousel>
+</tnw-rows-carousel>
 `;
 export const Standard = Test.bind({});

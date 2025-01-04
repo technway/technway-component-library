@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tnw-multi-row-carousel Default and Required Prop Behavior renders with default props 1`] = `
-<tnw-multi-row-carousel class="tnw-multi-row-carousel">
+exports[`tnw-rows-carousel Default and Required Prop Behavior renders with default props 1`] = `
+<tnw-rows-carousel class="tnw-rows-carousel">
   <template shadowrootmode="open">
     <style>
       :host {
@@ -10,7 +10,7 @@ exports[`tnw-multi-row-carousel Default and Required Prop Behavior renders with 
   overflow: hidden;
 }
 
-.tnw-multi-row-carousel__container {
+.tnw-rows-carousel__container {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -18,8 +18,8 @@ exports[`tnw-multi-row-carousel Default and Required Prop Behavior renders with 
   overflow: hidden;
 }
 
-.tnw-multi-row-carousel__container::before,
-.tnw-multi-row-carousel__container::after {
+.tnw-rows-carousel__container::before,
+.tnw-rows-carousel__container::after {
   content: '';
   position: absolute;
   top: 0;
@@ -29,7 +29,7 @@ exports[`tnw-multi-row-carousel Default and Required Prop Behavior renders with 
   pointer-events: none;
 }
 
-.tnw-multi-row-carousel__container::before {
+.tnw-rows-carousel__container::before {
   left: 0;
   background: linear-gradient(
     to right,
@@ -40,7 +40,7 @@ exports[`tnw-multi-row-carousel Default and Required Prop Behavior renders with 
     rgba(255, 255, 255, 0) 100%
   );
 }
-.tnw-multi-row-carousel__container::after {
+.tnw-rows-carousel__container::after {
   right: 0;
   background: linear-gradient(
     to left,
@@ -52,7 +52,7 @@ exports[`tnw-multi-row-carousel Default and Required Prop Behavior renders with 
   );
 }
 
-.tnw-multi-row-carousel__row {
+.tnw-rows-carousel__row {
   display: flex;
   animation-timing-function: linear;
   flex-shrink: 0;
@@ -79,14 +79,14 @@ exports[`tnw-multi-row-carousel Default and Required Prop Behavior renders with 
   }
 }
     </style>
-    <div class="tnw-multi-row-carousel__container">
-      <div class="tnw-multi-row-carousel__row" style="animation-name: scroll-loop; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: alternate; animation-duration: 22000ms; animation-play-state: running; transition: animation-play-state 0.3s ease;">
+    <div class="tnw-rows-carousel__container">
+      <div class="tnw-rows-carousel__row" style="animation-name: scroll-loop; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: alternate; animation-duration: 22000ms; animation-play-state: running; transition: animation-play-state 0.3s ease;">
         <slot name="row-1"></slot>
       </div>
-      <div class="tnw-multi-row-carousel__row" style="animation-name: scroll-loop; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: alternate-reverse; animation-duration: 22000ms; animation-play-state: running; transition: animation-play-state 0.3s ease;">
+      <div class="tnw-rows-carousel__row" style="animation-name: scroll-loop; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: alternate-reverse; animation-duration: 22000ms; animation-play-state: running; transition: animation-play-state 0.3s ease;">
         <slot name="row-2"></slot>
       </div>
     </div>
   </template>
-</tnw-multi-row-carousel>
+</tnw-rows-carousel>
 `;

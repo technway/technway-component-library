@@ -182,14 +182,6 @@ This page provides an overview of statistics related to the components.
 | **Methods** | `0` |
 | **Slots** | `0` |
 
-### tnw-multi-row-carousel
-| Feature | Count |
-| --- | --- |
-| **Props** | `2` |
-| **Events** | `2` |
-| **Methods** | `3` |
-| **Slots** | `1` |
-
 ### tnw-navbar
 | Feature | Count |
 | --- | --- |
@@ -221,6 +213,14 @@ This page provides an overview of statistics related to the components.
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `0` |
+
+### tnw-rows-carousel
+| Feature | Count |
+| --- | --- |
+| **Props** | `2` |
+| **Events** | `2` |
+| **Methods** | `3` |
+| **Slots** | `1` |
 
 ### tnw-scroll-to-top
 | Feature | Count |

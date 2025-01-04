@@ -44,8 +44,7 @@ export class TnwDivider {
   }
 
   componentWillLoad() {
-    const propsValues = [this.color, this.variant];
-    validateProps(propsValues);
+    validateProps([this.color, this.variant]);
   }
 
   private getHostClasses() {

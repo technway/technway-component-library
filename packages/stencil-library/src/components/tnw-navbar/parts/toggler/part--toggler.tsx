@@ -41,7 +41,7 @@ export const renderToggler = (props: TogglerProps) => {
                 color='auto'
                 size='md'
                 appearance='outlined'
-                variant='auto'
+                appearanceColor='auto'
                 hiddenAria={false}
                 borderRadius='circle'
                 part='toggler-icon'

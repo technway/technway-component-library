@@ -42,7 +42,7 @@ export const IconWithAppearance = Template.bind({});
 IconWithAppearance.args = {
   name: 'tnw-search',
   appearance: 'outlined',
-  variant: 'warning',
+  appearanceColor: 'warning',
   tooltip: 'Search icon',
 };
 
@@ -52,7 +52,7 @@ IconWithBorderRadius.args = {
   name: 'tnw-heart',
   borderRadius: 'lg',
   appearance: "solid",
-  variant: 'inverse',
+  appearanceColor: 'inverse',
   color: 'inverse',
   tooltip: 'Heart icon with border radius',
 };

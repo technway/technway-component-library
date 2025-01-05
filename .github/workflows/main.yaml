@@ -176,12 +176,17 @@ jobs:
         # Build Stencil Library
         - name: Build Stencil Library
           run: |
-            cd packages/stencil-library && npm run build:stencil
+            npm run build:stencil
 
         # Build React Library
         - name: Build React Library
           run: |
-            cd packages/react-library && npm run build
+            npm run build:react
+
+        # Build Next Library
+        - name: Build Next Library
+          run: |
+            npm run build:next
 
         # Commit the changes made by `lerna version`
         - name: Commit version changes

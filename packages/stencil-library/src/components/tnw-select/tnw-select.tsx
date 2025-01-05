@@ -1,11 +1,10 @@
 import { Component, Host, h, Prop, State, Event, EventEmitter, Element, Method, Watch } from '@stencil/core';
-import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString, parseJSONAsync } from '../../utils/utils';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString, parseJSONAsync, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-select.styles';
 import { BorderRadiusType, ExtendedColorType } from '../../utils/component-props-types';
-import { validateProps } from './utils/tnw-select-validate-props';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
-import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { TnwSelectOption } from './utils/tnw-select-data-types';
+import { validateProps } from './utils/tnw-select-validate-props';
+import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 
 /**
  * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.

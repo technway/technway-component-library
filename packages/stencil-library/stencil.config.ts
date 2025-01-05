@@ -25,8 +25,9 @@ import { generateComponentStatistics, generateMarkdownForComponent } from './uti
 import { generateMarkdownForComponentsIndex } from './utils/markdown-utils';
 
 export const config: Config = {
-  namespace: 'components-lib',
+  namespace: 'stencil-library',
   globalStyle: 'src/globals/global.pcss',
+  taskQueue: 'async',
   outputTargets: [
     {
       type: 'dist',
@@ -104,41 +105,50 @@ export const config: Config = {
     },
     // Docs End
 
-    {
-      type: 'www',
-      serviceWorker: null,
-      copy: [
-        {
-          src: '**/*.{eot,svg,woff,woff2,ttf}',
-          dest: 'build/assets/fonts',
-          warn: true,
-        },
-        {
-          src: '**/*.{jpg,png}',
-          dest: 'build/assets/images',
-          warn: true,
-        },
-        // {
-        //   src: 'globals/style.rtl.pcss',
-        //   dest: "build/globals/style.rtl.css",
-        //   warn: true,
-        // },
-        // {
-        //   src: 'globals/responsive-utils.css',
-        //   dest: "build/globals/utils.css",
-        //   warn: true,
-        // },
-      ],
-    },
+    // {
+    //   type: 'www',
+    //   serviceWorker: null,
+    //   copy: [
+    //     {
+    //       src: '**/*.{eot,svg,woff,woff2,ttf}',
+    //       dest: 'build/assets/fonts',
+    //       warn: true,
+    //     },
+    //     {
+    //       src: '**/*.{jpg,png}',
+    //       dest: 'build/assets/images',
+    //       warn: true,
+    //     },
+    //     // {
+    //     //   src: 'globals/style.rtl.pcss',
+    //     //   dest: "build/globals/style.rtl.css",
+    //     //   warn: true,
+    //     // },
+    //     // {
+    //     //   src: 'globals/responsive-utils.css',
+    //     //   dest: "build/globals/utils.css",
+    //     //   warn: true,
+    //     // },
+    //   ],
+    // },
 
-    // reactOutputTarget({
-    //   outDir: '../react-library/lib/components/stencil-generated/',
-    //   stencilPackageName: '@technway/stencil-library',
-    // }),
+    reactOutputTarget({
+      outDir: '../react-library/src/',
+      stencilPackageName: '@technway/stencil-library', 
+    }),
+    reactOutputTarget({
+      outDir: '../next-library/src/',
+      hydrateModule: '@technway/stencil-library/hydrate',
+      stencilPackageName: '@technway/stencil-library',
+    }),
     {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'auto-define-custom-elements',
       externalRuntime: false
+    },
+    {
+      type: 'dist-hydrate-script',
+      dir: './hydrate',
     },
   ],
   testing: {

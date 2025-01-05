@@ -34,10 +34,10 @@ The `tnw-select` component provides a custom dropdown select element with suppor
 
 ## Events
 
-| Event             | Description                                           | Type                                                                                                                                                     |
-| ----------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `dropdownToggled` | Emitted when the dropdown is toggled open or closed.  | `CustomEvent<{ isOpen: boolean; }>`                                                                                                                      |
-| `optionSelected`  | Emitted when an option is selected from the dropdown. | `CustomEvent<TnwBaseSelectOption \| TnwSelectOptionWithIconName \| TnwSelectOptionWithImage \| TnwSelectOptionWithStatus \| TnwSelectOptionWithSvgIcon>` |
+| Event             | Description                                           | Type                                |
+| ----------------- | ----------------------------------------------------- | ----------------------------------- |
+| `dropdownToggled` | Emitted when the dropdown is toggled open or closed.  | `CustomEvent<{ isOpen: boolean; }>` |
+| `optionSelected`  | Emitted when an option is selected from the dropdown. | `CustomEvent<TnwSelectOption>`      |
 
 
 ## Methods

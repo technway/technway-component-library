@@ -1,25 +1,26 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
     "lib": [
       "dom",
-      "es2017",
-      "ESNext.Disposable"
+      "es2017"
     ],
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "module": "esnext",
     "target": "es2017",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "skipLibCheck": true,
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "resolveJsonModule": true
   },
   "include": [
     "src",
+    "types/jsx.d.ts",
     "markdown-utils.ts"
   ],
   "exclude": [

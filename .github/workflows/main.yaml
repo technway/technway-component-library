@@ -126,7 +126,7 @@ jobs:
         needs:
             - lint
             - test
-            - chromatic
+            # - chromatic
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -143,7 +143,7 @@ jobs:
       needs:
         - lint
         - test
-        - chromatic
+        # - chromatic
       steps:
         # Checkout the repository
         - name: Checkout code

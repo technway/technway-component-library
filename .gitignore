@@ -1,5 +1,6 @@
 # Ignore build directories
 dist/
+hydrate/
 www/
 loader/
 coverage/

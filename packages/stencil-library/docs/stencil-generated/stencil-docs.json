@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-01-04T18:53:09",
+  "timestamp": "2025-01-05T08:34:00",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.22.3",
+    "version": "4.23.0",
     "typescriptVersion": "5.5.4"
   },
   "components": [
@@ -10,8 +10,8 @@
       "filePath": "src/components/tnw-accordion/tnw-accordion.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-accordion",
-      "readme": "# tnw-accordion-item\n\n\n",
-      "docs": "The `tnw-accordion` component provides a collapsible/expandable section\nwith a header and body content. It is ideal for use in creating FAQ sections, collapsible panels,\nor other UI components requiring content toggling.",
+      "readme": "# tnw-accordion-item\r\n\r\n\r\n\r",
+      "docs": "The `tnw-accordion` component provides a collapsible/expandable section\r\nwith a header and body content. It is ideal for use in creating FAQ sections, collapsible panels,\r\nor other UI components requiring content toggling.",
       "docsTags": [
         {
           "name": "slot",
@@ -69,7 +69,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearance",
@@ -108,7 +110,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -161,7 +165,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -230,7 +236,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "color",
@@ -322,7 +330,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "content",
@@ -343,7 +353,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disableExpandIconRotate",
@@ -365,7 +377,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableCustomExpandIcon",
@@ -387,7 +401,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "expand",
@@ -409,7 +425,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "heading",
@@ -430,7 +448,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -541,7 +561,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -569,8 +591,8 @@
       "filePath": "src/components/tnw-alert/tnw-alert.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-alert",
-      "readme": "# tnw-alert\n\n\n",
-      "docs": "The `tnw-alert` component is used to display a prominent message to the user, such as\nimportant notifications, success messages, warnings, or errors.",
+      "readme": "# tnw-alert\r\n\r\n\r\n\r",
+      "docs": "The `tnw-alert` component is used to display a prominent message to the user, such as\r\nimportant notifications, success messages, warnings, or errors.",
       "docsTags": [
         {
           "name": "part",
@@ -600,7 +622,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearance",
@@ -645,7 +669,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -679,7 +705,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -748,7 +776,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isHidden",
@@ -770,7 +800,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "message",
@@ -791,7 +823,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -828,7 +862,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -971,7 +1007,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "hideNewTabIcon",
@@ -993,7 +1031,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "href",
@@ -1014,7 +1054,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "labelAria",
@@ -1035,7 +1077,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "newTab",
@@ -1057,7 +1101,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -1141,7 +1187,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "text",
@@ -1162,7 +1210,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textDecoration",
@@ -1197,7 +1247,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -1306,7 +1358,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -1375,7 +1429,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -1444,7 +1500,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "imageSrc",
@@ -1465,7 +1523,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "label",
@@ -1489,7 +1549,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -1526,7 +1588,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "variant",
@@ -1561,7 +1625,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -1652,7 +1718,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -1721,7 +1789,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -1790,7 +1860,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disabled",
@@ -1812,7 +1884,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "hoverAppearance",
@@ -1843,7 +1917,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "hoverAppearanceColor",
@@ -1886,7 +1962,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "href",
@@ -1907,7 +1985,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "label",
@@ -1928,7 +2008,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "newTab",
@@ -1950,7 +2032,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -1995,7 +2079,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "type",
@@ -2022,7 +2108,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -2071,8 +2159,8 @@
       "filePath": "src/components/tnw-card/tnw-card.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-card",
-      "readme": "# tnw-card\n\n\n",
-      "docs": "The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a \ncard layout. It supports various customization options for layout orientation, appearance colors, spacing, \nand content alignment. The card can display images, headings, subheadings, descriptions, and buttons, \nwith slots for each, allowing full customization.",
+      "readme": "# tnw-card\r\n\r\n\r\n\r",
+      "docs": "The `tnw-card` component is a flexible container used to display content such as images, text, and buttons in a \r\ncard layout. It supports various customization options for layout orientation, appearance colors, spacing, \r\nand content alignment. The card can display images, headings, subheadings, descriptions, and buttons, \r\nwith slots for each, allowing full customization.",
       "docsTags": [
         {
           "name": "slot",
@@ -2178,7 +2266,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -2231,7 +2321,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -2300,7 +2392,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "buttonLabel",
@@ -2321,7 +2415,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "description",
@@ -2342,7 +2438,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableContentSlot",
@@ -2364,7 +2462,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableImageSlot",
@@ -2386,7 +2486,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "heading",
@@ -2407,7 +2509,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "imageAlt",
@@ -2428,7 +2532,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "imageSrc",
@@ -2449,7 +2555,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "itemsAlignment",
@@ -2485,7 +2593,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "largerImage",
@@ -2507,7 +2617,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "layout",
@@ -2540,7 +2652,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "orderContentFirst",
@@ -2562,7 +2676,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "padding",
@@ -2602,7 +2718,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "spacing",
@@ -2639,7 +2757,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "subheading",
@@ -2660,7 +2780,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textAlignment",
@@ -2709,7 +2831,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "useGlassmorphismEffect",
@@ -2731,7 +2855,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -2824,8 +2950,8 @@
       "filePath": "src/components/tnw-contact-banner/tnw-contact-banner.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-contact-banner",
-      "readme": "# tnw-contact-banner\n\n\n",
-      "docs": "The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.\nIt supports various appearances and colors, and allows for custom content to be inserted via slots.",
+      "readme": "# tnw-contact-banner\r\n\r\n\r\n\r",
+      "docs": "The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.\r\nIt supports various appearances and colors, and allows for custom content to be inserted via slots.",
       "docsTags": [
         {
           "name": "slot",
@@ -2905,7 +3031,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "alignment",
@@ -2942,7 +3070,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearance",
@@ -2987,7 +3117,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -3040,7 +3172,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -3109,7 +3243,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disableInternalContainer",
@@ -3131,7 +3267,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableContentSlot",
@@ -3153,7 +3291,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "horizontalPadding",
@@ -3208,7 +3348,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "margin",
@@ -3263,7 +3405,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -3368,7 +3512,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderTopColor",
@@ -3421,7 +3567,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "centerContent",
@@ -3443,7 +3591,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disableInternalContainer",
@@ -3465,7 +3615,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableSlot",
@@ -3487,7 +3639,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "endYear",
@@ -3508,7 +3662,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "organizationName",
@@ -3529,7 +3685,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "organizationNameColor",
@@ -3622,7 +3780,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "postText",
@@ -3643,7 +3803,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "preText",
@@ -3664,7 +3826,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "startYear",
@@ -3685,7 +3849,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textColor",
@@ -3778,7 +3944,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "useCurrentYearAsEndYear",
@@ -3800,7 +3968,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "useCurrentYearAsStartYear",
@@ -3822,7 +3992,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "useDivAsContainer",
@@ -3844,7 +4016,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -3888,8 +4062,8 @@
       "filePath": "src/components/tnw-divider/tnw-divider.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-divider",
-      "readme": "# tnw-divider\n\n\n",
-      "docs": "The `tnw-divider` component creates a horizontal or vertical line to visually separate content.\nIt provides customizable styles and color options to fit different design requirements.",
+      "readme": "# tnw-divider\r\n\r\n\r\n\r",
+      "docs": "The `tnw-divider` component creates a horizontal or vertical line to visually separate content.\r\nIt provides customizable styles and color options to fit different design requirements.",
       "docsTags": [],
       "usage": {
         "tnw-divider-usage": ""
@@ -3986,7 +4160,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "variant",
@@ -4013,7 +4189,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -4121,7 +4299,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderTopColor",
@@ -4178,7 +4358,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "centerContent",
@@ -4200,7 +4382,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disableInternalContainer",
@@ -4222,7 +4406,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "footerData",
@@ -4243,7 +4429,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "headingColor",
@@ -4336,7 +4524,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "margin",
@@ -4391,7 +4581,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "padding",
@@ -4446,7 +4638,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textColor",
@@ -4539,7 +4733,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -4644,7 +4840,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-header",
       "readme": "# tnw-header\n\n\n",
-      "docs": "The `tnw-header` component is designed to create a customizable and structured header for your application.\nIt allows for flexible layout options with support for navigation bars, banners, and various alignment and size customizations.",
+      "docs": "The `tnw-header` component is designed to create a customizable and structured header for your application.\r\nIt allows for flexible layout options with support for navigation bars, banners, and various alignment and size customizations.",
       "docsTags": [
         {
           "name": "slot",
@@ -4698,7 +4894,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "backgroundColor",
@@ -4740,7 +4938,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderBottomColor",
@@ -4792,7 +4992,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "centerBanner",
@@ -4814,7 +5016,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disableInternalContainer",
@@ -4836,7 +5040,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "height",
@@ -4889,7 +5095,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "minHeight",
@@ -4938,7 +5146,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -4970,7 +5180,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-header-banner",
       "readme": "# tnw-header-banner\n\n\n",
-      "docs": "This component is designed to be used inside the `tnw-header`.\n\nThe `tnw-header-banner` component creates a customizable banner for headers, featuring headings, subheadings, descriptions, and buttons.\nIt is designed to align with the theme of the parent header component, making it a cohesive part of the header design.",
+      "docs": "This component is designed to be used inside the `tnw-header`.\r\n\r\nThe `tnw-header-banner` component creates a customizable banner for headers, featuring headings, subheadings, descriptions, and buttons.\r\nIt is designed to align with the theme of the parent header component, making it a cohesive part of the header design.",
       "docsTags": [
         {
           "name": "slot",
@@ -5052,7 +5262,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "buttonLabel",
@@ -5073,7 +5285,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "description",
@@ -5094,7 +5308,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableImageSlot",
@@ -5116,7 +5332,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "heading",
@@ -5137,7 +5355,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "imageAlt",
@@ -5158,7 +5378,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "imageBorderRadius",
@@ -5227,7 +5449,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "imageSrc",
@@ -5248,7 +5472,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "stickyNavbar",
@@ -5270,7 +5496,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "subheading",
@@ -5291,7 +5519,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "theme",
@@ -5334,7 +5564,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "width",
@@ -5373,7 +5605,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "wrapImage",
@@ -5395,7 +5629,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -5542,7 +5778,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "color",
@@ -5634,7 +5872,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "headingTag",
@@ -5686,7 +5926,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "highlight",
@@ -5707,7 +5949,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "highlightColor",
@@ -5799,7 +6043,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "highlightTag",
@@ -5834,7 +6080,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "highlightWeight",
@@ -5903,7 +6151,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "level",
@@ -5946,7 +6196,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "lineHeight",
@@ -5999,7 +6251,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -6083,7 +6337,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "text",
@@ -6104,7 +6360,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textCase",
@@ -6144,7 +6402,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "useTextFont",
@@ -6166,7 +6426,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "weight",
@@ -6234,7 +6496,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "widthSize",
@@ -6279,7 +6543,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -6395,7 +6661,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -6464,7 +6732,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -6533,7 +6803,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "color",
@@ -6626,7 +6898,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableSvg",
@@ -6648,7 +6922,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "hiddenAria",
@@ -6670,7 +6946,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isButton",
@@ -6692,7 +6970,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "labelAria",
@@ -6713,7 +6993,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "name",
@@ -6734,7 +7016,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -6795,7 +7079,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "tooltip",
@@ -6816,7 +7102,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -6882,7 +7170,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-image",
       "readme": "# tnw-image\r\n\r\n\r\n\r",
-      "docs": "The `tnw-image` component is used to display images with optional captions, lazy loading, and customizable styles. \nIt supports various properties to control the image source, dimensions, and appearance.",
+      "docs": "The `tnw-image` component is used to display images with optional captions, lazy loading, and customizable styles. \r\nIt supports various properties to control the image source, dimensions, and appearance.",
       "docsTags": [
         {
           "name": "part",
@@ -6968,7 +7256,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "alt",
@@ -6989,7 +7279,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "aspectRatio",
@@ -7046,7 +7338,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "caption",
@@ -7068,7 +7362,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "heightSize",
@@ -7108,7 +7404,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "lazyLoading",
@@ -7130,7 +7428,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "objectFit",
@@ -7174,7 +7474,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "objectPosition",
@@ -7271,7 +7573,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "src",
@@ -7292,7 +7596,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "widthSize",
@@ -7333,7 +7639,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -7442,7 +7750,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "autoComplete",
@@ -7464,7 +7774,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -7533,7 +7845,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disabled",
@@ -7555,7 +7869,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "helpText",
@@ -7577,7 +7893,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "inputId",
@@ -7598,7 +7916,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isLabelSrOnly",
@@ -7619,7 +7939,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isRequired",
@@ -7641,7 +7963,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "label",
@@ -7662,7 +7986,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "maxlength",
@@ -7683,7 +8009,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "minlength",
@@ -7704,7 +8032,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "name",
@@ -7726,7 +8056,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "pattern",
@@ -7748,7 +8080,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "placeholder",
@@ -7769,7 +8103,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "sanitizeInput",
@@ -7791,7 +8127,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "type",
@@ -7812,7 +8150,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "value",
@@ -7834,7 +8174,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -7981,7 +8323,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableControlsSlots",
@@ -8003,7 +8347,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "fitWithContainer",
@@ -8025,7 +8371,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "hideControls",
@@ -8047,7 +8395,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "showEdgesShadows",
@@ -8069,7 +8419,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "slidesCount",
@@ -8091,7 +8443,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "slidesSize",
@@ -8126,7 +8480,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -8278,7 +8634,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "htmlFor",
@@ -8299,7 +8657,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isSrOnly",
@@ -8321,7 +8681,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -8358,7 +8720,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "text",
@@ -8382,7 +8746,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textCase",
@@ -8422,7 +8788,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "weight",
@@ -8491,7 +8859,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -8633,7 +9003,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "lineHeight",
@@ -8686,7 +9058,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "listData",
@@ -8707,7 +9081,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "markerPosition",
@@ -8734,7 +9110,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -8818,7 +9196,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textCase",
@@ -8858,7 +9238,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "weight",
@@ -8926,7 +9308,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -9050,7 +9434,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -9103,7 +9489,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -9172,7 +9560,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disableInternalContainer",
@@ -9194,7 +9584,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableCtaSlot",
@@ -9216,7 +9608,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "hideMenuBelow",
@@ -9254,7 +9648,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "logoData",
@@ -9275,7 +9671,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "menuData",
@@ -9296,7 +9694,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "menuExactCenter",
@@ -9318,7 +9718,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "menuPlacement",
@@ -9349,7 +9751,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "padding",
@@ -9390,7 +9794,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "sticky",
@@ -9412,7 +9818,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "togglerPlacement",
@@ -9439,18 +9847,20 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
       "events": [
         {
           "event": "tnwBreakpointChange",
-          "detail": "{ breakpoint: \"1024\" | \"767\" | \"567\" | \"1439\"; }",
+          "detail": "{ breakpoint: \"1024\" | \"1439\" | \"567\" | \"767\"; }",
           "bubbles": true,
           "complexType": {
             "original": "{ breakpoint: \"1024\" | \"767\" | \"567\" | \"1439\" }",
-            "resolved": "{ breakpoint: \"1024\" | \"767\" | \"567\" | \"1439\"; }",
+            "resolved": "{ breakpoint: \"1024\" | \"1439\" | \"567\" | \"767\"; }",
             "references": {}
           },
           "cancelable": true,
@@ -9621,7 +10031,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "buttonLabel",
@@ -9643,7 +10055,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableButtonSlot",
@@ -9665,7 +10079,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "formAction",
@@ -9686,7 +10102,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "formAttributes",
@@ -9707,7 +10125,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "formMethod",
@@ -9728,7 +10148,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "inputId",
@@ -9749,7 +10171,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "inputPlaceholder",
@@ -9771,7 +10195,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "successMessage",
@@ -9793,7 +10219,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "theme",
@@ -9846,7 +10274,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "variant",
@@ -9873,7 +10303,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -9916,7 +10348,7 @@
       "filePath": "src/components/tnw-portfolio-grid/tnw-portfolio-grid.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-portfolio-grid",
-      "readme": "# tnw-portfolio-grid\n\n\n",
+      "readme": "# tnw-portfolio-grid\r\n\r\n\r\n\r",
       "docs": "The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.",
       "docsTags": [],
       "usage": {
@@ -9943,7 +10375,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "itemsData",
@@ -9964,7 +10398,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "showGradientFade",
@@ -9986,7 +10422,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "spacing",
@@ -10031,7 +10469,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -10122,7 +10562,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "filledStarColor",
@@ -10175,7 +10617,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "hideEmptyStars",
@@ -10197,7 +10641,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "rating",
@@ -10219,7 +10665,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "starSize",
@@ -10264,7 +10712,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "totalStars",
@@ -10286,7 +10736,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -10315,7 +10767,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-rows-carousel",
       "readme": "# tnw-rows-carousel\r\n\r\n\r\n\r",
-      "docs": "The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel \nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
+      "docs": "The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel \r\nwith multiple rows. Each row scrolls independently and can move in alternating directions.",
       "docsTags": [
         {
           "name": "slot",
@@ -10346,7 +10798,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "rows",
@@ -10368,7 +10822,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [
@@ -10395,7 +10851,7 @@
           },
           "signature": "pauseAll() => Promise<void>",
           "parameters": [],
-          "docs": "Pauses the animation of all carousel rows.\nEmits a `tnwRowPause` event for each row that is paused.",
+          "docs": "Pauses the animation of all carousel rows.\r\nEmits a `tnwRowPause` event for each row that is paused.",
           "docsTags": []
         },
         {
@@ -10421,7 +10877,7 @@
           },
           "signature": "resumeAll() => Promise<void>",
           "parameters": [],
-          "docs": "Resumes the animation of all carousel rows.\nEmits a `tnwRowResume` event for each row that is resumed.",
+          "docs": "Resumes the animation of all carousel rows.\r\nEmits a `tnwRowResume` event for each row that is resumed.",
           "docsTags": []
         },
         {
@@ -10459,7 +10915,7 @@
               "docs": "- The zero-based index of the row to toggle"
             }
           ],
-          "docs": "Toggles the animation state of a specific row between paused and running.\nEmits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.",
+          "docs": "Toggles the animation state of a specific row between paused and running.\r\nEmits either a `tnwRowPause` or `tnwRowResume` event depending on the new state.",
           "docsTags": [
             {
               "name": "param",
@@ -10480,7 +10936,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when a row's animation is paused.\nThe event detail contains the index of the paused row (zero-based).",
+          "docs": "Event emitted when a row's animation is paused.\r\nThe event detail contains the index of the paused row (zero-based).",
           "docsTags": []
         },
         {
@@ -10494,7 +10950,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when a row's animation is resumed.\nThe event detail contains the index of the resumed row (zero-based).",
+          "docs": "Event emitted when a row's animation is resumed.\r\nThe event detail contains the index of the resumed row (zero-based).",
           "docsTags": []
         }
       ],
@@ -10570,7 +11026,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -10623,7 +11081,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -10692,7 +11152,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "color",
@@ -10744,7 +11206,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "customIconName",
@@ -10766,7 +11230,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "enableCustomSvgIcon",
@@ -10788,7 +11254,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -10833,7 +11301,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -10902,8 +11372,8 @@
       "filePath": "src/components/tnw-section/tnw-section.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-section",
-      "readme": "# tnw-section\n\n\n",
-      "docs": "The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.\nIt supports various appearance colors, optional glassmorphism effects, and an internal container to handle\ncontent alignment and padding.",
+      "readme": "# tnw-section\r\n\r\n\r\n\r",
+      "docs": "The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.\r\nIt supports various appearance colors, optional glassmorphism effects, and an internal container to handle\r\ncontent alignment and padding.",
       "docsTags": [
         {
           "name": "slot",
@@ -10955,7 +11425,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearance",
@@ -11019,7 +11491,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -11072,7 +11546,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disableInternalContainer",
@@ -11094,7 +11570,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isFirstSection",
@@ -11116,7 +11594,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isLastSection",
@@ -11138,7 +11618,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "margin",
@@ -11193,7 +11675,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "padding",
@@ -11248,7 +11732,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "spacing",
@@ -11293,7 +11779,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "useGlassmorphismEffect",
@@ -11315,7 +11803,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -11389,7 +11879,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -11458,7 +11950,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disabled",
@@ -11480,7 +11974,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "fullWidth",
@@ -11502,7 +11998,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "label",
@@ -11524,7 +12022,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "optionAppearance",
@@ -11551,7 +12051,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "optionsData",
@@ -11572,7 +12074,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -11603,7 +12107,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "variant",
@@ -11642,7 +12148,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [
@@ -11739,11 +12247,11 @@
         },
         {
           "event": "optionSelected",
-          "detail": "TnwBaseSelectOption | TnwSelectOptionWithIconName | TnwSelectOptionWithImage | TnwSelectOptionWithStatus | TnwSelectOptionWithSvgIcon",
+          "detail": "TnwSelectOption",
           "bubbles": true,
           "complexType": {
             "original": "TnwSelectOption",
-            "resolved": "TnwBaseSelectOption | TnwSelectOptionWithIconName | TnwSelectOptionWithImage | TnwSelectOptionWithStatus | TnwSelectOptionWithSvgIcon",
+            "resolved": "TnwSelectOption",
             "references": {
               "TnwSelectOption": {
                 "location": "import",
@@ -11791,7 +12299,7 @@
       "filePath": "src/components/tnw-testimonial-card/tnw-testimonial-card.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-testimonial-card",
-      "readme": "# tnw-testimonial-card\n\n\n",
+      "readme": "# tnw-testimonial-card\r\n\r\n\r\n\r",
       "docs": "The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.",
       "docsTags": [
         {
@@ -11866,7 +12374,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "appearanceColor",
@@ -11919,7 +12429,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "authorName",
@@ -11940,7 +12452,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "authorPhotoAlt",
@@ -11961,7 +12475,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "authorPhotoSrc",
@@ -11982,7 +12498,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "authorRole",
@@ -12003,7 +12521,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -12072,7 +12592,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "padding",
@@ -12113,7 +12635,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "spacing",
@@ -12150,7 +12674,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "text",
@@ -12171,7 +12697,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "useGlassmorphismEffect",
@@ -12193,7 +12721,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "useRandomAvatar",
@@ -12215,7 +12745,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -12339,7 +12871,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "color",
@@ -12431,7 +12965,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "displayMode",
@@ -12462,7 +12998,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "highlight",
@@ -12486,7 +13024,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "highlightColor",
@@ -12578,7 +13118,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "highlightTag",
@@ -12613,7 +13155,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "highlightWeight",
@@ -12682,7 +13226,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "lineHeight",
@@ -12735,7 +13281,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "size",
@@ -12819,7 +13367,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "text",
@@ -12843,7 +13393,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textCase",
@@ -12883,7 +13435,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textTag",
@@ -12922,7 +13476,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "weight",
@@ -12990,7 +13546,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "widthSize",
@@ -13039,7 +13597,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -13159,7 +13719,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "autoComplete",
@@ -13181,7 +13743,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "borderRadius",
@@ -13250,7 +13814,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "cols",
@@ -13271,7 +13837,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "disabled",
@@ -13293,7 +13861,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "helpText",
@@ -13315,7 +13885,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isLabelSrOnly",
@@ -13336,7 +13908,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "isRequired",
@@ -13358,7 +13932,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "label",
@@ -13379,7 +13955,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "maxlength",
@@ -13400,7 +13978,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "minlength",
@@ -13421,7 +14001,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "name",
@@ -13443,7 +14025,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "placeholder",
@@ -13464,7 +14048,9 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": true,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "resize",
@@ -13499,7 +14085,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "rows",
@@ -13521,7 +14109,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "sanitizeTextarea",
@@ -13534,7 +14124,7 @@
           "mutable": false,
           "attr": "sanitize-textarea",
           "reflectToAttr": false,
-          "docs": "Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.\nIf set to `true`, the textarea will be sanitized before being validated.\nIf set to `false`, the textarea will still undergo validation but without sanitization.",
+          "docs": "Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.\r\nIf set to `true`, the textarea will be sanitized before being validated.\r\nIf set to `false`, the textarea will still undergo validation but without sanitization.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13543,7 +14133,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "textareaId",
@@ -13564,7 +14156,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "value",
@@ -13586,7 +14180,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -13616,7 +14212,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when validation fails.\n\nThe event payload contains:\n- `textareaId`: The unique ID of the textarea element.\n- `error`: A string message explaining the validation failure.",
+          "docs": "Event emitted when validation fails.\r\n\r\nThe event payload contains:\r\n- `textareaId`: The unique ID of the textarea element.\r\n- `error`: A string message explaining the validation failure.",
           "docsTags": []
         }
       ],
@@ -13771,7 +14367,7 @@
       "path": "src/utils/component-props-types.ts"
     },
     "src/components/tnw-select/utils/tnw-select-data-types.ts::TnwSelectOption": {
-      "declaration": "export type TnwSelectOption =\r\n    | TnwBaseSelectOption\r\n    | TnwSelectOptionWithIconName\r\n    | TnwSelectOptionWithSvgIcon\r\n    | TnwSelectOptionWithImage\r\n    | TnwSelectOptionWithStatus;",
+      "declaration": "export interface TnwSelectOption\n    extends TnwBaseSelectOption,\n    TnwSelectOptionWithIconName,\n    TnwSelectOptionWithSvgIcon,\n    TnwSelectOptionWithImage,\n    TnwSelectOptionWithStatus {}",
       "docstring": "",
       "path": "src/components/tnw-select/utils/tnw-select-data-types.ts"
     }

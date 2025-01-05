@@ -53,9 +53,9 @@ export interface TnwSelectOptionWithStatus extends TnwBaseSelectOption {
     status?: 'success' | 'warning' | 'danger' | 'info' | 'primary' | 'secondary';
 }
 
-export type TnwSelectOption =
-    | TnwBaseSelectOption
-    | TnwSelectOptionWithIconName
-    | TnwSelectOptionWithSvgIcon
-    | TnwSelectOptionWithImage
-    | TnwSelectOptionWithStatus;
+export interface TnwSelectOption
+    extends TnwBaseSelectOption,
+    TnwSelectOptionWithIconName,
+    TnwSelectOptionWithSvgIcon,
+    TnwSelectOptionWithImage,
+    TnwSelectOptionWithStatus {}

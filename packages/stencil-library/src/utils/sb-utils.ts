@@ -1,7 +1,56 @@
-import { JsonDocsProp } from '@stencil/core/internal';
-import { JsonDocsComponent } from '@stencil/core/internal';
+import { JsonDocsProp, JsonDocsComponent } from '@stencil/core/internal';
 import { isNotEmptyString, toCamelCase, toKebabCase } from './utils';
-import componentDocs from '../../docs/stencil-generated/stencil-docs.json' assert { type: 'json' };
+import componentDocs from '../../docs/stencil-generated/stencil-docs.json';
+
+/**
+ * Transforms raw component data into a valid JsonDocsComponent.
+ *
+ * @param rawComponent - The raw component data from JSON.
+ * @return {JsonDocsComponent | null} A valid JsonDocsComponent or null if invalid.
+ */
+function transformToJsonDocsComponent(rawComponent: any): JsonDocsComponent | null {
+    if (!isNotEmptyString(rawComponent.tag)) return null;
+
+    // Validate and transform props
+    const validProps = Array.isArray(rawComponent.props)
+        ? rawComponent.props.map((prop: any): JsonDocsProp => ({
+              name: prop.name || '',
+              type: prop.type || 'unknown',
+              mutable: !!prop.mutable,
+              attr: prop.attr || undefined,
+              reflectToAttr: !!prop.reflectToAttr,
+              docs: prop.docs || '',
+              default: prop.default || undefined,
+              getter: !!prop.getter,
+              setter: !!prop.setter,
+              required: !!prop.required,
+              docsTags: Array.isArray(prop.docsTags) ? prop.docsTags : [],
+              values: Array.isArray(prop.values) ? prop.values : [],
+              optional: prop.optional ?? true, 
+          }))
+        : [];
+
+    return {
+        filePath: rawComponent.filePath || '',
+        encapsulation: rawComponent.encapsulation || 'none',
+        tag: rawComponent.tag,
+        readme: rawComponent.readme || '',
+        docs: rawComponent.docs || '',
+        docsTags: Array.isArray(rawComponent.docsTags) ? rawComponent.docsTags : [],
+        usage: rawComponent.usage || {},
+        props: validProps,
+        methods: rawComponent.methods || [],
+        events: rawComponent.events || [],
+        styles: rawComponent.styles || [],
+        slots: rawComponent.slots || [],
+        parts: rawComponent.parts || [],
+        dependencies: rawComponent.dependencies || [],
+        dependents: rawComponent.dependents || [],
+        deprecation: rawComponent.deprecation || undefined,
+        listeners: rawComponent.listeners || [],
+        dependencyGraph: rawComponent.dependencyGraph || {},
+    };
+}
 
 /**
  * Retrieves a JsonDocsComponent by its tag name.
@@ -10,11 +59,11 @@ import componentDocs from '../../docs/stencil-generated/stencil-docs.json' asser
  * @return {JsonDocsComponent | undefined} The JsonDocsComponent if found, otherwise undefined.
  */
 export function getComponentByTagName(componentTagName: string): JsonDocsComponent | undefined {
-    const foundComponent = componentDocs.components.find(
+    const rawComponent = componentDocs.components.find(
         component => component.tag === componentTagName,
     );
 
-    return foundComponent !== undefined ? foundComponent as JsonDocsComponent : undefined;
+    return rawComponent ? transformToJsonDocsComponent(rawComponent) : undefined;
 }
 
 /**
@@ -255,7 +304,7 @@ export function getComponentTemplate(
     includeCustomUtils: boolean = false,
     nSlotsNumber?: number,
     customClassNames: string[] = [],
-    debug: boolean = false
+    debug: boolean = true
 ): string {
 
     const tag = getComponentTagName(component);

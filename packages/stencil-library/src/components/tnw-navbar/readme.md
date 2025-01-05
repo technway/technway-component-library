@@ -59,7 +59,7 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 
 | Event                 | Description                                                                                                          | Type                                                               |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `tnwBreakpointChange` | Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }                | `CustomEvent<{ breakpoint: "1024" \| "767" \| "567" \| "1439"; }>` |
+| `tnwBreakpointChange` | Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }                | `CustomEvent<{ breakpoint: "1024" \| "1439" \| "567" \| "767"; }>` |
 | `tnwMenuToggle`       | Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean }                                  | `CustomEvent<{ isOpen: boolean; }>`                                |
 | `tnwScrollChange`     | Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number } | `CustomEvent<{ scrollY: number; }>`                                |
 

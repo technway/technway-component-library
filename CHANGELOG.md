@@ -41,6 +41,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.0.0](https://github.com/technway/technway-component-library/compare/root-v2.9.0...root-v3.0.0) (2025-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* The namespace for the Stencil library has been changed from 'components-lib' to 'stencil-components'. This affects how the library is imported and may require updates in consuming projects.
+* 
+
+### Features
+
+* add Next.js SSR support and enhance package exports ([6e36a1f](https://github.com/technway/technway-component-library/commit/6e36a1fecdaf47b4f1891dd0b31db0865bb533f1))
+* **navbar:** complete navbar implementation with fixes and improvements ([92e5f0e](https://github.com/technway/technway-component-library/commit/92e5f0e5ebe92b488afa73668657e954de0fdd28))
+* **react-library:** generate react components ([e9c6a5c](https://github.com/technway/technway-component-library/commit/e9c6a5c9c223ba6062249245c836c62d73db0978))
+* **tnw-select, tnw-badge, tnw-icon:** enhance components and improve tests ([e729e33](https://github.com/technway/technway-component-library/commit/e729e330e0ca45bdbb4599debeb4285eb80281d8))
+* **tnw-textarea, tnw-input:** improve security, flexibility, and functionality ([59517f0](https://github.com/technway/technway-component-library/commit/59517f0367221fdf4c253e753c348cae72fd0f11))
+* **tnw-text:** update props and their validations ([d1c8292](https://github.com/technway/technway-component-library/commit/d1c8292d169056f4dea8d6eaf7d09eb512d65098))
+
+
+### Bug Fixes
+
+* resolve bugs and enhance tnw-navbar component ([3493712](https://github.com/technway/technway-component-library/commit/3493712fc596e8a0a162312e936ccb51d7385bd7))
+* resolve validation bugs and standardize prop naming conventions ([f9b02d0](https://github.com/technway/technway-component-library/commit/f9b02d087bba9cde8813d7e940de24f79bfc663d))
+
 ## [2.9.0](https://github.com/technway/technway-component-library/compare/root-v2.8.1...root-v2.9.0) (2024-12-20)
 =======
 # [1.1.0](https://github.com/technway/technway-component-library/compare/v1.0.7...v1.1.0) (2024-12-20)

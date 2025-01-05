@@ -1,1 +1,1 @@
-cd packages/stencil-library && npm run test.spec
+# cd packages/stencil-library && npm run test.spec

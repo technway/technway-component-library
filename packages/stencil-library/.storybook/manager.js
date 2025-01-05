@@ -1,5 +1,5 @@
 import { addons } from '@storybook/manager-api';
-import '../dist/components-lib/components-lib.css';
+import '../dist/stencil-library/stencil-library.css';
 import customTheme from './custom-theme';
 import './custom-theme.css';
 

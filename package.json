@@ -5,10 +5,10 @@
     "packages/*"
   ],
   "scripts": {
-      "build:stencil": "lerna run build:stencil --scope @technway/stencil-library",
-      "build:react": "lerna run build --scope @technway/react-library",
-      "build:next": "lerna run build --scope @technway/next-library",
-      "build:all": "npm run build:stencil && npm run build:react && npm run build:next"
+    "build:stencil": "lerna run build:stencil --scope @technway/stencil-library",
+    "build:react": "lerna run build --scope @technway/react-library",
+    "build:next": "lerna run build --scope @technway/next-library",
+    "build:all": "npm run build:stencil && npm run build:react && npm run build:next"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",
@@ -21,5 +21,5 @@
   "dependencies": {
     "root": "file:"
   },
-  "version": "2.9.0"
+  "version": "3.0.0"
 }

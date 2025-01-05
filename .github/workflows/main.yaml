@@ -143,16 +143,16 @@ jobs:
       needs:
         - lint
         - test
-        # - chromatic
+        - chromatic
       steps:
         # Checkout the repository
         - name: Checkout code
           uses: actions/checkout@v3
           with:
-            fetch-depth: 0 
+            fetch-depth: 0
 
-        # Setup Node.js
-        - name: Setup Node.js
+        # Set up Node.js
+        - name: Set up Node.js
           uses: actions/setup-node@v3
           with:
             node-version: "20"
@@ -161,6 +161,13 @@ jobs:
         # Install dependencies
         - name: Install dependencies
           run: npm install
+
+        # Verify environment variables
+        - name: Verify Environment Variables
+          run: echo "NPM_TOKEN and GITHUB_TOKEN are set."
+          env:
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         # Authenticate with npm registry
         - name: Authenticate with npm
@@ -173,20 +180,9 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        # Build Stencil Library
-        - name: Build Stencil Library
-          run: |
-            npm run build:stencil
-
-        # Build React Library
-        - name: Build React Library
-          run: |
-            npm run build:react
-
-        # Build Next Library
-        - name: Build Next Library
-          run: |
-            npm run build:next
+        # Log git status
+        - name: Check Git Status
+          run: git status
 
         # Commit the changes made by `lerna version`
         - name: Commit version changes
@@ -199,9 +195,21 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        # Publish packages without versioning
+        # Publish packages
         - name: Publish packages
-          run: npx lerna publish from-package --yes
+          run: |
+            echo "Starting lerna publish..."
+            npx lerna publish from-package --yes
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+        # Post-publish success log
+        - name: Log Success
+          if: success()
+          run: echo "Packages published successfully."
+
+        # Post-publish failure log
+        - name: Log Failure
+          if: failure()
+          run: echo "Publishing failed. Check logs for details."

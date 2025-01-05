@@ -1,6 +1,6 @@
 /** @type { import('@storybook/html').Preview } */
 
-import '../dist/components-lib/components-lib.css';
+import '../dist/stencil-library/stencil-library.css';
 import './custom-doc.css';
 
 import { withThemeByClassName } from '@storybook/addon-themes';

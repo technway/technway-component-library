@@ -81,7 +81,8 @@
     "g:components-css-utils": "node scripts/generate-components-css-utils.mjs",
     "lint": "eslint src/**/*{.ts,.tsx}",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "genPackagelock": "npm i --package-lock-only"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",

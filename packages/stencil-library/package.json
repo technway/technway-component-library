@@ -52,7 +52,9 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "hydrate/",
+    "components/"
   ],
   "scripts": {
     "build:all": "npm run g:css-utils && stencil build",

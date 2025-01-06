@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/technway/technway-component-library/compare/@technway/next-library@0.1.2...@technway/next-library@0.1.3) (2025-01-06)
+
+
+### Bug Fixes
+
+* resolve generated react and next components paths ([bdc7f0c](https://github.com/technway/technway-component-library/commit/bdc7f0cd46cc080279e10309c004e0846583686d))
+
+
+
+
+
 # 0.1.0 (2025-01-06)
 
 

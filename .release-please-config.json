@@ -7,6 +7,10 @@
         "packages/react-library": {
             "package-name": "@technway/react-library",
             "release-type": "node"
+        },
+        "packages/next-library": {
+            "package-name": "@technway/next-library",
+            "release-type": "node"
         }
     },
     "release-type": "node",

@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.0.2](https://github.com/technway/technway-component-library/compare/root-v3.0.1...root-v3.0.2) (2025-01-06)
+
+
+### Bug Fixes
+
+* **react-library, next-library:** update react from 18 to 19 ([bca7f15](https://github.com/technway/technway-component-library/commit/bca7f1520082118055395220fadd302d9bfd2162))
+
 ## [3.0.1](https://github.com/technway/technway-component-library/compare/root-v3.0.0...root-v3.0.1) (2025-01-06)
 
 

@@ -41,6 +41,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.0.1](https://github.com/technway/technway-component-library/compare/root-v3.0.0...root-v3.0.1) (2025-01-06)
+
+
+### Bug Fixes
+
+* include components folder in published package ([5020851](https://github.com/technway/technway-component-library/commit/5020851ddb1119d64699b6b3bff7e70543d93bbc))
+* resolve generated react and next components paths ([bdc7f0c](https://github.com/technway/technway-component-library/commit/bdc7f0cd46cc080279e10309c004e0846583686d))
+
 ## [3.0.0](https://github.com/technway/technway-component-library/compare/root-v2.9.0...root-v3.0.0) (2025-01-05)
 
 

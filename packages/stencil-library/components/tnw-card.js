@@ -4,11 +4,11 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$5 } from './p-912d4f82.js';
-import { d as defineCustomElement$4 } from './p-98934875.js';
-import { d as defineCustomElement$3 } from './p-7e999fa0.js';
-import { d as defineCustomElement$2 } from './p-abe34d52.js';
+import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
+import { d as defineCustomElement$5 } from './p-63ff45e8.js';
+import { d as defineCustomElement$4 } from './p-b099ed17.js';
+import { d as defineCustomElement$3 } from './p-025cca58.js';
+import { d as defineCustomElement$2 } from './p-6191d268.js';
 
 const baseClass = `${GLOBAL_PREFIX}-card`;
 const contentClass = `${baseClass}__content`;
@@ -433,7 +433,7 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         return (h("div", { class: this.getContentClasses(), part: 'content' }, h("div", { class: `${this.baseClass}__content-heading` }, this.renderHeading(), this.renderSubheading()), this.renderDescription(), this.renderButton()));
     }
     render() {
-        return (h(Host, { key: '337aac186280798cdc46c9271595b96e6102d406', class: this.getHostClasses() }, this.orderContentFirst
+        return (h(Host, { key: '61cd42f300a76b806252178342b8123fae374e18', class: this.getHostClasses() }, this.orderContentFirst
             && this.renderContent(), this.renderImage(), !this.orderContentFirst
             && this.renderContent()));
     }

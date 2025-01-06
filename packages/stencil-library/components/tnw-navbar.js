@@ -4,12 +4,12 @@
  */
 import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, c as getBorderRadiusClass, u as isArrayEmpty, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass } from './p-80d80a0e.js';
-import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceColorSheet, e as extendedAppearanceStyleSheet } from './p-20eedb96.js';
+import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceColorSheet, e as extendedAppearanceStyleSheet } from './p-9bc88248.js';
 import { h } from './p-6af234bd.js';
-import { d as defineCustomElement$5 } from './p-3da652ec.js';
-import { d as defineCustomElement$4 } from './p-c7a6b158.js';
-import { d as defineCustomElement$3 } from './p-7e999fa0.js';
-import { d as defineCustomElement$2 } from './p-abe34d52.js';
+import { d as defineCustomElement$5 } from './p-7e4843f4.js';
+import { d as defineCustomElement$4 } from './p-5a064db7.js';
+import { d as defineCustomElement$3 } from './p-025cca58.js';
+import { d as defineCustomElement$2 } from './p-6191d268.js';
 
 const baseClass$6 = `${GLOBAL_PREFIX}-navbar-menu`;
 const itemClass = `${baseClass$6}__item`;
@@ -905,7 +905,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         return (h$1("nav", { class: this.getContentClasses(), part: 'navbar' }, h$1("div", { class: `${this.baseClass}__start` }, this.togglerPlacement === 'start' && this.menuToggler(), this.logo(), this.menuPlacement === 'start' && this.menu()), this.menuPlacement === 'middle' && (h$1("div", { class: `${this.baseClass}__middle ${this.menuExactCenter ? `${this.baseClass}__middle--exact-center` : ''}` }, this.menu())), h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '8b75e34bffb2fb15ab05d2f35c184860df35920b', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: '2a683edf4f24787ed155984bee212d017ff10a14', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {

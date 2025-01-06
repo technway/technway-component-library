@@ -22,7 +22,8 @@
   },
   "scripts": {
     "build": "npm run tsc",
-    "tsc": "tsc -p . --outDir ./dist"
+    "tsc": "tsc -p . --outDir ./dist",
+    "genPackagelock": "npm i --package-lock-only"
   },
   "bugs": {
     "url": "https://github.com/technway/technway-component-library/issues"

@@ -3,11 +3,6 @@
     "compilerOptions": {
         "baseUrl": ".",
         "outDir": "src",
-        "paths": {
-            "@technway/stencil-library/*": [
-                "../../node_modules/@technway/stencil-library/*"
-            ]
-        },
         "lib": [
             "dom",
             "es2015"

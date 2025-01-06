@@ -144,7 +144,8 @@ export const config: Config = {
     {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'auto-define-custom-elements',
-      externalRuntime: false
+      externalRuntime: false,
+      dir: 'components'
     },
     {
       type: 'dist-hydrate-script',

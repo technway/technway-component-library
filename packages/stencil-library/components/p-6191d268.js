@@ -4,7 +4,7 @@
  */
 import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
-import { t as typographyStyleSheet, c as colorStyleSheet } from './p-20eedb96.js';
+import { t as typographyStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
 import { v as validateHighlightText } from './p-13eae0fe.js';
 
 /**
@@ -376,7 +376,7 @@ const TnwText = /*@__PURE__*/ proxyCustomElement(class TnwText extends H {
     }
     render() {
         const Tag = this.textTag;
-        return (h(Host, { key: '34cac28356fac894f23f7bf50619892956c6427a', class: this.getHostClasses() }, h(Tag, { key: '28147b8a1b42fe5bc8fc0f64917de1d1ab741f0e', class: this.getTextClasses(), part: 'text' }, this.renderText(), h("slot", { key: '2089286f0257b90928583c96b537aabffb85ac12' }))));
+        return (h(Host, { key: '16cf5cc1a01b73555b939f6ae6a0589b7fde3e3b', class: this.getHostClasses() }, h(Tag, { key: '253ec1b320dd499c8a4dcc030a2314d641e75db5', class: this.getTextClasses(), part: 'text' }, this.renderText(), h("slot", { key: '09d9ad0cf9a23b9498a8bac6c24b31453b79239d' }))));
     }
     get el() { return this; }
 }, [1, "tnw-text", {
@@ -417,4 +417,4 @@ defineCustomElement();
 
 export { TnwText as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-abe34d52.js.map
+//# sourceMappingURL=p-6191d268.js.map

@@ -4,9 +4,9 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, r as parseJSONAsync, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber } from './p-80d80a0e.js';
-import { d as defineCustomElement$4 } from './p-3da652ec.js';
-import { d as defineCustomElement$3 } from './p-c7a6b158.js';
-import { d as defineCustomElement$2 } from './p-7e999fa0.js';
+import { d as defineCustomElement$4 } from './p-7e4843f4.js';
+import { d as defineCustomElement$3 } from './p-5a064db7.js';
+import { d as defineCustomElement$2 } from './p-025cca58.js';
 
 const baseClass = `${GLOBAL_PREFIX}-portfolio-grid`;
 const contentClass = `${baseClass}__content`;
@@ -201,7 +201,7 @@ const TnwPortfolioGrid$1 = /*@__PURE__*/ proxyCustomElement(class TnwPortfolioGr
         ].filter(Boolean).join(' ');
     }
     render() {
-        return (h(Host, { key: 'a507543971b2fece680054535203f50579f3d269', class: this.baseClass }, h("div", { key: '6f531ccc1cb6fce80309edc4431063682b5304fa', class: this.getContentClasses(), style: this.getColsStyles() }, this.parsedItemsData.map((item) => [
+        return (h(Host, { key: '6a3287907e176e3a566ca92758910fa97a2b80d7', class: this.baseClass }, h("div", { key: 'f00d7517c9411b34ef54cb437286f9090ebad421', class: this.getContentClasses(), style: this.getColsStyles() }, this.parsedItemsData.map((item) => [
             h("div", { class: `${this.baseClass}__item`, style: {
                     gridRow: isNotEmptyStringOrNumber(item.rowStart) ? `${item.rowStart} / ${item.rowEnd}` : '',
                     gridColumn: isNotEmptyStringOrNumber(item.colStart) ? `${item.colStart} / ${item.colEnd}` : '',

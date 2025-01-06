@@ -4,8 +4,8 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
-import { e as extendedAppearanceStyleSheet, c as colorStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$2 } from './p-c7a6b158.js';
+import { e as extendedAppearanceStyleSheet, c as colorStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
+import { d as defineCustomElement$2 } from './p-5a064db7.js';
 
 const baseClass = `${GLOBAL_PREFIX}-items-carousel`;
 const slideClass = `${baseClass}__slide`;
@@ -510,7 +510,7 @@ const TnwItemsCarousel$1 = /*@__PURE__*/ proxyCustomElement(class TnwItemsCarous
         return slots;
     }
     render() {
-        return (h(Host, { key: 'b23104078550182ee65e6581bbdec434e3411f61', class: this.getCarouselClasses() }, h("div", { key: 'b062a58f422ad80789a6c0d08d3dfea36a3845e7', class: this.getSlidesClasses(), "data-carousel-slides": true }, this.renderSlots()), !this.hideControls && this.renderControllers()));
+        return (h(Host, { key: '705637f910839b16505b693b58073fc5d39387cd', class: this.getCarouselClasses() }, h("div", { key: '0104306b406f4c9481de521479a63675da4b9765', class: this.getSlidesClasses(), "data-carousel-slides": true }, this.renderSlots()), !this.hideControls && this.renderControllers()));
     }
     get el() { return this; }
 }, [1, "tnw-items-carousel", {

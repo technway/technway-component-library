@@ -4,11 +4,11 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId } from './p-80d80a0e.js';
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet, h as fontFamilyStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$4 } from './p-61d7eae9.js';
-import { d as defineCustomElement$3 } from './p-63ff45e8.js';
-import { d as defineCustomElement$2 } from './p-67c33d87.js';
-import { d as defineCustomElement$1 } from './p-95b9069c.js';
+import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet, h as fontFamilyStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$4 } from './p-b2b7ed74.js';
+import { d as defineCustomElement$3 } from './p-912d4f82.js';
+import { d as defineCustomElement$2 } from './p-205792e6.js';
+import { d as defineCustomElement$1 } from './p-42809605.js';
 
 const baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
 const styles = `
@@ -276,7 +276,7 @@ const TnwNewsletterForm = /*@__PURE__*/ proxyCustomElement(class TnwNewsletterFo
     }
     render() {
         const parsedFormAttributes = this.parseAttributes(this.formAttributes);
-        return (h(Host, { key: 'a8ffa36a81a0f324e64abc56e0bb76347c74785a', class: this.getHostClasses() }, h("form", Object.assign({ key: '4de188ee86fefaaab30f93f85f6fc197344345cf', action: this.formAction, method: this.formMethod }, parsedFormAttributes), this.renderInput(), this.renderButton())));
+        return (h(Host, { key: 'b748cd4938ecbceacd1bdc55e5e236b961b84af5', class: this.getHostClasses() }, h("form", Object.assign({ key: '615d444acc4e33cc0ff6a6394782081fd4efc69a', action: this.formAction, method: this.formMethod }, parsedFormAttributes), this.renderInput(), this.renderButton())));
     }
     get el() { return this; }
 }, [1, "tnw-newsletter-form", {
@@ -330,4 +330,4 @@ defineCustomElement();
 
 export { TnwNewsletterForm as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-7fdf58be.js.map
+//# sourceMappingURL=p-e004da91.js.map

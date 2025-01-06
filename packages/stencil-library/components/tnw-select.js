@@ -4,9 +4,9 @@
  */
 import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, r as parseJSONAsync, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { b as borderRadiusStyleSheet, e as extendedAppearanceStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$3 } from './p-1cbf5c65.js';
-import { d as defineCustomElement$2 } from './p-5a064db7.js';
+import { b as borderRadiusStyleSheet, e as extendedAppearanceStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$3 } from './p-64d33a6f.js';
+import { d as defineCustomElement$2 } from './p-c7a6b158.js';
 
 const baseClass = `${GLOBAL_PREFIX}-select`;
 const buttonClass = `${baseClass}__button`;
@@ -523,7 +523,7 @@ const TnwSelect$1 = /*@__PURE__*/ proxyCustomElement(class TnwSelect extends H {
         return (h("ul", { class: this.getDropdownClasses(), "aria-labelledby": `${this.label}-label-${this.selectId}`, role: "listbox", tabIndex: -1, id: this.selectId, part: 'dropdown', "data-select": true }, options.map((option, index) => (this.renderSelectOption(option, index)))));
     }
     render() {
-        return (h(Host, { key: 'a71edf0dbc2dc73cc19297643cac237ae864e347', style: {
+        return (h(Host, { key: '8ae10f6143f54c4adaa024248b2f114876f52ce4', style: {
                 width: this.initialWidth,
             }, class: this.getHostClasses() }, this.renderSelectButton(), this.renderSelectDropdown()));
     }

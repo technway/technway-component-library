@@ -4,11 +4,11 @@
  */
 import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { c as colorStyleSheet } from './p-9bc88248.js';
+import { c as colorStyleSheet } from './p-20eedb96.js';
 import { s as setItemExpanded, a as state } from './p-1b00fef8.js';
-import { d as defineCustomElement$4 } from './p-63ff45e8.js';
-import { d as defineCustomElement$3 } from './p-5a064db7.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { d as defineCustomElement$4 } from './p-912d4f82.js';
+import { d as defineCustomElement$3 } from './p-c7a6b158.js';
+import { d as defineCustomElement$2 } from './p-abe34d52.js';
 
 const baseClass = `${GLOBAL_PREFIX}-accordion`;
 const styles = `
@@ -463,7 +463,7 @@ const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion exten
     render() {
         const buttonId = `${this.uniqueId}-header`;
         const contentId = `${this.uniqueId}-body`;
-        return (h(Host, { key: '8886581d8aa4a2d789e64ce36d50676f71d566ed', class: this.getHostClasses() }, this.renderHeader(buttonId, contentId), this.renderBody(buttonId, contentId)));
+        return (h(Host, { key: '6d195c4834cc546660174e0ab228c19b87e4faf9', class: this.getHostClasses() }, this.renderHeader(buttonId, contentId), this.renderBody(buttonId, contentId)));
     }
     get el() { return this; }
 }, [1, "tnw-accordion", {

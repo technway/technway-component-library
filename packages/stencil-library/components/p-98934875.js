@@ -4,9 +4,9 @@
  */
 import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
-import { t as typographyStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
+import { t as typographyStyleSheet, c as colorStyleSheet } from './p-20eedb96.js';
 import { v as validateHighlightText } from './p-13eae0fe.js';
-import { d as defineCustomElement$1 } from './p-6191d268.js';
+import { d as defineCustomElement$1 } from './p-abe34d52.js';
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -400,7 +400,7 @@ const TnwHeading = /*@__PURE__*/ proxyCustomElement(class TnwHeading extends H {
     }
     render() {
         const HeadingTag = this.level;
-        return (h(Host, { key: '7c6fcef25c51bc0b7006239b73bb827710f71847', class: this.getHostClasses() }, h(HeadingTag, { key: 'fd8cb5f70e6159d07b911714e8296207f2f145aa', class: this.getHeadingClasses(), part: 'heading' }, this.renderHeadingText() !== null ?
+        return (h(Host, { key: '981c7acdb298883d7a5c4dc460eedda47854c853', class: this.getHostClasses() }, h(HeadingTag, { key: '04dc2f40ef5be15fec3ebc72a52c9ab3437f2bda', class: this.getHeadingClasses(), part: 'heading' }, this.renderHeadingText() !== null ?
             this.renderHeadingText() :
             h("slot", null))));
     }
@@ -457,4 +457,4 @@ defineCustomElement();
 
 export { TnwHeading as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-b099ed17.js.map
+//# sourceMappingURL=p-98934875.js.map

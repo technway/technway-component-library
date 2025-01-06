@@ -5,10 +5,10 @@
 import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { c as createStore } from './p-8a7995fd.js';
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
+import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { s as sanitizeInput, c as containsSQLInjectionPatterns } from './p-664fd6b2.js';
-import { d as defineCustomElement$3 } from './p-61d7eae9.js';
-import { d as defineCustomElement$2 } from './p-95b9069c.js';
+import { d as defineCustomElement$3 } from './p-b2b7ed74.js';
+import { d as defineCustomElement$2 } from './p-42809605.js';
 
 const baseClass = `${GLOBAL_PREFIX}-textarea`;
 const styles = `
@@ -574,7 +574,7 @@ const TnwTextarea$1 = /*@__PURE__*/ proxyCustomElement(class TnwTextarea extends
         return (h("tnw-alert", { message: this.helpText, alertId: `${this.uniqueId}-help`, part: "help-text" }));
     }
     render() {
-        return (h(Host, { key: 'e9d93432b491c5fded85d186cc5b0332c779eed3' }, this.renderLabel(), h("textarea", Object.assign({ key: '28c2b287f6d441fcf1bcfa002b2b90c30c172fdf', class: this.getTextareaClasses(), id: this.uniqueId, name: this.name, required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, rows: this.rows, cols: this.cols, autocomplete: this.autoComplete, disabled: this.disabled, value: this.store.get('textareaValue') }, this.getAriaAttributes(), { onInput: this.handleTextareaOnInput, onChange: this.handleTextareaOnChange, part: "textarea" })), this.renderAlert() || this.renderHelpText()));
+        return (h(Host, { key: '2af4cd2c58baf3898b28809f4316646c4504f4f1' }, this.renderLabel(), h("textarea", Object.assign({ key: 'f127efdad3f3cb2765f94d0aef5d725dbbc2eab1', class: this.getTextareaClasses(), id: this.uniqueId, name: this.name, required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, rows: this.rows, cols: this.cols, autocomplete: this.autoComplete, disabled: this.disabled, value: this.store.get('textareaValue') }, this.getAriaAttributes(), { onInput: this.handleTextareaOnInput, onChange: this.handleTextareaOnChange, part: "textarea" })), this.renderAlert() || this.renderHelpText()));
     }
     get el() { return this; }
 }, [1, "tnw-textarea", {

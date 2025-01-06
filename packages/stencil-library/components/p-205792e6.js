@@ -4,11 +4,11 @@
  */
 import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
+import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { c as createStore } from './p-8a7995fd.js';
 import { s as sanitizeInput, c as containsSQLInjectionPatterns } from './p-664fd6b2.js';
-import { d as defineCustomElement$2 } from './p-61d7eae9.js';
-import { d as defineCustomElement$1 } from './p-95b9069c.js';
+import { d as defineCustomElement$2 } from './p-b2b7ed74.js';
+import { d as defineCustomElement$1 } from './p-42809605.js';
 
 const baseClass = `${GLOBAL_PREFIX}-input`;
 const styles = `
@@ -547,7 +547,7 @@ const TnwInput = /*@__PURE__*/ proxyCustomElement(class TnwInput extends H {
         return (h("tnw-alert", { message: this.helpText, alertId: `${this.uniqueId}-help`, part: "help-text" }));
     }
     render() {
-        return (h(Host, { key: 'b66331077d5378db091a1bf3146aa64e8c16f711' }, this.renderLabel(), h("input", Object.assign({ key: '3129df934bd84f8492bca47c939c31a1f43e9ae1', class: this.getInputClasses(), id: this.uniqueId, type: this.type, name: this.name, value: this.store.get('inputValue'), required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, pattern: this.pattern, autocomplete: this.autoComplete, disabled: this.disabled }, this.getAriaAttributes(), { onInput: this.handleInputOnInput, onChange: this.handleInputOnChange, part: 'input' })), this.renderAlert() || this.renderHelpText()));
+        return (h(Host, { key: 'adb6d178f6ac4918ff5cfa149eae2f097522413a' }, this.renderLabel(), h("input", Object.assign({ key: '3aae4b3dca4e4e896a1e6a2f500dca9032068fc3', class: this.getInputClasses(), id: this.uniqueId, type: this.type, name: this.name, value: this.store.get('inputValue'), required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, pattern: this.pattern, autocomplete: this.autoComplete, disabled: this.disabled }, this.getAriaAttributes(), { onInput: this.handleInputOnInput, onChange: this.handleInputOnChange, part: 'input' })), this.renderAlert() || this.renderHelpText()));
     }
     get el() { return this; }
 }, [1, "tnw-input", {
@@ -597,4 +597,4 @@ defineCustomElement();
 
 export { TnwInput as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-67c33d87.js.map
+//# sourceMappingURL=p-205792e6.js.map

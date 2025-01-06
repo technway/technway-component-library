@@ -4,8 +4,8 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass } from './p-80d80a0e.js';
-import { f as fontSizeStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$1 } from './p-5a064db7.js';
+import { f as fontSizeStyleSheet, c as colorStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$1 } from './p-c7a6b158.js';
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -219,7 +219,7 @@ const TnwAnchor = /*@__PURE__*/ proxyCustomElement(class TnwAnchor extends H {
         const { href, labelAriaValue, text, newTab, baseClass, hideNewTabIcon } = this;
         const target = newTab ? "_blank" : undefined;
         const rel = newTab ? "noopener noreferrer" : undefined;
-        return (h(Host, { key: 'a7c17cf9dbee2bbf89f96d866e6a6631b50e6f3b' }, h("a", { key: 'c972ba1b10bc38ba43f561c430faaa9787efe1cd', class: this.getAnchorClasses(), href: href, "aria-label": labelAriaValue, target: target, rel: rel, part: 'anchor' }, isNotEmptyString(text) && text, (!hideNewTabIcon && newTab) ? (h("tnw-icon", { class: `${baseClass}__newTab-icon`, name: 'tnw-arrow-up-right', hiddenAria: true, color: this.color, size: 'xs', part: 'icon' })) : (h("slot", null)))));
+        return (h(Host, { key: '61e4bee4a10fc2e2e663071794a500436791bff7' }, h("a", { key: '8fda5e56959a4cc7a35ee7366a710eefdebc7093', class: this.getAnchorClasses(), href: href, "aria-label": labelAriaValue, target: target, rel: rel, part: 'anchor' }, isNotEmptyString(text) && text, (!hideNewTabIcon && newTab) ? (h("tnw-icon", { class: `${baseClass}__newTab-icon`, name: 'tnw-arrow-up-right', hiddenAria: true, color: this.color, size: 'xs', part: 'icon' })) : (h("slot", null)))));
     }
     get el() { return this; }
 }, [1, "tnw-anchor", {
@@ -255,4 +255,4 @@ defineCustomElement();
 
 export { TnwAnchor as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-7e4843f4.js.map
+//# sourceMappingURL=p-3da652ec.js.map

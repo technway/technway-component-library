@@ -2,12 +2,12 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass, w as generateRandomColor } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$4 } from './p-b099ed17.js';
-import { d as defineCustomElement$3 } from './p-025cca58.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { d as defineCustomElement$4 } from './p-e9a15164.js';
+import { d as defineCustomElement$3 } from './p-a50feca5.js';
+import { d as defineCustomElement$2 } from './p-215cb154.js';
 
 const baseClass = `${GLOBAL_PREFIX}-testimonial-card`;
 const authorClass = `${baseClass}__author`;
@@ -233,17 +233,33 @@ const TnwTestimonialCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwTestimoni
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-testimonial-card`;
-        this.authorPhotoSrc = undefined;
-        this.authorPhotoAlt = undefined;
-        this.authorName = undefined;
-        this.authorRole = undefined;
-        this.text = undefined;
+        /**
+         * Controls the spacing between description and author details.
+         */
         this.spacing = 'sm';
+        /**
+         * The padding size for the card.
+         */
         this.padding = "sm";
+        /**
+         * The appearance style of the card.
+         */
         this.appearance = 'outlined';
+        /**
+         * The color appearance color of the card, determining the overall color scheme.
+         */
         this.appearanceColor = 'auto';
+        /**
+         * The border radius applied to the card.
+         */
         this.borderRadius = 'default';
+        /**
+         * If `true`, the card will have a glassmorphism effect applied to its background.
+         */
         this.useGlassmorphismEffect = false;
+        /**
+         * If `true`, a random gradient avatar will be generated when no photo is provided.
+         */
         this.useRandomAvatar = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();

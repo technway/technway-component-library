@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, c as getBorderRadiusClass, e as getExtendedAppearanceClass } from './p-80d80a0e.js';
 
 /**
@@ -224,14 +224,32 @@ const TnwBadge = /*@__PURE__*/ proxyCustomElement(class TnwBadge extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-badge`;
-        this.displayedLabel = undefined;
-        this.label = undefined;
+        /**
+         * Specifies the variant of the badge.
+         *
+         * - `image`: The badge will display an image. label will be ignored.
+         * - `color`: The badge will display a color. label and slot will be ignored.
+         * - `textual`: The badge will display text. label will be displayed.
+         * - `numeric`: The badge will display a number. even if the number is larger 99, the number displayed will be 99+.
+         *   The label will be limited to 99+.
+         */
         this.variant = 'textual';
+        /**
+         * The appearance determines the overall style of the badge, such as whether it is solid or outlined.
+         */
         this.appearance = 'outlined';
+        /**
+         * The color appearance color of the badge, determining the overall color scheme.
+         */
         this.appearanceColor = 'auto';
+        /**
+         * The size of the badge. controls padding if the variant is textual, else it controls width with height.
+         */
         this.size = 'sm';
+        /**
+         * The border radius of the badge. it will be ignored if variant is not textual.
+         */
         this.borderRadius = 'lg';
-        this.imageSrc = undefined;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -357,4 +375,4 @@ defineCustomElement();
 
 export { TnwBadge as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-1cbf5c65.js.map
+//# sourceMappingURL=p-e1633904.js.map

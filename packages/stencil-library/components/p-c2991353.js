@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet, h as fontFamilyStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$4 } from './p-61d7eae9.js';
-import { d as defineCustomElement$3 } from './p-63ff45e8.js';
-import { d as defineCustomElement$2 } from './p-67c33d87.js';
-import { d as defineCustomElement$1 } from './p-95b9069c.js';
+import { d as defineCustomElement$4 } from './p-084e02ae.js';
+import { d as defineCustomElement$3 } from './p-b5e7479f.js';
+import { d as defineCustomElement$2 } from './p-cf5c3c2a.js';
+import { d as defineCustomElement$1 } from './p-b8717627.js';
 
 const baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
 const styles = `
@@ -195,18 +195,36 @@ const TnwNewsletterForm = /*@__PURE__*/ proxyCustomElement(class TnwNewsletterFo
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
-        this.finalInputId = undefined;
+        /**
+         * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
+         */
         this.buttonLabel = 'Subscribe';
+        /**
+         * The placeholder for the email input
+         */
         this.inputPlaceholder = 'Enter your email';
+        /**
+         * The message to display after successful subscription
+         */
         this.successMessage = 'Thanks for subscribing!';
+        /**
+         * The border radius for the component. Set for both input and button
+         */
         this.borderRadius = 'default';
+        /**
+         * The variant for the component
+         * - Primary: The button is next to the input
+         * - Secondary: The button is inside the input
+         */
         this.variant = 'primary';
+        /**
+         * The theme for the component. It controls the color scheme of the component.
+         */
         this.theme = 'primary';
+        /**
+         * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
+         */
         this.enableButtonSlot = false;
-        this.inputId = undefined;
-        this.formAction = undefined;
-        this.formMethod = undefined;
-        this.formAttributes = undefined;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -330,4 +348,4 @@ defineCustomElement();
 
 export { TnwNewsletterForm as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-7fdf58be.js.map
+//# sourceMappingURL=p-c2991353.js.map

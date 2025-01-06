@@ -2,10 +2,10 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
 import { c as colorStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$2 } from './p-5a064db7.js';
+import { d as defineCustomElement$2 } from './p-86f498c8.js';
 
 const baseClass = `${GLOBAL_PREFIX}-rating`;
 const styles = `
@@ -124,11 +124,29 @@ const TnwRating$1 = /*@__PURE__*/ proxyCustomElement(class TnwRating extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-rating`;
+        /**
+         * The total number of stars to display in the rating component.
+         */
         this.totalStars = 5;
+        /**
+         * The current rating value to display as filled stars.
+         */
         this.rating = this.totalStars || 0;
+        /**
+         * The size of the stars.
+         */
         this.starSize = 'sm';
+        /**
+         * The color of the filled stars.
+         */
         this.filledStarColor = 'primary';
+        /**
+         * The color of the empty (unfilled) stars.
+         */
         this.emptyStarColor = 'auto';
+        /**
+         * If true, empty stars (unfilled) will be hidden, showing only the filled stars.
+         */
         this.hideEmptyStars = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();

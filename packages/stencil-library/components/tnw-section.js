@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, v as getDirectionalAppearanceClass } from './p-80d80a0e.js';
 import { a as containerStyleSheet } from './p-9bc88248.js';
 
@@ -305,15 +305,41 @@ const TnwSection$1 = /*@__PURE__*/ proxyCustomElement(class TnwSection extends H
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-section`;
+        /**
+         * If `true`, the section will have a glassmorphism effect applied to its background.
+         */
         this.useGlassmorphismEffect = false;
-        this.appearance = undefined;
+        /**
+         * Specifies the appearance color for the section's appearance.
+         */
         this.appearanceColor = 'auto';
+        /**
+         * If `true`, the section body will be wrapped in a container.
+         */
         this.disableInternalContainer = false;
+        /**
+         * The padding size applied to the section.
+         */
         this.padding = 'xl';
+        /**
+         * The margin size applied to the section.
+         */
         this.margin = 'none';
+        /**
+         * The spacing size between the section slots.
+         */
         this.spacing = 'md';
+        /**
+         * If `true`, the section is the first section on the page, and top padding/margin will not be applied.
+         */
         this.isFirstSection = false;
+        /**
+         * If `true`, the section is the last section on the page, and bottom padding/margin will not be applied.
+         */
         this.isLastSection = false;
+        /**
+         * The alignment of the section content.
+         */
         this.alignment = "start";
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();

@@ -2,11 +2,11 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, r as parseJSONAsync, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber } from './p-80d80a0e.js';
-import { d as defineCustomElement$4 } from './p-7e4843f4.js';
-import { d as defineCustomElement$3 } from './p-5a064db7.js';
-import { d as defineCustomElement$2 } from './p-025cca58.js';
+import { d as defineCustomElement$4 } from './p-66a62dc7.js';
+import { d as defineCustomElement$3 } from './p-86f498c8.js';
+import { d as defineCustomElement$2 } from './p-a50feca5.js';
 
 const baseClass = `${GLOBAL_PREFIX}-portfolio-grid`;
 const contentClass = `${baseClass}__content`;
@@ -146,9 +146,17 @@ const TnwPortfolioGrid$1 = /*@__PURE__*/ proxyCustomElement(class TnwPortfolioGr
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-portfolio-grid`;
         this.parsedItemsData = [];
-        this.itemsData = undefined;
+        /**
+         * Number of columns in the grid layout. Default is 3.
+         */
         this.columns = 3;
+        /**
+         * Spacing between grid items (identifies value of CSS gap property).
+         */
         this.spacing = 'sm';
+        /**
+         * Displays a gradient fade at the bottom of the grid. Default is `false`.
+         */
         this.showGradientFade = false;
         this.initializeStyles();
     }

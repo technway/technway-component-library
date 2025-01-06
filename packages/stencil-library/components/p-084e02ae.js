@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, e as getExtendedAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 
 const baseClass = `${GLOBAL_PREFIX}-alert`;
@@ -154,12 +154,21 @@ const TnwAlert = /*@__PURE__*/ proxyCustomElement(class TnwAlert extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-alert`;
-        this.alertId = undefined;
-        this.message = undefined;
+        /**
+         * Defines the font size of the alert message.
+         */
         this.size = 'sm';
+        /**
+         * The appearance of the alert, defining how the alert will be styled.
+         */
         this.appearance = 'transparent';
-        this.appearanceColor = undefined;
+        /**
+         * Controls whether the alert is visible or hidden. When `true`, the component does not render
+         */
         this.isHidden = false;
+        /**
+         * The border radius of the alert.
+         */
         this.borderRadius = 'default';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -219,4 +228,4 @@ defineCustomElement();
 
 export { TnwAlert as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-61d7eae9.js.map
+//# sourceMappingURL=p-084e02ae.js.map

@@ -2,10 +2,10 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber, j as getColorClass } from './p-80d80a0e.js';
 import { c as colorStyleSheet, a as containerStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { d as defineCustomElement$2 } from './p-215cb154.js';
 
 const baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
 const styles = `
@@ -241,20 +241,45 @@ const TnwCopyrightsFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwCopyrigh
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
-        this.startYear = undefined;
-        this.endYear = undefined;
+        /**
+         * If true, the starting year will be set to the current year.
+         */
         this.useCurrentYearAsStartYear = false;
+        /**
+         * If true, the ending year will be set to the current year.
+         */
         this.useCurrentYearAsEndYear = false;
-        this.organizationName = undefined;
-        this.preText = undefined;
-        this.postText = undefined;
+        /**
+         * The text color for the footer content.
+         */
         this.textColor = 'auto';
+        /**
+         * The color of the organization name. Defaults to the same value as `textColor`.
+         */
         this.organizationNameColor = this.textColor;
+        /**
+         * The background color for the footer.
+         */
         this.backgroundColor = 'auto';
+        /**
+         * The color of the top border of the footer.
+         */
         this.borderTopColor = 'auto';
+        /**
+         * If true, the footer will render custom content using a slot instead of the default content.
+         */
         this.enableSlot = false;
+        /**
+         * Centering text
+         */
         this.centerContent = false;
+        /**
+         * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
+         */
         this.disableInternalContainer = false;
+        /**
+         * If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.
+         */
         this.useDivAsContainer = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();

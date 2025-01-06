@@ -2,10 +2,10 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass } from './p-80d80a0e.js';
 import { f as fontSizeStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$1 } from './p-5a064db7.js';
+import { d as defineCustomElement$1 } from './p-86f498c8.js';
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -176,13 +176,21 @@ const TnwAnchor = /*@__PURE__*/ proxyCustomElement(class TnwAnchor extends H {
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-anchor`;
         this.labelAriaValue = this.labelAria;
-        this.href = undefined;
-        this.text = undefined;
+        /**
+         * Sets the color of the text based on the available colors.
+         */
         this.color = 'auto';
-        this.size = undefined;
-        this.labelAria = undefined;
+        /**
+         * Specifies the text decoration line of the anchor text.
+         */
         this.textDecoration = 'underline';
+        /**
+         * Specifies whether the link should open in a new browser tab.
+         */
         this.newTab = false;
+        /**
+         * Hides the new tab icon.
+         */
         this.hideNewTabIcon = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -255,4 +263,4 @@ defineCustomElement();
 
 export { TnwAnchor as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-7e4843f4.js.map
+//# sourceMappingURL=p-66a62dc7.js.map

@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
 import { t as typographyStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
 import { v as validateHighlightText } from './p-13eae0fe.js';
@@ -294,19 +294,29 @@ const TnwText = /*@__PURE__*/ proxyCustomElement(class TnwText extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-text`;
-        this.text = undefined;
-        this.highlight = undefined;
-        this.highlightColor = undefined;
+        /**
+         * Specifies the font weight of the highlighted text.
+         */
         this.highlightWeight = "600";
+        /**
+         * Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.
+         */
         this.highlightTag = "span";
-        this.alignment = undefined;
-        this.color = undefined;
-        this.size = undefined;
-        this.weight = undefined;
-        this.textCase = undefined;
+        /**
+         * Adjusts the line height of the text.
+         */
         this.lineHeight = "1_75";
+        /**
+         * The width size of the text. Use unset to avoid setting width.
+         */
         this.widthSize = 'full';
+        /**
+         * Defines the HTML tag of the component.
+         */
         this.textTag = "p";
+        /**
+         * Defines the display mode of the component. It's not recommended to use the `"inline"` display mode, use `"inline-block"` instead.
+         */
         this.displayMode = "block";
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -417,4 +427,4 @@ defineCustomElement();
 
 export { TnwText as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-6191d268.js.map
+//# sourceMappingURL=p-215cb154.js.map

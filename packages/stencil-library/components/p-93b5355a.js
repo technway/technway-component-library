@@ -2,16 +2,23 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { B as BUILD, N as NAMESPACE } from './p-dd363b95.js';
+import { B as BUILD, N as NAMESPACE } from './p-4617b122.js';
 
 /*
- Stencil Client Platform v4.23.0 | MIT Licensed | https://stenciljs.com
+ Stencil Client Platform v4.23.1 | MIT Licensed | https://stenciljs.com
  */
 var __defProp = Object.defineProperty;
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
+
+// src/utils/constants.ts
+var EMPTY_OBJ = {};
+var SVG_NS = "http://www.w3.org/2000/svg";
+var HTML_NS = "http://www.w3.org/1999/xhtml";
+
+// src/client/client-host-ref.ts
 var hostRefs = /* @__PURE__ */ new WeakMap();
 var getHostRef = (ref) => hostRefs.get(ref);
 var isMemberInElement = (elm, memberName) => memberName in elm;
@@ -64,14 +71,6 @@ var flush = () => {
 };
 var nextTick = (cb) => promiseResolve().then(cb);
 var writeTask = /* @__PURE__ */ queueTask(queueDomWrites, true);
-
-// src/utils/constants.ts
-var EMPTY_OBJ = {};
-var SVG_NS = "http://www.w3.org/2000/svg";
-var HTML_NS = "http://www.w3.org/1999/xhtml";
-
-// src/utils/helpers.ts
-var isDef = (v) => v != null;
 var isComplexType = (o) => {
   o = typeof o;
   return o === "object" || o === "function";
@@ -233,12 +232,19 @@ var setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags) => {
     if (memberName === "class") {
       const classList = elm.classList;
       const oldClasses = parseClassList(oldValue);
-      const newClasses = parseClassList(newValue);
-      if (elm["s-si"] && newClasses.indexOf(elm["s-si"]) < 0) {
+      let newClasses = parseClassList(newValue);
+      if (elm["s-si"]) {
         newClasses.push(elm["s-si"]);
+        oldClasses.forEach((c) => {
+          if (c.startsWith(elm["s-si"])) newClasses.push(c);
+        });
+        newClasses = [...new Set(newClasses)];
+        classList.add(...newClasses);
+        delete elm["s-si"];
+      } else {
+        classList.remove(...oldClasses.filter((c) => c && !newClasses.includes(c)));
+        classList.add(...newClasses.filter((c) => c && !oldClasses.includes(c)));
       }
-      classList.remove(...oldClasses.filter((c) => c && !newClasses.includes(c)));
-      classList.add(...newClasses.filter((c) => c && !oldClasses.includes(c)));
     } else if (memberName === "style") {
       {
         for (const prop in oldValue) {
@@ -330,7 +336,15 @@ var setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags) => {
   }
 };
 var parseClassListRegex = /\s/;
-var parseClassList = (value) => !value ? [] : value.split(parseClassListRegex);
+var parseClassList = (value) => {
+  if (typeof value === "object" && "baseVal" in value) {
+    value = value.baseVal;
+  }
+  if (!value) {
+    return [];
+  }
+  return value.split(parseClassListRegex);
+};
 var CAPTURE_EVENT_SUFFIX = "Capture";
 var CAPTURE_EVENT_REGEX = new RegExp(CAPTURE_EVENT_SUFFIX + "$");
 
@@ -359,13 +373,10 @@ function sortedAttrNames(attrNames) {
     attrNames
   );
 }
-
-// src/runtime/vdom/vdom-render.ts
-var scopeId;
 var hostTagName;
 var useNativeShadowDom = false;
 var isSvgMode = false;
-var createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
+var createElm = (oldParentVNode, newParentVNode, childIndex) => {
   const newVNode2 = newParentVNode.$children$[childIndex];
   let i2 = 0;
   let elm;
@@ -385,11 +396,6 @@ var createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
     }
     {
       updateElement(null, newVNode2, isSvgMode);
-    }
-    const rootNode = elm.getRootNode();
-    const isElementWithinShadowRoot = !rootNode.querySelector("body");
-    if (!isElementWithinShadowRoot && BUILD.scoped && isDef(scopeId) && elm["s-si"] !== scopeId) {
-      elm.classList.add(elm["s-si"] = scopeId);
     }
     if (newVNode2.$children$) {
       for (i2 = 0; i2 < newVNode2.$children$.length; ++i2) {
@@ -527,6 +533,9 @@ var isSameVnode = (leftVNode, rightVNode, isInitialRender = false) => {
     if (!isInitialRender) {
       return leftVNode.$key$ === rightVNode.$key$;
     }
+    if (isInitialRender && !leftVNode.$key$ && rightVNode.$key$) {
+      leftVNode.$key$ = rightVNode.$key$;
+    }
     return true;
   }
   return false;
@@ -599,9 +608,6 @@ var renderVdom = (hostRef, renderFnResults, isInitialLoad = false) => {
   rootVnode.$flags$ |= 4 /* isHost */;
   hostRef.$vnode$ = rootVnode;
   rootVnode.$elm$ = oldVNode.$elm$ = hostElm.shadowRoot || hostElm ;
-  {
-    scopeId = hostElm["s-sc"];
-  }
   useNativeShadowDom = (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) !== 0;
   patch(oldVNode, rootVnode, isInitialLoad);
 };
@@ -779,4 +785,4 @@ var addHydratedFlag = (elm) => {
 
 export { forceUpdate as f, getRenderingRef as g, h };
 
-//# sourceMappingURL=p-6af234bd.js.map
+//# sourceMappingURL=p-93b5355a.js.map

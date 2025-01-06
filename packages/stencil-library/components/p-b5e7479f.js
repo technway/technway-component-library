@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, d as getClassNames, e as getExtendedAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 
 const baseClass = `${GLOBAL_PREFIX}-button`;
@@ -374,19 +374,44 @@ const TnwButton = /*@__PURE__*/ proxyCustomElement(class TnwButton extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-button`;
+        /**
+         * Specifies the button type.
+         */
+        this.type = 'button';
+        /**
+         * Defines the appearance color of the button.
+         */
+        this.appearanceColor = 'primary';
+        /**
+         * Specifies the appearance color of the button.
+         */
+        this.appearance = 'solid';
+        /**
+         * Determines the size of the button.
+         */
+        this.size = 'md';
+        /**
+         * Specifies the hover appearance color for the button.
+         */
+        this.hoverAppearance = 'none';
+        /**
+         * Specifies the hover appearance color color for the button color.
+         */
+        this.hoverAppearanceColor = 'primary';
+        /**
+         * If `true`, the link will open in a new tab. Only relevant when `href` is provided.
+         */
+        this.newTab = false;
+        /**
+         * Specifies whether the button is disabled.
+         */
+        this.disabled = false;
+        /**
+         * Specifies the border radius of the button.
+         */
+        this.borderRadius = 'default';
         this.renderAnchor = () => (h("a", { class: this.getButtonClasses(), href: this.disabled ? undefined : this.href, target: this.newTab ? "_blank" : undefined, rel: this.newTab ? "noopener noreferrer" : undefined, "aria-disabled": this.disabled ? 'true' : undefined, part: 'button' }, this.renderButtonContent()));
         this.renderButtonElement = () => (h("button", { class: this.getButtonClasses(), type: this.type, disabled: this.disabled !== false ? true : undefined, part: 'button' }, this.renderButtonContent()));
-        this.label = undefined;
-        this.type = 'button';
-        this.appearanceColor = 'primary';
-        this.appearance = 'solid';
-        this.size = 'md';
-        this.hoverAppearance = 'none';
-        this.hoverAppearanceColor = 'primary';
-        this.href = undefined;
-        this.newTab = false;
-        this.disabled = false;
-        this.borderRadius = 'default';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -461,4 +486,4 @@ defineCustomElement();
 
 export { TnwButton as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-63ff45e8.js.map
+//# sourceMappingURL=p-b5e7479f.js.map

@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$5 } from './p-63ff45e8.js';
-import { d as defineCustomElement$4 } from './p-b099ed17.js';
-import { d as defineCustomElement$3 } from './p-025cca58.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { d as defineCustomElement$5 } from './p-b5e7479f.js';
+import { d as defineCustomElement$4 } from './p-e9a15164.js';
+import { d as defineCustomElement$3 } from './p-a50feca5.js';
+import { d as defineCustomElement$2 } from './p-215cb154.js';
 
 const baseClass = `${GLOBAL_PREFIX}-header-banner`;
 const contentClass = `${baseClass}__content`;
@@ -245,6 +245,34 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-header-banner`;
+        /**
+         * Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'.
+         */
+        this.theme = 'auto';
+        /**
+         * Controls the alignment of the banner content. Acceptable values are 'start', 'center', or 'end' to align the content horizontally and vertically within the banner. Default is 'start'.
+         */
+        this.alignment = 'start';
+        /**
+         * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
+         */
+        this.width = 'full';
+        /**
+         * When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.
+         */
+        this.stickyNavbar = false;
+        /**
+         * Enables the image slot for adding custom images to the banner.
+         */
+        this.enableImageSlot = false;
+        /**
+         * Wraps the image in a container for consistency.
+         */
+        this.wrapImage = false;
+        /**
+         * Controls the border radius of the banner image. It can be set to predefined size types or 'none' for no border.
+         */
+        this.imageBorderRadius = 'none';
         this.getThemeMatchedColor = () => {
             switch (this.theme) {
                 case 'primary':
@@ -263,19 +291,6 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
                     return 'auto';
             }
         };
-        this.heading = undefined;
-        this.subheading = undefined;
-        this.description = undefined;
-        this.buttonLabel = undefined;
-        this.theme = 'auto';
-        this.alignment = 'start';
-        this.width = 'full';
-        this.stickyNavbar = false;
-        this.enableImageSlot = false;
-        this.imageSrc = undefined;
-        this.imageAlt = undefined;
-        this.wrapImage = false;
-        this.imageBorderRadius = 'none';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);

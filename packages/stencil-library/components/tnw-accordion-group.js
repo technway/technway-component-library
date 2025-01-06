@@ -2,8 +2,8 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
-import { a as state } from './p-1b00fef8.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
+import { a as state } from './p-341e4e7a.js';
 import { i as isNotEmptyString } from './p-80d80a0e.js';
 
 /**
@@ -56,6 +56,9 @@ const TnwAccordionGroup$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordionG
         super();
         this.__registerHost();
         this.__attachShadow();
+        /**
+         * Whether to expand only one accordion item at a time.
+         */
         this.singleExpand = false;
     }
     componentWillLoad() {

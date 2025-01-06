@@ -2,11 +2,11 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
 import { t as typographyStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
 import { v as validateHighlightText } from './p-13eae0fe.js';
-import { d as defineCustomElement$1 } from './p-6191d268.js';
+import { d as defineCustomElement$1 } from './p-215cb154.js';
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -298,22 +298,29 @@ const TnwHeading = /*@__PURE__*/ proxyCustomElement(class TnwHeading extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-heading`;
-        this.computedWeight = undefined;
-        this.computedSize = undefined;
-        this.text = undefined;
-        this.highlight = undefined;
-        this.highlightColor = undefined;
+        /**
+         * Specifies the font weight of the highlighted text.
+         */
         this.highlightWeight = "600";
+        /**
+         * Specifies the HTML tag to be used for the highlighted text. Useful for SEO purposes.
+         */
         this.highlightTag = "span";
+        /**
+         * Specifies the HTML tag to be used for the heading.
+         */
         this.level = 'h2';
-        this.headingTag = undefined;
-        this.alignment = undefined;
-        this.color = undefined;
-        this.weight = undefined;
-        this.size = undefined;
-        this.textCase = undefined;
+        /**
+         * Adjusts the line height of the text.
+         */
         this.lineHeight = "1_5";
+        /**
+         * The width size of the text.
+         */
         this.widthSize = 'full';
+        /**
+         * If true, applies a text font style to the heading instead of the default heading font.
+         */
         this.useTextFont = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -457,4 +464,4 @@ defineCustomElement();
 
 export { TnwHeading as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-b099ed17.js.map
+//# sourceMappingURL=p-e9a15164.js.map

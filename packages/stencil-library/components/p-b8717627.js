@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { d as fontWeightStyleSheet, c as colorStyleSheet, g as textTransformStyleSheet } from './p-9bc88248.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
 
@@ -175,12 +175,17 @@ const TnwLabel = /*@__PURE__*/ proxyCustomElement(class TnwLabel extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-label`;
-        this.text = undefined;
-        this.htmlFor = undefined;
-        this.color = undefined;
+        /**
+         * Defines the font size of the label.
+         */
         this.size = "sm";
+        /**
+         * Specifies the font weight of the label.
+         */
         this.weight = "500";
-        this.textCase = undefined;
+        /**
+         * This prop is used to render the label as a hidden label for accessibility purposes.
+         */
         this.isSrOnly = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -256,4 +261,4 @@ defineCustomElement();
 
 export { TnwLabel as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-95b9069c.js.map
+//# sourceMappingURL=p-b8717627.js.map

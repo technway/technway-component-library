@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.0.3](https://github.com/technway/technway-component-library/compare/root-v3.0.2...root-v3.0.3) (2025-01-06)
+
+
+### Bug Fixes
+
+* update react packages to v19.0.0 ([64a500a](https://github.com/technway/technway-component-library/commit/64a500a4d847a5f7c4f393cf092f96eaffce2a46))
+
 ## [3.0.2](https://github.com/technway/technway-component-library/compare/root-v3.0.1...root-v3.0.2) (2025-01-06)
 
 

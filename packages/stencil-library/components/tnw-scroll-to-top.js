@@ -3,9 +3,9 @@
  * Copyright (c) Tecchnway.biz.
  */
 import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
+import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
-import { d as defineCustomElement$2 } from './p-c7a6b158.js';
+import { d as defineCustomElement$2 } from './p-5a064db7.js';
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -207,7 +207,7 @@ const TnwScrollToTop$1 = /*@__PURE__*/ proxyCustomElement(class TnwScrollToTop e
         };
     }
     render() {
-        return (h(Host, { key: 'c061fdb2a608e0c84ec48a9cc665a288a81b63b6', class: this.baseClass }, h("tnw-icon", { key: 'caec92d190d244d7070cb59018e1da4b257fbaef', name: this.customIconName, size: this.size, appearanceColor: this.appearanceColor, appearance: this.appearance, color: this.color, isButton: true, onClick: this.scrollToTop(), enableSvg: this.enableCustomSvgIcon, borderRadius: this.borderRadius, part: 'icon' }, h("slot", { key: '26998f8dda985d2fd4b927dd0ad43ddbdd2e263b', name: "icon-svg", slot: 'svg' }))));
+        return (h(Host, { key: '84e639a3c84140a3b42edef36d0409e53cede1e7', class: this.baseClass }, h("tnw-icon", { key: '385644dfa37af8388fa70260946f03a976112f8e', name: this.customIconName, size: this.size, appearanceColor: this.appearanceColor, appearance: this.appearance, color: this.color, isButton: true, onClick: this.scrollToTop(), enableSvg: this.enableCustomSvgIcon, borderRadius: this.borderRadius, part: 'icon' }, h("slot", { key: 'f40ccd673e5072d44c6b5bb94976b5806b361b91', name: "icon-svg", slot: 'svg' }))));
     }
     get el() { return this; }
 }, [1, "tnw-scroll-to-top", {

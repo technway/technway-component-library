@@ -4,7 +4,7 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, f as enforceRequiredPropsWhenConditionMissing, h as enforceGroupedPropsUsage, j as getColorClass, e as getExtendedAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { i as iconStyleSheet } from './p-20eedb96.js';
+import { i as iconStyleSheet } from './p-9bc88248.js';
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -396,7 +396,7 @@ const TnwIcon = /*@__PURE__*/ proxyCustomElement(class TnwIcon extends H {
     render() {
         const { enableSvg, name, hiddenAria, isButton, tooltip, labelAriaVal } = this;
         const iconAttributes = Object.assign(Object.assign(Object.assign(Object.assign({}, (hiddenAria && { 'aria-hidden': 'true' })), (isButton && { 'role': 'button' })), (tooltip && { 'title': tooltip })), (!hiddenAria && { 'aria-label': labelAriaVal }));
-        return (h(Host, { key: '97b3865585c8a56da93211538eedeeaf61842f03', class: this.getHostClasses() }, enableSvg ? (h("slot", { name: 'svg' })) : (h("i", Object.assign({ class: `icon-${name}` }, iconAttributes, { part: 'icon' })))));
+        return (h(Host, { key: 'aebcd2c1d9733c71c67d260aefb6df49c3e19992', class: this.getHostClasses() }, enableSvg ? (h("slot", { name: 'svg' })) : (h("i", Object.assign({ class: `icon-${name}` }, iconAttributes, { part: 'icon' })))));
     }
     get el() { return this; }
 }, [1, "tnw-icon", {
@@ -429,4 +429,4 @@ defineCustomElement();
 
 export { TnwIcon as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-c7a6b158.js.map
+//# sourceMappingURL=p-5a064db7.js.map

@@ -80,7 +80,7 @@ const TnwAccordionGroup$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordionG
         }
     }
     render() {
-        return (h(Host, { key: '0edd9744769ba31bda8780e947c9176a256db69a' }, h("slot", { key: '507aa838ce837d4c5b809c66f9a70b17724a2844' })));
+        return (h(Host, { key: '56f0c29be48d368fc39fd9b75b9a709c942f6955' }, h("slot", { key: 'd8f1f4e1a4fdc080979d706bdf6d2ec0d435ab11' })));
     }
     get el() { return this; }
 }, [1, "tnw-accordion-group", {

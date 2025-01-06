@@ -4,10 +4,10 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass, w as generateRandomColor } from './p-80d80a0e.js';
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$4 } from './p-98934875.js';
-import { d as defineCustomElement$3 } from './p-7e999fa0.js';
-import { d as defineCustomElement$2 } from './p-abe34d52.js';
+import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
+import { d as defineCustomElement$4 } from './p-b099ed17.js';
+import { d as defineCustomElement$3 } from './p-025cca58.js';
+import { d as defineCustomElement$2 } from './p-6191d268.js';
 
 const baseClass = `${GLOBAL_PREFIX}-testimonial-card`;
 const authorClass = `${baseClass}__author`;
@@ -291,7 +291,7 @@ const TnwTestimonialCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwTestimoni
                 this.renderRandomAvatar(), h("div", { class: `${this.baseClass}__author-details-section` }, h("tnw-heading", { level: "h3", size: "sm", weight: "600", text: this.authorName, class: `${this.baseClass}__author-name`, part: 'author-name', textCase: 'capitalize' }), h("tnw-text", { text: this.authorRole, size: "sm", weight: "300", textCase: "capitalize", class: `${this.baseClass}__author-role`, color: 'light', part: 'author-role' }))));
     }
     render() {
-        return (h(Host, { key: '4af35977a03d405cdd5780b92117bdb95927c526', class: this.getHostClasses() }, this.renderAuthorDetails(), h("tnw-text", { key: '1feb5c5af26ca5edc5ae655e23bcc28276c7d3bf', text: this.text, class: `${this.baseClass}__description`, part: 'description', lineHeight: '1_75', weight: '300' })));
+        return (h(Host, { key: 'bfebd11ec1c7337280ccae2a55ebefdd0405b2df', class: this.getHostClasses() }, this.renderAuthorDetails(), h("tnw-text", { key: '0f6b932415e062e1aeace4d671e40815deb24566', text: this.text, class: `${this.baseClass}__description`, part: 'description', lineHeight: '1_75', weight: '300' })));
     }
     get el() { return this; }
 }, [1, "tnw-testimonial-card", {

@@ -4,17 +4,17 @@
  */
 import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, r as parseJSONAsync, j as getColorClass } from './p-80d80a0e.js';
-import { c as colorStyleSheet, a as containerStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$b } from './p-b2b7ed74.js';
-import { d as defineCustomElement$a } from './p-3da652ec.js';
-import { d as defineCustomElement$9 } from './p-912d4f82.js';
-import { d as defineCustomElement$8 } from './p-98934875.js';
-import { d as defineCustomElement$7 } from './p-c7a6b158.js';
-import { d as defineCustomElement$6 } from './p-7e999fa0.js';
-import { d as defineCustomElement$5 } from './p-205792e6.js';
-import { d as defineCustomElement$4 } from './p-42809605.js';
-import { d as defineCustomElement$3 } from './p-e004da91.js';
-import { d as defineCustomElement$2 } from './p-abe34d52.js';
+import { c as colorStyleSheet, a as containerStyleSheet } from './p-9bc88248.js';
+import { d as defineCustomElement$b } from './p-61d7eae9.js';
+import { d as defineCustomElement$a } from './p-7e4843f4.js';
+import { d as defineCustomElement$9 } from './p-63ff45e8.js';
+import { d as defineCustomElement$8 } from './p-b099ed17.js';
+import { d as defineCustomElement$7 } from './p-5a064db7.js';
+import { d as defineCustomElement$6 } from './p-025cca58.js';
+import { d as defineCustomElement$5 } from './p-67c33d87.js';
+import { d as defineCustomElement$4 } from './p-95b9069c.js';
+import { d as defineCustomElement$3 } from './p-7fdf58be.js';
+import { d as defineCustomElement$2 } from './p-6191d268.js';
 
 const baseClass = `${GLOBAL_PREFIX}-footer`;
 const styles = `
@@ -384,7 +384,7 @@ const TnwFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwFooter extends H {
     }
     render() {
         const { parsedFooterData } = this;
-        return (h(Host, { key: 'ea7d60959e9fbf9d54529fb8a93ad510e3992bc4', class: this.getHostClasses() }, h("footer", { key: '0620c28029ab91fd1d2a7f32efb6d537dad3930f', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: 'ded5760ba3faa9bb8074f230d752a3038f5b68ee', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderNewsletter(parsedFooterData.newsletter))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "newsletter" })))), h("slot", { key: '67fc11595f37bb74a4af2cca9e6f3c77989b122a', name: "copyrights" }))));
+        return (h(Host, { key: '499c03f6bf8fdbde4f45dcac5af5df19507732f3', class: this.getHostClasses() }, h("footer", { key: '95091553b503132f1802941232e222344a29dd2d', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: 'd5e1ffbb078ee214a0a9a20ffee20361fd8cf34d', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderNewsletter(parsedFooterData.newsletter))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "newsletter" })))), h("slot", { key: 'd4604453a3983be9368b246ced829d46b6b7e73e', name: "copyrights" }))));
     }
     get el() { return this; }
 }, [1, "tnw-footer", {

@@ -4,7 +4,7 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, s as getMinHeightClass, t as getHeightClass } from './p-80d80a0e.js';
-import { a as containerStyleSheet } from './p-20eedb96.js';
+import { a as containerStyleSheet } from './p-9bc88248.js';
 
 const baseClass = `${GLOBAL_PREFIX}-header`;
 const contentClass = `${baseClass}__content`;
@@ -210,7 +210,7 @@ const TnwHeader$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeader extends H {
         ].filter(Boolean).join(' ').trim();
     }
     render() {
-        return (h(Host, { key: 'f5dcff9ad7b359dcd44e14baa467e33f03694f36', class: this.getHostClasses() }, h("header", { key: '91be0b166662d5a0a78b6e3ea6cd7e0d515e1f5a', class: this.getContentClasses(), part: 'header' }, h("slot", { key: '0b79e25118ce0610cf76f4c135b11dcd54579a19', name: 'navbar' }), h("slot", { key: '18541f6f57f7836ccaae75e1cd0d648e573aa936', name: 'banner' }))));
+        return (h(Host, { key: '742aa3ee9280cccc52a0f4094f208ea6ff9e76b0', class: this.getHostClasses() }, h("header", { key: '8e833878c22eba99bd02122b96bbe9813d2e6204', class: this.getContentClasses(), part: 'header' }, h("slot", { key: '36fef41b55ac3214d9deb2a7fb9487e1e92a9c3e', name: 'navbar' }), h("slot", { key: '8e7f1bfe5b0906bc21d54cfd4ea133b66654565b', name: 'banner' }))));
     }
     get el() { return this; }
 }, [1, "tnw-header", {

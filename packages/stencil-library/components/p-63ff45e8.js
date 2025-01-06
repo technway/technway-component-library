@@ -426,7 +426,7 @@ const TnwButton = /*@__PURE__*/ proxyCustomElement(class TnwButton extends H {
         return (h(Fragment, null, h("slot", { name: "icon-start" }), isNotEmptyString(this.label) ? this.label : h("slot", null), h("slot", { name: "icon-end" })));
     }
     render() {
-        return (h(Host, { key: 'e5a593359c2597a925ceb09e96211dcdefba5b4d', class: this.getHostClasses() }, isNotEmptyString(this.href) ?
+        return (h(Host, { key: '831ac1441da3fcb0bad13aef51bf1fb22c1d0a7f', class: this.getHostClasses() }, isNotEmptyString(this.href) ?
             this.renderAnchor() :
             this.renderButtonElement()));
     }
@@ -461,4 +461,4 @@ defineCustomElement();
 
 export { TnwButton as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-912d4f82.js.map
+//# sourceMappingURL=p-63ff45e8.js.map

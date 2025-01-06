@@ -4,9 +4,9 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, r as parseJSONAsync, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
-import { t as typographyStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$3 } from './p-7e4843f4.js';
-import { d as defineCustomElement$2 } from './p-5a064db7.js';
+import { t as typographyStyleSheet, c as colorStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$3 } from './p-3da652ec.js';
+import { d as defineCustomElement$2 } from './p-c7a6b158.js';
 
 const baseClass = `${GLOBAL_PREFIX}-list`;
 const subListClass = `${baseClass}__sub-list`;

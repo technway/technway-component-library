@@ -4,7 +4,7 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, o as getAspectRatioClass, p as getObjectFitClass, q as getObjectPositionClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { m as mediaStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
+import { m as mediaStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -276,7 +276,7 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
     render() {
         const image = this.renderImage();
         const hasCaption = Boolean(this.caption);
-        return (h(Host, { key: '6bcb6f7a2e56cf7a32d0ac1388c27977dc5080ef', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
+        return (h(Host, { key: 'ff1506dad4ced7f6419c82d72a49cfb8c3ca6bb5', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
     }
     get el() { return this; }
 }, [1, "tnw-image", {
@@ -308,4 +308,4 @@ defineCustomElement();
 
 export { TnwImage as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-025cca58.js.map
+//# sourceMappingURL=p-7e999fa0.js.map

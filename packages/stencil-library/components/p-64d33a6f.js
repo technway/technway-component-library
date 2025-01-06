@@ -324,7 +324,7 @@ const TnwBadge = /*@__PURE__*/ proxyCustomElement(class TnwBadge extends H {
     }
     render() {
         const isLabelUsed = isNotEmptyString(this.displayedLabel);
-        return (h(Host, { key: '60ca9bc0588547c6547c452e905e12ac4b37a5ab', class: this.getBadgeClasses(), style: this.getImageStyles() }, this.variant !== 'status' && this.variant !== 'image'
+        return (h(Host, { key: '973cfbd3a0a354c1eaf8adcd9200070c1d845cd3', class: this.getBadgeClasses(), style: this.getImageStyles() }, this.variant !== 'status' && this.variant !== 'image'
             && (isLabelUsed
                 ? this.displayedLabel
                 : h("slot", null))));
@@ -357,4 +357,4 @@ defineCustomElement();
 
 export { TnwBadge as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-1cbf5c65.js.map
+//# sourceMappingURL=p-64d33a6f.js.map

@@ -4,8 +4,8 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber, j as getColorClass } from './p-80d80a0e.js';
-import { c as colorStyleSheet, a as containerStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { c as colorStyleSheet, a as containerStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$2 } from './p-abe34d52.js';
 
 const baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
 const styles = `
@@ -320,7 +320,7 @@ const TnwCopyrightsFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwCopyrigh
     }
     render() {
         const FooterTag = this.useDivAsContainer ? 'div' : 'footer';
-        return (h(Host, { key: '469486c6edafe815cc1e3da2cebee4a82110b53b', class: this.getHostClasses() }, h(FooterTag, { key: '6d6e68cbb64e6707f0916c9019da0b06ea40d3dc', class: !this.disableInternalContainer ? 'container' : '', part: 'container', "aria-label": "Copyright information" }, this.enableSlot ? (h("slot", null)) : (this.renderContent()))));
+        return (h(Host, { key: '46f0d369fd30e031160a6e9af5a64555bc19b759', class: this.getHostClasses() }, h(FooterTag, { key: '09f35df47163d73ed808b36a8a1e632caace9f16', class: !this.disableInternalContainer ? 'container' : '', part: 'container', "aria-label": "Copyright information" }, this.enableSlot ? (h("slot", null)) : (this.renderContent()))));
     }
     get el() { return this; }
 }, [1, "tnw-copyrights-footer", {

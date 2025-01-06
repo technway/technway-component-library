@@ -341,7 +341,7 @@ const TnwContactBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwContactBann
         ].filter(Boolean).join(' ').trim();
     }
     render() {
-        return (h(Host, { key: 'b064ad607def7ed35ba15ec45ca684e65f462db4', class: this.getHostClasses() }, this.enableContentSlot ?
+        return (h(Host, { key: 'c12a9ffc69e0b2dbffde782dfd33aee2cd4b1146', class: this.getHostClasses() }, this.enableContentSlot ?
             h("slot", { name: 'content' })
             : (h(Fragment, null, h("div", { class: `${this.baseClass}__content` }, h("div", { class: `${this.baseClass}__content-heading` }, h("slot", { name: "subtitle" }), h("slot", { name: "title" })), h("slot", { name: "description" })), h("slot", { name: "button" })))));
     }

@@ -3,7 +3,7 @@
  * Copyright (c) Tecchnway.biz.
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
-import { d as fontWeightStyleSheet, c as colorStyleSheet, g as textTransformStyleSheet } from './p-9bc88248.js';
+import { d as fontWeightStyleSheet, c as colorStyleSheet, g as textTransformStyleSheet } from './p-20eedb96.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
 
 const baseClass = `${GLOBAL_PREFIX}-label`;
@@ -227,7 +227,7 @@ const TnwLabel = /*@__PURE__*/ proxyCustomElement(class TnwLabel extends H {
         };
     }
     render() {
-        return (h(Host, { key: '8c89b1f5b0f3545467e72cb0b6e9c815b7b180ac', style: this.getSrOnlyClasses() }, h("label", { key: '57ef93480f7a2e5ce222aed6b0dcbe3882344c4d', class: this.getClasses(), htmlFor: this.htmlFor, part: 'label' }, this.text)));
+        return (h(Host, { key: '6f98d8dfb2cf13c86c9feed75ae6c9204812cf2e', style: this.getSrOnlyClasses() }, h("label", { key: '47c05fcb19ca55e2dfa2300b4e509146847fd133', class: this.getClasses(), htmlFor: this.htmlFor, part: 'label' }, this.text)));
     }
     get el() { return this; }
 }, [1, "tnw-label", {
@@ -256,4 +256,4 @@ defineCustomElement();
 
 export { TnwLabel as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-95b9069c.js.map
+//# sourceMappingURL=p-42809605.js.map

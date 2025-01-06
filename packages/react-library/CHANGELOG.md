@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/technway/technway-component-library/compare/@technway/react-library@2.0.2...@technway/react-library@2.0.4) (2025-01-06)
+
+
+### Bug Fixes
+
+* resolve generated react and next components paths ([bdc7f0c](https://github.com/technway/technway-component-library/commit/bdc7f0cd46cc080279e10309c004e0846583686d))
+
+
+
+
+
 ## [2.0.3](https://github.com/technway/technway-component-library/compare/@technway/react-library@2.0.2...@technway/react-library@2.0.3) (2025-01-06)
 
 

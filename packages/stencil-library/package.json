@@ -29,6 +29,12 @@
       "require": "./loader/index.js",
       "default": "./loader/index.js"
     },
+    "./components/*": {
+      "types": "./dist/types/components/*.d.ts",
+      "import": "./dist/components/*.js",
+      "require": "./dist/components/*.js",
+      "default": "./dist/components/*.js"
+    },
     "./components/*.js": {
       "types": "./dist/types/components/*.d.ts",
       "import": "./components/*.js"
@@ -46,8 +52,7 @@
   },
   "files": [
     "dist/",
-    "loader/",
-    "hydrate/"
+    "loader/"
   ],
   "scripts": {
     "build:all": "npm run g:css-utils && stencil build",

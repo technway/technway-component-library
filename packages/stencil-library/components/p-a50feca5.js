@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, o as getAspectRatioClass, p as getObjectFitClass, q as getObjectPositionClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { m as mediaStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
 
@@ -216,15 +216,29 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-image`;
-        this.src = undefined;
-        this.alt = undefined;
+        /**
+         * An optional caption to be displayed below the image.
+         */
         this.caption = '';
+        /**
+         * The width size of the image.
+         */
         this.widthSize = 'full';
-        this.heightSize = undefined;
+        /**
+         * The aspect ratio of the image (width / height). Useful for maintaining image proportions.
+         */
         this.aspectRatio = "initial";
+        /**
+         * The object position of the image. This defines how the image is positioned within its container.
+         */
         this.objectPosition = "initial";
-        this.objectFit = undefined;
+        /**
+         * If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.
+         */
         this.lazyLoading = false;
+        /**
+         * Determines the border radius of the image.
+         */
         this.BorderRadius = 'default';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -308,4 +322,4 @@ defineCustomElement();
 
 export { TnwImage as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-025cca58.js.map
+//# sourceMappingURL=p-a50feca5.js.map

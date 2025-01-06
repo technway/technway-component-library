@@ -2,14 +2,14 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, c as getBorderRadiusClass, u as isArrayEmpty, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass } from './p-80d80a0e.js';
 import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceColorSheet, e as extendedAppearanceStyleSheet } from './p-9bc88248.js';
-import { h } from './p-6af234bd.js';
-import { d as defineCustomElement$5 } from './p-7e4843f4.js';
-import { d as defineCustomElement$4 } from './p-5a064db7.js';
-import { d as defineCustomElement$3 } from './p-025cca58.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { h } from './p-93b5355a.js';
+import { d as defineCustomElement$5 } from './p-66a62dc7.js';
+import { d as defineCustomElement$4 } from './p-86f498c8.js';
+import { d as defineCustomElement$3 } from './p-a50feca5.js';
+import { d as defineCustomElement$2 } from './p-215cb154.js';
 
 const baseClass$6 = `${GLOBAL_PREFIX}-navbar-menu`;
 const itemClass = `${baseClass$6}__item`;
@@ -796,27 +796,58 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         this.tnwMenuToggle = createEvent(this, "tnwMenuToggle", 7);
         this.tnwScrollChange = createEvent(this, "tnwScrollChange", 7);
         this.baseClass = `${GLOBAL_PREFIX}-navbar`;
+        this.parsedMenuData = null;
+        this.parsedLogoData = null;
+        this.isVisible = false;
+        /**
+         * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
+         */
+        this.appearance = 'solid';
+        /**
+         * Specifies the appearance color of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
+         */
+        this.appearanceColor = 'auto';
+        /**
+         * Makes the navigation bar sticky at the top of the viewport when set to true.
+         */
+        this.sticky = false;
+        /**
+         * If true, the navigation bar content will not be wrapped in a container for centering and padding.
+         */
+        this.disableInternalContainer = false;
+        /**
+         * When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.
+         */
+        this.menuExactCenter = false;
+        /**
+         * Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.
+         */
+        this.menuPlacement = 'middle';
+        /**
+         * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
+         */
+        this.togglerPlacement = 'end';
+        /**
+         * Sets the border-radius of the navigation bar.
+         */
+        this.borderRadius = 'default';
+        /**
+         * Sets the padding size of the navigation bar.
+         */
+        this.padding = 'none';
+        /**
+         * If true, the CTA slot is enabled.
+         */
+        this.enableCtaSlot = false;
+        /**
+         * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
+         */
+        this.hideMenuBelow = false;
         this.handleScroll = () => {
             if (this.sticky) {
                 this.tnwScrollChange.emit({ scrollY: window.scrollY });
             }
         };
-        this.parsedMenuData = null;
-        this.parsedLogoData = null;
-        this.isVisible = false;
-        this.appearance = 'solid';
-        this.appearanceColor = 'auto';
-        this.sticky = false;
-        this.disableInternalContainer = false;
-        this.menuExactCenter = false;
-        this.menuPlacement = 'middle';
-        this.togglerPlacement = 'end';
-        this.borderRadius = 'default';
-        this.padding = 'none';
-        this.menuData = undefined;
-        this.logoData = undefined;
-        this.enableCtaSlot = false;
-        this.hideMenuBelow = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);

@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { c as colorStyleSheet } from './p-9bc88248.js';
-import { s as setItemExpanded, a as state } from './p-1b00fef8.js';
-import { d as defineCustomElement$4 } from './p-63ff45e8.js';
-import { d as defineCustomElement$3 } from './p-5a064db7.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { s as setItemExpanded, a as state } from './p-341e4e7a.js';
+import { d as defineCustomElement$4 } from './p-b5e7479f.js';
+import { d as defineCustomElement$3 } from './p-86f498c8.js';
+import { d as defineCustomElement$2 } from './p-215cb154.js';
 
 const baseClass = `${GLOBAL_PREFIX}-accordion`;
 const styles = `
@@ -298,6 +298,30 @@ const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion exten
         this.__attachShadow();
         this.accordionToggled = createEvent(this, "accordionToggled", 7);
         this.baseClass = `${GLOBAL_PREFIX}-accordion`;
+        /**
+         * If `true`, the accordion item will be expanded by default.
+         */
+        this.expand = false;
+        /**
+         * The appearance color of the accordion, determining the overall color scheme.
+         */
+        this.appearanceColor = 'auto';
+        /**
+         * The appearance color of the accordion.
+         */
+        this.appearance = 'outlined';
+        /**
+         * If `true`, a custom icon can be provided via the `icon` slot instead of the default icon.
+         */
+        this.enableCustomExpandIcon = false;
+        /**
+         * If `true`, the arrow icon rotates when the accordion is expanded to visually indicate the state change.
+         */
+        this.disableExpandIconRotate = false;
+        /**
+         * The border radius of the accordion.
+         */
+        this.borderRadius = "default";
         this.toggleAccordion = () => {
             const newState = !this.isExpanded;
             setItemExpanded(this.uniqueId, newState);
@@ -309,17 +333,6 @@ const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion exten
                 this.toggleAccordion();
             }
         };
-        this.uniqueId = undefined;
-        this.heading = undefined;
-        this.content = undefined;
-        this.expand = false;
-        this.accordionId = undefined;
-        this.appearanceColor = 'auto';
-        this.color = undefined;
-        this.appearance = 'outlined';
-        this.enableCustomExpandIcon = false;
-        this.disableExpandIconRotate = false;
-        this.borderRadius = "default";
         this.initializeStyles();
     }
     connectedCallback() {

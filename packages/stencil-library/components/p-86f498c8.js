@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, f as enforceRequiredPropsWhenConditionMissing, h as enforceGroupedPropsUsage, j as getColorClass, e as getExtendedAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { i as iconStyleSheet } from './p-9bc88248.js';
 
@@ -329,16 +329,38 @@ const TnwIcon = /*@__PURE__*/ proxyCustomElement(class TnwIcon extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-icon`;
-        this.name = undefined;
+        /**
+         * Defines the appearance color of the icon.
+         */
         this.appearanceColor = 'auto';
+        /**
+         * Determines the visual appearance color of the icon (e.g., solid, outlined).
+         */
         this.appearance = 'none';
+        /**
+         * Sets the color of the icon. This will be used to set the color of the icon element.
+         * Not supported when svg is enabled.
+         */
         this.color = 'auto';
+        /**
+         * Specifies the size of the icon. The size means that the icon will have the width same as the height.
+         */
         this.size = 'sm';
-        this.tooltip = undefined;
+        /**
+         * If `true`, the icon will be rendered as an SVG. The SVG content should be provided via the `svg` slot.
+         */
         this.enableSvg = false;
-        this.labelAria = undefined;
+        /**
+         * If `true`, the icon will be hidden from screen readers. Defaults to `true`.
+         */
         this.hiddenAria = false;
+        /**
+         * If `true`, the icon will be treated as a button, with appropriate `role` and additional classes.
+         */
         this.isButton = false;
+        /**
+         * Determines the border radius of the icon.
+         */
         this.borderRadius = 'default';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -429,4 +451,4 @@ defineCustomElement();
 
 export { TnwIcon as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-5a064db7.js.map
+//# sourceMappingURL=p-86f498c8.js.map

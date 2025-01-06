@@ -2,19 +2,19 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, r as parseJSONAsync, j as getColorClass } from './p-80d80a0e.js';
 import { c as colorStyleSheet, a as containerStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$b } from './p-61d7eae9.js';
-import { d as defineCustomElement$a } from './p-7e4843f4.js';
-import { d as defineCustomElement$9 } from './p-63ff45e8.js';
-import { d as defineCustomElement$8 } from './p-b099ed17.js';
-import { d as defineCustomElement$7 } from './p-5a064db7.js';
-import { d as defineCustomElement$6 } from './p-025cca58.js';
-import { d as defineCustomElement$5 } from './p-67c33d87.js';
-import { d as defineCustomElement$4 } from './p-95b9069c.js';
-import { d as defineCustomElement$3 } from './p-7fdf58be.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { d as defineCustomElement$b } from './p-084e02ae.js';
+import { d as defineCustomElement$a } from './p-66a62dc7.js';
+import { d as defineCustomElement$9 } from './p-b5e7479f.js';
+import { d as defineCustomElement$8 } from './p-e9a15164.js';
+import { d as defineCustomElement$7 } from './p-86f498c8.js';
+import { d as defineCustomElement$6 } from './p-a50feca5.js';
+import { d as defineCustomElement$5 } from './p-cf5c3c2a.js';
+import { d as defineCustomElement$4 } from './p-b8717627.js';
+import { d as defineCustomElement$3 } from './p-c2991353.js';
+import { d as defineCustomElement$2 } from './p-215cb154.js';
 
 const baseClass = `${GLOBAL_PREFIX}-footer`;
 const styles = `
@@ -301,15 +301,38 @@ const TnwFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwFooter extends H {
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-footer`;
         this.parsedFooterData = null;
+        /**
+         * The background color for the footer.
+         */
         this.backgroundColor = 'auto';
+        /**
+         * The color for the footer border.
+         */
         this.borderTopColor = 'auto';
+        /**
+         * The padding size applied to the footer.
+         */
         this.padding = 'xl';
+        /**
+         * The margin top size applied to the footer.
+         */
         this.margin = 'none';
+        /**
+         * The color for the footer headings.
+         */
         this.headingColor = 'auto';
+        /**
+         * The color for the footer content.
+         */
         this.textColor = 'auto';
+        /**
+         * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
+         */
         this.disableInternalContainer = false;
+        /**
+         * Center-align the footer content.
+         */
         this.centerContent = false;
-        this.footerData = undefined;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);

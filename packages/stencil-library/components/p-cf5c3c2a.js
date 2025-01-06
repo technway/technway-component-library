@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
-import { c as createStore } from './p-8a7995fd.js';
+import { c as createStore } from './p-c039142c.js';
 import { s as sanitizeInput, c as containsSQLInjectionPatterns } from './p-664fd6b2.js';
-import { d as defineCustomElement$2 } from './p-61d7eae9.js';
-import { d as defineCustomElement$1 } from './p-95b9069c.js';
+import { d as defineCustomElement$2 } from './p-084e02ae.js';
+import { d as defineCustomElement$1 } from './p-b8717627.js';
 
 const baseClass = `${GLOBAL_PREFIX}-input`;
 const styles = `
@@ -322,6 +322,55 @@ const TnwInput = /*@__PURE__*/ proxyCustomElement(class TnwInput extends H {
         this.inputChanged = createEvent(this, "inputChanged", 7);
         this.validationFailed = createEvent(this, "validationFailed", 7);
         this.baseClass = `${GLOBAL_PREFIX}-input`;
+        this.store = createStore({
+            inputValue: this.value,
+            alertMessage: this.helpText,
+            alertType: undefined,
+            isInvalid: false,
+            uniqueId: undefined,
+        });
+        /**
+         * Defines the appearance of the input.
+         */
+        this.appearance = 'outlined';
+        /**
+         * The name of the input field.
+         */
+        this.name = '';
+        /**
+         * The initial value of the input.
+         */
+        this.value = '';
+        /**
+         * Marks the input as required.
+         */
+        this.isRequired = false;
+        /**
+         * A regex pattern to validate the input.
+         */
+        this.pattern = '';
+        /**
+         * The autocomplete setting for the input.
+         */
+        this.autoComplete = 'off';
+        /**
+         * Disables the input if set to true.
+         */
+        this.disabled = false;
+        /**
+         * The help text providing additional information about the input.
+         */
+        this.helpText = '';
+        /**
+         * The border radius of the input.
+         */
+        this.borderRadius = 'default';
+        /**
+         * Determines whether the input value should be sanitized during change events to prevent SQL injection attacks.
+         * If set to `true`, the input will be sanitized before being validated.
+         * If set to `false`, the input will still undergo validation but without sanitization.
+         */
+        this.sanitizeInput = false;
         /**
          * Handles the input change event.
          *
@@ -360,30 +409,6 @@ const TnwInput = /*@__PURE__*/ proxyCustomElement(class TnwInput extends H {
             const value = input.value;
             this.setStore(value, false);
         };
-        this.store = createStore({
-            inputValue: this.value,
-            alertMessage: this.helpText,
-            alertType: undefined,
-            isInvalid: false,
-            uniqueId: undefined,
-        });
-        this.label = undefined;
-        this.inputId = undefined;
-        this.type = undefined;
-        this.placeholder = undefined;
-        this.appearance = 'outlined';
-        this.isLabelSrOnly = undefined;
-        this.name = '';
-        this.value = '';
-        this.isRequired = false;
-        this.maxlength = undefined;
-        this.minlength = undefined;
-        this.pattern = '';
-        this.autoComplete = 'off';
-        this.disabled = false;
-        this.helpText = '';
-        this.borderRadius = 'default';
-        this.sanitizeInput = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -597,4 +622,4 @@ defineCustomElement();
 
 export { TnwInput as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-67c33d87.js.map
+//# sourceMappingURL=p-cf5c3c2a.js.map

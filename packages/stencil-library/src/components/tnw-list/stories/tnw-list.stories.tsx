@@ -109,8 +109,8 @@ CustomColors.args = {
 };
 
 // **List with Nested Structure**
-export const NestedList = Template.bind({});
-NestedList.args = {
+export const CustomMarkerPosition = Template.bind({});
+CustomMarkerPosition.args = {
   listDataJson: listDataJson,
   markerPosition: 'outside',
 };

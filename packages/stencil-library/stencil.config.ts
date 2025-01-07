@@ -70,8 +70,7 @@ export const config: Config = {
 
           // Ensure the directory exists; create it if it doesn't
           if (!fs.existsSync(componentDir)) {
-            console.warn(`Directory not found, skipping component: ${component.tag}`);
-            return;
+            fs.mkdirSync(componentDir);
           }
 
           const markdownContent = generateMarkdownForComponent(component);

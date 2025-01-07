@@ -41,6 +41,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.1.0](https://github.com/technway/technway-component-library/compare/root-v3.0.5...root-v3.1.0) (2025-01-07)
+
+
+### Features
+
+* **packages:** add layout-kit package ([2e6250f](https://github.com/technway/technway-component-library/commit/2e6250fecae94f26e0ad745c428912d1d894d86e))
+
+
+### Bug Fixes
+
+* **layout-kit:** add missing packaged files ([ba99064](https://github.com/technway/technway-component-library/commit/ba990643500220bb25e228e9b51d99faee89fca6))
+* **stencil-library, layout-kit:** resolve storybook docs and layout-kit errors ([e515159](https://github.com/technway/technway-component-library/commit/e515159c152b2e681ebb4cfe902a924124858d2e))
+
 ## [3.0.5](https://github.com/technway/technway-component-library/compare/root-v3.0.4...root-v3.0.5) (2025-01-07)
 
 

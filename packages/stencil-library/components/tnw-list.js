@@ -2,11 +2,11 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, r as parseJSONAsync, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
-import { t as typographyStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$3 } from './p-7e4843f4.js';
-import { d as defineCustomElement$2 } from './p-5a064db7.js';
+import { t as typographyStyleSheet, c as colorStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$3 } from './p-d53cb6f4.js';
+import { d as defineCustomElement$2 } from './p-3d848afd.js';
 
 const baseClass = `${GLOBAL_PREFIX}-list`;
 const subListClass = `${baseClass}__sub-list`;
@@ -212,12 +212,13 @@ const TnwList$1 = /*@__PURE__*/ proxyCustomElement(class TnwList extends H {
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-list`;
         this.parsedData = null;
-        this.listData = undefined;
+        /**
+         * Specifies the position of the list marker relative to the text.
+         */
         this.markerPosition = 'inside';
-        this.color = undefined;
-        this.size = undefined;
-        this.weight = undefined;
-        this.textCase = undefined;
+        /**
+         * Adjusts the line height of the list items.
+         */
         this.lineHeight = "1_75";
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();

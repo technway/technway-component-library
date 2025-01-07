@@ -2,11 +2,11 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, r as parseJSONAsync, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { b as borderRadiusStyleSheet, e as extendedAppearanceStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$3 } from './p-1cbf5c65.js';
-import { d as defineCustomElement$2 } from './p-5a064db7.js';
+import { b as borderRadiusStyleSheet, e as extendedAppearanceStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$3 } from './p-aecebc3f.js';
+import { d as defineCustomElement$2 } from './p-3d848afd.js';
 
 const baseClass = `${GLOBAL_PREFIX}-select`;
 const buttonClass = `${baseClass}__button`;
@@ -325,16 +325,44 @@ const TnwSelect$1 = /*@__PURE__*/ proxyCustomElement(class TnwSelect extends H {
         this.parsedOptionsData = [];
         this.isOpen = false;
         this.selectedOption = { label: undefined, value: undefined };
-        this.selectId = undefined;
         this.initialWidthSet = false;
-        this.optionsData = undefined;
+        /**
+         * The label to display when no option is selected.
+         */
         this.label = 'Select an option';
+        /**
+         * Border radius of the select.
+         */
         this.borderRadius = 'default';
+        /**
+         * Controls the size of the select component.
+         * Options are 'sm' (small), 'md' (medium), or 'lg' (large).
+         * Default is 'md' (medium).
+         */
         this.size = 'md';
+        /**
+         * If `true`, the select component will be disabled and cannot be interacted with.
+         */
         this.disabled = false;
+        /**
+         * If `true`, the select component will expand to fill the full width of its container.
+         * Default is `false`, which means the component will size based on its content.
+         */
         this.fullWidth = false;
-        this.accessibilityId = undefined;
-        this.variant = 'standard';
+        /**
+         * Specifies the variant of the select component.
+         *
+         * - `standard`: Default variant without any additional icons or images.
+         * - `withIconName`: Variant that includes an icon by name.
+         * - `withSvgIcon`: Variant that includes an SVG icon.
+         * - `withImage`: Variant that includes an image.
+         * - `withStatus`: Variant that includes a status indicator.
+         */
+        this.variant = 'standard'; // Todo: GroupedOptions, MultiSelect, Searchable
+        // Todo: @prop() appearance?: "basic" | "withTitle" | "floatingLabel";
+        /**
+         * The appearance of the select options. if bordered a border top and bottom will be added to the options.
+         */
         this.optionAppearance = 'standard';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -523,7 +551,7 @@ const TnwSelect$1 = /*@__PURE__*/ proxyCustomElement(class TnwSelect extends H {
         return (h("ul", { class: this.getDropdownClasses(), "aria-labelledby": `${this.label}-label-${this.selectId}`, role: "listbox", tabIndex: -1, id: this.selectId, part: 'dropdown', "data-select": true }, options.map((option, index) => (this.renderSelectOption(option, index)))));
     }
     render() {
-        return (h(Host, { key: 'a71edf0dbc2dc73cc19297643cac237ae864e347', style: {
+        return (h(Host, { key: '8ae10f6143f54c4adaa024248b2f114876f52ce4', style: {
                 width: this.initialWidth,
             }, class: this.getHostClasses() }, this.renderSelectButton(), this.renderSelectDropdown()));
     }

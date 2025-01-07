@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
 
 const baseClass = `${GLOBAL_PREFIX}-divider`;
@@ -147,7 +147,13 @@ const TnwDivider$1 = /*@__PURE__*/ proxyCustomElement(class TnwDivider extends H
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-divider`;
+        /**
+         * Style of the divider
+         */
         this.variant = "solid";
+        /**
+         * Color Variant of the divider
+         */
         this.color = 'auto';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -173,7 +179,7 @@ const TnwDivider$1 = /*@__PURE__*/ proxyCustomElement(class TnwDivider extends H
         ].filter(Boolean).join(" ").trim();
     }
     render() {
-        return (h(Host, { key: 'ffbf0c6e357c99065cc8be996119da6d75129692', class: this.getHostClasses() }));
+        return (h(Host, { key: 'cc91f8d7327e803f7c1ca3a28852e1f9a7e79990', class: this.getHostClasses() }));
     }
     get el() { return this; }
 }, [1, "tnw-divider", {

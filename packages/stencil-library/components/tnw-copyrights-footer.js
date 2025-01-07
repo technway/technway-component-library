@@ -2,10 +2,10 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber, j as getColorClass } from './p-80d80a0e.js';
-import { c as colorStyleSheet, a as containerStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { c as colorStyleSheet, a as containerStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
 const styles = `
@@ -241,20 +241,45 @@ const TnwCopyrightsFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwCopyrigh
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
-        this.startYear = undefined;
-        this.endYear = undefined;
+        /**
+         * If true, the starting year will be set to the current year.
+         */
         this.useCurrentYearAsStartYear = false;
+        /**
+         * If true, the ending year will be set to the current year.
+         */
         this.useCurrentYearAsEndYear = false;
-        this.organizationName = undefined;
-        this.preText = undefined;
-        this.postText = undefined;
+        /**
+         * The text color for the footer content.
+         */
         this.textColor = 'auto';
+        /**
+         * The color of the organization name. Defaults to the same value as `textColor`.
+         */
         this.organizationNameColor = this.textColor;
+        /**
+         * The background color for the footer.
+         */
         this.backgroundColor = 'auto';
+        /**
+         * The color of the top border of the footer.
+         */
         this.borderTopColor = 'auto';
+        /**
+         * If true, the footer will render custom content using a slot instead of the default content.
+         */
         this.enableSlot = false;
+        /**
+         * Centering text
+         */
         this.centerContent = false;
+        /**
+         * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
+         */
         this.disableInternalContainer = false;
+        /**
+         * If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.
+         */
         this.useDivAsContainer = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -320,7 +345,7 @@ const TnwCopyrightsFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwCopyrigh
     }
     render() {
         const FooterTag = this.useDivAsContainer ? 'div' : 'footer';
-        return (h(Host, { key: '469486c6edafe815cc1e3da2cebee4a82110b53b', class: this.getHostClasses() }, h(FooterTag, { key: '6d6e68cbb64e6707f0916c9019da0b06ea40d3dc', class: !this.disableInternalContainer ? 'container' : '', part: 'container', "aria-label": "Copyright information" }, this.enableSlot ? (h("slot", null)) : (this.renderContent()))));
+        return (h(Host, { key: '46f0d369fd30e031160a6e9af5a64555bc19b759', class: this.getHostClasses() }, h(FooterTag, { key: '09f35df47163d73ed808b36a8a1e632caace9f16', class: !this.disableInternalContainer ? 'container' : '', part: 'container', "aria-label": "Copyright information" }, this.enableSlot ? (h("slot", null)) : (this.renderContent()))));
     }
     get el() { return this; }
 }, [1, "tnw-copyrights-footer", {

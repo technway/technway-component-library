@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { c as createStore } from './p-8a7995fd.js';
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
+import { c as createStore } from './p-c039142c.js';
+import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { s as sanitizeInput, c as containsSQLInjectionPatterns } from './p-664fd6b2.js';
-import { d as defineCustomElement$3 } from './p-61d7eae9.js';
-import { d as defineCustomElement$2 } from './p-95b9069c.js';
+import { d as defineCustomElement$3 } from './p-a256c866.js';
+import { d as defineCustomElement$2 } from './p-29b34b17.js';
 
 const baseClass = `${GLOBAL_PREFIX}-textarea`;
 const styles = `
@@ -348,6 +348,59 @@ const TnwTextarea$1 = /*@__PURE__*/ proxyCustomElement(class TnwTextarea extends
         this.textareaChanged = createEvent(this, "textareaChanged", 7);
         this.validationFailed = createEvent(this, "validationFailed", 7);
         this.baseClass = `${GLOBAL_PREFIX}-textarea`;
+        this.store = createStore({
+            textareaValue: this.value,
+            alertMessage: this.helpText,
+            alertType: undefined,
+            isInvalid: false,
+            uniqueId: undefined,
+        });
+        /**
+         * Defines the appearance of the textarea.
+         */
+        this.appearance = 'outlined';
+        /**
+         * The name of the textarea field.
+         */
+        this.name = '';
+        /**
+         * The initial value of the textarea.
+         */
+        this.value = '';
+        /**
+         * Marks the textarea as required.
+         */
+        this.isRequired = false;
+        /**
+         * The number of visible text lines for the textarea.
+         */
+        this.rows = 3;
+        /**
+         * Disables the textarea if set to true.
+         */
+        this.disabled = false;
+        /**
+         * The autocomplete setting for the textarea.
+         */
+        this.autoComplete = '';
+        /**
+         * The help text providing additional information about the textarea.
+         */
+        this.helpText = '';
+        /**
+         * Controls the resize behavior of the textarea.
+         */
+        this.resize = 'vertical';
+        /**
+         * The border radius of the textarea.
+         */
+        this.borderRadius = 'default';
+        /**
+         * Determines whether the textarea value should be sanitized during change events to prevent SQL injection attacks.
+         * If set to `true`, the textarea will be sanitized before being validated.
+         * If set to `false`, the textarea will still undergo validation but without sanitization.
+         */
+        this.sanitizeTextarea = false;
         /**
          * Handles the textarea change event.
          *
@@ -387,31 +440,6 @@ const TnwTextarea$1 = /*@__PURE__*/ proxyCustomElement(class TnwTextarea extends
             const value = textarea.value;
             this.setStore(value, false);
         };
-        this.store = createStore({
-            textareaValue: this.value,
-            alertMessage: this.helpText,
-            alertType: undefined,
-            isInvalid: false,
-            uniqueId: undefined,
-        });
-        this.label = undefined;
-        this.textareaId = undefined;
-        this.placeholder = undefined;
-        this.appearance = 'outlined';
-        this.isLabelSrOnly = undefined;
-        this.name = '';
-        this.value = '';
-        this.isRequired = false;
-        this.maxlength = undefined;
-        this.minlength = undefined;
-        this.rows = 3;
-        this.cols = undefined;
-        this.disabled = false;
-        this.autoComplete = '';
-        this.helpText = '';
-        this.resize = 'vertical';
-        this.borderRadius = 'default';
-        this.sanitizeTextarea = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -574,7 +602,7 @@ const TnwTextarea$1 = /*@__PURE__*/ proxyCustomElement(class TnwTextarea extends
         return (h("tnw-alert", { message: this.helpText, alertId: `${this.uniqueId}-help`, part: "help-text" }));
     }
     render() {
-        return (h(Host, { key: 'e9d93432b491c5fded85d186cc5b0332c779eed3' }, this.renderLabel(), h("textarea", Object.assign({ key: '28c2b287f6d441fcf1bcfa002b2b90c30c172fdf', class: this.getTextareaClasses(), id: this.uniqueId, name: this.name, required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, rows: this.rows, cols: this.cols, autocomplete: this.autoComplete, disabled: this.disabled, value: this.store.get('textareaValue') }, this.getAriaAttributes(), { onInput: this.handleTextareaOnInput, onChange: this.handleTextareaOnChange, part: "textarea" })), this.renderAlert() || this.renderHelpText()));
+        return (h(Host, { key: '2af4cd2c58baf3898b28809f4316646c4504f4f1' }, this.renderLabel(), h("textarea", Object.assign({ key: 'f127efdad3f3cb2765f94d0aef5d725dbbc2eab1', class: this.getTextareaClasses(), id: this.uniqueId, name: this.name, required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, rows: this.rows, cols: this.cols, autocomplete: this.autoComplete, disabled: this.disabled, value: this.store.get('textareaValue') }, this.getAriaAttributes(), { onInput: this.handleTextareaOnInput, onChange: this.handleTextareaOnChange, part: "textarea" })), this.renderAlert() || this.renderHelpText()));
     }
     get el() { return this; }
 }, [1, "tnw-textarea", {

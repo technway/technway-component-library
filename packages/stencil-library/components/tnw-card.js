@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$5 } from './p-63ff45e8.js';
-import { d as defineCustomElement$4 } from './p-b099ed17.js';
-import { d as defineCustomElement$3 } from './p-025cca58.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$5 } from './p-2b0400b3.js';
+import { d as defineCustomElement$4 } from './p-247f7459.js';
+import { d as defineCustomElement$3 } from './p-d797556c.js';
+import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-card`;
 const contentClass = `${baseClass}__content`;
@@ -333,24 +333,49 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-card`;
-        this.imageSrc = undefined;
-        this.imageAlt = undefined;
-        this.heading = undefined;
-        this.subheading = undefined;
-        this.description = undefined;
-        this.buttonLabel = undefined;
+        /**
+         * Controls the alignment of the card's content.
+         */
         this.textAlignment = 'start';
-        this.itemsAlignment = undefined;
+        /**
+         * Controls the spacing between elements inside the card.
+         */
         this.spacing = 'sm';
-        this.padding = undefined;
+        /**
+         * The appearance color of the card.
+         */
         this.appearance = 'none';
+        /**
+         * The color appearance color of the card, determining the overall color scheme.
+         */
         this.appearanceColor = 'auto';
+        /**
+         * If `true`, the card content will be displayed before the image.
+         */
         this.orderContentFirst = false;
+        /**
+         * Specifies the layout orientation of the card, either 'vertical' or 'horizontal'.
+         */
         this.layout = 'vertical';
+        /**
+         * The border radius applied to the card.
+         */
         this.borderRadius = 'default';
+        /**
+         * If `true`, the card will have a glassmorphism effect applied to its background.
+         */
         this.useGlassmorphismEffect = false;
+        /**
+         * If `true`, the image slot will be visible.
+         */
         this.enableImageSlot = false;
+        /**
+         * If `true`, the heading, subheading, description, and button will not be rendered. Use the `content` slot to provide custom content instead.
+         */
         this.enableContentSlot = false;
+        /**
+         * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+         */
         this.largerImage = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -433,7 +458,7 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         return (h("div", { class: this.getContentClasses(), part: 'content' }, h("div", { class: `${this.baseClass}__content-heading` }, this.renderHeading(), this.renderSubheading()), this.renderDescription(), this.renderButton()));
     }
     render() {
-        return (h(Host, { key: '61cd42f300a76b806252178342b8123fae374e18', class: this.getHostClasses() }, this.orderContentFirst
+        return (h(Host, { key: '337aac186280798cdc46c9271595b96e6102d406', class: this.getHostClasses() }, this.orderContentFirst
             && this.renderContent(), this.renderImage(), !this.orderContentFirst
             && this.renderContent()));
     }

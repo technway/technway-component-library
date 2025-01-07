@@ -1,6 +1,6 @@
 {
   "name": "@technway/layout-kit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A lightweight and modular CSS utility framework focused on creating responsive grid systems and flexible layouts for modern web design.",
   "author": "Technway <contact@technway.biz>",
   "main": "index.js",
@@ -13,14 +13,25 @@
     "url": "https://github.com/technway/technway-component-library/issues"
   },
   "files": [
-    "src/index.js",
-    "src/grid.css"
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE",
+    "docs"
   ],
   "exports": {
-    "./index.js": "./src/index.js",
-    "./grid.css": "./src/grid.css",
-    "./grid": "./src/grid.ts",
-    "./react": "./src/react/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js",
+      "require": "./dist/react/index.js"
+    },
+    "./css": "./dist/css/grid.css",
+    "./src/grid.css": "./src/grid.css"
   },
   "scripts": {
     "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",
@@ -31,7 +42,8 @@
     "build:ts": "tsc -p tsconfig.json",
     "build:css": "postcss src/**/*.css --config postcss.config.ts --dir dist/css",
     "build:react": "tsc -p tsconfig.json --outDir dist",
-    "build": "npm run clean && npm run lint && npm run type-check && npm run build:ts && npm run build:css && npm run build:react",
+    "build": "npm run clean && npm run lint && npm run type-check && npm run build:ts && npm run build:css && npm run build:react && npm run copy:assets",
+    "copy:assets": "mkdir dist\\src && xcopy /E /I src dist\\src",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {

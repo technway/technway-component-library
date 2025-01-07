@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.15](https://github.com/ionic-team/stencil-component-starter/compare/@technway/stencil-library@2.0.2...@technway/stencil-library@2.0.15) (2025-01-07)
+
+
+### Bug Fixes
+
+* error in root package-lock file ([1fea8ec](https://github.com/ionic-team/stencil-component-starter/commit/1fea8ecaae6f81c00d631ba2dd76181e6d3f7547))
+* **layout-kit:** add missing packaged files ([ba99064](https://github.com/ionic-team/stencil-component-starter/commit/ba990643500220bb25e228e9b51d99faee89fca6))
+* **layout-kit:** resolve TypeScript import and type resolution issues ([2b09600](https://github.com/ionic-team/stencil-component-starter/commit/2b09600f0a902db7a8a4d8110f947242581d52e6))
+* resolve generated react and next components paths ([bdc7f0c](https://github.com/ionic-team/stencil-component-starter/commit/bdc7f0cd46cc080279e10309c004e0846583686d))
+* **stencil-library, layout-kit:** resolve storybook docs and layout-kit errors ([e515159](https://github.com/ionic-team/stencil-component-starter/commit/e515159c152b2e681ebb4cfe902a924124858d2e))
+* **stencil-library:** downgrade react-output-target from v0.8.1 to v0.7.4 ([8ead93a](https://github.com/ionic-team/stencil-component-starter/commit/8ead93a8dcc26322761fd4fe0c84fa68db51af2c))
+* update react packages to v19.0.0 ([64a500a](https://github.com/ionic-team/stencil-component-starter/commit/64a500a4d847a5f7c4f393cf092f96eaffce2a46))
+
+
+
+
+
 ## [2.0.14](https://github.com/ionic-team/stencil-component-starter/compare/@technway/stencil-library@2.0.2...@technway/stencil-library@2.0.14) (2025-01-07)
 
 

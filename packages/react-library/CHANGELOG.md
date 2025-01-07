@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/technway/technway-component-library/compare/@technway/react-library@2.0.2...@technway/react-library@2.2.0) (2025-01-07)
+
+
+### Bug Fixes
+
+* **react-library, next-library:** update react from 18 to 19 ([bca7f15](https://github.com/technway/technway-component-library/commit/bca7f1520082118055395220fadd302d9bfd2162))
+* **react-package, next-package:** downgrade react from v19 to v18 ([6dfc4d1](https://github.com/technway/technway-component-library/commit/6dfc4d10184bc510f0ad073b8ae3c01f83cb7f1c))
+* resolve generated react and next components paths ([bdc7f0c](https://github.com/technway/technway-component-library/commit/bdc7f0cd46cc080279e10309c004e0846583686d))
+* **stencil-library, layout-kit:** resolve storybook docs and layout-kit errors ([e515159](https://github.com/technway/technway-component-library/commit/e515159c152b2e681ebb4cfe902a924124858d2e))
+* update react packages to v19.0.0 ([64a500a](https://github.com/technway/technway-component-library/commit/64a500a4d847a5f7c4f393cf092f96eaffce2a46))
+
+
+### Features
+
+* **packages:** add layout-kit package ([2e6250f](https://github.com/technway/technway-component-library/commit/2e6250fecae94f26e0ad745c428912d1d894d86e))
+
+
+
+
+
 # [2.1.0](https://github.com/technway/technway-component-library/compare/@technway/react-library@2.0.2...@technway/react-library@2.1.0) (2025-01-07)
 
 

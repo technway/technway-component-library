@@ -6,11 +6,7 @@ import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-461
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
 import { t as typographyStyleSheet, c as colorStyleSheet } from './p-20eedb96.js';
 import { v as validateHighlightText } from './p-13eae0fe.js';
-<<<<<<<< HEAD:packages/stencil-library/components/p-247f7459.js
 import { d as defineCustomElement$1 } from './p-b708dbe9.js';
-========
-import { d as defineCustomElement$1 } from './p-215cb154.js';
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-e9a15164.js
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -468,8 +464,4 @@ defineCustomElement();
 
 export { TnwHeading as T, defineCustomElement as d };
 
-<<<<<<<< HEAD:packages/stencil-library/components/p-247f7459.js
 //# sourceMappingURL=p-247f7459.js.map
-========
-//# sourceMappingURL=p-e9a15164.js.map
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-e9a15164.js

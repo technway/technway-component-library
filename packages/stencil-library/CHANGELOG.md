@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/ionic-team/stencil-component-starter/compare/@technway/stencil-library@2.0.2...@technway/stencil-library@2.0.9) (2025-01-06)
+
+
+### Bug Fixes
+
+* resolve generated react and next components paths ([bdc7f0c](https://github.com/ionic-team/stencil-component-starter/commit/bdc7f0cd46cc080279e10309c004e0846583686d))
+* update react packages to v19.0.0 ([64a500a](https://github.com/ionic-team/stencil-component-starter/commit/64a500a4d847a5f7c4f393cf092f96eaffce2a46))
+
+
+
+
+
+## [2.0.8](https://github.com/ionic-team/stencil-component-starter/compare/@technway/stencil-library@2.0.2...@technway/stencil-library@2.0.8) (2025-01-06)
+
+
+### Bug Fixes
+
+* resolve generated react and next components paths ([bdc7f0c](https://github.com/ionic-team/stencil-component-starter/commit/bdc7f0cd46cc080279e10309c004e0846583686d))
+* update react packages to v19.0.0 ([64a500a](https://github.com/ionic-team/stencil-component-starter/commit/64a500a4d847a5f7c4f393cf092f96eaffce2a46))
+
+
+
+
+
 ## [2.0.7](https://github.com/ionic-team/stencil-component-starter/compare/@technway/stencil-library@2.0.2...@technway/stencil-library@2.0.7) (2025-01-06)
 
 

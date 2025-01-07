@@ -41,6 +41,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.0.5](https://github.com/technway/technway-component-library/compare/root-v3.0.4...root-v3.0.5) (2025-01-07)
+
+
+### Bug Fixes
+
+* error in root package-lock file ([1fea8ec](https://github.com/technway/technway-component-library/commit/1fea8ecaae6f81c00d631ba2dd76181e6d3f7547))
+* **stencil-library:** downgrade react-output-target from v0.8.1 to v0.7.4 ([8ead93a](https://github.com/technway/technway-component-library/commit/8ead93a8dcc26322761fd4fe0c84fa68db51af2c))
+
 ## [3.0.4](https://github.com/technway/technway-component-library/compare/root-v3.0.3...root-v3.0.4) (2025-01-06)
 
 

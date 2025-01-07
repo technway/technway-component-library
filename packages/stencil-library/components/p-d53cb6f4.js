@@ -4,13 +4,8 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass } from './p-80d80a0e.js';
-<<<<<<<< HEAD:packages/stencil-library/components/p-d53cb6f4.js
 import { f as fontSizeStyleSheet, c as colorStyleSheet } from './p-20eedb96.js';
 import { d as defineCustomElement$1 } from './p-3d848afd.js';
-========
-import { f as fontSizeStyleSheet, c as colorStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$1 } from './p-86f498c8.js';
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-66a62dc7.js
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -268,8 +263,4 @@ defineCustomElement();
 
 export { TnwAnchor as T, defineCustomElement as d };
 
-<<<<<<<< HEAD:packages/stencil-library/components/p-d53cb6f4.js
 //# sourceMappingURL=p-d53cb6f4.js.map
-========
-//# sourceMappingURL=p-66a62dc7.js.map
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-66a62dc7.js

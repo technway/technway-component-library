@@ -3,11 +3,7 @@
  * Copyright (c) Tecchnway.biz.
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
-<<<<<<<< HEAD:packages/stencil-library/components/p-29b34b17.js
 import { d as fontWeightStyleSheet, c as colorStyleSheet, g as textTransformStyleSheet } from './p-20eedb96.js';
-========
-import { d as fontWeightStyleSheet, c as colorStyleSheet, g as textTransformStyleSheet } from './p-9bc88248.js';
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-b8717627.js
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, l as getTypographyClass, m as getTextTransformClass } from './p-80d80a0e.js';
 
 const baseClass = `${GLOBAL_PREFIX}-label`;
@@ -265,8 +261,4 @@ defineCustomElement();
 
 export { TnwLabel as T, defineCustomElement as d };
 
-<<<<<<<< HEAD:packages/stencil-library/components/p-29b34b17.js
 //# sourceMappingURL=p-29b34b17.js.map
-========
-//# sourceMappingURL=p-b8717627.js.map
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-b8717627.js

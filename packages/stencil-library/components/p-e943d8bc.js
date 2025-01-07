@@ -4,19 +4,11 @@
  */
 import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId } from './p-80d80a0e.js';
-<<<<<<<< HEAD:packages/stencil-library/components/p-e943d8bc.js
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet, h as fontFamilyStyleSheet } from './p-20eedb96.js';
 import { d as defineCustomElement$4 } from './p-a256c866.js';
 import { d as defineCustomElement$3 } from './p-2b0400b3.js';
 import { d as defineCustomElement$2 } from './p-4831c0ac.js';
 import { d as defineCustomElement$1 } from './p-29b34b17.js';
-========
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet, h as fontFamilyStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$4 } from './p-084e02ae.js';
-import { d as defineCustomElement$3 } from './p-b5e7479f.js';
-import { d as defineCustomElement$2 } from './p-cf5c3c2a.js';
-import { d as defineCustomElement$1 } from './p-b8717627.js';
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-c2991353.js
 
 const baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
 const styles = `
@@ -356,8 +348,4 @@ defineCustomElement();
 
 export { TnwNewsletterForm as T, defineCustomElement as d };
 
-<<<<<<<< HEAD:packages/stencil-library/components/p-e943d8bc.js
 //# sourceMappingURL=p-e943d8bc.js.map
-========
-//# sourceMappingURL=p-c2991353.js.map
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-c2991353.js

@@ -375,8 +375,4 @@ defineCustomElement();
 
 export { TnwBadge as T, defineCustomElement as d };
 
-<<<<<<<< HEAD:packages/stencil-library/components/p-aecebc3f.js
 //# sourceMappingURL=p-aecebc3f.js.map
-========
-//# sourceMappingURL=p-e1633904.js.map
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-e1633904.js

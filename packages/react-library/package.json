@@ -1,6 +1,6 @@
 {
   "name": "@technway/react-library",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "> TODO: description",
   "author": "Technway <contact@technway.biz>",
   "homepage": "https://github.com/technway/technway-component-library#readme",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@stencil/react-output-target": "^0.7.4",
-    "@technway/stencil-library": "^2.0.11"
+    "@technway/stencil-library": "^2.0.12"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",

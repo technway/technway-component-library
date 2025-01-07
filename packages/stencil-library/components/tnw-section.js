@@ -2,9 +2,9 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, v as getDirectionalAppearanceClass } from './p-80d80a0e.js';
-import { a as containerStyleSheet } from './p-9bc88248.js';
+import { a as containerStyleSheet } from './p-20eedb96.js';
 
 const baseClass = `${GLOBAL_PREFIX}-section`;
 const contentClass = `${baseClass}__content`;
@@ -305,15 +305,41 @@ const TnwSection$1 = /*@__PURE__*/ proxyCustomElement(class TnwSection extends H
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-section`;
+        /**
+         * If `true`, the section will have a glassmorphism effect applied to its background.
+         */
         this.useGlassmorphismEffect = false;
-        this.appearance = undefined;
+        /**
+         * Specifies the appearance color for the section's appearance.
+         */
         this.appearanceColor = 'auto';
+        /**
+         * If `true`, the section body will be wrapped in a container.
+         */
         this.disableInternalContainer = false;
+        /**
+         * The padding size applied to the section.
+         */
         this.padding = 'xl';
+        /**
+         * The margin size applied to the section.
+         */
         this.margin = 'none';
+        /**
+         * The spacing size between the section slots.
+         */
         this.spacing = 'md';
+        /**
+         * If `true`, the section is the first section on the page, and top padding/margin will not be applied.
+         */
         this.isFirstSection = false;
+        /**
+         * If `true`, the section is the last section on the page, and bottom padding/margin will not be applied.
+         */
         this.isLastSection = false;
+        /**
+         * The alignment of the section content.
+         */
         this.alignment = "start";
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -357,7 +383,7 @@ const TnwSection$1 = /*@__PURE__*/ proxyCustomElement(class TnwSection extends H
         ].filter(Boolean).join(' ').trim();
     }
     render() {
-        return (h(Host, { key: '505eb92294476e671642f7df5822be00aa91a5db', class: this.getHostClasses() }, h("section", { key: '9a931e07e4f3674608bda4ca7a61482f0f6698dc', class: this.getSectionContentClasses(), part: 'section' }, h("slot", { key: '9786afd1c6d2d78e042ca92276a27a93f645a027', name: 'header' }), h("slot", { key: '7a93b82d3f3e4cdb80bfdcd864956a070cdd74da', name: 'body' }), h("slot", { key: '5b4b1afa5d27f0d3a4bd0a55ef136e44f70d590e', name: 'footer' }))));
+        return (h(Host, { key: 'b3b59c99fede5a98c0677baf54e7e79a127446f3', class: this.getHostClasses() }, h("section", { key: '1bbe5ca8993f87a1eed0013cc16e1592d0d88a65', class: this.getSectionContentClasses(), part: 'section' }, h("slot", { key: '3d6571938fdb62fb71ec88bb87add1cae089d579', name: 'header' }), h("slot", { key: '37449d7ba1c27fc65c2925f97a966315e062ff56', name: 'body' }), h("slot", { key: '989086db5f97e19f22ab9d7fde1f07b2ce6dc1ba', name: 'footer' }))));
     }
     get el() { return this; }
 }, [1, "tnw-section", {

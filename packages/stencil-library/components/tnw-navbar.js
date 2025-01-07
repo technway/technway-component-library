@@ -2,14 +2,14 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, c as getBorderRadiusClass, u as isArrayEmpty, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass } from './p-80d80a0e.js';
-import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceColorSheet, e as extendedAppearanceStyleSheet } from './p-9bc88248.js';
-import { h } from './p-6af234bd.js';
-import { d as defineCustomElement$5 } from './p-7e4843f4.js';
-import { d as defineCustomElement$4 } from './p-5a064db7.js';
-import { d as defineCustomElement$3 } from './p-025cca58.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceColorSheet, e as extendedAppearanceStyleSheet } from './p-20eedb96.js';
+import { h } from './p-93b5355a.js';
+import { d as defineCustomElement$5 } from './p-d53cb6f4.js';
+import { d as defineCustomElement$4 } from './p-3d848afd.js';
+import { d as defineCustomElement$3 } from './p-d797556c.js';
+import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass$6 = `${GLOBAL_PREFIX}-navbar-menu`;
 const itemClass = `${baseClass$6}__item`;
@@ -796,27 +796,58 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         this.tnwMenuToggle = createEvent(this, "tnwMenuToggle", 7);
         this.tnwScrollChange = createEvent(this, "tnwScrollChange", 7);
         this.baseClass = `${GLOBAL_PREFIX}-navbar`;
+        this.parsedMenuData = null;
+        this.parsedLogoData = null;
+        this.isVisible = false;
+        /**
+         * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
+         */
+        this.appearance = 'solid';
+        /**
+         * Specifies the appearance color of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
+         */
+        this.appearanceColor = 'auto';
+        /**
+         * Makes the navigation bar sticky at the top of the viewport when set to true.
+         */
+        this.sticky = false;
+        /**
+         * If true, the navigation bar content will not be wrapped in a container for centering and padding.
+         */
+        this.disableInternalContainer = false;
+        /**
+         * When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.
+         */
+        this.menuExactCenter = false;
+        /**
+         * Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.
+         */
+        this.menuPlacement = 'middle';
+        /**
+         * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
+         */
+        this.togglerPlacement = 'end';
+        /**
+         * Sets the border-radius of the navigation bar.
+         */
+        this.borderRadius = 'default';
+        /**
+         * Sets the padding size of the navigation bar.
+         */
+        this.padding = 'none';
+        /**
+         * If true, the CTA slot is enabled.
+         */
+        this.enableCtaSlot = false;
+        /**
+         * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
+         */
+        this.hideMenuBelow = false;
         this.handleScroll = () => {
             if (this.sticky) {
                 this.tnwScrollChange.emit({ scrollY: window.scrollY });
             }
         };
-        this.parsedMenuData = null;
-        this.parsedLogoData = null;
-        this.isVisible = false;
-        this.appearance = 'solid';
-        this.appearanceColor = 'auto';
-        this.sticky = false;
-        this.disableInternalContainer = false;
-        this.menuExactCenter = false;
-        this.menuPlacement = 'middle';
-        this.togglerPlacement = 'end';
-        this.borderRadius = 'default';
-        this.padding = 'none';
-        this.menuData = undefined;
-        this.logoData = undefined;
-        this.enableCtaSlot = false;
-        this.hideMenuBelow = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -905,7 +936,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         return (h$1("nav", { class: this.getContentClasses(), part: 'navbar' }, h$1("div", { class: `${this.baseClass}__start` }, this.togglerPlacement === 'start' && this.menuToggler(), this.logo(), this.menuPlacement === 'start' && this.menu()), this.menuPlacement === 'middle' && (h$1("div", { class: `${this.baseClass}__middle ${this.menuExactCenter ? `${this.baseClass}__middle--exact-center` : ''}` }, this.menu())), h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '2a683edf4f24787ed155984bee212d017ff10a14', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: '8b75e34bffb2fb15ab05d2f35c184860df35920b', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {

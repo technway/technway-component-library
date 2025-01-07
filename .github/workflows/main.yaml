@@ -199,6 +199,11 @@ jobs:
         run: |
           npm run build:next
 
+      # Build Layout Kit
+      - name: Build Layout Kit
+        run: |
+          npm run build:layout-kit
+
       # Commit the changes made by `lerna version`
       - name: Commit version changes
         run: |

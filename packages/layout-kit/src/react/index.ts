@@ -10,7 +10,7 @@ export type {
   SpacingProps,
   Breakpoint,
   GridColumns,
-  Spacing
+  SpacingType
 } from './Grid';
 
 export * from './types';

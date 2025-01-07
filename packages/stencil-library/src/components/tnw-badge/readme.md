@@ -38,15 +38,10 @@ This component supports various customization options including different varian
    @useStory SmallBadge
    @useStory LargeBadge
 
-4. **Badge with Custom Content**:
-   If the badge content isn’t text (e.g., an icon or custom HTML), use the default slot to wrap the custom content. This is useful for displaying icons or emojis inside a badge.
-
-   @useStory IconOnlyBadge
-
-5. **Badge Displaying Numbers**:
+4. **Badge Displaying Numbers**:
    Badges can also display numbers, often used for notifications or counts.
 
-   @useStory NumberBadge
+   @useStory NumericBadge
 
 ### Additional Considerations:
 

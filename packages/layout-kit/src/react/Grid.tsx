@@ -5,12 +5,12 @@ import { PolymorphicComponentProp } from './types';
 // Breakpoint types
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 export type GridColumns = 1 | 2 | 3 | 4 | 6 | 12;
-export type Spacing = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32;
+export type SpacingType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32;
 
 // Grid component props
 export interface GridProps extends HTMLAttributes<HTMLDivElement> {
   columns?: GridColumns;
-  gap?: Spacing;
+  gap?: SpacingType;
   responsive?: Partial<Record<Breakpoint, GridColumns>>;
 }
 
@@ -108,20 +108,20 @@ Flex.displayName = 'Flex';
 
 // Spacing component for margins and paddings
 export interface SpacingProps extends HTMLAttributes<HTMLDivElement> {
-  m?: Spacing;
-  mx?: Spacing;
-  my?: Spacing;
-  mt?: Spacing;
-  mr?: Spacing;
-  mb?: Spacing;
-  ml?: Spacing;
-  p?: Spacing;
-  px?: Spacing;
-  py?: Spacing;
-  pt?: Spacing;
-  pr?: Spacing;
-  pb?: Spacing;
-  pl?: Spacing;
+  m?: SpacingType;
+  mx?: SpacingType;
+  my?: SpacingType;
+  mt?: SpacingType;
+  mr?: SpacingType;
+  mb?: SpacingType;
+  ml?: SpacingType;
+  p?: SpacingType;
+  px?: SpacingType;
+  py?: SpacingType;
+  pt?: SpacingType;
+  pr?: SpacingType;
+  pb?: SpacingType;
+  pl?: SpacingType;
 }
 
 export const Spacing = forwardRef<HTMLDivElement, PolymorphicComponentProp<'div', SpacingProps>>(

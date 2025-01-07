@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2025-01-07)
+
+
+### Bug Fixes
+
+* **layout-kit:** add missing packaged files ([ba99064](https://github.com/technway/technway-component-library/commit/ba990643500220bb25e228e9b51d99faee89fca6))
+* **stencil-library, layout-kit:** resolve storybook docs and layout-kit errors ([e515159](https://github.com/technway/technway-component-library/commit/e515159c152b2e681ebb4cfe902a924124858d2e))
+
+
+### Features
+
+* **packages:** add layout-kit package ([2e6250f](https://github.com/technway/technway-component-library/commit/2e6250fecae94f26e0ad745c428912d1d894d86e))
+
+
+
+
+
 # 0.3.0 (2025-01-07)
 
 

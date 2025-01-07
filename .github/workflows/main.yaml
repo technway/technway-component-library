@@ -30,12 +30,12 @@ jobs:
           node-version: 20
           cache: "npm"
 
-      - name: Install Dependencies for @technway/components
+      - name: Install Dependencies for @technway/stencil-library
         working-directory: packages/stencil-library
         run: npm install
 
       - name: Run Lint
-        run: npx lerna run lint
+        run: npx lerna run lint --scope=@technway/stencil-library
 
   test:
     if: ${{ !contains(github.event.head_commit.message, '[skip-test]') }}

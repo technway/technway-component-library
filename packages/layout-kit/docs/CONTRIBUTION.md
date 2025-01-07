@@ -1,124 +1,76 @@
-## Contribution Guidelines
+# Contributing to Layout Kit
 
+## Getting Started
 
+### Prerequisites
+- Node.js (v18+)
+- npm (v9+)
 
-### Setup
-
+### Local Development Setup
 1. Clone the repository
-
 ```bash
 git clone https://github.com/technway/technway-component-library.git
 cd technway-component-library/packages/layout-kit
 ```
 
 2. Install dependencies
-
 ```bash
 npm install
 ```
 
-### Available Scripts
+## Development Workflow
 
-- `npm run build`: Build the package for production
-- `npm run build:ts`: Compile TypeScript files
+### Running Scripts
+- `npm run build`: Full build of the package
+- `npm run lint`: Run ESLint
+- `npm run type-check`: Verify TypeScript types
+- `npm run build:ts`: Compile TypeScript
 - `npm run build:css`: Process CSS files
-- `npm run build:react`: Compile React components
-- `npm run clean`: Remove built files
-- `npm test`: Run tests (if configured)
 
-### Development Workflow
+### Testing
+- `npm test`: Run test suite (currently placeholder)
 
-1. Make changes to source files in `src/`
-2. Run build scripts to compile
-3. Test your changes locally
+## Code Guidelines
 
-### Releasing a New Version
+### TypeScript
+- Use strict type checking
+- Prefer type inference
+- Avoid `any` type
+- Use interfaces and type aliases
 
-#### Script Execution Order
-
-When preparing to release a new version, follow these steps in order:
-
-1. **Clean Previous Builds**
-
-```bash
-npm run clean
-```
-
-Removes any previous build artifacts to ensure a clean build.
-
-2. **Lint and Validate**
-
-```bash
-npm run lint
-npm run type-check
-```
-
-Checks code quality and type consistency.
-
-3. **Run Tests**
-
-```bash
-npm test
-```
-
-Ensures all tests pass before building.
-
-4. **Build Components**
-
-```bash
-npm run build:ts
-npm run build:css
-npm run build:react
-```
-
-Compiles TypeScript, processes CSS, and builds React components.
-
-5. **Full Build**
-
-```bash
-npm run build
-```
-
-Runs a comprehensive build of all components.
-
-6. **Version Bump**
-
-```bash
-npm version [patch|minor|major]
-```
-
-Increments the package version (choose appropriate type).
-
-7. **Publish to NPM**
-
-```bash
-npm publish
-```
-
-Publishes the package to the NPM registry.
-
-#### Best Practices
-
-- Always run tests before releasing
-- Ensure all builds complete successfully
-- Review changes carefully
-- Update CHANGELOG.md with new version details
-- Use semantic versioning
-
-### Coding Standards
-
-- Use TypeScript
+### React Components
 - Follow React best practices
-- Write unit tests for new features
-- Maintain consistent code style
+- Use functional components
+- Utilize hooks
+- Implement prop types
 
-### Troubleshooting
+### Styling
+- Use PostCSS
+- Follow utility-first design principles
+- Keep styles modular and reusable
 
-- Ensure all dependencies are installed
-- Check TypeScript and PostCSS configurations
-- Verify React and Next.js compatibility
+## Commit Message Convention
+- Use conventional commits
+- Format: `<type>(scope): description`
+- Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
-## Requirements
+## Pull Request Process
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run linting and type checks
+5. Submit a pull request with a clear description
 
-- React 18+
-- TypeScript (recommended)
+## Releasing
+1. Update version in `package.json`
+2. Update `CHANGELOG.md`
+3. Create a git tag
+4. Publish to npm
+
+## Code of Conduct
+- Be respectful
+- Collaborate constructively
+- Prioritize inclusivity
+
+## Questions?
+Open an issue on GitHub or contact the maintainers.

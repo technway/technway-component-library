@@ -1,9 +1,11 @@
 {
   "name": "@technway/layout-kit",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A lightweight and modular CSS utility framework focused on creating responsive grid systems and flexible layouts for modern web design.",
   "author": "Technway <contact@technway.biz>",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -29,6 +31,11 @@
       "types": "./dist/react/index.d.ts",
       "import": "./dist/react/index.js",
       "require": "./dist/react/index.js"
+    },
+    "./react/Grid": {
+      "types": "./dist/react/Grid.d.ts",
+      "import": "./dist/react/Grid.js",
+      "require": "./dist/react/Grid.js"
     },
     "./css": "./dist/css/grid.css",
     "./src/grid.css": "./src/grid.css"

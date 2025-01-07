@@ -64,7 +64,7 @@ export interface SpacingProps extends HTMLAttributes<HTMLDivElement> {
 // Grid component
 export const Grid = forwardRef<HTMLDivElement, PolymorphicComponentProp<'div', GridProps>>(
   ({ 
-    columns = 12, 
+    columns, 
     gap = 4, 
     responsive,
     children, 
@@ -78,8 +78,13 @@ export const Grid = forwardRef<HTMLDivElement, PolymorphicComponentProp<'div', G
         ).join(' ')
       : '';
 
+    // Determine base columns, prioritizing responsive or falling back to prop
+    const baseColumns = responsive 
+      ? Object.values(responsive)[0] // Use first responsive column value
+      : columns || 1; // Default to 1 if no columns specified
+
     const gridClasses = twMerge(
-      `grid grid-cols-${columns} gap-${gap}`,
+      `grid grid-cols-${baseColumns} gap-${gap}`,
       responsiveClasses,
       className
     );

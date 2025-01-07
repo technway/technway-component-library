@@ -56,25 +56,10 @@ It allows you to create lists with various marker types, colors, and fonts, and 
 
    @useStory Standard
 
-2. **List with Icons**:
-   Perfect when you want to use icons instead of bullet points for list items.
-
-   @useStory ListWithIcons
-
 3. **Colored and Custom Typography List**:
    This case allows you to apply a specific color and typography settings to the list items.
 
-   @useStory ColoredList
-
-4. **Ordered List with Roman Numerals**:
-   Use this when creating ordered lists that require custom numbering styles like Roman numerals.
-
-   @useStory OrderedRomanList
-
-5. **List with Custom Text Case and Line Height**:
-   When you need list items in uppercase and want to adjust the line height for a more spaced-out look.
-
-   @useStory CustomTextCaseList
+   @useStory CustomColors
 
 ### Additional Considerations:
 

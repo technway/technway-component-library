@@ -3,7 +3,7 @@ import React, { ElementType, ComponentPropsWithoutRef, ComponentPropsWithRef } f
 // Polymorphic component type
 export type PolymorphicComponentProp<
   C extends ElementType,
-  Props = {}
+  Props = object
 > = React.PropsWithChildren<
   Props & {
     as?: C;
@@ -17,7 +17,7 @@ export type PolymorphicRef<C extends ElementType> =
 // Polymorphic component with ref
 export type PolymorphicComponentPropWithRef<
   C extends ElementType,
-  Props = {}
+  Props = object
 > = PolymorphicComponentProp<C, Props> & {
   ref?: PolymorphicRef<C>;
 };

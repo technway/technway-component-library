@@ -131,9 +131,9 @@ export function generateMarkdownForComponent(component: JsonDocsComponent): stri
     content += `- [Shadow Parts](#shadow-parts)\n`;
   }
 
-  if (getStyleDocs(component).length > 0) {
-    content += `- [CSS Custom Properties](#css-custom-properties)\n`;
-  }
+  // if (getStyleDocs(component).length > 0) {
+  //   content += `- [CSS Custom Properties](#css-custom-properties)\n`;
+  // }
 
   if (component.events.length > 0) {
     content += `- [Events](#events)\n`;
@@ -183,16 +183,16 @@ export function generateMarkdownForComponent(component: JsonDocsComponent): stri
   }
 
   // CSS Custom Properties Section
-  const styles = getStyleDocs(component);
-  if (styles.length > 0) {
-    content += `## CSS Custom Properties\n\n`;
-    content += `| CSS Property | Description | Default |\n`;
-    content += `| --- | --- | --- |\n`;
-    styles.forEach(style => {
-      content += `| **${style.name || 'default'}** | ${style.docs || 'No description provided.'} | ${style.default ? `\`${style.default}\`` : 'N/A'} |\n`;
-    });
-    content += `\n`;
-  }
+  // const styles = getStyleDocs(component);
+  // if (styles.length > 0) {
+  //   content += `## CSS Custom Properties\n\n`;
+  //   content += `| CSS Property | Description | Default |\n`;
+  //   content += `| --- | --- | --- |\n`;
+  //   styles.forEach(style => {
+  //     content += `| **${style.name || 'default'}** | ${style.docs || 'No description provided.'} | ${style.default ? `\`${style.default}\`` : 'N/A'} |\n`;
+  //   });
+  //   content += `\n`;
+  // }
 
   // Shadow Parts Section
   if (component.parts.length > 0) {
@@ -272,51 +272,51 @@ function getUsageContent(component: JsonDocsComponent): string | null {
   return null;
 }
 
-function getStyleDocs(component: JsonDocsComponent): { name: string; docs: string, default: string }[] {
-  const targetFilePath = path.resolve(component.dirPath, `${component.tag}.pcss`);
-  let finalStylesDocs = [];
+// function getStyleDocs(component: JsonDocsComponent): { name: string; docs: string, default: string }[] {
+//   const targetFilePath = path.resolve(component.dirPath, `${component.tag}.pcss`);
+//   let finalStylesDocs = [];
 
-  const autoStyles = component.styles;
+//   const autoStyles = component.styles;
 
-  try {
-    // First look for Stencil.js auto README docs to get styles
-    if (autoStyles && autoStyles.length > 0) {
-      autoStyles.forEach(style => {
-        finalStylesDocs.push({ name: style.name, docs: style.docs });
-      });
-    }
+//   try {
+//     // First look for Stencil.js auto README docs to get styles
+//     if (autoStyles && autoStyles.length > 0) {
+//       autoStyles.forEach(style => {
+//         finalStylesDocs.push({ name: style.name, docs: style.docs });
+//       });
+//     }
 
-    // If no Stencil.js auto styles found, look for them manually
-    else if (fs.existsSync(targetFilePath)) {
-      const content = fs.readFileSync(targetFilePath, 'utf-8');
-      const lines = content.split('\n');
+//     // If no Stencil.js auto styles found, look for them manually
+//     else if (fs.existsSync(targetFilePath)) {
+//       const content = fs.readFileSync(targetFilePath, 'utf-8');
+//       const lines = content.split('\n');
 
-      const propRegex = /@prop\s+([\w-]+):\s*(.*)/;
-      const defaultRegex = /@prop-default:\s*(.*)/;
+//       const propRegex = /@prop\s+([\w-]+):\s*(.*)/;
+//       const defaultRegex = /@prop-default:\s*(.*)/;
 
-      let currentProp = null;
+//       let currentProp = null;
 
-      lines.forEach(line => {
-        const match = line.match(propRegex);
-        if (match) {
-          const name = match[1].trim();
-          const docs = match[2].trim();
-          currentProp = { name, docs, default: '' };
-          finalStylesDocs.push(currentProp);
-        }
+//       lines.forEach(line => {
+//         const match = line.match(propRegex);
+//         if (match) {
+//           const name = match[1].trim();
+//           const docs = match[2].trim();
+//           currentProp = { name, docs, default: '' };
+//           finalStylesDocs.push(currentProp);
+//         }
 
-        if (currentProp) {
-          const defaultMatch = line.match(defaultRegex);
-          if (defaultMatch) {
-            currentProp.default = defaultMatch[1].trim();
-            currentProp = null; // Reset for the next property
-          }
-        }
-      });
-    }
-  } catch (error) {
-    console.error(`Failed to read ${targetFilePath}: ${error.message}`);
-  }
+//         if (currentProp) {
+//           const defaultMatch = line.match(defaultRegex);
+//           if (defaultMatch) {
+//             currentProp.default = defaultMatch[1].trim();
+//             currentProp = null; // Reset for the next property
+//           }
+//         }
+//       });
+//     }
+//   } catch (error) {
+//     console.error(`Failed to read ${targetFilePath}: ${error.message}`);
+//   }
 
-  return finalStylesDocs;
-}
+//   return finalStylesDocs;
+// }

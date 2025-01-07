@@ -45,16 +45,16 @@ LargeBadge.args = {
 export const NumericBadge = Template.bind({});
 NumericBadge.args = {
   variant: 'numeric',
-  label: "asdasd",
-  size: 'md',
+  label: 6,
+  appearance: 'solid',
+  appearanceColor: 'primary'
 };
 
 export const NumericBadge2 = Template.bind({});
 NumericBadge2.args = {
   variant: 'numeric',
-  label: 6,
-  appearance: 'solid',
-  appearanceColor: 'primary'
+  label: "asdasd",
+  size: 'md',
 };
 
 export const StatusBadge = Template.bind({});

@@ -23,11 +23,15 @@
     "./react": "./src/react/index.ts"
   },
   "scripts": {
-    "build:ts": "tsc",
+    "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "test": "echo \"No tests specified for layout-kit\" && exit 0",
+    "type-check": "tsc --noEmit",
+    "build:ts": "tsc -p tsconfig.json",
     "build:css": "postcss src/**/*.css --config postcss.config.ts --dir dist/css",
-    "build:react": "tsc -p tsconfig.json",
-    "build": "npm run build:ts && npm run build:css && npm run build:react",
-    "clean": "rm -rf dist",
+    "build:react": "tsc -p tsconfig.json --outDir dist",
+    "build": "npm run clean && npm run lint && npm run type-check && npm run build:ts && npm run build:css && npm run build:react",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
@@ -45,12 +49,18 @@
     "@types/node": "^22.10.5",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
     "cssnano": "^7.0.6",
+    "eslint": "^8.49.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
     "postcss-nested": "^7.0.2",
     "postcss-preset-env": "^10.1.3",
-    "typescript": "^5.7.2"
-  }
+    "typescript": "~5.3.3"
+  },
+  "gitHead": "9878e9b42cfea8c0b4f71c556668857c6e25b31f"
 }

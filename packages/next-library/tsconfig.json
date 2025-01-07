@@ -1,25 +1,17 @@
 {
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "outDir": "src",
-        "lib": [
-            "dom",
-            "es2015"
-        ],
-        "module": "esnext",
-        "moduleResolution": "bundler",
-        "target": "es2015",
-        "skipLibCheck": true,
-        "jsx": "react",
-        "allowSyntheticDefaultImports": true,
-        "declarationDir": "dist/types"
-    },
-    "include": [
-        "src",
-        "dist/types"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "src",
+    "lib": ["dom", "es2015"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2015",
+    "skipLibCheck": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "declarationDir": "dist/types"
+  },
+  "include": ["src", "dist/types"],
+  "exclude": ["node_modules"]
 }

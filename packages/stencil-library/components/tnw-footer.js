@@ -2,19 +2,19 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-dd363b95.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, r as parseJSONAsync, j as getColorClass } from './p-80d80a0e.js';
-import { c as colorStyleSheet, a as containerStyleSheet } from './p-9bc88248.js';
-import { d as defineCustomElement$b } from './p-61d7eae9.js';
-import { d as defineCustomElement$a } from './p-7e4843f4.js';
-import { d as defineCustomElement$9 } from './p-63ff45e8.js';
-import { d as defineCustomElement$8 } from './p-b099ed17.js';
-import { d as defineCustomElement$7 } from './p-5a064db7.js';
-import { d as defineCustomElement$6 } from './p-025cca58.js';
-import { d as defineCustomElement$5 } from './p-67c33d87.js';
-import { d as defineCustomElement$4 } from './p-95b9069c.js';
-import { d as defineCustomElement$3 } from './p-7fdf58be.js';
-import { d as defineCustomElement$2 } from './p-6191d268.js';
+import { c as colorStyleSheet, a as containerStyleSheet } from './p-20eedb96.js';
+import { d as defineCustomElement$b } from './p-a256c866.js';
+import { d as defineCustomElement$a } from './p-d53cb6f4.js';
+import { d as defineCustomElement$9 } from './p-2b0400b3.js';
+import { d as defineCustomElement$8 } from './p-247f7459.js';
+import { d as defineCustomElement$7 } from './p-3d848afd.js';
+import { d as defineCustomElement$6 } from './p-d797556c.js';
+import { d as defineCustomElement$5 } from './p-4831c0ac.js';
+import { d as defineCustomElement$4 } from './p-29b34b17.js';
+import { d as defineCustomElement$3 } from './p-e943d8bc.js';
+import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-footer`;
 const styles = `
@@ -301,15 +301,38 @@ const TnwFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwFooter extends H {
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-footer`;
         this.parsedFooterData = null;
+        /**
+         * The background color for the footer.
+         */
         this.backgroundColor = 'auto';
+        /**
+         * The color for the footer border.
+         */
         this.borderTopColor = 'auto';
+        /**
+         * The padding size applied to the footer.
+         */
         this.padding = 'xl';
+        /**
+         * The margin top size applied to the footer.
+         */
         this.margin = 'none';
+        /**
+         * The color for the footer headings.
+         */
         this.headingColor = 'auto';
+        /**
+         * The color for the footer content.
+         */
         this.textColor = 'auto';
+        /**
+         * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
+         */
         this.disableInternalContainer = false;
+        /**
+         * Center-align the footer content.
+         */
         this.centerContent = false;
-        this.footerData = undefined;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -384,7 +407,7 @@ const TnwFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwFooter extends H {
     }
     render() {
         const { parsedFooterData } = this;
-        return (h(Host, { key: '499c03f6bf8fdbde4f45dcac5af5df19507732f3', class: this.getHostClasses() }, h("footer", { key: '95091553b503132f1802941232e222344a29dd2d', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: 'd5e1ffbb078ee214a0a9a20ffee20361fd8cf34d', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderNewsletter(parsedFooterData.newsletter))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "newsletter" })))), h("slot", { key: 'd4604453a3983be9368b246ced829d46b6b7e73e', name: "copyrights" }))));
+        return (h(Host, { key: 'ea7d60959e9fbf9d54529fb8a93ad510e3992bc4', class: this.getHostClasses() }, h("footer", { key: '0620c28029ab91fd1d2a7f32efb6d537dad3930f', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: 'ded5760ba3faa9bb8074f230d752a3038f5b68ee', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderNewsletter(parsedFooterData.newsletter))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "newsletter" })))), h("slot", { key: '67fc11595f37bb74a4af2cca9e6f3c77989b122a', name: "copyrights" }))));
     }
     get el() { return this; }
 }, [1, "tnw-footer", {

@@ -17,6 +17,7 @@ permissions:
 
 jobs:
   lint:
+    if: '!contains(github.event.head_commit.message, "[skip-lint]")'
     name: Lint Code
     runs-on: ubuntu-latest
     steps:
@@ -37,6 +38,7 @@ jobs:
         run: npx lerna run lint
 
   test:
+    if: '!contains(github.event.head_commit.message, "[skip-test]")'
     name: Run Spec Tests
     runs-on: ubuntu-latest
     steps:
@@ -121,6 +123,7 @@ jobs:
   #           run: cd packages/stencil-library && vercel --yes --prod --token $VERCEL_TOKEN
 
   versioning:
+    if: '!contains(github.event.head_commit.message, "[skip-versioning]")'
     name: Versioning Packages
     runs-on: ubuntu-latest
     needs:
@@ -139,6 +142,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
+    if: '!contains(github.event.head_commit.message, "[skip-publish]")'
     runs-on: ubuntu-latest
     needs:
       - lint

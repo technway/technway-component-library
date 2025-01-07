@@ -1,0 +1,56 @@
+{
+  "name": "@technway/layout-kit",
+  "version": "0.0.1",
+  "description": "A lightweight and modular CSS utility framework focused on creating responsive grid systems and flexible layouts for modern web design.",
+  "author": "Technway <contact@technway.biz>",
+  "main": "index.js",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/technway/technway-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/technway/technway-component-library/issues"
+  },
+  "files": [
+    "src/index.js",
+    "src/grid.css"
+  ],
+  "exports": {
+    "./index.js": "./src/index.js",
+    "./grid.css": "./src/grid.css",
+    "./grid": "./src/grid.ts",
+    "./react": "./src/react/index.ts"
+  },
+  "scripts": {
+    "build:ts": "tsc",
+    "build:css": "postcss src/**/*.css --config postcss.config.ts --dir dist/css",
+    "build:react": "tsc -p tsconfig.json",
+    "build": "npm run build:ts && npm run build:css && npm run build:react",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^10.1.3",
+    "typescript": "^5.7.2"
+  }
+}

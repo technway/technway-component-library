@@ -427,8 +427,4 @@ defineCustomElement();
 
 export { TnwText as T, defineCustomElement as d };
 
-<<<<<<<< HEAD:packages/stencil-library/components/p-b708dbe9.js
 //# sourceMappingURL=p-b708dbe9.js.map
-========
-//# sourceMappingURL=p-215cb154.js.map
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-215cb154.js

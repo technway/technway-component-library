@@ -4,19 +4,11 @@
  */
 import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
-<<<<<<<< HEAD:packages/stencil-library/components/p-4831c0ac.js
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { c as createStore } from './p-c039142c.js';
 import { s as sanitizeInput, c as containsSQLInjectionPatterns } from './p-664fd6b2.js';
 import { d as defineCustomElement$2 } from './p-a256c866.js';
 import { d as defineCustomElement$1 } from './p-29b34b17.js';
-========
-import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-9bc88248.js';
-import { c as createStore } from './p-c039142c.js';
-import { s as sanitizeInput, c as containsSQLInjectionPatterns } from './p-664fd6b2.js';
-import { d as defineCustomElement$2 } from './p-084e02ae.js';
-import { d as defineCustomElement$1 } from './p-b8717627.js';
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-cf5c3c2a.js
 
 const baseClass = `${GLOBAL_PREFIX}-input`;
 const styles = `
@@ -630,8 +622,4 @@ defineCustomElement();
 
 export { TnwInput as T, defineCustomElement as d };
 
-<<<<<<<< HEAD:packages/stencil-library/components/p-4831c0ac.js
 //# sourceMappingURL=p-4831c0ac.js.map
-========
-//# sourceMappingURL=p-cf5c3c2a.js.map
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-cf5c3c2a.js

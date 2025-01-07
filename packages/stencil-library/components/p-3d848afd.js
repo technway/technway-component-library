@@ -451,8 +451,4 @@ defineCustomElement();
 
 export { TnwIcon as T, defineCustomElement as d };
 
-<<<<<<<< HEAD:packages/stencil-library/components/p-3d848afd.js
 //# sourceMappingURL=p-3d848afd.js.map
-========
-//# sourceMappingURL=p-86f498c8.js.map
->>>>>>>> 5935193418841c071bfed2a488e2c48c64bb9b02:packages/stencil-library/components/p-86f498c8.js

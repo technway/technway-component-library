@@ -21,7 +21,8 @@
     "url": "https://github.com/technway/technway-component-library.git"
   },
   "scripts": {
-    "build": "npm run tsc",
+    "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",
+    "build": "npm run clean && npm run tsc",
     "tsc": "tsc -p . --outDir ./dist",
     "genPackagelock": "npm i --package-lock-only"
   },

@@ -41,6 +41,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.2.0](https://github.com/technway/technway-component-library/compare/root-v3.1.0...root-v3.2.0) (2025-01-08)
+
+
+### Features
+
+* **layout-kit:** revamp responsive grid system and configuration ([e138f7a](https://github.com/technway/technway-component-library/commit/e138f7aeb04f2c7c07bb08235e922a3384d907ce))
+
+
+### Bug Fixes
+
+* **layout-kit:** correct Grid component default column behavior ([bd24733](https://github.com/technway/technway-component-library/commit/bd24733dd10a600e1f9c4b734715ffc878c50919))
+
 ## [3.1.0](https://github.com/technway/technway-component-library/compare/root-v3.0.5...root-v3.1.0) (2025-01-07)
 
 

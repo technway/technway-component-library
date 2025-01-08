@@ -1,4 +1,4 @@
-import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
+import { createSpecPage, checkSpecPageError, queryElement } from '../../../utils/testing-utils';
 import { TnwImage } from '../tnw-image';
 
 describe('tnw-image', () => {
@@ -73,8 +73,6 @@ describe('tnw-image', () => {
         TnwImage,
         `<tnw-image src="image.jpg" alt="Image" aspect-ratio="16_9"></tnw-image>`,
         'img',
-        true,
-        true
       );
       expect(image).toHaveClasses(['ar-16_9']);
     });
@@ -86,6 +84,15 @@ describe('tnw-image', () => {
         'img'
       );
       expect(image).toHaveClass('fit-cover');
+    });
+
+    it('applies a custom object-position class', async () => {
+      const image = await createSpecPage(
+        TnwImage,
+        `<tnw-image src="image.jpg" alt="Image" object-position="center"></tnw-image>`,
+        'img'
+      );
+      expect(image).toHaveClass('obj-pos-c');
     });
 
     it('applies a custom border-radius class', async () => {
@@ -104,6 +111,44 @@ describe('tnw-image', () => {
         'img'
       );
       expect(image.getAttribute('loading')).toBe('lazy');
+    });
+  });
+
+  describe('Linkable Image Behavior', () => {
+    it('renders an anchor tag when link is provided', async () => {
+      const host = await createSpecPage(
+        TnwImage,
+        `<tnw-image src="image.jpg" alt="Image with Caption" link="/"></tnw-image>`
+      ) as HTMLTnwImageElement;
+      const anchor = queryElement(host, 'a');
+      const img = queryElement(host, 'img');
+
+      expect(anchor).not.toBeNull();
+      expect(anchor!.querySelector('img')).not.toBeNull();
+      expect(img).toHaveClass('tnw-image--full');
+    });
+
+    it('adds classes to anchor tag when link is provided', async () => {
+      const host = await createSpecPage(
+        TnwImage,
+        `<tnw-image src="test.jpg" alt="Test Image" width="300px" height="200px" link="/"></tnw-image>`
+      ) as HTMLTnwImageElement;
+      const anchor = queryElement(host, 'a');
+      expect(anchor.getAttribute('style')).toBe('width: 300px; height: 200px;');
+      expect(anchor).not.toHaveClass('tnw-image--full');
+    });
+
+    it('adds object fit class to img not anchor when link is provided', async () => {
+      const host = await createSpecPage(
+        TnwImage,
+        `<tnw-image src="test.jpg" alt="Test Image" link="/" object-fit="cover" object-position="center"></tnw-image>`
+      ) as HTMLTnwImageElement;
+      const anchor = queryElement(host, 'a');
+      const img = queryElement(host, 'img');
+      expect(anchor).not.toHaveClass('fit-cover');
+      expect(anchor).not.toHaveClass('obj-pos-c');
+      expect(img).toHaveClass('fit-cover');
+      expect(img).toHaveClass('obj-pos-c');
     });
   });
 

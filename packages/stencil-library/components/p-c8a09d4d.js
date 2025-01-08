@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, o as getAspectRatioClass, p as getObjectFitClass, q as getObjectPositionClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { m as mediaStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 
@@ -13,7 +13,7 @@ import { m as mediaStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-image.tsx` file.
  *
-validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
+validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
  *
  * GENERATED USING `npm run g:components-validations tnw-image`
  */
@@ -85,6 +85,13 @@ function validateProps(propsValues) {
             "name": "lazyLoading",
             "type": [
                 "boolean"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "link",
+            "type": [
+                "string"
             ],
             "isRequired": false
         },
@@ -222,6 +229,10 @@ const styles = `
     font-style: italic;
     font-family: var(--tnw-image-font);
 }
+
+a {
+  cursor: pointer;
+}
 `;
 
 const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
@@ -269,20 +280,28 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
         }
     }
     componentWillLoad() {
-        validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
+        validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
     }
     hasWidthOrHeight() {
         return isNotEmptyString(this.width) || isNotEmptyString(this.height);
     }
-    getImageClasses() {
+    getImageClasses(includeObjectProps) {
         const { baseClass, aspectRatio, objectFit, objectPosition } = this;
         return [
             baseClass,
             !this.hasWidthOrHeight() ? `${baseClass}--full` : '',
             getAspectRatioClass(aspectRatio),
-            getObjectFitClass(objectFit),
-            getObjectPositionClass(objectPosition),
+            includeObjectProps ? getObjectFitClass(objectFit) : '',
+            includeObjectProps ? getObjectPositionClass(objectPosition) : '',
             getBorderRadiusClass(this.BorderRadius),
+        ].filter(Boolean).join(' ').trim();
+    }
+    getAnchorImageClasses() {
+        const { baseClass, objectPosition, objectFit } = this;
+        return [
+            `${baseClass}--full`,
+            getObjectPositionClass(objectPosition),
+            getObjectFitClass(objectFit)
         ].filter(Boolean).join(' ').trim();
     }
     getHostClasses() {
@@ -297,10 +316,13 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
      * @returns A rendered image element (JSX.Element)
      */
     renderImage() {
-        return (h("img", { class: this.getImageClasses(), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image', style: {
+        return (h(Fragment, null, isNotEmptyString(this.link) ? (h("a", { class: this.getImageClasses(false), href: this.link, "aria-label": this.alt, style: {
                 width: this.width,
                 height: this.height,
-            } }));
+            } }, h("img", { class: this.getAnchorImageClasses(), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image' }))) : (h("img", { class: this.getImageClasses(true), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image', style: {
+                width: this.width,
+                height: this.height,
+            } }))));
     }
     renderFigCaption() {
         if (isNotEmptyString(this.caption)) {
@@ -311,7 +333,7 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
     render() {
         const image = this.renderImage();
         const hasCaption = Boolean(this.caption);
-        return (h(Host, { key: 'c16a3352d007ab953fd8d9b6a6c1cbbda282ce8f', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
+        return (h(Host, { key: '4c3f68a7aebddc96f81ab7f9a2376522c5c3e5b7', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
     }
     get el() { return this; }
 }, [1, "tnw-image", {
@@ -326,7 +348,8 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
         "objectPosition": [1, "object-position"],
         "objectFit": [1, "object-fit"],
         "lazyLoading": [516, "lazy-loading"],
-        "BorderRadius": [1, "border-radius"]
+        "BorderRadius": [1, "border-radius"],
+        "link": [1]
     }]);
 function defineCustomElement() {
     if (typeof customElements === "undefined") {
@@ -345,4 +368,4 @@ defineCustomElement();
 
 export { TnwImage as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-082bce33.js.map
+//# sourceMappingURL=p-c8a09d4d.js.map

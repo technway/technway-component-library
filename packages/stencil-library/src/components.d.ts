@@ -722,6 +722,10 @@ export namespace Components {
          */
         "lazyLoading"?: boolean;
         /**
+          * The link to navigate to when the image is clicked. This is useful for creating clickable images, e.g, for logo.
+         */
+        "link"?: string;
+        /**
           * Defines how the image should be resized to fit its container. This controls the CSS `object-fit` property.
          */
         "objectFit"?: ObjectFitType;
@@ -2616,6 +2620,10 @@ declare namespace LocalJSX {
           * If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.
          */
         "lazyLoading"?: boolean;
+        /**
+          * The link to navigate to when the image is clicked. This is useful for creating clickable images, e.g, for logo.
+         */
+        "link"?: string;
         /**
           * Defines how the image should be resized to fit its container. This controls the CSS `object-fit` property.
          */

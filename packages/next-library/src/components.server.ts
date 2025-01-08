@@ -186,6 +186,7 @@ export const TnwButton: StencilReactComponent<TnwButtonElement, TnwButtonEvents>
             size: 'size',
             hoverAppearance: 'hover-appearance',
             hoverAppearanceColor: 'hover-appearance-color',
+            hoverEffect: 'hover-effect',
             href: 'href',
             newTab: 'new-tab',
             disabled: 'disabled',

@@ -63,16 +63,16 @@ const styles = `
 }
 
 /* - Hover Effects - */
-:host(.${baseClass}--hoverEffect-scale-down:hover) {
+:host(.${baseClass}--hover-scale-down:hover) {
     transform: scale(0.97);
 }
-:host(.${baseClass}--hoverEffect-scale-up:hover) {
+:host(.${baseClass}--hover-scale-up:hover) {
     transform: scale(1.02);
 }
-:host(.${baseClass}--hoverEffect-contrast:hover) {
-    filter: contrast(1.1);       
+:host(.${baseClass}--hover-contrast:hover) {
+    filter: contrast(1.7);       
 }
-:host(.${baseClass}--hoverEffect-opacity:hover) {
+:host(.${baseClass}--hover-opacity:hover) {
     opacity: 0.9;
 }
 
@@ -224,7 +224,7 @@ a {
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-button.tsx` file.
  *
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.href, this.label, this.newTab, this.size, this.type]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.hoverEffect, this.href, this.label, this.newTab, this.size, this.type]);
  *
  * GENERATED USING `npm run g:components-validations tnw-button`
  */
@@ -300,6 +300,17 @@ function validateProps(propsValues) {
                 "primary",
                 "secondary",
                 "white"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "hoverEffect",
+            "type": [
+                "contrast",
+                "none",
+                "opacity",
+                "scale-down",
+                "scale-up"
             ],
             "isRequired": false
         },
@@ -399,6 +410,10 @@ const TnwButton = /*@__PURE__*/ proxyCustomElement(class TnwButton extends H {
          */
         this.hoverAppearanceColor = 'primary';
         /**
+         * Specifies the hover effect of the button.
+         */
+        this.hoverEffect = 'none';
+        /**
          * If `true`, the link will open in a new tab. Only relevant when `href` is provided.
          */
         this.newTab = false;
@@ -425,15 +440,16 @@ const TnwButton = /*@__PURE__*/ proxyCustomElement(class TnwButton extends H {
         }
     }
     componentWillLoad() {
-        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.href, this.label, this.newTab, this.size, this.type]);
+        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.hoverEffect, this.href, this.label, this.newTab, this.size, this.type]);
     }
     getHostClasses() {
-        const { baseClass, appearanceColor, appearance, size, hoverAppearance, hoverAppearanceColor, disabled } = this;
+        const { baseClass, appearanceColor, appearance, size, hoverAppearance, hoverAppearanceColor, hoverEffect, disabled } = this;
         const classesArray = [size];
         return [
             baseClass,
             disabled ? `${baseClass}--disabled` : '',
             hoverAppearance !== 'none' ? `${baseClass}--hover-${hoverAppearance}-${hoverAppearanceColor}` : ``,
+            hoverEffect !== 'none' ? `${baseClass}--hover-${hoverEffect}` : ``,
             getClassNames(classesArray, baseClass),
             getExtendedAppearanceClass(appearance, appearanceColor),
             getBorderRadiusClass(this.borderRadius),
@@ -451,7 +467,7 @@ const TnwButton = /*@__PURE__*/ proxyCustomElement(class TnwButton extends H {
         return (h(Fragment, null, h("slot", { name: "icon-start" }), isNotEmptyString(this.label) ? this.label : h("slot", null), h("slot", { name: "icon-end" })));
     }
     render() {
-        return (h(Host, { key: 'e5a593359c2597a925ceb09e96211dcdefba5b4d', class: this.getHostClasses() }, isNotEmptyString(this.href) ?
+        return (h(Host, { key: '6bc265e6f2233c664407bf78a8878271181945a5', class: this.getHostClasses() }, isNotEmptyString(this.href) ?
             this.renderAnchor() :
             this.renderButtonElement()));
     }
@@ -464,6 +480,7 @@ const TnwButton = /*@__PURE__*/ proxyCustomElement(class TnwButton extends H {
         "size": [1],
         "hoverAppearance": [1, "hover-appearance"],
         "hoverAppearanceColor": [1, "hover-appearance-color"],
+        "hoverEffect": [1, "hover-effect"],
         "href": [1],
         "newTab": [4, "new-tab"],
         "disabled": [4],
@@ -486,4 +503,4 @@ defineCustomElement();
 
 export { TnwButton as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-2b0400b3.js.map
+//# sourceMappingURL=p-aa4fbea0.js.map

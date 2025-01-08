@@ -41,6 +41,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.3.0](https://github.com/technway/technway-component-library/compare/root-v3.2.0...root-v3.3.0) (2025-01-08)
+
+
+### Features
+
+* add props to `tnw-contact-banner` ([4cbe247](https://github.com/technway/technway-component-library/commit/4cbe24750b96a63ffb15463e3495f8a9e32dac44))
+* **tnw-button:** implement hover effects and styling ([5e3be35](https://github.com/technway/technway-component-library/commit/5e3be358a8f5dba15f3177c04ed7aa68c2663acb))
+* **tnw-card:** implement new props and fix styling issues ([467a769](https://github.com/technway/technway-component-library/commit/467a76936f1115bd9467b089df1fe294c622ea90))
+* **tnw-image:** introduce link prop for linkable images ([8a519cc](https://github.com/technway/technway-component-library/commit/8a519cce6768349dba2d900c9f1846ab01e35359))
+* **tnw-input:** add appearanceColor prop ([794a8a1](https://github.com/technway/technway-component-library/commit/794a8a1a894b7566f529725b042d4912cf675122))
+* **tnw-navbar:** add new props for more flexibility ([0f4ad16](https://github.com/technway/technway-component-library/commit/0f4ad160f53fa0de5d4d6666d2fda83c17f8cdba))
+* **tnw-navbar:** add optional menu slot ([76a1637](https://github.com/technway/technway-component-library/commit/76a16373db5a37c4cb0bd41e09dda4c6578bc119))
+* **tnw-subscription-form:** align input appearance with theme prop ([6c36885](https://github.com/technway/technway-component-library/commit/6c36885bfbc63ae3b86493228efb1cf4403cc46f))
+
+
+### Bug Fixes
+
+* **tnw-image:** resolve borderRadius prop issues ([4a0aea2](https://github.com/technway/technway-component-library/commit/4a0aea23c5776a3c16efb6967491240be87a80b5))
+
 ## [3.2.0](https://github.com/technway/technway-component-library/compare/root-v3.1.0...root-v3.2.0) (2025-01-08)
 
 

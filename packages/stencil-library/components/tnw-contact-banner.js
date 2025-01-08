@@ -15,7 +15,6 @@ const styles = `
     
 :host {
     display: flex;
-    flex-direction: column;
     gap: 15px;
     width: 100%;
     --${baseClass}-gradient-from: var(--tnw-background-color-inverse);
@@ -29,20 +28,49 @@ const styles = `
     --${baseClass}-spacing-3xl: var(--tnw-spacing-3xl);
     --${baseClass}-spacing-4xl: var(--tnw-spacing-4xl);
 }
-:host(.${baseClass}--center) {
-    text-align: center;
-    align-items: center;
+
+:host(.${baseClass}--vertical) {
+    flex-direction: column;
+}
+:host(.${baseClass}--horizontal) {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+:host(.${baseClass}--vertical.${baseClass}--center) {
     justify-content: center;
 }
-:host(.${baseClass}--start) {
-    text-align: start;
-    align-items: start;
+:host(.${baseClass}--vertical.${baseClass}--start) {
     justify-content: start;
 }
-:host(.${baseClass}--end) {
-    text-align: end;
-    align-items: end;
+:host(.${baseClass}--vertical.${baseClass}--end) {
     justify-content: end;
+}
+
+:host(.${baseClass}--center) {
+    align-items: center;
+}
+:host(.${baseClass}--start) {
+    align-items: start;
+}
+:host(.${baseClass}--end) {
+    align-items: end;
+}
+
+:host(.${baseClass}--text-center) {
+    text-align: center;
+}
+:host(.${baseClass}--text-start) {
+    text-align: start;
+}
+:host(.${baseClass}--text-end) {
+    text-align: end;
+}
+:host(.${baseClass}--text-right) {
+    text-align: right;
+}
+:host(.${baseClass}--text-left) {
+    text-align: left;
 }
 
 :host(.${baseClass}--gradient) {
@@ -55,6 +83,31 @@ const styles = `
     );
 }
 
+/* Gap */
+:host(.${baseClass}--gap-xs) {
+    gap: var(--${baseClass}-spacing-xs);
+}
+:host(.${baseClass}--gap-sm) {
+    gap: var(--${baseClass}-spacing-sm);
+}
+:host(.${baseClass}--gap-md) {
+    gap: var(--${baseClass}-spacing-md);
+}
+:host(.${baseClass}--gap-lg) {
+    gap: var(--${baseClass}-spacing-lg);
+}
+:host(.${baseClass}--gap-xl) {
+    gap: var(--${baseClass}-spacing-xl);
+}
+:host(.${baseClass}--gap-2xl) {
+    gap: var(--${baseClass}-spacing-2xl);
+}
+:host(.${baseClass}--gap-3xl) {
+    gap: var(--${baseClass}-spacing-3xl);
+}
+:host(.${baseClass}--gap-4xl) {
+    gap: var(--${baseClass}-spacing-4xl);
+}
 
 /* Paddings Block */
 :host(.${baseClass}--padding-block-xs) {
@@ -146,7 +199,7 @@ const styles = `
     gap: 5px;
 }
 
-::slotted([slot="description"]) {
+::slotted([slot="button"]) {
     width: 100%;
     max-width: 600px;
 }
@@ -159,27 +212,12 @@ const styles = `
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-contact-banner.tsx` file.
  *
-validateProps([this.VerticalPadding, this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin]);
+validateProps([this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.gap, this.layout, this.margin, this.paddingHorizontal, this.paddingVertical, this.textAlignment]);
  *
  * GENERATED USING `npm run g:components-validations tnw-contact-banner`
  */
 function validateProps(propsValues) {
     const props = [
-        {
-            "name": "VerticalPadding",
-            "type": [
-                "2xl",
-                "3xl",
-                "4xl",
-                "lg",
-                "md",
-                "none",
-                "sm",
-                "xl",
-                "xs"
-            ],
-            "isRequired": false
-        },
         {
             "name": "alignment",
             "type": [
@@ -245,17 +283,24 @@ function validateProps(propsValues) {
             "isRequired": false
         },
         {
-            "name": "horizontalPadding",
+            "name": "gap",
             "type": [
                 "2xl",
                 "3xl",
                 "4xl",
                 "lg",
                 "md",
-                "none",
                 "sm",
                 "xl",
                 "xs"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "layout",
+            "type": [
+                "horizontal",
+                "vertical"
             ],
             "isRequired": false
         },
@@ -271,6 +316,47 @@ function validateProps(propsValues) {
                 "sm",
                 "xl",
                 "xs"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "paddingHorizontal",
+            "type": [
+                "2xl",
+                "3xl",
+                "4xl",
+                "lg",
+                "md",
+                "none",
+                "sm",
+                "xl",
+                "xs"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "paddingVertical",
+            "type": [
+                "2xl",
+                "3xl",
+                "4xl",
+                "lg",
+                "md",
+                "none",
+                "sm",
+                "xl",
+                "xs"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "textAlignment",
+            "type": [
+                "center",
+                "end",
+                "left",
+                "right",
+                "start"
             ],
             "isRequired": false
         }
@@ -322,6 +408,10 @@ const TnwContactBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwContactBann
          */
         this.alignment = 'center';
         /**
+         * Defines the alignment of the text content.
+         */
+        this.textAlignment = 'center';
+        /**
          * Defines the border radius of the banner.
          */
         this.borderRadius = 'default';
@@ -332,11 +422,19 @@ const TnwContactBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwContactBann
         /**
          * Defines the horizontal padding of the banner.
          */
-        this.horizontalPadding = '2xl';
+        this.paddingHorizontal = 'lg';
         /**
          * Defines the vertical padding of the banner.
          */
-        this.VerticalPadding = '2xl';
+        this.paddingVertical = 'lg';
+        /**
+         * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
+         */
+        this.gap = 'md';
+        /**
+         * The layout of the banner.
+         */
+        this.layout = 'vertical';
         /**
          * If `true`, the section body will be wrapped in a container for centering and padding.
          */
@@ -352,23 +450,26 @@ const TnwContactBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwContactBann
         }
     }
     componentWillLoad() {
-        validateProps([this.VerticalPadding, this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin]);
+        validateProps([this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.gap, this.layout, this.margin, this.paddingHorizontal, this.paddingVertical, this.textAlignment]);
     }
     getHostClasses() {
-        const { baseClass, appearance, appearanceColor, alignment, borderRadius, margin, horizontalPadding, VerticalPadding, disableInternalContainer } = this;
+        const { baseClass, appearance, appearanceColor, layout, textAlignment, gap, alignment, borderRadius, margin, paddingHorizontal, paddingVertical, disableInternalContainer } = this;
         return [
             baseClass,
             !disableInternalContainer ? 'container' : '',
             `${baseClass}--${alignment}`,
+            `${baseClass}--text-${textAlignment}`,
+            `${baseClass}--gap-${gap}`,
+            `${baseClass}--${layout}`,
             `${baseClass}--margin-${margin}`,
-            `${baseClass}--padding-inline-${horizontalPadding}`,
-            `${baseClass}--padding-block-${VerticalPadding}`,
+            `${baseClass}--padding-inline-${paddingHorizontal}`,
+            `${baseClass}--padding-block-${paddingVertical}`,
             appearance === 'gradient' ? `${baseClass}--gradient` : getAppearanceClass(appearance, appearanceColor),
             getBorderRadiusClass(borderRadius),
         ].filter(Boolean).join(' ').trim();
     }
     render() {
-        return (h(Host, { key: 'c12a9ffc69e0b2dbffde782dfd33aee2cd4b1146', class: this.getHostClasses() }, this.enableContentSlot ?
+        return (h(Host, { key: 'efcb5fc2287157a7ad325e649313a136a0b18dec', class: this.getHostClasses() }, this.enableContentSlot ?
             h("slot", { name: 'content' })
             : (h(Fragment, null, h("div", { class: `${this.baseClass}__content` }, h("div", { class: `${this.baseClass}__content-heading` }, h("slot", { name: "subtitle" }), h("slot", { name: "title" })), h("slot", { name: "description" })), h("slot", { name: "button" })))));
     }
@@ -378,10 +479,13 @@ const TnwContactBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwContactBann
         "appearanceColor": [1, "appearance-color"],
         "enableContentSlot": [4, "enable-content-slot"],
         "alignment": [1],
+        "textAlignment": [1, "text-alignment"],
         "borderRadius": [1, "border-radius"],
         "margin": [1],
-        "horizontalPadding": [1, "horizontal-padding"],
-        "VerticalPadding": [1, "vertical-padding"],
+        "paddingHorizontal": [1, "padding-horizontal"],
+        "paddingVertical": [1, "padding-vertical"],
+        "gap": [1],
+        "layout": [1],
         "disableInternalContainer": [4, "disable-internal-container"]
     }]);
 function defineCustomElement$1() {

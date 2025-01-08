@@ -142,7 +142,7 @@ export class TnwTestimonialCard {
     return (
       <div class={`${this.baseClass}__author-details`} part='author-details'>
         {isNotEmptyString(this.authorPhotoSrc) ?
-          <tnw-image src={this.authorPhotoSrc} alt={this.authorPhotoAlt} BorderRadius="circle" heightSize="full" widthSize="full" objectFit="cover" class={`${this.baseClass}__author-photo`} part='author-photo' />
+          <tnw-image src={this.authorPhotoSrc} alt={this.authorPhotoAlt} borderRadius="circle" heightSize="full" widthSize="full" objectFit="cover" class={`${this.baseClass}__author-photo`} part='author-photo' />
           :
           this.renderRandomAvatar()
         }

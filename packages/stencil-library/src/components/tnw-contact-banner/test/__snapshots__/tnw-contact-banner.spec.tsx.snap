@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tnw-contact-banner Default and Required Prop Behavior renders correctly with default props 1`] = `
-<tnw-contact-banner class="container rounded-default tnw-contact-banner tnw-contact-banner--center tnw-contact-banner--margin-xl tnw-contact-banner--padding-block-2xl tnw-contact-banner--padding-inline-2xl tnw-v-solid-primary">
+<tnw-contact-banner class="container rounded-default tnw-contact-banner tnw-contact-banner--center tnw-contact-banner--gap-md tnw-contact-banner--margin-xl tnw-contact-banner--padding-block-lg tnw-contact-banner--padding-inline-lg tnw-contact-banner--text-center tnw-contact-banner--vertical tnw-v-solid-primary">
   <template shadowrootmode="open">
     <div class="tnw-contact-banner__content">
       <div class="tnw-contact-banner__content-heading">

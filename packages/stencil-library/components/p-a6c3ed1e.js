@@ -63,10 +63,30 @@ const styles = `
   background: none;
   outline-width: var(--tnw-border-sm);
   outline-style: solid;
-  outline-color: var(--tnw-border-color);
   border: 0;
   padding: var(--${baseClass}-padding) calc(var(--${baseClass}-padding) * 1.5);
   background: none;
+}
+.${baseClass}--outlined-primary {
+  outline-color: var(--tnw-primary-color);
+}
+.${baseClass}--outlined-secondary {
+  outline-color: var(--tnw-secondary-color);
+}
+.${baseClass}--outlined-auto {
+  outline-color: var(--tnw-border-color);
+}
+.${baseClass}--outlined-inverse {
+  outline-color: var(--tnw-border-color-inverse);
+}
+.${baseClass}--outlined-light {
+  outline-color: var(--tnw-border-color-opacity);
+}
+.${baseClass}--outlined-white {
+  outline-color: var(--tnw-white);
+}
+.${baseClass}--outlined-black {
+  outline-color: var(--tnw-black);
 }
 .${baseClass}--outlined:focus {
   outline-color: var(--tnw-primary-color);
@@ -74,10 +94,30 @@ const styles = `
 
 .${baseClass}--underlined {
   border: 0;
-  border-bottom: var(--tnw-border-sm) solid var(--tnw-border-color);
   outline-color: transparent;
   padding-bottom: var(--${baseClass}-padding);
   background: none;
+}
+.${baseClass}--underlined-primary {
+  border-bottom: var(--tnw-border-color);
+}
+.${baseClass}--underlined-secondary {
+  border-bottom: var(--tnw-secondary-color);
+}
+.${baseClass}--underlined-auto {
+  border-bottom: var(--tnw-border-color);
+}
+.${baseClass}--underlined-inverse {
+  border-bottom: var(--tnw-border-color-inverse);
+}
+.${baseClass}--underlined-light {
+  border-bottom: var(--tnw-border-color-opacity);
+}
+.${baseClass}--underlined-white {
+  border-bottom: var(--tnw-white);
+}
+.${baseClass}--underlined-black {
+  border-bottom: var(--tnw-black);
 }
 .${baseClass}--underlined:focus,
 .${baseClass}--underlined:focus-within,
@@ -152,7 +192,7 @@ const styles = `
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-input.tsx` file.
  *
-validateProps([this.appearance, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
+validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
  *
  * GENERATED USING `npm run g:components-validations tnw-input`
  */
@@ -164,6 +204,19 @@ function validateProps(propsValues) {
                 "none",
                 "outlined",
                 "underlined"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "appearanceColor",
+            "type": [
+                "auto",
+                "black",
+                "inverse",
+                "light",
+                "primary",
+                "secondary",
+                "white"
             ],
             "isRequired": false
         },
@@ -334,6 +387,10 @@ const TnwInput = /*@__PURE__*/ proxyCustomElement(class TnwInput extends H {
          */
         this.appearance = 'outlined';
         /**
+         * The appearance color of the input, determining the overall color scheme.
+         */
+        this.appearanceColor = 'auto';
+        /**
          * The name of the input field.
          */
         this.name = '';
@@ -425,7 +482,7 @@ const TnwInput = /*@__PURE__*/ proxyCustomElement(class TnwInput extends H {
         this.setUniqueId();
     }
     componentWillLoad() {
-        validateProps([this.appearance, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
+        validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
         /**
          * Initialize the store with the initial value.
          */
@@ -542,11 +599,12 @@ const TnwInput = /*@__PURE__*/ proxyCustomElement(class TnwInput extends H {
         };
     }
     getInputClasses() {
-        const { baseClass, appearance } = this;
+        const { baseClass, appearance, appearanceColor } = this;
         const alertType = this.store.get('alertType');
         return [
             baseClass,
             `${baseClass}--${appearance}`,
+            `${baseClass}--${appearance}-${appearanceColor}`,
             isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
             getBorderRadiusClass(this.borderRadius),
         ].filter(Boolean).join(' ').trim();
@@ -572,7 +630,7 @@ const TnwInput = /*@__PURE__*/ proxyCustomElement(class TnwInput extends H {
         return (h("tnw-alert", { message: this.helpText, alertId: `${this.uniqueId}-help`, part: "help-text" }));
     }
     render() {
-        return (h(Host, { key: 'adb6d178f6ac4918ff5cfa149eae2f097522413a' }, this.renderLabel(), h("input", Object.assign({ key: '3aae4b3dca4e4e896a1e6a2f500dca9032068fc3', class: this.getInputClasses(), id: this.uniqueId, type: this.type, name: this.name, value: this.store.get('inputValue'), required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, pattern: this.pattern, autocomplete: this.autoComplete, disabled: this.disabled }, this.getAriaAttributes(), { onInput: this.handleInputOnInput, onChange: this.handleInputOnChange, part: 'input' })), this.renderAlert() || this.renderHelpText()));
+        return (h(Host, { key: '29832ea0239be3a32fe20b8ba5277a654e071b45' }, this.renderLabel(), h("input", Object.assign({ key: '179d2daf6c86cb5abeeb3a0f8be33d6542cb7575', class: this.getInputClasses(), id: this.uniqueId, type: this.type, name: this.name, value: this.store.get('inputValue'), required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, pattern: this.pattern, autocomplete: this.autoComplete, disabled: this.disabled }, this.getAriaAttributes(), { onInput: this.handleInputOnInput, onChange: this.handleInputOnChange, part: 'input' })), this.renderAlert() || this.renderHelpText()));
     }
     get el() { return this; }
 }, [1, "tnw-input", {
@@ -581,6 +639,7 @@ const TnwInput = /*@__PURE__*/ proxyCustomElement(class TnwInput extends H {
         "type": [1],
         "placeholder": [1],
         "appearance": [1],
+        "appearanceColor": [1, "appearance-color"],
         "isLabelSrOnly": [4, "is-label-sr-only"],
         "name": [1],
         "value": [1],
@@ -622,4 +681,4 @@ defineCustomElement();
 
 export { TnwInput as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-4831c0ac.js.map
+//# sourceMappingURL=p-a6c3ed1e.js.map

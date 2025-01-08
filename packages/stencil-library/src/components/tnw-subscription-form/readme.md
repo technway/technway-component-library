@@ -1,4 +1,4 @@
-# tnw-newsletter-form
+# tnw-subscription-form
 
 
 
@@ -7,11 +7,11 @@
 
 ## Overview
 
-The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+The `tnw-subscription-form` component provides a customizable subscription form.
 
 ## Usage
 
-### Tnw-newsletter-form-usage
+### Tnw-subscription-form-usage
 
 
 
@@ -56,12 +56,12 @@ The `tnw-newsletter-form` component provides a customizable newsletter subscript
 ### Graph
 ```mermaid
 graph TD;
-  tnw-newsletter-form --> tnw-input
-  tnw-newsletter-form --> tnw-button
+  tnw-subscription-form --> tnw-input
+  tnw-subscription-form --> tnw-button
   tnw-input --> tnw-label
   tnw-input --> tnw-alert
-  tnw-footer --> tnw-newsletter-form
-  style tnw-newsletter-form fill:#f9f,stroke:#333,stroke-width:4px
+  tnw-footer --> tnw-subscription-form
+  style tnw-subscription-form fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

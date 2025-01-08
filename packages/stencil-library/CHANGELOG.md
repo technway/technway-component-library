@@ -284,8 +284,8 @@ enhance: updated documentation to reflect the new changes and provide better str
 
 * add a widthSize prop for tnw-heading & tnw-text components ([0909907](https://github.com/ionic-team/stencil-component-starter/commit/0909907942273dc076b38cf9af425c2477d52d76))
 * **components:** create new 'tnw-testimonial-card' and 'tnw-multi-row-carousel' components ([eb8d2a9](https://github.com/ionic-team/stencil-component-starter/commit/eb8d2a9b8e2c251e8647a005809c71047c01a0f6))
-* **components:** improve tnw-copyrights-footer, tnw-newsletter-form, and tnw-footer ([cbe31c9](https://github.com/ionic-team/stencil-component-starter/commit/cbe31c943d5255e597ea96eb0bdd56066ac5fa1d))
-* **components:** improve tnw-footer and tnw-newsletter-form ([0894572](https://github.com/ionic-team/stencil-component-starter/commit/08945725a614f5611cdd02bb6620419d45ab4ccd))
+* **components:** improve tnw-copyrights-footer, tnw-subscription-form, and tnw-footer ([cbe31c9](https://github.com/ionic-team/stencil-component-starter/commit/cbe31c943d5255e597ea96eb0bdd56066ac5fa1d))
+* **components:** improve tnw-footer and tnw-subscription-form ([0894572](https://github.com/ionic-team/stencil-component-starter/commit/08945725a614f5611cdd02bb6620419d45ab4ccd))
 * **components:** introduce tnw-footer component and update existing footer structure ([ea30a29](https://github.com/ionic-team/stencil-component-starter/commit/ea30a29a6750fbead5d71036f3e3319f6f41443b))
 * setup stencil and react libraries packages ([c350ad5](https://github.com/ionic-team/stencil-component-starter/commit/c350ad52b99f01a730e657a1f4f9e3d7ae91d56b))
 * **tnw-button:** implement tnw-portfolio component ([2a751ef](https://github.com/ionic-team/stencil-component-starter/commit/2a751ef7e817d80c83a4d18581d86326d947e49c))
@@ -296,7 +296,7 @@ enhance: updated documentation to reflect the new changes and provide better str
 * **tnw-heading:** add new `level` prop to replace deprecated `headingTag` ([77e145f](https://github.com/ionic-team/stencil-component-starter/commit/77e145fb984d87ecb0545eb37cdea4e745e3a4b3))
 * **tnw-heading:** remove 'div' as an option for the level prop ([14b2636](https://github.com/ionic-team/stencil-component-starter/commit/14b2636b575110331a0ac16ecca5a83f2382a5f0))
 * **tnw-multi-row-carousel:** enhacne functionaliity and style ([4db88b6](https://github.com/ionic-team/stencil-component-starter/commit/4db88b69016584bd250065ed6071eedd2015a08c))
-* **tnw-newsletter-form:** introduce new component ([23baeb7](https://github.com/ionic-team/stencil-component-starter/commit/23baeb701053070d42e5a3e327423b62a3739052))
+* **tnw-subscription-form:** introduce new component ([23baeb7](https://github.com/ionic-team/stencil-component-starter/commit/23baeb701053070d42e5a3e327423b62a3739052))
 * **tnw-portfolio-grid:** enhance styling and extend props options ([c8f9726](https://github.com/ionic-team/stencil-component-starter/commit/c8f9726b828fe55001864aef93807e89cf0f1d80))
 
 

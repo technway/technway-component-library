@@ -208,6 +208,10 @@ export namespace Components {
          */
         "hoverAppearanceColor"?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto';
         /**
+          * Specifies the hover effect of the button.
+         */
+        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity';
+        /**
           * If provided, the button will render as a link with this `href`.
          */
         "href"?: string;
@@ -244,13 +248,33 @@ export namespace Components {
          */
         "appearanceColor"?: ColorType;
         /**
+          * The label for the card's badge. Useful for displaying categories or statuses.
+         */
+        "badgeLabel"?: string;
+        /**
           * The border radius applied to the card.
          */
         "borderRadius"?: BorderRadiusType;
         /**
+          * The href attribute for the card's button.
+         */
+        "buttonHref"?: string;
+        /**
           * The label for the card's button.
          */
         "buttonLabel"?: string;
+        /**
+          * The border radius applied to the card's button.
+         */
+        "buttonRadius"?: BorderRadiusType;
+        /**
+          * Controls the spacing between elements inside the content.
+         */
+        "contentSpacing"?: SizeType;
+        /**
+          * Usw this to display a date. Useful for articles and blog posts.
+         */
+        "date"?: string;
         /**
           * The card's description text.
          */
@@ -272,6 +296,10 @@ export namespace Components {
          */
         "imageAlt"?: string;
         /**
+          * The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.
+         */
+        "imageHeight"?: string;
+        /**
           * The image source for the card.
          */
         "imageSrc"?: string;
@@ -280,7 +308,7 @@ export namespace Components {
          */
         "itemsAlignment"?: LogicalAlignmentType;
         /**
-          * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+          * If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.
          */
         "largerImage"?: boolean;
         /**
@@ -296,7 +324,7 @@ export namespace Components {
          */
         "padding"?: SizeType | "none";
         /**
-          * Controls the spacing between elements inside the card.
+          * Controls the spacing between image and the contnet.
          */
         "spacing"?: SizeType;
         /**
@@ -317,10 +345,6 @@ export namespace Components {
      * It supports various appearances and colors, and allows for custom content to be inserted via slots.
      */
     interface TnwContactBanner {
-        /**
-          * Defines the vertical padding of the banner.
-         */
-        "VerticalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
         /**
           * If `true`, the banner will center its content.
          */
@@ -346,13 +370,29 @@ export namespace Components {
          */
         "enableContentSlot"?: boolean;
         /**
-          * Defines the horizontal padding of the banner.
+          * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
          */
-        "horizontalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        "gap"?: "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * The layout of the banner.
+         */
+        "layout"?: LayoutType;
         /**
           * Defines the margin of the banner.
          */
         "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the horizontal padding of the banner.
+         */
+        "paddingHorizontal"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the vertical padding of the banner.
+         */
+        "paddingVertical"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the alignment of the text content.
+         */
+        "textAlignment"?: AlignmentType;
     }
     /**
      * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -437,7 +477,7 @@ export namespace Components {
     }
     /**
      * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+     * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
      */
     interface TnwFooter {
         /**
@@ -457,7 +497,7 @@ export namespace Components {
          */
         "disableInternalContainer"?: boolean;
         /**
-          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   newsletter: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
+          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   subscription: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
          */
         "footerData": string;
         /**
@@ -694,10 +734,6 @@ export namespace Components {
      */
     interface TnwImage {
         /**
-          * Determines the border radius of the image.
-         */
-        "BorderRadius": BorderRadiusType;
-        /**
           * The alternative text for the image, used for accessibility.
          */
         "alt": string;
@@ -705,6 +741,10 @@ export namespace Components {
           * The aspect ratio of the image (width / height). Useful for maintaining image proportions.
          */
         "aspectRatio"?: AspectRatioType;
+        /**
+          * Determines the border radius of the image.
+         */
+        "borderRadius": BorderRadiusType;
         /**
           * An optional caption to be displayed below the image.
          */
@@ -721,6 +761,10 @@ export namespace Components {
           * If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.
          */
         "lazyLoading"?: boolean;
+        /**
+          * The link to navigate to when the image is clicked. This is useful for creating clickable images, e.g, for logo.
+         */
+        "link"?: string;
         /**
           * Defines how the image should be resized to fit its container. This controls the CSS `object-fit` property.
          */
@@ -751,6 +795,10 @@ export namespace Components {
           * Defines the appearance of the input.
          */
         "appearance"?: 'outlined' | 'underlined' | 'none';
+        /**
+          * The appearance color of the input, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The autocomplete setting for the input.
          */
@@ -945,13 +993,17 @@ export namespace Components {
          */
         "enableCtaSlot"?: boolean;
         /**
+          * If true, the logo slot is enabled.
+         */
+        "enableLogoSlot"?: boolean;
+        /**
+          * If true, the menu slot is enabled.
+         */
+        "enableMenuSlot"?: boolean;
+        /**
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
         "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
-        /**
-          * The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.
-         */
-        "logoData"?: string;
         /**
           * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
          */
@@ -965,9 +1017,17 @@ export namespace Components {
          */
         "menuPlacement"?: 'start' | 'middle' | 'end';
         /**
-          * Sets the padding size of the navigation bar.
+          * Sets the horizontal padding size of the navigation bar.
          */
-        "padding"?: SizeType | 'none';
+        "paddingHorizontal"?: SizeType | 'none';
+        /**
+          * Sets the vertical padding size of the navigation bar.
+         */
+        "paddingVertical"?: SizeType | 'none';
+        /**
+          * When true, the component will apply its styles (like the appearance colors and effects) to its internal container element. If false, the styles will be applied directly to the component host element.
+         */
+        "scopeStylesToContainer"?: boolean;
         /**
           * Makes the navigation bar sticky at the top of the viewport when set to true.
          */
@@ -976,55 +1036,6 @@ export namespace Components {
           * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
          */
         "togglerPlacement"?: 'start' | 'end';
-    }
-    /**
-     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-     */
-    interface TnwNewsletterForm {
-        /**
-          * The border radius for the component. Set for both input and button
-         */
-        "borderRadius"?: BorderRadiusType1;
-        /**
-          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
-         */
-        "buttonLabel"?: string;
-        /**
-          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
-         */
-        "enableButtonSlot"?: boolean;
-        /**
-          * The action attribute for the form
-         */
-        "formAction"?: string;
-        /**
-          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
-         */
-        "formAttributes"?: string;
-        /**
-          * The method attribute for the form
-         */
-        "formMethod"?: string;
-        /**
-          * The id for the email input
-         */
-        "inputId"?: string;
-        /**
-          * The placeholder for the email input
-         */
-        "inputPlaceholder"?: string;
-        /**
-          * The message to display after successful subscription
-         */
-        "successMessage"?: string;
-        /**
-          * The theme for the component. It controls the color scheme of the component.
-         */
-        "theme"?: ColorType;
-        /**
-          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
-         */
-        "variant"?: 'primary' | 'secondary';
     }
     /**
      * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
@@ -1237,6 +1248,55 @@ export namespace Components {
           * Specifies the variant of the select component.  - `standard`: Default variant without any additional icons or images. - `withIconName`: Variant that includes an icon by name. - `withSvgIcon`: Variant that includes an SVG icon. - `withImage`: Variant that includes an image. - `withStatus`: Variant that includes a status indicator.
          */
         "variant"?: "standard" | 'withIconName' | 'withSvgIcon' | 'withImage' | 'withStatus';
+    }
+    /**
+     * The `tnw-subscription-form` component provides a customizable subscription form.
+     */
+    interface TnwSubscriptionForm {
+        /**
+          * The border radius for the component. Set for both input and button
+         */
+        "borderRadius"?: BorderRadiusType1;
+        /**
+          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
+         */
+        "buttonLabel"?: string;
+        /**
+          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
+         */
+        "enableButtonSlot"?: boolean;
+        /**
+          * The action attribute for the form
+         */
+        "formAction"?: string;
+        /**
+          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
+         */
+        "formAttributes"?: string;
+        /**
+          * The method attribute for the form
+         */
+        "formMethod"?: string;
+        /**
+          * The id for the email input
+         */
+        "inputId"?: string;
+        /**
+          * The placeholder for the email input
+         */
+        "inputPlaceholder"?: string;
+        /**
+          * The message to display after successful subscription
+         */
+        "successMessage"?: string;
+        /**
+          * The theme for the component. It controls the color scheme of the component.
+         */
+        "theme"?: ColorType;
+        /**
+          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
+         */
+        "variant"?: 'primary' | 'secondary';
     }
     /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
@@ -1580,7 +1640,7 @@ declare global {
     };
     /**
      * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+     * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
      */
     interface HTMLTnwFooterElement extends Components.TnwFooter, HTMLStencilElement {
     }
@@ -1717,15 +1777,6 @@ declare global {
         new (): HTMLTnwNavbarElement;
     };
     /**
-     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-     */
-    interface HTMLTnwNewsletterFormElement extends Components.TnwNewsletterForm, HTMLStencilElement {
-    }
-    var HTMLTnwNewsletterFormElement: {
-        prototype: HTMLTnwNewsletterFormElement;
-        new (): HTMLTnwNewsletterFormElement;
-    };
-    /**
      * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
      */
     interface HTMLTnwPortfolioGridElement extends Components.TnwPortfolioGrid, HTMLStencilElement {
@@ -1821,6 +1872,15 @@ declare global {
         new (): HTMLTnwSelectElement;
     };
     /**
+     * The `tnw-subscription-form` component provides a customizable subscription form.
+     */
+    interface HTMLTnwSubscriptionFormElement extends Components.TnwSubscriptionForm, HTMLStencilElement {
+    }
+    var HTMLTnwSubscriptionFormElement: {
+        prototype: HTMLTnwSubscriptionFormElement;
+        new (): HTMLTnwSubscriptionFormElement;
+    };
+    /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
      */
     interface HTMLTnwTestimonialCardElement extends Components.TnwTestimonialCard, HTMLStencilElement {
@@ -1882,13 +1942,13 @@ declare global {
         "tnw-label": HTMLTnwLabelElement;
         "tnw-list": HTMLTnwListElement;
         "tnw-navbar": HTMLTnwNavbarElement;
-        "tnw-newsletter-form": HTMLTnwNewsletterFormElement;
         "tnw-portfolio-grid": HTMLTnwPortfolioGridElement;
         "tnw-rating": HTMLTnwRatingElement;
         "tnw-rows-carousel": HTMLTnwRowsCarouselElement;
         "tnw-scroll-to-top": HTMLTnwScrollToTopElement;
         "tnw-section": HTMLTnwSectionElement;
         "tnw-select": HTMLTnwSelectElement;
+        "tnw-subscription-form": HTMLTnwSubscriptionFormElement;
         "tnw-testimonial-card": HTMLTnwTestimonialCardElement;
         "tnw-text": HTMLTnwTextElement;
         "tnw-textarea": HTMLTnwTextareaElement;
@@ -2095,6 +2155,10 @@ declare namespace LocalJSX {
          */
         "hoverAppearanceColor"?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto';
         /**
+          * Specifies the hover effect of the button.
+         */
+        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity';
+        /**
           * If provided, the button will render as a link with this `href`.
          */
         "href"?: string;
@@ -2131,13 +2195,33 @@ declare namespace LocalJSX {
          */
         "appearanceColor"?: ColorType;
         /**
+          * The label for the card's badge. Useful for displaying categories or statuses.
+         */
+        "badgeLabel"?: string;
+        /**
           * The border radius applied to the card.
          */
         "borderRadius"?: BorderRadiusType;
         /**
+          * The href attribute for the card's button.
+         */
+        "buttonHref"?: string;
+        /**
           * The label for the card's button.
          */
         "buttonLabel"?: string;
+        /**
+          * The border radius applied to the card's button.
+         */
+        "buttonRadius"?: BorderRadiusType;
+        /**
+          * Controls the spacing between elements inside the content.
+         */
+        "contentSpacing"?: SizeType;
+        /**
+          * Usw this to display a date. Useful for articles and blog posts.
+         */
+        "date"?: string;
         /**
           * The card's description text.
          */
@@ -2159,6 +2243,10 @@ declare namespace LocalJSX {
          */
         "imageAlt"?: string;
         /**
+          * The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.
+         */
+        "imageHeight"?: string;
+        /**
           * The image source for the card.
          */
         "imageSrc"?: string;
@@ -2167,7 +2255,7 @@ declare namespace LocalJSX {
          */
         "itemsAlignment"?: LogicalAlignmentType;
         /**
-          * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+          * If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.
          */
         "largerImage"?: boolean;
         /**
@@ -2183,7 +2271,7 @@ declare namespace LocalJSX {
          */
         "padding"?: SizeType | "none";
         /**
-          * Controls the spacing between elements inside the card.
+          * Controls the spacing between image and the contnet.
          */
         "spacing"?: SizeType;
         /**
@@ -2204,10 +2292,6 @@ declare namespace LocalJSX {
      * It supports various appearances and colors, and allows for custom content to be inserted via slots.
      */
     interface TnwContactBanner {
-        /**
-          * Defines the vertical padding of the banner.
-         */
-        "VerticalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
         /**
           * If `true`, the banner will center its content.
          */
@@ -2233,13 +2317,29 @@ declare namespace LocalJSX {
          */
         "enableContentSlot"?: boolean;
         /**
-          * Defines the horizontal padding of the banner.
+          * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
          */
-        "horizontalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        "gap"?: "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * The layout of the banner.
+         */
+        "layout"?: LayoutType;
         /**
           * Defines the margin of the banner.
          */
         "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the horizontal padding of the banner.
+         */
+        "paddingHorizontal"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the vertical padding of the banner.
+         */
+        "paddingVertical"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the alignment of the text content.
+         */
+        "textAlignment"?: AlignmentType;
     }
     /**
      * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -2324,7 +2424,7 @@ declare namespace LocalJSX {
     }
     /**
      * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+     * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
      */
     interface TnwFooter {
         /**
@@ -2344,7 +2444,7 @@ declare namespace LocalJSX {
          */
         "disableInternalContainer"?: boolean;
         /**
-          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   newsletter: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
+          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   subscription: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
          */
         "footerData"?: string;
         /**
@@ -2581,10 +2681,6 @@ declare namespace LocalJSX {
      */
     interface TnwImage {
         /**
-          * Determines the border radius of the image.
-         */
-        "BorderRadius"?: BorderRadiusType;
-        /**
           * The alternative text for the image, used for accessibility.
          */
         "alt": string;
@@ -2592,6 +2688,10 @@ declare namespace LocalJSX {
           * The aspect ratio of the image (width / height). Useful for maintaining image proportions.
          */
         "aspectRatio"?: AspectRatioType;
+        /**
+          * Determines the border radius of the image.
+         */
+        "borderRadius"?: BorderRadiusType;
         /**
           * An optional caption to be displayed below the image.
          */
@@ -2608,6 +2708,10 @@ declare namespace LocalJSX {
           * If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.
          */
         "lazyLoading"?: boolean;
+        /**
+          * The link to navigate to when the image is clicked. This is useful for creating clickable images, e.g, for logo.
+         */
+        "link"?: string;
         /**
           * Defines how the image should be resized to fit its container. This controls the CSS `object-fit` property.
          */
@@ -2638,6 +2742,10 @@ declare namespace LocalJSX {
           * Defines the appearance of the input.
          */
         "appearance"?: 'outlined' | 'underlined' | 'none';
+        /**
+          * The appearance color of the input, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The autocomplete setting for the input.
          */
@@ -2840,13 +2948,17 @@ declare namespace LocalJSX {
          */
         "enableCtaSlot"?: boolean;
         /**
+          * If true, the logo slot is enabled.
+         */
+        "enableLogoSlot"?: boolean;
+        /**
+          * If true, the menu slot is enabled.
+         */
+        "enableMenuSlot"?: boolean;
+        /**
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
         "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
-        /**
-          * The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.
-         */
-        "logoData"?: string;
         /**
           * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
          */
@@ -2872,9 +2984,17 @@ declare namespace LocalJSX {
          */
         "onTnwScrollChange"?: (event: TnwNavbarCustomEvent<{ scrollY: number }>) => void;
         /**
-          * Sets the padding size of the navigation bar.
+          * Sets the horizontal padding size of the navigation bar.
          */
-        "padding"?: SizeType | 'none';
+        "paddingHorizontal"?: SizeType | 'none';
+        /**
+          * Sets the vertical padding size of the navigation bar.
+         */
+        "paddingVertical"?: SizeType | 'none';
+        /**
+          * When true, the component will apply its styles (like the appearance colors and effects) to its internal container element. If false, the styles will be applied directly to the component host element.
+         */
+        "scopeStylesToContainer"?: boolean;
         /**
           * Makes the navigation bar sticky at the top of the viewport when set to true.
          */
@@ -2883,55 +3003,6 @@ declare namespace LocalJSX {
           * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
          */
         "togglerPlacement"?: 'start' | 'end';
-    }
-    /**
-     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-     */
-    interface TnwNewsletterForm {
-        /**
-          * The border radius for the component. Set for both input and button
-         */
-        "borderRadius"?: BorderRadiusType1;
-        /**
-          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
-         */
-        "buttonLabel"?: string;
-        /**
-          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
-         */
-        "enableButtonSlot"?: boolean;
-        /**
-          * The action attribute for the form
-         */
-        "formAction"?: string;
-        /**
-          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
-         */
-        "formAttributes"?: string;
-        /**
-          * The method attribute for the form
-         */
-        "formMethod"?: string;
-        /**
-          * The id for the email input
-         */
-        "inputId"?: string;
-        /**
-          * The placeholder for the email input
-         */
-        "inputPlaceholder"?: string;
-        /**
-          * The message to display after successful subscription
-         */
-        "successMessage"?: string;
-        /**
-          * The theme for the component. It controls the color scheme of the component.
-         */
-        "theme"?: ColorType;
-        /**
-          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
-         */
-        "variant"?: 'primary' | 'secondary';
     }
     /**
      * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
@@ -3143,6 +3214,55 @@ declare namespace LocalJSX {
           * Specifies the variant of the select component.  - `standard`: Default variant without any additional icons or images. - `withIconName`: Variant that includes an icon by name. - `withSvgIcon`: Variant that includes an SVG icon. - `withImage`: Variant that includes an image. - `withStatus`: Variant that includes a status indicator.
          */
         "variant"?: "standard" | 'withIconName' | 'withSvgIcon' | 'withImage' | 'withStatus';
+    }
+    /**
+     * The `tnw-subscription-form` component provides a customizable subscription form.
+     */
+    interface TnwSubscriptionForm {
+        /**
+          * The border radius for the component. Set for both input and button
+         */
+        "borderRadius"?: BorderRadiusType1;
+        /**
+          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
+         */
+        "buttonLabel"?: string;
+        /**
+          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
+         */
+        "enableButtonSlot"?: boolean;
+        /**
+          * The action attribute for the form
+         */
+        "formAction"?: string;
+        /**
+          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
+         */
+        "formAttributes"?: string;
+        /**
+          * The method attribute for the form
+         */
+        "formMethod"?: string;
+        /**
+          * The id for the email input
+         */
+        "inputId"?: string;
+        /**
+          * The placeholder for the email input
+         */
+        "inputPlaceholder"?: string;
+        /**
+          * The message to display after successful subscription
+         */
+        "successMessage"?: string;
+        /**
+          * The theme for the component. It controls the color scheme of the component.
+         */
+        "theme"?: ColorType;
+        /**
+          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
+         */
+        "variant"?: 'primary' | 'secondary';
     }
     /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
@@ -3366,13 +3486,13 @@ declare namespace LocalJSX {
         "tnw-label": TnwLabel;
         "tnw-list": TnwList;
         "tnw-navbar": TnwNavbar;
-        "tnw-newsletter-form": TnwNewsletterForm;
         "tnw-portfolio-grid": TnwPortfolioGrid;
         "tnw-rating": TnwRating;
         "tnw-rows-carousel": TnwRowsCarousel;
         "tnw-scroll-to-top": TnwScrollToTop;
         "tnw-section": TnwSection;
         "tnw-select": TnwSelect;
+        "tnw-subscription-form": TnwSubscriptionForm;
         "tnw-testimonial-card": TnwTestimonialCard;
         "tnw-text": TnwText;
         "tnw-textarea": TnwTextarea;
@@ -3441,7 +3561,7 @@ declare module "@stencil/core" {
             "tnw-divider": LocalJSX.TnwDivider & JSXBase.HTMLAttributes<HTMLTnwDividerElement>;
             /**
              * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-             * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+             * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
              */
             "tnw-footer": LocalJSX.TnwFooter & JSXBase.HTMLAttributes<HTMLTnwFooterElement>;
             /**
@@ -3498,10 +3618,6 @@ declare module "@stencil/core" {
              */
             "tnw-navbar": LocalJSX.TnwNavbar & JSXBase.HTMLAttributes<HTMLTnwNavbarElement>;
             /**
-             * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-             */
-            "tnw-newsletter-form": LocalJSX.TnwNewsletterForm & JSXBase.HTMLAttributes<HTMLTnwNewsletterFormElement>;
-            /**
              * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
              */
             "tnw-portfolio-grid": LocalJSX.TnwPortfolioGrid & JSXBase.HTMLAttributes<HTMLTnwPortfolioGridElement>;
@@ -3530,6 +3646,10 @@ declare module "@stencil/core" {
              * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
              */
             "tnw-select": LocalJSX.TnwSelect & JSXBase.HTMLAttributes<HTMLTnwSelectElement>;
+            /**
+             * The `tnw-subscription-form` component provides a customizable subscription form.
+             */
+            "tnw-subscription-form": LocalJSX.TnwSubscriptionForm & JSXBase.HTMLAttributes<HTMLTnwSubscriptionFormElement>;
             /**
              * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
              */

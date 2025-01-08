@@ -1,3 +1,4 @@
+
 import { generateComponentArgTypes, getComponentByTagName, getComponentTemplate } from "../../../utils/sb-utils";
 
 const component = getComponentByTagName('tnw-button');
@@ -86,4 +87,22 @@ export const LargeSize = Template.bind({});
 LargeSize.args = {
   ...Standard.args,
   size: 'lg',
+};
+
+export const ScaleUpHover = Template.bind({});
+ScaleUpHover.args = {
+  ...Standard.args,
+  hoverEffect: "scale-up",
+};
+
+export const ContrastHover = Template.bind({});
+ContrastHover.args = {
+  ...Standard.args,
+  hoverEffect: "contrast",
+};
+
+export const OpacityHover = Template.bind({});
+OpacityHover.args = {
+  ...Standard.args,
+  hoverEffect: "opacity",
 };

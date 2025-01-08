@@ -1,6 +1,6 @@
 import { GLOBAL_PREFIX } from "../../utils/utils";
 
-const baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
+const baseClass = `${GLOBAL_PREFIX}-subscription-form`;
 
 export const styles = `
 * {

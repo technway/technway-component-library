@@ -19,7 +19,7 @@ const HorizontalTemplate = (args) => getComponentTemplate(args, component, true)
 // Default Card Example
 export const Default = HorizontalTemplate.bind({});
 Default.args = {
-  imageSrc: 'https://via.placeholder.com/300x200',
+  imageSrc: 'https://picsum.photos/512/288',
   heading: 'Card Heading',
   subheading: 'Card Subheading',
   description: 'This is a description of the card. It provides additional details about the content.',
@@ -93,4 +93,18 @@ LargerImage.args = {
   ...OutlinedAppearance.args,
   layout: "horizontal",
   largerImage: true,
+};
+
+export const BlogPost = HorizontalTemplate.bind({});
+BlogPost.args = {
+  imageSrc: 'https://picsum.photos/512/288',
+  heading: 'Agile Project Management: Tips for Effective Team Collaboration',
+  description: 'Agile project management has become increasingly popular in recent years as more and more organizations recognize the value of a flexible, collaborative approach to project management. One of the key components of agile project management is effective team collaboration. In this article, we will provide some tips for achieving effective team collaboration in an agile project management context.',
+  badgeLabel: 'Project Management',
+  date: 'March 2023',
+  buttonLabel: 'Read More',
+  layout: "vertical",
+  spacing: 'md',
+  contentSpacing: 'md',
+  buttonRadius: 'full'
 };

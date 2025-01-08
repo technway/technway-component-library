@@ -59,19 +59,23 @@ export const styles = `
     flex-direction: column;
 }
     
-:host(.${baseClass}--start) {
+:host(.${baseClass}--items-start) {
     align-items: start;
     justify-content: start;
+}
+:host(.${baseClass}--items-center) {
+    align-items: center;
+    justify-content: center;
+}
+:host(.${baseClass}--items-end) {
+    align-items: end;
+    justify-content: end;
 }
 :host(.${baseClass}--horizontal-center) {
     align-items: center;
 }
 :host(.${baseClass}--vertical-center) {
     justify-content: center;
-}
-:host(.${baseClass}--end) {
-    align-items: end;
-    justify-content: end;
 }
 
 :host(.${baseClass}--padding-sm) {
@@ -106,10 +110,51 @@ export const styles = `
     gap: var(--${baseClass}-gap-xs);
 }
 
+.${contentClass}--spacing-sm {
+    gap: var(--${baseClass}-gap-xs);
+}
+.${contentClass}--spacing-md {
+    gap: var(--${baseClass}-gap-sm);
+}
+.${contentClass}--spacing-lg {
+    gap: var(--${baseClass}-gap-md);
+}
+
 .${contentClass}-heading {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--${baseClass}-gap-2xs);
+}
+    
+.${contentClass}--text-left {
+    text-align: left;
+}
+.${contentClass}--text-right {
+    text-align: right;
+}
+.${contentClass}--text-center {
+    text-align: center;
+}
+.${contentClass}--text-justify {
+    text-align: justify;
+}
+.${contentClass}--text-start {
+    text-align: start;
+}
+.${contentClass}--text-end {
+    text-align: end;
+}
+
+.${baseClass}__badge-wrapper {
+    display: flex;
+    gap: var(--${baseClass}-gap-sm);
+    align-items: center;
+    margin-bottom: var(--${baseClass}-gap-xs);
+}
+.${baseClass}__date-wrapper {
+    display: flex;
+    gap: var(--${baseClass}-gap-2xs);
+    align-items: center;
 }
 `;

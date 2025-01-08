@@ -1,14 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tnw-navbar Default Behavior renders with default properties 1`] = `
-<tnw-navbar class="tnw-navbar">
+<tnw-navbar class="paddingX-md paddingY-md rounded-default tnw-navbar tnw-v-solid-auto">
   <template shadowrootmode="open">
     <div class="container">
-      <nav class="rounded-default tnw-navbar__content tnw-v-solid-auto" part="navbar">
-        <div class="tnw-navbar__start"></div>
-        <div class="tnw-navbar__middle"></div>
-        <div class="tnw-navbar__end"></div>
-      </nav>
+      <nav class="tnw-navbar__content" part="navbar"></nav>
     </div>
   </template>
 </tnw-navbar>

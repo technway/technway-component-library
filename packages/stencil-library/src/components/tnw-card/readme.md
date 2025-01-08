@@ -65,20 +65,26 @@ with slots for each, allowing full customization.
 | ------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------ |
 | `appearance`             | `appearance`               | The appearance color of the card.                                                                                                           | `"mixed" \| "none" \| "outlined" \| "solid" \| "transparent"`                                         | `'none'`     |
 | `appearanceColor`        | `appearance-color`         | The color appearance color of the card, determining the overall color scheme.                                                               | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'auto'`     |
+| `badgeLabel`             | `badge-label`              | The label for the card's badge. Useful for displaying categories or statuses.                                                               | `string`                                                                                              | `undefined`  |
 | `borderRadius`           | `border-radius`            | The border radius applied to the card.                                                                                                      | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `'default'`  |
+| `buttonHref`             | `button-href`              | The href attribute for the card's button.                                                                                                   | `string`                                                                                              | `undefined`  |
 | `buttonLabel`            | `button-label`             | The label for the card's button.                                                                                                            | `string`                                                                                              | `undefined`  |
+| `buttonRadius`           | `button-radius`            | The border radius applied to the card's button.                                                                                             | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `'default'`  |
+| `contentSpacing`         | `content-spacing`          | Controls the spacing between elements inside the content.                                                                                   | `"lg" \| "md" \| "sm"`                                                                                | `'sm'`       |
+| `date`                   | `date`                     | Usw this to display a date. Useful for articles and blog posts.                                                                             | `string`                                                                                              | `undefined`  |
 | `description`            | `description`              | The card's description text.                                                                                                                | `string`                                                                                              | `undefined`  |
 | `enableContentSlot`      | `enable-content-slot`      | If `true`, the heading, subheading, description, and button will not be rendered. Use the `content` slot to provide custom content instead. | `boolean`                                                                                             | `false`      |
 | `enableImageSlot`        | `enable-image-slot`        | If `true`, the image slot will be visible.                                                                                                  | `boolean`                                                                                             | `false`      |
 | `heading`                | `heading`                  | The card's heading text.                                                                                                                    | `string`                                                                                              | `undefined`  |
 | `imageAlt`               | `image-alt`                | Alternate text for the image.                                                                                                               | `string`                                                                                              | `undefined`  |
+| `imageHeight`            | `image-height`             | The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.                                                | `string`                                                                                              | `'300px'`    |
 | `imageSrc`               | `image-src`                | The image source for the card.                                                                                                              | `string`                                                                                              | `undefined`  |
 | `itemsAlignment`         | `items-alignment`          | Controls the alignment of items within the card.                                                                                            | `"center" \| "end" \| "start"`                                                                        | `undefined`  |
-| `largerImage`            | `larger-image`             | If `true`, the image will be displayed at a larger size, not be equally split with the content.                                             | `boolean`                                                                                             | `false`      |
+| `largerImage`            | `larger-image`             | If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.                 | `boolean`                                                                                             | `false`      |
 | `layout`                 | `layout`                   | Specifies the layout orientation of the card, either 'vertical' or 'horizontal'.                                                            | `"horizontal" \| "vertical"`                                                                          | `'vertical'` |
 | `orderContentFirst`      | `order-content-first`      | If `true`, the card content will be displayed before the image.                                                                             | `boolean`                                                                                             | `false`      |
 | `padding`                | `padding`                  | The padding size for the card.                                                                                                              | `"lg" \| "md" \| "none" \| "sm"`                                                                      | `undefined`  |
-| `spacing`                | `spacing`                  | Controls the spacing between elements inside the card.                                                                                      | `"lg" \| "md" \| "sm"`                                                                                | `'sm'`       |
+| `spacing`                | `spacing`                  | Controls the spacing between image and the contnet.                                                                                         | `"lg" \| "md" \| "sm"`                                                                                | `'sm'`       |
 | `subheading`             | `subheading`               | The card's subheading text.                                                                                                                 | `string`                                                                                              | `undefined`  |
 | `textAlignment`          | `text-alignment`           | Controls the alignment of the card's content.                                                                                               | `"center" \| "end" \| "justify" \| "left" \| "right" \| "start"`                                      | `'start'`    |
 | `useGlassmorphismEffect` | `use-glassmorphism-effect` | If `true`, the card will have a glassmorphism effect applied to its background.                                                             | `boolean`                                                                                             | `false`      |
@@ -88,8 +94,10 @@ with slots for each, allowing full customization.
 
 | Slot            | Description                                                                                        |
 | --------------- | -------------------------------------------------------------------------------------------------- |
+| `"badge"`       | Slot for custom badge content if the `badgeLabel` prop is not used.                                |
 | `"button"`      | Slot for the card button. This slot can be used if the `buttonLabel` prop is not set.              |
 | `"content"`     | Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`. |
+| `"date"`        | Slot for custom date content if the `date` prop is not used.                                       |
 | `"description"` | Slot for the card description. This slot can be used if the `description` prop is not set.         |
 | `"heading"`     | Slot for the card heading. This slot can be used if the `heading` prop is not set.                 |
 | `"image"`       | Slot for the card image. This slot can be used if the `imageSrc` prop is not set.                  |
@@ -100,9 +108,13 @@ with slots for each, allowing full customization.
 
 | Part                | Description                                                           |
 | ------------------- | --------------------------------------------------------------------- |
+| `"badge"`           | The `tnw-text` element displaying the card's badge.                   |
 | `"button"`          | The `tnw-button` element or the container for the `button` slot.      |
 | `"content"`         | The container `div` element that wraps all content inside the card.   |
 | `"content-heading"` | The container `div` element for the card's heading and subheading.    |
+| `"date"`            | The `tnw-text` element displaying the card's date.                    |
+| `"date-icon"`       | The `tnw-icon` element displaying the date icon.                      |
+| `"date-wrapper"`    |                                                                       |
 | `"description"`     | The `tnw-text` element displaying the card's description.             |
 | `"heading"`         | The `tnw-heading` element displaying the card's main heading.         |
 | `"image"`           | The card's `tnw-image` element or the container for the `image` slot. |
@@ -115,19 +127,23 @@ with slots for each, allowing full customization.
 ### Depends on
 
 - [tnw-image](../tnw-image)
-- [tnw-heading](../tnw-heading)
+- [tnw-icon](../tnw-icon)
 - [tnw-text](../tnw-text)
+- [tnw-badge](../tnw-badge)
+- [tnw-heading](../tnw-heading)
 - [tnw-button](../tnw-button)
 
 ### Graph
 ```mermaid
 graph TD;
   tnw-card --> tnw-image
-  tnw-card --> tnw-heading
+  tnw-card --> tnw-icon
   tnw-card --> tnw-text
+  tnw-card --> tnw-badge
+  tnw-card --> tnw-heading
   tnw-card --> tnw-button
-  tnw-heading --> tnw-text
   tnw-text --> tnw-text
+  tnw-heading --> tnw-text
   style tnw-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

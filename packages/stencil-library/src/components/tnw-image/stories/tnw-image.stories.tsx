@@ -82,3 +82,28 @@ CustomSize.args = {
   width: '200px',
   height: '100px',
 };
+
+export const LinkableImage = Template.bind({});
+LinkableImage.args = {
+  ...Standard.args,
+  link: 'https://technway.biz',
+};
+
+export const LinkableCustomSize = Template.bind({});
+LinkableCustomSize.args = {
+  ...CustomSize.args,
+  link: 'https://technway.biz',
+};
+
+export const LinkableAspectRatio = Template.bind({});
+LinkableAspectRatio.args = {
+  ...AspectRatioImage.args,
+  link: 'https://technway.biz',
+};
+
+export const LinkableObjectFitCover = Template.bind({});
+LinkableObjectFitCover.args = {
+  ...ObjectFitCover.args,
+  link: 'https://technway.biz',
+  borderRadius: 'xl',
+};

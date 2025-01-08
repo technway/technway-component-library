@@ -11,7 +11,6 @@ export const styles = `
     
 :host {
     display: flex;
-    flex-direction: column;
     gap: 15px;
     width: 100%;
     --${baseClass}-gradient-from: var(--tnw-background-color-inverse);
@@ -25,20 +24,49 @@ export const styles = `
     --${baseClass}-spacing-3xl: var(--tnw-spacing-3xl);
     --${baseClass}-spacing-4xl: var(--tnw-spacing-4xl);
 }
-:host(.${baseClass}--center) {
-    text-align: center;
-    align-items: center;
+
+:host(.${baseClass}--vertical) {
+    flex-direction: column;
+}
+:host(.${baseClass}--horizontal) {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+:host(.${baseClass}--vertical.${baseClass}--center) {
     justify-content: center;
 }
-:host(.${baseClass}--start) {
-    text-align: start;
-    align-items: start;
+:host(.${baseClass}--vertical.${baseClass}--start) {
     justify-content: start;
 }
-:host(.${baseClass}--end) {
-    text-align: end;
-    align-items: end;
+:host(.${baseClass}--vertical.${baseClass}--end) {
     justify-content: end;
+}
+
+:host(.${baseClass}--center) {
+    align-items: center;
+}
+:host(.${baseClass}--start) {
+    align-items: start;
+}
+:host(.${baseClass}--end) {
+    align-items: end;
+}
+
+:host(.${baseClass}--text-center) {
+    text-align: center;
+}
+:host(.${baseClass}--text-start) {
+    text-align: start;
+}
+:host(.${baseClass}--text-end) {
+    text-align: end;
+}
+:host(.${baseClass}--text-right) {
+    text-align: right;
+}
+:host(.${baseClass}--text-left) {
+    text-align: left;
 }
 
 :host(.${baseClass}--gradient) {
@@ -51,6 +79,31 @@ export const styles = `
     );
 }
 
+/* Gap */
+:host(.${baseClass}--gap-xs) {
+    gap: var(--${baseClass}-spacing-xs);
+}
+:host(.${baseClass}--gap-sm) {
+    gap: var(--${baseClass}-spacing-sm);
+}
+:host(.${baseClass}--gap-md) {
+    gap: var(--${baseClass}-spacing-md);
+}
+:host(.${baseClass}--gap-lg) {
+    gap: var(--${baseClass}-spacing-lg);
+}
+:host(.${baseClass}--gap-xl) {
+    gap: var(--${baseClass}-spacing-xl);
+}
+:host(.${baseClass}--gap-2xl) {
+    gap: var(--${baseClass}-spacing-2xl);
+}
+:host(.${baseClass}--gap-3xl) {
+    gap: var(--${baseClass}-spacing-3xl);
+}
+:host(.${baseClass}--gap-4xl) {
+    gap: var(--${baseClass}-spacing-4xl);
+}
 
 /* Paddings Block */
 :host(.${baseClass}--padding-block-xs) {
@@ -142,7 +195,7 @@ export const styles = `
     gap: 5px;
 }
 
-::slotted([slot="description"]) {
+::slotted([slot="button"]) {
     width: 100%;
     max-width: 600px;
 }

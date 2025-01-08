@@ -1,6 +1,6 @@
 import { Component, Element, Fragment, Host, Prop, h } from '@stencil/core';
 import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX } from '../../utils/utils';
-import { LogicalAlignmentType, AppearanceType, BorderRadiusType, ColorType } from '../../utils/component-props-types';
+import { LogicalAlignmentType, AppearanceType, BorderRadiusType, ColorType, LayoutType, AlignmentType } from '../../utils/component-props-types';
 import { styles } from './tnw-contact-banner.styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { validateProps } from './utils/tnw-contact-banner-validate-props';
@@ -47,6 +47,11 @@ export class TnwContactBanner {
 	@Prop() alignment?: LogicalAlignmentType = 'center';
 
 	/**
+	 * Defines the alignment of the text content.
+	 */
+	@Prop() textAlignment?: AlignmentType = 'center';
+
+	/**
 	 * Defines the border radius of the banner.
 	 */
 	@Prop() borderRadius?: BorderRadiusType = 'default';
@@ -59,12 +64,22 @@ export class TnwContactBanner {
 	/**
 	 * Defines the horizontal padding of the banner.
 	 */
-	@Prop() horizontalPadding?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl' = '2xl';
+	@Prop() paddingHorizontal?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl' = 'lg';
 
 	/**
 	 * Defines the vertical padding of the banner.
 	 */
-	@Prop() VerticalPadding?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl' = '2xl';
+	@Prop() paddingVertical?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl' = 'lg';
+
+	/**
+	 * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
+	 */
+	@Prop() gap?: "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl' = 'md';
+
+	/**
+	 * The layout of the banner.
+	 */
+	@Prop() layout?: LayoutType = 'vertical';
 
 	/**
 	 * If `true`, the section body will be wrapped in a container for centering and padding.
@@ -85,19 +100,22 @@ export class TnwContactBanner {
 	}
 
 	componentWillLoad() {
-		validateProps([this.VerticalPadding, this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin]);
+		validateProps([this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.gap, this.layout, this.margin, this.paddingHorizontal, this.paddingVertical, this.textAlignment]);
 	}
 
 	private getHostClasses(): string {
-		const { baseClass, appearance, appearanceColor, alignment, borderRadius, margin, horizontalPadding, VerticalPadding, disableInternalContainer } = this;
+		const { baseClass, appearance, appearanceColor, layout, textAlignment, gap, alignment, borderRadius, margin, paddingHorizontal, paddingVertical, disableInternalContainer } = this;
 
 		return [
 			baseClass,
 			!disableInternalContainer ? 'container' : '',
 			`${baseClass}--${alignment}`,
+			`${baseClass}--text-${textAlignment}`,
+			`${baseClass}--gap-${gap}`,
+			`${baseClass}--${layout}`,
 			`${baseClass}--margin-${margin}`,
-			`${baseClass}--padding-inline-${horizontalPadding}`,
-			`${baseClass}--padding-block-${VerticalPadding}`,
+			`${baseClass}--padding-inline-${paddingHorizontal}`,
+			`${baseClass}--padding-block-${paddingVertical}`,
 			appearance === 'gradient' ? `${baseClass}--gradient` : getAppearanceClass(appearance, appearanceColor),
 			getBorderRadiusClass(borderRadius),
 		].filter(Boolean).join(' ').trim();

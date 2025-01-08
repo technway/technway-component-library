@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-card.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
+validateProps([this.appearance, this.appearanceColor, this.badgeLabel, this.borderRadius, this.buttonHref, this.buttonLabel, this.buttonRadius, this.contentSpacing, this.date, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageHeight, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
  *
  * GENERATED USING `npm run g:components-validations tnw-card`
  */
@@ -40,6 +40,13 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
+    "name": "badgeLabel",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
     "name": "borderRadius",
     "type": [
       "2xl",
@@ -57,7 +64,47 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
+    "name": "buttonHref",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
     "name": "buttonLabel",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "buttonRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "contentSpacing",
+    "type": [
+      "lg",
+      "md",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "date",
     "type": [
       "string"
     ],
@@ -93,6 +140,13 @@ export function validateProps(propsValues: any[]): void {
   },
   {
     "name": "imageAlt",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "imageHeight",
     "type": [
       "string"
     ],

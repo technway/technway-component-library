@@ -5,8 +5,10 @@
 import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$5 } from './p-aa4fbea0.js';
-import { d as defineCustomElement$4 } from './p-247f7459.js';
+import { d as defineCustomElement$7 } from './p-aecebc3f.js';
+import { d as defineCustomElement$6 } from './p-aa4fbea0.js';
+import { d as defineCustomElement$5 } from './p-247f7459.js';
+import { d as defineCustomElement$4 } from './p-3d848afd.js';
 import { d as defineCustomElement$3 } from './p-fa750891.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
@@ -68,19 +70,23 @@ const styles = `
     flex-direction: column;
 }
     
-:host(.${baseClass}--start) {
+:host(.${baseClass}--items-start) {
     align-items: start;
     justify-content: start;
+}
+:host(.${baseClass}--items-center) {
+    align-items: center;
+    justify-content: center;
+}
+:host(.${baseClass}--items-end) {
+    align-items: end;
+    justify-content: end;
 }
 :host(.${baseClass}--horizontal-center) {
     align-items: center;
 }
 :host(.${baseClass}--vertical-center) {
     justify-content: center;
-}
-:host(.${baseClass}--end) {
-    align-items: end;
-    justify-content: end;
 }
 
 :host(.${baseClass}--padding-sm) {
@@ -115,11 +121,52 @@ const styles = `
     gap: var(--${baseClass}-gap-xs);
 }
 
+.${contentClass}--spacing-sm {
+    gap: var(--${baseClass}-gap-xs);
+}
+.${contentClass}--spacing-md {
+    gap: var(--${baseClass}-gap-sm);
+}
+.${contentClass}--spacing-lg {
+    gap: var(--${baseClass}-gap-md);
+}
+
 .${contentClass}-heading {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--${baseClass}-gap-2xs);
+}
+    
+.${contentClass}--text-left {
+    text-align: left;
+}
+.${contentClass}--text-right {
+    text-align: right;
+}
+.${contentClass}--text-center {
+    text-align: center;
+}
+.${contentClass}--text-justify {
+    text-align: justify;
+}
+.${contentClass}--text-start {
+    text-align: start;
+}
+.${contentClass}--text-end {
+    text-align: end;
+}
+
+.${baseClass}__badge-wrapper {
+    display: flex;
+    gap: var(--${baseClass}-gap-sm);
+    align-items: center;
+    margin-bottom: var(--${baseClass}-gap-xs);
+}
+.${baseClass}__date-wrapper {
+    display: flex;
+    gap: var(--${baseClass}-gap-2xs);
+    align-items: center;
 }
 `;
 
@@ -130,7 +177,7 @@ const styles = `
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-card.tsx` file.
  *
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
+validateProps([this.appearance, this.appearanceColor, this.badgeLabel, this.borderRadius, this.buttonHref, this.buttonLabel, this.buttonRadius, this.contentSpacing, this.date, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageHeight, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
  *
  * GENERATED USING `npm run g:components-validations tnw-card`
  */
@@ -161,6 +208,13 @@ function validateProps(propsValues) {
             "isRequired": false
         },
         {
+            "name": "badgeLabel",
+            "type": [
+                "string"
+            ],
+            "isRequired": false
+        },
+        {
             "name": "borderRadius",
             "type": [
                 "2xl",
@@ -178,7 +232,47 @@ function validateProps(propsValues) {
             "isRequired": false
         },
         {
+            "name": "buttonHref",
+            "type": [
+                "string"
+            ],
+            "isRequired": false
+        },
+        {
             "name": "buttonLabel",
+            "type": [
+                "string"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "buttonRadius",
+            "type": [
+                "2xl",
+                "3xl",
+                "circle",
+                "default",
+                "full",
+                "lg",
+                "md",
+                "none",
+                "sm",
+                "xl",
+                "xs"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "contentSpacing",
+            "type": [
+                "lg",
+                "md",
+                "sm"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "date",
             "type": [
                 "string"
             ],
@@ -214,6 +308,13 @@ function validateProps(propsValues) {
         },
         {
             "name": "imageAlt",
+            "type": [
+                "string"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "imageHeight",
             "type": [
                 "string"
             ],
@@ -334,13 +435,25 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-card`;
         /**
+         * The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.
+         */
+        this.imageHeight = '300px';
+        /**
+         * The border radius applied to the card's button.
+         */
+        this.buttonRadius = 'default';
+        /**
          * Controls the alignment of the card's content.
          */
         this.textAlignment = 'start';
         /**
-         * Controls the spacing between elements inside the card.
+         * Controls the spacing between image and the contnet.
          */
         this.spacing = 'sm';
+        /**
+         * Controls the spacing between elements inside the content.
+         */
+        this.contentSpacing = 'sm';
         /**
          * The appearance color of the card.
          */
@@ -374,7 +487,7 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
          */
         this.enableContentSlot = false;
         /**
-         * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+         * If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.
          */
         this.largerImage = false;
         if (isCSSStyleSheetSupported()) {
@@ -392,14 +505,14 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         }
     }
     componentWillLoad() {
-        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
+        validateProps([this.appearance, this.appearanceColor, this.badgeLabel, this.borderRadius, this.buttonHref, this.buttonLabel, this.buttonRadius, this.contentSpacing, this.date, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageHeight, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
     }
     getHostClasses() {
         const { baseClass, appearanceColor, appearance, borderRadius, useGlassmorphismEffect, itemsAlignment, layout, padding, spacing, largerImage } = this;
         return [
             baseClass,
             `${baseClass}--${layout}`,
-            isNotEmptyString(itemsAlignment) && itemsAlignment !== "center" ? `${baseClass}--${itemsAlignment}` : ``,
+            isNotEmptyString(itemsAlignment) && itemsAlignment !== "center" ? `${baseClass}--items-${itemsAlignment}` : ``,
             itemsAlignment === 'center' && layout === 'horizontal' ? `${baseClass}--horizontal-center` : '',
             itemsAlignment === 'center' && layout === 'vertical' ? `${baseClass}--vertical-center` : '',
             largerImage ? `${baseClass}--larger-image` : `${baseClass}--equal-image`,
@@ -411,11 +524,12 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         ].filter(Boolean).join(' ').trim();
     }
     getContentClasses() {
-        const { baseClass } = this;
+        const { baseClass, contentSpacing, textAlignment } = this;
         const contentClass = `${baseClass}__content`;
         return [
             contentClass,
-            `${contentClass}-${this.textAlignment}`,
+            `${contentClass}--text-${textAlignment}`,
+            `${contentClass}--spacing-${contentSpacing}`,
         ].filter(Boolean).join(' ').trim();
     }
     renderImage() {
@@ -423,9 +537,21 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
             return (h("div", { class: `${this.baseClass}__image`, part: 'image-container' }, h("slot", { name: 'image' })));
         }
         if (isNotEmptyString(this.imageSrc)) {
-            return (h("div", { class: `${this.baseClass}__image`, part: 'image' }, h("tnw-image", { src: this.imageSrc, alt: this.heading || this.imageAlt, borderRadius: this.borderRadius, part: 'image' })));
+            return (h("div", { class: `${this.baseClass}__image`, part: 'image' }, h("tnw-image", { src: this.imageSrc, alt: this.heading || this.imageAlt, borderRadius: this.borderRadius, part: 'image', widthSize: 'full', height: this.imageHeight, objectFit: 'cover' })));
         }
         return null;
+    }
+    renderDate() {
+        if (!isNotEmptyString(this.date)) {
+            return h("slot", { name: 'date' });
+        }
+        return (h("div", { class: `${this.baseClass}__date-wrapper`, part: 'date-wrapper' }, h("tnw-icon", { name: 'tnw-alarm', size: 'xs', appearance: 'none', part: 'date-icon' }), h("tnw-text", { text: this.date, size: "xs", textTag: 'span', weight: '600', part: 'date', widthSize: 'unset', displayMode: 'inline-block' })));
+    }
+    renderBadge() {
+        if (!isNotEmptyString(this.badgeLabel)) {
+            return h("slot", { name: 'badge' });
+        }
+        return (h("tnw-badge", { label: this.badgeLabel, size: "sm", appearance: 'outlined', appearanceColor: 'auto', part: 'badge' }));
     }
     renderHeading() {
         if (!isNotEmptyString(this.heading)) {
@@ -449,16 +575,16 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         if (!isNotEmptyString(this.buttonLabel)) {
             return h("slot", { name: 'button' });
         }
-        return (h("tnw-button", { label: this.buttonLabel, borderRadius: this.borderRadius, part: 'button' }));
+        return (h("tnw-button", { label: this.buttonLabel, borderRadius: this.buttonRadius, part: 'button', href: this.buttonHref, hoverEffect: 'contrast' }));
     }
     renderContent() {
         if (this.enableContentSlot) {
             return (h("div", { class: this.getContentClasses(), part: 'content' }, h("slot", { name: 'content' })));
         }
-        return (h("div", { class: this.getContentClasses(), part: 'content' }, h("div", { class: `${this.baseClass}__content-heading` }, this.renderHeading(), this.renderSubheading()), this.renderDescription(), this.renderButton()));
+        return (h("div", { class: this.getContentClasses(), part: 'content' }, h("div", { class: `${this.baseClass}__content-heading` }, (this.renderBadge() !== null || this.renderDate() !== null) && (h("div", { class: `${this.baseClass}__badge-wrapper` }, this.renderBadge(), this.renderDate())), this.renderHeading(), this.renderSubheading()), this.renderDescription(), this.renderButton()));
     }
     render() {
-        return (h(Host, { key: '337aac186280798cdc46c9271595b96e6102d406', class: this.getHostClasses() }, this.orderContentFirst
+        return (h(Host, { key: '0dcbec43fbbd7a248ac2b5ede8b27d03e4fbf87f', class: this.getHostClasses() }, this.orderContentFirst
             && this.renderContent(), this.renderImage(), !this.orderContentFirst
             && this.renderContent()));
     }
@@ -466,13 +592,19 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
 }, [1, "tnw-card", {
         "imageSrc": [1, "image-src"],
         "imageAlt": [1, "image-alt"],
+        "imageHeight": [1, "image-height"],
         "heading": [1],
         "subheading": [1],
         "description": [1],
         "buttonLabel": [1, "button-label"],
+        "buttonHref": [1, "button-href"],
+        "buttonRadius": [1, "button-radius"],
+        "date": [1],
+        "badgeLabel": [1, "badge-label"],
         "textAlignment": [1, "text-alignment"],
         "itemsAlignment": [1, "items-alignment"],
         "spacing": [1],
+        "contentSpacing": [1, "content-spacing"],
         "padding": [1],
         "appearance": [1],
         "appearanceColor": [1, "appearance-color"],
@@ -488,19 +620,29 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["tnw-card", "tnw-button", "tnw-heading", "tnw-image", "tnw-text"];
+    const components = ["tnw-card", "tnw-badge", "tnw-button", "tnw-heading", "tnw-icon", "tnw-image", "tnw-text"];
     components.forEach(tagName => { switch (tagName) {
         case "tnw-card":
             if (!customElements.get(tagName)) {
                 customElements.define(tagName, TnwCard$1);
             }
             break;
+        case "tnw-badge":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$7();
+            }
+            break;
         case "tnw-button":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$6();
+            }
+            break;
+        case "tnw-heading":
             if (!customElements.get(tagName)) {
                 defineCustomElement$5();
             }
             break;
-        case "tnw-heading":
+        case "tnw-icon":
             if (!customElements.get(tagName)) {
                 defineCustomElement$4();
             }

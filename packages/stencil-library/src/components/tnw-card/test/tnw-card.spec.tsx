@@ -29,6 +29,8 @@ describe('tnw-card', () => {
         TnwCard,
         `<tnw-card enable-image-slot>
           <div slot="image">Image Slot Content</div>
+          <div slot="badge">Badge Slot Content</div>
+          <div slot="date">Date Slot Content</div>
           <div slot="heading">Heading Slot Content</div>
           <div slot="subheading">Subheading Slot Content</div>
           <div slot="description">Description Slot Content</div>
@@ -37,12 +39,16 @@ describe('tnw-card', () => {
       ) as HTMLTnwCardElement;
 
       const imageSlot = queryElement(host, 'slot[name="image"]');
+      const badgeSlot = queryElement(host, 'slot[name="badge"]');
+      const dateSlot = queryElement(host, 'slot[name="date"]');
       const headingSlot = queryElement(host, 'slot[name="heading"]');
       const subheadingSlot = queryElement(host, 'slot[name="subheading"]');
       const descriptionSlot = queryElement(host, 'slot[name="description"]');
       const buttonSlot = queryElement(host, 'slot[name="button"]');
 
       expect(imageSlot).not.toBeNull();
+      expect(badgeSlot).not.toBeNull();
+      expect(dateSlot).not.toBeNull();
       expect(headingSlot).not.toBeNull();
       expect(subheadingSlot).not.toBeNull();
       expect(descriptionSlot).not.toBeNull();
@@ -87,12 +93,70 @@ describe('tnw-card', () => {
       expect(host).toHaveClass('tnw-card--glassmorphism');
     });
 
-    it('renders with a larger image when largerImage is true', async () => {
+    it('renders correct image properties', async () => {
       const host = await createSpecPage(
         TnwCard,
-        `<tnw-card larger-image></tnw-card>`,
-      );
+        `<tnw-card
+          image-src="image.jpg"
+          image-alt="Sample Image"
+          image-height="200px"
+          larger-image
+        ></tnw-card>`
+      ) as HTMLTnwCardElement;
       expect(host).toHaveClass('tnw-card--larger-image');
+      const image = queryElement(host, 'tnw-image');
+      expect(image.getAttribute('height')).toBe('200px');
+      expect(image.getAttribute('src')).toBe('image.jpg');
+      expect(image.getAttribute('alt')).toBe('Sample Image');
+    });
+
+    it('renders correct button properties', async () => {
+      const button = await createSpecPage(
+        TnwCard,
+        `<tnw-card
+          button-label="Custom Button"
+          button-href="https://example.com"
+          button-radius="full"
+        ></tnw-card>`,
+        'tnw-button'
+      ) as HTMLTnwButtonElement;
+      expect(button).toBeTruthy();
+      expect(button.getAttribute('borderradius')).toBe('full')
+      expect(button.getAttribute('label')).toBe('Custom Button');
+      expect(button.getAttribute('href')).toBe('https://example.com');
+    });
+
+    it('renders with correct text alignment', async () => {
+      const content = await createSpecPage(
+        TnwCard,
+        `<tnw-card text-alignment="center"></tnw-card>`,
+        '.tnw-card__content'
+      );
+      expect(content).toHaveClasses(['tnw-card__content--text-center']);
+    });
+
+    it('renders with correct center items alignment and layout', async () => {
+      const host = await createSpecPage(
+        TnwCard,
+        `<tnw-card items-alignment="center"></tnw-card>`
+      );
+      expect(host).toHaveClasses(['tnw-card--vertical-center']);
+    });
+
+    it('renders with correct items alignment when it is not set to center', async () => {
+      const host = await createSpecPage(
+        TnwCard,
+        `<tnw-card items-alignment="start"></tnw-card>`
+      );
+      expect(host).toHaveClasses(['tnw-card--items-start']);
+    });
+
+    it('renders with correct padding when appearance is not none', async () => {
+      const host = await createSpecPage(
+        TnwCard,
+        `<tnw-card appearance="solid" padding="lg"></tnw-card>`
+      );
+      expect(host).toHaveClass('tnw-card--padding-lg');
     });
   });
 
@@ -131,6 +195,30 @@ describe('tnw-card', () => {
         false
       );
       expect(slotContent.textContent).toEqual('Custom Content');
+    });
+
+    it('renders custom badge slot content', async () => {
+      const host = await createSpecPage(
+        TnwCard,
+        `<tnw-card>
+          <span slot="badge">Custom Badge</span>
+        </tnw-card>`
+      ) as HTMLTnwCardElement;
+      const badgeSlot = queryElement(host, '[slot="badge"]', false);
+      expect(badgeSlot).toBeTruthy();
+      expect(badgeSlot.textContent).toBe('Custom Badge');
+    });
+
+    it('renders custom date slot content', async () => {
+      const host = await createSpecPage(
+        TnwCard,
+        `<tnw-card>
+          <span slot="date">Custom Date</span>
+        </tnw-card>`
+      ) as HTMLTnwCardElement;
+      const dateSlot = queryElement(host, '[slot="date"]', false);
+      expect(dateSlot).toBeTruthy();
+      expect(dateSlot.textContent).toBe('Custom Date');
     });
   });
 

@@ -318,10 +318,6 @@ export namespace Components {
      */
     interface TnwContactBanner {
         /**
-          * Defines the vertical padding of the banner.
-         */
-        "VerticalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
-        /**
           * If `true`, the banner will center its content.
          */
         "alignment"?: LogicalAlignmentType;
@@ -346,13 +342,29 @@ export namespace Components {
          */
         "enableContentSlot"?: boolean;
         /**
-          * Defines the horizontal padding of the banner.
+          * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
          */
-        "horizontalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        "gap"?: "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * The layout of the banner.
+         */
+        "layout"?: LayoutType;
         /**
           * Defines the margin of the banner.
          */
         "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the horizontal padding of the banner.
+         */
+        "paddingHorizontal"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the vertical padding of the banner.
+         */
+        "paddingVertical"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the alignment of the text content.
+         */
+        "textAlignment"?: AlignmentType;
     }
     /**
      * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -2221,10 +2233,6 @@ declare namespace LocalJSX {
      */
     interface TnwContactBanner {
         /**
-          * Defines the vertical padding of the banner.
-         */
-        "VerticalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
-        /**
           * If `true`, the banner will center its content.
          */
         "alignment"?: LogicalAlignmentType;
@@ -2249,13 +2257,29 @@ declare namespace LocalJSX {
          */
         "enableContentSlot"?: boolean;
         /**
-          * Defines the horizontal padding of the banner.
+          * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
          */
-        "horizontalPadding"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        "gap"?: "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * The layout of the banner.
+         */
+        "layout"?: LayoutType;
         /**
           * Defines the margin of the banner.
          */
         "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the horizontal padding of the banner.
+         */
+        "paddingHorizontal"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the vertical padding of the banner.
+         */
+        "paddingVertical"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the alignment of the text content.
+         */
+        "textAlignment"?: AlignmentType;
     }
     /**
      * The `tnw-footer` component displays footer information such as the organization name, copyright years, 

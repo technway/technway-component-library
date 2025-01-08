@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-08T13:25:19",
+  "timestamp": "2025-01-08T14:36:52",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.1",
@@ -2979,63 +2979,6 @@
       },
       "props": [
         {
-          "name": "VerticalPadding",
-          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-          "complexType": {
-            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
-            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "vertical-padding",
-          "reflectToAttr": false,
-          "docs": "Defines the vertical padding of the banner.",
-          "docsTags": [],
-          "default": "'2xl'",
-          "values": [
-            {
-              "value": "2xl",
-              "type": "string"
-            },
-            {
-              "value": "3xl",
-              "type": "string"
-            },
-            {
-              "value": "4xl",
-              "type": "string"
-            },
-            {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xs",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "alignment",
           "type": "\"center\" | \"end\" | \"start\"",
           "complexType": {
@@ -3296,19 +3239,19 @@
           "setter": false
         },
         {
-          "name": "horizontalPadding",
-          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "name": "gap",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
-            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
-            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "original": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "horizontal-padding",
+          "attr": "gap",
           "reflectToAttr": false,
-          "docs": "Defines the horizontal padding of the banner.",
+          "docs": "Defines the spacing between the content and the button. This will not control gap between elements inside the content.",
           "docsTags": [],
-          "default": "'2xl'",
+          "default": "'md'",
           "values": [
             {
               "value": "2xl",
@@ -3331,10 +3274,6 @@
               "type": "string"
             },
             {
-              "value": "none",
-              "type": "string"
-            },
-            {
               "value": "sm",
               "type": "string"
             },
@@ -3344,6 +3283,41 @@
             },
             {
               "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "layout",
+          "type": "\"horizontal\" | \"vertical\"",
+          "complexType": {
+            "original": "LayoutType",
+            "resolved": "\"horizontal\" | \"vertical\"",
+            "references": {
+              "LayoutType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::LayoutType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "layout",
+          "reflectToAttr": false,
+          "docs": "The layout of the banner.",
+          "docsTags": [],
+          "default": "'vertical'",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
               "type": "string"
             }
           ],
@@ -3401,6 +3375,167 @@
             },
             {
               "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "paddingHorizontal",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "padding-horizontal",
+          "reflectToAttr": false,
+          "docs": "Defines the horizontal padding of the banner.",
+          "docsTags": [],
+          "default": "'lg'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "paddingVertical",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "padding-vertical",
+          "reflectToAttr": false,
+          "docs": "Defines the vertical padding of the banner.",
+          "docsTags": [],
+          "default": "'lg'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "textAlignment",
+          "type": "\"center\" | \"end\" | \"left\" | \"right\" | \"start\"",
+          "complexType": {
+            "original": "AlignmentType",
+            "resolved": "\"center\" | \"end\" | \"left\" | \"right\" | \"start\"",
+            "references": {
+              "AlignmentType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::AlignmentType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "text-alignment",
+          "reflectToAttr": false,
+          "docs": "Defines the alignment of the text content.",
+          "docsTags": [],
+          "default": "'center'",
+          "values": [
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "start",
               "type": "string"
             }
           ],
@@ -9722,7 +9857,7 @@
           "reflectToAttr": false,
           "docs": "If true, the menu slot is enabled.",
           "docsTags": [],
-          "default": "true",
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -14482,13 +14617,13 @@
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/utils/component-props-types.ts::BorderColorType": {
-      "declaration": "export type BorderColorType =\r\n    | \"none\"\r\n    | \"primary\"\r\n    | \"secondary\"\r\n    | \"auto\"\r\n    | \"inverse\"\r\n    | \"light\"\r\n    | \"white\"\r\n    | \"black\"\r\n    | \"gray100\"\r\n    | \"gray200\"\r\n    | \"gray300\"\r\n    | \"gray400\"\r\n    | \"gray500\"\r\n    | \"gray600\"\r\n    | \"gray700\"\r\n    | \"gray800\"\r\n    | \"gray900\";",
+    "src/utils/component-props-types.ts::AlignmentType": {
+      "declaration": "export type AlignmentType =\r\n    | \"start\"\r\n    | \"center\"\r\n    | \"end\"\r\n    | \"right\"\r\n    | \"left\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/utils/component-props-types.ts::AlignmentType": {
-      "declaration": "export type AlignmentType =\r\n    | \"start\"\r\n    | \"center\"\r\n    | \"end\"\r\n    | \"right\"\r\n    | \"left\";",
+    "src/utils/component-props-types.ts::BorderColorType": {
+      "declaration": "export type BorderColorType =\r\n    | \"none\"\r\n    | \"primary\"\r\n    | \"secondary\"\r\n    | \"auto\"\r\n    | \"inverse\"\r\n    | \"light\"\r\n    | \"white\"\r\n    | \"black\"\r\n    | \"gray100\"\r\n    | \"gray200\"\r\n    | \"gray300\"\r\n    | \"gray400\"\r\n    | \"gray500\"\r\n    | \"gray600\"\r\n    | \"gray700\"\r\n    | \"gray800\"\r\n    | \"gray900\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },

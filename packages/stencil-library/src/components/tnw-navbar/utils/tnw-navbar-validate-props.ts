@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-navbar.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.hideMenuBelow, this.logoData, this.menuData, this.menuExactCenter, this.menuPlacement, this.padding, this.sticky, this.togglerPlacement]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
  *
  * GENERATED USING `npm run g:components-validations tnw-navbar`
  */
@@ -72,6 +72,13 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
+    "name": "enableLogoSlot",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
     "name": "hideMenuBelow",
     "type": [
       "1024",
@@ -79,13 +86,6 @@ export function validateProps(propsValues: any[]): void {
       "567",
       "767",
       "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "logoData",
-    "type": [
-      "string"
     ],
     "isRequired": false
   },
@@ -113,12 +113,29 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
-    "name": "padding",
+    "name": "paddingHorizontal",
     "type": [
       "lg",
       "md",
       "none",
       "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "paddingVertical",
+    "type": [
+      "lg",
+      "md",
+      "none",
+      "sm"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "scopeStylesToContainer",
+    "type": [
+      "boolean"
     ],
     "isRequired": false
   },

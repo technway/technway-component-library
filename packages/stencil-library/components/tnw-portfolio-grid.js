@@ -6,7 +6,7 @@ import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, r as parseJSONAsync, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber } from './p-80d80a0e.js';
 import { d as defineCustomElement$4 } from './p-d53cb6f4.js';
 import { d as defineCustomElement$3 } from './p-3d848afd.js';
-import { d as defineCustomElement$2 } from './p-8957a5a1.js';
+import { d as defineCustomElement$2 } from './p-082bce33.js';
 
 const baseClass = `${GLOBAL_PREFIX}-portfolio-grid`;
 const contentClass = `${baseClass}__content`;

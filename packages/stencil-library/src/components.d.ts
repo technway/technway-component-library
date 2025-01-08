@@ -945,13 +945,13 @@ export namespace Components {
          */
         "enableCtaSlot"?: boolean;
         /**
+          * If true, the logo slot is enabled.
+         */
+        "enableLogoSlot"?: boolean;
+        /**
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
         "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
-        /**
-          * The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.
-         */
-        "logoData"?: string;
         /**
           * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
          */
@@ -965,9 +965,17 @@ export namespace Components {
          */
         "menuPlacement"?: 'start' | 'middle' | 'end';
         /**
-          * Sets the padding size of the navigation bar.
+          * Sets the horizontal padding size of the navigation bar.
          */
-        "padding"?: SizeType | 'none';
+        "paddingHorizontal"?: SizeType | 'none';
+        /**
+          * Sets the vertical padding size of the navigation bar.
+         */
+        "paddingVertical"?: SizeType | 'none';
+        /**
+          * When true, the component will apply its styles (like the appearance colors and effects) to its internal container element. If false, the styles will be applied directly to the component host element.
+         */
+        "scopeStylesToContainer"?: boolean;
         /**
           * Makes the navigation bar sticky at the top of the viewport when set to true.
          */
@@ -2840,13 +2848,13 @@ declare namespace LocalJSX {
          */
         "enableCtaSlot"?: boolean;
         /**
+          * If true, the logo slot is enabled.
+         */
+        "enableLogoSlot"?: boolean;
+        /**
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
         "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
-        /**
-          * The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.
-         */
-        "logoData"?: string;
         /**
           * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
          */
@@ -2872,9 +2880,17 @@ declare namespace LocalJSX {
          */
         "onTnwScrollChange"?: (event: TnwNavbarCustomEvent<{ scrollY: number }>) => void;
         /**
-          * Sets the padding size of the navigation bar.
+          * Sets the horizontal padding size of the navigation bar.
          */
-        "padding"?: SizeType | 'none';
+        "paddingHorizontal"?: SizeType | 'none';
+        /**
+          * Sets the vertical padding size of the navigation bar.
+         */
+        "paddingVertical"?: SizeType | 'none';
+        /**
+          * When true, the component will apply its styles (like the appearance colors and effects) to its internal container element. If false, the styles will be applied directly to the component host element.
+         */
+        "scopeStylesToContainer"?: boolean;
         /**
           * Makes the navigation bar sticky at the top of the viewport when set to true.
          */

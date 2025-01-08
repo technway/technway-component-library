@@ -639,6 +639,7 @@ export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents>
             menuData: 'menu-data',
             enableCtaSlot: 'enable-cta-slot',
             enableLogoSlot: 'enable-logo-slot',
+            enableMenuSlot: 'enable-menu-slot',
             hideMenuBelow: 'hide-menu-below'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')

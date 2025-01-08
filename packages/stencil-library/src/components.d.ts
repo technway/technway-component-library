@@ -953,6 +953,10 @@ export namespace Components {
          */
         "enableLogoSlot"?: boolean;
         /**
+          * If true, the menu slot is enabled.
+         */
+        "enableMenuSlot"?: boolean;
+        /**
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
         "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
@@ -2859,6 +2863,10 @@ declare namespace LocalJSX {
           * If true, the logo slot is enabled.
          */
         "enableLogoSlot"?: boolean;
+        /**
+          * If true, the menu slot is enabled.
+         */
+        "enableMenuSlot"?: boolean;
         /**
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */

@@ -504,7 +504,7 @@ styles += styles$1;
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-navbar.tsx` file.
  *
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
  *
  * GENERATED USING `npm run g:components-validations tnw-navbar`
  */
@@ -568,6 +568,13 @@ function validateProps(propsValues) {
         },
         {
             "name": "enableLogoSlot",
+            "type": [
+                "boolean"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "enableMenuSlot",
             "type": [
                 "boolean"
             ],
@@ -861,6 +868,10 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
          */
         this.enableLogoSlot = false;
         /**
+         * If true, the menu slot is enabled.
+         */
+        this.enableMenuSlot = true;
+        /**
          * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
         this.hideMenuBelow = false;
@@ -889,7 +900,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         }
     }
     componentWillLoad() {
-        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
+        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
         // Manually parse menu data on initial load
         if (isNotEmptyString(this.menuData)) {
             this.parseMenuData(this.menuData);
@@ -941,9 +952,14 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
     }
     menu() {
         if (this.parsedMenuData === null) {
+            if (this.enableMenuSlot) {
+                return h$1("slot", { name: "menu" });
+            }
             return null;
         }
-        return renderMenu(this.parsedMenuData, this.isVisible, this.menuPlacement);
+        if (!this.enableMenuSlot) {
+            return renderMenu(this.parsedMenuData, this.isVisible, this.menuPlacement);
+        }
     }
     logo() {
         if (!this.enableLogoSlot) {
@@ -963,7 +979,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '9b6ca96e28f69ed28eea37b9ed00c43569d81218', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: '309c0fab727e3670fb733cb2b97c41a38596ab18', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {
@@ -985,6 +1001,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         "menuData": [1, "menu-data"],
         "enableCtaSlot": [4, "enable-cta-slot"],
         "enableLogoSlot": [4, "enable-logo-slot"],
+        "enableMenuSlot": [4, "enable-menu-slot"],
         "hideMenuBelow": [8, "hide-menu-below"],
         "parsedMenuData": [32],
         "isVisible": [32]

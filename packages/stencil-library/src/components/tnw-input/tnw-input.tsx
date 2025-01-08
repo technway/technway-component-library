@@ -2,7 +2,7 @@ import { Component, Prop, Host, h, Element, State, Event, EventEmitter } from '@
 import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-input.styles';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
-import { BorderRadiusType } from '../../utils/component-props-types';
+import { BorderRadiusType, ColorType } from '../../utils/component-props-types';
 import { createStore } from '@stencil/store';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { containsSQLInjectionPatterns, sanitizeInput } from '../../utils/security-utils';
@@ -59,6 +59,11 @@ export class TnwInput {
    * Defines the appearance of the input.
    */
   @Prop() appearance?: 'outlined' | 'underlined' | 'none' = 'outlined';
+
+  /**
+   * The appearance color of the input, determining the overall color scheme.
+   */
+  @Prop() appearanceColor?: ColorType = 'auto';
 
   /**
    * If true, the label is visually hidden but still accessible to screen readers.
@@ -156,7 +161,7 @@ export class TnwInput {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
+    validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
 
     /**
      * Initialize the store with the initial value.
@@ -335,12 +340,13 @@ export class TnwInput {
   }
 
   private getInputClasses(): string {
-    const { baseClass, appearance } = this;
+    const { baseClass, appearance, appearanceColor } = this;
     const alertType = this.store.get('alertType');
 
     return [
       baseClass,
       `${baseClass}--${appearance}`,
+      `${baseClass}--${appearance}-${appearanceColor}`,
       isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
       getBorderRadiusClass(this.borderRadius),
     ].filter(Boolean).join(' ').trim();

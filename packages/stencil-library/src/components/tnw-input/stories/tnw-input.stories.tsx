@@ -106,3 +106,9 @@ NotSanitizedValue.args = {
   inputId: 'input-hidden-label',
   value: "'; DROP TABLE users; --",
 };
+
+export const PrimaryColor = Template.bind({});
+PrimaryColor.args = {
+  ...Standard.args,
+  appearanceColor: 'primary',
+};

@@ -6,7 +6,7 @@ import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass, w as generateRandomColor } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { d as defineCustomElement$4 } from './p-247f7459.js';
-import { d as defineCustomElement$3 } from './p-8957a5a1.js';
+import { d as defineCustomElement$3 } from './p-fa750891.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-testimonial-card`;
@@ -302,7 +302,7 @@ const TnwTestimonialCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwTestimoni
         if (!isNotEmptyString(this.authorName))
             return null;
         return (h("div", { class: `${this.baseClass}__author-details`, part: 'author-details' }, isNotEmptyString(this.authorPhotoSrc) ?
-            h("tnw-image", { src: this.authorPhotoSrc, alt: this.authorPhotoAlt, BorderRadius: "circle", heightSize: "full", widthSize: "full", objectFit: "cover", class: `${this.baseClass}__author-photo`, part: 'author-photo' })
+            h("tnw-image", { src: this.authorPhotoSrc, alt: this.authorPhotoAlt, borderRadius: "circle", heightSize: "full", widthSize: "full", objectFit: "cover", class: `${this.baseClass}__author-photo`, part: 'author-photo' })
             :
                 this.renderRandomAvatar(), h("div", { class: `${this.baseClass}__author-details-section` }, h("tnw-heading", { level: "h3", size: "sm", weight: "600", text: this.authorName, class: `${this.baseClass}__author-name`, part: 'author-name', textCase: 'capitalize' }), h("tnw-text", { text: this.authorRole, size: "sm", weight: "300", textCase: "capitalize", class: `${this.baseClass}__author-role`, color: 'light', part: 'author-role' }))));
     }

@@ -32,13 +32,13 @@ import { TnwItemsCarousel as TnwItemsCarouselElement, defineCustomElement as def
 import { TnwLabel as TnwLabelElement, defineCustomElement as defineTnwLabel } from "@technway/stencil-library/components/tnw-label.js";
 import { TnwList as TnwListElement, defineCustomElement as defineTnwList } from "@technway/stencil-library/components/tnw-list.js";
 import { TnwNavbar as TnwNavbarElement, defineCustomElement as defineTnwNavbar } from "@technway/stencil-library/components/tnw-navbar.js";
-import { TnwNewsletterForm as TnwNewsletterFormElement, defineCustomElement as defineTnwNewsletterForm } from "@technway/stencil-library/components/tnw-newsletter-form.js";
 import { TnwPortfolioGrid as TnwPortfolioGridElement, defineCustomElement as defineTnwPortfolioGrid } from "@technway/stencil-library/components/tnw-portfolio-grid.js";
 import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating } from "@technway/stencil-library/components/tnw-rating.js";
 import { TnwRowsCarousel as TnwRowsCarouselElement, defineCustomElement as defineTnwRowsCarousel } from "@technway/stencil-library/components/tnw-rows-carousel.js";
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "@technway/stencil-library/components/tnw-scroll-to-top.js";
 import { TnwSection as TnwSectionElement, defineCustomElement as defineTnwSection } from "@technway/stencil-library/components/tnw-section.js";
 import { TnwSelect as TnwSelectElement, defineCustomElement as defineTnwSelect } from "@technway/stencil-library/components/tnw-select.js";
+import { TnwSubscriptionForm as TnwSubscriptionFormElement, defineCustomElement as defineTnwSubscriptionForm } from "@technway/stencil-library/components/tnw-subscription-form.js";
 import { TnwTestimonialCard as TnwTestimonialCardElement, defineCustomElement as defineTnwTestimonialCard } from "@technway/stencil-library/components/tnw-testimonial-card.js";
 import { TnwText as TnwTextElement, defineCustomElement as defineTnwText } from "@technway/stencil-library/components/tnw-text.js";
 import { TnwTextarea as TnwTextareaElement, defineCustomElement as defineTnwTextarea } from "@technway/stencil-library/components/tnw-textarea.js";
@@ -186,6 +186,7 @@ export const TnwButton: StencilReactComponent<TnwButtonElement, TnwButtonEvents>
             size: 'size',
             hoverAppearance: 'hover-appearance',
             hoverAppearanceColor: 'hover-appearance-color',
+            hoverEffect: 'hover-effect',
             href: 'href',
             newTab: 'new-tab',
             disabled: 'disabled',
@@ -210,13 +211,19 @@ export const TnwCard: StencilReactComponent<TnwCardElement, TnwCardEvents> = typ
         properties: {
             imageSrc: 'image-src',
             imageAlt: 'image-alt',
+            imageHeight: 'image-height',
             heading: 'heading',
             subheading: 'subheading',
             description: 'description',
             buttonLabel: 'button-label',
+            buttonHref: 'button-href',
+            buttonRadius: 'button-radius',
+            date: 'date',
+            badgeLabel: 'badge-label',
             textAlignment: 'text-alignment',
             itemsAlignment: 'items-alignment',
             spacing: 'spacing',
+            contentSpacing: 'content-spacing',
             padding: 'padding',
             appearance: 'appearance',
             appearanceColor: 'appearance-color',
@@ -249,10 +256,13 @@ export const TnwContactBanner: StencilReactComponent<TnwContactBannerElement, Tn
             appearanceColor: 'appearance-color',
             enableContentSlot: 'enable-content-slot',
             alignment: 'alignment',
+            textAlignment: 'text-alignment',
             borderRadius: 'border-radius',
             margin: 'margin',
-            horizontalPadding: 'horizontal-padding',
-            VerticalPadding: 'vertical-padding',
+            paddingHorizontal: 'padding-horizontal',
+            paddingVertical: 'padding-vertical',
+            gap: 'gap',
+            layout: 'layout',
             disableInternalContainer: 'disable-internal-container'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
@@ -481,7 +491,8 @@ export const TnwImage: StencilReactComponent<TnwImageElement, TnwImageEvents> = 
             objectPosition: 'object-position',
             objectFit: 'object-fit',
             lazyLoading: 'lazy-loading',
-            BorderRadius: 'border-radius'
+            borderRadius: 'border-radius',
+            link: 'link'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });
@@ -511,6 +522,7 @@ export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = 
             type: 'type',
             placeholder: 'placeholder',
             appearance: 'appearance',
+            appearanceColor: 'appearance-color',
             isLabelSrOnly: 'is-label-sr-only',
             name: 'name',
             value: 'value',
@@ -628,44 +640,18 @@ export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents>
             appearanceColor: 'appearance-color',
             sticky: 'sticky',
             disableInternalContainer: 'disable-internal-container',
+            scopeStylesToContainer: 'scope-styles-to-container',
             menuExactCenter: 'menu-exact-center',
             menuPlacement: 'menu-placement',
             togglerPlacement: 'toggler-placement',
             borderRadius: 'border-radius',
-            padding: 'padding',
+            paddingHorizontal: 'padding-horizontal',
+            paddingVertical: 'padding-vertical',
             menuData: 'menu-data',
-            logoData: 'logo-data',
             enableCtaSlot: 'enable-cta-slot',
+            enableLogoSlot: 'enable-logo-slot',
+            enableMenuSlot: 'enable-menu-slot',
             hideMenuBelow: 'hide-menu-below'
-        },
-        hydrateModule: import('@technway/stencil-library/hydrate')
-    });
-
-type TnwNewsletterFormEvents = NonNullable<unknown>;
-
-export const TnwNewsletterForm: StencilReactComponent<TnwNewsletterFormElement, TnwNewsletterFormEvents> = typeof window !== 'undefined'
-    ? /*@__PURE__*/ createComponent<TnwNewsletterFormElement, TnwNewsletterFormEvents>({
-        tagName: 'tnw-newsletter-form',
-        elementClass: TnwNewsletterFormElement,
-        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
-        react: React,
-        events: {} as TnwNewsletterFormEvents,
-        defineCustomElement: defineTnwNewsletterForm
-    })
-    : /*@__PURE__*/ createSSRComponent<TnwNewsletterFormElement, TnwNewsletterFormEvents>({
-        tagName: 'tnw-newsletter-form',
-        properties: {
-            buttonLabel: 'button-label',
-            inputPlaceholder: 'input-placeholder',
-            successMessage: 'success-message',
-            borderRadius: 'border-radius',
-            variant: 'variant',
-            theme: 'theme',
-            enableButtonSlot: 'enable-button-slot',
-            inputId: 'input-id',
-            formAction: 'form-action',
-            formMethod: 'form-method',
-            formAttributes: 'form-attributes'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });
@@ -830,6 +816,35 @@ export const TnwSelect: StencilReactComponent<TnwSelectElement, TnwSelectEvents>
             accessibilityId: 'accessibility-id',
             variant: 'variant',
             optionAppearance: 'option-appearance'
+        },
+        hydrateModule: import('@technway/stencil-library/hydrate')
+    });
+
+type TnwSubscriptionFormEvents = NonNullable<unknown>;
+
+export const TnwSubscriptionForm: StencilReactComponent<TnwSubscriptionFormElement, TnwSubscriptionFormEvents> = typeof window !== 'undefined'
+    ? /*@__PURE__*/ createComponent<TnwSubscriptionFormElement, TnwSubscriptionFormEvents>({
+        tagName: 'tnw-subscription-form',
+        elementClass: TnwSubscriptionFormElement,
+        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+        react: React,
+        events: {} as TnwSubscriptionFormEvents,
+        defineCustomElement: defineTnwSubscriptionForm
+    })
+    : /*@__PURE__*/ createSSRComponent<TnwSubscriptionFormElement, TnwSubscriptionFormEvents>({
+        tagName: 'tnw-subscription-form',
+        properties: {
+            buttonLabel: 'button-label',
+            inputPlaceholder: 'input-placeholder',
+            successMessage: 'success-message',
+            borderRadius: 'border-radius',
+            variant: 'variant',
+            theme: 'theme',
+            enableButtonSlot: 'enable-button-slot',
+            inputId: 'input-id',
+            formAction: 'form-action',
+            formMethod: 'form-method',
+            formAttributes: 'form-attributes'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

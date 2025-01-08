@@ -20,9 +20,9 @@ export interface FooterData {
         iconName: string; // The icon name (e.g., "github", "facebook")
         url: string; // The URL of the social media profile
     }>;
-    newsletter?: {
-        heading?: string; // The heading for the newsletter section
-        description?: string; // The description for the newsletter section
+    subscription?: {
+        heading?: string; // The heading for the subscription section
+        description?: string; // The description for the subscription section
         placeholder?: string; // Placeholder text for the email input field
         buttonText?: string; // Text for the submit button
     };

@@ -30,12 +30,16 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 | **borderRadius** | <div>Sets the border-radius of the navigation bar.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **disableInternalContainer** | <div>If true, the navigation bar content will not be wrapped in a container for centering and padding.</div> | `false` | `boolean` |
 | **enableCtaSlot** | <div>If true, the CTA slot is enabled.</div> | `false` | `boolean` |
+| **enableLogoSlot** | <div>If true, the logo slot is enabled.</div> | `false` | `boolean` |
+| **enableMenuSlot** | <div>If true, the menu slot is enabled.</div> | `false` | `boolean` |
 | **hideMenuBelow** | <div>The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.</div> | `false` | `"1024"` \| `"1439"` \| `"567"` \| `"767"` \| `boolean` |
-| **logoData** | <div>The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.</div> | N/A | `string` |
 | **menuData** | <div>The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..</div> | N/A | `string` |
 | **menuExactCenter** | <div>When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.</div> | `false` | `boolean` |
 | **menuPlacement** | <div>Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.</div> | `'middle'` | `"end"` \| `"middle"` \| `"start"` |
-| **padding** | <div>Sets the padding size of the navigation bar.</div> | `'none'` | `"lg"` \| `"md"` \| `"none"` \| `"sm"` |
+| **paddingHorizontal** | <div>Sets the horizontal padding size of the navigation bar.</div> | `'md'` | `"lg"` \| `"md"` \| `"none"` \| `"sm"` |
+| **paddingVertical** | <div>Sets the vertical padding size of the navigation bar.</div> | `'md'` | `"lg"` \| `"md"` \| `"none"` \| `"sm"` |
+| **scopeStylesToContainer** | <div>When true, the component will apply its styles (like the appearance colors and effects) to its internal container element.
+If false, the styles will be applied directly to the component host element.</div> | `false` | `boolean` |
 | **sticky** | <div>Makes the navigation bar sticky at the top of the viewport when set to true.</div> | `false` | `boolean` |
 | **togglerPlacement** | <div>Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.</div> | `'end'` | `"end"` \| `"start"` |
 
@@ -57,6 +61,8 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 | Slot | Description |
 | --- | --- |
 | **cta** | The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`. |
+| **logo** | The slot for custom logo content to be added to the navigation bar. To use this slot, set the `enableLogoSlot` property to `true`. |
+| **menu** | The slot for custom menu content to be added to the navigation bar. To use this slot, set the `enableMenuSlot` property to `true`. And do not use the `menuData` prop. |
 
 ## Events
 

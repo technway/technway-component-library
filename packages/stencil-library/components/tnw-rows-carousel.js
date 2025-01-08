@@ -260,7 +260,7 @@ const TnwRowsCarousel$1 = /*@__PURE__*/ proxyCustomElement(class TnwRowsCarousel
         };
     }
     render() {
-        return (h(Host, { key: '63bd2d56dceec4b6beefd1d38799dd18f450e637', class: this.baseClass }, h("div", { key: '746f89c3592d74182d852648e2b1c1f4b1c3ce14', class: `${this.baseClass}__container` }, Array.from({ length: this.rows }, (_, index) => (h("div", { class: `${this.baseClass}__row`, style: this.getRowStyles(index), onMouseEnter: this.handleMouseEnter, onMouseLeave: this.handleMouseLeave }, h("slot", { name: `row-${index + 1}` })))))));
+        return (h(Host, { key: 'adbf81da3b9f1c3def2a9abac80bcab62a651a36', class: this.baseClass }, h("div", { key: 'e2ec7a1975e6a5cf6a6326da655e0b67189bc625', class: `${this.baseClass}__container` }, Array.from({ length: this.rows }, (_, index) => (h("div", { class: `${this.baseClass}__row`, style: this.getRowStyles(index), onMouseEnter: this.handleMouseEnter, onMouseLeave: this.handleMouseLeave }, h("slot", { name: `row-${index + 1}` })))))));
     }
     get el() { return this; }
 }, [1, "tnw-rows-carousel", {

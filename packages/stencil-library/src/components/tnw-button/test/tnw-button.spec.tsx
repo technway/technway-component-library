@@ -84,6 +84,14 @@ describe('tnw-button', () => {
       );
       expect(host).toHaveClass('tnw-button--hover-solid-primary');
     });
+
+    it('renders with hover effct class', async () => {
+      const host = await createSpecPage(
+        TnwButton,
+        `<tnw-button label="Hover Button" hover-effect="scale-down"></tnw-button>`,
+      );
+      expect(host).toHaveClass('tnw-button--hover-scale-down');
+    });
   });
 
   describe('Error Handling and Edge Cases', () => {

@@ -224,7 +224,7 @@ const TnwScrollToTop$1 = /*@__PURE__*/ proxyCustomElement(class TnwScrollToTop e
         };
     }
     render() {
-        return (h(Host, { key: 'c061fdb2a608e0c84ec48a9cc665a288a81b63b6', class: this.baseClass }, h("tnw-icon", { key: 'caec92d190d244d7070cb59018e1da4b257fbaef', name: this.customIconName, size: this.size, appearanceColor: this.appearanceColor, appearance: this.appearance, color: this.color, isButton: true, onClick: this.scrollToTop(), enableSvg: this.enableCustomSvgIcon, borderRadius: this.borderRadius, part: 'icon' }, h("slot", { key: '26998f8dda985d2fd4b927dd0ad43ddbdd2e263b', name: "icon-svg", slot: 'svg' }))));
+        return (h(Host, { key: 'fb488ab7ce01d5ca7b4ebb7f67eeb85f25441063', class: this.baseClass }, h("tnw-icon", { key: 'b868f1c1171e1d49673bb3ae21e50600110de90b', name: this.customIconName, size: this.size, appearanceColor: this.appearanceColor, appearance: this.appearance, color: this.color, isButton: true, onClick: this.scrollToTop(), enableSvg: this.enableCustomSvgIcon, borderRadius: this.borderRadius, part: 'icon' }, h("slot", { key: '15d622564aca8452d1541203638cf6b3486131aa', name: "icon-svg", slot: 'svg' }))));
     }
     get el() { return this; }
 }, [1, "tnw-scroll-to-top", {

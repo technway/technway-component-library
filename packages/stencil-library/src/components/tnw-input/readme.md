@@ -55,6 +55,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 | Property                   | Attribute          | Description                                                                                                                                                                                                                                                              | Type                                                                                                  | Default      |
 | -------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ------------ |
 | `appearance`               | `appearance`       | Defines the appearance of the input.                                                                                                                                                                                                                                     | `"none" \| "outlined" \| "underlined"`                                                                | `'outlined'` |
+| `appearanceColor`          | `appearance-color` | The appearance color of the input, determining the overall color scheme.                                                                                                                                                                                                 | `"auto" \| "black" \| "inverse" \| "light" \| "primary" \| "secondary" \| "white"`                    | `'auto'`     |
 | `autoComplete`             | `auto-complete`    | The autocomplete setting for the input.                                                                                                                                                                                                                                  | `string`                                                                                              | `'off'`      |
 | `borderRadius`             | `border-radius`    | The border radius of the input.                                                                                                                                                                                                                                          | `"2xl" \| "3xl" \| "circle" \| "default" \| "full" \| "lg" \| "md" \| "none" \| "sm" \| "xl" \| "xs"` | `'default'`  |
 | `disabled`                 | `disabled`         | Disables the input if set to true.                                                                                                                                                                                                                                       | `boolean`                                                                                             | `false`      |
@@ -95,7 +96,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 
 ### Used by
 
- - [tnw-newsletter-form](../tnw-newsletter-form)
+ - [tnw-subscription-form](../tnw-subscription-form)
 
 ### Depends on
 
@@ -107,7 +108,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 graph TD;
   tnw-input --> tnw-label
   tnw-input --> tnw-alert
-  tnw-newsletter-form --> tnw-input
+  tnw-subscription-form --> tnw-input
   style tnw-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

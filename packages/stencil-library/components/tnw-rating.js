@@ -179,7 +179,7 @@ const TnwRating$1 = /*@__PURE__*/ proxyCustomElement(class TnwRating extends H {
     }
     render() {
         const { baseClass, rating, totalStars } = this;
-        return (h(Host, { key: '73746e4d7abfe2568a665c701d1195e56e07543d', class: baseClass, role: "img", "aria-label": `Rating: ${rating} out of ${totalStars}` }, this.renderRatingIcons()));
+        return (h(Host, { key: '734202bb74eec46a50267e48ee583b14a4337d46', class: baseClass, role: "img", "aria-label": `Rating: ${rating} out of ${totalStars}` }, this.renderRatingIcons()));
     }
     get el() { return this; }
 }, [1, "tnw-rating", {

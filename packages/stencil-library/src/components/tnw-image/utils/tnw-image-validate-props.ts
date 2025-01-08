@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-image.tsx` file.
  * 
-validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
+validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
  *
  * GENERATED USING `npm run g:components-validations tnw-image`
  */
@@ -81,6 +81,13 @@ export function validateProps(propsValues: any[]): void {
     "name": "lazyLoading",
     "type": [
       "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "link",
+    "type": [
+      "string"
     ],
     "isRequired": false
   },

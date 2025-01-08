@@ -481,7 +481,8 @@ export const TnwImage: StencilReactComponent<TnwImageElement, TnwImageEvents> = 
             objectPosition: 'object-position',
             objectFit: 'object-fit',
             lazyLoading: 'lazy-loading',
-            BorderRadius: 'border-radius'
+            BorderRadius: 'border-radius',
+            link: 'link'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

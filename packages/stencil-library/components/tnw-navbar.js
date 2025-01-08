@@ -958,11 +958,12 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         return h$1("slot", { name: 'cta' });
     }
     renderContent() {
-        return (h$1("nav", { class: this.getContentClasses(), part: 'navbar' }, h$1("div", { class: `${this.baseClass}__start` }, this.togglerPlacement === 'start' && this.menuToggler(), this.logo(), this.menuPlacement === 'start' && this.menu()), this.menuPlacement === 'middle' && (h$1("div", { class: `${this.baseClass}__middle ${this.menuExactCenter ? `${this.baseClass}__middle--exact-center` : ''}` }, this.menu())), (this.menu() || this.cta()) &&
+        return (h$1("nav", { class: this.getContentClasses(), part: 'navbar' }, (((this.menuPlacement === 'start' || this.togglerPlacement === 'start') && this.menu()) || this.logo()) &&
+            h$1("div", { class: `${this.baseClass}__start` }, this.togglerPlacement === 'start' && this.menuToggler(), this.logo(), this.menuPlacement === 'start' && this.menu()), (this.menuPlacement === 'middle' && this.menu()) && (h$1("div", { class: `${this.baseClass}__middle ${this.menuExactCenter ? `${this.baseClass}__middle--exact-center` : ''}` }, this.menu())), (this.menu() || this.cta()) &&
             h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '17f9d1fd2b60d628a53fd504509ec462b27eaa46', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: '9b6ca96e28f69ed28eea37b9ed00c43569d81218', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {

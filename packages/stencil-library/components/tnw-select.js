@@ -551,7 +551,7 @@ const TnwSelect$1 = /*@__PURE__*/ proxyCustomElement(class TnwSelect extends H {
         return (h("ul", { class: this.getDropdownClasses(), "aria-labelledby": `${this.label}-label-${this.selectId}`, role: "listbox", tabIndex: -1, id: this.selectId, part: 'dropdown', "data-select": true }, options.map((option, index) => (this.renderSelectOption(option, index)))));
     }
     render() {
-        return (h(Host, { key: '8ae10f6143f54c4adaa024248b2f114876f52ce4', style: {
+        return (h(Host, { key: '87de27cfc343ca76e0c936c3d91afb0bace8f158', style: {
                 width: this.initialWidth,
             }, class: this.getHostClasses() }, this.renderSelectButton(), this.renderSelectDropdown()));
     }

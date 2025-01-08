@@ -67,9 +67,9 @@ describe('tnw-footer', () => {
       },
       contact: { heading: 'Contact Us', email: 'info@example.com', phone: '123-456-7890' },
       socialmedia: [{ iconName: 'facebook', url: 'https://facebook.com' }],
-      newsletter: {
+      subscription: {
         heading: 'Stay Updated',
-        description: 'Sign up for our newsletter!',
+        description: 'Sign up for our subscription!',
         placeholder: 'Enter your email',
         buttonText: 'Subscribe',
       },
@@ -127,22 +127,22 @@ describe('tnw-footer', () => {
       });
     });
 
-    describe('Newsletter Section', () => {
-      it('renders the newsletter heading', () => {
-        const newsletterHeading = queryElement(host, 'tnw-heading[text="Stay Updated"]');
-        expect(newsletterHeading).not.toBeNull();
+    describe('Subscription Section', () => {
+      it('renders the subscription heading', () => {
+        const subscriptionHeading = queryElement(host, 'tnw-heading[text="Stay Updated"]');
+        expect(subscriptionHeading).not.toBeNull();
       });
 
-      it('renders the newsletter description', () => {
-        const newsletterDescription = queryElement(host, 'tnw-text[text="Sign up for our newsletter!"]');
-        expect(newsletterDescription).not.toBeNull();
+      it('renders the subscription description', () => {
+        const subscriptionDescription = queryElement(host, 'tnw-text[text="Sign up for our subscription!"]');
+        expect(subscriptionDescription).not.toBeNull();
       });
 
-      it('renders the newsletter form with correct attributes', () => {
-        const newsletterForm = queryElement(host, 'tnw-newsletter-form');
-        expect(newsletterForm).not.toBeNull();
-        expect(newsletterForm?.getAttribute('inputPlaceholder')).toBe('Enter your email');
-        expect(newsletterForm?.getAttribute('buttonLabel')).toBe('Subscribe');
+      it('renders the subscription form with correct attributes', () => {
+        const subscriptionForm = queryElement(host, 'tnw-subscription-form');
+        expect(subscriptionForm).not.toBeNull();
+        expect(subscriptionForm?.getAttribute('inputPlaceholder')).toBe('Enter your email');
+        expect(subscriptionForm?.getAttribute('buttonLabel')).toBe('Subscribe');
       });
     });
 
@@ -157,7 +157,7 @@ describe('tnw-footer', () => {
         expect(queryElement(footer, 'slot[name="links"]')).not.toBeNull();
         expect(queryElement(footer, 'slot[name="contact"]')).not.toBeNull();
         expect(queryElement(footer, 'slot[name="socialmedia"]')).not.toBeNull();
-        expect(queryElement(footer, 'slot[name="newsletter"]')).not.toBeNull();
+        expect(queryElement(footer, 'slot[name="subscription"]')).not.toBeNull();
       });
     });
   });

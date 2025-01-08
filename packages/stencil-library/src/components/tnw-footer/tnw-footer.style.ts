@@ -107,7 +107,7 @@ tnw-heading {
     gap: 20px;
 }
 
-.${baseClass}__newsletter-description {
+.${baseClass}__subscription-description {
     margin-bottom: 20px;
 }
 

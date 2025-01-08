@@ -192,7 +192,7 @@ const styles = `
 :host(.tnw-image--height-full) {
   height: var(--tnw-image-height, 100%);
 }
-.tnw-image {
+.tnw-image--sized {
   width: 100%;
   height: 100%;
 }
@@ -221,7 +221,7 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
          */
         this.caption = '';
         /**
-         * The width size of the image.
+         * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
          */
         this.widthSize = 'full';
         /**
@@ -257,10 +257,15 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
     componentWillLoad() {
         validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
     }
+    hasWidthOrHeight() {
+        console.log({ hasWidth: isNotEmptyString(this.widthSize), hasHeight: isNotEmptyString(this.heightSize) });
+        return isNotEmptyString(this.width) || isNotEmptyString(this.height);
+    }
     getImageClasses() {
         const { baseClass, aspectRatio, objectFit, objectPosition } = this;
         return [
             baseClass,
+            !this.hasWidthOrHeight() ? `${baseClass}--sized` : '',
             getAspectRatioClass(aspectRatio),
             getObjectFitClass(objectFit),
             getObjectPositionClass(objectPosition),
@@ -279,7 +284,10 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
      * @returns A rendered image element (JSX.Element)
      */
     renderImage() {
-        return (h("img", { class: this.getImageClasses(), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image' }));
+        return (h("img", { class: this.getImageClasses(), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image', style: {
+                width: this.width,
+                height: this.height,
+            } }));
     }
     renderFigCaption() {
         if (isNotEmptyString(this.caption)) {
@@ -290,13 +298,15 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
     render() {
         const image = this.renderImage();
         const hasCaption = Boolean(this.caption);
-        return (h(Host, { key: 'ff1506dad4ced7f6419c82d72a49cfb8c3ca6bb5', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
+        return (h(Host, { key: '3f4af5cfddaddd3633f954f1ab5e6ab393321bbd', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
     }
     get el() { return this; }
 }, [1, "tnw-image", {
         "src": [1],
         "alt": [1],
         "caption": [1],
+        "width": [1],
+        "height": [1],
         "widthSize": [1, "width-size"],
         "heightSize": [1, "height-size"],
         "aspectRatio": [1, "aspect-ratio"],
@@ -322,4 +332,4 @@ defineCustomElement();
 
 export { TnwImage as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-d797556c.js.map
+//# sourceMappingURL=p-8957a5a1.js.map

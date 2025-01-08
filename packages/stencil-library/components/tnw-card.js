@@ -7,7 +7,7 @@ import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupporte
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { d as defineCustomElement$5 } from './p-2b0400b3.js';
 import { d as defineCustomElement$4 } from './p-247f7459.js';
-import { d as defineCustomElement$3 } from './p-d797556c.js';
+import { d as defineCustomElement$3 } from './p-8957a5a1.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-card`;

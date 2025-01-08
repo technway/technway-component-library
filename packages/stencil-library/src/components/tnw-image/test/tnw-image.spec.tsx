@@ -21,7 +21,7 @@ describe('tnw-image', () => {
       expect(image.getAttribute('alt')).toBe('Default Image');
     });
 
-    it('applies default classes for width and aspect ratio', async () => {
+    it('applies default classes for width-size and aspect ratio', async () => {
       const host = await createSpecPage(
         TnwImage,
         `<tnw-image src="image.jpg" alt="Default Image"></tnw-image>`
@@ -29,6 +29,15 @@ describe('tnw-image', () => {
       expect(host).toHaveClasses([
         'tnw-image--width-full',
       ]);
+    });
+
+    it('applies `tnw-image--full` class if no width or height is provided', async () => {
+      const imgElement = await createSpecPage(
+        TnwImage,
+        `<tnw-image src="test.jpg" alt="Test Image"></tnw-image>`,
+        'img'
+      );
+      expect(imgElement).toHaveClass('tnw-image--full');
     });
   });
 
@@ -41,7 +50,7 @@ describe('tnw-image', () => {
       expect(host).toHaveClass('tnw-image--width-lg');
     });
 
-    it('renders with a custom height size class', async () => {
+    it('renders with a custom height-size class', async () => {
       const host = await createSpecPage(
         TnwImage,
         `<tnw-image src="image.jpg" alt="Image" height-size="lg"></tnw-image>`,
@@ -49,10 +58,20 @@ describe('tnw-image', () => {
       expect(host).toHaveClass('tnw-image--height-lg');
     });
 
+    it('applies width and height props correctly', async () => {
+      const imgElement = await createSpecPage(
+        TnwImage,
+        `<tnw-image src="test.jpg" alt="Test Image" width="300px" height="200px"></tnw-image>`,
+        'img'
+      );
+      expect(imgElement.getAttribute('style')).toBe('width: 300px; height: 200px;');
+      expect(imgElement).not.toHaveClass('tnw-image--full');
+    });
+
     it('applies a custom aspect ratio class', async () => {
       const image = await createSpecPage(
         TnwImage,
-        `<tnw-image src="image.jpg" alt="Image" aspect-ratio="16_9"></tnw-image>`, 
+        `<tnw-image src="image.jpg" alt="Image" aspect-ratio="16_9"></tnw-image>`,
         'img',
         true,
         true
@@ -63,7 +82,7 @@ describe('tnw-image', () => {
     it('applies a custom object-fit class', async () => {
       const image = await createSpecPage(
         TnwImage,
-        `<tnw-image src="image.jpg" alt="Image" object-fit="cover"></tnw-image>`, 
+        `<tnw-image src="image.jpg" alt="Image" object-fit="cover"></tnw-image>`,
         'img'
       );
       expect(image).toHaveClass('fit-cover');
@@ -72,7 +91,7 @@ describe('tnw-image', () => {
     it('applies a custom border-radius class', async () => {
       const image = await createSpecPage(
         TnwImage,
-        `<tnw-image src="image.jpg" alt="Image" border-radius="circle"></tnw-image>`, 
+        `<tnw-image src="image.jpg" alt="Image" border-radius="circle"></tnw-image>`,
         'img'
       );
       expect(image).toHaveClass('rounded-circle');

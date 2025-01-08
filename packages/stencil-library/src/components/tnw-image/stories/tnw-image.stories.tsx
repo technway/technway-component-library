@@ -75,3 +75,10 @@ SmallSizeImage.args = {
   widthSize: 'sm',
   heightSize: 'sm',
 };
+
+export const CustomSize = Template.bind({});
+CustomSize.args = {
+  ...Standard.args,
+  width: '200px',
+  height: '100px',
+};

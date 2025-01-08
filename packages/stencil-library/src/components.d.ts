@@ -710,7 +710,11 @@ export namespace Components {
          */
         "caption"?: string;
         /**
-          * The height size of the image.
+          * The height of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+         */
+        "height"?: string;
+        /**
+          * The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
          */
         "heightSize"?: SizeType | "full";
         /**
@@ -730,7 +734,11 @@ export namespace Components {
          */
         "src": string;
         /**
-          * The width size of the image.
+          * The width of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+         */
+        "width"?: string;
+        /**
+          * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
          */
         "widthSize"?: SizeType | "full";
     }
@@ -2589,7 +2597,11 @@ declare namespace LocalJSX {
          */
         "caption"?: string;
         /**
-          * The height size of the image.
+          * The height of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+         */
+        "height"?: string;
+        /**
+          * The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
          */
         "heightSize"?: SizeType | "full";
         /**
@@ -2609,7 +2621,11 @@ declare namespace LocalJSX {
          */
         "src": string;
         /**
-          * The width size of the image.
+          * The width of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+         */
+        "width"?: string;
+        /**
+          * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
          */
         "widthSize"?: SizeType | "full";
     }

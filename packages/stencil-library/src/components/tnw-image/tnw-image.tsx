@@ -40,12 +40,22 @@ export class TnwImage {
   @Prop() caption?: string = '';
 
   /**
-   * The width size of the image.
+   * The width of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+   */
+  @Prop() width?: string;
+
+  /**
+   * The height of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+   */
+  @Prop() height?: string;
+
+  /**
+   * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
    */
   @Prop() widthSize?: SizeType | "full" = 'full';
 
   /**
-   * The height size of the image.
+   * The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
    */
   @Prop() heightSize?: SizeType | "full";
 
@@ -95,10 +105,16 @@ export class TnwImage {
     validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
   }
 
+  private hasWidthOrHeight(): boolean {
+    console.log({ hasWidth: isNotEmptyString(this.width), hasHeight: isNotEmptyString(this.height) });
+    return isNotEmptyString(this.width) || isNotEmptyString(this.height);
+  }
+
   private getImageClasses(): string {
     const { baseClass, aspectRatio, objectFit, objectPosition } = this;
     return [
       baseClass,
+      !this.hasWidthOrHeight() ? `${baseClass}--full` : '',
       getAspectRatioClass(aspectRatio),
       getObjectFitClass(objectFit),
       getObjectPositionClass(objectPosition),
@@ -126,6 +142,10 @@ export class TnwImage {
         alt={this.alt}
         loading={this.lazyLoading ? 'lazy' : 'eager'}
         part='image'
+        style={{
+          width: this.width,
+          height: this.height,
+        }}
       />
     );
   }
@@ -145,7 +165,6 @@ export class TnwImage {
   render() {
     const image = this.renderImage();
     const hasCaption: boolean = Boolean(this.caption);
-
     return (
       <Host class={this.getHostClasses()}>
         {hasCaption ? (

@@ -473,6 +473,8 @@ export const TnwImage: StencilReactComponent<TnwImageElement, TnwImageEvents> = 
             src: 'src',
             alt: 'alt',
             caption: 'caption',
+            width: 'width',
+            height: 'height',
             widthSize: 'width-size',
             heightSize: 'height-size',
             aspectRatio: 'aspect-ratio',

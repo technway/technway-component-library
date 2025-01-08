@@ -13,7 +13,7 @@ import { d as defineCustomElement$7 } from './p-3d848afd.js';
 import { d as defineCustomElement$6 } from './p-fa750891.js';
 import { d as defineCustomElement$5 } from './p-a6c3ed1e.js';
 import { d as defineCustomElement$4 } from './p-29b34b17.js';
-import { d as defineCustomElement$3 } from './p-fa868c6d.js';
+import { d as defineCustomElement$3 } from './p-a3157b0d.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-footer`;

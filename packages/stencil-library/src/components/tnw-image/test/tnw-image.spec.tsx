@@ -138,7 +138,7 @@ describe('tnw-image', () => {
       expect(anchor).not.toHaveClass('tnw-image--full');
     });
 
-    it('adds object fit class to img not anchor when link is provided', async () => {
+    it('adds object fit and position class to img not anchor when link is provided', async () => {
       const host = await createSpecPage(
         TnwImage,
         `<tnw-image src="test.jpg" alt="Test Image" link="/" object-fit="cover" object-position="center"></tnw-image>`
@@ -149,6 +149,17 @@ describe('tnw-image', () => {
       expect(anchor).not.toHaveClass('obj-pos-c');
       expect(img).toHaveClass('fit-cover');
       expect(img).toHaveClass('obj-pos-c');
+    });
+
+    it('adds border radius class to img not anchor when link is provided', async () => {
+      const host = await createSpecPage(
+        TnwImage,
+        `<tnw-image src="test.jpg" alt="Test Image" link="/" border-radius="circle"></tnw-image>`
+      ) as HTMLTnwImageElement;
+      const anchor = queryElement(host, 'a');
+      const img = queryElement(host, 'img');
+      expect(anchor).not.toHaveClass('rounded-circle');
+      expect(img).toHaveClass('rounded-circle');
     });
   });
 

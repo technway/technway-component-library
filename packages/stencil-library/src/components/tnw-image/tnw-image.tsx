@@ -82,7 +82,7 @@ export class TnwImage {
   /**
    * Determines the border radius of the image.
    */
-  @Prop() BorderRadius: BorderRadiusType = 'default';
+  @Prop() borderRadius: BorderRadiusType = 'default';
 
   /**
    * The link to navigate to when the image is clicked. This is useful for creating clickable images, e.g, for logo.
@@ -107,31 +107,32 @@ export class TnwImage {
   }
 
   componentWillLoad() {
-    validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
+    validateProps([this.alt, this.aspectRatio, this.borderRadius, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
   }
 
   private hasWidthOrHeight(): boolean {
     return isNotEmptyString(this.width) || isNotEmptyString(this.height);
   }
 
-  private getImageClasses(includeObjectProps: boolean): string {
+  private getImageClasses(applyForAnchor: boolean): string {
     const { baseClass, aspectRatio, objectFit, objectPosition } = this;
     return [
       baseClass,
       !this.hasWidthOrHeight() ? `${baseClass}--full` : '',
       getAspectRatioClass(aspectRatio),
-      includeObjectProps ? getObjectFitClass(objectFit) : '',
-      includeObjectProps ? getObjectPositionClass(objectPosition) : '',
-      getBorderRadiusClass(this.BorderRadius),
+      !applyForAnchor ? getObjectFitClass(objectFit) : '',
+      !applyForAnchor ? getObjectPositionClass(objectPosition) : '',
+      !applyForAnchor ? getBorderRadiusClass(this.borderRadius) : '',
     ].filter(Boolean).join(' ').trim();
   }
 
   private getAnchorImageClasses(): string {
-    const { baseClass, objectPosition, objectFit } = this;
+    const { baseClass, objectPosition, objectFit, borderRadius } = this;
     return [
       `${baseClass}--full`,
       getObjectPositionClass(objectPosition),
-      getObjectFitClass(objectFit)
+      getObjectFitClass(objectFit),
+      getBorderRadiusClass(borderRadius),
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -152,7 +153,7 @@ export class TnwImage {
       <Fragment>
         {isNotEmptyString(this.link) ? (
           <a
-            class={this.getImageClasses(false)}
+            class={this.getImageClasses(true)}
             href={this.link} aria-label={this.alt}
             style={{
               width: this.width,
@@ -169,7 +170,7 @@ export class TnwImage {
           </a>
         ) : (
           <img
-            class={this.getImageClasses(true)}
+            class={this.getImageClasses(false)}
             src={this.src}
             alt={this.alt}
             loading={this.lazyLoading ? 'lazy' : 'eager'}

@@ -229,7 +229,7 @@ export class TnwHeaderBanner {
           {enableImageSlot ?
             <slot name='image' />
             :
-            <tnw-image src={imageSrc} alt={this.imageAlt} BorderRadius={imageBorderRadius} part='image' heightSize='full' widthSize='full' objectFit='cover' />
+            <tnw-image src={imageSrc} alt={this.imageAlt} borderRadius={imageBorderRadius} part='image' heightSize='full' widthSize='full' objectFit='cover' />
           }
         </div>
       );

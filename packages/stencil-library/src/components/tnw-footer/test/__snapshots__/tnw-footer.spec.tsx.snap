@@ -9,7 +9,7 @@ exports[`tnw-footer Default and Required Prop Behavior renders correctly with de
         <slot name="links"></slot>
         <slot name="contact"></slot>
         <slot name="socialmedia"></slot>
-        <slot name="newsletter"></slot>
+        <slot name="subscription"></slot>
       </div>
       <slot name="copyrights"></slot>
     </footer>

@@ -54,10 +54,30 @@ export const styles = `
   background: none;
   outline-width: var(--tnw-border-sm);
   outline-style: solid;
-  outline-color: var(--tnw-border-color);
   border: 0;
   padding: var(--${baseClass}-padding) calc(var(--${baseClass}-padding) * 1.5);
   background: none;
+}
+.${baseClass}--outlined-primary {
+  outline-color: var(--tnw-primary-color);
+}
+.${baseClass}--outlined-secondary {
+  outline-color: var(--tnw-secondary-color);
+}
+.${baseClass}--outlined-auto {
+  outline-color: var(--tnw-border-color);
+}
+.${baseClass}--outlined-inverse {
+  outline-color: var(--tnw-border-color-inverse);
+}
+.${baseClass}--outlined-light {
+  outline-color: var(--tnw-border-color-opacity);
+}
+.${baseClass}--outlined-white {
+  outline-color: var(--tnw-white);
+}
+.${baseClass}--outlined-black {
+  outline-color: var(--tnw-black);
 }
 .${baseClass}--outlined:focus {
   outline-color: var(--tnw-primary-color);
@@ -65,10 +85,30 @@ export const styles = `
 
 .${baseClass}--underlined {
   border: 0;
-  border-bottom: var(--tnw-border-sm) solid var(--tnw-border-color);
   outline-color: transparent;
   padding-bottom: var(--${baseClass}-padding);
   background: none;
+}
+.${baseClass}--underlined-primary {
+  border-bottom: var(--tnw-border-color);
+}
+.${baseClass}--underlined-secondary {
+  border-bottom: var(--tnw-secondary-color);
+}
+.${baseClass}--underlined-auto {
+  border-bottom: var(--tnw-border-color);
+}
+.${baseClass}--underlined-inverse {
+  border-bottom: var(--tnw-border-color-inverse);
+}
+.${baseClass}--underlined-light {
+  border-bottom: var(--tnw-border-color-opacity);
+}
+.${baseClass}--underlined-white {
+  border-bottom: var(--tnw-white);
+}
+.${baseClass}--underlined-black {
+  border-bottom: var(--tnw-black);
 }
 .${baseClass}--underlined:focus,
 .${baseClass}--underlined:focus-within,

@@ -53,13 +53,16 @@ describe('tnw-input', () => {
       expect(input.getAttribute('value')).toBe('Initial Value');
     });
 
-    it('applies a custom appearance class', async () => {
+    it('applies a custom appearance and appearance color classed', async () => {
       const input = await createSpecPage(
         TnwInput,
-        `<tnw-input label="Test Input" type="text" placeholder="Enter text" appearance="underlined"></tnw-input>`,
+        `<tnw-input label="Test Input" type="text" placeholder="Enter text" appearance="underlined" appearance-color="primary"></tnw-input>`,
         'input'
       );
-      expect(input).toHaveClass('tnw-input--underlined');
+      expect(input).toHaveClasses([
+        'tnw-input--underlined',
+        'tnw-input--underlined-primary',
+      ]);
     });
 
     it('renders as required when isRequired is true', async () => {

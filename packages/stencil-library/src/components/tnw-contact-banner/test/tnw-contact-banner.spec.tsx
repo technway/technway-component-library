@@ -22,8 +22,8 @@ describe('tnw-contact-banner', () => {
         'container',
         'tnw-contact-banner--center',
         'tnw-contact-banner--margin-xl',
-        'tnw-contact-banner--padding-inline-2xl',
-        'tnw-contact-banner--padding-block-2xl',
+        'tnw-contact-banner--padding-inline-lg',
+        'tnw-contact-banner--padding-block-lg',
         'tnw-v-solid-primary',
         'rounded-default'
       ]);
@@ -31,6 +31,22 @@ describe('tnw-contact-banner', () => {
   });
 
   describe('Custom Prop Behavior', () => {
+    it('renders with a custom gap class', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner gap="lg"></tnw-contact-banner>`
+      );
+      expect(host).toHaveClass('tnw-contact-banner--gap-lg');
+    });
+
+    it('renders with a custom layout class', async () => {
+      const host = await createSpecPage(
+        TnwContactBanner,
+        `<tnw-contact-banner layout="horizontal"></tnw-contact-banner>`
+      );
+      expect(host).toHaveClass('tnw-contact-banner--horizontal');
+    });
+
     it('renders with a custom alignment class', async () => {
       const host = await createSpecPage(
         TnwContactBanner,
@@ -54,10 +70,11 @@ describe('tnw-contact-banner', () => {
       );
       expect(host).toHaveClass('tnw-contact-banner--gradient');
     });
+
     it('renders with custom padding and margin classes', async () => {
       const host = await createSpecPage(
         TnwContactBanner,
-        `<tnw-contact-banner margin="lg" horizontal-padding="md" Vertical-padding="sm"></tnw-contact-banner>`
+        `<tnw-contact-banner margin="lg" padding-horizontal="md" padding-vertical="sm"></tnw-contact-banner>`
       );
       expect(host).toHaveClasses([
         'tnw-contact-banner--margin-lg',

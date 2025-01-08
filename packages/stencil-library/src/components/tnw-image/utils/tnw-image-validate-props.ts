@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-image.tsx` file.
  * 
-validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
+validateProps([this.alt, this.aspectRatio, this.borderRadius, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
  *
  * GENERATED USING `npm run g:components-validations tnw-image`
  */
@@ -15,23 +15,6 @@ import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
   const props = [
-  {
-    "name": "BorderRadius",
-    "type": [
-      "2xl",
-      "3xl",
-      "circle",
-      "default",
-      "full",
-      "lg",
-      "md",
-      "none",
-      "sm",
-      "xl",
-      "xs"
-    ],
-    "isRequired": false
-  },
   {
     "name": "alt",
     "type": [
@@ -54,7 +37,31 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
+    "name": "borderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
     "name": "caption",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "height",
     "type": [
       "string"
     ],
@@ -74,6 +81,13 @@ export function validateProps(propsValues: any[]): void {
     "name": "lazyLoading",
     "type": [
       "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "link",
+    "type": [
+      "string"
     ],
     "isRequired": false
   },
@@ -118,6 +132,13 @@ export function validateProps(propsValues: any[]): void {
       "string"
     ],
     "isRequired": true
+  },
+  {
+    "name": "width",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
   },
   {
     "name": "widthSize",

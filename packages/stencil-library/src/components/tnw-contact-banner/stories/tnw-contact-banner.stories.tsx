@@ -46,6 +46,27 @@ InverseVariant.args = {
   variant: "inverse",
 };
 
+export const HorizontalLayout = Template.bind({});
+HorizontalLayout.args = {
+  ...OutlinedAppearance.args,
+  layout: "horizontal",
+  textAlignment: 'start'
+};
+
+export const SubscriptionBanner = Template.bind({});
+SubscriptionBanner.args = {
+  ...HorizontalLayout.args,
+  titleSlot: '<tnw-heading slot="title" text="Stay in the Loop. Join Our Newsletter!" width-size="sm"></tnw-heading>',
+  descriptionSlot: '<tnw-text slot="description" text="Get the latest updates and tips in your inbox." width-size="sm"></tnw-text>',
+  appearanceColor: 'auto',
+  buttonSlot: `<tnw-subscription-form
+                slot="button"
+                border-radius="full"
+                variant="secondary"
+              ></tnw-subscription-form>`,
+  gap: '3xl'
+};
+
 // Contact Banner with Custom Content Slot
 // export const CustomContent = Template.bind({});
 // CustomContent.args = {

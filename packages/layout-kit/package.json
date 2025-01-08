@@ -15,11 +15,7 @@
     "url": "https://github.com/technway/technway-component-library/issues"
   },
   "files": [
-    "dist",
-    "src",
-    "README.md",
-    "LICENSE",
-    "docs"
+    "dist"
   ],
   "exports": {
     ".": {
@@ -37,8 +33,7 @@
       "import": "./dist/react/Grid.js",
       "require": "./dist/react/Grid.js"
     },
-    "./css": "./dist/css/grid.css",
-    "./src/grid.css": "./src/grid.css"
+    "./css": "./dist/css/grid.css"
   },
   "scripts": {
     "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",

@@ -1,10 +1,11 @@
 import { forwardRef, HTMLAttributes, ElementType } from 'react';
 import { twMerge } from 'tailwind-merge';
-
-// Breakpoint types
-export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-export type GridColumns = 1 | 2 | 3 | 4 | 6 | 12;
-export type SpacingType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32;
+import { 
+  Breakpoint, 
+  ColumnCount, 
+  SpacingValue, 
+  layoutKitConfig 
+} from '../config';
 
 // Polymorphic component type
 export type PolymorphicComponentProp<
@@ -30,9 +31,9 @@ export type PolymorphicComponentPropWithRef<
 
 // Grid component props
 export interface GridProps extends HTMLAttributes<HTMLDivElement> {
-  columns?: GridColumns;
-  gap?: SpacingType;
-  responsive?: Partial<Record<Breakpoint, GridColumns>>;
+  columns?: ColumnCount;
+  gap?: SpacingValue;
+  responsive?: Partial<Record<Breakpoint, ColumnCount>>;
 }
 
 // Flex component props
@@ -40,25 +41,25 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   direction?: 'row' | 'col' | 'row-reverse' | 'col-reverse';
   justify?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
   align?: 'start' | 'end' | 'center' | 'stretch';
-  gap?: SpacingType;
+  gap?: SpacingValue;
 }
 
 // Spacing component props
 export interface SpacingProps extends HTMLAttributes<HTMLDivElement> {
-  m?: SpacingType;
-  mx?: SpacingType;
-  my?: SpacingType;
-  mt?: SpacingType;
-  mr?: SpacingType;
-  mb?: SpacingType;
-  ml?: SpacingType;
-  p?: SpacingType;
-  px?: SpacingType;
-  py?: SpacingType;
-  pt?: SpacingType;
-  pr?: SpacingType;
-  pb?: SpacingType;
-  pl?: SpacingType;
+  m?: SpacingValue;
+  mx?: SpacingValue;
+  my?: SpacingValue;
+  mt?: SpacingValue;
+  mr?: SpacingValue;
+  mb?: SpacingValue;
+  ml?: SpacingValue;
+  p?: SpacingValue;
+  px?: SpacingValue;
+  py?: SpacingValue;
+  pt?: SpacingValue;
+  pr?: SpacingValue;
+  pb?: SpacingValue;
+  pl?: SpacingValue;
 }
 
 // Grid component
@@ -72,16 +73,24 @@ export const Grid = forwardRef<HTMLDivElement, PolymorphicComponentProp<'div', G
     as: Component = 'div', 
     ...props 
   }, ref) => {
-    const responsiveClasses = responsive 
-      ? Object.entries(responsive).map(([breakpoint, cols]) => 
-          `${breakpoint}:grid-cols-${cols}`
-        ).join(' ')
-      : '';
+    // Get current grid configuration
+    const gridConfig = layoutKitConfig.getGridConfig();
+
+    // Validate column counts
+    const validateColumns = (cols?: ColumnCount) => 
+      cols && gridConfig.columnCounts.includes(cols) ? cols : gridConfig.columnCounts[0];
 
     // Determine base columns, prioritizing responsive or falling back to prop
     const baseColumns = responsive 
-      ? Object.values(responsive)[0] // Use first responsive column value
-      : columns || 1; // Default to 1 if no columns specified
+      ? validateColumns(Object.values(responsive)[0]) // Use first responsive column value
+      : validateColumns(columns); // Validate columns prop
+
+    const responsiveClasses = responsive 
+      ? Object.entries(responsive)
+          .map(([breakpoint, cols]) => 
+            `${breakpoint}:grid-cols-${validateColumns(cols)}`
+          ).join(' ')
+      : '';
 
     const gridClasses = twMerge(
       `grid grid-cols-${baseColumns} gap-${gap}`,

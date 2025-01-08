@@ -21,6 +21,7 @@ import { Menu } from './parts/menu/part--menu-types';
  * 
  * @slot cta - The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`.
  * @slot logo - The slot for custom logo content to be added to the navigation bar. To use this slot, set the `enableLogoSlot` property to `true`.
+ * @slot menu - The slot for custom menu content to be added to the navigation bar. To use this slot, set the `enableMenuSlot` property to `true`. And do not use the `menuData` prop.
  */
 @Component({
   tag: 'tnw-navbar',
@@ -108,6 +109,11 @@ export class TnwNavbar {
   @Prop() enableLogoSlot?: boolean = false;
 
   /**
+   * If true, the menu slot is enabled.
+   */
+  @Prop() enableMenuSlot?: boolean = true;
+
+  /**
    * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
    */
   @Prop() hideMenuBelow?: "1024" | "767" | "567" | "1439" | false = false;
@@ -166,7 +172,7 @@ export class TnwNavbar {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
 
     // Manually parse menu data on initial load
     if (isNotEmptyString(this.menuData)) {
@@ -238,6 +244,10 @@ export class TnwNavbar {
 
   private menu(): JSX.Element | null {
     if (this.parsedMenuData === null) {
+      if (this.enableMenuSlot) {
+        return <slot name="menu" />;
+      }
+
       return null;
     }
 

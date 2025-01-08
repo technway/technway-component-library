@@ -144,6 +144,43 @@ describe('tnw-navbar', () => {
   });
 
   describe('Slot Behavior', () => {
+    it('does not enable menu slot when prop is set but menuData is provided', async () => {
+      const host = await createSpecPage(
+        TnwNavbar,
+        `
+        <tnw-navbar
+          enable-menu-slot
+          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"middle", "hideMenuBelow":"1024", "itemsSize":"sm", "itemsColor":"auto"}'
+        >
+          <span slot="menu">Menu</span>
+        </tnw-navbar>`
+      ) as HTMLTnwNavbarElement;
+
+      const slot = queryElement(host, 'slot[name="menu"]');
+      const menuElement = queryElement(host, 'ul');
+      expect(slot).toBeNull();
+      expect(menuElement).not.toBeNull();
+    });
+
+    it('enables menu slot when prop is set and menuData is not set', async () => {
+      const host = await createSpecPage(
+        TnwNavbar,
+        `
+        <tnw-navbar
+          enable-menu-slot
+        >
+          <span slot="menu">Menu</span>
+        </tnw-navbar>`,
+      ) as HTMLTnwNavbarElement;
+
+      const slot = queryElement(host, 'slot[name="menu"]');
+      const slotContent = queryElement(host, '[slot="menu"]', false);
+      const menuElement = queryElement(host, 'ul');
+      expect(slot).not.toBeNull();
+      expect(slotContent).not.toBeNull();
+      expect(menuElement).toBeNull();
+    });
+
     it('enables Logo slot when prop is set', async () => {
       const logoElement = await createSpecPage(
         TnwNavbar,

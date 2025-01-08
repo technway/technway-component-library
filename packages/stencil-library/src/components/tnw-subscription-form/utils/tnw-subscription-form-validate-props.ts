@@ -4,11 +4,11 @@
  *
  * ⚠️ IMPORTANT:
  * 
- * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-newsletter-form.tsx` file.
+ * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-subscription-form.tsx` file.
  * 
 validateProps([this.borderRadius, this.buttonLabel, this.enableButtonSlot, this.formAction, this.formAttributes, this.formMethod, this.inputId, this.inputPlaceholder, this.successMessage, this.theme, this.variant]);
  *
- * GENERATED USING `npm run g:components-validations tnw-newsletter-form`
+ * GENERATED USING `npm run g:components-validations tnw-subscription-form`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

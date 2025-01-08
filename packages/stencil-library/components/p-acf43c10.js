@@ -10,7 +10,7 @@ import { d as defineCustomElement$3 } from './p-2b0400b3.js';
 import { d as defineCustomElement$2 } from './p-4831c0ac.js';
 import { d as defineCustomElement$1 } from './p-29b34b17.js';
 
-const baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
+const baseClass = `${GLOBAL_PREFIX}-subscription-form`;
 const styles = `
 * {
     box-sizing: border-box;
@@ -62,11 +62,11 @@ tnw-input::part(input) {
  *
  * ⚠️ IMPORTANT:
  *
- * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-newsletter-form.tsx` file.
+ * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-subscription-form.tsx` file.
  *
 validateProps([this.borderRadius, this.buttonLabel, this.enableButtonSlot, this.formAction, this.formAttributes, this.formMethod, this.inputId, this.inputPlaceholder, this.successMessage, this.theme, this.variant]);
  *
- * GENERATED USING `npm run g:components-validations tnw-newsletter-form`
+ * GENERATED USING `npm run g:components-validations tnw-subscription-form`
  */
 function validateProps(propsValues) {
     const props = [
@@ -189,12 +189,12 @@ function validateProps(propsValues) {
     });
 }
 
-const TnwNewsletterForm = /*@__PURE__*/ proxyCustomElement(class TnwNewsletterForm extends H {
+const TnwSubscriptionForm = /*@__PURE__*/ proxyCustomElement(class TnwSubscriptionForm extends H {
     constructor() {
         super();
         this.__registerHost();
         this.__attachShadow();
-        this.baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
+        this.baseClass = `${GLOBAL_PREFIX}-subscription-form`;
         /**
          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
          */
@@ -294,10 +294,10 @@ const TnwNewsletterForm = /*@__PURE__*/ proxyCustomElement(class TnwNewsletterFo
     }
     render() {
         const parsedFormAttributes = this.parseAttributes(this.formAttributes);
-        return (h(Host, { key: 'b748cd4938ecbceacd1bdc55e5e236b961b84af5', class: this.getHostClasses() }, h("form", Object.assign({ key: '615d444acc4e33cc0ff6a6394782081fd4efc69a', action: this.formAction, method: this.formMethod }, parsedFormAttributes), this.renderInput(), this.renderButton())));
+        return (h(Host, { key: '7b9ec668a30faf6d6e66e5af9c56092880d77d66', class: this.getHostClasses() }, h("form", Object.assign({ key: '99a3ba729dcf67cfe3231b9f6db27fb7b747493d', action: this.formAction, method: this.formMethod }, parsedFormAttributes), this.renderInput(), this.renderButton())));
     }
     get el() { return this; }
-}, [1, "tnw-newsletter-form", {
+}, [1, "tnw-subscription-form", {
         "buttonLabel": [1, "button-label"],
         "inputPlaceholder": [1, "input-placeholder"],
         "successMessage": [1, "success-message"],
@@ -315,11 +315,11 @@ function defineCustomElement() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["tnw-newsletter-form", "tnw-alert", "tnw-button", "tnw-input", "tnw-label"];
+    const components = ["tnw-subscription-form", "tnw-alert", "tnw-button", "tnw-input", "tnw-label"];
     components.forEach(tagName => { switch (tagName) {
-        case "tnw-newsletter-form":
+        case "tnw-subscription-form":
             if (!customElements.get(tagName)) {
-                customElements.define(tagName, TnwNewsletterForm);
+                customElements.define(tagName, TnwSubscriptionForm);
             }
             break;
         case "tnw-alert":
@@ -346,6 +346,6 @@ function defineCustomElement() {
 }
 defineCustomElement();
 
-export { TnwNewsletterForm as T, defineCustomElement as d };
+export { TnwSubscriptionForm as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-e943d8bc.js.map
+//# sourceMappingURL=p-acf43c10.js.map

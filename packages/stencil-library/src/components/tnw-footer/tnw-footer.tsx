@@ -8,13 +8,13 @@ import { validateProps } from './utils/tnw-footer-validate-props';
 
 /**
  * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
- * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+ * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
  * 
  * @slot brand - Slot for the brand logo and name.
  * @slot links - Slot for useful links.
  * @slot contact - Slot for contact information.
  * @slot socialmedia - Slot for social media icons.
- * @slot newsletter - Slot for the newsletter subscription form.
+ * @slot subscription - Slot for the subscription subscription form.
  * @slot copyrights - Slot for copyright information. Use `tnw-copyrights-footer` instead.
  * 
  * @part footer - The main `footer` element wrapping the entire component.
@@ -80,7 +80,7 @@ export class TnwFooter {
    *   links: { heading: string, items: Array<{ label: string, url: string }> },
    *   contact: { heading: string, email: string, phone: string },
    *   socialmedia: Array<{ iconName: string, url: string }>,
-   *   newsletter: {
+   *   subscription: {
    *     heading: string,
    *     description: string,
    *     placeholder: string,
@@ -235,35 +235,35 @@ export class TnwFooter {
     );
   }
 
-  private renderNewsletter(newsletter?: {
+  private renderSubscription(subscription?: {
     heading?: string;
     description?: string;
     placeholder?: string;
     buttonText?: string;
   }) {
-    if (!newsletter) return null;
+    if (!subscription) return null;
 
     return (
       <div
-        class={`${this.baseClass}__column ${this.baseClass}__newsletter`}
+        class={`${this.baseClass}__column ${this.baseClass}__subscription`}
         style={{ gridColumn: "span 2" }}
-        part="newsletter"
+        part="subscription"
       >
         {
-          newsletter.heading &&
-          <tnw-heading text={newsletter.heading} level='h3' weight='600' size='md' color={this.headingColor} />
+          subscription.heading &&
+          <tnw-heading text={subscription.heading} level='h3' weight='600' size='md' color={this.headingColor} />
         }
         {
-          newsletter.description &&
+          subscription.description &&
           <tnw-text
-            class={`${this.baseClass}__newsletter-description`}
-            text={newsletter.description}
+            class={`${this.baseClass}__subscription-description`}
+            text={subscription.description}
             color={this.textColor}
           />
         }
-        <tnw-newsletter-form
-          inputPlaceholder={newsletter.placeholder}
-          buttonLabel={newsletter.buttonText}
+        <tnw-subscription-form
+          inputPlaceholder={subscription.placeholder}
+          buttonLabel={subscription.buttonText}
           variant='secondary'
           borderRadius='full'
         />
@@ -288,7 +288,7 @@ export class TnwFooter {
                 {this.renderBrand(parsedFooterData.brand!, parsedFooterData.socialmedia!)}
                 {this.renderLinks(parsedFooterData.links!)}
                 {this.renderContact(parsedFooterData.contact!)}
-                {this.renderNewsletter(parsedFooterData.newsletter!)}
+                {this.renderSubscription(parsedFooterData.subscription!)}
               </Fragment>
             ) : (
               <Fragment>
@@ -296,7 +296,7 @@ export class TnwFooter {
                 <slot name="links"></slot>
                 <slot name="contact"></slot>
                 <slot name="socialmedia"></slot>
-                <slot name="newsletter"></slot>
+                <slot name="subscription"></slot>
               </Fragment>
             )}
           </div>

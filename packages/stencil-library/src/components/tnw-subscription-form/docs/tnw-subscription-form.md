@@ -1,4 +1,4 @@
-# tnw-newsletter-form
+# tnw-subscription-form
 
 ## Table of Contents
 
@@ -9,12 +9,12 @@
 
 ## Overview
 
-The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+The `tnw-subscription-form` component provides a customizable subscription form.
 
 | Detail | Value |
 | --- | --- |
-| HTML Component Tag | `<tnw-newsletter-form>` |
-| React Component Tag | `TnwNewsletterForm` |
+| HTML Component Tag | `<tnw-subscription-form>` |
+| React Component Tag | `TnwSubscriptionForm` |
 | Encapsulation | `shadow` |
 
 <div style="overflow-x: auto;">

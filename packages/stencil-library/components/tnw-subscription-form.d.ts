@@ -1,9 +1,9 @@
 import type { Components, JSX } from "../dist/types/components";
 
-interface TnwNewsletterForm extends Components.TnwNewsletterForm, HTMLElement {}
-export const TnwNewsletterForm: {
-    prototype: TnwNewsletterForm;
-    new (): TnwNewsletterForm;
+interface TnwSubscriptionForm extends Components.TnwSubscriptionForm, HTMLElement {}
+export const TnwSubscriptionForm: {
+    prototype: TnwSubscriptionForm;
+    new (): TnwSubscriptionForm;
 };
 /**
  * Used to define this component and all nested components recursively.

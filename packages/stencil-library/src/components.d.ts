@@ -437,7 +437,7 @@ export namespace Components {
     }
     /**
      * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+     * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
      */
     interface TnwFooter {
         /**
@@ -457,7 +457,7 @@ export namespace Components {
          */
         "disableInternalContainer"?: boolean;
         /**
-          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   newsletter: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
+          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   subscription: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
          */
         "footerData": string;
         /**
@@ -994,55 +994,6 @@ export namespace Components {
         "togglerPlacement"?: 'start' | 'end';
     }
     /**
-     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-     */
-    interface TnwNewsletterForm {
-        /**
-          * The border radius for the component. Set for both input and button
-         */
-        "borderRadius"?: BorderRadiusType1;
-        /**
-          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
-         */
-        "buttonLabel"?: string;
-        /**
-          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
-         */
-        "enableButtonSlot"?: boolean;
-        /**
-          * The action attribute for the form
-         */
-        "formAction"?: string;
-        /**
-          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
-         */
-        "formAttributes"?: string;
-        /**
-          * The method attribute for the form
-         */
-        "formMethod"?: string;
-        /**
-          * The id for the email input
-         */
-        "inputId"?: string;
-        /**
-          * The placeholder for the email input
-         */
-        "inputPlaceholder"?: string;
-        /**
-          * The message to display after successful subscription
-         */
-        "successMessage"?: string;
-        /**
-          * The theme for the component. It controls the color scheme of the component.
-         */
-        "theme"?: ColorType;
-        /**
-          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
-         */
-        "variant"?: 'primary' | 'secondary';
-    }
-    /**
      * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
      */
     interface TnwPortfolioGrid {
@@ -1253,6 +1204,55 @@ export namespace Components {
           * Specifies the variant of the select component.  - `standard`: Default variant without any additional icons or images. - `withIconName`: Variant that includes an icon by name. - `withSvgIcon`: Variant that includes an SVG icon. - `withImage`: Variant that includes an image. - `withStatus`: Variant that includes a status indicator.
          */
         "variant"?: "standard" | 'withIconName' | 'withSvgIcon' | 'withImage' | 'withStatus';
+    }
+    /**
+     * The `tnw-subscription-form` component provides a customizable subscription form.
+     */
+    interface TnwSubscriptionForm {
+        /**
+          * The border radius for the component. Set for both input and button
+         */
+        "borderRadius"?: BorderRadiusType1;
+        /**
+          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
+         */
+        "buttonLabel"?: string;
+        /**
+          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
+         */
+        "enableButtonSlot"?: boolean;
+        /**
+          * The action attribute for the form
+         */
+        "formAction"?: string;
+        /**
+          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
+         */
+        "formAttributes"?: string;
+        /**
+          * The method attribute for the form
+         */
+        "formMethod"?: string;
+        /**
+          * The id for the email input
+         */
+        "inputId"?: string;
+        /**
+          * The placeholder for the email input
+         */
+        "inputPlaceholder"?: string;
+        /**
+          * The message to display after successful subscription
+         */
+        "successMessage"?: string;
+        /**
+          * The theme for the component. It controls the color scheme of the component.
+         */
+        "theme"?: ColorType;
+        /**
+          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
+         */
+        "variant"?: 'primary' | 'secondary';
     }
     /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
@@ -1596,7 +1596,7 @@ declare global {
     };
     /**
      * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+     * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
      */
     interface HTMLTnwFooterElement extends Components.TnwFooter, HTMLStencilElement {
     }
@@ -1733,15 +1733,6 @@ declare global {
         new (): HTMLTnwNavbarElement;
     };
     /**
-     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-     */
-    interface HTMLTnwNewsletterFormElement extends Components.TnwNewsletterForm, HTMLStencilElement {
-    }
-    var HTMLTnwNewsletterFormElement: {
-        prototype: HTMLTnwNewsletterFormElement;
-        new (): HTMLTnwNewsletterFormElement;
-    };
-    /**
      * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
      */
     interface HTMLTnwPortfolioGridElement extends Components.TnwPortfolioGrid, HTMLStencilElement {
@@ -1837,6 +1828,15 @@ declare global {
         new (): HTMLTnwSelectElement;
     };
     /**
+     * The `tnw-subscription-form` component provides a customizable subscription form.
+     */
+    interface HTMLTnwSubscriptionFormElement extends Components.TnwSubscriptionForm, HTMLStencilElement {
+    }
+    var HTMLTnwSubscriptionFormElement: {
+        prototype: HTMLTnwSubscriptionFormElement;
+        new (): HTMLTnwSubscriptionFormElement;
+    };
+    /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
      */
     interface HTMLTnwTestimonialCardElement extends Components.TnwTestimonialCard, HTMLStencilElement {
@@ -1898,13 +1898,13 @@ declare global {
         "tnw-label": HTMLTnwLabelElement;
         "tnw-list": HTMLTnwListElement;
         "tnw-navbar": HTMLTnwNavbarElement;
-        "tnw-newsletter-form": HTMLTnwNewsletterFormElement;
         "tnw-portfolio-grid": HTMLTnwPortfolioGridElement;
         "tnw-rating": HTMLTnwRatingElement;
         "tnw-rows-carousel": HTMLTnwRowsCarouselElement;
         "tnw-scroll-to-top": HTMLTnwScrollToTopElement;
         "tnw-section": HTMLTnwSectionElement;
         "tnw-select": HTMLTnwSelectElement;
+        "tnw-subscription-form": HTMLTnwSubscriptionFormElement;
         "tnw-testimonial-card": HTMLTnwTestimonialCardElement;
         "tnw-text": HTMLTnwTextElement;
         "tnw-textarea": HTMLTnwTextareaElement;
@@ -2340,7 +2340,7 @@ declare namespace LocalJSX {
     }
     /**
      * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-     * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+     * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
      */
     interface TnwFooter {
         /**
@@ -2360,7 +2360,7 @@ declare namespace LocalJSX {
          */
         "disableInternalContainer"?: boolean;
         /**
-          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   newsletter: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
+          * JSON data for dynamically populating the footer content. Expected structure: {   brand: { logo: string, name: string },   links: { heading: string, items: Array<{ label: string, url: string }> },   contact: { heading: string, email: string, phone: string },   socialmedia: Array<{ iconName: string, url: string }>,   subscription: {     heading: string,     description: string,     placeholder: string,     buttonText: string   } }
          */
         "footerData"?: string;
         /**
@@ -2917,55 +2917,6 @@ declare namespace LocalJSX {
         "togglerPlacement"?: 'start' | 'end';
     }
     /**
-     * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-     */
-    interface TnwNewsletterForm {
-        /**
-          * The border radius for the component. Set for both input and button
-         */
-        "borderRadius"?: BorderRadiusType1;
-        /**
-          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
-         */
-        "buttonLabel"?: string;
-        /**
-          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
-         */
-        "enableButtonSlot"?: boolean;
-        /**
-          * The action attribute for the form
-         */
-        "formAction"?: string;
-        /**
-          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
-         */
-        "formAttributes"?: string;
-        /**
-          * The method attribute for the form
-         */
-        "formMethod"?: string;
-        /**
-          * The id for the email input
-         */
-        "inputId"?: string;
-        /**
-          * The placeholder for the email input
-         */
-        "inputPlaceholder"?: string;
-        /**
-          * The message to display after successful subscription
-         */
-        "successMessage"?: string;
-        /**
-          * The theme for the component. It controls the color scheme of the component.
-         */
-        "theme"?: ColorType;
-        /**
-          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
-         */
-        "variant"?: 'primary' | 'secondary';
-    }
-    /**
      * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
      */
     interface TnwPortfolioGrid {
@@ -3175,6 +3126,55 @@ declare namespace LocalJSX {
           * Specifies the variant of the select component.  - `standard`: Default variant without any additional icons or images. - `withIconName`: Variant that includes an icon by name. - `withSvgIcon`: Variant that includes an SVG icon. - `withImage`: Variant that includes an image. - `withStatus`: Variant that includes a status indicator.
          */
         "variant"?: "standard" | 'withIconName' | 'withSvgIcon' | 'withImage' | 'withStatus';
+    }
+    /**
+     * The `tnw-subscription-form` component provides a customizable subscription form.
+     */
+    interface TnwSubscriptionForm {
+        /**
+          * The border radius for the component. Set for both input and button
+         */
+        "borderRadius"?: BorderRadiusType1;
+        /**
+          * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
+         */
+        "buttonLabel"?: string;
+        /**
+          * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
+         */
+        "enableButtonSlot"?: boolean;
+        /**
+          * The action attribute for the form
+         */
+        "formAction"?: string;
+        /**
+          * The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".
+         */
+        "formAttributes"?: string;
+        /**
+          * The method attribute for the form
+         */
+        "formMethod"?: string;
+        /**
+          * The id for the email input
+         */
+        "inputId"?: string;
+        /**
+          * The placeholder for the email input
+         */
+        "inputPlaceholder"?: string;
+        /**
+          * The message to display after successful subscription
+         */
+        "successMessage"?: string;
+        /**
+          * The theme for the component. It controls the color scheme of the component.
+         */
+        "theme"?: ColorType;
+        /**
+          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
+         */
+        "variant"?: 'primary' | 'secondary';
     }
     /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
@@ -3398,13 +3398,13 @@ declare namespace LocalJSX {
         "tnw-label": TnwLabel;
         "tnw-list": TnwList;
         "tnw-navbar": TnwNavbar;
-        "tnw-newsletter-form": TnwNewsletterForm;
         "tnw-portfolio-grid": TnwPortfolioGrid;
         "tnw-rating": TnwRating;
         "tnw-rows-carousel": TnwRowsCarousel;
         "tnw-scroll-to-top": TnwScrollToTop;
         "tnw-section": TnwSection;
         "tnw-select": TnwSelect;
+        "tnw-subscription-form": TnwSubscriptionForm;
         "tnw-testimonial-card": TnwTestimonialCard;
         "tnw-text": TnwText;
         "tnw-textarea": TnwTextarea;
@@ -3473,7 +3473,7 @@ declare module "@stencil/core" {
             "tnw-divider": LocalJSX.TnwDivider & JSXBase.HTMLAttributes<HTMLTnwDividerElement>;
             /**
              * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-             * social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+             * social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
              */
             "tnw-footer": LocalJSX.TnwFooter & JSXBase.HTMLAttributes<HTMLTnwFooterElement>;
             /**
@@ -3530,10 +3530,6 @@ declare module "@stencil/core" {
              */
             "tnw-navbar": LocalJSX.TnwNavbar & JSXBase.HTMLAttributes<HTMLTnwNavbarElement>;
             /**
-             * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-             */
-            "tnw-newsletter-form": LocalJSX.TnwNewsletterForm & JSXBase.HTMLAttributes<HTMLTnwNewsletterFormElement>;
-            /**
              * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
              */
             "tnw-portfolio-grid": LocalJSX.TnwPortfolioGrid & JSXBase.HTMLAttributes<HTMLTnwPortfolioGridElement>;
@@ -3562,6 +3558,10 @@ declare module "@stencil/core" {
              * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
              */
             "tnw-select": LocalJSX.TnwSelect & JSXBase.HTMLAttributes<HTMLTnwSelectElement>;
+            /**
+             * The `tnw-subscription-form` component provides a customizable subscription form.
+             */
+            "tnw-subscription-form": LocalJSX.TnwSubscriptionForm & JSXBase.HTMLAttributes<HTMLTnwSubscriptionFormElement>;
             /**
              * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
              */

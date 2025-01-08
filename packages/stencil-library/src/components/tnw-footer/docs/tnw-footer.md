@@ -11,7 +11,7 @@
 ## Overview
 
 The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
 
 | Detail | Value |
 | --- | --- |
@@ -35,7 +35,7 @@ Expected structure:
   links: { heading: string, items: Array<{ label: string, url: string }> },
   contact: { heading: string, email: string, phone: string },
   socialmedia: Array<{ iconName: string, url: string }>,
-  newsletter: {
+  subscription: {
     heading: string,
     description: string,
     placeholder: string,
@@ -58,8 +58,8 @@ Expected structure:
 | **container** | The container wrapping the footer sections. |
 | **footer** | The main `footer` element wrapping the entire component. |
 | **links** | No description provided. |
-| **newsletter** | No description provided. |
 | **socialmedia** | No description provided. |
+| **subscription** | No description provided. |
 
 ## Slots
 
@@ -69,8 +69,8 @@ Expected structure:
 | **contact** | Slot for contact information. |
 | **copyrights** | Slot for copyright information. Use `tnw-copyrights-footer` instead. |
 | **links** | Slot for useful links. |
-| **newsletter** | Slot for the newsletter subscription form. |
 | **socialmedia** | Slot for social media icons. |
+| **subscription** | Slot for the subscription subscription form. |
 
 ## Usage & Examples
 

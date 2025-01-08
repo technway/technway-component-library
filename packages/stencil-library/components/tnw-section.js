@@ -383,7 +383,7 @@ const TnwSection$1 = /*@__PURE__*/ proxyCustomElement(class TnwSection extends H
         ].filter(Boolean).join(' ').trim();
     }
     render() {
-        return (h(Host, { key: 'b3b59c99fede5a98c0677baf54e7e79a127446f3', class: this.getHostClasses() }, h("section", { key: '1bbe5ca8993f87a1eed0013cc16e1592d0d88a65', class: this.getSectionContentClasses(), part: 'section' }, h("slot", { key: '3d6571938fdb62fb71ec88bb87add1cae089d579', name: 'header' }), h("slot", { key: '37449d7ba1c27fc65c2925f97a966315e062ff56', name: 'body' }), h("slot", { key: '989086db5f97e19f22ab9d7fde1f07b2ce6dc1ba', name: 'footer' }))));
+        return (h(Host, { key: '72d5285c50a9dfb90160ac8b6625a365baeca570', class: this.getHostClasses() }, h("section", { key: '0502be0d1b5ea030bc054fc7937712fe76890b5e', class: this.getSectionContentClasses(), part: 'section' }, h("slot", { key: '95afa7a38207ba1fd6c04580175309d557f0acf4', name: 'header' }), h("slot", { key: '6538d61ba6ffcef47dfecf27b56e698b800fb8cf', name: 'body' }), h("slot", { key: '35c7881bd8874a2d49fe840e47a115d6224ee419', name: 'footer' }))));
     }
     get el() { return this; }
 }, [1, "tnw-section", {

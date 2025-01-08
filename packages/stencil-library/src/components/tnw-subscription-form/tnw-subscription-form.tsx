@@ -151,6 +151,7 @@ export class TnwSubscriptionForm {
         isRequired={true}
         isLabelSrOnly={true}
         appearance="outlined"
+        appearanceColor={this.theme}
         part='input'
       />
     );

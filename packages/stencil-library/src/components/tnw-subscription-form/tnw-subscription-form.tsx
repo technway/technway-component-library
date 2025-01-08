@@ -2,22 +2,22 @@ import { Component, Element, Host, Prop, State, h } from '@stencil/core';
 import { BorderRadiusType } from '../../components';
 import { ColorType } from '../../utils/component-props-types';
 import { generateRandomId, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
-import { styles } from './tnw-newsletter-form.style';
+import { styles } from './tnw-subscription-form.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet, fontFamilyStyleSheet } from '../../utils/shared-styles';
-import { validateProps } from './utils/tnw-newsletter-form-validate-props';
+import { validateProps } from './utils/tnw-subscription-form-validate-props';
 
 /**
- * The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
+ * The `tnw-subscription-form` component provides a customizable subscription form.
  */
 @Component({
-  tag: 'tnw-newsletter-form',
+  tag: 'tnw-subscription-form',
   shadow: true,
 })
-export class TnwNewsletterForm {
-  private baseClass = `${GLOBAL_PREFIX}-newsletter-form`;
+export class TnwSubscriptionForm {
+  private baseClass = `${GLOBAL_PREFIX}-subscription-form`;
   private componentStyles: CSSStyleSheet;
 
-  @Element() el!: HTMLTnwNewsletterFormElement;
+  @Element() el!: HTMLTnwSubscriptionFormElement;
 
   @State() finalInputId: string;
 

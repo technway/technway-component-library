@@ -957,9 +957,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             }
             return null;
         }
-        if (!this.enableMenuSlot) {
-            return renderMenu(this.parsedMenuData, this.isVisible, this.menuPlacement);
-        }
+        return renderMenu(this.parsedMenuData, this.isVisible, this.menuPlacement);
     }
     logo() {
         if (!this.enableLogoSlot) {
@@ -979,7 +977,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '309c0fab727e3670fb733cb2b97c41a38596ab18', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: '2192a0fba4b7f296f075b3be9b36232fb7750862', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {

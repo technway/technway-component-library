@@ -40,8 +40,8 @@ Standard.args = {
       { iconName: "tnw-linkedin", url: "https://linkedin.com" },
       { iconName: "tnw-facebook", url: "https://facebook.com" }
     ],
-    newsletter: {
-      heading: "Stay in the Loop. Join Our Newsletter!",
+    subscription: {
+      heading: "Stay in the Loop. Join Our Subscription!",
       description: "Get the latest updates, offers, and blogs in your inbox.",
       placeholder: "Enter Your Email",
       buttonText: "Subscribe"

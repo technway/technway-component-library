@@ -190,14 +190,6 @@ This page provides an overview of statistics related to the components.
 | **Methods** | `0` |
 | **Slots** | `3` |
 
-### tnw-newsletter-form
-| Feature | Count |
-| --- | --- |
-| **Props** | `11` |
-| **Events** | `0` |
-| **Methods** | `0` |
-| **Slots** | `0` |
-
 ### tnw-portfolio-grid
 | Feature | Count |
 | --- | --- |
@@ -244,6 +236,14 @@ This page provides an overview of statistics related to the components.
 | **Props** | `9` |
 | **Events** | `2` |
 | **Methods** | `3` |
+| **Slots** | `0` |
+
+### tnw-subscription-form
+| Feature | Count |
+| --- | --- |
+| **Props** | `11` |
+| **Events** | `0` |
+| **Methods** | `0` |
 | **Slots** | `0` |
 
 ### tnw-testimonial-card

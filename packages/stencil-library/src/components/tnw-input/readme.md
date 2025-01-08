@@ -95,7 +95,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 
 ### Used by
 
- - [tnw-newsletter-form](../tnw-newsletter-form)
+ - [tnw-subscription-form](../tnw-subscription-form)
 
 ### Depends on
 
@@ -107,7 +107,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 graph TD;
   tnw-input --> tnw-label
   tnw-input --> tnw-alert
-  tnw-newsletter-form --> tnw-input
+  tnw-subscription-form --> tnw-input
   style tnw-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

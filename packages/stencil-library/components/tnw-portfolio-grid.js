@@ -209,7 +209,7 @@ const TnwPortfolioGrid$1 = /*@__PURE__*/ proxyCustomElement(class TnwPortfolioGr
         ].filter(Boolean).join(' ');
     }
     render() {
-        return (h(Host, { key: 'a507543971b2fece680054535203f50579f3d269', class: this.baseClass }, h("div", { key: '6f531ccc1cb6fce80309edc4431063682b5304fa', class: this.getContentClasses(), style: this.getColsStyles() }, this.parsedItemsData.map((item) => [
+        return (h(Host, { key: '13e9956a7e8a4b657680ca868c8f9d1f5dc0f761', class: this.baseClass }, h("div", { key: '5e001af312facc1b2fec97f1d9d6ebacd72da04b', class: this.getContentClasses(), style: this.getColsStyles() }, this.parsedItemsData.map((item) => [
             h("div", { class: `${this.baseClass}__item`, style: {
                     gridRow: isNotEmptyStringOrNumber(item.rowStart) ? `${item.rowStart} / ${item.rowEnd}` : '',
                     gridColumn: isNotEmptyStringOrNumber(item.colStart) ? `${item.colStart} / ${item.colEnd}` : '',

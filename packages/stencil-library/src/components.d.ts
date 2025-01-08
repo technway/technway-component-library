@@ -768,6 +768,10 @@ export namespace Components {
          */
         "appearance"?: 'outlined' | 'underlined' | 'none';
         /**
+          * The appearance color of the input, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
+        /**
           * The autocomplete setting for the input.
          */
         "autoComplete"?: string;
@@ -2682,6 +2686,10 @@ declare namespace LocalJSX {
           * Defines the appearance of the input.
          */
         "appearance"?: 'outlined' | 'underlined' | 'none';
+        /**
+          * The appearance color of the input, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
         /**
           * The autocomplete setting for the input.
          */

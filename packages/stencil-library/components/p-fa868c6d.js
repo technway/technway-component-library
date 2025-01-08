@@ -7,7 +7,7 @@ import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupporte
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet, h as fontFamilyStyleSheet } from './p-20eedb96.js';
 import { d as defineCustomElement$4 } from './p-a256c866.js';
 import { d as defineCustomElement$3 } from './p-2b0400b3.js';
-import { d as defineCustomElement$2 } from './p-4831c0ac.js';
+import { d as defineCustomElement$2 } from './p-a6c3ed1e.js';
 import { d as defineCustomElement$1 } from './p-29b34b17.js';
 
 const baseClass = `${GLOBAL_PREFIX}-subscription-form`;
@@ -348,4 +348,4 @@ defineCustomElement();
 
 export { TnwSubscriptionForm as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-acf43c10.js.map
+//# sourceMappingURL=p-fa868c6d.js.map

@@ -76,11 +76,13 @@ This component supports various customization options including different varian
 
 ### Used by
 
+ - [tnw-card](../tnw-card)
  - [tnw-select](../tnw-select)
 
 ### Graph
 ```mermaid
 graph TD;
+  tnw-card --> tnw-badge
   tnw-select --> tnw-badge
   style tnw-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```

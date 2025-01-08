@@ -203,7 +203,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **components:** add highlight text support to typography components ([b61d42b](https://github.com/technway/technway-component-library/commit/b61d42b709072c0d614509515ee29d780d8d8daa))
-* **components:** improve tnw-footer and tnw-newsletter-form ([0894572](https://github.com/technway/technway-component-library/commit/08945725a614f5611cdd02bb6620419d45ab4ccd))
+* **components:** improve tnw-footer and tnw-subscription-form ([0894572](https://github.com/technway/technway-component-library/commit/08945725a614f5611cdd02bb6620419d45ab4ccd))
 * **tnw-card:** add 'largerImage' prop ([4583619](https://github.com/technway/technway-component-library/commit/458361904814e3894dd8633c806e721dfa372395))
 * **tnw-copyrights-footer:** centralize content within a single &lt;tnw-text&gt; element ([3680fbf](https://github.com/technway/technway-component-library/commit/3680fbfdef6f03961ee5e574952d23355b7ea2ad))
 * **tnw-footer:** add 'copyrights' slot and improve styling with new props ([44982b0](https://github.com/technway/technway-component-library/commit/44982b0968b68bad68905cf7b5a9df145da878d9))
@@ -219,9 +219,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **components:** improve tnw-copyrights-footer, tnw-newsletter-form, and tnw-footer ([cbe31c9](https://github.com/technway/technway-component-library/commit/cbe31c943d5255e597ea96eb0bdd56066ac5fa1d))
+* **components:** improve tnw-copyrights-footer, tnw-subscription-form, and tnw-footer ([cbe31c9](https://github.com/technway/technway-component-library/commit/cbe31c943d5255e597ea96eb0bdd56066ac5fa1d))
 * **components:** introduce tnw-footer component and update existing footer structure ([ea30a29](https://github.com/technway/technway-component-library/commit/ea30a29a6750fbead5d71036f3e3319f6f41443b))
-* **tnw-newsletter-form:** introduce new component ([23baeb7](https://github.com/technway/technway-component-library/commit/23baeb701053070d42e5a3e327423b62a3739052))
+* **tnw-subscription-form:** introduce new component ([23baeb7](https://github.com/technway/technway-component-library/commit/23baeb701053070d42e5a3e327423b62a3739052))
 
 ## [2.6.1](https://github.com/technway/technway-component-library/compare/root-v2.6.0...root-v2.6.1) (2024-12-03)
 

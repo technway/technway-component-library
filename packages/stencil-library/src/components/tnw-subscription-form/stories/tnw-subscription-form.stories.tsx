@@ -1,9 +1,9 @@
 import { generateComponentArgTypes, getComponentByTagName, getComponentTemplate } from "../../../utils/sb-utils";
 
-const component = getComponentByTagName('tnw-newsletter-form');
+const component = getComponentByTagName('tnw-subscription-form');
 
 export default {
-  title: 'Components/Newsletter Form',
+  title: 'Components/Subscription Form',
   parameters: {
     actions: { disable: true },
     status: {

@@ -61,6 +61,11 @@ export class TnwButton {
   @Prop() hoverAppearanceColor?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto' = 'primary';
 
   /**
+   * Specifies the hover effect of the button.
+   */
+  @Prop() hoverEffect?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' = 'none';
+
+  /**
    * If provided, the button will render as a link with this `href`.
    */
   @Prop() href?: string;
@@ -96,11 +101,11 @@ export class TnwButton {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.href, this.label, this.newTab, this.size, this.type]);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.hoverEffect, this.href, this.label, this.newTab, this.size, this.type]);
   }
 
   private getHostClasses(): string {
-    const { baseClass, appearanceColor, appearance, size, hoverAppearance, hoverAppearanceColor, disabled } = this;
+    const { baseClass, appearanceColor, appearance, size, hoverAppearance, hoverAppearanceColor, hoverEffect, disabled } = this;
 
     const classesArray = [size];
 
@@ -108,6 +113,7 @@ export class TnwButton {
       baseClass,
       disabled ? `${baseClass}--disabled` : '',
       hoverAppearance !== 'none' ? `${baseClass}--hover-${hoverAppearance}-${hoverAppearanceColor}` : ``,
+      hoverEffect !== 'none' ? `${baseClass}--hover-${hoverEffect}` : ``,
       getClassNames(classesArray, baseClass),
       getExtendedAppearanceClass(appearance, appearanceColor),
       getBorderRadiusClass(this.borderRadius),

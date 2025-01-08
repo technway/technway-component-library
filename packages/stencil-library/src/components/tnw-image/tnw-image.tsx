@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h, Element } from '@stencil/core';
+import { Component, Host, Prop, h, Element, Fragment } from '@stencil/core';
 import { getAspectRatioClass, getBorderRadiusClass, getObjectFitClass, getObjectPositionClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { AspectRatioType, BorderRadiusType, ObjectFitType, ObjectPositionType, SizeType } from '../../utils/component-props-types';
 import { validateProps } from './utils/tnw-image-validate-props';
@@ -82,7 +82,12 @@ export class TnwImage {
   /**
    * Determines the border radius of the image.
    */
-  @Prop() BorderRadius: BorderRadiusType = 'default';
+  @Prop() borderRadius: BorderRadiusType = 'default';
+
+  /**
+   * The link to navigate to when the image is clicked. This is useful for creating clickable images, e.g, for logo.
+   */
+  @Prop() link?: string;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -102,23 +107,32 @@ export class TnwImage {
   }
 
   componentWillLoad() {
-    validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
+    validateProps([this.alt, this.aspectRatio, this.borderRadius, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
   }
 
   private hasWidthOrHeight(): boolean {
-    console.log({ hasWidth: isNotEmptyString(this.width), hasHeight: isNotEmptyString(this.height) });
     return isNotEmptyString(this.width) || isNotEmptyString(this.height);
   }
 
-  private getImageClasses(): string {
+  private getImageClasses(applyForAnchor: boolean): string {
     const { baseClass, aspectRatio, objectFit, objectPosition } = this;
     return [
       baseClass,
       !this.hasWidthOrHeight() ? `${baseClass}--full` : '',
       getAspectRatioClass(aspectRatio),
-      getObjectFitClass(objectFit),
+      !applyForAnchor ? getObjectFitClass(objectFit) : '',
+      !applyForAnchor ? getObjectPositionClass(objectPosition) : '',
+      !applyForAnchor ? getBorderRadiusClass(this.borderRadius) : '',
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private getAnchorImageClasses(): string {
+    const { baseClass, objectPosition, objectFit, borderRadius } = this;
+    return [
+      `${baseClass}--full`,
       getObjectPositionClass(objectPosition),
-      getBorderRadiusClass(this.BorderRadius),
+      getObjectFitClass(objectFit),
+      getBorderRadiusClass(borderRadius),
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -136,17 +150,38 @@ export class TnwImage {
    */
   private renderImage(): JSX.Element {
     return (
-      <img
-        class={this.getImageClasses()}
-        src={this.src}
-        alt={this.alt}
-        loading={this.lazyLoading ? 'lazy' : 'eager'}
-        part='image'
-        style={{
-          width: this.width,
-          height: this.height,
-        }}
-      />
+      <Fragment>
+        {isNotEmptyString(this.link) ? (
+          <a
+            class={this.getImageClasses(true)}
+            href={this.link} aria-label={this.alt}
+            style={{
+              width: this.width,
+              height: this.height,
+            }}
+          >
+            <img
+              class={this.getAnchorImageClasses()}
+              src={this.src}
+              alt={this.alt}
+              loading={this.lazyLoading ? 'lazy' : 'eager'}
+              part='image'
+            />
+          </a>
+        ) : (
+          <img
+            class={this.getImageClasses(false)}
+            src={this.src}
+            alt={this.alt}
+            loading={this.lazyLoading ? 'lazy' : 'eager'}
+            part='image'
+            style={{
+              width: this.width,
+              height: this.height,
+            }}
+          />
+        )}
+      </Fragment>
     );
   }
 

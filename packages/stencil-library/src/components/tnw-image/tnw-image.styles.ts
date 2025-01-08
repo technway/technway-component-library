@@ -48,4 +48,8 @@ export const styles = `
     font-style: italic;
     font-family: var(--tnw-image-font);
 }
+
+a {
+  cursor: pointer;
+}
 `;

@@ -56,6 +56,7 @@ By default, the component renders a button element, but it can also render an an
 | `disabled`             | `disabled`               | Specifies whether the button is disabled.                                          | `boolean`                                                                                                                          | `false`     |
 | `hoverAppearance`      | `hover-appearance`       | Specifies the hover appearance color for the button.                               | `"none" \| "outlined" \| "solid"`                                                                                                  | `'none'`    |
 | `hoverAppearanceColor` | `hover-appearance-color` | Specifies the hover appearance color color for the button color.                   | `"auto" \| "black" \| "inverse" \| "primary" \| "secondary" \| "white"`                                                            | `'primary'` |
+| `hoverEffect`          | `hover-effect`           | Specifies the hover effect of the button.                                          | `"contrast" \| "none" \| "opacity" \| "scale-down" \| "scale-up"`                                                                  | `'none'`    |
 | `href`                 | `href`                   | If provided, the button will render as a link with this `href`.                    | `string`                                                                                                                           | `undefined` |
 | `label`                | `label`                  | Specifies the text label displayed on the button. This prop is required.           | `string`                                                                                                                           | `undefined` |
 | `newTab`               | `new-tab`                | If `true`, the link will open in a new tab. Only relevant when `href` is provided. | `boolean`                                                                                                                          | `false`     |
@@ -85,7 +86,7 @@ By default, the component renders a button element, but it can also render an an
  - [tnw-accordion](../tnw-accordion)
  - [tnw-card](../tnw-card)
  - [tnw-header-banner](../tnw-header-banner)
- - [tnw-newsletter-form](../tnw-newsletter-form)
+ - [tnw-subscription-form](../tnw-subscription-form)
 
 ### Graph
 ```mermaid
@@ -93,7 +94,7 @@ graph TD;
   tnw-accordion --> tnw-button
   tnw-card --> tnw-button
   tnw-header-banner --> tnw-button
-  tnw-newsletter-form --> tnw-button
+  tnw-subscription-form --> tnw-button
   style tnw-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

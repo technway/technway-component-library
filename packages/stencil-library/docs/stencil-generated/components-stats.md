@@ -7,11 +7,11 @@ This page provides an overview of statistics related to the components.
 | Statistic | Value |
 | --- | --- |
 | **Total Components** | `31` |
-| **Total Props** | `300` |
+| **Total Props** | `315` |
 | **Total Events** | `14` |
 | **Total Methods** | `6` |
-| **Total Slots** | `44` |
-| **Total Features** | `364` |
+| **Total Slots** | `48` |
+| **Total Features** | `383` |
 |   |  |
 | **Shadow DOM Components** | `31` |
 | **Light DOM Components** | `0` |
@@ -65,7 +65,7 @@ This page provides an overview of statistics related to the components.
 ### tnw-button
 | Feature | Count |
 | --- | --- |
-| **Props** | `11` |
+| **Props** | `12` |
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `2` |
@@ -73,15 +73,15 @@ This page provides an overview of statistics related to the components.
 ### tnw-card
 | Feature | Count |
 | --- | --- |
-| **Props** | `19` |
+| **Props** | `25` |
 | **Events** | `0` |
 | **Methods** | `0` |
-| **Slots** | `6` |
+| **Slots** | `8` |
 
 ### tnw-contact-banner
 | Feature | Count |
 | --- | --- |
-| **Props** | `9` |
+| **Props** | `12` |
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `5` |
@@ -145,7 +145,7 @@ This page provides an overview of statistics related to the components.
 ### tnw-image
 | Feature | Count |
 | --- | --- |
-| **Props** | `12` |
+| **Props** | `13` |
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `0` |
@@ -153,7 +153,7 @@ This page provides an overview of statistics related to the components.
 ### tnw-input
 | Feature | Count |
 | --- | --- |
-| **Props** | `17` |
+| **Props** | `18` |
 | **Events** | `2` |
 | **Methods** | `0` |
 | **Slots** | `0` |
@@ -185,18 +185,10 @@ This page provides an overview of statistics related to the components.
 ### tnw-navbar
 | Feature | Count |
 | --- | --- |
-| **Props** | `13` |
+| **Props** | `16` |
 | **Events** | `3` |
 | **Methods** | `0` |
-| **Slots** | `1` |
-
-### tnw-newsletter-form
-| Feature | Count |
-| --- | --- |
-| **Props** | `11` |
-| **Events** | `0` |
-| **Methods** | `0` |
-| **Slots** | `0` |
+| **Slots** | `3` |
 
 ### tnw-portfolio-grid
 | Feature | Count |
@@ -244,6 +236,14 @@ This page provides an overview of statistics related to the components.
 | **Props** | `9` |
 | **Events** | `2` |
 | **Methods** | `3` |
+| **Slots** | `0` |
+
+### tnw-subscription-form
+| Feature | Count |
+| --- | --- |
+| **Props** | `11` |
+| **Events** | `0` |
+| **Methods** | `0` |
 | **Slots** | `0` |
 
 ### tnw-testimonial-card

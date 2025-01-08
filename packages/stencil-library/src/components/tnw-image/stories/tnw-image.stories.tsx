@@ -105,4 +105,5 @@ export const LinkableObjectFitCover = Template.bind({});
 LinkableObjectFitCover.args = {
   ...ObjectFitCover.args,
   link: 'https://technway.biz',
+  borderRadius: 'xl',
 };

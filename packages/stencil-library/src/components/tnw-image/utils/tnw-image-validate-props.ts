@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-image.tsx` file.
  * 
-validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
+validateProps([this.alt, this.aspectRatio, this.borderRadius, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
  *
  * GENERATED USING `npm run g:components-validations tnw-image`
  */
@@ -15,23 +15,6 @@ import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
   const props = [
-  {
-    "name": "BorderRadius",
-    "type": [
-      "2xl",
-      "3xl",
-      "circle",
-      "default",
-      "full",
-      "lg",
-      "md",
-      "none",
-      "sm",
-      "xl",
-      "xs"
-    ],
-    "isRequired": false
-  },
   {
     "name": "alt",
     "type": [
@@ -50,6 +33,23 @@ export function validateProps(propsValues: any[]): void {
       "9_16",
       "9_21",
       "initial"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "borderRadius",
+    "type": [
+      "2xl",
+      "3xl",
+      "circle",
+      "default",
+      "full",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
     ],
     "isRequired": false
   },

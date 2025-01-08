@@ -23,9 +23,9 @@ It supports various properties to control the image source, dimensions, and appe
 
 | Property | Description | Default | Type |
 | --- | --- | --- | --- |
-| **BorderRadius** | <div>Determines the border radius of the image.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **alt** | <div>The alternative text for the image, used for accessibility.</div> | N/A | `string` |
 | **aspectRatio** | <div>The aspect ratio of the image (width / height). Useful for maintaining image proportions.</div> | `"initial"` | `"16_9"` \| `"1_1"` \| `"21_9"` \| `"3_4"` \| `"4_3"` \| `"9_16"` \| `"9_21"` \| `"initial"` |
+| **borderRadius** | <div>Determines the border radius of the image.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **caption** | <div>An optional caption to be displayed below the image.</div> | `''` | `string` |
 | **height** | <div>The height of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.</div> | N/A | `string` |
 | **heightSize** | <div>The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...</div> | N/A | `"full"` \| `"lg"` \| `"md"` \| `"sm"` |

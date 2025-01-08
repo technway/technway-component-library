@@ -13,29 +13,12 @@ import { m as mediaStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-image.tsx` file.
  *
-validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
+validateProps([this.alt, this.aspectRatio, this.borderRadius, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
  *
  * GENERATED USING `npm run g:components-validations tnw-image`
  */
 function validateProps(propsValues) {
     const props = [
-        {
-            "name": "BorderRadius",
-            "type": [
-                "2xl",
-                "3xl",
-                "circle",
-                "default",
-                "full",
-                "lg",
-                "md",
-                "none",
-                "sm",
-                "xl",
-                "xs"
-            ],
-            "isRequired": false
-        },
         {
             "name": "alt",
             "type": [
@@ -54,6 +37,23 @@ function validateProps(propsValues) {
                 "9_16",
                 "9_21",
                 "initial"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "borderRadius",
+            "type": [
+                "2xl",
+                "3xl",
+                "circle",
+                "default",
+                "full",
+                "lg",
+                "md",
+                "none",
+                "sm",
+                "xl",
+                "xs"
             ],
             "isRequired": false
         },
@@ -264,7 +264,7 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
         /**
          * Determines the border radius of the image.
          */
-        this.BorderRadius = 'default';
+        this.borderRadius = 'default';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -280,28 +280,29 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
         }
     }
     componentWillLoad() {
-        validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
+        validateProps([this.alt, this.aspectRatio, this.borderRadius, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
     }
     hasWidthOrHeight() {
         return isNotEmptyString(this.width) || isNotEmptyString(this.height);
     }
-    getImageClasses(includeObjectProps) {
+    getImageClasses(applyForAnchor) {
         const { baseClass, aspectRatio, objectFit, objectPosition } = this;
         return [
             baseClass,
             !this.hasWidthOrHeight() ? `${baseClass}--full` : '',
             getAspectRatioClass(aspectRatio),
-            includeObjectProps ? getObjectFitClass(objectFit) : '',
-            includeObjectProps ? getObjectPositionClass(objectPosition) : '',
-            getBorderRadiusClass(this.BorderRadius),
+            !applyForAnchor ? getObjectFitClass(objectFit) : '',
+            !applyForAnchor ? getObjectPositionClass(objectPosition) : '',
+            !applyForAnchor ? getBorderRadiusClass(this.borderRadius) : '',
         ].filter(Boolean).join(' ').trim();
     }
     getAnchorImageClasses() {
-        const { baseClass, objectPosition, objectFit } = this;
+        const { baseClass, objectPosition, objectFit, borderRadius } = this;
         return [
             `${baseClass}--full`,
             getObjectPositionClass(objectPosition),
-            getObjectFitClass(objectFit)
+            getObjectFitClass(objectFit),
+            getBorderRadiusClass(borderRadius),
         ].filter(Boolean).join(' ').trim();
     }
     getHostClasses() {
@@ -316,10 +317,10 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
      * @returns A rendered image element (JSX.Element)
      */
     renderImage() {
-        return (h(Fragment, null, isNotEmptyString(this.link) ? (h("a", { class: this.getImageClasses(false), href: this.link, "aria-label": this.alt, style: {
+        return (h(Fragment, null, isNotEmptyString(this.link) ? (h("a", { class: this.getImageClasses(true), href: this.link, "aria-label": this.alt, style: {
                 width: this.width,
                 height: this.height,
-            } }, h("img", { class: this.getAnchorImageClasses(), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image' }))) : (h("img", { class: this.getImageClasses(true), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image', style: {
+            } }, h("img", { class: this.getAnchorImageClasses(), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image' }))) : (h("img", { class: this.getImageClasses(false), src: this.src, alt: this.alt, loading: this.lazyLoading ? 'lazy' : 'eager', part: 'image', style: {
                 width: this.width,
                 height: this.height,
             } }))));
@@ -333,7 +334,7 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
     render() {
         const image = this.renderImage();
         const hasCaption = Boolean(this.caption);
-        return (h(Host, { key: '4c3f68a7aebddc96f81ab7f9a2376522c5c3e5b7', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
+        return (h(Host, { key: 'cfa78397a0e91d440fb361a87adfa7821d9771f9', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
     }
     get el() { return this; }
 }, [1, "tnw-image", {
@@ -348,7 +349,7 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
         "objectPosition": [1, "object-position"],
         "objectFit": [1, "object-fit"],
         "lazyLoading": [516, "lazy-loading"],
-        "BorderRadius": [1, "border-radius"],
+        "borderRadius": [1, "border-radius"],
         "link": [1]
     }]);
 function defineCustomElement() {
@@ -368,4 +369,4 @@ defineCustomElement();
 
 export { TnwImage as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-c8a09d4d.js.map
+//# sourceMappingURL=p-fa750891.js.map

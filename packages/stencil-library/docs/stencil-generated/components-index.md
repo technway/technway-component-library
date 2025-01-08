@@ -25,13 +25,13 @@ This page lists all the library components.
 - [tnw-label](#tnw-label)
 - [tnw-list](#tnw-list)
 - [tnw-navbar](#tnw-navbar)
-- [tnw-newsletter-form](#tnw-newsletter-form)
 - [tnw-portfolio-grid](#tnw-portfolio-grid)
 - [tnw-rating](#tnw-rating)
 - [tnw-rows-carousel](#tnw-rows-carousel)
 - [tnw-scroll-to-top](#tnw-scroll-to-top)
 - [tnw-section](#tnw-section)
 - [tnw-select](#tnw-select)
+- [tnw-subscription-form](#tnw-subscription-form)
 - [tnw-testimonial-card](#tnw-testimonial-card)
 - [tnw-text](#tnw-text)
 - [tnw-textarea](#tnw-textarea)
@@ -121,7 +121,7 @@ It provides customizable styles and color options to fit different design requir
 ## tnw-footer
 
 The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
-social media, and a newsletter subscription form. It is designed to be highly customizable and accessible.
+social media, and a subscription subscription form. It is designed to be highly customizable and accessible.
 
 ---
 
@@ -198,12 +198,6 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 
 ---
 
-## tnw-newsletter-form
-
-The `tnw-newsletter-form` component provides a customizable newsletter subscription form.
-
----
-
 ## tnw-portfolio-grid
 
 The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
@@ -242,6 +236,12 @@ content alignment and padding.
 ## tnw-select
 
 The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
+
+---
+
+## tnw-subscription-form
+
+The `tnw-subscription-form` component provides a customizable subscription form.
 
 ---
 

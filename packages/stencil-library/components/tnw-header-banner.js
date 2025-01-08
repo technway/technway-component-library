@@ -5,9 +5,9 @@
 import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$5 } from './p-2b0400b3.js';
+import { d as defineCustomElement$5 } from './p-aa4fbea0.js';
 import { d as defineCustomElement$4 } from './p-247f7459.js';
-import { d as defineCustomElement$3 } from './p-8957a5a1.js';
+import { d as defineCustomElement$3 } from './p-fa750891.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-header-banner`;
@@ -360,7 +360,7 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
             return (h("div", { class: `${this.baseClass}__image`, part: 'image-container' }, enableImageSlot ?
                 h("slot", { name: 'image' })
                 :
-                    h("tnw-image", { src: imageSrc, alt: this.imageAlt, BorderRadius: imageBorderRadius, part: 'image', heightSize: 'full', widthSize: 'full', objectFit: 'cover' })));
+                    h("tnw-image", { src: imageSrc, alt: this.imageAlt, borderRadius: imageBorderRadius, part: 'image', heightSize: 'full', widthSize: 'full', objectFit: 'cover' })));
         }
     }
     renderContent() {

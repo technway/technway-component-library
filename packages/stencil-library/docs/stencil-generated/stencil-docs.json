@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-08T08:47:54",
+  "timestamp": "2025-01-08T20:05:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.1",
@@ -1642,10 +1642,14 @@
       ],
       "parts": [],
       "dependents": [
+        "tnw-card",
         "tnw-select"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "tnw-card": [
+          "tnw-badge"
+        ],
         "tnw-select": [
           "tnw-badge"
         ]
@@ -1967,6 +1971,47 @@
           "setter": false
         },
         {
+          "name": "hoverEffect",
+          "type": "\"contrast\" | \"none\" | \"opacity\" | \"scale-down\" | \"scale-up\"",
+          "complexType": {
+            "original": "'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity'",
+            "resolved": "\"contrast\" | \"none\" | \"opacity\" | \"scale-down\" | \"scale-up\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hover-effect",
+          "reflectToAttr": false,
+          "docs": "Specifies the hover effect of the button.",
+          "docsTags": [],
+          "default": "'none'",
+          "values": [
+            {
+              "value": "contrast",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "opacity",
+              "type": "string"
+            },
+            {
+              "value": "scale-down",
+              "type": "string"
+            },
+            {
+              "value": "scale-up",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "href",
           "type": "string",
           "complexType": {
@@ -2137,7 +2182,7 @@
         "tnw-accordion",
         "tnw-card",
         "tnw-header-banner",
-        "tnw-newsletter-form"
+        "tnw-subscription-form"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -2150,7 +2195,7 @@
         "tnw-header-banner": [
           "tnw-button"
         ],
-        "tnw-newsletter-form": [
+        "tnw-subscription-form": [
           "tnw-button"
         ]
       }
@@ -2187,6 +2232,14 @@
           "text": "content - Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`."
         },
         {
+          "name": "slot",
+          "text": "badge - Slot for custom badge content if the `badgeLabel` prop is not used."
+        },
+        {
+          "name": "slot",
+          "text": "date - Slot for custom date content if the `date` prop is not used."
+        },
+        {
           "name": "part",
           "text": "image - The card's `tnw-image` element or the container for the `image` slot."
         },
@@ -2217,6 +2270,18 @@
         {
           "name": "part",
           "text": "content-heading - The container `div` element for the card's heading and subheading."
+        },
+        {
+          "name": "part",
+          "text": "date - The `tnw-text` element displaying the card's date."
+        },
+        {
+          "name": "part",
+          "text": "date-icon - The `tnw-icon` element displaying the date icon."
+        },
+        {
+          "name": "part",
+          "text": "badge - The `tnw-text` element displaying the card's badge."
         }
       ],
       "usage": {
@@ -2326,6 +2391,29 @@
           "setter": false
         },
         {
+          "name": "badgeLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "badge-label",
+          "reflectToAttr": false,
+          "docs": "The label for the card's badge. Useful for displaying categories or statuses.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -2397,6 +2485,29 @@
           "setter": false
         },
         {
+          "name": "buttonHref",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "button-href",
+          "reflectToAttr": false,
+          "docs": "The href attribute for the card's button.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "buttonLabel",
           "type": "string",
           "complexType": {
@@ -2408,6 +2519,139 @@
           "attr": "button-label",
           "reflectToAttr": false,
           "docs": "The label for the card's button.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "buttonRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "button-radius",
+          "reflectToAttr": false,
+          "docs": "The border radius applied to the card's button.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "contentSpacing",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "SizeType",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::SizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "content-spacing",
+          "reflectToAttr": false,
+          "docs": "Controls the spacing between elements inside the content.",
+          "docsTags": [],
+          "default": "'sm'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "date",
+          "reflectToAttr": false,
+          "docs": "Usw this to display a date. Useful for articles and blog posts.",
           "docsTags": [],
           "values": [
             {
@@ -2537,6 +2781,30 @@
           "setter": false
         },
         {
+          "name": "imageHeight",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "image-height",
+          "reflectToAttr": false,
+          "docs": "The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.",
+          "docsTags": [],
+          "default": "'300px'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "imageSrc",
           "type": "string",
           "complexType": {
@@ -2608,7 +2876,7 @@
           "mutable": false,
           "attr": "larger-image",
           "reflectToAttr": false,
-          "docs": "If `true`, the image will be displayed at a larger size, not be equally split with the content.",
+          "docs": "If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -2739,7 +3007,7 @@
           "mutable": false,
           "attr": "spacing",
           "reflectToAttr": false,
-          "docs": "Controls the spacing between elements inside the card.",
+          "docs": "Controls the spacing between image and the contnet.",
           "docsTags": [],
           "default": "'sm'",
           "values": [
@@ -2866,12 +3134,20 @@
       "styles": [],
       "slots": [
         {
+          "name": "badge",
+          "docs": "Slot for custom badge content if the `badgeLabel` prop is not used."
+        },
+        {
           "name": "button",
           "docs": "Slot for the card button. This slot can be used if the `buttonLabel` prop is not set."
         },
         {
           "name": "content",
           "docs": "Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`."
+        },
+        {
+          "name": "date",
+          "docs": "Slot for custom date content if the `date` prop is not used."
         },
         {
           "name": "description",
@@ -2892,6 +3168,10 @@
       ],
       "parts": [
         {
+          "name": "badge",
+          "docs": "The `tnw-text` element displaying the card's badge."
+        },
+        {
           "name": "button",
           "docs": "The `tnw-button` element or the container for the `button` slot."
         },
@@ -2902,6 +3182,18 @@
         {
           "name": "content-heading",
           "docs": "The container `div` element for the card's heading and subheading."
+        },
+        {
+          "name": "date",
+          "docs": "The `tnw-text` element displaying the card's date."
+        },
+        {
+          "name": "date-icon",
+          "docs": "The `tnw-icon` element displaying the date icon."
+        },
+        {
+          "name": "date-wrapper",
+          "docs": ""
         },
         {
           "name": "description",
@@ -2927,21 +3219,25 @@
       "dependents": [],
       "dependencies": [
         "tnw-image",
-        "tnw-heading",
+        "tnw-icon",
         "tnw-text",
+        "tnw-badge",
+        "tnw-heading",
         "tnw-button"
       ],
       "dependencyGraph": {
         "tnw-card": [
           "tnw-image",
-          "tnw-heading",
+          "tnw-icon",
           "tnw-text",
+          "tnw-badge",
+          "tnw-heading",
           "tnw-button"
         ],
-        "tnw-heading": [
+        "tnw-text": [
           "tnw-text"
         ],
-        "tnw-text": [
+        "tnw-heading": [
           "tnw-text"
         ]
       }
@@ -2978,63 +3274,6 @@
         "tnw-contact-banner-usage": "### When to use:\r\n\r\n- **Promotional Banners**: The `tnw-contact-banner` component is ideal for highlighting contact information or calls to action on landing pages, product sections, or help/support pages.\r\n- **Support and Assistance**: Use the banner to draw attention to customer support options or provide a direct link to contact your business.\r\n- **Customization**: The component supports both predefined slots for titles, descriptions, and buttons, as well as a custom content slot for more flexible layouts.\r\n\r\n### Use Cases:\r\n\r\n1. **Default Contact Banner**:\r\n   This example showcases a default banner layout with a short title, main title, description, and a call-to-action button.\r\n\r\n   @useStory Default\r\n\r\n2. **Contact Banner with Alignment Start**:\r\n   Use this option when you want to align content to the start of the banner.\r\n\r\n   @useStory AlignmentStart\r\n\r\n3. **Contact Banner with Outlined Appearance**:\r\n   This version of the contact banner uses an outlined appearance, giving the banner a more subtle look, often suited for less prominent sections.\r\n\r\n   @useStory OutlinedAppearance\r\n\r\n4. **Contact Banner with Inverse Variant**:\r\n   This banner example utilizes an inverse color variant, often useful for dark mode or contrasting sections.\r\n\r\n   @useStory InverseVariant\r\n\r\n### Additional Considerations:\r\n\r\n- **Custom Slots**: When the `enableContentSlot` prop is set to true, the component disables the standard slots (`short-title`, `title`, `description`, `button`) in favor of a flexible `content` slot.\r\n- **Alignment Options**: The `alignment` prop allows you to align the banner content to the start, center, or end, based on your layout requirements.\r\n- **Appearance and Color Customization**: You can modify the appearance of the banner using the `appearance` and `variant` props, making it easy to match your branding and design guidelines."
       },
       "props": [
-        {
-          "name": "VerticalPadding",
-          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-          "complexType": {
-            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
-            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "vertical-padding",
-          "reflectToAttr": false,
-          "docs": "Defines the vertical padding of the banner.",
-          "docsTags": [],
-          "default": "'2xl'",
-          "values": [
-            {
-              "value": "2xl",
-              "type": "string"
-            },
-            {
-              "value": "3xl",
-              "type": "string"
-            },
-            {
-              "value": "4xl",
-              "type": "string"
-            },
-            {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xs",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
         {
           "name": "alignment",
           "type": "\"center\" | \"end\" | \"start\"",
@@ -3296,19 +3535,19 @@
           "setter": false
         },
         {
-          "name": "horizontalPadding",
-          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "name": "gap",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
-            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
-            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "original": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "horizontal-padding",
+          "attr": "gap",
           "reflectToAttr": false,
-          "docs": "Defines the horizontal padding of the banner.",
+          "docs": "Defines the spacing between the content and the button. This will not control gap between elements inside the content.",
           "docsTags": [],
-          "default": "'2xl'",
+          "default": "'md'",
           "values": [
             {
               "value": "2xl",
@@ -3331,10 +3570,6 @@
               "type": "string"
             },
             {
-              "value": "none",
-              "type": "string"
-            },
-            {
               "value": "sm",
               "type": "string"
             },
@@ -3344,6 +3579,41 @@
             },
             {
               "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "layout",
+          "type": "\"horizontal\" | \"vertical\"",
+          "complexType": {
+            "original": "LayoutType",
+            "resolved": "\"horizontal\" | \"vertical\"",
+            "references": {
+              "LayoutType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::LayoutType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "layout",
+          "reflectToAttr": false,
+          "docs": "The layout of the banner.",
+          "docsTags": [],
+          "default": "'vertical'",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
               "type": "string"
             }
           ],
@@ -3401,6 +3671,167 @@
             },
             {
               "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "paddingHorizontal",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "padding-horizontal",
+          "reflectToAttr": false,
+          "docs": "Defines the horizontal padding of the banner.",
+          "docsTags": [],
+          "default": "'lg'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "paddingVertical",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "padding-vertical",
+          "reflectToAttr": false,
+          "docs": "Defines the vertical padding of the banner.",
+          "docsTags": [],
+          "default": "'lg'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "textAlignment",
+          "type": "\"center\" | \"end\" | \"left\" | \"right\" | \"start\"",
+          "complexType": {
+            "original": "AlignmentType",
+            "resolved": "\"center\" | \"end\" | \"left\" | \"right\" | \"start\"",
+            "references": {
+              "AlignmentType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::AlignmentType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "text-alignment",
+          "reflectToAttr": false,
+          "docs": "Defines the alignment of the text content.",
+          "docsTags": [],
+          "default": "'center'",
+          "values": [
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "start",
               "type": "string"
             }
           ],
@@ -4209,7 +4640,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-footer",
       "readme": "# tnw-lower-footer\r\n\r\n\r\n\r",
-      "docs": "The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, \r\nsocial media, and a newsletter subscription form. It is designed to be highly customizable and accessible.",
+      "docs": "The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, \r\nsocial media, and a subscription subscription form. It is designed to be highly customizable and accessible.",
       "docsTags": [
         {
           "name": "slot",
@@ -4229,7 +4660,7 @@
         },
         {
           "name": "slot",
-          "text": "newsletter - Slot for the newsletter subscription form."
+          "text": "subscription - Slot for the subscription subscription form."
         },
         {
           "name": "slot",
@@ -4421,7 +4852,7 @@
           "mutable": false,
           "attr": "footer-data",
           "reflectToAttr": false,
-          "docs": "JSON data for dynamically populating the footer content.\r\nExpected structure:\r\n{\r\n  brand: { logo: string, name: string },\r\n  links: { heading: string, items: Array<{ label: string, url: string }> },\r\n  contact: { heading: string, email: string, phone: string },\r\n  socialmedia: Array<{ iconName: string, url: string }>,\r\n  newsletter: {\r\n    heading: string,\r\n    description: string,\r\n    placeholder: string,\r\n    buttonText: string\r\n  }\r\n}",
+          "docs": "JSON data for dynamically populating the footer content.\r\nExpected structure:\r\n{\r\n  brand: { logo: string, name: string },\r\n  links: { heading: string, items: Array<{ label: string, url: string }> },\r\n  contact: { heading: string, email: string, phone: string },\r\n  socialmedia: Array<{ iconName: string, url: string }>,\r\n  subscription: {\r\n    heading: string,\r\n    description: string,\r\n    placeholder: string,\r\n    buttonText: string\r\n  }\r\n}",
           "docsTags": [],
           "values": [
             {
@@ -4760,12 +5191,12 @@
           "docs": "Slot for useful links."
         },
         {
-          "name": "newsletter",
-          "docs": "Slot for the newsletter subscription form."
-        },
-        {
           "name": "socialmedia",
           "docs": "Slot for social media icons."
+        },
+        {
+          "name": "subscription",
+          "docs": "Slot for the subscription subscription form."
         }
       ],
       "parts": [
@@ -4790,11 +5221,11 @@
           "docs": ""
         },
         {
-          "name": "newsletter",
+          "name": "socialmedia",
           "docs": ""
         },
         {
-          "name": "socialmedia",
+          "name": "subscription",
           "docs": ""
         }
       ],
@@ -4805,7 +5236,7 @@
         "tnw-anchor",
         "tnw-text",
         "tnw-icon",
-        "tnw-newsletter-form"
+        "tnw-subscription-form"
       ],
       "dependencyGraph": {
         "tnw-footer": [
@@ -4814,7 +5245,7 @@
           "tnw-anchor",
           "tnw-text",
           "tnw-icon",
-          "tnw-newsletter-form"
+          "tnw-subscription-form"
         ],
         "tnw-heading": [
           "tnw-text"
@@ -4825,7 +5256,7 @@
         "tnw-anchor": [
           "tnw-icon"
         ],
-        "tnw-newsletter-form": [
+        "tnw-subscription-form": [
           "tnw-input",
           "tnw-button"
         ],
@@ -7126,6 +7557,7 @@
       "dependents": [
         "tnw-accordion",
         "tnw-anchor",
+        "tnw-card",
         "tnw-footer",
         "tnw-items-carousel",
         "tnw-list",
@@ -7140,6 +7572,9 @@
           "tnw-icon"
         ],
         "tnw-anchor": [
+          "tnw-icon"
+        ],
+        "tnw-card": [
           "tnw-icon"
         ],
         "tnw-footer": [
@@ -7189,77 +7624,6 @@
         "tnw-image-usage": "### When to use:\r\n\r\n- **Displaying Images with Optional Captions**: Use `tnw-image` to display images with optional captions for enhanced context or descriptions.\r\n- **Custom Sizing and Aspect Ratios**: This component is ideal when you need control over the dimensions and aspect ratio of images to fit specific layouts or designs.\r\n- **Optimized Image Loading**: For performance optimization, use the lazy loading feature to load images only when they are about to come into the viewport.\r\n\r\n### Use Cases:\r\n\r\n1. **Standard Image**:\r\n   Use this case for displaying a basic image, such as a product image or media in a blog post.\r\n\r\n   @useStory Standard\r\n\r\n2. **Image with Caption**:\r\n   When you need to provide additional context or information below the image, use this option with a caption.\r\n\r\n   @useStory ImageWithCaption\r\n\r\n3. **Image with Custom Aspect Ratio**:\r\n   For maintaining specific proportions (e.g., 16:9 or 4:3) in your image display, use this case.\r\n\r\n   @useStory AspectRatioImage\r\n\r\n4. **Image with Object Fit (Cover)**:\r\n   Use this when the image should cover the entire space of its container, such as for full-width hero images or banners.\r\n\r\n   @useStory ObjectFitCover\r\n\r\n### Additional Considerations:\r\n\r\n- **Lazy Loading**: For performance optimization, enable lazy loading so that images load only when they are near the viewport. This is particularly useful for long pages or content-heavy websites.\r\n- **Customizable Sizes and Ratios**: You can easily control the width, height, and aspect ratio to adapt the image to different layouts, ensuring responsive behavior across devices.\r\n- **Object Fit and Position**: The `objectFit` and `objectPosition` properties allow fine control over how the image scales and positions itself within the container, ensuring a precise layout fit."
       },
       "props": [
-        {
-          "name": "BorderRadius",
-          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-          "complexType": {
-            "original": "BorderRadiusType",
-            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-            "references": {
-              "BorderRadiusType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::BorderRadiusType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "border-radius",
-          "reflectToAttr": false,
-          "docs": "Determines the border radius of the image.",
-          "docsTags": [],
-          "default": "'default'",
-          "values": [
-            {
-              "value": "2xl",
-              "type": "string"
-            },
-            {
-              "value": "3xl",
-              "type": "string"
-            },
-            {
-              "value": "circle",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "full",
-              "type": "string"
-            },
-            {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xs",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
         {
           "name": "alt",
           "type": "string",
@@ -7338,6 +7702,77 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "borderRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-radius",
+          "reflectToAttr": false,
+          "docs": "Determines the border radius of the image.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -7448,6 +7883,29 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "link",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "link",
+          "reflectToAttr": false,
+          "docs": "The link to navigate to when the image is clicked. This is useful for creating clickable images, e.g, for logo.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -7713,7 +8171,6 @@
         "tnw-card",
         "tnw-footer",
         "tnw-header-banner",
-        "tnw-navbar",
         "tnw-portfolio-grid",
         "tnw-testimonial-card"
       ],
@@ -7726,9 +8183,6 @@
           "tnw-image"
         ],
         "tnw-header-banner": [
-          "tnw-image"
-        ],
-        "tnw-navbar": [
           "tnw-image"
         ],
         "tnw-portfolio-grid": [
@@ -7792,6 +8246,61 @@
             },
             {
               "value": "underlined",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "The appearance color of the input, determining the overall color scheme.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -8278,7 +8787,7 @@
         }
       ],
       "dependents": [
-        "tnw-newsletter-form"
+        "tnw-subscription-form"
       ],
       "dependencies": [
         "tnw-label",
@@ -8289,7 +8798,7 @@
           "tnw-label",
           "tnw-alert"
         ],
-        "tnw-newsletter-form": [
+        "tnw-subscription-form": [
           "tnw-input"
         ]
       }
@@ -9398,7 +9907,7 @@
       "encapsulation": "shadow",
       "tag": "tnw-navbar",
       "readme": "# tnw-navbar\r\n\r\n\r\n\r",
-      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\r\nIt supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
+      "docs": "The `tnw-navbar` component creates a responsive, customizable navigation bar.\nIt supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.",
       "docsTags": [
         {
           "name": "part",
@@ -9427,6 +9936,14 @@
         {
           "name": "slot",
           "text": "cta - The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`."
+        },
+        {
+          "name": "slot",
+          "text": "logo - The slot for custom logo content to be added to the navigation bar. To use this slot, set the `enableLogoSlot` property to `true`."
+        },
+        {
+          "name": "slot",
+          "text": "menu - The slot for custom menu content to be added to the navigation bar. To use this slot, set the `enableMenuSlot` property to `true`. And do not use the `menuData` prop."
         }
       ],
       "usage": {
@@ -9659,6 +10176,54 @@
           "setter": false
         },
         {
+          "name": "enableLogoSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-logo-slot",
+          "reflectToAttr": false,
+          "docs": "If true, the logo slot is enabled.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "enableMenuSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-menu-slot",
+          "reflectToAttr": false,
+          "docs": "If true, the menu slot is enabled.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "hideMenuBelow",
           "type": "\"1024\" | \"1439\" | \"567\" | \"767\" | boolean",
           "complexType": {
@@ -9691,29 +10256,6 @@
             },
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "logoData",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "logo-data",
-          "reflectToAttr": false,
-          "docs": "The logo data as a JSON string. The JSON format should include the following properties: - `src`: The URL of the logo image. - `alt`: The alternative text for the logo image. - `link`: (Optional) The URL for the logo link.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
             }
           ],
           "optional": true,
@@ -9802,7 +10344,7 @@
           "setter": false
         },
         {
-          "name": "padding",
+          "name": "paddingHorizontal",
           "type": "\"lg\" | \"md\" | \"none\" | \"sm\"",
           "complexType": {
             "original": "SizeType | 'none'",
@@ -9816,11 +10358,11 @@
             }
           },
           "mutable": false,
-          "attr": "padding",
+          "attr": "padding-horizontal",
           "reflectToAttr": false,
-          "docs": "Sets the padding size of the navigation bar.",
+          "docs": "Sets the horizontal padding size of the navigation bar.",
           "docsTags": [],
-          "default": "'none'",
+          "default": "'md'",
           "values": [
             {
               "value": "lg",
@@ -9837,6 +10379,73 @@
             {
               "value": "sm",
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "paddingVertical",
+          "type": "\"lg\" | \"md\" | \"none\" | \"sm\"",
+          "complexType": {
+            "original": "SizeType | 'none'",
+            "resolved": "\"lg\" | \"md\" | \"none\" | \"sm\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::SizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "padding-vertical",
+          "reflectToAttr": false,
+          "docs": "Sets the vertical padding size of the navigation bar.",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "scopeStylesToContainer",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "scope-styles-to-container",
+          "reflectToAttr": false,
+          "docs": "When true, the component will apply its styles (like the appearance colors and effects) to its internal container element.\nIf false, the styles will be applied directly to the component host element.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -9949,6 +10558,14 @@
         {
           "name": "cta",
           "docs": "The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`."
+        },
+        {
+          "name": "logo",
+          "docs": "The slot for custom logo content to be added to the navigation bar. To use this slot, set the `enableLogoSlot` property to `true`."
+        },
+        {
+          "name": "menu",
+          "docs": "The slot for custom menu content to be added to the navigation bar. To use this slot, set the `enableMenuSlot` property to `true`. And do not use the `menuData` prop."
         }
       ],
       "parts": [
@@ -9981,412 +10598,19 @@
       "dependencies": [
         "tnw-icon",
         "tnw-anchor",
-        "tnw-text",
-        "tnw-image"
+        "tnw-text"
       ],
       "dependencyGraph": {
         "tnw-navbar": [
           "tnw-icon",
           "tnw-anchor",
-          "tnw-text",
-          "tnw-image"
+          "tnw-text"
         ],
         "tnw-anchor": [
           "tnw-icon"
         ],
         "tnw-text": [
           "tnw-text"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/tnw-newsletter-form/tnw-newsletter-form.tsx",
-      "encapsulation": "shadow",
-      "tag": "tnw-newsletter-form",
-      "readme": "# tnw-newsletter-form\r\n\r\n\r\n\r",
-      "docs": "The `tnw-newsletter-form` component provides a customizable newsletter subscription form.",
-      "docsTags": [],
-      "usage": {
-        "tnw-newsletter-form-usage": ""
-      },
-      "props": [
-        {
-          "name": "borderRadius",
-          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-          "complexType": {
-            "original": "BorderRadiusType",
-            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
-            "references": {
-              "BorderRadiusType": {
-                "location": "import",
-                "path": "../../components",
-                "id": "src/components.d.ts::BorderRadiusType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "border-radius",
-          "reflectToAttr": false,
-          "docs": "The border radius for the component. Set for both input and button",
-          "docsTags": [],
-          "default": "'default'",
-          "values": [
-            {
-              "value": "2xl",
-              "type": "string"
-            },
-            {
-              "value": "3xl",
-              "type": "string"
-            },
-            {
-              "value": "circle",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "full",
-              "type": "string"
-            },
-            {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xs",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "buttonLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "button-label",
-          "reflectToAttr": false,
-          "docs": "The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.",
-          "docsTags": [],
-          "default": "'Subscribe'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "enableButtonSlot",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "enable-button-slot",
-          "reflectToAttr": false,
-          "docs": "Whether to enable the button slot. If true, the buttonLabel prop will be ignored.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "formAction",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "form-action",
-          "reflectToAttr": false,
-          "docs": "The action attribute for the form",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "formAttributes",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "form-attributes",
-          "reflectToAttr": false,
-          "docs": "The attributes/data-attribute(s) for the form. The given string is expected to be in the format \"key1=value1; key2=value2\" or \"key1; key2=value2\".",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "formMethod",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "form-method",
-          "reflectToAttr": false,
-          "docs": "The method attribute for the form",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "inputId",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "input-id",
-          "reflectToAttr": false,
-          "docs": "The id for the email input",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "inputPlaceholder",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "input-placeholder",
-          "reflectToAttr": false,
-          "docs": "The placeholder for the email input",
-          "docsTags": [],
-          "default": "'Enter your email'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "successMessage",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "success-message",
-          "reflectToAttr": false,
-          "docs": "The message to display after successful subscription",
-          "docsTags": [],
-          "default": "'Thanks for subscribing!'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "theme",
-          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-          "complexType": {
-            "original": "ColorType",
-            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
-            "references": {
-              "ColorType": {
-                "location": "import",
-                "path": "../../utils/component-props-types",
-                "id": "src/utils/component-props-types.ts::ColorType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "theme",
-          "reflectToAttr": false,
-          "docs": "The theme for the component. It controls the color scheme of the component.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "black",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "variant",
-          "type": "\"primary\" | \"secondary\"",
-          "complexType": {
-            "original": "'primary' | 'secondary'",
-            "resolved": "\"primary\" | \"secondary\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "The variant for the component\r\n- Primary: The button is next to the input\r\n- Secondary: The button is inside the input",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [
-        {
-          "name": "button",
-          "docs": ""
-        },
-        {
-          "name": "input",
-          "docs": ""
-        }
-      ],
-      "dependents": [
-        "tnw-footer"
-      ],
-      "dependencies": [
-        "tnw-input",
-        "tnw-button"
-      ],
-      "dependencyGraph": {
-        "tnw-newsletter-form": [
-          "tnw-input",
-          "tnw-button"
-        ],
-        "tnw-input": [
-          "tnw-label",
-          "tnw-alert"
-        ],
-        "tnw-footer": [
-          "tnw-newsletter-form"
         ]
       }
     },
@@ -12338,6 +12562,397 @@
         "tnw-select": [
           "tnw-icon",
           "tnw-badge"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/tnw-subscription-form/tnw-subscription-form.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-subscription-form",
+      "readme": "# tnw-subscription-form\r\n\r\n\r\n\r",
+      "docs": "The `tnw-subscription-form` component provides a customizable subscription form.",
+      "docsTags": [],
+      "usage": {
+        "tnw-subscription-form-usage": ""
+      },
+      "props": [
+        {
+          "name": "borderRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../components",
+                "id": "src/components.d.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-radius",
+          "reflectToAttr": false,
+          "docs": "The border radius for the component. Set for both input and button",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "buttonLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "button-label",
+          "reflectToAttr": false,
+          "docs": "The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.",
+          "docsTags": [],
+          "default": "'Subscribe'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "enableButtonSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-button-slot",
+          "reflectToAttr": false,
+          "docs": "Whether to enable the button slot. If true, the buttonLabel prop will be ignored.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formAction",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form-action",
+          "reflectToAttr": false,
+          "docs": "The action attribute for the form",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formAttributes",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form-attributes",
+          "reflectToAttr": false,
+          "docs": "The attributes/data-attribute(s) for the form. The given string is expected to be in the format \"key1=value1; key2=value2\" or \"key1; key2=value2\".",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formMethod",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form-method",
+          "reflectToAttr": false,
+          "docs": "The method attribute for the form",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "inputId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "input-id",
+          "reflectToAttr": false,
+          "docs": "The id for the email input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "inputPlaceholder",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "input-placeholder",
+          "reflectToAttr": false,
+          "docs": "The placeholder for the email input",
+          "docsTags": [],
+          "default": "'Enter your email'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "successMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "success-message",
+          "reflectToAttr": false,
+          "docs": "The message to display after successful subscription",
+          "docsTags": [],
+          "default": "'Thanks for subscribing!'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "theme",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "The theme for the component. It controls the color scheme of the component.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"secondary\"",
+          "complexType": {
+            "original": "'primary' | 'secondary'",
+            "resolved": "\"primary\" | \"secondary\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The variant for the component\r\n- Primary: The button is next to the input\r\n- Secondary: The button is inside the input",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "button",
+          "docs": ""
+        },
+        {
+          "name": "input",
+          "docs": ""
+        }
+      ],
+      "dependents": [
+        "tnw-footer"
+      ],
+      "dependencies": [
+        "tnw-input",
+        "tnw-button"
+      ],
+      "dependencyGraph": {
+        "tnw-subscription-form": [
+          "tnw-input",
+          "tnw-button"
+        ],
+        "tnw-input": [
+          "tnw-label",
+          "tnw-alert"
+        ],
+        "tnw-footer": [
+          "tnw-subscription-form"
         ]
       }
     },
@@ -14357,13 +14972,13 @@
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/utils/component-props-types.ts::BorderColorType": {
-      "declaration": "export type BorderColorType =\r\n    | \"none\"\r\n    | \"primary\"\r\n    | \"secondary\"\r\n    | \"auto\"\r\n    | \"inverse\"\r\n    | \"light\"\r\n    | \"white\"\r\n    | \"black\"\r\n    | \"gray100\"\r\n    | \"gray200\"\r\n    | \"gray300\"\r\n    | \"gray400\"\r\n    | \"gray500\"\r\n    | \"gray600\"\r\n    | \"gray700\"\r\n    | \"gray800\"\r\n    | \"gray900\";",
+    "src/utils/component-props-types.ts::AlignmentType": {
+      "declaration": "export type AlignmentType =\r\n    | \"start\"\r\n    | \"center\"\r\n    | \"end\"\r\n    | \"right\"\r\n    | \"left\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/utils/component-props-types.ts::AlignmentType": {
-      "declaration": "export type AlignmentType =\r\n    | \"start\"\r\n    | \"center\"\r\n    | \"end\"\r\n    | \"right\"\r\n    | \"left\";",
+    "src/utils/component-props-types.ts::BorderColorType": {
+      "declaration": "export type BorderColorType =\r\n    | \"none\"\r\n    | \"primary\"\r\n    | \"secondary\"\r\n    | \"auto\"\r\n    | \"inverse\"\r\n    | \"light\"\r\n    | \"white\"\r\n    | \"black\"\r\n    | \"gray100\"\r\n    | \"gray200\"\r\n    | \"gray300\"\r\n    | \"gray400\"\r\n    | \"gray500\"\r\n    | \"gray600\"\r\n    | \"gray700\"\r\n    | \"gray800\"\r\n    | \"gray900\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
@@ -14397,11 +15012,6 @@
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/components.d.ts::BorderRadiusType": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "src/components.d.ts"
-    },
     "src/components.d.ts::ExtendedSizeType": {
       "declaration": "any",
       "docstring": "",
@@ -14416,6 +15026,11 @@
       "declaration": "export interface TnwSelectOption\r\n    extends TnwBaseSelectOption,\r\n    TnwSelectOptionWithIconName,\r\n    TnwSelectOptionWithSvgIcon,\r\n    TnwSelectOptionWithImage,\r\n    TnwSelectOptionWithStatus {}",
       "docstring": "",
       "path": "src/components/tnw-select/utils/tnw-select-data-types.ts"
+    },
+    "src/components.d.ts::BorderRadiusType": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/components.d.ts"
     }
   }
 }

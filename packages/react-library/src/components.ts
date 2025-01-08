@@ -31,13 +31,13 @@ import { TnwItemsCarousel as TnwItemsCarouselElement, defineCustomElement as def
 import { TnwLabel as TnwLabelElement, defineCustomElement as defineTnwLabel } from "@technway/stencil-library/components/tnw-label.js";
 import { TnwList as TnwListElement, defineCustomElement as defineTnwList } from "@technway/stencil-library/components/tnw-list.js";
 import { TnwNavbar as TnwNavbarElement, defineCustomElement as defineTnwNavbar } from "@technway/stencil-library/components/tnw-navbar.js";
-import { TnwNewsletterForm as TnwNewsletterFormElement, defineCustomElement as defineTnwNewsletterForm } from "@technway/stencil-library/components/tnw-newsletter-form.js";
 import { TnwPortfolioGrid as TnwPortfolioGridElement, defineCustomElement as defineTnwPortfolioGrid } from "@technway/stencil-library/components/tnw-portfolio-grid.js";
 import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating } from "@technway/stencil-library/components/tnw-rating.js";
 import { TnwRowsCarousel as TnwRowsCarouselElement, defineCustomElement as defineTnwRowsCarousel } from "@technway/stencil-library/components/tnw-rows-carousel.js";
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "@technway/stencil-library/components/tnw-scroll-to-top.js";
 import { TnwSection as TnwSectionElement, defineCustomElement as defineTnwSection } from "@technway/stencil-library/components/tnw-section.js";
 import { TnwSelect as TnwSelectElement, defineCustomElement as defineTnwSelect } from "@technway/stencil-library/components/tnw-select.js";
+import { TnwSubscriptionForm as TnwSubscriptionFormElement, defineCustomElement as defineTnwSubscriptionForm } from "@technway/stencil-library/components/tnw-subscription-form.js";
 import { TnwTestimonialCard as TnwTestimonialCardElement, defineCustomElement as defineTnwTestimonialCard } from "@technway/stencil-library/components/tnw-testimonial-card.js";
 import { TnwText as TnwTextElement, defineCustomElement as defineTnwText } from "@technway/stencil-library/components/tnw-text.js";
 import { TnwTextarea as TnwTextareaElement, defineCustomElement as defineTnwTextarea } from "@technway/stencil-library/components/tnw-textarea.js";
@@ -288,17 +288,6 @@ export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents>
     defineCustomElement: defineTnwNavbar
 });
 
-type TnwNewsletterFormEvents = NonNullable<unknown>;
-
-export const TnwNewsletterForm: StencilReactComponent<TnwNewsletterFormElement, TnwNewsletterFormEvents> = /*@__PURE__*/ createComponent<TnwNewsletterFormElement, TnwNewsletterFormEvents>({
-    tagName: 'tnw-newsletter-form',
-    elementClass: TnwNewsletterFormElement,
-    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
-    react: React,
-    events: {} as TnwNewsletterFormEvents,
-    defineCustomElement: defineTnwNewsletterForm
-});
-
 type TnwPortfolioGridEvents = NonNullable<unknown>;
 
 export const TnwPortfolioGrid: StencilReactComponent<TnwPortfolioGridElement, TnwPortfolioGridEvents> = /*@__PURE__*/ createComponent<TnwPortfolioGridElement, TnwPortfolioGridEvents>({
@@ -381,6 +370,17 @@ export const TnwSelect: StencilReactComponent<TnwSelectElement, TnwSelectEvents>
         onDropdownToggled: 'dropdownToggled'
     } as TnwSelectEvents,
     defineCustomElement: defineTnwSelect
+});
+
+type TnwSubscriptionFormEvents = NonNullable<unknown>;
+
+export const TnwSubscriptionForm: StencilReactComponent<TnwSubscriptionFormElement, TnwSubscriptionFormEvents> = /*@__PURE__*/ createComponent<TnwSubscriptionFormElement, TnwSubscriptionFormEvents>({
+    tagName: 'tnw-subscription-form',
+    elementClass: TnwSubscriptionFormElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as TnwSubscriptionFormEvents,
+    defineCustomElement: defineTnwSubscriptionForm
 });
 
 type TnwTestimonialCardEvents = NonNullable<unknown>;

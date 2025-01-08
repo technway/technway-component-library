@@ -17,6 +17,8 @@ import { validateProps } from './utils/tnw-card-validate-props';
  * @slot description - Slot for the card description. This slot can be used if the `description` prop is not set.
  * @slot button - Slot for the card button. This slot can be used if the `buttonLabel` prop is not set.
  * @slot content - Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`.
+ * @slot badge - Slot for custom badge content if the `badgeLabel` prop is not used.
+ * @slot date - Slot for custom date content if the `date` prop is not used.
  * 
  * @part image - The card's `tnw-image` element or the container for the `image` slot.
  * @part image-container - The container `div` element for the card's image.
@@ -26,6 +28,9 @@ import { validateProps } from './utils/tnw-card-validate-props';
  * @part button - The `tnw-button` element or the container for the `button` slot.
  * @part content - The container `div` element that wraps all content inside the card.
  * @part content-heading - The container `div` element for the card's heading and subheading.
+ * @part date - The `tnw-text` element displaying the card's date.
+ * @part date-icon - The `tnw-icon` element displaying the date icon.
+ * @part badge - The `tnw-text` element displaying the card's badge.
  */
 @Component({
   tag: 'tnw-card',
@@ -48,6 +53,11 @@ export class TnwCard {
   @Prop() imageAlt?: string;
 
   /**
+   * The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.
+   */
+  @Prop() imageHeight?: string = '300px';
+
+  /**
    * The card's heading text.
    */
   @Prop() heading?: string;
@@ -68,6 +78,26 @@ export class TnwCard {
   @Prop() buttonLabel?: string;
 
   /**
+   * The href attribute for the card's button.
+   */
+  @Prop() buttonHref?: string;
+
+  /**
+   * The border radius applied to the card's button.
+   */
+  @Prop() buttonRadius?: BorderRadiusType = 'default';
+
+  /**
+   * Usw this to display a date. Useful for articles and blog posts.
+   */
+  @Prop() date?: string;
+
+  /**
+   * The label for the card's badge. Useful for displaying categories or statuses.
+   */
+  @Prop() badgeLabel?: string;
+
+  /**
    * Controls the alignment of the card's content.
    */
   @Prop() textAlignment?: TextAlignmentType = 'start';
@@ -78,9 +108,14 @@ export class TnwCard {
   @Prop() itemsAlignment?: LogicalAlignmentType;
 
   /**
-   * Controls the spacing between elements inside the card.
+   * Controls the spacing between image and the contnet.
    */
   @Prop() spacing?: SizeType = 'sm';
+
+  /**
+   * Controls the spacing between elements inside the content.
+   */
+  @Prop() contentSpacing?: SizeType = 'sm';
 
   /**
    * The padding size for the card.
@@ -128,7 +163,7 @@ export class TnwCard {
   @Prop() enableContentSlot?: boolean = false;
 
   /**
-   * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+   * If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.
    */
   @Prop() largerImage?: boolean = false;
 
@@ -150,7 +185,7 @@ export class TnwCard {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.buttonLabel, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
+    validateProps([this.appearance, this.appearanceColor, this.badgeLabel, this.borderRadius, this.buttonHref, this.buttonLabel, this.buttonRadius, this.contentSpacing, this.date, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageHeight, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
   }
 
   private getHostClasses() {
@@ -158,7 +193,7 @@ export class TnwCard {
     return [
       baseClass,
       `${baseClass}--${layout}`,
-      isNotEmptyString(itemsAlignment) && itemsAlignment !== "center" ? `${baseClass}--${itemsAlignment}` : ``,
+      isNotEmptyString(itemsAlignment) && itemsAlignment !== "center" ? `${baseClass}--items-${itemsAlignment}` : ``,
       itemsAlignment === 'center' && layout === 'horizontal' ? `${baseClass}--horizontal-center` : '',
       itemsAlignment === 'center' && layout === 'vertical' ? `${baseClass}--vertical-center` : '',
       largerImage ? `${baseClass}--larger-image` : `${baseClass}--equal-image`,
@@ -171,11 +206,12 @@ export class TnwCard {
   }
 
   private getContentClasses() {
-    const { baseClass } = this;
+    const { baseClass, contentSpacing, textAlignment } = this;
     const contentClass = `${baseClass}__content`;
     return [
       contentClass,
-      `${contentClass}-${this.textAlignment}`,
+      `${contentClass}--text-${textAlignment}`,
+      `${contentClass}--spacing-${contentSpacing}`,
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -191,12 +227,49 @@ export class TnwCard {
     if (isNotEmptyString(this.imageSrc)) {
       return (
         <div class={`${this.baseClass}__image`} part='image'>
-          <tnw-image src={this.imageSrc} alt={this.heading || this.imageAlt} BorderRadius={this.borderRadius} part='image' />
+          <tnw-image
+            src={this.imageSrc}
+            alt={this.heading || this.imageAlt}
+            borderRadius={this.borderRadius}
+            part='image'
+            widthSize='full'
+            height={this.imageHeight}
+            objectFit='cover'
+          />
         </div>
       )
     }
 
     return null;
+  }
+
+  private renderDate() {
+    if (!isNotEmptyString(this.date)) {
+      return <slot name='date' />;
+    }
+
+    return (
+      <div class={`${this.baseClass}__date-wrapper`} part='date-wrapper'>
+        <tnw-icon name='tnw-alarm' size='xs' appearance='none' part='date-icon' />
+        <tnw-text text={this.date} size="xs" textTag='span' weight='600' part='date' widthSize='unset' displayMode='inline-block' />
+      </div>
+    )
+  }
+
+  private renderBadge() {
+    if (!isNotEmptyString(this.badgeLabel)) {
+      return <slot name='badge' />;
+    }
+
+    return (
+      <tnw-badge
+        label={this.badgeLabel}
+        size="sm"
+        appearance='outlined'
+        appearanceColor='auto'
+        part='badge'
+      />
+    )
   }
 
   private renderHeading() {
@@ -235,7 +308,7 @@ export class TnwCard {
     }
 
     return (
-      <tnw-button label={this.buttonLabel} borderRadius={this.borderRadius} part='button' />
+      <tnw-button label={this.buttonLabel} borderRadius={this.buttonRadius} part='button' href={this.buttonHref} hoverEffect='contrast' />
     )
   }
 
@@ -247,10 +320,15 @@ export class TnwCard {
         </div>
       );
     }
-
     return (
       <div class={this.getContentClasses()} part='content'>
         <div class={`${this.baseClass}__content-heading`}>
+          {(this.renderBadge() !== null || this.renderDate() !== null) && (
+            <div class={`${this.baseClass}__badge-wrapper`}>
+              {this.renderBadge()}
+              {this.renderDate()}
+            </div>
+          )}
           {this.renderHeading()}
           {this.renderSubheading()}
         </div>

@@ -7,13 +7,13 @@ import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupporte
 import { c as colorStyleSheet, a as containerStyleSheet } from './p-20eedb96.js';
 import { d as defineCustomElement$b } from './p-a256c866.js';
 import { d as defineCustomElement$a } from './p-d53cb6f4.js';
-import { d as defineCustomElement$9 } from './p-2b0400b3.js';
+import { d as defineCustomElement$9 } from './p-aa4fbea0.js';
 import { d as defineCustomElement$8 } from './p-247f7459.js';
 import { d as defineCustomElement$7 } from './p-3d848afd.js';
-import { d as defineCustomElement$6 } from './p-8957a5a1.js';
-import { d as defineCustomElement$5 } from './p-4831c0ac.js';
+import { d as defineCustomElement$6 } from './p-fa750891.js';
+import { d as defineCustomElement$5 } from './p-a6c3ed1e.js';
 import { d as defineCustomElement$4 } from './p-29b34b17.js';
-import { d as defineCustomElement$3 } from './p-e943d8bc.js';
+import { d as defineCustomElement$3 } from './p-88b8adb7.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-footer`;
@@ -122,7 +122,7 @@ tnw-heading {
     gap: 20px;
 }
 
-.${baseClass}__newsletter-description {
+.${baseClass}__subscription-description {
     margin-bottom: 20px;
 }
 
@@ -398,16 +398,16 @@ const TnwFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwFooter extends H {
             return null;
         return (h("div", { class: `${this.baseClass}__socialmedia`, part: "socialmedia" }, socialmedia.map(icon => (h("tnw-anchor", { href: icon.url, newTab: true, hideNewTabIcon: true, textDecoration: 'none' }, h("tnw-icon", { name: icon.iconName, size: 'md', color: this.textColor }))))));
     }
-    renderNewsletter(newsletter) {
-        if (!newsletter)
+    renderSubscription(subscription) {
+        if (!subscription)
             return null;
-        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__newsletter`, style: { gridColumn: "span 2" }, part: "newsletter" }, newsletter.heading &&
-            h("tnw-heading", { text: newsletter.heading, level: 'h3', weight: '600', size: 'md', color: this.headingColor }), newsletter.description &&
-            h("tnw-text", { class: `${this.baseClass}__newsletter-description`, text: newsletter.description, color: this.textColor }), h("tnw-newsletter-form", { inputPlaceholder: newsletter.placeholder, buttonLabel: newsletter.buttonText, variant: 'secondary', borderRadius: 'full' })));
+        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__subscription`, style: { gridColumn: "span 2" }, part: "subscription" }, subscription.heading &&
+            h("tnw-heading", { text: subscription.heading, level: 'h3', weight: '600', size: 'md', color: this.headingColor }), subscription.description &&
+            h("tnw-text", { class: `${this.baseClass}__subscription-description`, text: subscription.description, color: this.textColor }), h("tnw-subscription-form", { inputPlaceholder: subscription.placeholder, buttonLabel: subscription.buttonText, variant: 'secondary', borderRadius: 'full' })));
     }
     render() {
         const { parsedFooterData } = this;
-        return (h(Host, { key: 'ea7d60959e9fbf9d54529fb8a93ad510e3992bc4', class: this.getHostClasses() }, h("footer", { key: '0620c28029ab91fd1d2a7f32efb6d537dad3930f', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: 'ded5760ba3faa9bb8074f230d752a3038f5b68ee', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderNewsletter(parsedFooterData.newsletter))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "newsletter" })))), h("slot", { key: '67fc11595f37bb74a4af2cca9e6f3c77989b122a', name: "copyrights" }))));
+        return (h(Host, { key: 'de65fce1a458cda386468ba11a1e820ab5ba84b9', class: this.getHostClasses() }, h("footer", { key: '054159dcf2db6baa49f7256b6446833f2346d8c7', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: '238c17b39e916496ec4fdd1fc3a16fd8c112d949', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderSubscription(parsedFooterData.subscription))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "subscription" })))), h("slot", { key: '6eeb00c924903c5a5243e99d9441439f7e73b3db', name: "copyrights" }))));
     }
     get el() { return this; }
 }, [1, "tnw-footer", {
@@ -426,7 +426,7 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["tnw-footer", "tnw-alert", "tnw-anchor", "tnw-button", "tnw-heading", "tnw-icon", "tnw-image", "tnw-input", "tnw-label", "tnw-newsletter-form", "tnw-text"];
+    const components = ["tnw-footer", "tnw-alert", "tnw-anchor", "tnw-button", "tnw-heading", "tnw-icon", "tnw-image", "tnw-input", "tnw-label", "tnw-subscription-form", "tnw-text"];
     components.forEach(tagName => { switch (tagName) {
         case "tnw-footer":
             if (!customElements.get(tagName)) {
@@ -473,7 +473,7 @@ function defineCustomElement$1() {
                 defineCustomElement$4();
             }
             break;
-        case "tnw-newsletter-form":
+        case "tnw-subscription-form":
             if (!customElements.get(tagName)) {
                 defineCustomElement$3();
             }

@@ -56,20 +56,26 @@ with slots for each, allowing full customization.
 | --- | --- | --- | --- |
 | **appearance** | <div>The appearance color of the card.</div> | \`'none'\` | \`"mixed"\` \\| \`"none"\` \\| \`"outlined"\` \\| \`"solid"\` \\| \`"transparent"\` |
 | **appearanceColor** | <div>The color appearance color of the card, determining the overall color scheme.</div> | \`'auto'\` | \`"auto"\` \\| \`"black"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
+| **badgeLabel** | <div>The label for the card's badge. Useful for displaying categories or statuses.</div> | N/A | \`string\` |
 | **borderRadius** | <div>The border radius applied to the card.</div> | \`'default'\` | \`"2xl"\` \\| \`"3xl"\` \\| \`"circle"\` \\| \`"default"\` \\| \`"full"\` \\| \`"lg"\` \\| \`"md"\` \\| \`"none"\` \\| \`"sm"\` \\| \`"xl"\` \\| \`"xs"\` |
+| **buttonHref** | <div>The href attribute for the card's button.</div> | N/A | \`string\` |
 | **buttonLabel** | <div>The label for the card's button.</div> | N/A | \`string\` |
+| **buttonRadius** | <div>The border radius applied to the card's button.</div> | \`'default'\` | \`"2xl"\` \\| \`"3xl"\` \\| \`"circle"\` \\| \`"default"\` \\| \`"full"\` \\| \`"lg"\` \\| \`"md"\` \\| \`"none"\` \\| \`"sm"\` \\| \`"xl"\` \\| \`"xs"\` |
+| **contentSpacing** | <div>Controls the spacing between elements inside the content.</div> | \`'sm'\` | \`"lg"\` \\| \`"md"\` \\| \`"sm"\` |
+| **date** | <div>Usw this to display a date. Useful for articles and blog posts.</div> | N/A | \`string\` |
 | **description** | <div>The card's description text.</div> | N/A | \`string\` |
 | **enableContentSlot** | <div>If \`true\`, the heading, subheading, description, and button will not be rendered. Use the \`content\` slot to provide custom content instead.</div> | \`false\` | \`boolean\` |
 | **enableImageSlot** | <div>If \`true\`, the image slot will be visible.</div> | \`false\` | \`boolean\` |
 | **heading** | <div>The card's heading text.</div> | N/A | \`string\` |
 | **imageAlt** | <div>Alternate text for the image.</div> | N/A | \`string\` |
+| **imageHeight** | <div>The height of the image. Value should be a valid CSS unit, such as \`px\`, \`em\`, auto, or \`%\`.</div> | \`'300px'\` | \`string\` |
 | **imageSrc** | <div>The image source for the card.</div> | N/A | \`string\` |
 | **itemsAlignment** | <div>Controls the alignment of items within the card.</div> | N/A | \`"center"\` \\| \`"end"\` \\| \`"start"\` |
-| **largerImage** | <div>If \`true\`, the image will be displayed at a larger size, not be equally split with the content.</div> | \`false\` | \`boolean\` |
+| **largerImage** | <div>If \`true\`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.</div> | \`false\` | \`boolean\` |
 | **layout** | <div>Specifies the layout orientation of the card, either 'vertical' or 'horizontal'.</div> | \`'vertical'\` | \`"horizontal"\` \\| \`"vertical"\` |
 | **orderContentFirst** | <div>If \`true\`, the card content will be displayed before the image.</div> | \`false\` | \`boolean\` |
 | **padding** | <div>The padding size for the card.</div> | N/A | \`"lg"\` \\| \`"md"\` \\| \`"none"\` \\| \`"sm"\` |
-| **spacing** | <div>Controls the spacing between elements inside the card.</div> | \`'sm'\` | \`"lg"\` \\| \`"md"\` \\| \`"sm"\` |
+| **spacing** | <div>Controls the spacing between image and the contnet.</div> | \`'sm'\` | \`"lg"\` \\| \`"md"\` \\| \`"sm"\` |
 | **subheading** | <div>The card's subheading text.</div> | N/A | \`string\` |
 | **textAlignment** | <div>Controls the alignment of the card's content.</div> | \`'start'\` | \`"center"\` \\| \`"end"\` \\| \`"justify"\` \\| \`"left"\` \\| \`"right"\` \\| \`"start"\` |
 | **useGlassmorphismEffect** | <div>If \`true\`, the card will have a glassmorphism effect applied to its background.</div> | \`false\` | \`boolean\` |
@@ -80,9 +86,13 @@ with slots for each, allowing full customization.
 
 | Part | Description |
 | --- | --- |
+| **badge** | The \`tnw-text\` element displaying the card's badge. |
 | **button** | The \`tnw-button\` element or the container for the \`button\` slot. |
 | **content** | The container \`div\` element that wraps all content inside the card. |
 | **content-heading** | The container \`div\` element for the card's heading and subheading. |
+| **date** | The \`tnw-text\` element displaying the card's date. |
+| **date-icon** | The \`tnw-icon\` element displaying the date icon. |
+| **date-wrapper** | No description provided. |
 | **description** | The \`tnw-text\` element displaying the card's description. |
 | **heading** | The \`tnw-heading\` element displaying the card's main heading. |
 | **image** | The card's \`tnw-image\` element or the container for the \`image\` slot. |
@@ -93,8 +103,10 @@ with slots for each, allowing full customization.
 
 | Slot | Description |
 | --- | --- |
+| **badge** | Slot for custom badge content if the \`badgeLabel\` prop is not used. |
 | **button** | Slot for the card button. This slot can be used if the \`buttonLabel\` prop is not set. |
 | **content** | Slot for custom card content, replacing default content when \`enableContentSlot\` is set to \`true\`. |
+| **date** | Slot for custom date content if the \`date\` prop is not used. |
 | **description** | Slot for the card description. This slot can be used if the \`description\` prop is not set. |
 | **heading** | Slot for the card heading. This slot can be used if the \`heading\` prop is not set. |
 | **image** | Slot for the card image. This slot can be used if the \`imageSrc\` prop is not set. |

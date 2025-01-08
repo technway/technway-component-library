@@ -628,14 +628,16 @@ export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents>
             appearanceColor: 'appearance-color',
             sticky: 'sticky',
             disableInternalContainer: 'disable-internal-container',
+            scopeStylesToContainer: 'scope-styles-to-container',
             menuExactCenter: 'menu-exact-center',
             menuPlacement: 'menu-placement',
             togglerPlacement: 'toggler-placement',
             borderRadius: 'border-radius',
-            padding: 'padding',
+            paddingHorizontal: 'padding-horizontal',
+            paddingVertical: 'padding-vertical',
             menuData: 'menu-data',
-            logoData: 'logo-data',
             enableCtaSlot: 'enable-cta-slot',
+            enableLogoSlot: 'enable-logo-slot',
             hideMenuBelow: 'hide-menu-below'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')

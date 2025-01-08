@@ -75,49 +75,69 @@ export let styles = `
     }
 }
 
-.${contentClass}--padding-sm {
-    padding: 5px;
+.paddingX-sm,
+:host(.paddingX-sm) {
+    padding-left: 5px;
+    padding-right: 5px;
 }
-.${contentClass}--padding-md {
-    padding: 10px;
+.paddingX-md,
+:host(.paddingX-md) {
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.${contentClass}--padding-lg {
-    padding: 15px;
+.paddingX-lg,
+:host(.paddingX-lg) {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.${contentClass}--paddingBottom-sm {
+.paddingY-sm,
+:host(.paddingY-sm) {
+    padding-top: 5px;
     padding-bottom: 5px;
 }
-.${contentClass}--paddingBottom-md {
+.paddingY-md,
+:host(.paddingY-md) {
+    padding-top: 10px;
     padding-bottom: 10px;
 }
-.${contentClass}--paddingBottom-lg {
+.paddingY-lg,
+:host(.paddingY-lg) {
+    padding-top: 15px;
     padding-bottom: 15px;
 }
-
-.${contentClass}--outlined-bottom {
+    
+.outlined-bottom,
+:host(.outlined-bottom) {
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
-.${contentClass}--outlined-bottom.${contentClass}--primary {
+.outlined-bottom.primary,
+:host(.outlined-bottom.primary) {
     border-bottom-color: var(--tnw-primary-color);
 }
-.${contentClass}--outlined-bottom.${contentClass}--secondary {
+.outlined-bottom.secondary,
+:host(.outlined-bottom.secondary) {
     border-bottom-color: var(--tnw-secondary-color);
 }
-.${contentClass}--outlined-bottom.${contentClass}--auto {
+.outlined-bottom.auto,
+:host(.outlined-bottom.auto) {
     border-bottom-color: var(--tnw-border-color);
 }
-.${contentClass}--outlined-bottom.${contentClass}--inverse {
+.outlined-bottom.inverse,
+:host(.outlined-bottom.inverse) {
     border-bottom-color: var(--tnw-border-color-inverse);
 }
-.${contentClass}--outlined-bottom.${contentClass}--light {
+.outlined-bottom.light,
+:host(.outlined-bottom.light) {
     border-bottom-color: var(--tnw-border-color-opacity);
 }
-.${contentClass}--outlined-bottom.${contentClass}--white {
+.outlined-bottom.white,
+:host(.outlined-bottom.white) {
     border-bottom-color: var(--tnw-white);
 }
-.${contentClass}--outlined-bottom.${contentClass}--black {
+.outlined-bottom.black,
+:host(.outlined-bottom.black) {
     border-bottom-color: var(--tnw-black);
 }
 

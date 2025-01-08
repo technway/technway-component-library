@@ -15,20 +15,6 @@ export default {
 
 const Template = (args) => getComponentTemplate(args, component);
 
-const logoData = JSON.stringify({
-  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxWWEG4C9hkGOnLP_7J5mn0e50rnj4zi_OQ&s",
-  alt: 'Company Logo',
-  width: '40px',
-});
-
-const logoWithLinkData = JSON.stringify({
-  src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxWWEG4C9hkGOnLP_7J5mn0e50rnj4zi_OQ&s",
-  alt: 'Company Logo',
-  width: '40px',
-  link: '/',
-  ariaLabel: 'Go to Technway Website',
-});
-
 const menuData = JSON.stringify({
   menuItems: [
     {
@@ -55,7 +41,8 @@ const menuData = JSON.stringify({
 
 export const Default = Template.bind({});
 Default.args = {
-  logoDataJson: logoData,
+  enableLogoSlot: true,
+  logoSlot: `<tnw-image height="40px" width="120px" slot="logo" src="https://via.placeholder.com/150" alt="logo"></tnw-image>`,
   enableCtaSlot: true,
   ctaSlot: `<tnw-button
     slot="cta"
@@ -75,7 +62,6 @@ Outlined.args = {
   ...Default.args,
   appearance: 'outlined',
   appearanceColor: 'light',
-  padding: 'md',
 };
 
 export const BottomOutlined = Template.bind({});
@@ -83,7 +69,7 @@ BottomOutlined.args = {
   ...Default.args,
   appearance: 'outlined-bottom',
   appearanceColor: 'light',
-  padding: 'md',
+  paddingHorizontal: 'none',
   borderRadius: 'none',
 };
 
@@ -118,9 +104,16 @@ menuExactCenter.args = {
   menuExactCenter: true,
 };
 
-export const logoWithLink = Template.bind({});
-logoWithLink.args = {
+export const TextLogo = Template.bind({});
+TextLogo.args = {
   ...Default.args,
-  logoDataJson: logoWithLinkData,
+  enableLogoSlot: true,
+  logoSlot: `<tnw-heading text="Text Logo" level="h1" slot="logo" size="md"></tnw-heading>`,
   menuExactCenter: true,
+};
+
+export const scopeStylesToContainer = Template.bind({});
+scopeStylesToContainer.args = {
+  ...BottomOutlined.args,
+  scopeStylesToContainer: true,
 };

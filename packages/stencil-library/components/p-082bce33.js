@@ -13,7 +13,7 @@ import { m as mediaStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-image.tsx` file.
  *
-validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
+validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
  *
  * GENERATED USING `npm run g:components-validations tnw-image`
  */
@@ -59,6 +59,13 @@ function validateProps(propsValues) {
         },
         {
             "name": "caption",
+            "type": [
+                "string"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "height",
             "type": [
                 "string"
             ],
@@ -122,6 +129,13 @@ function validateProps(propsValues) {
                 "string"
             ],
             "isRequired": true
+        },
+        {
+            "name": "width",
+            "type": [
+                "string"
+            ],
+            "isRequired": false
         },
         {
             "name": "widthSize",
@@ -192,7 +206,7 @@ const styles = `
 :host(.tnw-image--height-full) {
   height: var(--tnw-image-height, 100%);
 }
-.tnw-image--sized {
+.tnw-image--full {
   width: 100%;
   height: 100%;
 }
@@ -258,14 +272,13 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
         validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
     }
     hasWidthOrHeight() {
-        console.log({ hasWidth: isNotEmptyString(this.widthSize), hasHeight: isNotEmptyString(this.heightSize) });
         return isNotEmptyString(this.width) || isNotEmptyString(this.height);
     }
     getImageClasses() {
         const { baseClass, aspectRatio, objectFit, objectPosition } = this;
         return [
             baseClass,
-            !this.hasWidthOrHeight() ? `${baseClass}--sized` : '',
+            !this.hasWidthOrHeight() ? `${baseClass}--full` : '',
             getAspectRatioClass(aspectRatio),
             getObjectFitClass(objectFit),
             getObjectPositionClass(objectPosition),
@@ -298,7 +311,7 @@ const TnwImage = /*@__PURE__*/ proxyCustomElement(class TnwImage extends H {
     render() {
         const image = this.renderImage();
         const hasCaption = Boolean(this.caption);
-        return (h(Host, { key: '3f4af5cfddaddd3633f954f1ab5e6ab393321bbd', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
+        return (h(Host, { key: 'c16a3352d007ab953fd8d9b6a6c1cbbda282ce8f', class: this.getHostClasses() }, hasCaption ? (h("figure", { class: `${this.baseClass}__figure`, part: 'figure' }, image, this.renderFigCaption())) : (image)));
     }
     get el() { return this; }
 }, [1, "tnw-image", {
@@ -332,4 +345,4 @@ defineCustomElement();
 
 export { TnwImage as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-8957a5a1.js.map
+//# sourceMappingURL=p-082bce33.js.map

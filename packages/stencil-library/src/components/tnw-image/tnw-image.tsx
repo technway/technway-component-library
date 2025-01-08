@@ -102,11 +102,10 @@ export class TnwImage {
   }
 
   componentWillLoad() {
-    validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.widthSize]);
+    validateProps([this.BorderRadius, this.alt, this.aspectRatio, this.caption, this.height, this.heightSize, this.lazyLoading, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
   }
 
   private hasWidthOrHeight(): boolean {
-    console.log({ hasWidth: isNotEmptyString(this.width), hasHeight: isNotEmptyString(this.height) });
     return isNotEmptyString(this.width) || isNotEmptyString(this.height);
   }
 

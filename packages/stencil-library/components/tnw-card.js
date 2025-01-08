@@ -5,7 +5,7 @@
 import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$5 } from './p-2b0400b3.js';
+import { d as defineCustomElement$5 } from './p-aa4fbea0.js';
 import { d as defineCustomElement$4 } from './p-247f7459.js';
 import { d as defineCustomElement$3 } from './p-fa750891.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';

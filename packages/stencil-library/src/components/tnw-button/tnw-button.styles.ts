@@ -59,16 +59,16 @@ export const styles = `
 }
 
 /* - Hover Effects - */
-:host(.${baseClass}--hoverEffect-scale-down:hover) {
+:host(.${baseClass}--hover-scale-down:hover) {
     transform: scale(0.97);
 }
-:host(.${baseClass}--hoverEffect-scale-up:hover) {
+:host(.${baseClass}--hover-scale-up:hover) {
     transform: scale(1.02);
 }
-:host(.${baseClass}--hoverEffect-contrast:hover) {
-    filter: contrast(1.1);       
+:host(.${baseClass}--hover-contrast:hover) {
+    filter: contrast(1.7);       
 }
-:host(.${baseClass}--hoverEffect-opacity:hover) {
+:host(.${baseClass}--hover-opacity:hover) {
     opacity: 0.9;
 }
 

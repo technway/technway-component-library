@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-button.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.href, this.label, this.newTab, this.size, this.type]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.hoverEffect, this.href, this.label, this.newTab, this.size, this.type]);
  *
  * GENERATED USING `npm run g:components-validations tnw-button`
  */
@@ -85,6 +85,17 @@ export function validateProps(propsValues: any[]): void {
       "primary",
       "secondary",
       "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "hoverEffect",
+    "type": [
+      "contrast",
+      "none",
+      "opacity",
+      "scale-down",
+      "scale-up"
     ],
     "isRequired": false
   },

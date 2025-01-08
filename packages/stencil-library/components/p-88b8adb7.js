@@ -6,7 +6,7 @@ import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet, h as fontFamilyStyleSheet } from './p-20eedb96.js';
 import { d as defineCustomElement$4 } from './p-a256c866.js';
-import { d as defineCustomElement$3 } from './p-2b0400b3.js';
+import { d as defineCustomElement$3 } from './p-aa4fbea0.js';
 import { d as defineCustomElement$2 } from './p-a6c3ed1e.js';
 import { d as defineCustomElement$1 } from './p-29b34b17.js';
 
@@ -290,11 +290,11 @@ const TnwSubscriptionForm = /*@__PURE__*/ proxyCustomElement(class TnwSubscripti
         if (this.enableButtonSlot) {
             return h("slot", { name: 'button' });
         }
-        return (h("tnw-button", { label: this.buttonLabel, borderRadius: this.borderRadius, appearance: 'solid', appearanceColor: this.theme, part: 'button' }));
+        return (h("tnw-button", { label: this.buttonLabel, borderRadius: this.borderRadius, appearance: 'solid', appearanceColor: this.theme, hoverEffect: 'contrast', part: 'button' }));
     }
     render() {
         const parsedFormAttributes = this.parseAttributes(this.formAttributes);
-        return (h(Host, { key: '6005bc9e67b089eec3cf50d4dd2f21f425291f07', class: this.getHostClasses() }, h("form", Object.assign({ key: '3ebc0a3de4867dd92f6f10c0e0d033f39cd27363', action: this.formAction, method: this.formMethod }, parsedFormAttributes), this.renderInput(), this.renderButton())));
+        return (h(Host, { key: '67145e66997a28cc8bb4c5e8687eff6eec4ef8eb', class: this.getHostClasses() }, h("form", Object.assign({ key: 'b7fdc6289d4799d30e4fd0f3fe94646f4f9d67ec', action: this.formAction, method: this.formMethod }, parsedFormAttributes), this.renderInput(), this.renderButton())));
     }
     get el() { return this; }
 }, [1, "tnw-subscription-form", {
@@ -348,4 +348,4 @@ defineCustomElement();
 
 export { TnwSubscriptionForm as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-a3157b0d.js.map
+//# sourceMappingURL=p-88b8adb7.js.map

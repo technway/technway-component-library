@@ -168,6 +168,7 @@ export class TnwSubscriptionForm {
         borderRadius={this.borderRadius}
         appearance='solid'
         appearanceColor={this.theme}
+        hoverEffect='contrast'
         part='button'
       />
     )

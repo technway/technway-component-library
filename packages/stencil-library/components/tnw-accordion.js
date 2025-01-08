@@ -6,7 +6,7 @@ import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { c as colorStyleSheet } from './p-20eedb96.js';
 import { s as setItemExpanded, a as state } from './p-341e4e7a.js';
-import { d as defineCustomElement$4 } from './p-2b0400b3.js';
+import { d as defineCustomElement$4 } from './p-aa4fbea0.js';
 import { d as defineCustomElement$3 } from './p-3d848afd.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 

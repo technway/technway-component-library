@@ -208,6 +208,10 @@ export namespace Components {
          */
         "hoverAppearanceColor"?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto';
         /**
+          * Specifies the hover effect of the button.
+         */
+        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity';
+        /**
           * If provided, the button will render as a link with this `href`.
          */
         "href"?: string;
@@ -2126,6 +2130,10 @@ declare namespace LocalJSX {
           * Specifies the hover appearance color color for the button color.
          */
         "hoverAppearanceColor"?: 'primary' | 'secondary' | 'black' | 'white' | 'inverse' | 'auto';
+        /**
+          * Specifies the hover effect of the button.
+         */
+        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity';
         /**
           * If provided, the button will render as a link with this `href`.
          */

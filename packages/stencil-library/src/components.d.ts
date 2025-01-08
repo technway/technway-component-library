@@ -248,13 +248,33 @@ export namespace Components {
          */
         "appearanceColor"?: ColorType;
         /**
+          * The label for the card's badge. Useful for displaying categories or statuses.
+         */
+        "badgeLabel"?: string;
+        /**
           * The border radius applied to the card.
          */
         "borderRadius"?: BorderRadiusType;
         /**
+          * The href attribute for the card's button.
+         */
+        "buttonHref"?: string;
+        /**
           * The label for the card's button.
          */
         "buttonLabel"?: string;
+        /**
+          * The border radius applied to the card's button.
+         */
+        "buttonRadius"?: BorderRadiusType;
+        /**
+          * Controls the spacing between elements inside the content.
+         */
+        "contentSpacing"?: SizeType;
+        /**
+          * Usw this to display a date. Useful for articles and blog posts.
+         */
+        "date"?: string;
         /**
           * The card's description text.
          */
@@ -276,6 +296,10 @@ export namespace Components {
          */
         "imageAlt"?: string;
         /**
+          * The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.
+         */
+        "imageHeight"?: string;
+        /**
           * The image source for the card.
          */
         "imageSrc"?: string;
@@ -284,7 +308,7 @@ export namespace Components {
          */
         "itemsAlignment"?: LogicalAlignmentType;
         /**
-          * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+          * If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.
          */
         "largerImage"?: boolean;
         /**
@@ -300,7 +324,7 @@ export namespace Components {
          */
         "padding"?: SizeType | "none";
         /**
-          * Controls the spacing between elements inside the card.
+          * Controls the spacing between image and the contnet.
          */
         "spacing"?: SizeType;
         /**
@@ -2171,13 +2195,33 @@ declare namespace LocalJSX {
          */
         "appearanceColor"?: ColorType;
         /**
+          * The label for the card's badge. Useful for displaying categories or statuses.
+         */
+        "badgeLabel"?: string;
+        /**
           * The border radius applied to the card.
          */
         "borderRadius"?: BorderRadiusType;
         /**
+          * The href attribute for the card's button.
+         */
+        "buttonHref"?: string;
+        /**
           * The label for the card's button.
          */
         "buttonLabel"?: string;
+        /**
+          * The border radius applied to the card's button.
+         */
+        "buttonRadius"?: BorderRadiusType;
+        /**
+          * Controls the spacing between elements inside the content.
+         */
+        "contentSpacing"?: SizeType;
+        /**
+          * Usw this to display a date. Useful for articles and blog posts.
+         */
+        "date"?: string;
         /**
           * The card's description text.
          */
@@ -2199,6 +2243,10 @@ declare namespace LocalJSX {
          */
         "imageAlt"?: string;
         /**
+          * The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.
+         */
+        "imageHeight"?: string;
+        /**
           * The image source for the card.
          */
         "imageSrc"?: string;
@@ -2207,7 +2255,7 @@ declare namespace LocalJSX {
          */
         "itemsAlignment"?: LogicalAlignmentType;
         /**
-          * If `true`, the image will be displayed at a larger size, not be equally split with the content.
+          * If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.
          */
         "largerImage"?: boolean;
         /**
@@ -2223,7 +2271,7 @@ declare namespace LocalJSX {
          */
         "padding"?: SizeType | "none";
         /**
-          * Controls the spacing between elements inside the card.
+          * Controls the spacing between image and the contnet.
          */
         "spacing"?: SizeType;
         /**

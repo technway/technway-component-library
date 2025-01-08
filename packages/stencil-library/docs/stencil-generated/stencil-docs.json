@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-08T17:46:48",
+  "timestamp": "2025-01-08T20:05:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.1",
@@ -1642,10 +1642,14 @@
       ],
       "parts": [],
       "dependents": [
+        "tnw-card",
         "tnw-select"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "tnw-card": [
+          "tnw-badge"
+        ],
         "tnw-select": [
           "tnw-badge"
         ]
@@ -2228,6 +2232,14 @@
           "text": "content - Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`."
         },
         {
+          "name": "slot",
+          "text": "badge - Slot for custom badge content if the `badgeLabel` prop is not used."
+        },
+        {
+          "name": "slot",
+          "text": "date - Slot for custom date content if the `date` prop is not used."
+        },
+        {
           "name": "part",
           "text": "image - The card's `tnw-image` element or the container for the `image` slot."
         },
@@ -2258,6 +2270,18 @@
         {
           "name": "part",
           "text": "content-heading - The container `div` element for the card's heading and subheading."
+        },
+        {
+          "name": "part",
+          "text": "date - The `tnw-text` element displaying the card's date."
+        },
+        {
+          "name": "part",
+          "text": "date-icon - The `tnw-icon` element displaying the date icon."
+        },
+        {
+          "name": "part",
+          "text": "badge - The `tnw-text` element displaying the card's badge."
         }
       ],
       "usage": {
@@ -2367,6 +2391,29 @@
           "setter": false
         },
         {
+          "name": "badgeLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "badge-label",
+          "reflectToAttr": false,
+          "docs": "The label for the card's badge. Useful for displaying categories or statuses.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "borderRadius",
           "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
           "complexType": {
@@ -2438,6 +2485,29 @@
           "setter": false
         },
         {
+          "name": "buttonHref",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "button-href",
+          "reflectToAttr": false,
+          "docs": "The href attribute for the card's button.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "buttonLabel",
           "type": "string",
           "complexType": {
@@ -2449,6 +2519,139 @@
           "attr": "button-label",
           "reflectToAttr": false,
           "docs": "The label for the card's button.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "buttonRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "button-radius",
+          "reflectToAttr": false,
+          "docs": "The border radius applied to the card's button.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "contentSpacing",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "SizeType",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::SizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "content-spacing",
+          "reflectToAttr": false,
+          "docs": "Controls the spacing between elements inside the content.",
+          "docsTags": [],
+          "default": "'sm'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "date",
+          "reflectToAttr": false,
+          "docs": "Usw this to display a date. Useful for articles and blog posts.",
           "docsTags": [],
           "values": [
             {
@@ -2578,6 +2781,30 @@
           "setter": false
         },
         {
+          "name": "imageHeight",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "image-height",
+          "reflectToAttr": false,
+          "docs": "The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.",
+          "docsTags": [],
+          "default": "'300px'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "imageSrc",
           "type": "string",
           "complexType": {
@@ -2649,7 +2876,7 @@
           "mutable": false,
           "attr": "larger-image",
           "reflectToAttr": false,
-          "docs": "If `true`, the image will be displayed at a larger size, not be equally split with the content.",
+          "docs": "If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -2780,7 +3007,7 @@
           "mutable": false,
           "attr": "spacing",
           "reflectToAttr": false,
-          "docs": "Controls the spacing between elements inside the card.",
+          "docs": "Controls the spacing between image and the contnet.",
           "docsTags": [],
           "default": "'sm'",
           "values": [
@@ -2907,12 +3134,20 @@
       "styles": [],
       "slots": [
         {
+          "name": "badge",
+          "docs": "Slot for custom badge content if the `badgeLabel` prop is not used."
+        },
+        {
           "name": "button",
           "docs": "Slot for the card button. This slot can be used if the `buttonLabel` prop is not set."
         },
         {
           "name": "content",
           "docs": "Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`."
+        },
+        {
+          "name": "date",
+          "docs": "Slot for custom date content if the `date` prop is not used."
         },
         {
           "name": "description",
@@ -2933,6 +3168,10 @@
       ],
       "parts": [
         {
+          "name": "badge",
+          "docs": "The `tnw-text` element displaying the card's badge."
+        },
+        {
           "name": "button",
           "docs": "The `tnw-button` element or the container for the `button` slot."
         },
@@ -2943,6 +3182,18 @@
         {
           "name": "content-heading",
           "docs": "The container `div` element for the card's heading and subheading."
+        },
+        {
+          "name": "date",
+          "docs": "The `tnw-text` element displaying the card's date."
+        },
+        {
+          "name": "date-icon",
+          "docs": "The `tnw-icon` element displaying the date icon."
+        },
+        {
+          "name": "date-wrapper",
+          "docs": ""
         },
         {
           "name": "description",
@@ -2968,21 +3219,25 @@
       "dependents": [],
       "dependencies": [
         "tnw-image",
-        "tnw-heading",
+        "tnw-icon",
         "tnw-text",
+        "tnw-badge",
+        "tnw-heading",
         "tnw-button"
       ],
       "dependencyGraph": {
         "tnw-card": [
           "tnw-image",
-          "tnw-heading",
+          "tnw-icon",
           "tnw-text",
+          "tnw-badge",
+          "tnw-heading",
           "tnw-button"
         ],
-        "tnw-heading": [
+        "tnw-text": [
           "tnw-text"
         ],
-        "tnw-text": [
+        "tnw-heading": [
           "tnw-text"
         ]
       }
@@ -7302,6 +7557,7 @@
       "dependents": [
         "tnw-accordion",
         "tnw-anchor",
+        "tnw-card",
         "tnw-footer",
         "tnw-items-carousel",
         "tnw-list",
@@ -7316,6 +7572,9 @@
           "tnw-icon"
         ],
         "tnw-anchor": [
+          "tnw-icon"
+        ],
+        "tnw-card": [
           "tnw-icon"
         ],
         "tnw-footer": [

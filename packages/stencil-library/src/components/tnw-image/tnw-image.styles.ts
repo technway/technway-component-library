@@ -32,7 +32,7 @@ export const styles = `
 :host(.tnw-image--height-full) {
   height: var(--tnw-image-height, 100%);
 }
-.tnw-image {
+.tnw-image--full {
   width: 100%;
   height: 100%;
 }

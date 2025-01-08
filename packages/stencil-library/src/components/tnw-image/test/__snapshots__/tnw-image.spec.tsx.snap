@@ -3,7 +3,7 @@
 exports[`tnw-image Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-image alt="Default Image" class="tnw-image--width-full" src="image.jpg">
   <template shadowrootmode="open">
-    <img alt="Default Image" class="rounded-default tnw-image" loading="eager" part="image" src="image.jpg">
+    <img alt="Default Image" class="rounded-default tnw-image tnw-image--full" loading="eager" part="image" src="image.jpg">
   </template>
 </tnw-image>
 `;

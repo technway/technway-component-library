@@ -8,7 +8,7 @@ import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceC
 import { h } from './p-93b5355a.js';
 import { d as defineCustomElement$5 } from './p-d53cb6f4.js';
 import { d as defineCustomElement$4 } from './p-3d848afd.js';
-import { d as defineCustomElement$3 } from './p-d797556c.js';
+import { d as defineCustomElement$3 } from './p-8957a5a1.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass$6 = `${GLOBAL_PREFIX}-navbar-menu`;

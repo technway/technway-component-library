@@ -870,7 +870,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         /**
          * If true, the menu slot is enabled.
          */
-        this.enableMenuSlot = true;
+        this.enableMenuSlot = false;
         /**
          * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
@@ -977,7 +977,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '2192a0fba4b7f296f075b3be9b36232fb7750862', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: '84edcc2031e898fe1377796063fd39ac47ab0422', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {

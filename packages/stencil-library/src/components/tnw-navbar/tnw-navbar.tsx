@@ -111,7 +111,7 @@ export class TnwNavbar {
   /**
    * If true, the menu slot is enabled.
    */
-  @Prop() enableMenuSlot?: boolean = true;
+  @Prop() enableMenuSlot?: boolean = false;
 
   /**
    * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.

@@ -249,10 +249,13 @@ export const TnwContactBanner: StencilReactComponent<TnwContactBannerElement, Tn
             appearanceColor: 'appearance-color',
             enableContentSlot: 'enable-content-slot',
             alignment: 'alignment',
+            textAlignment: 'text-alignment',
             borderRadius: 'border-radius',
             margin: 'margin',
-            horizontalPadding: 'horizontal-padding',
-            VerticalPadding: 'vertical-padding',
+            paddingHorizontal: 'padding-horizontal',
+            paddingVertical: 'padding-vertical',
+            gap: 'gap',
+            layout: 'layout',
             disableInternalContainer: 'disable-internal-container'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')

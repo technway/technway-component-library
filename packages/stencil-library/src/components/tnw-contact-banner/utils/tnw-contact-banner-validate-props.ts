@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-contact-banner.tsx` file.
  * 
-validateProps([this.VerticalPadding, this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.horizontalPadding, this.margin]);
+validateProps([this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.gap, this.layout, this.margin, this.paddingHorizontal, this.paddingVertical, this.textAlignment]);
  *
  * GENERATED USING `npm run g:components-validations tnw-contact-banner`
  */
@@ -15,21 +15,6 @@ import { isNotEmptyString } from "../../../utils/utils";
 
 export function validateProps(propsValues: any[]): void {
   const props = [
-  {
-    "name": "VerticalPadding",
-    "type": [
-      "2xl",
-      "3xl",
-      "4xl",
-      "lg",
-      "md",
-      "none",
-      "sm",
-      "xl",
-      "xs"
-    ],
-    "isRequired": false
-  },
   {
     "name": "alignment",
     "type": [
@@ -95,17 +80,24 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
-    "name": "horizontalPadding",
+    "name": "gap",
     "type": [
       "2xl",
       "3xl",
       "4xl",
       "lg",
       "md",
-      "none",
       "sm",
       "xl",
       "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "layout",
+    "type": [
+      "horizontal",
+      "vertical"
     ],
     "isRequired": false
   },
@@ -121,6 +113,47 @@ export function validateProps(propsValues: any[]): void {
       "sm",
       "xl",
       "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "paddingHorizontal",
+    "type": [
+      "2xl",
+      "3xl",
+      "4xl",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "paddingVertical",
+    "type": [
+      "2xl",
+      "3xl",
+      "4xl",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "textAlignment",
+    "type": [
+      "center",
+      "end",
+      "left",
+      "right",
+      "start"
     ],
     "isRequired": false
   }

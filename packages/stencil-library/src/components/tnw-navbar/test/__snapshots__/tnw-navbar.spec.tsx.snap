@@ -4,16 +4,7 @@ exports[`tnw-navbar Default Behavior renders with default properties 1`] = `
 <tnw-navbar class="paddingX-md paddingY-md rounded-default tnw-navbar tnw-v-solid-auto">
   <template shadowrootmode="open">
     <div class="container">
-      <nav class="tnw-navbar__content" part="navbar">
-        <div class="tnw-navbar__middle">
-          <slot name="menu"></slot>
-        </div>
-        <div class="tnw-navbar__end">
-          <div aria-expanded="false" aria-label="Toggle Navbar Menu" class="tnw-navbar__toggler tnw-navbar__toggler--1024 tnw-navbar__toggler--closed" part="toggler" role="button">
-            <tnw-icon appearance="outlined" appearancecolor="auto" borderradius="circle" color="auto" name="tnw-menu" part="toggler-icon" size="md"></tnw-icon>
-          </div>
-        </div>
-      </nav>
+      <nav class="tnw-navbar__content" part="navbar"></nav>
     </div>
   </template>
 </tnw-navbar>

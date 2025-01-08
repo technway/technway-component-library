@@ -1,16 +1,18 @@
-export { 
-  Grid, 
-  Flex, 
-  Spacing 
-} from './Grid';
+// React component exports
+export { Grid } from './Grid';
+export { Flex } from './Grid';
+export { Spacing } from './Grid';
 
+// Component prop type exports
 export type { 
   GridProps, 
   FlexProps, 
-  SpacingProps,
-  Breakpoint,
-  GridColumns,
-  SpacingType
+  SpacingProps 
 } from './Grid';
 
-export * from './types';
+// Polymorphic component type exports
+export type { 
+  PolymorphicComponentProp, 
+  PolymorphicRef, 
+  PolymorphicComponentPropWithRef 
+} from './Grid';

@@ -7,7 +7,7 @@ export const breakpoints = {
   'md': '768px',
   'lg': '1024px',
   'xl': '1280px',
-  '2xl': '1536px'
+  'xxl': '1920px'
 };
 
 // Generate grid column utilities
@@ -25,7 +25,7 @@ export function responsiveGridColumns(): Record<string, Record<string, Record<st
     acc[`@media (min-width: ${size})`] = {
       ...Object.fromEntries(
         [1, 2, 3, 4, 6, 12].map(cols => [
-          `.${breakpoint}\\:grid-cols-${cols}`, 
+          `.${breakpoint}:grid-cols-${cols}`, 
           { 'grid-template-columns': `repeat(${cols}, minmax(0, 1fr))` }
         ])
       )

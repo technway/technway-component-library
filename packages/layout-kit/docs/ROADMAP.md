@@ -1,13 +1,13 @@
 # Layout Kit Roadmap
 
-## Version 0.3.0 (Current)
+## Version 0.3.0
 - [x] Polymorphic component support
 - [x] Basic grid system
 - [x] Flex and spacing utilities
 - [x] TypeScript integration
 - [x] PostCSS support
 
-## Version 0.4.0 (Planned)
+## Version x (Planned)
 ### Features
 - [ ] Advanced responsive utilities
 - [ ] Custom theme configuration
@@ -21,7 +21,7 @@
 - [ ] Storybook integration
 - [ ] Improved error handling
 
-## Version 0.5.0 (Future)
+## Version x (Future)
 ### Potential Enhancements
 - [ ] SSR compatibility
 - [ ] Internationalization support

@@ -1,6 +1,6 @@
 {
   "name": "@technway/layout-kit",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A lightweight and modular CSS utility framework focused on creating responsive grid systems and flexible layouts for modern web design.",
   "author": "Technway <contact@technway.biz>",
   "main": "./dist/index.js",

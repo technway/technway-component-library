@@ -284,7 +284,7 @@ const TnwSubscriptionForm = /*@__PURE__*/ proxyCustomElement(class TnwSubscripti
         }
     }
     renderInput() {
-        return (h("tnw-input", { placeholder: this.inputPlaceholder, type: 'email', inputId: this.finalInputId, label: this.inputPlaceholder, borderRadius: this.borderRadius, isRequired: true, isLabelSrOnly: true, appearance: "outlined", part: 'input' }));
+        return (h("tnw-input", { placeholder: this.inputPlaceholder, type: 'email', inputId: this.finalInputId, label: this.inputPlaceholder, borderRadius: this.borderRadius, isRequired: true, isLabelSrOnly: true, appearance: "outlined", appearanceColor: this.theme, part: 'input' }));
     }
     renderButton() {
         if (this.enableButtonSlot) {
@@ -294,7 +294,7 @@ const TnwSubscriptionForm = /*@__PURE__*/ proxyCustomElement(class TnwSubscripti
     }
     render() {
         const parsedFormAttributes = this.parseAttributes(this.formAttributes);
-        return (h(Host, { key: '7b9ec668a30faf6d6e66e5af9c56092880d77d66', class: this.getHostClasses() }, h("form", Object.assign({ key: '99a3ba729dcf67cfe3231b9f6db27fb7b747493d', action: this.formAction, method: this.formMethod }, parsedFormAttributes), this.renderInput(), this.renderButton())));
+        return (h(Host, { key: '6005bc9e67b089eec3cf50d4dd2f21f425291f07', class: this.getHostClasses() }, h("form", Object.assign({ key: '3ebc0a3de4867dd92f6f10c0e0d033f39cd27363', action: this.formAction, method: this.formMethod }, parsedFormAttributes), this.renderInput(), this.renderButton())));
     }
     get el() { return this; }
 }, [1, "tnw-subscription-form", {
@@ -348,4 +348,4 @@ defineCustomElement();
 
 export { TnwSubscriptionForm as T, defineCustomElement as d };
 
-//# sourceMappingURL=p-fa868c6d.js.map
+//# sourceMappingURL=p-a3157b0d.js.map

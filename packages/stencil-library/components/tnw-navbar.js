@@ -6,9 +6,8 @@ import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } fro
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, c as getBorderRadiusClass, u as isArrayEmpty, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass } from './p-80d80a0e.js';
 import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceColorSheet, e as extendedAppearanceStyleSheet } from './p-20eedb96.js';
 import { h } from './p-93b5355a.js';
-import { d as defineCustomElement$5 } from './p-d53cb6f4.js';
-import { d as defineCustomElement$4 } from './p-3d848afd.js';
-import { d as defineCustomElement$3 } from './p-8957a5a1.js';
+import { d as defineCustomElement$4 } from './p-d53cb6f4.js';
+import { d as defineCustomElement$3 } from './p-3d848afd.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass$6 = `${GLOBAL_PREFIX}-navbar-menu`;
@@ -421,49 +420,69 @@ let styles = `
     }
 }
 
-.${contentClass}--padding-sm {
-    padding: 5px;
+.paddingX-sm,
+:host(.paddingX-sm) {
+    padding-left: 5px;
+    padding-right: 5px;
 }
-.${contentClass}--padding-md {
-    padding: 10px;
+.paddingX-md,
+:host(.paddingX-md) {
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.${contentClass}--padding-lg {
-    padding: 15px;
+.paddingX-lg,
+:host(.paddingX-lg) {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.${contentClass}--paddingBottom-sm {
+.paddingY-sm,
+:host(.paddingY-sm) {
+    padding-top: 5px;
     padding-bottom: 5px;
 }
-.${contentClass}--paddingBottom-md {
+.paddingY-md,
+:host(.paddingY-md) {
+    padding-top: 10px;
     padding-bottom: 10px;
 }
-.${contentClass}--paddingBottom-lg {
+.paddingY-lg,
+:host(.paddingY-lg) {
+    padding-top: 15px;
     padding-bottom: 15px;
 }
-
-.${contentClass}--outlined-bottom {
+    
+.outlined-bottom,
+:host(.outlined-bottom) {
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
-.${contentClass}--outlined-bottom.${contentClass}--primary {
+.outlined-bottom.primary,
+:host(.outlined-bottom.primary) {
     border-bottom-color: var(--tnw-primary-color);
 }
-.${contentClass}--outlined-bottom.${contentClass}--secondary {
+.outlined-bottom.secondary,
+:host(.outlined-bottom.secondary) {
     border-bottom-color: var(--tnw-secondary-color);
 }
-.${contentClass}--outlined-bottom.${contentClass}--auto {
+.outlined-bottom.auto,
+:host(.outlined-bottom.auto) {
     border-bottom-color: var(--tnw-border-color);
 }
-.${contentClass}--outlined-bottom.${contentClass}--inverse {
+.outlined-bottom.inverse,
+:host(.outlined-bottom.inverse) {
     border-bottom-color: var(--tnw-border-color-inverse);
 }
-.${contentClass}--outlined-bottom.${contentClass}--light {
+.outlined-bottom.light,
+:host(.outlined-bottom.light) {
     border-bottom-color: var(--tnw-border-color-opacity);
 }
-.${contentClass}--outlined-bottom.${contentClass}--white {
+.outlined-bottom.white,
+:host(.outlined-bottom.white) {
     border-bottom-color: var(--tnw-white);
 }
-.${contentClass}--outlined-bottom.${contentClass}--black {
+.outlined-bottom.black,
+:host(.outlined-bottom.black) {
     border-bottom-color: var(--tnw-black);
 }
 
@@ -485,7 +504,7 @@ styles += styles$1;
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-navbar.tsx` file.
  *
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.hideMenuBelow, this.logoData, this.menuData, this.menuExactCenter, this.menuPlacement, this.padding, this.sticky, this.togglerPlacement]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
  *
  * GENERATED USING `npm run g:components-validations tnw-navbar`
  */
@@ -548,6 +567,13 @@ function validateProps(propsValues) {
             "isRequired": false
         },
         {
+            "name": "enableLogoSlot",
+            "type": [
+                "boolean"
+            ],
+            "isRequired": false
+        },
+        {
             "name": "hideMenuBelow",
             "type": [
                 "1024",
@@ -555,13 +581,6 @@ function validateProps(propsValues) {
                 "567",
                 "767",
                 "boolean"
-            ],
-            "isRequired": false
-        },
-        {
-            "name": "logoData",
-            "type": [
-                "string"
             ],
             "isRequired": false
         },
@@ -589,12 +608,29 @@ function validateProps(propsValues) {
             "isRequired": false
         },
         {
-            "name": "padding",
+            "name": "paddingHorizontal",
             "type": [
                 "lg",
                 "md",
                 "none",
                 "sm"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "paddingVertical",
+            "type": [
+                "lg",
+                "md",
+                "none",
+                "sm"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "scopeStylesToContainer",
+            "type": [
+                "boolean"
             ],
             "isRequired": false
         },
@@ -748,44 +784,17 @@ const renderMenu = (parsedMenuData, isMenuOpened, menuPosition) => {
     })));
 };
 
-const defaultWidth = '150px';
-const defaultHeight = 'auto';
-// Render Function for Menu
-const renderLogo = (props) => {
-    return (isNotEmptyString(props.link) ? (h("tnw-anchor", { href: props.link, labelAria: props.ariaLabel },
-        h("tnw-image", { style: {
-                width: props.width || defaultWidth,
-                height: props.height || defaultHeight,
-            }, src: props.src, alt: props.alt }))) : (h("tnw-image", { style: {
-            width: props.width || defaultWidth,
-            height: props.height || defaultHeight,
-        }, src: props.src, alt: props.alt })));
-};
-
-const renderNavbarLogo = (logoData) => {
-    return renderLogo(logoData);
-};
-
 const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
     updateHideMenuBelow(newValue) {
         this.hideMenuBelow = newValue;
     }
     parseMenuData(newValue) {
         try {
-            this.parsedMenuData = newValue ? JSON.parse(newValue) : [];
+            this.parsedMenuData = isNotEmptyString(newValue) ? JSON.parse(newValue) : [];
         }
         catch (error) {
             console.error('Navbar: Error parsing menu data', error);
             this.parsedMenuData = null;
-        }
-    }
-    parseLogoData(newValue) {
-        try {
-            this.parsedLogoData = newValue ? JSON.parse(newValue) : null;
-        }
-        catch (error) {
-            console.error('Invalid logo data JSON', error);
-            this.parsedLogoData = null;
         }
     }
     constructor() {
@@ -797,7 +806,6 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         this.tnwScrollChange = createEvent(this, "tnwScrollChange", 7);
         this.baseClass = `${GLOBAL_PREFIX}-navbar`;
         this.parsedMenuData = null;
-        this.parsedLogoData = null;
         this.isVisible = false;
         /**
          * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
@@ -816,6 +824,11 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
          */
         this.disableInternalContainer = false;
         /**
+         * When true, the component will apply its styles (like the appearance colors and effects) to its internal container element.
+         * If false, the styles will be applied directly to the component host element.
+         */
+        this.scopeStylesToContainer = false;
+        /**
          * When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.
          */
         this.menuExactCenter = false;
@@ -832,13 +845,21 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
          */
         this.borderRadius = 'default';
         /**
-         * Sets the padding size of the navigation bar.
+         * Sets the horizontal padding size of the navigation bar.
          */
-        this.padding = 'none';
+        this.paddingHorizontal = 'md';
+        /**
+         * Sets the vertical padding size of the navigation bar.
+         */
+        this.paddingVertical = 'md';
         /**
          * If true, the CTA slot is enabled.
          */
         this.enableCtaSlot = false;
+        /**
+         * If true, the logo slot is enabled.
+         */
+        this.enableLogoSlot = false;
         /**
          * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
@@ -868,13 +889,10 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         }
     }
     componentWillLoad() {
-        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.hideMenuBelow, this.logoData, this.menuData, this.menuExactCenter, this.menuPlacement, this.padding, this.sticky, this.togglerPlacement]);
+        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
         // Manually parse menu data on initial load
-        if (this.menuData) {
+        if (isNotEmptyString(this.menuData)) {
             this.parseMenuData(this.menuData);
-        }
-        if (this.logoData) {
-            this.parseLogoData(this.logoData);
         }
     }
     disconnectedCallback() {
@@ -887,18 +905,25 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         return [
             baseClass,
             sticky ? `${baseClass}--sticky` : '',
+            ...(!this.scopeStylesToContainer ? this.getConditionalClasses() : []),
         ].filter(Boolean).join(' ').trim();
     }
+    getConditionalClasses() {
+        const { appearance, appearanceColor, borderRadius, paddingHorizontal, paddingVertical } = this;
+        return [
+            (paddingHorizontal !== 'none') ? `paddingX-${paddingHorizontal}` : ``,
+            (paddingVertical !== 'none') ? `paddingY-${paddingVertical}` : ``,
+            borderRadius !== 'none' ? getBorderRadiusClass(borderRadius) : ``,
+            // Add appearance class if the appearance is not outlined
+            appearance !== 'outlined-bottom' ? getAppearanceClass(appearance, appearanceColor) : (appearance === 'outlined-bottom' ? `outlined-bottom ${appearanceColor}` : ''),
+        ].filter(Boolean);
+    }
     getContentClasses() {
-        const { baseClass, appearance, appearanceColor, borderRadius, padding } = this;
+        const { baseClass } = this;
         const contentClass = `${baseClass}__content`;
         return [
             contentClass,
-            padding !== 'none' ? `${contentClass}--padding-${padding}` : ``,
-            (appearance === 'outlined-bottom') ? `${contentClass}--paddingBottom-${padding}` : ``,
-            borderRadius !== 'none' ? getBorderRadiusClass(borderRadius) : ``,
-            // Add appearance class if the appearance is not outlined
-            appearance !== 'outlined-bottom' ? getAppearanceClass(appearance, appearanceColor) : (appearance === 'outlined-bottom' ? `${contentClass}--outlined-bottom ${contentClass}--${appearanceColor}` : ''),
+            ...(this.scopeStylesToContainer ? this.getConditionalClasses() : []),
         ].filter(Boolean).join(' ').trim();
     }
     menuToggler() {
@@ -915,16 +940,16 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         }));
     }
     menu() {
-        if (!this.parsedMenuData) {
+        if (this.parsedMenuData === null) {
             return null;
         }
         return renderMenu(this.parsedMenuData, this.isVisible, this.menuPlacement);
     }
     logo() {
-        if (!this.parsedLogoData) {
+        if (!this.enableLogoSlot) {
             return null;
         }
-        return renderNavbarLogo(this.parsedLogoData);
+        return h$1("slot", { name: 'logo' });
     }
     cta() {
         if (!this.enableCtaSlot) {
@@ -933,44 +958,44 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         return h$1("slot", { name: 'cta' });
     }
     renderContent() {
-        return (h$1("nav", { class: this.getContentClasses(), part: 'navbar' }, h$1("div", { class: `${this.baseClass}__start` }, this.togglerPlacement === 'start' && this.menuToggler(), this.logo(), this.menuPlacement === 'start' && this.menu()), this.menuPlacement === 'middle' && (h$1("div", { class: `${this.baseClass}__middle ${this.menuExactCenter ? `${this.baseClass}__middle--exact-center` : ''}` }, this.menu())), h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
+        return (h$1("nav", { class: this.getContentClasses(), part: 'navbar' }, h$1("div", { class: `${this.baseClass}__start` }, this.togglerPlacement === 'start' && this.menuToggler(), this.logo(), this.menuPlacement === 'start' && this.menu()), this.menuPlacement === 'middle' && (h$1("div", { class: `${this.baseClass}__middle ${this.menuExactCenter ? `${this.baseClass}__middle--exact-center` : ''}` }, this.menu())), (this.menu() || this.cta()) &&
+            h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '8b75e34bffb2fb15ab05d2f35c184860df35920b', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: '17f9d1fd2b60d628a53fd504509ec462b27eaa46', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {
         "hideMenuBelow": ["updateHideMenuBelow"],
-        "menuData": ["parseMenuData"],
-        "logoData": ["parseLogoData"]
+        "menuData": ["parseMenuData"]
     }; }
 }, [1, "tnw-navbar", {
         "appearance": [1],
         "appearanceColor": [1, "appearance-color"],
         "sticky": [4],
         "disableInternalContainer": [4, "disable-internal-container"],
+        "scopeStylesToContainer": [4, "scope-styles-to-container"],
         "menuExactCenter": [4, "menu-exact-center"],
         "menuPlacement": [1, "menu-placement"],
         "togglerPlacement": [1, "toggler-placement"],
         "borderRadius": [1, "border-radius"],
-        "padding": [1],
+        "paddingHorizontal": [1, "padding-horizontal"],
+        "paddingVertical": [1, "padding-vertical"],
         "menuData": [1, "menu-data"],
-        "logoData": [1, "logo-data"],
         "enableCtaSlot": [4, "enable-cta-slot"],
+        "enableLogoSlot": [4, "enable-logo-slot"],
         "hideMenuBelow": [8, "hide-menu-below"],
         "parsedMenuData": [32],
-        "parsedLogoData": [32],
         "isVisible": [32]
     }, undefined, {
         "hideMenuBelow": ["updateHideMenuBelow"],
-        "menuData": ["parseMenuData"],
-        "logoData": ["parseLogoData"]
+        "menuData": ["parseMenuData"]
     }]);
 function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["tnw-navbar", "tnw-anchor", "tnw-icon", "tnw-image", "tnw-text"];
+    const components = ["tnw-navbar", "tnw-anchor", "tnw-icon", "tnw-text"];
     components.forEach(tagName => { switch (tagName) {
         case "tnw-navbar":
             if (!customElements.get(tagName)) {
@@ -979,15 +1004,10 @@ function defineCustomElement$1() {
             break;
         case "tnw-anchor":
             if (!customElements.get(tagName)) {
-                defineCustomElement$5();
-            }
-            break;
-        case "tnw-icon":
-            if (!customElements.get(tagName)) {
                 defineCustomElement$4();
             }
             break;
-        case "tnw-image":
+        case "tnw-icon":
             if (!customElements.get(tagName)) {
                 defineCustomElement$3();
             }

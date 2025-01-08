@@ -1,4 +1,4 @@
-import { checkSpecPageError, createSpecPage } from '../../../utils/testing-utils';
+import { checkSpecPageError, createSpecPage, queryElement } from '../../../utils/testing-utils';
 import { TnwNavbar } from '../tnw-navbar';
 import { newSpecPage } from '@stencil/core/testing';
 
@@ -24,21 +24,33 @@ describe('tnw-navbar', () => {
       expect(component.menuPlacement).toBe('middle');
       expect(component.togglerPlacement).toBe('end');
       expect(component.borderRadius).toBe('default');
-      expect(component.padding).toBe('none');
+      expect(component.paddingHorizontal).toBe('md');
+      expect(component.paddingVertical).toBe('md');
       expect(component.enableCtaSlot).toBe(false);
+    });
+
+    it('applies custom appearance and color classes to host', async () => {
+      const host = await createSpecPage(
+        TnwNavbar,
+        `<tnw-navbar appearance="outlined-bottom" appearance-color="primary"></tnw-navbar>`
+      );
+      expect(host).toHaveClasses([
+        'outlined-bottom',
+        'primary'
+      ]);
     });
   });
 
   describe('Custom Prop Behavior', () => {
-    it('applies custom appearance and color classes', async () => {
-      const page = await newSpecPage({
-        components: [TnwNavbar],
-        html: `<tnw-navbar appearance="outlined-bottom" appearance-color="primary"></tnw-navbar>`
-      });
-      const nav = page.root.shadowRoot?.querySelector('nav');
-      expect(nav).toHaveClasses([
-        'tnw-navbar__content--outlined-bottom',
-        'tnw-navbar__content--primary'
+    it('applies custom appearance and color classes scoped to container when scopeStylesToContainer is true', async () => {
+      const content = await createSpecPage(
+        TnwNavbar,
+        `<tnw-navbar appearance="outlined-bottom" appearance-color="primary" scope-styles-to-container></tnw-navbar>`,
+        '.tnw-navbar__content'
+      );
+      expect(content).toHaveClasses([
+        'outlined-bottom',
+        'primary'
       ]);
     });
 
@@ -48,6 +60,14 @@ describe('tnw-navbar', () => {
         html: `<tnw-navbar sticky="true"></tnw-navbar>`,
       });
       expect(page.root).toHaveClass('tnw-navbar--sticky');
+    });
+
+    it('applies padding classes', async () => {
+      const host = await createSpecPage(
+        TnwNavbar,
+        `<tnw-navbar padding-vertical="sm" padding-horizontal="sm"></tnw-navbar>`
+      );
+      expect(host).toHaveClasses(['paddingX-sm', 'paddingY-sm']);
     });
 
     it('handles enabled internal container', async () => {
@@ -73,7 +93,7 @@ describe('tnw-navbar', () => {
       for (const placement of placements) {
         const page = await newSpecPage({
           components: [TnwNavbar],
-          html: `<tnw-navbar menu-placement="${placement}"></tnw-navbar>`
+          html: `<tnw-navbar menu-placement="${placement}" menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'></tnw-navbar>`
         });
         const menuContainer = page.root.shadowRoot?.querySelector('.tnw-navbar__middle');
 
@@ -86,16 +106,14 @@ describe('tnw-navbar', () => {
     it('applies border radius', async () => {
       const radiusTypes = ['none', 'sm', 'md', 'lg', 'xl', 'full', 'default']
       for (const radius of radiusTypes) {
-        const page = await newSpecPage({
-          components: [TnwNavbar],
-          html: `<tnw-navbar border-radius="${radius}"></tnw-navbar>`
-        });
-        const nav = page.root.shadowRoot?.querySelector('nav');
-
+        const host = await createSpecPage(
+          TnwNavbar,
+          `<tnw-navbar border-radius="${radius}"></tnw-navbar>`
+        );
         if (radius === 'none') {
-          expect(nav).not.toHaveClass('rounded-none');
+          expect(host).not.toHaveClass('rounded-none');
         } else {
-          expect(nav).toHaveClass(`rounded-${radius}`);
+          expect(host).toHaveClass(`rounded-${radius}`);
         }
       }
     });
@@ -125,26 +143,23 @@ describe('tnw-navbar', () => {
     });
   });
 
-  describe('Logo Data Parsing', () => {
-    it('parses logo data correctly', async () => {
-      const page = await newSpecPage({
-        components: [TnwNavbar],
-        html: `<tnw-navbar logo-data='{"src":"/logo.png","alt":"Company Logo","link":"/"}'>`,
-      });
-      const component = page.rootInstance as TnwNavbar;
-      expect(component.parsedLogoData).not.toBeNull();
-      expect(component.parsedLogoData.src).toBe('/logo.png');
-      expect(component.parsedLogoData.alt).toBe('Company Logo');
-      expect(component.parsedLogoData.link).toBe('/');
-
-      const logoElement = page.root.shadowRoot?.querySelector('tnw-image');
-      expect(logoElement).not.toBeNull();
-      expect(logoElement?.getAttribute('src')).toBe('/logo.png');
-      expect(logoElement?.getAttribute('alt')).toBe('Company Logo');
-    });
-  });
-
   describe('Slot Behavior', () => {
+    it('enables Logo slot when prop is set', async () => {
+      const logoElement = await createSpecPage(
+        TnwNavbar,
+        `
+        <tnw-navbar
+          enable-logo-slot
+        >
+          <tnw-image slot="logo" src="/logo.png" alt="logo"></tnw-image>
+        </tnw-navbar>`,
+        'tnw-image',
+        false
+      );
+
+      expect(logoElement).not.toBeNull();
+    });
+
     it('enables CTA slot when prop is set', async () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
@@ -172,25 +187,25 @@ describe('tnw-navbar', () => {
 
   describe('Parts Rendering', () => {
     it('renders navbar start section', async () => {
-      const page = await newSpecPage({
-        components: [TnwNavbar],
-        html: `
+      const host = await createSpecPage(
+        TnwNavbar,
+        `
         <tnw-navbar
-          logo-data='{"src":"/logo.png","alt":"Company Logo"}'
+          enable-logo-slot
           menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"start", "hideMenuBelow":"1024", "itemsSize":"sm", "itemsColor":"auto"}'
-          menu-placement="start">
-        </tnw-navbar>`,
-      });
-      
-      const startSection = page.root.shadowRoot?.querySelector('.tnw-navbar__start');
-      
+          menu-placement="start"
+        >
+          <tnw-image slot="logo" src="/logo.png" alt="logo"></tnw-image>
+        </tnw-navbar>`
+      ) as HTMLTnwNavbarElement;
+
+      const startSection = queryElement(host, '.tnw-navbar__start');
       expect(startSection).not.toBeNull();
-      
-      const logoElement = startSection?.querySelector('tnw-image');
+
+      const logoElement = queryElement(host, 'tnw-image', false);
       expect(logoElement).not.toBeNull();
-      expect(logoElement?.getAttribute('src')).toBe('/logo.png');
-      
-      const menuElement = page.root.shadowRoot?.querySelector('[part="menu"]');
+
+      const menuElement = queryElement(host, '[part="menu"]');
       expect(menuElement).not.toBeNull();
     });
 
@@ -202,10 +217,10 @@ describe('tnw-navbar', () => {
           menu-placement="middle">
         </tnw-navbar>`,
       });
-      
+
       const middleSection = page.root.shadowRoot?.querySelector('.tnw-navbar__middle');
       expect(middleSection).not.toBeNull();
-      
+
       const menuElement = page.root.shadowRoot?.querySelector('[part="menu"]');
       expect(menuElement).not.toBeNull();
     });
@@ -218,10 +233,10 @@ describe('tnw-navbar', () => {
           menu-placement="end">
         </tnw-navbar>`,
       });
-      
+
       const endSection = page.root.shadowRoot?.querySelector('.tnw-navbar__end');
       expect(endSection).not.toBeNull();
-      
+
       const menuElement = page.root.shadowRoot?.querySelector('[part="menu"]');
       expect(menuElement).not.toBeNull();
     });
@@ -233,7 +248,7 @@ describe('tnw-navbar', () => {
         components: [TnwNavbar],
         html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
       });
-      
+
       const toggler = page.root.shadowRoot?.querySelector('[part="toggler"]');
       expect(toggler).not.toBeNull();
       expect(toggler?.getAttribute('aria-label')).toBe('Toggle Navbar Menu');
@@ -244,7 +259,7 @@ describe('tnw-navbar', () => {
         components: [TnwNavbar],
         html: `<tnw-navbar menu-data='{"menuItems":[],"hideMenuBelow":"1024"}'>`,
       });
-      
+
       const toggler = page.root.shadowRoot?.querySelector('[part="toggler"]');
       expect(toggler).toBeNull();
     });
@@ -254,34 +269,34 @@ describe('tnw-navbar', () => {
         components: [TnwNavbar],
         html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
       });
-      
+
       const component = page.rootInstance as TnwNavbar;
       const toggler = page.root.shadowRoot?.querySelector('[part="toggler"]') as HTMLElement;
-      
+
       // Initial state
       expect(component.isVisible).toBe(false);
-      
+
       // Simulate click to open menu
       toggler?.dispatchEvent(new Event('click'));
       await page.waitForChanges();
-      
+
       expect(component.isVisible).toBe(true);
-      
+
       // Simulate click to close menu
       toggler?.dispatchEvent(new Event('click'));
       await page.waitForChanges();
-      
+
       expect(component.isVisible).toBe(false);
     });
 
     it('renders toggler at start when placement is set to start', async () => {
-      const page = await newSpecPage({
-        components: [TnwNavbar],
-        html: `<tnw-navbar toggler-placement="start" menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
-      });
-      
-      const startToggler = page.root.shadowRoot?.querySelector('.tnw-navbar__start [part="toggler"]');
-      expect(startToggler).not.toBeNull();
+      const toggler = await createSpecPage(
+        TnwNavbar,
+        `<tnw-navbar toggler-placement="start" menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
+        '.tnw-navbar__start [part="toggler"]'
+      );
+
+      expect(toggler).not.toBeNull();
     });
 
     it('renders toggler at end when placement is set to end', async () => {
@@ -289,7 +304,7 @@ describe('tnw-navbar', () => {
         components: [TnwNavbar],
         html: `<tnw-navbar toggler-placement="end" menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
       });
-      
+
       const endToggler = page.root.shadowRoot?.querySelector('.tnw-navbar__end [part="toggler"]');
       expect(endToggler).not.toBeNull();
     });

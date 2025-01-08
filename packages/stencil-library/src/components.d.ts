@@ -694,10 +694,6 @@ export namespace Components {
      */
     interface TnwImage {
         /**
-          * Determines the border radius of the image.
-         */
-        "BorderRadius": BorderRadiusType;
-        /**
           * The alternative text for the image, used for accessibility.
          */
         "alt": string;
@@ -705,6 +701,10 @@ export namespace Components {
           * The aspect ratio of the image (width / height). Useful for maintaining image proportions.
          */
         "aspectRatio"?: AspectRatioType;
+        /**
+          * Determines the border radius of the image.
+         */
+        "borderRadius": BorderRadiusType;
         /**
           * An optional caption to be displayed below the image.
          */
@@ -2593,10 +2593,6 @@ declare namespace LocalJSX {
      */
     interface TnwImage {
         /**
-          * Determines the border radius of the image.
-         */
-        "BorderRadius"?: BorderRadiusType;
-        /**
           * The alternative text for the image, used for accessibility.
          */
         "alt": string;
@@ -2604,6 +2600,10 @@ declare namespace LocalJSX {
           * The aspect ratio of the image (width / height). Useful for maintaining image proportions.
          */
         "aspectRatio"?: AspectRatioType;
+        /**
+          * Determines the border radius of the image.
+         */
+        "borderRadius"?: BorderRadiusType;
         /**
           * An optional caption to be displayed below the image.
          */

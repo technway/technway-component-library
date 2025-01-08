@@ -191,7 +191,7 @@ export class TnwCard {
     if (isNotEmptyString(this.imageSrc)) {
       return (
         <div class={`${this.baseClass}__image`} part='image'>
-          <tnw-image src={this.imageSrc} alt={this.heading || this.imageAlt} BorderRadius={this.borderRadius} part='image' />
+          <tnw-image src={this.imageSrc} alt={this.heading || this.imageAlt} borderRadius={this.borderRadius} part='image' />
         </div>
       )
     }

@@ -7,7 +7,7 @@ import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupporte
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { d as defineCustomElement$5 } from './p-2b0400b3.js';
 import { d as defineCustomElement$4 } from './p-247f7459.js';
-import { d as defineCustomElement$3 } from './p-c8a09d4d.js';
+import { d as defineCustomElement$3 } from './p-fa750891.js';
 import { d as defineCustomElement$2 } from './p-b708dbe9.js';
 
 const baseClass = `${GLOBAL_PREFIX}-card`;
@@ -423,7 +423,7 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
             return (h("div", { class: `${this.baseClass}__image`, part: 'image-container' }, h("slot", { name: 'image' })));
         }
         if (isNotEmptyString(this.imageSrc)) {
-            return (h("div", { class: `${this.baseClass}__image`, part: 'image' }, h("tnw-image", { src: this.imageSrc, alt: this.heading || this.imageAlt, BorderRadius: this.borderRadius, part: 'image' })));
+            return (h("div", { class: `${this.baseClass}__image`, part: 'image' }, h("tnw-image", { src: this.imageSrc, alt: this.heading || this.imageAlt, borderRadius: this.borderRadius, part: 'image' })));
         }
         return null;
     }

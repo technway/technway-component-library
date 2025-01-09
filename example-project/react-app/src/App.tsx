@@ -1,38 +1,15 @@
-import { TnwAccordion, TnwAccordionGroup } from '@technway/react-library/src/components';
+import { Grid } from '@technway/layout-kit';
 import './App.css';
+import Accordion from './components/accordion/accordion';
+import AccordionGroup from './components/accordion/accordion-group';
 
 function App() {
   return (
-    <div>
-      <TnwAccordion
-        heading="Accordion Test 1"
-        content="This is the content of the first accordion item."
-        expand={true}
-      />
-      <TnwAccordion
-        heading="Accordion Test 1"
-        content="This is the content of the first accordion item."
-      />
-      <TnwAccordionGroup
-        singleExpand={true}
-      >
-        <TnwAccordion
-          heading="Accordion Item 1"
-          content="This is the content for the first item."
-          appearance="underlined">
-        </TnwAccordion>
-        <TnwAccordion
-          heading="Accordion Item 2"
-          content="This is the content for the second item."
-          appearance="underlined">
-        </TnwAccordion>
-        <TnwAccordion
-          heading="Accordion Item 3"
-          content="This is the content for the third item."
-          appearance="underlined">
-        </TnwAccordion>
-      </TnwAccordionGroup>
-    </div>
+    <Grid columns={1} gap={10}>
+      <Accordion expand={true} />
+      <Accordion expand={false} />
+      <AccordionGroup />
+    </Grid>
   );
 }
 

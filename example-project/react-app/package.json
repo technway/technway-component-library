@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@technway/layout-kit": "file:../../packages/layout-kit",
     "@technway/react-library": "file:../../packages/react-library",
     "@technway/stencil-library": "file:../../packages/stencil-library",
     "react": "^18.3.1",

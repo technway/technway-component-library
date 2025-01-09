@@ -9,6 +9,7 @@
     "sb": "lerna run sb",
     "docs": "lerna run docs --scope @technway/stencil-library",
     "test:stencil": "lerna run test.spec --scope @technway/stencil-library",
+    "test:stencil:u": "lerna run test.spec -- -u --scope @technway/stencil-library",
     "build:stencil": "lerna run build:stencil --scope @technway/stencil-library",
     "build:react": "lerna run build --scope @technway/react-library",
     "build:next": "lerna run build --scope @technway/next-library",

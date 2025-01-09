@@ -232,7 +232,7 @@ export class TnwCard {
             alt={this.heading || this.imageAlt}
             borderRadius={this.borderRadius}
             part='image'
-            widthSize='full'
+            width='100%'
             height={this.imageHeight}
             objectFit='cover'
           />

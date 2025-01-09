@@ -112,6 +112,10 @@ tnw-button {
     width: 100%;
 }
 
+.tnw-accordion__header {
+    cursor: pointer;
+}
+
 .tnw-accordion__header-button {
     display: flex;
     align-items: center;

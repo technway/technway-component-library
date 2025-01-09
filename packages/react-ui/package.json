@@ -1,0 +1,55 @@
+{
+  "name": "@technway/react-ui",
+  "version": "0.0.1",
+  "description": "A React UI component library built with React 18, designed for reusability and modularity. This package enables the creation of standalone, customizable React components.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/technway/technway-component-library.git"
+  },
+  "author": "Technway <contact@technway.biz>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/technway/technway-component-library/issues"
+  },
+  "homepage": "https://github.com/technway/technway-component-library#readme",
+  "scripts": {
+    "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",
+    "build": "npm run clean && rollup -c && node ./scripts/move-dts.js",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
+    "generate": "node ./scripts/generate-component.js"
+  },
+  "dependencies": {
+    "@technway/react-ui": "file:"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/react": "^18.3.12",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "prettier": "^3.4.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rollup": "^3.29.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-multi-input": "^1.5.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^5.7.3"
+  }
+}

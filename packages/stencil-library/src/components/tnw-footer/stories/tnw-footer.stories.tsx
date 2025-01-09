@@ -52,5 +52,4 @@ Standard.args = {
 export const AnotherFooter = Template.bind({});
 AnotherFooter.args = {
   ...Standard.args,
-
 };

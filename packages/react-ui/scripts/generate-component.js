@@ -33,7 +33,7 @@ if (fs.existsSync(componentDir)) {
 fs.mkdirSync(componentDir, { recursive: true });
 
 const componentTemplate = `
-import React from 'react';
+import * as React from 'react';
 
 export interface ${componentName}Props {
     children?: React.ReactNode;
@@ -82,28 +82,36 @@ const generateIndexExports = () => {
     console.log(`Updated ${indexFile} with component exports.`);
 };
 
-// Generate input for rollup.config.js
+// Append new component to rollup.config.js input
 const updateRollupConfig = () => {
-    const componentDirs = fs.readdirSync(componentsDir);
-    const inputs = [];
-
-    componentDirs.forEach((dirName) => {
-        const dirPath = path.join(componentsDir, dirName);
-        const tsxFile = path.join(dirPath, `${dirName}.tsx`);
-
-        if (fs.lstatSync(dirPath).isDirectory() && fs.existsSync(tsxFile)) {
-            inputs.push(`        ${dirName}: 'src/components/${dirName}/${dirName}.tsx',`);
-        }
-    });
-
     const rollupConfig = fs.readFileSync(rollupConfigFile, 'utf8');
+    const inputPattern = /input:\s*\{([\s\S]*?)\},/; // Match the `input` object
+    const match = rollupConfig.match(inputPattern);
+
+    if (!match) {
+        console.error('Error: Could not find "input" object in rollup.config.js');
+        process.exit(1);
+    }
+
+    const existingInputs = match[1].trim();
+    const newInput = `        ${componentName}: 'src/components/${componentName}/${componentName}.tsx',`;
+
+    // Check if the component input already exists
+    if (existingInputs.includes(newInput)) {
+        console.log(`Rollup config already contains input for ${componentName}`);
+        return;
+    }
+
+    // Append the new input to the existing inputs
+    const updatedInputs = `${existingInputs}\n${newInput}`;
+
     const updatedRollupConfig = rollupConfig.replace(
-        /input: \{([\s\S]*?)\},/,
-        `input: {\n${inputs.join('\n')}\n    },`
+        inputPattern,
+        `input: {\n${updatedInputs}\n    },`
     );
 
     fs.writeFileSync(rollupConfigFile, updatedRollupConfig);
-    console.log(`Updated ${rollupConfigFile} with component inputs.`);
+    console.log(`Updated ${rollupConfigFile} with new input for ${componentName}`);
 };
 
 // Run the update functions

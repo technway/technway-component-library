@@ -44,6 +44,9 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs.js",
       "default": "./dist/index.js"
+    },
+    "./stencil-library.css": {
+      "default": "./dist/stencil-library/stencil-library.css"
     }
   },
   "repository": {

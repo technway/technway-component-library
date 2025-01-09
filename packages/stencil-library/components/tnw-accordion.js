@@ -120,6 +120,10 @@ tnw-button {
     width: 100%;
 }
 
+.${baseClass}__header {
+    cursor: pointer;
+}
+
 .${baseClass}__header-button {
     display: flex;
     align-items: center;
@@ -292,6 +296,10 @@ function validateProps(propsValues) {
 }
 
 const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion extends H {
+    watchExpandHandler(newValue) {
+        this.isExpanded = newValue;
+        setItemExpanded(this.uniqueId, newValue);
+    }
     constructor() {
         super();
         this.__registerHost();
@@ -323,9 +331,9 @@ const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion exten
          */
         this.borderRadius = "default";
         this.toggleAccordion = () => {
-            const newState = !this.isExpanded;
-            setItemExpanded(this.uniqueId, newState);
-            this.accordionToggled.emit({ id: this.uniqueId, expanded: newState });
+            this.isExpanded = !this.isExpanded;
+            setItemExpanded(this.uniqueId, this.isExpanded);
+            this.accordionToggled.emit({ id: this.uniqueId, expanded: this.isExpanded });
         };
         this.handleKeyDown = (event) => {
             if (event.key === 'Enter' || event.key === ' ') {
@@ -336,13 +344,14 @@ const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion exten
         this.initializeStyles();
     }
     connectedCallback() {
-        if (typeof state.expandedItems[this.uniqueId] === 'undefined') {
-            setItemExpanded(this.uniqueId, this.expand);
-        }
         this.setUniqueId();
         this.applyStyles();
     }
     componentWillLoad() {
+        this.isExpanded = this.expand;
+        if (typeof state.expandedItems[this.uniqueId] === 'undefined') {
+            setItemExpanded(this.uniqueId, this.expand);
+        }
         validateProps([this.accordionId, this.appearance, this.appearanceColor, this.borderRadius, this.color, this.content, this.disableExpandIconRotate, this.enableCustomExpandIcon, this.expand, this.heading]);
     }
     initializeStyles() {
@@ -392,15 +401,6 @@ const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion exten
         else {
             this.uniqueId = generateRandomId(this.baseClass);
         }
-    }
-    /**
-     * Determines if the accordion item is expanded by checking the store.
-     * If no state exists for the item, it uses the 'expand' prop.
-     */
-    get isExpanded() {
-        return state.expandedItems[this.uniqueId] !== undefined
-            ? state.expandedItems[this.uniqueId]
-            : this.expand;
     }
     getHostClasses() {
         const { baseClass, appearance, appearanceColor, borderRadius } = this;
@@ -476,9 +476,12 @@ const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion exten
     render() {
         const buttonId = `${this.uniqueId}-header`;
         const contentId = `${this.uniqueId}-body`;
-        return (h(Host, { key: '6d195c4834cc546660174e0ab228c19b87e4faf9', class: this.getHostClasses() }, this.renderHeader(buttonId, contentId), this.renderBody(buttonId, contentId)));
+        return (h(Host, { key: '3b2adfab976a117e363cfbb4950c94517c1a6d2f', class: this.getHostClasses() }, this.renderHeader(buttonId, contentId), this.renderBody(buttonId, contentId)));
     }
     get el() { return this; }
+    static get watchers() { return {
+        "expand": ["watchExpandHandler"]
+    }; }
 }, [1, "tnw-accordion", {
         "heading": [1],
         "content": [1],
@@ -490,7 +493,10 @@ const TnwAccordion$1 = /*@__PURE__*/ proxyCustomElement(class TnwAccordion exten
         "enableCustomExpandIcon": [4, "enable-custom-expand-icon"],
         "disableExpandIconRotate": [4, "disable-expand-icon-rotate"],
         "borderRadius": [1, "border-radius"],
-        "uniqueId": [32]
+        "uniqueId": [32],
+        "isExpanded": [32]
+    }, undefined, {
+        "expand": ["watchExpandHandler"]
     }]);
 function defineCustomElement$1() {
     if (typeof customElements === "undefined") {

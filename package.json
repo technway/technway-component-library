@@ -2,16 +2,18 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "example-project/*"
   ],
   "scripts": {
-    "build:stencil": "lerna run build:stencil --scope @technway/stencil-library",
-    "build:react": "lerna run build --scope @technway/react-library",
-    "build:next": "lerna run build --scope @technway/next-library",
+    "build:stencil": "lerna run build:stencil --workspace=@technway/stencil-library",
+    "build:react": "lerna run build --workspace=@technway/react-library",
+    "build:next": "lerna run build --workspace=@technway/next-library",
     "build:all": "npm run build:stencil && npm run build:react && npm run build:next",
     "build:layout-kit": "npm run build --workspace=@technway/layout-kit",
     "lint:layout-kit": "npm run lint --workspace=@technway/layout-kit",
-    "test:layout-kit": "npm run test --workspace=@technway/layout-kit"
+    "test:layout-kit": "npm run test --workspace=@technway/layout-kit",
+    "react-app": "npm run dev --workspace=react-app"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",

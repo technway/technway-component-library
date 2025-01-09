@@ -152,7 +152,7 @@ export class TnwFooter {
     brand?: { logo?: string; name?: string },
     socialmedia?: Array<{ iconName: string; url: string }>
   ) {
-    if (!brand || (!brand.logo && !brand.name)) return null;
+    if (!brand || (!brand.logo && !brand.name)) return <slot name="brand" />;
 
     return (
       <div class={`${this.baseClass}__column ${this.baseClass}__brand`} part="brand">
@@ -164,57 +164,64 @@ export class TnwFooter {
   }
 
   private renderLinks(links?: { heading?: string; items?: Array<{ label: string; url: string, newTab?: boolean }> }) {
-    if (!links || !links.items?.length) return null;
-
     return (
       <div class={`${this.baseClass}__column ${this.baseClass}__links`} part="links">
         {this.renderHeading(links.heading)}
         <ul class={`${this.baseClass}__list`}>
-          {links.items.map(link => (
-            <li>
-              <tnw-anchor
-                class={`${this.baseClass}__list-item`}
-                href={link.url}
-                {...(link.newTab ? { newTab: true } : { newTab: false })}
-                textDecoration='underline'
-                color={this.textColor}
-              >
-                {link.label}
-              </tnw-anchor>
-            </li>
-          ))}
+          {(!links || !links.items?.length) ? (
+            <slot name="links" />
+          ) : (
+            links.items.map(link => (
+              <li>
+                <tnw-anchor
+                  class={`${this.baseClass}__list-item`}
+                  href={link.url}
+                  {...(link.newTab ? { newTab: true } : { newTab: false })}
+                  textDecoration='underline'
+                  color={this.textColor}
+                >
+                  {link.label}
+                </tnw-anchor>
+              </li>
+            ))
+          )}
         </ul>
       </div>
     );
   }
 
   private renderContact(contact?: { heading?: string; email?: string; phone?: string }) {
-    if (!contact || (!contact.email && !contact.phone)) return null;
-
     return (
       <div class={`${this.baseClass}__column ${this.baseClass}__contact`} part="contact">
         {this.renderHeading(contact.heading)}
         <ul class={`${this.baseClass}__list`}>
-          {contact.email && (
-            <li>
-              <tnw-anchor
-                class={`${this.baseClass}__list-item`}
-                href={`mailto:${contact.email}`}
-                text={contact.email}
-                newTab
-                textDecoration='underline'
-                color={this.textColor}
-              />
-            </li>
-          )}
-          {contact.phone && (
-            <li>
-              <tnw-text
-                class={`${this.baseClass}__list-item`}
-                text={contact.phone}
-                color={this.textColor}
-              />
-            </li>
+          {!contact || (!contact.email && !contact.phone) ? (
+            <slot name="contact" />
+          ) : (
+            <Fragment>
+              {contact.email && (
+                <li>
+                  <tnw-anchor
+                    class={`${this.baseClass}__list-item`}
+                    href={`mailto:${contact.email}`}
+                    text={contact.email}
+                    newTab
+                    textDecoration='underline'
+                    color={this.textColor}
+                  />
+                </li>
+              )}
+
+              {contact.phone && (
+                <li>
+                  <tnw-text
+                    class={`${this.baseClass}__list-item`}
+                    text={contact.phone}
+                    color={this.textColor}
+                  />
+                </li>
+              )}
+            </Fragment>
           )}
         </ul>
       </div>
@@ -222,15 +229,18 @@ export class TnwFooter {
   }
 
   private renderSocialMedia(socialmedia?: Array<{ iconName: string; url: string }>) {
-    if (!socialmedia?.length) return null;
-
     return (
       <div class={`${this.baseClass}__socialmedia`} part="socialmedia">
-        {socialmedia.map(icon => (
-          <tnw-anchor href={icon.url} newTab hideNewTabIcon textDecoration='none'>
-            <tnw-icon name={icon.iconName} size='md' color={this.textColor} />
-          </tnw-anchor>
-        ))}
+        {!socialmedia?.length
+          ? (
+            <slot name="socialmedia" />
+          ) : (
+            socialmedia.map(icon => (
+              <tnw-anchor href={icon.url} newTab hideNewTabIcon textDecoration='none'>
+                <tnw-icon name={icon.iconName} size='md' color={this.textColor} />
+              </tnw-anchor>
+            )))
+        }
       </div>
     );
   }

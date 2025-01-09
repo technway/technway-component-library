@@ -3,9 +3,17 @@
   "version": "independent",
   "npmClient": "npm",
   "packages": [
-    "packages/*"
+    "packages/*",
+    "example-project/*"
   ],
   "command": {
+    "publish": {
+      "ignoreChanges": [
+        "example-project/*",
+        "**/package.json",
+        "**/package-lock.json"
+      ]
+    },
     "version": {
       "message": "chore: version bump and changelog updates [skip ci]"
     }

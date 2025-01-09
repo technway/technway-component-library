@@ -111,6 +111,10 @@ tnw-button {
     width: 100%;
 }
 
+.${baseClass}__header {
+    cursor: pointer;
+}
+
 .${baseClass}__header-button {
     display: flex;
     align-items: center;

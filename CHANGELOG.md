@@ -41,6 +41,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.3.1](https://github.com/technway/technway-component-library/compare/root-v3.3.0...root-v3.3.1) (2025-01-09)
+
+
+### Bug Fixes
+
+* **react-ui:** resolve import issues for components and improve type declarations ([7725c87](https://github.com/technway/technway-component-library/commit/7725c87fa81676eb264eec940882f921f70234b4))
+* **tnw-accordion:** resolve issue with accordion toggling in React ([df4531a](https://github.com/technway/technway-component-library/commit/df4531adf33e306ce43e3459bed330504bc932c3))
+* **tnw-card:** resolve image width ([a17fed3](https://github.com/technway/technway-component-library/commit/a17fed38808e90f722cca5fe5f3169474aa83b2c))
+* **tnw-footer:** handle missing data gracefully in display slots ([313c55f](https://github.com/technway/technway-component-library/commit/313c55f5403796d8640c2bcddcb01b523551c34b))
+
 ## [3.3.0](https://github.com/technway/technway-component-library/compare/root-v3.2.0...root-v3.3.0) (2025-01-08)
 
 

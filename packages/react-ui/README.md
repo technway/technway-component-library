@@ -102,6 +102,10 @@ const NewComponent: React.FC<NewComponentProps> = ({ message }) => {
 export default NewComponent;
 ```
 
+## **Removing a Component**
+
+run `npm run remove ComponentName`
+
 ---
 
 ### **4. Test Locally**

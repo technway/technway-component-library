@@ -4,10 +4,13 @@ import Accordion from './components/accordion/accordion';
 import AccordionGroup from './components/accordion/accordion-group';
 import ArticleCard from './components/accordion/card/card';
 import { TnwHeading } from '@technway/react-library/src/components';
+import ReactUiButton from './components/ui/button';
 
 function App() {
   return (
     <Flex direction="col" gap={16}>
+      <ReactUiButton />
+
       <Flex direction="col" gap={6}>
         <TnwHeading text='Accordions' level='h2' />
         <Flex direction="col" gap={10}>

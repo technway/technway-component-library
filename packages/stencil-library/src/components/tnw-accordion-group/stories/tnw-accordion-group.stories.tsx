@@ -20,7 +20,7 @@ export const Standard = Template.bind({});
 Standard.args = {
   singleExpand: false,
   defaultSlot: `
-    \na
+    \n
     \n
     <tnw-accordion 
       heading="Accordion Item 1" 
@@ -37,7 +37,7 @@ Standard.args = {
       content="This is the content for the third item." 
       appearance="underlined">
     </tnw-accordion>
-    \na
+    \n
     \n
   `,
 };

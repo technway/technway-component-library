@@ -6,9 +6,12 @@
     "example-project/*"
   ],
   "scripts": {
-    "build:stencil": "lerna run build:stencil --workspace=@technway/stencil-library",
-    "build:react": "lerna run build --workspace=@technway/react-library",
-    "build:next": "lerna run build --workspace=@technway/next-library",
+    "sb": "lerna run sb",
+    "docs": "lerna run docs --scope @technway/stencil-library",
+    "test:stencil": "lerna run test.spec --scope @technway/stencil-library",
+    "build:stencil": "lerna run build:stencil --scope @technway/stencil-library",
+    "build:react": "lerna run build --scope @technway/react-library",
+    "build:next": "lerna run build --scope @technway/next-library",
     "build:all": "npm run build:stencil && npm run build:react && npm run build:next",
     "build:layout-kit": "npm run build --workspace=@technway/layout-kit",
     "lint:layout-kit": "npm run lint --workspace=@technway/layout-kit",

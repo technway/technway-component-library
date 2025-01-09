@@ -1,10 +1,10 @@
-import { Component, Element, Event, EventEmitter, Host, Prop, State, h } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
 import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-accordion.styles';
 import { BorderRadiusType, ColorType, TextColorType } from '../../utils/component-props-types';
 import { colorStyleSheet } from '../../utils/shared-styles';
-import { validateProps } from './utils/tnw-accordion-validate-props';
 import { setItemExpanded, state } from '../../stores/accordion-store';
+import { validateProps } from './utils/tnw-accordion-validate-props';
 
 /**
  * The `tnw-accordion` component provides a collapsible/expandable section
@@ -32,6 +32,7 @@ export class TnwAccordion {
   @Element() el!: HTMLTnwAccordionElement;
 
   @State() uniqueId: string;
+  @State() isExpanded: boolean;
 
   // To DO:
   /**
@@ -52,6 +53,12 @@ export class TnwAccordion {
    * If `true`, the accordion item will be expanded by default.
    */
   @Prop({ reflect: true }) expand: boolean = false;
+
+  @Watch('expand')
+  watchExpandHandler(newValue: boolean) {
+    this.isExpanded = newValue;
+    setItemExpanded(this.uniqueId, newValue);
+  }
 
   /**
    * Unique ID of the accordion item. Used for accessibility.
@@ -98,16 +105,15 @@ export class TnwAccordion {
   }
 
   connectedCallback() {
-    if (typeof state.expandedItems[this.uniqueId] === 'undefined') {
-      setItemExpanded(this.uniqueId, this.expand);
-    }
-
     this.setUniqueId();
-
     this.applyStyles();
   }
 
   componentWillLoad() {
+    this.isExpanded = this.expand;
+    if (typeof state.expandedItems[this.uniqueId] === 'undefined') {
+      setItemExpanded(this.uniqueId, this.expand);
+    }
     validateProps([this.accordionId, this.appearance, this.appearanceColor, this.borderRadius, this.color, this.content, this.disableExpandIconRotate, this.enableCustomExpandIcon, this.expand, this.heading]);
   }
 
@@ -161,10 +167,10 @@ export class TnwAccordion {
   }
 
   private toggleAccordion = () => {
-    const newState = !this.isExpanded;
-    setItemExpanded(this.uniqueId, newState);
+    this.isExpanded = !this.isExpanded;
+    setItemExpanded(this.uniqueId, this.isExpanded);
 
-    this.accordionToggled.emit({ id: this.uniqueId, expanded: newState });
+    this.accordionToggled.emit({ id: this.uniqueId, expanded: this.isExpanded });
   };
 
   private handleKeyDown = (event: KeyboardEvent) => {
@@ -173,16 +179,6 @@ export class TnwAccordion {
       this.toggleAccordion();
     }
   };
-
-  /**
-   * Determines if the accordion item is expanded by checking the store.
-   * If no state exists for the item, it uses the 'expand' prop.
-   */
-  private get isExpanded(): boolean {
-    return state.expandedItems[this.uniqueId] !== undefined
-      ? state.expandedItems[this.uniqueId]
-      : this.expand;
-  }
 
   private getHostClasses(): string {
     const { baseClass, appearance, appearanceColor, borderRadius } = this;

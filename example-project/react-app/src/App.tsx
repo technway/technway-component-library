@@ -2,14 +2,23 @@ import { Flex, Grid } from '@technway/layout-kit';
 import './App.css';
 import Accordion from './components/accordion/accordion';
 import AccordionGroup from './components/accordion/accordion-group';
-import ArticleCard from './components/accordion/card/card';
+import ArticleCard from './components/card/card';
 import { TnwHeading } from '@technway/react-library/src/components';
 import ReactUiButton from './components/ui/button';
+import Navbar from './components/navbar/navbar';
 
 function App() {
   return (
     <Flex direction="col" gap={16}>
-      <ReactUiButton />
+      <Flex direction="col" gap={6}>
+        <TnwHeading text='Navbar' level='h2' />
+        <Navbar />
+      </Flex>
+
+      <Flex direction="col" gap={6}>
+        <TnwHeading text='React UI' level='h2' />
+        <ReactUiButton />
+      </Flex>
 
       <Flex direction="col" gap={6}>
         <TnwHeading text='Accordions' level='h2' />

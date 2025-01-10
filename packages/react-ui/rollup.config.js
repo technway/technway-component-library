@@ -22,9 +22,11 @@ const getOutputPath = (chunkInfo) => {
 
 module.exports = {
     input: {
-        index: 'src/index.ts',
+index: 'src/index.ts',
         Button: 'src/components/Button/Button.tsx',
-        Card: 'src/components/Card/Card.tsx'
+        Card: 'src/components/Card/Card.tsx',
+        NavbarMenu: 'src/components/NavbarMenu/NavbarMenu.tsx',
+        RenderingTester: 'src/components/RenderingTester/RenderingTester.tsx',
     },
     output: [
         {

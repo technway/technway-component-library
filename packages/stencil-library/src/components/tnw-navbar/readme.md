@@ -48,6 +48,7 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 | `enableLogoSlot`           | `enable-logo-slot`           | If true, the logo slot is enabled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `boolean`                                                                                             | `false`     |
 | `enableMenuSlot`           | `enable-menu-slot`           | If true, the menu slot is enabled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `boolean`                                                                                             | `false`     |
 | `hideMenuBelow`            | `hide-menu-below`            | The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.                                                                                                                                                                                                                                                                                                                                                                                                                | `"1024" \| "1439" \| "567" \| "767" \| boolean`                                                       | `false`     |
+| `linkElement`              | --                           | An optional element to be used as the link element for the menu items.  For example, this could be a React Router Link or Next.js Link component. Example for React Router:  import { Link } from 'react-router-dom';  itemLinkElement?: typeof Link;  Example for Next.js:  import Link from 'next/link';  itemLinkElement?: typeof Link;                                                                                                                                                                    | `(props: any) => Element`                                                                             | `undefined` |
 | `menuData`                 | `menu-data`                  | The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab.. | `string`                                                                                              | `undefined` |
 | `menuExactCenter`          | `menu-exact-center`          | When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.                                                                                                                                                                                                                                                                                                                                                                               | `boolean`                                                                                             | `false`     |
 | `menuPlacement`            | `menu-placement`             | Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.                                                                                                                                                                                                                                                                                                                                                                                                                      | `"end" \| "middle" \| "start"`                                                                        | `'middle'`  |
@@ -93,17 +94,17 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 ### Depends on
 
 - [tnw-icon](../tnw-icon)
-- [tnw-anchor](../tnw-anchor)
 - [tnw-text](../tnw-text)
+- [tnw-anchor](../tnw-anchor)
 
 ### Graph
 ```mermaid
 graph TD;
   tnw-navbar --> tnw-icon
-  tnw-navbar --> tnw-anchor
   tnw-navbar --> tnw-text
-  tnw-anchor --> tnw-icon
+  tnw-navbar --> tnw-anchor
   tnw-text --> tnw-text
+  tnw-anchor --> tnw-icon
   style tnw-navbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1005,6 +1005,10 @@ export namespace Components {
          */
         "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
         /**
+          * An optional element to be used as the link element for the menu items.  For example, this could be a React Router Link or Next.js Link component. Example for React Router:  import { Link } from 'react-router-dom';  itemLinkElement?: typeof Link;  Example for Next.js:  import Link from 'next/link';  itemLinkElement?: typeof Link;
+         */
+        "linkElement"?: (props: any) => JSX.Element;
+        /**
           * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
          */
         "menuData"?: string;
@@ -2959,6 +2963,10 @@ declare namespace LocalJSX {
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
         "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
+        /**
+          * An optional element to be used as the link element for the menu items.  For example, this could be a React Router Link or Next.js Link component. Example for React Router:  import { Link } from 'react-router-dom';  itemLinkElement?: typeof Link;  Example for Next.js:  import Link from 'next/link';  itemLinkElement?: typeof Link;
+         */
+        "linkElement"?: (props: any) => JSX.Element;
         /**
           * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
          */

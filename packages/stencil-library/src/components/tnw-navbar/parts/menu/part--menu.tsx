@@ -33,5 +33,6 @@ export const renderNavbarMenu = (
         menuData,
         mergedProps.isMenuOpened,
         mergedProps.menuPosition,
+        mergedProps.itemLinkElement
     );
 };

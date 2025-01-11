@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { isArrayEmpty } from '../../../../utils/utils';
+import { isArrayEmpty, isNotEmptyString } from '../../../../utils/utils';
 import { Menu, MenuItem } from './part--menu-types';
 import { getMenuClasses, getItemClasses } from './part--menu-utils';
 import { renderDropdownMenu } from '../dropdpwn/part--dropdown';
@@ -24,7 +24,7 @@ function processParsedMenuData(parsedMenuData: Menu) {
         itemsHoverEffect,
         itemsHoverAppearance,
         itemsBorderRadius,
-        menuInvisibilityBreakpoint
+        menuInvisibilityBreakpoint,
     };
 }
 
@@ -32,17 +32,21 @@ function processParsedMenuData(parsedMenuData: Menu) {
 export const renderMenu = (
     parsedMenuData: Menu,
     isMenuOpened: boolean,
-    menuPosition: 'start' | 'middle' | 'end'
+    menuPosition: 'start' | 'middle' | 'end',
+    itemLinkElement: any
 ) => {
-    const menuItems: MenuItem[] = processParsedMenuData(parsedMenuData).items;
-    const hideMenuBelow = processParsedMenuData(parsedMenuData).hideMenuBelow;
-    const itemsSize = processParsedMenuData(parsedMenuData).itemsSize;
-    const itemsColor = processParsedMenuData(parsedMenuData).itemsColor;
-    const menuInvisibilityBreakpoint = processParsedMenuData(parsedMenuData).menuInvisibilityBreakpoint;
-    const itemsHoverAppearanceColor = processParsedMenuData(parsedMenuData).itemsHoverAppearanceColor;
-    const itemsHoverEffect = processParsedMenuData(parsedMenuData).itemsHoverEffect;
-    const itemsHoverAppearance = processParsedMenuData(parsedMenuData).itemsHoverAppearance;
-    const itemsBorderRadius = processParsedMenuData(parsedMenuData).itemsBorderRadius;
+
+    const {
+        items: menuItems,
+        hideMenuBelow,
+        itemsSize,
+        itemsColor,
+        menuInvisibilityBreakpoint,
+        itemsHoverAppearanceColor,
+        itemsHoverEffect,
+        itemsHoverAppearance,
+        itemsBorderRadius,
+    } = processParsedMenuData(parsedMenuData);
 
     const menuClasses = getMenuClasses(
         hideMenuBelow,
@@ -57,6 +61,24 @@ export const renderMenu = (
     return (
         <ul class={menuClasses} data-nav-menu part="menu">
             {menuItems.map((item) => {
+                // const LinkElement: any = itemLinkElement || (
+                //     <tnw-anchor
+                //         href={item.link}
+                //         newTab={item.newTab}
+                //         hideNewTabIcon={false}
+                //         color={itemsColor}
+                //         textDecoration="none"
+                //         size={itemsSize}
+                //         part="menu-link"
+                //         text={item.label}
+                //     >
+                //         {!isArrayEmpty(item.subMenu) && (
+                //             <tnw-icon name="tnw-chevron-down" hiddenAria={true} />
+                //         )}
+                //     </tnw-anchor>
+                // );
+                const LinkElement = typeof itemLinkElement === 'function' ? itemLinkElement : null;
+                console.log('LinkElement ', typeof itemLinkElement === 'function')
                 return (
                     <li
                         class={getItemClasses(
@@ -69,21 +91,33 @@ export const renderMenu = (
                         tabindex="0"
                         part="menu-item"
                     >
-                        {item.link ? (
-                            <tnw-anchor
-                                href={item.link}
-                                newTab={item.newTab}
-                                hideNewTabIcon={false}
-                                color={itemsColor}
-                                textDecoration="none"
-                                size={itemsSize}
-                                part="menu-link"
-                                text={item.label}
-                            >
-                                {!isArrayEmpty(item.subMenu) && (
-                                    <tnw-icon name="tnw-chevron-down" hiddenAria={true} />
-                                )}
-                            </tnw-anchor>
+                        {isNotEmptyString(item.link) ? (
+                            LinkElement !== null ? (
+                                // Render custom link component (e.g., React Router Link)
+                                <LinkElement
+                                    to={item.link}
+                                    target={item.newTab ? '_blank' : undefined}
+                                    rel={item.newTab ? 'noopener noreferrer' : undefined}
+                                    class="custom-link-class"
+                                >
+                                    {item.label}
+                                    {!isArrayEmpty(item.subMenu) && (
+                                        <tnw-icon name="tnw-chevron-down" hiddenAria={true} />
+                                    )}
+                                </LinkElement>
+                            ) : (
+                                <a
+                                    href={item.link}
+                                    target={item.newTab ? '_blank' : undefined}
+                                    rel={item.newTab ? 'noopener noreferrer' : undefined}
+                                    class="custom-link-class"
+                                >
+                                    {item.label}
+                                    {!isArrayEmpty(item.subMenu) && (
+                                        <tnw-icon name="tnw-chevron-down" hiddenAria={true} />
+                                    )}
+                                </a>
+                            )
                         ) : (
                             <tnw-text
                                 text={item.label}

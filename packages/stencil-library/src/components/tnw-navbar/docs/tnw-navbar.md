@@ -33,6 +33,20 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 | **enableLogoSlot** | <div>If true, the logo slot is enabled.</div> | `false` | `boolean` |
 | **enableMenuSlot** | <div>If true, the menu slot is enabled.</div> | `false` | `boolean` |
 | **hideMenuBelow** | <div>The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.</div> | `false` | `"1024"` \| `"1439"` \| `"567"` \| `"767"` \| `boolean` |
+| **linkElement** | <div>An optional element to be used as the link element for the menu items.
+
+For example, this could be a React Router Link or Next.js Link component.
+Example for React Router:
+
+import { Link } from 'react-router-dom';
+
+itemLinkElement?: typeof Link;
+
+Example for Next.js:
+
+import Link from 'next/link';
+
+itemLinkElement?: typeof Link;</div> | N/A | `(props: any) => Element` |
 | **menuData** | <div>The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..</div> | N/A | `string` |
 | **menuExactCenter** | <div>When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.</div> | `false` | `boolean` |
 | **menuPlacement** | <div>Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.</div> | `'middle'` | `"end"` \| `"middle"` \| `"start"` |

@@ -1,32 +1,10 @@
 import {
-    TnwImage,
     TnwButton,
+    TnwImage,
     TnwNavbar
-} from "@technway/react-library/src/components";
-import { NavbarMenu } from "@technway/react-ui";
-
-const menuItems = [
-    {
-        label: "Home",
-        link: "/",
-    },
-    {
-        label: "About",
-        link: "/about",
-    },
-    {
-        label: "Services",
-        link: "/services",
-        subMenu: [
-            { label: "Web Development", link: "/services/web-development" },
-            { label: "App Development", link: "/services/app-development" },
-        ],
-    },
-    {
-        label: "Contact",
-        link: "/contact",
-    },
-];
+} from '@technway/react-library/src/components';
+import { NavLink } from 'react-router-dom';
+import { NavLinkProps } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -38,6 +16,8 @@ const Navbar = () => {
             paddingHorizontal="none"
             appearance="outlined-bottom"
             borderRadius="none"
+            menuData={JSON.stringify(menuData)}
+            linkElement={(props: NavLinkProps) => <NavLink {...props} />}
         >
             {/* Logo */}
             <TnwImage
@@ -48,12 +28,6 @@ const Navbar = () => {
                 borderRadius="none"
             />
 
-            {/* Menu */}
-            <NavbarMenu
-                items={menuItems}
-                slot="menu"
-            />
-
             {/* CTA */}
             <TnwButton
                 label="Get Started"
@@ -61,11 +35,49 @@ const Navbar = () => {
                 appearanceColor="primary"
                 appearance="solid"
                 size="md"
-                border-radius="default"
+                borderRadius="default"
                 slot="cta"
             />
         </TnwNavbar>
-    )
-}
+    );
+};
+
+const menuData = {
+    menuItems: [
+        {
+            label: 'Home',
+            link: '/',
+            newTab: false,
+        },
+        {
+            label: 'About Us',
+            link: '/about',
+            newTab: false,
+        },
+        {
+            label: 'Services',
+            link: '/services',
+            newTab: false,
+            subMenu: [
+                {
+                    label: 'Web Development',
+                    link: '/services/web-development',
+                    newTab: false,
+                },
+                {
+                    label: 'Mobile Development',
+                    link: '/services/mobile-development',
+                    newTab: false,
+                },
+            ],
+        },
+        {
+            label: 'Contact',
+            link: '/contact',
+            newTab: false,
+        },
+    ],
+    hideMenuBelow: '1024',
+};
 
 export default Navbar;

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-09T14:39:19",
+  "timestamp": "2025-01-11T12:11:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.1",
@@ -10264,6 +10264,33 @@
           "setter": false
         },
         {
+          "name": "linkElement",
+          "type": "(props: any) => Element",
+          "complexType": {
+            "original": "(props: any) => JSX.Element",
+            "resolved": "(props: any) => Element",
+            "references": {
+              "JSX": {
+                "location": "global",
+                "id": "global::JSX"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "An optional element to be used as the link element for the menu items.\r\n\r\nFor example, this could be a React Router Link or Next.js Link component.\r\nExample for React Router:\r\n\r\nimport { Link } from 'react-router-dom';\r\n\r\nitemLinkElement?: typeof Link;\r\n\r\nExample for Next.js:\r\n\r\nimport Link from 'next/link';\r\n\r\nitemLinkElement?: typeof Link;",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(props: any) => Element"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "menuData",
           "type": "string",
           "complexType": {
@@ -10597,20 +10624,20 @@
       "dependents": [],
       "dependencies": [
         "tnw-icon",
-        "tnw-anchor",
-        "tnw-text"
+        "tnw-text",
+        "tnw-anchor"
       ],
       "dependencyGraph": {
         "tnw-navbar": [
           "tnw-icon",
-          "tnw-anchor",
+          "tnw-text",
+          "tnw-anchor"
+        ],
+        "tnw-text": [
           "tnw-text"
         ],
         "tnw-anchor": [
           "tnw-icon"
-        ],
-        "tnw-text": [
-          "tnw-text"
         ]
       }
     },

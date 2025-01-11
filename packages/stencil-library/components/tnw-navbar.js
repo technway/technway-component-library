@@ -762,27 +762,43 @@ function processParsedMenuData(parsedMenuData) {
         itemsHoverEffect,
         itemsHoverAppearance,
         itemsBorderRadius,
-        menuInvisibilityBreakpoint
+        menuInvisibilityBreakpoint,
     };
 }
 // Render Function for Menu
-const renderMenu = (parsedMenuData, isMenuOpened, menuPosition) => {
-    const menuItems = processParsedMenuData(parsedMenuData).items;
-    const hideMenuBelow = processParsedMenuData(parsedMenuData).hideMenuBelow;
-    const itemsSize = processParsedMenuData(parsedMenuData).itemsSize;
-    const itemsColor = processParsedMenuData(parsedMenuData).itemsColor;
-    const menuInvisibilityBreakpoint = processParsedMenuData(parsedMenuData).menuInvisibilityBreakpoint;
-    const itemsHoverAppearanceColor = processParsedMenuData(parsedMenuData).itemsHoverAppearanceColor;
-    const itemsHoverEffect = processParsedMenuData(parsedMenuData).itemsHoverEffect;
-    const itemsHoverAppearance = processParsedMenuData(parsedMenuData).itemsHoverAppearance;
-    const itemsBorderRadius = processParsedMenuData(parsedMenuData).itemsBorderRadius;
+const renderMenu = (parsedMenuData, isMenuOpened, menuPosition, itemLinkElement) => {
+    const { items: menuItems, hideMenuBelow, itemsSize, itemsColor, menuInvisibilityBreakpoint, itemsHoverAppearanceColor, itemsHoverEffect, itemsHoverAppearance, itemsBorderRadius, } = processParsedMenuData(parsedMenuData);
     const menuClasses = getMenuClasses(hideMenuBelow, isMenuOpened, menuPosition);
     if (menuItems === null || menuItems === undefined || menuItems.length === 0) {
         return null;
     }
     return (h("ul", { class: menuClasses, "data-nav-menu": true, part: "menu" }, menuItems.map((item) => {
+        // const LinkElement: any = itemLinkElement || (
+        //     <tnw-anchor
+        //         href={item.link}
+        //         newTab={item.newTab}
+        //         hideNewTabIcon={false}
+        //         color={itemsColor}
+        //         textDecoration="none"
+        //         size={itemsSize}
+        //         part="menu-link"
+        //         text={item.label}
+        //     >
+        //         {!isArrayEmpty(item.subMenu) && (
+        //             <tnw-icon name="tnw-chevron-down" hiddenAria={true} />
+        //         )}
+        //     </tnw-anchor>
+        // );
+        const LinkElement = typeof itemLinkElement === 'function' ? itemLinkElement : null;
+        console.log('LinkElement ', typeof itemLinkElement === 'function');
         return (h("li", { class: getItemClasses(!isArrayEmpty(item.subMenu), itemsHoverAppearanceColor, itemsHoverAppearance, itemsBorderRadius, itemsHoverEffect), tabindex: "0", part: "menu-item" },
-            item.link ? (h("tnw-anchor", { href: item.link, newTab: item.newTab, hideNewTabIcon: false, color: itemsColor, textDecoration: "none", size: itemsSize, part: "menu-link", text: item.label }, !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true })))) : (h("tnw-text", { text: item.label, textTag: "span", color: itemsColor, size: itemsSize, part: "menu-menulink" }, !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true })))),
+            isNotEmptyString(item.link) ? (LinkElement !== null ? (
+            // Render custom link component (e.g., React Router Link)
+            h(LinkElement, { to: item.link, target: item.newTab ? '_blank' : undefined, rel: item.newTab ? 'noopener noreferrer' : undefined, class: "custom-link-class" },
+                item.label,
+                !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true })))) : (h("a", { href: item.link, target: item.newTab ? '_blank' : undefined, rel: item.newTab ? 'noopener noreferrer' : undefined, class: "custom-link-class" },
+                item.label,
+                !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true }))))) : (h("tnw-text", { text: item.label, textTag: "span", color: itemsColor, size: itemsSize, part: "menu-menulink" }, !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true })))),
             !isArrayEmpty(item.subMenu) && (renderDropdownMenu({
                 itemsData: item.subMenu,
                 itemsSize: itemsSize,
@@ -957,7 +973,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             }
             return null;
         }
-        return renderMenu(this.parsedMenuData, this.isVisible, this.menuPlacement);
+        return renderMenu(this.parsedMenuData, this.isVisible, this.menuPlacement, this.linkElement);
     }
     logo() {
         if (!this.enableLogoSlot) {
@@ -977,7 +993,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '63c48282367939b94db2d7110b9e461cff655535', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: 'f001c85abfc1b6fd7b29f6fbbb40557c08424aed', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {
@@ -997,6 +1013,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         "paddingHorizontal": [1, "padding-horizontal"],
         "paddingVertical": [1, "padding-vertical"],
         "menuData": [1, "menu-data"],
+        "linkElement": [16],
         "enableCtaSlot": [4, "enable-cta-slot"],
         "enableLogoSlot": [4, "enable-logo-slot"],
         "enableMenuSlot": [4, "enable-menu-slot"],

@@ -99,6 +99,24 @@ export class TnwNavbar {
   @Prop() menuData?: string;
 
   /**
+   * An optional element to be used as the link element for the menu items.
+   * 
+   * For example, this could be a React Router Link or Next.js Link component.
+   * Example for React Router:
+   * 
+   * import { Link } from 'react-router-dom';
+   * 
+   * itemLinkElement?: typeof Link;
+   * 
+   * Example for Next.js:
+   * 
+   * import Link from 'next/link';
+   * 
+   * itemLinkElement?: typeof Link;
+   */
+  @Prop() linkElement?: (props: any) => JSX.Element;
+
+  /**
    * If true, the CTA slot is enabled.
    */
   @Prop() enableCtaSlot?: boolean = false;
@@ -255,6 +273,7 @@ export class TnwNavbar {
       this.parsedMenuData,
       this.isVisible,
       this.menuPlacement,
+      this.linkElement
     );
   }
 

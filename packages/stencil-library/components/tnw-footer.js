@@ -379,24 +379,19 @@ const TnwFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwFooter extends H {
     }
     renderBrand(brand, socialmedia) {
         if (!brand || (!brand.logo && !brand.name))
-            return null;
+            return h("slot", { name: "brand" });
         return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__brand`, part: "brand" }, brand.logo && h("tnw-image", { src: brand.logo, alt: `${brand.name || 'Brand'} logo` }), this.renderSocialMedia(socialmedia)));
     }
     renderLinks(links) {
         var _a;
-        if (!links || !((_a = links.items) === null || _a === void 0 ? void 0 : _a.length))
-            return null;
-        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__links`, part: "links" }, this.renderHeading(links.heading), h("ul", { class: `${this.baseClass}__list` }, links.items.map(link => (h("li", null, h("tnw-anchor", Object.assign({ class: `${this.baseClass}__list-item`, href: link.url }, (link.newTab ? { newTab: true } : { newTab: false }), { textDecoration: 'underline', color: this.textColor }), link.label)))))));
+        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__links`, part: "links" }, this.renderHeading(links.heading), h("ul", { class: `${this.baseClass}__list` }, (!links || !((_a = links.items) === null || _a === void 0 ? void 0 : _a.length)) ? (h("slot", { name: "links" })) : (links.items.map(link => (h("li", null, h("tnw-anchor", Object.assign({ class: `${this.baseClass}__list-item`, href: link.url }, (link.newTab ? { newTab: true } : { newTab: false }), { textDecoration: 'underline', color: this.textColor }), link.label))))))));
     }
     renderContact(contact) {
-        if (!contact || (!contact.email && !contact.phone))
-            return null;
-        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__contact`, part: "contact" }, this.renderHeading(contact.heading), h("ul", { class: `${this.baseClass}__list` }, contact.email && (h("li", null, h("tnw-anchor", { class: `${this.baseClass}__list-item`, href: `mailto:${contact.email}`, text: contact.email, newTab: true, textDecoration: 'underline', color: this.textColor }))), contact.phone && (h("li", null, h("tnw-text", { class: `${this.baseClass}__list-item`, text: contact.phone, color: this.textColor }))))));
+        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__contact`, part: "contact" }, this.renderHeading(contact.heading), h("ul", { class: `${this.baseClass}__list` }, !contact || (!contact.email && !contact.phone) ? (h("slot", { name: "contact" })) : (h(Fragment, null, contact.email && (h("li", null, h("tnw-anchor", { class: `${this.baseClass}__list-item`, href: `mailto:${contact.email}`, text: contact.email, newTab: true, textDecoration: 'underline', color: this.textColor }))), contact.phone && (h("li", null, h("tnw-text", { class: `${this.baseClass}__list-item`, text: contact.phone, color: this.textColor }))))))));
     }
     renderSocialMedia(socialmedia) {
-        if (!(socialmedia === null || socialmedia === void 0 ? void 0 : socialmedia.length))
-            return null;
-        return (h("div", { class: `${this.baseClass}__socialmedia`, part: "socialmedia" }, socialmedia.map(icon => (h("tnw-anchor", { href: icon.url, newTab: true, hideNewTabIcon: true, textDecoration: 'none' }, h("tnw-icon", { name: icon.iconName, size: 'md', color: this.textColor }))))));
+        return (h("div", { class: `${this.baseClass}__socialmedia`, part: "socialmedia" }, !(socialmedia === null || socialmedia === void 0 ? void 0 : socialmedia.length)
+            ? (h("slot", { name: "socialmedia" })) : (socialmedia.map(icon => (h("tnw-anchor", { href: icon.url, newTab: true, hideNewTabIcon: true, textDecoration: 'none' }, h("tnw-icon", { name: icon.iconName, size: 'md', color: this.textColor })))))));
     }
     renderSubscription(subscription) {
         if (!subscription)
@@ -407,7 +402,7 @@ const TnwFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwFooter extends H {
     }
     render() {
         const { parsedFooterData } = this;
-        return (h(Host, { key: 'de65fce1a458cda386468ba11a1e820ab5ba84b9', class: this.getHostClasses() }, h("footer", { key: '054159dcf2db6baa49f7256b6446833f2346d8c7', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: '238c17b39e916496ec4fdd1fc3a16fd8c112d949', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderSubscription(parsedFooterData.subscription))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "subscription" })))), h("slot", { key: '6eeb00c924903c5a5243e99d9441439f7e73b3db', name: "copyrights" }))));
+        return (h(Host, { key: 'c7631f0aa0c6ef17e26baf04341b3fbc1b071960', class: this.getHostClasses() }, h("footer", { key: '225f4952d5c3b5fa73f78db927e683c805952301', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: 'e150071ed7e6aa41c551b3265c49dfd4e760e2f3', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderSubscription(parsedFooterData.subscription))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "subscription" })))), h("slot", { key: '82b411cc8a345fd4a2e68b0bb3630a717b070c96', name: "copyrights" }))));
     }
     get el() { return this; }
 }, [1, "tnw-footer", {

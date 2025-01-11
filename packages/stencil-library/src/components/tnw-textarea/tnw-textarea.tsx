@@ -294,7 +294,6 @@ export class TnwTextarea {
     
     this.setStore(value)
     const validatedValue = this.sanitizeValue(value);
-    console.log("validatedValue ", validatedValue)
     this.textareaChanged.emit(validatedValue);
     textarea.value = this.sanitizeValue(validatedValue);
   }

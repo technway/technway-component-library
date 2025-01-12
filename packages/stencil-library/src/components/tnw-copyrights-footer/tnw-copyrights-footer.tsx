@@ -1,19 +1,22 @@
-import { Component, Element, Host, Prop, h } from '@stencil/core';
+import { Component, Element, Host, Prop, State, h } from '@stencil/core';
 import { getColorClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, isNotEmptyStringOrNumber } from '../../utils/utils';
 import { ColorType, TextColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-copyrights-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-copyrights-footer-validate-props';
 import { validateYearsProps } from './utils/tnw-copyrights-footer-validate-years-props';
+import { TnwCopyrightsFooterLink } from './utils/TnwCopyrightsFooterLink';
 
 /**
  * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
  * and additional text. The component provides flexible options for colors, text layout, and custom slot content.
  * It can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.
  * 
- * @slot - Custom content slot for the footer. When `enableSlot` is true, this slot is used instead of the default content.
+ * @part copyrights - the `tnw-text` element that displays the copyright information.
+ * @part container - the `FooterTag` element that contains the footer content.
  * 
- * @part footer - The `footer` element that wraps the entire content of the footer.
+ * @slot copyrights - Slot for copyright information.
+ * @slot link-<n> - Slots for custom links (requires `useCustomLinks` to be true).
  */
 @Component({
   tag: 'tnw-copyrights-footer',
@@ -26,6 +29,11 @@ export class TnwCopyrightsFooter {
 
   @Element() el!: HTMLTnwCopyrightsFooterElement;
 
+  /* --------------- Internal State Management --------------- */
+
+  @State() parsedLinksData: TnwCopyrightsFooterLink[] = [];
+
+  /* -------------------------- Props -------------------------- */
   /**
    * The starting year to display in the footer. If `useCurrentYearAsStartYear` is true, this will default to the current year.
    */
@@ -52,6 +60,13 @@ export class TnwCopyrightsFooter {
   @Prop() organizationName?: string;
 
   /**
+   * The color of the organization name. Defaults to the same value as `textColor`.
+   * 
+   * @deprecated since v2.2.0
+   */
+  @Prop() organizationNameColor?: TextColorType = this.textColor;
+
+  /**
    * Text to display before the organization name.
    */
   @Prop() preText?: string;
@@ -67,11 +82,6 @@ export class TnwCopyrightsFooter {
   @Prop() textColor?: TextColorType = 'auto';
 
   /**
-   * The color of the organization name. Defaults to the same value as `textColor`.
-   */
-  @Prop() organizationNameColor?: TextColorType = this.textColor;
-
-  /**
    * The background color for the footer.
    */
   @Prop() backgroundColor: ColorType = 'auto';
@@ -80,11 +90,6 @@ export class TnwCopyrightsFooter {
    * The color of the top border of the footer.
    */
   @Prop() borderTopColor: ColorType = 'auto';
-
-  /**
-   * If true, the footer will render custom content using a slot instead of the default content.
-   */
-  @Prop() enableSlot?: boolean = false;
 
   /**
    * Centering text
@@ -100,6 +105,23 @@ export class TnwCopyrightsFooter {
    * If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.
    */
   @Prop() useDivAsContainer: boolean = false;
+
+  /**
+   * Array of objects represents links data. Cannot be used when `useCustomLinks` is `true`.
+   */
+  @Prop() linksData?: string;
+
+  /**
+   * If `true`, the footer will render custom links using a slot instead of the `linksData`.
+   * Provide accurate `linksLength` when this prop is `true`.
+   * When use this prop, the `linksData` prop will be ignored.
+   */
+  @Prop() useCustomLinks?: boolean = false;
+
+  /**
+   * Number of links. Must be provided when `useCustomLinks` is `true`.
+   */
+  @Prop() linksLength?: number;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -119,8 +141,14 @@ export class TnwCopyrightsFooter {
   }
 
   componentWillLoad() {
-    validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.enableSlot, this.endYear, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useDivAsContainer]);
+    validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.endYear, this.linksData, this.linksLength, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useCustomLinks, this.useDivAsContainer]);
     validateYearsProps(this.startYear, this.endYear, this.useCurrentYearAsStartYear, this.useCurrentYearAsEndYear);
+    try {
+      this.parsedLinksData = isNotEmptyString(this.linksData) ? JSON.parse(this.linksData) : [];
+    } catch (error) {
+      console.error('Error parsing links data', error);
+      this.parsedLinksData = null;
+    }
   }
 
   private getYearsRange(): string {
@@ -157,7 +185,7 @@ export class TnwCopyrightsFooter {
     ].filter(Boolean).join(' ').trim();
   }
 
-  private renderContent() {
+  private renderCopyrights() {
     const yearsRange = this.getYearsRange();
     const contentParts: string[] = [];
 
@@ -177,16 +205,67 @@ export class TnwCopyrightsFooter {
       contentParts.push(yearsRange);
     }
 
+    if (contentParts.join(' ') === '') {
+      return <slot name="copyrights" />;
+    }
+
     return (
       <tnw-text
         text={contentParts.join(' ')}
         size="xs"
         color={this.textColor}
         class={`${this.baseClass}__content`}
-        part="content"
+        part="copyrights"
         alignment={this.centerContent ? 'center' : undefined}
+        highlight={this.organizationName}
+        highlightWeight='600'
+        highlightTag='strong'
+        widthSize='unset'
       />
     );
+  }
+
+  private renderLinks() {
+    const hasParsedLinksData = this.parsedLinksData !== undefined && this.parsedLinksData.length > 0;
+    const hasCustomLinks = this.useCustomLinks && this.linksLength > 0;
+
+    if (!hasParsedLinksData && !hasCustomLinks) {
+      return null;
+    }
+
+    return (
+      <ul class={`${this.baseClass}__links`}>
+        {hasCustomLinks ? (
+          Array.from({ length: this.linksLength }, (_, i) => (
+            <li>
+              <tnw-text
+                class={`${this.baseClass}__links-item`}
+                color={this.textColor}
+                widthSize='unset'
+              >
+                <slot name={`link-${i + 1}`} />
+              </tnw-text>
+            </li>
+          ))
+        ) : (
+          hasParsedLinksData && (
+            this.parsedLinksData.map((link: TnwCopyrightsFooterLink) => (
+              <li>
+                <tnw-anchor
+                  class={`${this.baseClass}__links-item`}
+                  text={link.text}
+                  href={link.url}
+                  newTab={link.newTab}
+                  textDecoration='none'
+                  color={this.textColor}
+                  size='xs'
+                />
+              </li>
+            ))
+          )
+        )}
+      </ul>
+    )
   }
 
   render() {
@@ -197,13 +276,11 @@ export class TnwCopyrightsFooter {
         <FooterTag
           class={!this.disableInternalContainer ? 'container' : ''}
           part='container'
-          aria-label="Copyright information"
         >
-          {this.enableSlot ? (
-            <slot />
-          ) : (
-            this.renderContent()
-          )}
+          {[
+            this.renderCopyrights(),
+            this.renderLinks(),
+          ]}
         </FooterTag>
       </Host>
     );

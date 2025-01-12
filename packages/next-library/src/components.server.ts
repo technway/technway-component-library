@@ -287,16 +287,18 @@ export const TnwCopyrightsFooter: StencilReactComponent<TnwCopyrightsFooterEleme
             useCurrentYearAsStartYear: 'use-current-year-as-start-year',
             useCurrentYearAsEndYear: 'use-current-year-as-end-year',
             organizationName: 'organization-name',
+            organizationNameColor: 'organization-name-color',
             preText: 'pre-text',
             postText: 'post-text',
             textColor: 'text-color',
-            organizationNameColor: 'organization-name-color',
             backgroundColor: 'background-color',
             borderTopColor: 'border-top-color',
-            enableSlot: 'enable-slot',
             centerContent: 'center-content',
             disableInternalContainer: 'disable-internal-container',
-            useDivAsContainer: 'use-div-as-container'
+            useDivAsContainer: 'use-div-as-container',
+            linksData: 'links-data',
+            useCustomLinks: 'use-custom-links',
+            linksLength: 'links-length'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

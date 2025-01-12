@@ -203,7 +203,7 @@ export class TnwFooter {
                   <tnw-anchor
                     class={`${this.baseClass}__list-item`}
                     href={link.url}
-                    {...(link.newTab ? { newTab: true } : { newTab: false })}
+                    newTab={link.newTab}
                     textDecoration='underline'
                     color={this.textColor}
                   >

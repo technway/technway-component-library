@@ -3,8 +3,8 @@
 exports[`tnw-copyrights-footer Default and Required Prop Behavior renders correctly with default props 1`] = `
 <tnw-copyrights-footer class="bg-auto border-t-auto tnw-copyrights-footer tnw-copyrights-footer--borderTop">
   <template shadowrootmode="open">
-    <footer aria-label="Copyright information" class="container" part="container">
-      <tnw-text class="tnw-copyrights-footer__content" color="auto" part="content" size="xs" text=""></tnw-text>
+    <footer class="container" part="container">
+      <slot name="copyrights"></slot>
     </footer>
   </template>
 </tnw-copyrights-footer>

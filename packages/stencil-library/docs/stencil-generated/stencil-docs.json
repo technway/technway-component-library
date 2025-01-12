@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-12T07:45:59",
+  "timestamp": "2025-01-12T11:13:46",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.1",
@@ -1273,6 +1273,7 @@
         }
       ],
       "dependents": [
+        "tnw-copyrights-footer",
         "tnw-footer",
         "tnw-list",
         "tnw-navbar",
@@ -1284,6 +1285,9 @@
       "dependencyGraph": {
         "tnw-anchor": [
           "tnw-icon"
+        ],
+        "tnw-copyrights-footer": [
+          "tnw-anchor"
         ],
         "tnw-footer": [
           "tnw-anchor"
@@ -3880,12 +3884,20 @@
       "docs": "The `tnw-footer` component displays footer information such as the organization name, copyright years, \r\nand additional text. The component provides flexible options for colors, text layout, and custom slot content.\r\nIt can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.",
       "docsTags": [
         {
-          "name": "slot",
-          "text": "- Custom content slot for the footer. When `enableSlot` is true, this slot is used instead of the default content."
+          "name": "part",
+          "text": "copyrights - the `tnw-text` element that displays the copyright information."
         },
         {
           "name": "part",
-          "text": "footer - The `footer` element that wraps the entire content of the footer."
+          "text": "container - the `FooterTag` element that contains the footer content."
+        },
+        {
+          "name": "slot",
+          "text": "copyrights - Slot for copyright information."
+        },
+        {
+          "name": "slot",
+          "text": "link-<n> - Slots for custom links (requires `useCustomLinks` to be true)."
         }
       ],
       "usage": {
@@ -4051,30 +4063,6 @@
           "setter": false
         },
         {
-          "name": "enableSlot",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "enable-slot",
-          "reflectToAttr": false,
-          "docs": "If true, the footer will render custom content using a slot instead of the default content.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "endYear",
           "type": "number",
           "complexType": {
@@ -4086,6 +4074,52 @@
           "attr": "end-year",
           "reflectToAttr": false,
           "docs": "The ending year to display in the footer. If `useCurrentYearAsEndYear` is true, this will default to the current year.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "linksData",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "links-data",
+          "reflectToAttr": false,
+          "docs": "Array of objects represents links data. Cannot be used when `useCustomLinks` is `true`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "linksLength",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "links-length",
+          "reflectToAttr": false,
+          "docs": "Number of links. Must be provided when `useCustomLinks` is `true`.",
           "docsTags": [],
           "values": [
             {
@@ -4138,8 +4172,14 @@
           "attr": "organization-name-color",
           "reflectToAttr": false,
           "docs": "The color of the organization name. Defaults to the same value as `textColor`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "since v2.2.0"
+            }
+          ],
           "default": "this.textColor",
+          "deprecation": "since v2.2.0",
           "values": [
             {
               "value": "auto",
@@ -4428,6 +4468,30 @@
           "setter": false
         },
         {
+          "name": "useCustomLinks",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "use-custom-links",
+          "reflectToAttr": false,
+          "docs": "If `true`, the footer will render custom links using a slot instead of the `linksData`.\r\nProvide accurate `linksLength` when this prop is `true`.\r\nWhen use this prop, the `linksData` prop will be ignored.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "useDivAsContainer",
           "type": "boolean",
           "complexType": {
@@ -4458,34 +4522,39 @@
       "styles": [],
       "slots": [
         {
-          "name": "",
-          "docs": "Custom content slot for the footer. When `enableSlot` is true, this slot is used instead of the default content."
+          "name": "copyrights",
+          "docs": "Slot for copyright information."
+        },
+        {
+          "name": "link-<n>",
+          "docs": "Slots for custom links (requires `useCustomLinks` to be true)."
         }
       ],
       "parts": [
         {
           "name": "container",
-          "docs": ""
+          "docs": "the `FooterTag` element that contains the footer content."
         },
         {
-          "name": "content",
-          "docs": ""
-        },
-        {
-          "name": "footer",
-          "docs": "The `footer` element that wraps the entire content of the footer."
+          "name": "copyrights",
+          "docs": "the `tnw-text` element that displays the copyright information."
         }
       ],
       "dependents": [],
       "dependencies": [
-        "tnw-text"
+        "tnw-text",
+        "tnw-anchor"
       ],
       "dependencyGraph": {
         "tnw-copyrights-footer": [
-          "tnw-text"
+          "tnw-text",
+          "tnw-anchor"
         ],
         "tnw-text": [
           "tnw-text"
+        ],
+        "tnw-anchor": [
+          "tnw-icon"
         ]
       }
     },

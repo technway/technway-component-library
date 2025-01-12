@@ -6,9 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
+import { MenuProps } from "./components/tnw-navbar/parts/menu/part--menu-types";
 import { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1 } from "./components";
 import { TnwSelectOption } from "./components/tnw-select/utils/tnw-select-data-types";
 export { AlignmentType, AppearanceType, AspectRatioType, BorderColorType, BorderRadiusType, ColorType, DirectionalAppearanceType, ExtendedColorType, ExtendedSizeType, FontSizeType, FontWeightType, LayoutType, LineHeightType, LogicalAlignmentType, ObjectFitType, ObjectPositionType, OptionalAppearanceType, SizeType, TextAlignmentType, TextColorType, TextTransformType } from "./utils/component-props-types";
+export { MenuProps } from "./components/tnw-navbar/parts/menu/part--menu-types";
 export { BorderRadiusType as BorderRadiusType1, ExtendedSizeType as ExtendedSizeType1 } from "./components";
 export { TnwSelectOption } from "./components/tnw-select/utils/tnw-select-data-types";
 export namespace Components {
@@ -993,6 +995,10 @@ export namespace Components {
          */
         "enableCtaSlot"?: boolean;
         /**
+          * Enables custom link slots for menu items.  This property allows you to inject custom components or HTML elements for the navigation links,  rather than relying on the `menuData` prop for automatic generation of menu items.  When `enableLinkSlot` is set to `true`, each menu item can be represented by a custom element  provided via a named slot in the format `link-<n>` where `<n>` is the index of the link (starting from 1).  **Usage Notes:** - This is particularly useful in frameworks like React or Angular where you might need to inject    custom routing components such as `NavLink` (React) or `routerLink` (Angular). - When this property is `true`, the `menuData` prop is ignored. - Ensure that the `linksLength` prop is also specified to define the total number of links.  **Example:** ```html <TnwNavbar enableLinkSlot={true} linksLength={2}>   <NavLink slot="link-1" to="/">Home</NavLink>   <NavLink slot="link-2" to="/services">Services</NavLink> </TnwNavbar> ```
+         */
+        "enableLinkSlot"?: boolean;
+        /**
           * If true, the logo slot is enabled.
          */
         "enableLogoSlot"?: boolean;
@@ -1003,11 +1009,11 @@ export namespace Components {
         /**
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
-        "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
+        "hideMenuBelow"?: MenuProps['hideMenuBelow'];
         /**
-          * An optional element to be used as the link element for the menu items.  For example, this could be a React Router Link or Next.js Link component. Example for React Router:  import { Link } from 'react-router-dom';  itemLinkElement?: typeof Link;  Example for Next.js:  import Link from 'next/link';  itemLinkElement?: typeof Link;
+          * Specifies the number of links when `enableLinkSlot` is enabled.  This property works in conjunction with `enableLinkSlot` to define the total number of  custom link slots available in the navigation bar. The value determines the number of  slots named `link-<n>` (e.g., `link-1`, `link-2`, etc.) that can be populated with  custom components or HTML elements.  **Usage Notes:** - This property is required when `enableLinkSlot` is `true` to ensure the component knows how    many slots to handle. - If this value is not provided, the component will not render the custom link slots.  **Error Handling:** - If `enableLinkSlot` is `true` but `linksLength` is not specified, the component will not be rendered as expected.  **Best Practices:** - Ensure that the `linksLength` matches the number of `link-<n>` slots defined in your component usage.
          */
-        "linkElement"?: (props: any) => JSX.Element;
+        "linksLength"?: number;
         /**
           * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
          */
@@ -1758,8 +1764,8 @@ declare global {
         new (): HTMLTnwListElement;
     };
     interface HTMLTnwNavbarElementEventMap {
-        "tnwBreakpointChange": { breakpoint: "1024" | "767" | "567" | "1439" };
         "tnwMenuToggle": { isOpen: boolean };
+        "tnwMenuVisibilityChange": { isMenuHidden: boolean,  windowWidth: number };
         "tnwScrollChange": { scrollY: number };
     }
     /**
@@ -2952,6 +2958,10 @@ declare namespace LocalJSX {
          */
         "enableCtaSlot"?: boolean;
         /**
+          * Enables custom link slots for menu items.  This property allows you to inject custom components or HTML elements for the navigation links,  rather than relying on the `menuData` prop for automatic generation of menu items.  When `enableLinkSlot` is set to `true`, each menu item can be represented by a custom element  provided via a named slot in the format `link-<n>` where `<n>` is the index of the link (starting from 1).  **Usage Notes:** - This is particularly useful in frameworks like React or Angular where you might need to inject    custom routing components such as `NavLink` (React) or `routerLink` (Angular). - When this property is `true`, the `menuData` prop is ignored. - Ensure that the `linksLength` prop is also specified to define the total number of links.  **Example:** ```html <TnwNavbar enableLinkSlot={true} linksLength={2}>   <NavLink slot="link-1" to="/">Home</NavLink>   <NavLink slot="link-2" to="/services">Services</NavLink> </TnwNavbar> ```
+         */
+        "enableLinkSlot"?: boolean;
+        /**
           * If true, the logo slot is enabled.
          */
         "enableLogoSlot"?: boolean;
@@ -2962,11 +2972,11 @@ declare namespace LocalJSX {
         /**
           * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
-        "hideMenuBelow"?: "1024" | "767" | "567" | "1439" | false;
+        "hideMenuBelow"?: MenuProps['hideMenuBelow'];
         /**
-          * An optional element to be used as the link element for the menu items.  For example, this could be a React Router Link or Next.js Link component. Example for React Router:  import { Link } from 'react-router-dom';  itemLinkElement?: typeof Link;  Example for Next.js:  import Link from 'next/link';  itemLinkElement?: typeof Link;
+          * Specifies the number of links when `enableLinkSlot` is enabled.  This property works in conjunction with `enableLinkSlot` to define the total number of  custom link slots available in the navigation bar. The value determines the number of  slots named `link-<n>` (e.g., `link-1`, `link-2`, etc.) that can be populated with  custom components or HTML elements.  **Usage Notes:** - This property is required when `enableLinkSlot` is `true` to ensure the component knows how    many slots to handle. - If this value is not provided, the component will not render the custom link slots.  **Error Handling:** - If `enableLinkSlot` is `true` but `linksLength` is not specified, the component will not be rendered as expected.  **Best Practices:** - Ensure that the `linksLength` matches the number of `link-<n>` slots defined in your component usage.
          */
-        "linkElement"?: (props: any) => JSX.Element;
+        "linksLength"?: number;
         /**
           * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
          */
@@ -2980,13 +2990,13 @@ declare namespace LocalJSX {
          */
         "menuPlacement"?: 'start' | 'middle' | 'end';
         /**
-          * Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }
-         */
-        "onTnwBreakpointChange"?: (event: TnwNavbarCustomEvent<{ breakpoint: "1024" | "767" | "567" | "1439" }>) => void;
-        /**
           * Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean }
          */
         "onTnwMenuToggle"?: (event: TnwNavbarCustomEvent<{ isOpen: boolean }>) => void;
+        /**
+          * Emitted when the window is resized depending on the current breakpoint to the value of `hideMenuBelow`
+         */
+        "onTnwMenuVisibilityChange"?: (event: TnwNavbarCustomEvent<{ isMenuHidden: boolean,  windowWidth: number }>) => void;
         /**
           * Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number }
          */

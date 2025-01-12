@@ -5,6 +5,7 @@ import ArticleCard from '../../components/card/card';
 import { TnwDivider, TnwHeading } from '@technway/react-library/src/components';
 import ReactUiButton from '../../components/ui/button';
 import Navbar from '../../components/navbar/navbar';
+import Footer from '../../components/footer/footer';
 
 function Home() {
     return (
@@ -63,6 +64,17 @@ function Home() {
                     <ArticleCard layout='horizontal' appearance='outlined' padding="sm" imageHeight="365px" />
                 </Flex>
             </Flex>
+
+            <TnwDivider />
+
+            <Flex direction="col" gap={6}>
+                <TnwHeading text='Footer' level='h2' />
+                <Flex direction="col" gap={16}>
+                    <Footer />
+                </Flex>
+            </Flex>
+
+            <TnwDivider />
         </Flex>
     );
 }

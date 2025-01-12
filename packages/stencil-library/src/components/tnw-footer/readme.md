@@ -35,14 +35,15 @@ social media, and a subscription subscription form. It is designed to be highly 
 
 ## Slots
 
-| Slot             | Description                                                          |
-| ---------------- | -------------------------------------------------------------------- |
-| `"brand"`        | Slot for the brand logo and name.                                    |
-| `"contact"`      | Slot for contact information.                                        |
-| `"copyrights"`   | Slot for copyright information. Use `tnw-copyrights-footer` instead. |
-| `"links"`        | Slot for useful links.                                               |
-| `"socialmedia"`  | Slot for social media icons.                                         |
-| `"subscription"` | Slot for the subscription subscription form.                         |
+| Slot             | Description                                                                     |
+| ---------------- | ------------------------------------------------------------------------------- |
+| `"brand"`        | Slot for the brand logo and name.                                               |
+| `"contact"`      | Slot for contact information.                                                   |
+| `"copyrights"`   | Slot for copyright information. Use `tnw-copyrights-footer` instead.            |
+| `"link-<n>"`     | Slots for custom links (requires `footerData.links.useCustomLinks` to be true). |
+| `"links"`        | Slot for useful links.                                                          |
+| `"socialmedia"`  | Slot for social media icons.                                                    |
+| `"subscription"` | Slot for the subscription subscription form.                                    |
 
 
 ## Shadow Parts
@@ -64,8 +65,8 @@ social media, and a subscription subscription form. It is designed to be highly 
 
 - [tnw-heading](../tnw-heading)
 - [tnw-image](../tnw-image)
-- [tnw-anchor](../tnw-anchor)
 - [tnw-text](../tnw-text)
+- [tnw-anchor](../tnw-anchor)
 - [tnw-icon](../tnw-icon)
 - [tnw-subscription-form](../tnw-subscription-form)
 
@@ -74,8 +75,8 @@ social media, and a subscription subscription form. It is designed to be highly 
 graph TD;
   tnw-footer --> tnw-heading
   tnw-footer --> tnw-image
-  tnw-footer --> tnw-anchor
   tnw-footer --> tnw-text
+  tnw-footer --> tnw-anchor
   tnw-footer --> tnw-icon
   tnw-footer --> tnw-subscription-form
   tnw-heading --> tnw-text

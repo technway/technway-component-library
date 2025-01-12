@@ -30,9 +30,46 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 | **borderRadius** | <div>Sets the border-radius of the navigation bar.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **disableInternalContainer** | <div>If true, the navigation bar content will not be wrapped in a container for centering and padding.</div> | `false` | `boolean` |
 | **enableCtaSlot** | <div>If true, the CTA slot is enabled.</div> | `false` | `boolean` |
+| **enableLinkSlot** | <div>Enables custom link slots for menu items.
+
+This property allows you to inject custom components or HTML elements for the navigation links, 
+rather than relying on the `menuData` prop for automatic generation of menu items. 
+When `enableLinkSlot` is set to `true`, each menu item can be represented by a custom element 
+provided via a named slot in the format `link-<n>` where `<n>` is the index of the link (starting from 1).
+
+**Usage Notes:**
+- This is particularly useful in frameworks like React or Angular where you might need to inject 
+  custom routing components such as `NavLink` (React) or `routerLink` (Angular).
+- When this property is `true`, the `menuData` prop is ignored.
+- Ensure that the `linksLength` prop is also specified to define the total number of links.
+
+**Example:**
+```html
+<TnwNavbar enableLinkSlot={true} linksLength={2}>
+  <NavLink slot="link-1" to="/">Home</NavLink>
+  <NavLink slot="link-2" to="/services">Services</NavLink>
+</TnwNavbar>
+```</div> | `false` | `boolean` |
 | **enableLogoSlot** | <div>If true, the logo slot is enabled.</div> | `false` | `boolean` |
 | **enableMenuSlot** | <div>If true, the menu slot is enabled.</div> | `false` | `boolean` |
-| **hideMenuBelow** | <div>The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.</div> | `false` | `"1024"` \| `"1439"` \| `"567"` \| `"767"` \| `boolean` |
+| **hideMenuBelow** | <div>The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.</div> | `false` | `"1024"` \| `"1439"` \| `"567"` \| `"767"` \| `"false"` \| `boolean` |
+| **linksLength** | <div>Specifies the number of links when `enableLinkSlot` is enabled.
+
+This property works in conjunction with `enableLinkSlot` to define the total number of 
+custom link slots available in the navigation bar. The value determines the number of 
+slots named `link-<n>` (e.g., `link-1`, `link-2`, etc.) that can be populated with 
+custom components or HTML elements.
+
+**Usage Notes:**
+- This property is required when `enableLinkSlot` is `true` to ensure the component knows how 
+  many slots to handle.
+- If this value is not provided, the component will not render the custom link slots.
+
+**Error Handling:**
+- If `enableLinkSlot` is `true` but `linksLength` is not specified, the component will not be rendered as expected.
+
+**Best Practices:**
+- Ensure that the `linksLength` matches the number of `link-<n>` slots defined in your component usage.</div> | N/A | `number` |
 | **menuData** | <div>The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..</div> | N/A | `string` |
 | **menuExactCenter** | <div>When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.</div> | `false` | `boolean` |
 | **menuPlacement** | <div>Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.</div> | `'middle'` | `"end"` \| `"middle"` \| `"start"` |
@@ -49,27 +86,28 @@ If false, the styles will be applied directly to the component host element.</di
 
 | Part | Description |
 | --- | --- |
-| **menu** | the container for the navigation menu items. |
-| **menu-item** | an individual menu item. |
-| **menu-link** | a link within a menu item. |
-| **navbar** | the outermost `nav` element that wraps all the content. |
-| **toggler** | the button that toggles the menu visibility. |
-| **toggler-icon** | the icon displayed within the toggler button. |
+| **menu** | The container for the menu items. |
+| **menu-item** | A single menu item. |
+| **menu-link** | The link inside a menu item. |
+| **navbar** | The outermost `<nav>` element wrapping the navigation bar. |
+| **toggler** | The button toggling menu visibility. |
+| **toggler-icon** | The icon inside the toggler button. |
 
 ## Slots
 
 | Slot | Description |
 | --- | --- |
-| **cta** | The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`. |
-| **logo** | The slot for custom logo content to be added to the navigation bar. To use this slot, set the `enableLogoSlot` property to `true`. |
-| **menu** | The slot for custom menu content to be added to the navigation bar. To use this slot, set the `enableMenuSlot` property to `true`. And do not use the `menuData` prop. |
+| **cta** | Slot for adding custom content on the right (requires `enableCtaSlot`). |
+| **link-<n>** | Slots for custom menu links (requires `enableLinkSlot`). |
+| **logo** | Slot for adding a custom logo (requires `enableLogoSlot`). |
+| **menu** | Slot for overriding the default menu (requires `enableMenuSlot`). |
 
 ## Events
 
 | Event | Description |
 | --- | --- |
-| **tnwBreakpointChange** | Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string } |
 | **tnwMenuToggle** | Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean } |
+| **tnwMenuVisibilityChange** | Emitted when the window is resized depending on the current breakpoint to the value of `hideMenuBelow` |
 | **tnwScrollChange** | Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number } |
 
 ## Usage & Examples

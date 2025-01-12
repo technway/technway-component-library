@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-09T14:39:19",
+  "timestamp": "2025-01-12T07:00:30",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.1",
@@ -9911,39 +9911,43 @@
       "docsTags": [
         {
           "name": "part",
-          "text": "navbar - the outermost `nav` element that wraps all the content."
+          "text": "navbar - The outermost `<nav>` element wrapping the navigation bar."
         },
         {
           "name": "part",
-          "text": "menu - the container for the navigation menu items."
+          "text": "menu - The container for the menu items."
         },
         {
           "name": "part",
-          "text": "menu-item - an individual menu item."
+          "text": "menu-item - A single menu item."
         },
         {
           "name": "part",
-          "text": "menu-link - a link within a menu item."
+          "text": "menu-link - The link inside a menu item."
         },
         {
           "name": "part",
-          "text": "toggler - the button that toggles the menu visibility."
+          "text": "toggler - The button toggling menu visibility."
         },
         {
           "name": "part",
-          "text": "toggler-icon - the icon displayed within the toggler button."
+          "text": "toggler-icon - The icon inside the toggler button."
         },
         {
           "name": "slot",
-          "text": "cta - The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`."
+          "text": "cta - Slot for adding custom content on the right (requires `enableCtaSlot`)."
         },
         {
           "name": "slot",
-          "text": "logo - The slot for custom logo content to be added to the navigation bar. To use this slot, set the `enableLogoSlot` property to `true`."
+          "text": "logo - Slot for adding a custom logo (requires `enableLogoSlot`)."
         },
         {
           "name": "slot",
-          "text": "menu - The slot for custom menu content to be added to the navigation bar. To use this slot, set the `enableMenuSlot` property to `true`. And do not use the `menuData` prop."
+          "text": "menu - Slot for overriding the default menu (requires `enableMenuSlot`)."
+        },
+        {
+          "name": "slot",
+          "text": "link-<n> - Slots for custom menu links (requires `enableLinkSlot`)."
         }
       ],
       "usage": {
@@ -10176,6 +10180,30 @@
           "setter": false
         },
         {
+          "name": "enableLinkSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-link-slot",
+          "reflectToAttr": false,
+          "docs": "Enables custom link slots for menu items.\r\n\r\nThis property allows you to inject custom components or HTML elements for the navigation links, \r\nrather than relying on the `menuData` prop for automatic generation of menu items. \r\nWhen `enableLinkSlot` is set to `true`, each menu item can be represented by a custom element \r\nprovided via a named slot in the format `link-<n>` where `<n>` is the index of the link (starting from 1).\r\n\r\n**Usage Notes:**\r\n- This is particularly useful in frameworks like React or Angular where you might need to inject \r\n  custom routing components such as `NavLink` (React) or `routerLink` (Angular).\r\n- When this property is `true`, the `menuData` prop is ignored.\r\n- Ensure that the `linksLength` prop is also specified to define the total number of links.\r\n\r\n**Example:**\r\n```html\r\n<TnwNavbar enableLinkSlot={true} linksLength={2}>\r\n  <NavLink slot=\"link-1\" to=\"/\">Home</NavLink>\r\n  <NavLink slot=\"link-2\" to=\"/services\">Services</NavLink>\r\n</TnwNavbar>\r\n```",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "enableLogoSlot",
           "type": "boolean",
           "complexType": {
@@ -10225,11 +10253,17 @@
         },
         {
           "name": "hideMenuBelow",
-          "type": "\"1024\" | \"1439\" | \"567\" | \"767\" | boolean",
+          "type": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"false\" | boolean",
           "complexType": {
-            "original": "\"1024\" | \"767\" | \"567\" | \"1439\" | false",
-            "resolved": "\"1024\" | \"1439\" | \"567\" | \"767\" | boolean",
-            "references": {}
+            "original": "MenuProps['hideMenuBelow']",
+            "resolved": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"false\" | boolean",
+            "references": {
+              "MenuProps": {
+                "location": "import",
+                "path": "./parts/menu/part--menu-types",
+                "id": "src/components/tnw-navbar/parts/menu/part--menu-types.ts::MenuProps"
+              }
+            }
           },
           "mutable": false,
           "attr": "hide-menu-below",
@@ -10255,7 +10289,34 @@
               "type": "string"
             },
             {
+              "value": "false",
+              "type": "string"
+            },
+            {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "linksLength",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "links-length",
+          "reflectToAttr": false,
+          "docs": "Specifies the number of links when `enableLinkSlot` is enabled.\r\n\r\nThis property works in conjunction with `enableLinkSlot` to define the total number of \r\ncustom link slots available in the navigation bar. The value determines the number of \r\nslots named `link-<n>` (e.g., `link-1`, `link-2`, etc.) that can be populated with \r\ncustom components or HTML elements.\r\n\r\n**Usage Notes:**\r\n- This property is required when `enableLinkSlot` is `true` to ensure the component knows how \r\n  many slots to handle.\r\n- If this value is not provided, the component will not render the custom link slots.\r\n\r\n**Error Handling:**\r\n- If `enableLinkSlot` is `true` but `linksLength` is not specified, the component will not be rendered as expected.\r\n\r\n**Best Practices:**\r\n- Ensure that the `linksLength` matches the number of `link-<n>` slots defined in your component usage.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
             }
           ],
           "optional": true,
@@ -10510,20 +10571,6 @@
       "methods": [],
       "events": [
         {
-          "event": "tnwBreakpointChange",
-          "detail": "{ breakpoint: \"1024\" | \"1439\" | \"567\" | \"767\"; }",
-          "bubbles": true,
-          "complexType": {
-            "original": "{ breakpoint: \"1024\" | \"767\" | \"567\" | \"1439\" }",
-            "resolved": "{ breakpoint: \"1024\" | \"1439\" | \"567\" | \"767\"; }",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }",
-          "docsTags": []
-        },
-        {
           "event": "tnwMenuToggle",
           "detail": "{ isOpen: boolean; }",
           "bubbles": true,
@@ -10535,6 +10582,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean }",
+          "docsTags": []
+        },
+        {
+          "event": "tnwMenuVisibilityChange",
+          "detail": "{ isMenuHidden: boolean; windowWidth: number; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ isMenuHidden: boolean,  windowWidth: number }",
+            "resolved": "{ isMenuHidden: boolean; windowWidth: number; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the window is resized depending on the current breakpoint to the value of `hideMenuBelow`",
           "docsTags": []
         },
         {
@@ -10557,60 +10618,64 @@
       "slots": [
         {
           "name": "cta",
-          "docs": "The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`."
+          "docs": "Slot for adding custom content on the right (requires `enableCtaSlot`)."
+        },
+        {
+          "name": "link-<n>",
+          "docs": "Slots for custom menu links (requires `enableLinkSlot`)."
         },
         {
           "name": "logo",
-          "docs": "The slot for custom logo content to be added to the navigation bar. To use this slot, set the `enableLogoSlot` property to `true`."
+          "docs": "Slot for adding a custom logo (requires `enableLogoSlot`)."
         },
         {
           "name": "menu",
-          "docs": "The slot for custom menu content to be added to the navigation bar. To use this slot, set the `enableMenuSlot` property to `true`. And do not use the `menuData` prop."
+          "docs": "Slot for overriding the default menu (requires `enableMenuSlot`)."
         }
       ],
       "parts": [
         {
           "name": "menu",
-          "docs": "the container for the navigation menu items."
+          "docs": "The container for the menu items."
         },
         {
           "name": "menu-item",
-          "docs": "an individual menu item."
+          "docs": "A single menu item."
         },
         {
           "name": "menu-link",
-          "docs": "a link within a menu item."
+          "docs": "The link inside a menu item."
         },
         {
           "name": "navbar",
-          "docs": "the outermost `nav` element that wraps all the content."
+          "docs": "The outermost `<nav>` element wrapping the navigation bar."
         },
         {
           "name": "toggler",
-          "docs": "the button that toggles the menu visibility."
+          "docs": "The button toggling menu visibility."
         },
         {
           "name": "toggler-icon",
-          "docs": "the icon displayed within the toggler button."
+          "docs": "The icon inside the toggler button."
         }
       ],
       "dependents": [],
       "dependencies": [
         "tnw-icon",
-        "tnw-anchor",
-        "tnw-text"
+        "tnw-text",
+        "tnw-anchor"
       ],
       "dependencyGraph": {
         "tnw-navbar": [
           "tnw-icon",
-          "tnw-anchor",
+          "tnw-text",
+          "tnw-anchor"
+        ],
+        "tnw-text": [
           "tnw-text"
         ],
         "tnw-anchor": [
           "tnw-icon"
-        ],
-        "tnw-text": [
-          "tnw-text"
         ]
       }
     },
@@ -15011,6 +15076,11 @@
       "declaration": "export type ObjectFitType =\r\n    | \"contain\"\r\n    | \"cover\"\r\n    | \"fill\"\r\n    | \"none\"\r\n    | \"scale-down\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
+    },
+    "src/components/tnw-navbar/parts/menu/part--menu-types.ts::MenuProps": {
+      "declaration": "export interface MenuProps {\r\n    parsedMenuData: Menu;\r\n    isOpen: boolean;\r\n    menuPlacement: 'start' | 'middle' | 'end';\r\n    hideMenuBelow: \"1024\" | \"767\" | \"567\" | \"1439\" | false | 'false';\r\n    enableLinkSlot: boolean;\r\n    linksLength: number;\r\n    menuExactCenter: boolean;\r\n}",
+      "docstring": "",
+      "path": "src/components/tnw-navbar/parts/menu/part--menu-types.ts"
     },
     "src/components.d.ts::ExtendedSizeType": {
       "declaration": "any",

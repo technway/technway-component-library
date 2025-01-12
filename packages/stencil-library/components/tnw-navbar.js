@@ -42,10 +42,17 @@ const styles$3 = `
 .${baseClass$6} {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.${baseClass$6}--exact-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 1439px) {
@@ -232,6 +239,13 @@ tnw-anchor::part(icon) {
 tnw-text::part(text) {
     display: flex;
 }
+
+::slotted(a) {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
 `;
 
 const baseClass$5 = `${GLOBAL_PREFIX}-navbar-dropdown-menu`;
@@ -366,7 +380,6 @@ let styles = `
 :host {
     display: block;
     width: 100%;
-    z-index: 10;
 }
 
 :host(.${baseClass$3}--sticky) {
@@ -374,6 +387,7 @@ let styles = `
     left: 0;
     right: 0;
     top: 10px;
+    z-index: 10;
 }
 
 .${contentClass} {
@@ -504,7 +518,7 @@ styles += styles$1;
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-navbar.tsx` file.
  *
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
  *
  * GENERATED USING `npm run g:components-validations tnw-navbar`
  */
@@ -567,6 +581,13 @@ function validateProps(propsValues) {
             "isRequired": false
         },
         {
+            "name": "enableLinkSlot",
+            "type": [
+                "boolean"
+            ],
+            "isRequired": false
+        },
+        {
             "name": "enableLogoSlot",
             "type": [
                 "boolean"
@@ -587,7 +608,15 @@ function validateProps(propsValues) {
                 "1439",
                 "567",
                 "767",
+                "false",
                 "boolean"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "linksLength",
+            "type": [
+                "number"
             ],
             "isRequired": false
         },
@@ -698,12 +727,13 @@ const renderToggler = (props) => {
 
 const baseClass$1 = 'tnw-navbar-menu';
 // Utility: Get Menu Classes
-function getMenuClasses(hideMenuBelow, isMenuOpened, menuPosition) {
+function getMenuClasses(hideMenuBelow, isMenuOpened, menuPosition, menuExactCenter) {
     return [
         baseClass$1,
-        `${baseClass$1}--hideMenuBelow-${hideMenuBelow}`,
+        typeof hideMenuBelow === 'string' && hideMenuBelow !== 'false' ? `${baseClass$1}--hideMenuBelow-${hideMenuBelow}` : '',
         isMenuOpened ? `${baseClass$1}--opened` : '',
         `${baseClass$1}--position-${menuPosition}`,
+        menuExactCenter ? `${baseClass$1}--exact-center` : ``,
     ].filter(Boolean).join(' ').trim();
 }
 // Utility: Get Menu Item Classes
@@ -743,55 +773,51 @@ const renderDropdownMenu = ({ itemsData, itemsSize = dropdownMenuDefaults.itemsS
         h("tnw-anchor", { href: item.link, text: item.label, newTab: item.newTab, hideNewTabIcon: false, textDecoration: "none", size: itemsSize }))))));
 };
 
-function processParsedMenuData(parsedMenuData) {
+function rawMenuData(parsedMenuData) {
     const items = parsedMenuData.menuItems;
-    const hideMenuBelow = parsedMenuData.hideMenuBelow;
     const itemsSize = parsedMenuData.itemsSize;
     const itemsColor = parsedMenuData.itemsColor;
     const itemsHoverAppearanceColor = parsedMenuData.itemsHoverAppearanceColor;
     const itemsHoverEffect = parsedMenuData.itemsHoverEffect;
     const itemsHoverAppearance = parsedMenuData.itemsHoverAppearance;
     const itemsBorderRadius = parsedMenuData.itemsBorderRadius;
-    const menuInvisibilityBreakpoint = parsedMenuData.hideMenuBelow;
     return {
         items,
-        hideMenuBelow,
         itemsSize,
         itemsColor,
         itemsHoverAppearanceColor,
         itemsHoverEffect,
         itemsHoverAppearance,
         itemsBorderRadius,
-        menuInvisibilityBreakpoint
     };
 }
 // Render Function for Menu
-const renderMenu = (parsedMenuData, isMenuOpened, menuPosition) => {
-    const menuItems = processParsedMenuData(parsedMenuData).items;
-    const hideMenuBelow = processParsedMenuData(parsedMenuData).hideMenuBelow;
-    const itemsSize = processParsedMenuData(parsedMenuData).itemsSize;
-    const itemsColor = processParsedMenuData(parsedMenuData).itemsColor;
-    const menuInvisibilityBreakpoint = processParsedMenuData(parsedMenuData).menuInvisibilityBreakpoint;
-    const itemsHoverAppearanceColor = processParsedMenuData(parsedMenuData).itemsHoverAppearanceColor;
-    const itemsHoverEffect = processParsedMenuData(parsedMenuData).itemsHoverEffect;
-    const itemsHoverAppearance = processParsedMenuData(parsedMenuData).itemsHoverAppearance;
-    const itemsBorderRadius = processParsedMenuData(parsedMenuData).itemsBorderRadius;
-    const menuClasses = getMenuClasses(hideMenuBelow, isMenuOpened, menuPosition);
-    if (menuItems === null || menuItems === undefined || menuItems.length === 0) {
-        return null;
+const renderMenu = (props) => {
+    var _a, _b;
+    const menuClasses = getMenuClasses(props.hideMenuBelow, props.isOpen, props.menuPlacement, props.menuExactCenter);
+    if ((props === null || props === void 0 ? void 0 : props.parsedMenuData) !== undefined && ((_b = (_a = props === null || props === void 0 ? void 0 : props.parsedMenuData) === null || _a === void 0 ? void 0 : _a.menuItems) === null || _b === void 0 ? void 0 : _b.length) > 0) {
+        const { items, itemsSize, itemsColor, itemsHoverAppearanceColor, itemsHoverEffect, itemsHoverAppearance, itemsBorderRadius, } = rawMenuData(props.parsedMenuData);
+        return (h("ul", { class: menuClasses, "data-nav-menu": true, part: "menu" }, items.map((item) => {
+            return (h("li", { class: getItemClasses(!isArrayEmpty(item.subMenu), itemsHoverAppearanceColor, itemsHoverAppearance, itemsBorderRadius, itemsHoverEffect), tabindex: "0", part: "menu-item" },
+                props.enableLinkSlot ? (Array.from({ length: props.linksLength }, (_, i) => (h("tnw-text", { textTag: "span", color: itemsColor, size: itemsSize, part: "menu-link" },
+                    h("slot", { name: `link-${i + 1}` }))))) : (isNotEmptyString(item.link) ? (h("tnw-anchor", { href: item.link, newTab: item.newTab, hideNewTabIcon: false, color: itemsColor, textDecoration: "none", size: itemsSize, part: "menu-link", text: item.label }, !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true })))) : (h("tnw-text", { text: item.label, textTag: "span", color: itemsColor, size: itemsSize, part: "menu-link" }, !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true }))))),
+                !isArrayEmpty(item.subMenu) && (renderDropdownMenu({
+                    itemsData: item.subMenu,
+                    itemsSize: itemsSize,
+                    menuInvisibilityBreakpoint: props.hideMenuBelow
+                }))));
+        })));
     }
-    return (h("ul", { class: menuClasses, "data-nav-menu": true, part: "menu" }, menuItems.map((item) => {
-        return (h("li", { class: getItemClasses(!isArrayEmpty(item.subMenu), itemsHoverAppearanceColor, itemsHoverAppearance, itemsBorderRadius, itemsHoverEffect), tabindex: "0", part: "menu-item" },
-            item.link ? (h("tnw-anchor", { href: item.link, newTab: item.newTab, hideNewTabIcon: false, color: itemsColor, textDecoration: "none", size: itemsSize, part: "menu-link", text: item.label }, !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true })))) : (h("tnw-text", { text: item.label, textTag: "span", color: itemsColor, size: itemsSize, part: "menu-menulink" }, !isArrayEmpty(item.subMenu) && (h("tnw-icon", { name: "tnw-chevron-down", hiddenAria: true })))),
-            !isArrayEmpty(item.subMenu) && (renderDropdownMenu({
-                itemsData: item.subMenu,
-                itemsSize: itemsSize,
-                menuInvisibilityBreakpoint: menuInvisibilityBreakpoint
-            }))));
-    })));
+    if (props.enableLinkSlot) {
+        return (h("ul", { class: menuClasses, "data-nav-menu": true, part: "menu" }, Array.from({ length: props.linksLength }, (_, i) => (h("li", { tabindex: "0", part: "menu-item" },
+            h("tnw-text", { textTag: "span", color: 'auto', size: 'sm', part: "menu-link" },
+                h("slot", { name: `link-${i + 1}` })))))));
+    }
+    return null;
 };
 
 const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
+    /* -------------------------- Watchers -------------------------- */
     updateHideMenuBelow(newValue) {
         this.hideMenuBelow = newValue;
     }
@@ -808,12 +834,24 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         super();
         this.__registerHost();
         this.__attachShadow();
-        this.tnwBreakpointChange = createEvent(this, "tnwBreakpointChange", 7);
         this.tnwMenuToggle = createEvent(this, "tnwMenuToggle", 7);
+        this.tnwMenuVisibilityChange = createEvent(this, "tnwMenuVisibilityChange", 7);
         this.tnwScrollChange = createEvent(this, "tnwScrollChange", 7);
+        // Base class name for the component
         this.baseClass = `${GLOBAL_PREFIX}-navbar`;
+        /**
+         * Parsed menu data from the `menuData` prop.
+         */
         this.parsedMenuData = null;
-        this.isVisible = false;
+        /**
+         * Tracks if meu is open/closed of the menu When interact with menu toggler
+         */
+        this.isOpen = false;
+        /**
+         * Tracks the visibility of the menu for responsive behaviors.
+         */
+        this.isHidden = false;
+        /* -------------------------- Props -------------------------- */
         /**
          * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
          */
@@ -875,6 +913,39 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
          * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
          */
         this.hideMenuBelow = false;
+        /**
+         * Enables custom link slots for menu items.
+         *
+         * This property allows you to inject custom components or HTML elements for the navigation links,
+         * rather than relying on the `menuData` prop for automatic generation of menu items.
+         * When `enableLinkSlot` is set to `true`, each menu item can be represented by a custom element
+         * provided via a named slot in the format `link-<n>` where `<n>` is the index of the link (starting from 1).
+         *
+         * **Usage Notes:**
+         * - This is particularly useful in frameworks like React or Angular where you might need to inject
+         *   custom routing components such as `NavLink` (React) or `routerLink` (Angular).
+         * - When this property is `true`, the `menuData` prop is ignored.
+         * - Ensure that the `linksLength` prop is also specified to define the total number of links.
+         *
+         * **Example:**
+         * ```html
+         * <TnwNavbar enableLinkSlot={true} linksLength={2}>
+         *   <NavLink slot="link-1" to="/">Home</NavLink>
+         *   <NavLink slot="link-2" to="/services">Services</NavLink>
+         * </TnwNavbar>
+         * ```
+         */
+        this.enableLinkSlot = false;
+        this.handleResize = () => {
+            const breakpoint = typeof this.hideMenuBelow === 'string'
+                ? parseInt(this.hideMenuBelow, 10)
+                : this.hideMenuBelow === false || this.hideMenuBelow === 'false'
+                    ? Infinity
+                    : 0;
+            const isMenuHidden = window.innerWidth <= breakpoint;
+            this.isHidden = isMenuHidden;
+            this.tnwMenuVisibilityChange.emit({ isMenuHidden, windowWidth: window.innerWidth });
+        };
         this.handleScroll = () => {
             if (this.sticky) {
                 this.tnwScrollChange.emit({ scrollY: window.scrollY });
@@ -886,6 +957,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         }
     }
     connectedCallback() {
+        window.addEventListener('resize', this.handleResize);
         if (isAdoptedStyleSheetsSupported()) {
             this.el.shadowRoot.adoptedStyleSheets = [
                 containerStyleSheet,
@@ -900,13 +972,14 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         }
     }
     componentWillLoad() {
-        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
+        validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
         // Manually parse menu data on initial load
         if (isNotEmptyString(this.menuData)) {
             this.parseMenuData(this.menuData);
         }
     }
     disconnectedCallback() {
+        window.removeEventListener('resize', this.handleResize);
         if (this.sticky) {
             window.removeEventListener('scroll', this.handleScroll);
         }
@@ -942,22 +1015,32 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             return null;
         }
         return (renderToggler({
-            isOpen: this.isVisible,
+            isOpen: this.isOpen,
             togglerDisplay: { display: 'none' },
             toggleMenu: () => {
-                this.isVisible = !this.isVisible;
-                this.tnwMenuToggle.emit({ isOpen: this.isVisible });
+                this.isOpen = !this.isOpen;
+                this.tnwMenuToggle.emit({ isOpen: this.isOpen });
             }
         }));
     }
     menu() {
-        if (this.parsedMenuData === null) {
+        const { parsedMenuData, isOpen, menuPlacement, hideMenuBelow, enableLinkSlot, linksLength, menuExactCenter } = this;
+        const menu = renderMenu({
+            parsedMenuData,
+            isOpen,
+            menuPlacement,
+            hideMenuBelow,
+            enableLinkSlot,
+            linksLength,
+            menuExactCenter
+        });
+        if (menu === null) {
             if (this.enableMenuSlot) {
                 return h$1("slot", { name: "menu" });
             }
             return null;
         }
-        return renderMenu(this.parsedMenuData, this.isVisible, this.menuPlacement);
+        return menu;
     }
     logo() {
         if (!this.enableLogoSlot) {
@@ -977,7 +1060,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: '63c48282367939b94db2d7110b9e461cff655535', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: 'e0e00405fb73e2504135dec41df02874bbda9947', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {
@@ -1001,8 +1084,11 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         "enableLogoSlot": [4, "enable-logo-slot"],
         "enableMenuSlot": [4, "enable-menu-slot"],
         "hideMenuBelow": [8, "hide-menu-below"],
+        "enableLinkSlot": [4, "enable-link-slot"],
+        "linksLength": [2, "links-length"],
         "parsedMenuData": [32],
-        "isVisible": [32]
+        "isOpen": [32],
+        "isHidden": [32]
     }, undefined, {
         "hideMenuBelow": ["updateHideMenuBelow"],
         "menuData": ["parseMenuData"]

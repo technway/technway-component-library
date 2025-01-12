@@ -9,7 +9,8 @@ type ArticleCardProps = {
 }
 
 const ArticleCard = (props: ArticleCardProps) => {
-    const imageSrc = "https://picsum.photos/512/288";
+    const randomHeight = Math.floor(Math.random() * (300 - 250 + 1)) + 250;
+    const imageSrc = `https://picsum.photos/512/${randomHeight}`;
     const heading = "Agile Project Management: Tips for Effective Team Collaboration";
     const description = "Agile project management has become increasingly popular in recent years as more and more organizations recognize the value of a flexible, collaborative approach to project management. In this article, we will provide some tips for achieving effective team collaboration in an agile project management context.";
     const link = "#";

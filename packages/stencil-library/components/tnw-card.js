@@ -537,7 +537,7 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
             return (h("div", { class: `${this.baseClass}__image`, part: 'image-container' }, h("slot", { name: 'image' })));
         }
         if (isNotEmptyString(this.imageSrc)) {
-            return (h("div", { class: `${this.baseClass}__image`, part: 'image' }, h("tnw-image", { src: this.imageSrc, alt: this.heading || this.imageAlt, borderRadius: this.borderRadius, part: 'image', width: '100%', height: this.imageHeight, objectFit: 'cover' })));
+            return (h("div", { class: `${this.baseClass}__image`, part: 'image' }, h("tnw-image", { src: this.imageSrc, alt: this.heading || this.imageAlt, borderRadius: this.borderRadius, part: 'image', width: '100%', height: this.imageHeight, objectFit: 'cover', lazyLoading: true })));
         }
         return null;
     }
@@ -584,7 +584,7 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         return (h("div", { class: this.getContentClasses(), part: 'content' }, h("div", { class: `${this.baseClass}__content-heading` }, (this.renderBadge() !== null || this.renderDate() !== null) && (h("div", { class: `${this.baseClass}__badge-wrapper` }, this.renderBadge(), this.renderDate())), this.renderHeading(), this.renderSubheading()), this.renderDescription(), this.renderButton()));
     }
     render() {
-        return (h(Host, { key: '9b02e1d0aa544a2cd75fb0d8baa6be0c6aa75a66', class: this.getHostClasses() }, this.orderContentFirst
+        return (h(Host, { key: '6a921b9cf5bf5ef1cf7364a49d99b52ae0ccdec8', class: this.getHostClasses() }, this.orderContentFirst
             && this.renderContent(), this.renderImage(), !this.orderContentFirst
             && this.renderContent()));
     }

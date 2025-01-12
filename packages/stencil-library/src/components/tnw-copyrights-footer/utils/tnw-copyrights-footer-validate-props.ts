@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-copyrights-footer.tsx` file.
  * 
-validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.enableSlot, this.endYear, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useDivAsContainer]);
+validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.endYear, this.linksData, this.linksLength, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useCustomLinks, this.useDivAsContainer]);
  *
  * GENERATED USING `npm run g:components-validations tnw-copyrights-footer`
  */
@@ -56,14 +56,21 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
-    "name": "enableSlot",
+    "name": "endYear",
     "type": [
-      "boolean"
+      "number"
     ],
     "isRequired": false
   },
   {
-    "name": "endYear",
+    "name": "linksData",
+    "type": [
+      "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "linksLength",
     "type": [
       "number"
     ],
@@ -152,6 +159,13 @@ export function validateProps(propsValues: any[]): void {
   },
   {
     "name": "useCurrentYearAsStartYear",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "useCustomLinks",
     "type": [
       "boolean"
     ],

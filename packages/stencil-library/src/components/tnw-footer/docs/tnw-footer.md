@@ -68,6 +68,7 @@ Expected structure:
 | **brand** | Slot for the brand logo and name. |
 | **contact** | Slot for contact information. |
 | **copyrights** | Slot for copyright information. Use `tnw-copyrights-footer` instead. |
+| **link-<n>** | Slots for custom links (requires `footerData.links.useCustomLinks` to be true). |
 | **links** | Slot for useful links. |
 | **socialmedia** | Slot for social media icons. |
 | **subscription** | Slot for the subscription subscription form. |

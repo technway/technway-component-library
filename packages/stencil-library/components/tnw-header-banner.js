@@ -17,14 +17,19 @@ const styles = `
 :host {
     z-index: 2;
     max-width: 100%;
+    width: 100%;
     margin-block: auto !important;
     padding-bottom: 100px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
 .${contentClass} {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
 }
 
 .${contentClass}--start {
@@ -54,19 +59,22 @@ const styles = `
     margin-right: auto;
 }
 
-.${contentClass}--sm {
-    width: 450px;
+.${contentClass}--max-w-sm {
+    max-width: 450px;
 }
-.${contentClass}--md {
-    width: 600px;
+.${contentClass}--max-w-md {
+    max-width: 600px;
 }
-.${contentClass}--lg {
-    width: 800px;
+.${contentClass}--max-w-lg {
+    max-width: 800px;
 }
-.${contentClass}--xl {
-    width: 1000px;
+.${contentClass}--max-w-xl {
+    max-width: 1000px;
 }
-.${contentClass}--full {
+.${contentClass}--w-half {
+    width: 50%;
+}
+.${contentClass}--w-full {
     width: 100%;
 }
 
@@ -78,12 +86,16 @@ const styles = `
 
 .${imageClass} {
     height: auto;
+    width: 50%;
+    max-width: 800px;
+}
+
+.${imageClass}--pos-absolute {
+    height: auto;
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 50%;
-    max-width: 800px;
 }
 `;
 
@@ -94,7 +106,7 @@ const styles = `
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-header-banner.tsx` file.
  *
-validateProps([this.alignment, this.buttonLabel, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
+validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
  *
  * GENERATED USING `npm run g:components-validations tnw-header-banner`
  */
@@ -115,6 +127,25 @@ function validateProps(propsValues) {
             "name": "buttonLabel",
             "type": [
                 "string"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "contentMaxWidth",
+            "type": [
+                "lg",
+                "md",
+                "sm",
+                "unset",
+                "xl"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "contentWidth",
+            "type": [
+                "full",
+                "half"
             ],
             "isRequired": false
         },
@@ -255,8 +286,18 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
         this.alignment = 'start';
         /**
          * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
+         *
+         * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.
          */
         this.width = 'full';
+        /**
+         * Specifies the width of the content within the banner.
+         */
+        this.contentWidth = 'half';
+        /**
+         * Specifies the maximum width of the content within the banner. use `unset` to remove the limit.
+         */
+        this.contentMaxWidth = 'unset';
         /**
          * When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.
          */
@@ -306,7 +347,7 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
         }
     }
     componentWillLoad() {
-        validateProps([this.alignment, this.buttonLabel, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
+        validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
     }
     getHostClasses() {
         const { baseClass, stickyNavbar } = this;
@@ -316,12 +357,21 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
         ].filter(Boolean).join(' ').trim();
     }
     getContentClasses() {
-        const { baseClass, alignment, width } = this;
+        const { baseClass, alignment, contentWidth, contentMaxWidth } = this;
         const contentClass = `${baseClass}__content`;
         return [
             contentClass,
             `${contentClass}--${alignment}`,
-            `${contentClass}--${width}`,
+            `${contentClass}--w-${contentWidth}`,
+            contentMaxWidth !== 'unset' ? `${contentClass}--max-w-${contentMaxWidth}` : '',
+        ].filter(Boolean).join(' ').trim();
+    }
+    getImageClasses() {
+        const { baseClass, wrapImage } = this;
+        const imageClass = `${baseClass}__image`;
+        return [
+            imageClass,
+            !wrapImage ? `${imageClass}--pos-absolute` : '',
         ].filter(Boolean).join(' ').trim();
     }
     renderHeading() {
@@ -357,17 +407,17 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
     renderImage() {
         const { enableImageSlot, imageBorderRadius, imageSrc } = this;
         if (enableImageSlot || isNotEmptyString(imageSrc)) {
-            return (h("div", { class: `${this.baseClass}__image`, part: 'image-container' }, enableImageSlot ?
+            return (h("div", { class: this.getImageClasses(), part: 'image-container' }, enableImageSlot ?
                 h("slot", { name: 'image' })
                 :
-                    h("tnw-image", { src: imageSrc, alt: this.imageAlt, borderRadius: imageBorderRadius, part: 'image', heightSize: 'full', widthSize: 'full', objectFit: 'cover' })));
+                    h("tnw-image", { src: imageSrc, alt: this.imageAlt, borderRadius: imageBorderRadius, part: 'image', width: '100%', height: 'auto' })));
         }
     }
     renderContent() {
         return (h("div", { class: this.getContentClasses(), part: 'content' }, this.renderHeadings(), this.renderDescription(), this.renderButton()));
     }
     render() {
-        return (h(Host, { key: 'b19650f6040b4a86f5be847e75b4efa5ab545e0e', class: this.getHostClasses() }, this.renderContent(), this.renderImage()));
+        return (h(Host, { key: '3ca0855c32a63f4eb886b5c41c4a8b81139ac235', class: this.getHostClasses() }, this.renderContent(), this.renderImage()));
     }
     get el() { return this; }
 }, [1, "tnw-header-banner", {
@@ -378,6 +428,8 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
         "theme": [1],
         "alignment": [1],
         "width": [1],
+        "contentWidth": [1, "content-width"],
+        "contentMaxWidth": [1, "content-max-width"],
         "stickyNavbar": [4, "sticky-navbar"],
         "enableImageSlot": [4, "enable-image-slot"],
         "imageSrc": [1, "image-src"],

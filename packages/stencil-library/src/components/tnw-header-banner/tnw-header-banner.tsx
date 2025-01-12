@@ -63,8 +63,20 @@ export class TnwHeaderBanner {
 
   /**
    * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
+   * 
+   * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.
    */
   @Prop() width: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'full';
+
+  /**
+   * Specifies the width of the content within the banner.
+   */
+  @Prop() contentWidth: 'full' | 'half' = 'half';
+
+  /**
+   * Specifies the maximum width of the content within the banner. use `unset` to remove the limit.
+   */
+  @Prop() contentMaxWidth: 'sm' | 'md' | 'lg' | 'xl' | 'unset' = 'unset';
 
   /**
    * When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.
@@ -114,7 +126,7 @@ export class TnwHeaderBanner {
   }
 
   componentWillLoad() {
-    validateProps([this.alignment, this.buttonLabel, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
+    validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
   }
 
   private getThemeMatchedColor = () => {
@@ -152,14 +164,26 @@ export class TnwHeaderBanner {
   }
 
   private getContentClasses(): string {
-    const { baseClass, alignment, width } = this;
+    const { baseClass, alignment, contentWidth, contentMaxWidth } = this;
 
     const contentClass = `${baseClass}__content`;
 
     return [
       contentClass,
       `${contentClass}--${alignment}`,
-      `${contentClass}--${width}`,
+      `${contentClass}--w-${contentWidth}`,
+      contentMaxWidth !== 'unset' ? `${contentClass}--max-w-${contentMaxWidth}` : '',
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private getImageClasses(): string {
+    const { baseClass, wrapImage } = this;
+
+    const imageClass = `${baseClass}__image`;
+
+    return [
+      imageClass,
+      !wrapImage ? `${imageClass}--pos-absolute` : '',
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -192,6 +216,7 @@ export class TnwHeaderBanner {
       <tnw-text text={this.description} alignment={this.alignment} color={this.getThemeMatchedColor()} part='description' />
     );
   }
+
   private renderButton(): JSX.Element {
     if (!isNotEmptyString(this.buttonLabel)) {
       return <slot name='button' />;
@@ -225,11 +250,18 @@ export class TnwHeaderBanner {
 
     if (enableImageSlot || isNotEmptyString(imageSrc)) {
       return (
-        <div class={`${this.baseClass}__image`} part='image-container'>
+        <div class={this.getImageClasses()} part='image-container'>
           {enableImageSlot ?
             <slot name='image' />
             :
-            <tnw-image src={imageSrc} alt={this.imageAlt} borderRadius={imageBorderRadius} part='image' heightSize='full' widthSize='full' objectFit='cover' />
+            <tnw-image
+              src={imageSrc}
+              alt={this.imageAlt}
+              borderRadius={imageBorderRadius}
+              part='image'
+              width='100%'
+              height='auto'
+            />
           }
         </div>
       );

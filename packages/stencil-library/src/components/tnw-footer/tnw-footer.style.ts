@@ -115,4 +115,11 @@ tnw-heading {
     display: flex;
     gap: 20px;
 }
+
+::slotted(a) {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
 `;

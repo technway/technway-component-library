@@ -270,8 +270,8 @@ export const TnwList: StencilReactComponent<TnwListElement, TnwListEvents> = /*@
 });
 
 type TnwNavbarEvents = {
-    onTnwBreakpointChange: EventName<CustomEvent<{ breakpoint: "1024" | "767" | "567" | "1439" }>>,
     onTnwMenuToggle: EventName<CustomEvent<{ isOpen: boolean }>>,
+    onTnwMenuVisibilityChange: EventName<CustomEvent<{ isMenuHidden: boolean, windowWidth: number }>>,
     onTnwScrollChange: EventName<CustomEvent<{ scrollY: number }>>
 };
 
@@ -281,8 +281,8 @@ export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents>
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
     events: {
-        onTnwBreakpointChange: 'tnwBreakpointChange',
         onTnwMenuToggle: 'tnwMenuToggle',
+        onTnwMenuVisibilityChange: 'tnwMenuVisibilityChange',
         onTnwScrollChange: 'tnwScrollChange'
     } as TnwNavbarEvents,
     defineCustomElement: defineTnwNavbar

@@ -1,9 +1,10 @@
 import { FontSizeType } from '../../../../utils/component-props-types';
+import { MenuProps } from '../menu/part--menu-types';
 
 export interface DropdownMenuProps {
     itemsData: Array<{ label: string; link?: string; newTab?: boolean }>;
     itemsSize?: FontSizeType;
-    menuInvisibilityBreakpoint: "1024" | "767" | "567" | "1439" | false;
+    menuInvisibilityBreakpoint: MenuProps['hideMenuBelow'];
 }
 
 export const dropdownMenuDefaults: DropdownMenuProps = {

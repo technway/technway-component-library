@@ -4,80 +4,68 @@ import {
     TnwNavbar
 } from '@technway/react-library/src/components';
 import { NavLink } from 'react-router-dom';
-import { NavLinkProps } from 'react-router-dom';
 
-const Navbar = () => {
+interface NavbarProps {
+    menuPlacement: 'start' | 'end' | 'middle';
+    appearance?: "transparent" | "none" | "solid" | "outlined" | "mixed" | "outlined-bottom";
+    appearanceColor?: "primary" | "secondary" | "auto" | "inverse" | "light" | "white" | "black";
+    borderRadius?: "none" | "default" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
+    buttonBorderRadius?: "none" | "default" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
+    paddingHorizontal?: "sm" | "md" | "lg" | "none";
+    paddingVertical?: "sm" | "md" | "lg" | "none";
+    buttonAppearanceColor?: "primary" | "secondary" | "auto" | "inverse" | "light" | "white" | "black" | "success" | "warning" | "danger" | "info";
+}
+
+const Navbar = (props: NavbarProps) => {
     return (
         <TnwNavbar
             enableCtaSlot={true}
             enableLogoSlot={true}
             enableMenuSlot={true}
             disableInternalContainer={true}
-            paddingHorizontal="none"
-            appearance="outlined-bottom"
-            borderRadius="none"
-            menuData={JSON.stringify(menuData)}
-            linkElement={(props: NavLinkProps) => <NavLink {...props} />}
+            paddingHorizontal={props.paddingHorizontal || 'none'}
+            paddingVertical={props.paddingVertical || 'md'}
+            appearance={props.appearance || "outlined-bottom"}
+            appearanceColor={props.appearanceColor || 'light'}
+            borderRadius={props.borderRadius || 'none'}
+            hideMenuBelow='1024'
+            enableLinkSlot={true}
+            linksLength={2}
+            menuExactCenter={props.menuPlacement === 'middle'}
+            menuPlacement={props.menuPlacement}
         >
             {/* Logo */}
             <TnwImage
-                src="https://picsum.photos/130/40"
+                src="https://i.ibb.co/cJd7xbW/favicon-04.png"
+                width='110px'
+                height='auto'
                 alt="logo"
                 slot="logo"
                 link="/"
                 borderRadius="none"
             />
 
+            <NavLink
+                slot='link-1'
+                to="/"
+            >Home</NavLink>
+            <NavLink
+                slot='link-2'
+                to="/Services"
+            >Services</NavLink>
+
             {/* CTA */}
             <TnwButton
                 label="Get Started"
                 href="/signup"
-                appearanceColor="primary"
+                appearanceColor={props.buttonAppearanceColor || 'primary'}
                 appearance="solid"
                 size="md"
-                borderRadius="default"
+                borderRadius={props.buttonBorderRadius || 'default'}
                 slot="cta"
             />
         </TnwNavbar>
     );
-};
-
-const menuData = {
-    menuItems: [
-        {
-            label: 'Home',
-            link: '/',
-            newTab: false,
-        },
-        {
-            label: 'About Us',
-            link: '/about',
-            newTab: false,
-        },
-        {
-            label: 'Services',
-            link: '/services',
-            newTab: false,
-            subMenu: [
-                {
-                    label: 'Web Development',
-                    link: '/services/web-development',
-                    newTab: false,
-                },
-                {
-                    label: 'Mobile Development',
-                    link: '/services/mobile-development',
-                    newTab: false,
-                },
-            ],
-        },
-        {
-            label: 'Contact',
-            link: '/contact',
-            newTab: false,
-        },
-    ],
-    hideMenuBelow: '1024',
 };
 
 export default Navbar;

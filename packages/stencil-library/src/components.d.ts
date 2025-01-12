@@ -577,6 +577,14 @@ export namespace Components {
          */
         "buttonLabel": string;
         /**
+          * Specifies the maximum width of the content within the banner. use `unset` to remove the limit.
+         */
+        "contentMaxWidth": 'sm' | 'md' | 'lg' | 'xl' | 'unset';
+        /**
+          * Specifies the width of the content within the banner.
+         */
+        "contentWidth": 'full' | 'half';
+        /**
           * The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed.
          */
         "description": string;
@@ -614,6 +622,7 @@ export namespace Components {
         "theme": 'primary' | 'secondary' | 'inverse' | 'auto' | 'white' | 'black';
         /**
           * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
+          * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.
          */
         "width": 'sm' | 'md' | 'lg' | 'xl' | 'full';
         /**
@@ -2541,6 +2550,14 @@ declare namespace LocalJSX {
          */
         "buttonLabel"?: string;
         /**
+          * Specifies the maximum width of the content within the banner. use `unset` to remove the limit.
+         */
+        "contentMaxWidth"?: 'sm' | 'md' | 'lg' | 'xl' | 'unset';
+        /**
+          * Specifies the width of the content within the banner.
+         */
+        "contentWidth"?: 'full' | 'half';
+        /**
           * The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed.
          */
         "description"?: string;
@@ -2578,6 +2595,7 @@ declare namespace LocalJSX {
         "theme"?: 'primary' | 'secondary' | 'inverse' | 'auto' | 'white' | 'black';
         /**
           * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
+          * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.
          */
         "width"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
         /**

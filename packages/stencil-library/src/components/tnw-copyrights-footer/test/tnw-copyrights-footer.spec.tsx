@@ -1,4 +1,3 @@
-import { todo } from 'node:test';
 import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwCopyrightsFooter } from '../tnw-copyrights-footer';
 

@@ -6,6 +6,7 @@ import {
 import { NavLink } from 'react-router-dom';
 
 interface NavbarProps {
+    slot?: string;
     menuPlacement: 'start' | 'end' | 'middle';
     appearance?: "transparent" | "none" | "solid" | "outlined" | "mixed" | "outlined-bottom";
     appearanceColor?: "primary" | "secondary" | "auto" | "inverse" | "light" | "white" | "black";
@@ -19,6 +20,7 @@ interface NavbarProps {
 const Navbar = (props: NavbarProps) => {
     return (
         <TnwNavbar
+            slot={props.slot}
             enableCtaSlot={true}
             enableLogoSlot={true}
             enableMenuSlot={true}

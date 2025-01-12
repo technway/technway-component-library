@@ -72,7 +72,7 @@ ul {
  *
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-copyrights-footer.tsx` file.
  *
-validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.endYear, this.linksData, this.linksLength, this.organizationName, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useCustomLinks, this.useDivAsContainer]);
+validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.endYear, this.linksData, this.linksLength, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useCustomLinks, this.useDivAsContainer]);
  *
  * GENERATED USING `npm run g:components-validations tnw-copyrights-footer`
  */
@@ -143,6 +143,29 @@ function validateProps(propsValues) {
             "name": "organizationName",
             "type": [
                 "string"
+            ],
+            "isRequired": false
+        },
+        {
+            "name": "organizationNameColor",
+            "type": [
+                "auto",
+                "black",
+                "gray100",
+                "gray200",
+                "gray300",
+                "gray400",
+                "gray500",
+                "gray600",
+                "gray700",
+                "gray800",
+                "gray900",
+                "inverse",
+                "light",
+                "placeholder",
+                "primary",
+                "secondary",
+                "white"
             ],
             "isRequired": false
         },
@@ -319,7 +342,7 @@ const TnwCopyrightsFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwCopyrigh
         }
     }
     componentWillLoad() {
-        validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.endYear, this.linksData, this.linksLength, this.organizationName, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useCustomLinks, this.useDivAsContainer]);
+        validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.endYear, this.linksData, this.linksLength, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useCustomLinks, this.useDivAsContainer]);
         validateYearsProps(this.startYear, this.endYear, this.useCurrentYearAsStartYear, this.useCurrentYearAsEndYear);
         try {
             this.parsedLinksData = isNotEmptyString(this.linksData) ? JSON.parse(this.linksData) : [];
@@ -386,7 +409,7 @@ const TnwCopyrightsFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwCopyrigh
     }
     render() {
         const FooterTag = this.useDivAsContainer ? 'div' : 'footer';
-        return (h(Host, { key: '6abbf9743c4017886d21cb0e89c2b296b074c53e', class: this.getHostClasses() }, h(FooterTag, { key: '72064622d4df1fbca071873e852b76fa970a8238', class: !this.disableInternalContainer ? 'container' : '', part: 'container' }, [
+        return (h(Host, { key: '0cbe941431cf3e9fad74efedbe498ba60bd73fc8', class: this.getHostClasses() }, h(FooterTag, { key: '37722a82cf278da2cc1d6050168c6cfdb8fe5f25', class: !this.disableInternalContainer ? 'container' : '', part: 'container' }, [
             this.renderCopyrights(),
             this.renderLinks(),
         ])));

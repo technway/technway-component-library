@@ -396,6 +396,8 @@ export const TnwHeaderBanner: StencilReactComponent<TnwHeaderBannerElement, TnwH
             theme: 'theme',
             alignment: 'alignment',
             width: 'width',
+            contentWidth: 'content-width',
+            contentMaxWidth: 'content-max-width',
             stickyNavbar: 'sticky-navbar',
             enableImageSlot: 'enable-image-slot',
             imageSrc: 'image-src',

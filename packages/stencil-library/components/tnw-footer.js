@@ -130,6 +130,13 @@ tnw-heading {
     display: flex;
     gap: 20px;
 }
+
+::slotted(a) {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
 `;
 
 /**
@@ -378,31 +385,41 @@ const TnwFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwFooter extends H {
         return (h("tnw-heading", { text: heading, level: 'h3', weight: '600', size: 'sm', color: this.headingColor }));
     }
     renderBrand(brand, socialmedia) {
-        if (!brand || (!brand.logo && !brand.name))
-            return h("slot", { name: "brand" });
+        if (!brand || (!brand.logo && !brand.name)) {
+            return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__brand`, part: "brand" }, h("slot", { name: "brand" }), this.renderSocialMedia(socialmedia)));
+        }
         return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__brand`, part: "brand" }, brand.logo && h("tnw-image", { src: brand.logo, alt: `${brand.name || 'Brand'} logo` }), this.renderSocialMedia(socialmedia)));
     }
     renderLinks(links) {
         var _a;
-        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__links`, part: "links" }, this.renderHeading(links.heading), h("ul", { class: `${this.baseClass}__list` }, (!links || !((_a = links.items) === null || _a === void 0 ? void 0 : _a.length)) ? (h("slot", { name: "links" })) : (links.items.map(link => (h("li", null, h("tnw-anchor", Object.assign({ class: `${this.baseClass}__list-item`, href: link.url }, (link.newTab ? { newTab: true } : { newTab: false }), { textDecoration: 'underline', color: this.textColor }), link.label))))))));
+        if (!links || !links.heading) {
+            return null;
+        }
+        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__links`, part: "links" }, (links === null || links === void 0 ? void 0 : links.heading) && this.renderHeading(links.heading), h("ul", { class: `${this.baseClass}__list` }, (!links || (!((_a = links.items) === null || _a === void 0 ? void 0 : _a.length) && !(links === null || links === void 0 ? void 0 : links.useCustomLinks) && links.linksLength < 1)) ? (h("slot", { name: "links" })) : ((links === null || links === void 0 ? void 0 : links.useCustomLinks) ? (Array.from({ length: links.linksLength }, (_, i) => {
+            return (h("li", null, h("tnw-text", { class: `${this.baseClass}__list-item`, color: this.textColor }, h("slot", { name: `link-${i + 1}` }))));
+        })) : (links.items.map(link => (h("li", null, h("tnw-anchor", Object.assign({ class: `${this.baseClass}__list-item`, href: link.url }, (link.newTab ? { newTab: true } : { newTab: false }), { textDecoration: 'underline', color: this.textColor }), link.label)))))))));
     }
     renderContact(contact) {
-        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__contact`, part: "contact" }, this.renderHeading(contact.heading), h("ul", { class: `${this.baseClass}__list` }, !contact || (!contact.email && !contact.phone) ? (h("slot", { name: "contact" })) : (h(Fragment, null, contact.email && (h("li", null, h("tnw-anchor", { class: `${this.baseClass}__list-item`, href: `mailto:${contact.email}`, text: contact.email, newTab: true, textDecoration: 'underline', color: this.textColor }))), contact.phone && (h("li", null, h("tnw-text", { class: `${this.baseClass}__list-item`, text: contact.phone, color: this.textColor }))))))));
+        if (!contact || !contact.heading) {
+            return null;
+        }
+        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__contact`, part: "contact" }, (contact === null || contact === void 0 ? void 0 : contact.heading) && this.renderHeading(contact.heading), h("ul", { class: `${this.baseClass}__list` }, (!contact.email && !contact.phone) ? (h("slot", { name: "contact" })) : (h(Fragment, null, contact.email && (h("li", null, h("tnw-anchor", { class: `${this.baseClass}__list-item`, href: `mailto:${contact.email}`, text: contact.email, newTab: true, textDecoration: 'underline', color: this.textColor }))), contact.phone && (h("li", null, h("tnw-text", { class: `${this.baseClass}__list-item`, text: contact.phone, color: this.textColor }))))))));
     }
     renderSocialMedia(socialmedia) {
         return (h("div", { class: `${this.baseClass}__socialmedia`, part: "socialmedia" }, !(socialmedia === null || socialmedia === void 0 ? void 0 : socialmedia.length)
             ? (h("slot", { name: "socialmedia" })) : (socialmedia.map(icon => (h("tnw-anchor", { href: icon.url, newTab: true, hideNewTabIcon: true, textDecoration: 'none' }, h("tnw-icon", { name: icon.iconName, size: 'md', color: this.textColor })))))));
     }
     renderSubscription(subscription) {
-        if (!subscription)
+        if (!subscription || !subscription.heading) {
             return null;
-        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__subscription`, style: { gridColumn: "span 2" }, part: "subscription" }, subscription.heading &&
+        }
+        return (h("div", { class: `${this.baseClass}__column ${this.baseClass}__subscription`, style: { gridColumn: "span 2" }, part: "subscription" }, (subscription === null || subscription === void 0 ? void 0 : subscription.heading) &&
             h("tnw-heading", { text: subscription.heading, level: 'h3', weight: '600', size: 'md', color: this.headingColor }), subscription.description &&
             h("tnw-text", { class: `${this.baseClass}__subscription-description`, text: subscription.description, color: this.textColor }), h("tnw-subscription-form", { inputPlaceholder: subscription.placeholder, buttonLabel: subscription.buttonText, variant: 'secondary', borderRadius: 'full' })));
     }
     render() {
         const { parsedFooterData } = this;
-        return (h(Host, { key: 'c7631f0aa0c6ef17e26baf04341b3fbc1b071960', class: this.getHostClasses() }, h("footer", { key: '225f4952d5c3b5fa73f78db927e683c805952301', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: 'e150071ed7e6aa41c551b3265c49dfd4e760e2f3', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderSubscription(parsedFooterData.subscription))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "subscription" })))), h("slot", { key: '82b411cc8a345fd4a2e68b0bb3630a717b070c96', name: "copyrights" }))));
+        return (h(Host, { key: '0a00b7f6d6d9f654dc57d1e070009d2372062b1e', class: this.getHostClasses() }, h("footer", { key: '290f96b7a49525294583d4dd71457f7114bb1063', class: !this.disableInternalContainer ? 'container' : '', part: "container" }, h("div", { key: '418d615fe21314689c206880c598881aba4398d9', class: this.getContentClasses() }, parsedFooterData !== null ? (h(Fragment, null, this.renderBrand(parsedFooterData.brand, parsedFooterData.socialmedia), this.renderLinks(parsedFooterData.links), this.renderContact(parsedFooterData.contact), this.renderSubscription(parsedFooterData.subscription))) : (h(Fragment, null, h("slot", { name: "brand" }), h("slot", { name: "links" }), h("slot", { name: "contact" }), h("slot", { name: "socialmedia" }), h("slot", { name: "subscription" })))), h("slot", { key: '1bfd8e8410a8e57926ebb28a4b8522b3a84eedcc', name: "copyrights" }))));
     }
     get el() { return this; }
 }, [1, "tnw-footer", {

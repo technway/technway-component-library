@@ -2,5 +2,5 @@
     "@technway/stencil-library": "1.0.0",
     "@technway/react-library": "1.0.0",
     "@technway/next-library": "0.1.2",
-    ".": "3.4.0"
+    ".": "3.5.0"
 }

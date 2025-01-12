@@ -235,6 +235,7 @@ export class TnwCard {
             width='100%'
             height={this.imageHeight}
             objectFit='cover'
+            lazyLoading={true}
           />
         </div>
       )

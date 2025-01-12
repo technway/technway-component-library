@@ -419,7 +419,6 @@ const TnwTextarea$1 = /*@__PURE__*/ proxyCustomElement(class TnwTextarea extends
             const value = textarea.value;
             this.setStore(value);
             const validatedValue = this.sanitizeValue(value);
-            console.log("validatedValue ", validatedValue);
             this.textareaChanged.emit(validatedValue);
             textarea.value = this.sanitizeValue(validatedValue);
         };
@@ -602,7 +601,7 @@ const TnwTextarea$1 = /*@__PURE__*/ proxyCustomElement(class TnwTextarea extends
         return (h("tnw-alert", { message: this.helpText, alertId: `${this.uniqueId}-help`, part: "help-text" }));
     }
     render() {
-        return (h(Host, { key: '2af4cd2c58baf3898b28809f4316646c4504f4f1' }, this.renderLabel(), h("textarea", Object.assign({ key: 'f127efdad3f3cb2765f94d0aef5d725dbbc2eab1', class: this.getTextareaClasses(), id: this.uniqueId, name: this.name, required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, rows: this.rows, cols: this.cols, autocomplete: this.autoComplete, disabled: this.disabled, value: this.store.get('textareaValue') }, this.getAriaAttributes(), { onInput: this.handleTextareaOnInput, onChange: this.handleTextareaOnChange, part: "textarea" })), this.renderAlert() || this.renderHelpText()));
+        return (h(Host, { key: '16d91816647d55dbddef72527e0bb89e018e34c4' }, this.renderLabel(), h("textarea", Object.assign({ key: '349b769f84759d66042e66712507971b091a663b', class: this.getTextareaClasses(), id: this.uniqueId, name: this.name, required: this.isRequired, placeholder: this.placeholder, maxlength: this.maxlength, minlength: this.minlength, rows: this.rows, cols: this.cols, autocomplete: this.autoComplete, disabled: this.disabled, value: this.store.get('textareaValue') }, this.getAriaAttributes(), { onInput: this.handleTextareaOnInput, onChange: this.handleTextareaOnChange, part: "textarea" })), this.renderAlert() || this.renderHelpText()));
     }
     get el() { return this; }
 }, [1, "tnw-textarea", {

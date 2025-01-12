@@ -1,6 +1,6 @@
 import { GLOBAL_PREFIX } from "../../utils/utils";
 import { styles as menuStyles } from "./parts/menu/part--menu.style";
-import { styles as dropdownMenuStyles } from "./parts/dropdpwn/part--dropdown.style";
+import { styles as dropdownMenuStyles } from "./parts/dropdown/part--dropdown.style";
 import { styles as togglerStyles } from "./parts/toggler/part--toggler.style";
 
 const baseClass = `${GLOBAL_PREFIX}-navbar`;
@@ -21,7 +21,6 @@ export let styles = `
 :host {
     display: block;
     width: 100%;
-    z-index: 10;
 }
 
 :host(.${baseClass}--sticky) {
@@ -29,6 +28,7 @@ export let styles = `
     left: 0;
     right: 0;
     top: 10px;
+    z-index: 10;
 }
 
 .${contentClass} {

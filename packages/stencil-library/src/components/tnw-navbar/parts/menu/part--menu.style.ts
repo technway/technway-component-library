@@ -34,10 +34,17 @@ export const styles = `
 .${baseClass} {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.${baseClass}--exact-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 1439px) {
@@ -223,5 +230,12 @@ tnw-anchor::part(icon) {
 
 tnw-text::part(text) {
     display: flex;
+}
+
+::slotted(a) {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
 }
 `;

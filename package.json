@@ -17,6 +17,7 @@
     "build:layout-kit": "npm run build --workspace=@technway/layout-kit",
     "lint:layout-kit": "npm run lint --workspace=@technway/layout-kit",
     "test:layout-kit": "npm run test --workspace=@technway/layout-kit",
+    "build:react-ui": "npm run build --workspace=@technway/react-ui",
     "react-app": "npm run dev --workspace=react-app"
   },
   "devDependencies": {

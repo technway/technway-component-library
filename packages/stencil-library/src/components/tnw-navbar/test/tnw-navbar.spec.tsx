@@ -93,7 +93,7 @@ describe('tnw-navbar', () => {
       for (const placement of placements) {
         const page = await newSpecPage({
           components: [TnwNavbar],
-          html: `<tnw-navbar menu-placement="${placement}" menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'></tnw-navbar>`
+          html: `<tnw-navbar menu-placement="${placement}" menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="1024"></tnw-navbar>`
         });
         const menuContainer = page.root.shadowRoot?.querySelector('.tnw-navbar__middle');
 
@@ -117,6 +117,88 @@ describe('tnw-navbar', () => {
         }
       }
     });
+
+    it('renders custom link slots when enableLinkSlot is true', async () => {
+      const host = await createSpecPage(
+        TnwNavbar,
+        `<tnw-navbar enable-link-slot links-length="2">
+            <a slot="link-1" href="/">Custom Link 1</a>
+            <a slot="link-2" href="/about">Custom Link 2</a>
+        </tnw-navbar>`
+      ) as HTMLTnwNavbarElement;
+      const link1 = queryElement(host, '[slot="link-1"]', false);
+      const link2 = queryElement(host, '[slot="link-2"]', false);
+
+      expect(link1).not.toBeNull();
+      expect(link2).not.toBeNull();
+      expect(link1?.getAttribute('href')).toBe('/');
+      expect(link2?.getAttribute('href')).toBe('/about');
+    });
+
+    // it('limits custom link slots to the specified linksLength', async () => {
+    //   const host = await createSpecPage(
+    //     TnwNavbar,
+    //     `<tnw-navbar enable-link-slot links-length="2">
+    //       <a slot="link-1" href="/">Link 1</a>
+    //       <a slot="link-2" href="/about">Link 2</a>
+    //       <a slot="link-3" href="/contact">Link 3</a>
+    //     </tnw-navbar>`
+    //   ) as HTMLTnwNavbarElement;
+
+    //   // Query elements for link slots
+    //   const link1 = queryElement(host, '[slot="link-1"]', false);
+    //   const link2 = queryElement(host, '[slot="link-2"]', false);
+    //   const link3 = queryElement(host, '[slot="link-3"]', false);
+
+    //   // Assertions
+    //   expect(link1).not.toBeNull(); // Slot for link-1 should exist
+    //   expect(link2).not.toBeNull(); // Slot for link-2 should exist
+    //   expect(link3).toBeNull(); // Slot for link-3 should not exist as linksLength is 2
+    // });
+
+    it('hides the menu below the specified breakpoint', async () => {
+      const page = await newSpecPage({
+        components: [TnwNavbar],
+        html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="1024"></tnw-navbar>`,
+      });
+      const component = page.rootInstance as TnwNavbar;
+
+      const spyEvent = jest.fn();
+      component.tnwMenuVisibilityChange  = { emit: spyEvent };
+
+      window.innerWidth = 600; // Simulate window resize
+      window.dispatchEvent(new Event('resize'));
+      await page.waitForChanges();
+
+      expect(component.hideMenuBelow).toBe('1024');
+      expect(component.isHidden).toBe(true);
+      expect(spyEvent).toHaveBeenCalledWith({ isMenuHidden: true, windowWidth: 600 });
+    });
+
+    it('does not hide the menu when hideMenuBelow is false', async () => {
+      const page = await newSpecPage({
+        components: [TnwNavbar],
+        html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="false"></tnw-navbar>`,
+      });
+      const component = page.rootInstance as TnwNavbar;
+      console.log(page.root.outerHTML)
+      window.innerWidth = 1023;
+      window.dispatchEvent(new Event('resize'));
+      await page.waitForChanges();
+
+      expect(component.isHidden).toBe(false); // Menu should remain visible
+    });
+
+    it('centers the menu exactly in the middle when menuExactCenter is true', async () => {
+      const page = await newSpecPage({
+        components: [TnwNavbar],
+        html: `<tnw-navbar menu-placement="middle" menu-exact-center="true" menu-data='{"menuItems":[{"label":"Home","link":"/"}]}'></tnw-navbar>`,
+      });
+
+      const menuContainer = page.root.shadowRoot?.querySelector('.tnw-navbar__middle--exact-center');
+      expect(menuContainer).not.toBeNull();
+    });
+
   });
 
   describe('Menu Data Parsing', () => {
@@ -150,7 +232,8 @@ describe('tnw-navbar', () => {
         `
         <tnw-navbar
           enable-menu-slot
-          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"middle", "hideMenuBelow":"1024", "itemsSize":"sm", "itemsColor":"auto"}'
+          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"middle", "itemsSize":"sm", "itemsColor":"auto"}'
+          hide-menu-below="1024"
         >
           <span slot="menu">Menu</span>
         </tnw-navbar>`
@@ -229,8 +312,9 @@ describe('tnw-navbar', () => {
         `
         <tnw-navbar
           enable-logo-slot
-          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"start", "hideMenuBelow":"1024", "itemsSize":"sm", "itemsColor":"auto"}'
+          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"start", "itemsSize":"sm", "itemsColor":"auto"}'
           menu-placement="start"
+          hide-menu-below="1024"
         >
           <tnw-image slot="logo" src="/logo.png" alt="logo"></tnw-image>
         </tnw-navbar>`
@@ -250,8 +334,10 @@ describe('tnw-navbar', () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
         html: `<tnw-navbar 
-          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"middle", "hideMenuBelow":"1024", "itemsSize":"sm", "itemsColor":"auto"}' 
-          menu-placement="middle">
+          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"middle", "itemsSize":"sm", "itemsColor":"auto"}' 
+          menu-placement="middle"
+          hide-menu-below="1024"
+        >
         </tnw-navbar>`,
       });
 
@@ -266,8 +352,10 @@ describe('tnw-navbar', () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
         html: `<tnw-navbar 
-          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"end", "hideMenuBelow":"1024", "itemsSize":"sm", "itemsColor":"auto"}' 
-          menu-placement="end">
+          menu-data='{"menuItems":[{"label":"Home","link":"/"}], "menuPlacement":"end", "itemsSize":"sm", "itemsColor":"auto"}' 
+          menu-placement="end"
+          hide-menu-below="1024"
+        >
         </tnw-navbar>`,
       });
 
@@ -283,7 +371,7 @@ describe('tnw-navbar', () => {
     it('renders toggler when menu items exist', async () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
-        html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
+        html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="1024">`,
       });
 
       const toggler = page.root.shadowRoot?.querySelector('[part="toggler"]');
@@ -291,10 +379,10 @@ describe('tnw-navbar', () => {
       expect(toggler?.getAttribute('aria-label')).toBe('Toggle Navbar Menu');
     });
 
-    it('does not render toggler when no menu items', async () => {
+    it('does not render toggler when no menu items and enable-links-slot is not enabled', async () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
-        html: `<tnw-navbar menu-data='{"menuItems":[],"hideMenuBelow":"1024"}'>`,
+        html: `<tnw-navbar menu-data='{"menuItems":[]} enable-link-slot="false"' hide-menu-below="1024">`,
       });
 
       const toggler = page.root.shadowRoot?.querySelector('[part="toggler"]');
@@ -304,32 +392,32 @@ describe('tnw-navbar', () => {
     it('toggles menu visibility when toggler is clicked', async () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
-        html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
+        html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="1024">`,
       });
 
       const component = page.rootInstance as TnwNavbar;
       const toggler = page.root.shadowRoot?.querySelector('[part="toggler"]') as HTMLElement;
 
       // Initial state
-      expect(component.isVisible).toBe(false);
+      expect(component.isOpen).toBe(false);
 
       // Simulate click to open menu
       toggler?.dispatchEvent(new Event('click'));
       await page.waitForChanges();
 
-      expect(component.isVisible).toBe(true);
+      expect(component.isOpen).toBe(true);
 
       // Simulate click to close menu
       toggler?.dispatchEvent(new Event('click'));
       await page.waitForChanges();
 
-      expect(component.isVisible).toBe(false);
+      expect(component.isOpen).toBe(false);
     });
 
     it('renders toggler at start when placement is set to start', async () => {
       const toggler = await createSpecPage(
         TnwNavbar,
-        `<tnw-navbar toggler-placement="start" menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
+        `<tnw-navbar toggler-placement="start" menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="1024">`,
         '.tnw-navbar__start [part="toggler"]'
       );
 
@@ -339,7 +427,7 @@ describe('tnw-navbar', () => {
     it('renders toggler at end when placement is set to end', async () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
-        html: `<tnw-navbar toggler-placement="end" menu-data='{"menuItems":[{"label":"Home","link":"/"}],"hideMenuBelow":"1024"}'>`,
+        html: `<tnw-navbar toggler-placement="end" menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="1024">`,
       });
 
       const endToggler = page.root.shadowRoot?.querySelector('.tnw-navbar__end [part="toggler"]');

@@ -6,10 +6,16 @@ import { TnwDivider, TnwHeading } from '@technway/react-library/src/components';
 import ReactUiButton from '../../components/ui/button';
 import Navbar from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
+import Header from '../../components/header/header';
 
 function Home() {
     return (
         <Flex direction="col" gap={16}>
+            <Flex direction="col" gap={6}>
+                <TnwHeading text='Header' level='h2' />
+                <Header />
+            </Flex>
+
             <Flex direction="col" gap={12}>
                 <TnwHeading text='Navbar' level='h2' />
                 <Navbar

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-12T11:13:46",
+  "timestamp": "2025-01-12T12:18:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.1",
@@ -5798,6 +5798,76 @@
           "setter": false
         },
         {
+          "name": "contentMaxWidth",
+          "type": "\"lg\" | \"md\" | \"sm\" | \"unset\" | \"xl\"",
+          "complexType": {
+            "original": "'sm' | 'md' | 'lg' | 'xl' | 'unset'",
+            "resolved": "\"lg\" | \"md\" | \"sm\" | \"unset\" | \"xl\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "content-max-width",
+          "reflectToAttr": false,
+          "docs": "Specifies the maximum width of the content within the banner. use `unset` to remove the limit.",
+          "docsTags": [],
+          "default": "'unset'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "unset",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "contentWidth",
+          "type": "\"full\" | \"half\"",
+          "complexType": {
+            "original": "'full' | 'half'",
+            "resolved": "\"full\" | \"half\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "content-width",
+          "reflectToAttr": false,
+          "docs": "Specifies the width of the content within the banner.",
+          "docsTags": [],
+          "default": "'half'",
+          "values": [
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "half",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "description",
           "type": "string",
           "complexType": {
@@ -6088,8 +6158,14 @@
           "attr": "width",
           "reflectToAttr": false,
           "docs": "Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead."
+            }
+          ],
           "default": "'full'",
+          "deprecation": "since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.",
           "values": [
             {
               "value": "full",

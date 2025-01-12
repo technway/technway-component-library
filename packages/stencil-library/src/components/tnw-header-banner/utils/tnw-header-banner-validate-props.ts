@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-header-banner.tsx` file.
  * 
-validateProps([this.alignment, this.buttonLabel, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
+validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
  *
  * GENERATED USING `npm run g:components-validations tnw-header-banner`
  */
@@ -30,6 +30,25 @@ export function validateProps(propsValues: any[]): void {
     "name": "buttonLabel",
     "type": [
       "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "contentMaxWidth",
+    "type": [
+      "lg",
+      "md",
+      "sm",
+      "unset",
+      "xl"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "contentWidth",
+    "type": [
+      "full",
+      "half"
     ],
     "isRequired": false
   },

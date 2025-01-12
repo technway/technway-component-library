@@ -5,37 +5,59 @@ import { styles } from './tnw-navbar.style';
 import { appearanceColorSheet, borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-navbar-validate-props';
 import { renderToggler } from './parts/toggler/part--toggler';
-import { renderMenu } from './parts/menu/part--menu-render';
-import { Menu } from './parts/menu/part--menu-types';
+import { Menu, MenuProps } from './parts/menu/part--menu-types';
+import { renderMenu } from './parts/menu/part--menu';
 
 /**
  * The `tnw-navbar` component creates a responsive, customizable navigation bar.
  * It supports various appearance colors, optional glassmorphism effects, and flexible content slots for building structured navigation systems.
  * 
- * @part navbar - the outermost `nav` element that wraps all the content.
- * @part menu - the container for the navigation menu items.
- * @part menu-item - an individual menu item.
- * @part menu-link - a link within a menu item.
- * @part toggler - the button that toggles the menu visibility.
- * @part toggler-icon - the icon displayed within the toggler button.
- * 
- * @slot cta - The slot for custom content to be added to the end side of the navigation bar. To use this slot, set the `enableCtaSlot` property to `true`.
- * @slot logo - The slot for custom logo content to be added to the navigation bar. To use this slot, set the `enableLogoSlot` property to `true`.
- * @slot menu - The slot for custom menu content to be added to the navigation bar. To use this slot, set the `enableMenuSlot` property to `true`. And do not use the `menuData` prop.
+ * @part navbar - The outermost `<nav>` element wrapping the navigation bar.
+ * @part menu - The container for the menu items.
+ * @part menu-item - A single menu item.
+ * @part menu-link - The link inside a menu item.
+ * @part toggler - The button toggling menu visibility.
+ * @part toggler-icon - The icon inside the toggler button.
+ *
+ * @slot cta - Slot for adding custom content on the right (requires `enableCtaSlot`).
+ * @slot logo - Slot for adding a custom logo (requires `enableLogoSlot`).
+ * @slot menu - Slot for overriding the default menu (requires `enableMenuSlot`).
+ * @slot link-<n> - Slots for custom menu links (requires `enableLinkSlot`).
  */
 @Component({
   tag: 'tnw-navbar',
   shadow: true,
 })
 export class TnwNavbar {
+  // Base class name for the component
   private baseClass = `${GLOBAL_PREFIX}-navbar`;
+
+  // Holds the component's styles
   private componentStyles: CSSStyleSheet;
 
+  /* --------------- Internal State Management --------------- */
+
+  /**
+   * The host element reference.
+   */
   @Element() el!: HTMLTnwNavbarElement;
 
+  /**
+   * Parsed menu data from the `menuData` prop.
+   */
   @State() parsedMenuData: Menu | null = null;
 
-  @State() isVisible: boolean = false;
+  /**
+   * Tracks if meu is open/closed of the menu When interact with menu toggler
+   */
+  @State() isOpen: boolean = false;
+
+  /**
+   * Tracks the visibility of the menu for responsive behaviors.
+   */
+  @State() isHidden: boolean = false;
+
+  /* -------------------------- Props -------------------------- */
 
   /**
    * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
@@ -99,24 +121,6 @@ export class TnwNavbar {
   @Prop() menuData?: string;
 
   /**
-   * An optional element to be used as the link element for the menu items.
-   * 
-   * For example, this could be a React Router Link or Next.js Link component.
-   * Example for React Router:
-   * 
-   * import { Link } from 'react-router-dom';
-   * 
-   * itemLinkElement?: typeof Link;
-   * 
-   * Example for Next.js:
-   * 
-   * import Link from 'next/link';
-   * 
-   * itemLinkElement?: typeof Link;
-   */
-  @Prop() linkElement?: (props: any) => JSX.Element;
-
-  /**
    * If true, the CTA slot is enabled.
    */
   @Prop() enableCtaSlot?: boolean = false;
@@ -134,10 +138,57 @@ export class TnwNavbar {
   /**
    * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
    */
-  @Prop() hideMenuBelow?: "1024" | "767" | "567" | "1439" | false = false;
+  @Prop() hideMenuBelow?: MenuProps['hideMenuBelow'] = false;
+
+  /**
+   * Enables custom link slots for menu items.
+   * 
+   * This property allows you to inject custom components or HTML elements for the navigation links, 
+   * rather than relying on the `menuData` prop for automatic generation of menu items. 
+   * When `enableLinkSlot` is set to `true`, each menu item can be represented by a custom element 
+   * provided via a named slot in the format `link-<n>` where `<n>` is the index of the link (starting from 1).
+   * 
+   * **Usage Notes:**
+   * - This is particularly useful in frameworks like React or Angular where you might need to inject 
+   *   custom routing components such as `NavLink` (React) or `routerLink` (Angular).
+   * - When this property is `true`, the `menuData` prop is ignored.
+   * - Ensure that the `linksLength` prop is also specified to define the total number of links.
+   * 
+   * **Example:**
+   * ```html
+   * <TnwNavbar enableLinkSlot={true} linksLength={2}>
+   *   <NavLink slot="link-1" to="/">Home</NavLink>
+   *   <NavLink slot="link-2" to="/services">Services</NavLink>
+   * </TnwNavbar>
+   * ```
+   */
+  @Prop() enableLinkSlot?: boolean = false;
+
+  /**
+   * Specifies the number of links when `enableLinkSlot` is enabled.
+   * 
+   * This property works in conjunction with `enableLinkSlot` to define the total number of 
+   * custom link slots available in the navigation bar. The value determines the number of 
+   * slots named `link-<n>` (e.g., `link-1`, `link-2`, etc.) that can be populated with 
+   * custom components or HTML elements.
+   * 
+   * **Usage Notes:**
+   * - This property is required when `enableLinkSlot` is `true` to ensure the component knows how 
+   *   many slots to handle.
+   * - If this value is not provided, the component will not render the custom link slots.
+   * 
+   * **Error Handling:**
+   * - If `enableLinkSlot` is `true` but `linksLength` is not specified, the component will not be rendered as expected.
+   * 
+   * **Best Practices:**
+   * - Ensure that the `linksLength` matches the number of `link-<n>` slots defined in your component usage.
+   */
+  @Prop() linksLength?: number;
+
+  /* -------------------------- Watchers -------------------------- */
 
   @Watch('hideMenuBelow')
-  updateHideMenuBelow(newValue: "1024" | "767" | "567" | "1439" | false) {
+  updateHideMenuBelow(newValue: MenuProps['hideMenuBelow']) {
     this.hideMenuBelow = newValue;
   }
 
@@ -151,15 +202,17 @@ export class TnwNavbar {
     }
   }
 
-  /**
-   * Emitted when the navbar's responsive breakpoint changes. Event detail contains { breakpoint: string }
-   */
-  @Event() tnwBreakpointChange: EventEmitter<{ breakpoint: "1024" | "767" | "567" | "1439" }>;
+  /* -------------------------- Events -------------------------- */
 
   /**
    * Emitted when the menu toggler is clicked. Event detail contains { isOpen: boolean }
    */
   @Event() tnwMenuToggle: EventEmitter<{ isOpen: boolean }>;
+
+  /**
+   * Emitted when the window is resized depending on the current breakpoint to the value of `hideMenuBelow`
+   */
+  @Event() tnwMenuVisibilityChange: EventEmitter<{ isMenuHidden: boolean,  windowWidth: number }>;
 
   /**
    * Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number }
@@ -174,6 +227,8 @@ export class TnwNavbar {
   }
 
   connectedCallback() {
+    window.addEventListener('resize', this.handleResize);
+
     if (isAdoptedStyleSheetsSupported()) {
       (this.el.shadowRoot as any).adoptedStyleSheets = [
         containerStyleSheet,
@@ -190,7 +245,7 @@ export class TnwNavbar {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
 
     // Manually parse menu data on initial load
     if (isNotEmptyString(this.menuData)) {
@@ -199,10 +254,26 @@ export class TnwNavbar {
   }
 
   disconnectedCallback() {
+    window.removeEventListener('resize', this.handleResize);
+
     if (this.sticky) {
       window.removeEventListener('scroll', this.handleScroll);
     }
   }
+
+  private handleResize = () => {
+    const breakpoint =
+      typeof this.hideMenuBelow === 'string'
+        ? parseInt(this.hideMenuBelow, 10)
+        : this.hideMenuBelow === false || this.hideMenuBelow === 'false'
+          ? Infinity
+          : 0;
+
+    const isMenuHidden = window.innerWidth <= breakpoint;
+    
+    this.isHidden = isMenuHidden;
+    this.tnwMenuVisibilityChange.emit({ isMenuHidden, windowWidth: window.innerWidth });
+  };
 
   private getHostClasses(): string {
     const { baseClass, sticky } = this;
@@ -250,18 +321,29 @@ export class TnwNavbar {
 
     return (
       renderToggler({
-        isOpen: this.isVisible,
+        isOpen: this.isOpen,
         togglerDisplay: { display: 'none' },
         toggleMenu: () => {
-          this.isVisible = !this.isVisible;
-          this.tnwMenuToggle.emit({ isOpen: this.isVisible });
+          this.isOpen = !this.isOpen;
+          this.tnwMenuToggle.emit({ isOpen: this.isOpen });
         }
       })
     );
   }
 
   private menu(): JSX.Element | null {
-    if (this.parsedMenuData === null) {
+    const { parsedMenuData, isOpen, menuPlacement, hideMenuBelow, enableLinkSlot, linksLength, menuExactCenter } = this;
+    const menu = renderMenu({
+      parsedMenuData,
+      isOpen,
+      menuPlacement,
+      hideMenuBelow,
+      enableLinkSlot,
+      linksLength,
+      menuExactCenter
+    })
+
+    if (menu === null) {
       if (this.enableMenuSlot) {
         return <slot name="menu" />;
       }
@@ -269,12 +351,7 @@ export class TnwNavbar {
       return null;
     }
 
-    return renderMenu(
-      this.parsedMenuData,
-      this.isVisible,
-      this.menuPlacement,
-      this.linkElement
-    );
+    return menu;
   }
 
   private logo(): JSX.Element | null {

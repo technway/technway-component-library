@@ -19,6 +19,7 @@ import { validateProps } from './utils/tnw-footer-validate-props';
  * 
  * @part footer - The main `footer` element wrapping the entire component.
  * @part container - The container wrapping the footer sections.
+ * @slot link-<n> - Slots for custom links (requires `footerData.links.useCustomLinks` to be true).
  */
 @Component({
   tag: 'tnw-footer',
@@ -152,7 +153,15 @@ export class TnwFooter {
     brand?: { logo?: string; name?: string },
     socialmedia?: Array<{ iconName: string; url: string }>
   ) {
-    if (!brand || (!brand.logo && !brand.name)) return <slot name="brand" />;
+    if (!brand || (!brand.logo && !brand.name)) {
+      return (
+        <div class={`${this.baseClass}__column ${this.baseClass}__brand`} part="brand">
+          <slot name="brand" />
+
+          {this.renderSocialMedia(socialmedia)}
+        </div>
+      )
+    };
 
     return (
       <div class={`${this.baseClass}__column ${this.baseClass}__brand`} part="brand">
@@ -163,27 +172,45 @@ export class TnwFooter {
     );
   }
 
-  private renderLinks(links?: { heading?: string; items?: Array<{ label: string; url: string, newTab?: boolean }> }) {
+  private renderLinks(links?: { heading?: string; items?: Array<{ label: string; url: string, newTab?: boolean }>; useCustomLinks?: boolean; linksLength?: number; }) {
+    if (!links || !links.heading) {
+      return null;
+    }
+
     return (
       <div class={`${this.baseClass}__column ${this.baseClass}__links`} part="links">
-        {this.renderHeading(links.heading)}
+        {links?.heading && this.renderHeading(links.heading)}
         <ul class={`${this.baseClass}__list`}>
-          {(!links || !links.items?.length) ? (
+          {(!links || (!links.items?.length && !links?.useCustomLinks && links.linksLength < 1)) ? (
             <slot name="links" />
           ) : (
-            links.items.map(link => (
-              <li>
-                <tnw-anchor
-                  class={`${this.baseClass}__list-item`}
-                  href={link.url}
-                  {...(link.newTab ? { newTab: true } : { newTab: false })}
-                  textDecoration='underline'
-                  color={this.textColor}
-                >
-                  {link.label}
-                </tnw-anchor>
-              </li>
-            ))
+            links?.useCustomLinks ? (
+              Array.from({ length: links.linksLength }, (_, i) => {
+                return (
+                  <li>
+                    <tnw-text
+                      class={`${this.baseClass}__list-item`}
+                      color={this.textColor}
+                    >
+                      <slot name={`link-${i + 1}`} />
+                    </tnw-text>
+                  </li>
+                )
+              })
+            ) : (
+              links.items.map(link => (
+                <li>
+                  <tnw-anchor
+                    class={`${this.baseClass}__list-item`}
+                    href={link.url}
+                    newTab={link.newTab}
+                    textDecoration='underline'
+                    color={this.textColor}
+                  >
+                    {link.label}
+                  </tnw-anchor>
+                </li>
+              )))
           )}
         </ul>
       </div>
@@ -191,11 +218,15 @@ export class TnwFooter {
   }
 
   private renderContact(contact?: { heading?: string; email?: string; phone?: string }) {
+    if (!contact || !contact.heading) {
+      return null;
+    }
+
     return (
       <div class={`${this.baseClass}__column ${this.baseClass}__contact`} part="contact">
-        {this.renderHeading(contact.heading)}
+        {contact?.heading && this.renderHeading(contact.heading)}
         <ul class={`${this.baseClass}__list`}>
-          {!contact || (!contact.email && !contact.phone) ? (
+          {(!contact.email && !contact.phone) ? (
             <slot name="contact" />
           ) : (
             <Fragment>
@@ -251,7 +282,9 @@ export class TnwFooter {
     placeholder?: string;
     buttonText?: string;
   }) {
-    if (!subscription) return null;
+    if (!subscription || !subscription.heading) {
+      return null;
+    }
 
     return (
       <div
@@ -260,7 +293,7 @@ export class TnwFooter {
         part="subscription"
       >
         {
-          subscription.heading &&
+          subscription?.heading &&
           <tnw-heading text={subscription.heading} level='h3' weight='600' size='md' color={this.headingColor} />
         }
         {

@@ -86,6 +86,7 @@ This component supports both text content and custom content via a slot, making 
 
 ### Used by
 
+ - [tnw-copyrights-footer](../tnw-copyrights-footer)
  - [tnw-footer](../tnw-footer)
  - [tnw-list](../tnw-list)
  - [tnw-navbar](../tnw-navbar)
@@ -99,6 +100,7 @@ This component supports both text content and custom content via a slot, making 
 ```mermaid
 graph TD;
   tnw-anchor --> tnw-icon
+  tnw-copyrights-footer --> tnw-anchor
   tnw-footer --> tnw-anchor
   tnw-list --> tnw-anchor
   tnw-navbar --> tnw-anchor

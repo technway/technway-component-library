@@ -57,16 +57,20 @@ It can be customized to display dynamic or static years, as well as pre-defined 
 | **borderTopColor** | <div>The color of the top border of the footer.</div> | \`'auto'\` | \`"auto"\` \\| \`"black"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
 | **centerContent** | <div>Centering text</div> | \`false\` | \`boolean\` |
 | **disableInternalContainer** | <div>If \`true\`, a container class will be added around the content to align it within the page layout. Default is \`false\`.</div> | \`false\` | \`boolean\` |
-| **enableSlot** | <div>If true, the footer will render custom content using a slot instead of the default content.</div> | \`false\` | \`boolean\` |
 | **endYear** | <div>The ending year to display in the footer. If \`useCurrentYearAsEndYear\` is true, this will default to the current year.</div> | N/A | \`number\` |
+| **linksData** | <div>Array of objects represents links data. Cannot be used when \`useCustomLinks\` is \`true\`.</div> | N/A | \`string\` |
+| **linksLength** | <div>Number of links. Must be provided when \`useCustomLinks\` is \`true\`.</div> | N/A | \`number\` |
 | **organizationName** | <div>The name of the organization to display in the footer.</div> | N/A | \`string\` |
-| **organizationNameColor** | <div>The color of the organization name. Defaults to the same value as \`textColor\`.</div> | \`this.textColor\` | \`"auto"\` \\| \`"black"\` \\| \`"gray100"\` \\| \`"gray200"\` \\| \`"gray300"\` \\| \`"gray400"\` \\| \`"gray500"\` \\| \`"gray600"\` \\| \`"gray700"\` \\| \`"gray800"\` \\| \`"gray900"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"placeholder"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
+| **organizationNameColor** | <div style="color: #d9534f; font-weight: bold;">⚠️ Deprecated: since v2.2.0</div><br><div>The color of the organization name. Defaults to the same value as \`textColor\`.</div> | \`this.textColor\` | \`"auto"\` \\| \`"black"\` \\| \`"gray100"\` \\| \`"gray200"\` \\| \`"gray300"\` \\| \`"gray400"\` \\| \`"gray500"\` \\| \`"gray600"\` \\| \`"gray700"\` \\| \`"gray800"\` \\| \`"gray900"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"placeholder"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
 | **postText** | <div>Text to display after the organization name.</div> | N/A | \`string\` |
 | **preText** | <div>Text to display before the organization name.</div> | N/A | \`string\` |
 | **startYear** | <div>The starting year to display in the footer. If \`useCurrentYearAsStartYear\` is true, this will default to the current year.</div> | N/A | \`number\` |
 | **textColor** | <div>The text color for the footer content.</div> | \`'auto'\` | \`"auto"\` \\| \`"black"\` \\| \`"gray100"\` \\| \`"gray200"\` \\| \`"gray300"\` \\| \`"gray400"\` \\| \`"gray500"\` \\| \`"gray600"\` \\| \`"gray700"\` \\| \`"gray800"\` \\| \`"gray900"\` \\| \`"inverse"\` \\| \`"light"\` \\| \`"placeholder"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
 | **useCurrentYearAsEndYear** | <div>If true, the ending year will be set to the current year.</div> | \`false\` | \`boolean\` |
 | **useCurrentYearAsStartYear** | <div>If true, the starting year will be set to the current year.</div> | \`false\` | \`boolean\` |
+| **useCustomLinks** | <div>If \`true\`, the footer will render custom links using a slot instead of the \`linksData\`.
+Provide accurate \`linksLength\` when this prop is \`true\`.
+When use this prop, the \`linksData\` prop will be ignored.</div> | \`false\` | \`boolean\` |
 | **useDivAsContainer** | <div>If \`true\`, the footer will be rendered using a \`<div>\` element instead of a \`<footer>\` element. This is useful when this component is used inside a \`<footer>\` or inside the component \`<tnw-footer>\`.</div> | \`false\` | \`boolean\` |
 
 </div>
@@ -75,15 +79,15 @@ It can be customized to display dynamic or static years, as well as pre-defined 
 
 | Part | Description |
 | --- | --- |
-| **container** | No description provided. |
-| **content** | No description provided. |
-| **footer** | The \`footer\` element that wraps the entire content of the footer. |
+| **container** | the \`FooterTag\` element that contains the footer content. |
+| **copyrights** | the \`tnw-text\` element that displays the copyright information. |
 
 ## Slots
 
 | Slot | Description |
 | --- | --- |
-| **default** | Custom content slot for the footer. When \`enableSlot\` is true, this slot is used instead of the default content. |
+| **copyrights** | Slot for copyright information. |
+| **link-<n>** | Slots for custom links (requires \`useCustomLinks\` to be true). |
 
 ## Usage & Examples
 

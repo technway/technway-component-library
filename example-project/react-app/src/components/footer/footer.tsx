@@ -54,7 +54,20 @@ const Footer = () => {
                 organizationName="Technway"
                 slot="copyrights"
                 disableInternalContainer={true}
-            />
+                useDivAsContainer={true}
+                useCustomLinks={true}
+                linksLength={2}
+            >
+                {/* Links */}
+                <NavLink
+                    slot='link-1'
+                    to="/"
+                >Home</NavLink>
+                <NavLink
+                    slot='link-2'
+                    to="/Services"
+                >Services</NavLink>
+            </TnwCopyrightsFooter>
         </TnwFooter>
     )
 }

@@ -419,19 +419,24 @@ export namespace Components {
          */
         "disableInternalContainer"?: boolean;
         /**
-          * If true, the footer will render custom content using a slot instead of the default content.
-         */
-        "enableSlot"?: boolean;
-        /**
           * The ending year to display in the footer. If `useCurrentYearAsEndYear` is true, this will default to the current year.
          */
         "endYear"?: number;
+        /**
+          * Array of objects represents links data. Cannot be used when `useCustomLinks` is `true`.
+         */
+        "linksData"?: string;
+        /**
+          * Number of links. Must be provided when `useCustomLinks` is `true`.
+         */
+        "linksLength"?: number;
         /**
           * The name of the organization to display in the footer.
          */
         "organizationName"?: string;
         /**
           * The color of the organization name. Defaults to the same value as `textColor`.
+          * @deprecated since v2.2.0
          */
         "organizationNameColor"?: TextColorType;
         /**
@@ -458,6 +463,10 @@ export namespace Components {
           * If true, the starting year will be set to the current year.
          */
         "useCurrentYearAsStartYear": boolean;
+        /**
+          * If `true`, the footer will render custom links using a slot instead of the `linksData`. Provide accurate `linksLength` when this prop is `true`. When use this prop, the `linksData` prop will be ignored.
+         */
+        "useCustomLinks"?: boolean;
         /**
           * If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.
          */
@@ -568,6 +577,14 @@ export namespace Components {
          */
         "buttonLabel": string;
         /**
+          * Specifies the maximum width of the content within the banner. use `unset` to remove the limit.
+         */
+        "contentMaxWidth": 'sm' | 'md' | 'lg' | 'xl' | 'unset';
+        /**
+          * Specifies the width of the content within the banner.
+         */
+        "contentWidth": 'full' | 'half';
+        /**
           * The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed.
          */
         "description": string;
@@ -605,6 +622,7 @@ export namespace Components {
         "theme": 'primary' | 'secondary' | 'inverse' | 'auto' | 'white' | 'black';
         /**
           * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
+          * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.
          */
         "width": 'sm' | 'md' | 'lg' | 'xl' | 'full';
         /**
@@ -2374,19 +2392,24 @@ declare namespace LocalJSX {
          */
         "disableInternalContainer"?: boolean;
         /**
-          * If true, the footer will render custom content using a slot instead of the default content.
-         */
-        "enableSlot"?: boolean;
-        /**
           * The ending year to display in the footer. If `useCurrentYearAsEndYear` is true, this will default to the current year.
          */
         "endYear"?: number;
+        /**
+          * Array of objects represents links data. Cannot be used when `useCustomLinks` is `true`.
+         */
+        "linksData"?: string;
+        /**
+          * Number of links. Must be provided when `useCustomLinks` is `true`.
+         */
+        "linksLength"?: number;
         /**
           * The name of the organization to display in the footer.
          */
         "organizationName"?: string;
         /**
           * The color of the organization name. Defaults to the same value as `textColor`.
+          * @deprecated since v2.2.0
          */
         "organizationNameColor"?: TextColorType;
         /**
@@ -2413,6 +2436,10 @@ declare namespace LocalJSX {
           * If true, the starting year will be set to the current year.
          */
         "useCurrentYearAsStartYear"?: boolean;
+        /**
+          * If `true`, the footer will render custom links using a slot instead of the `linksData`. Provide accurate `linksLength` when this prop is `true`. When use this prop, the `linksData` prop will be ignored.
+         */
+        "useCustomLinks"?: boolean;
         /**
           * If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.
          */
@@ -2523,6 +2550,14 @@ declare namespace LocalJSX {
          */
         "buttonLabel"?: string;
         /**
+          * Specifies the maximum width of the content within the banner. use `unset` to remove the limit.
+         */
+        "contentMaxWidth"?: 'sm' | 'md' | 'lg' | 'xl' | 'unset';
+        /**
+          * Specifies the width of the content within the banner.
+         */
+        "contentWidth"?: 'full' | 'half';
+        /**
           * The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed.
          */
         "description"?: string;
@@ -2560,6 +2595,7 @@ declare namespace LocalJSX {
         "theme"?: 'primary' | 'secondary' | 'inverse' | 'auto' | 'white' | 'black';
         /**
           * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
+          * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.
          */
         "width"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
         /**

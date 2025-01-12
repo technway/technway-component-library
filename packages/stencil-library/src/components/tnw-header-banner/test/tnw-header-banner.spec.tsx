@@ -76,10 +76,10 @@ describe('tnw-header-banner', () => {
     it('applies correct width class when width prop is set', async () => {
       const bannerContent = await createSpecPage(
         TnwHeaderBanner,
-        `<tnw-header-banner width="lg"></tnw-header-banner>`,
+        `<tnw-header-banner content-width="half"></tnw-header-banner>`,
         'div.tnw-header-banner__content'
       );
-      expect(bannerContent).toHaveClass('tnw-header-banner__content--lg');
+      expect(bannerContent).toHaveClass('tnw-header-banner__content--w-half');
     });
 
     it('applies the stickyNavbar class when stickyNavbar is true', async () => {
@@ -108,6 +108,24 @@ describe('tnw-header-banner', () => {
         '[part="image-container"]'
       );
       expect(imageContainer).not.toBeNull();
+    });
+
+    it('applies the correct content max width class', async () => {
+      const host = await createSpecPage(
+        TnwHeaderBanner,
+        `<tnw-header-banner content-max-width="lg"></tnw-header-banner>`,
+        '.tnw-header-banner__content'
+      );
+      expect(host).toHaveClass('tnw-header-banner__content--max-w-lg');
+    });
+
+    it('applies the correct border radius to the image', async () => {
+      const image = await createSpecPage(
+        TnwHeaderBanner,
+        `<tnw-header-banner image-src="image.jpg" image-alt="Alt text" image-border-radius="lg"></tnw-header-banner>`,
+        'tnw-image[part="image"]'
+      );
+      expect(image.getAttribute('borderradius')).toBe('lg');
     });
   });
 
@@ -154,6 +172,17 @@ describe('tnw-header-banner', () => {
       `);
 
       const slot = el.shadowRoot?.querySelector('slot[name="button"]') as HTMLSlotElement;
+      expect(slot).not.toBeNull();
+    });
+
+    it('renders the image slot when enableImageSlot is true', async () => {
+      const el = await createSpecPage(TnwHeaderBanner, `
+        <tnw-header-banner enable-image-slot>
+          <div slot="image">Custom Image</div>
+        </tnw-header-banner>
+      `);
+
+      const slot = el.shadowRoot?.querySelector('slot[name="image"]') as HTMLSlotElement;
       expect(slot).not.toBeNull();
     });
   });

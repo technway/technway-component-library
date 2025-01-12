@@ -41,6 +41,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.4.0](https://github.com/technway/technway-component-library/compare/root-v3.3.1...root-v3.4.0) (2025-01-12)
+
+
+### Features
+
+* **react-ui:** style NavbarMenu component ([604e3be](https://github.com/technway/technway-component-library/commit/604e3be8bd716ede15ba284ea0971a62f979df6f))
+
+
+### Bug Fixes
+
+* **tnw-navbar:** implement slot-based approach for custom links and fix issues ([4cdb955](https://github.com/technway/technway-component-library/commit/4cdb95517753f6773adf8c32905b2b329b41e077))
+
 ## [3.3.1](https://github.com/technway/technway-component-library/compare/root-v3.3.0...root-v3.3.1) (2025-01-09)
 
 

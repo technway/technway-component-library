@@ -8,8 +8,8 @@ export const styles = `
 }
     
 :host {
-    display: block;
     padding: 15px 0;
+    display: block;
 }
 :host(.${baseClass}--borderTop) {
     border-top-width: 1px;
@@ -17,18 +17,42 @@ export const styles = `
 }
 :host(.${baseClass}--center) > footer,
 :host(.${baseClass}--center) > div {
-    display: flex;
     text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+:host > footer,
+:host > div {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+@media only screen and (max-width: 767px) {
+    :host > footer,
+    :host > div {
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+:host(.${baseClass}--center) ul {
     justify-content: center;
 }
 
-.${baseClass}__content {
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     display: flex;
-    gap: 4px;
+    align-items: center;
+    gap: 20px;
 }
 
-footer > p {
-    margin: 0;
+::slotted(a) {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
 }
 `;

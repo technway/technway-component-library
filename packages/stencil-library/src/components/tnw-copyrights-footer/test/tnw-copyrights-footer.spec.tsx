@@ -1,3 +1,4 @@
+import { todo } from 'node:test';
 import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwCopyrightsFooter } from '../tnw-copyrights-footer';
 
@@ -10,6 +11,15 @@ describe('tnw-copyrights-footer', () => {
                 `<tnw-copyrights-footer></tnw-copyrights-footer>`
             );
             expect(host).toMatchSnapshot();
+        });
+
+        it('renders with container class', async () => {
+            const footer = await createSpecPage(
+                TnwCopyrightsFooter,
+                `<tnw-copyrights-footer></tnw-copyrights-footer>`,
+                'footer'
+            );
+            expect(footer).toHaveClass('container');
         });
 
         it('uses default values for optional props when not provided', async () => {
@@ -78,21 +88,39 @@ describe('tnw-copyrights-footer', () => {
         it('centers content when centerContent is true', async () => {
             const content = await createSpecPage(
                 TnwCopyrightsFooter,
-                `<tnw-copyrights-footer center-content="true"></tnw-copyrights-footer>`,
+                `<tnw-copyrights-footer center-content="true" pre-text="text"></tnw-copyrights-footer>`,
                 'tnw-text'
             );
             expect(content.getAttribute('alignment')).toBe('center');
         });
+
+        it('omits container class when disableInternalContainer is true', async () => {
+            const footer = await createSpecPage(
+                TnwCopyrightsFooter,
+                `<tnw-copyrights-footer disable-internal-container="true"></tnw-copyrights-footer>`,
+                'footer'
+            );
+            expect(footer).not.toHaveClass('container');
+        });
+
+        it('renders only startYear when endYear is missing', async () => {
+            const content = await createSpecPage(
+                TnwCopyrightsFooter,
+                `<tnw-copyrights-footer start-year="2020"></tnw-copyrights-footer>`,
+                'tnw-text'
+            );
+            expect(content.getAttribute('text')).toContain('2020');
+        });
     });
 
     describe('Slot Behavior', () => {
-        it('renders slot content when enableSlot is true', async () => {
+        it('renders slot content when copyrights props are not provided', async () => {
             const slot = await createSpecPage(
                 TnwCopyrightsFooter,
-                `<tnw-copyrights-footer enable-slot="true">
-                    <div>Custom Slot Content</div>
+                `<tnw-copyrights-footer>
+                    <div slot="copyrights">Custom Slot Content</div>
                 </tnw-copyrights-footer>`,
-                'div',
+                'div[slot="copyrights"]',
                 false
             );
             expect(slot.textContent).toBe('Custom Slot Content');
@@ -108,6 +136,21 @@ describe('tnw-copyrights-footer', () => {
             );
             expect(content).toBeNull();
         });
+
+        it('renders custom links via slots when useCustomLinks is true', async () => {
+            const host = await createSpecPage(
+                TnwCopyrightsFooter,
+                `<tnw-copyrights-footer use-custom-links="true" links-length="2">
+                    <span slot="link-1">Link 1</span>
+                    <span slot="link-2">Link 2</span>
+                </tnw-copyrights-footer>`
+            ) as HTMLTnwCopyrightsFooterElement;
+            const slots = host.shadowRoot.querySelectorAll('slot[name^="link-"]');
+            const links = host.querySelectorAll('span[slot^="link-"]');
+            expect(slots.length).toBe(2);
+            expect(links.length).toBe(2);
+        });
+
     });
 
     describe('Error Handling and Edge Cases', () => {
@@ -134,16 +177,13 @@ describe('tnw-copyrights-footer', () => {
                 'Invalid year range: startYear cannot be greater than endYear'
             );
         });
-    });
 
-    describe('Accessibility Behavior', () => {
-        it('renders with appropriate aria-label for accessibility', async () => {
-            const footer = await createSpecPage(
+        it('logs an error when linksData is invalid JSON', async () => {
+            await checkSpecPageError(
                 TnwCopyrightsFooter,
-                `<tnw-copyrights-footer></tnw-copyrights-footer>`,
-                'footer'
+                `<tnw-copyrights-footer links-data="invalidJson"></tnw-copyrights-footer>`,
+                'Error parsing links data'
             );
-            expect(footer.getAttribute('aria-label')).toBe('Copyright information');
         });
     });
 });

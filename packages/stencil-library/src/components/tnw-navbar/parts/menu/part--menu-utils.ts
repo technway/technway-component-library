@@ -1,19 +1,22 @@
 import { BorderRadiusType } from '../../../../utils/component-props-types';
 import { isNotEmptyString, getBorderRadiusClass } from '../../../../utils/utils';
+import { MenuProps } from './part--menu-types';
 
 const baseClass = 'tnw-navbar-menu';
 
 // Utility: Get Menu Classes
 export function getMenuClasses(
-    hideMenuBelow: string | false,
+    hideMenuBelow: MenuProps['hideMenuBelow'],
     isMenuOpened: boolean,
-    menuPosition: 'start' | 'middle' | 'end',       
+    menuPosition: 'start' | 'middle' | 'end',
+    menuExactCenter: boolean
 ): string {
     return [
         baseClass,
-        `${baseClass}--hideMenuBelow-${hideMenuBelow}`,
+        typeof hideMenuBelow === 'string' && hideMenuBelow !== 'false' ? `${baseClass}--hideMenuBelow-${hideMenuBelow}` : '',
         isMenuOpened ? `${baseClass}--opened` : '',
         `${baseClass}--position-${menuPosition}`,
+        menuExactCenter ? `${baseClass}--exact-center` : ``,
     ].filter(Boolean).join(' ').trim();
 }
 

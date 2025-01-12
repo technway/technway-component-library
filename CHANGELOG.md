@@ -41,6 +41,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.5.0](https://github.com/technway/technway-component-library/compare/root-v3.4.0...root-v3.5.0) (2025-01-12)
+
+
+### Features
+
+* **tnw-copyrights-footer:** introduce new props for links and enhance styles ([0e11d7e](https://github.com/technway/technway-component-library/commit/0e11d7e8c0b876e60dd06c84f4362f542198f5a8))
+
+
+### Bug Fixes
+
+* **tne-footer:** resolve footerData and slots handling issues ([d1ee48d](https://github.com/technway/technway-component-library/commit/d1ee48d69d02092471e636080e9f13c4b84471cd))
+* **tnw-header-banner:** resolve styling issues and update props ([20190b3](https://github.com/technway/technway-component-library/commit/20190b303d5478d1cbaf059eb2959848192149ab))
+
 ## [3.4.0](https://github.com/technway/technway-component-library/compare/root-v3.3.1...root-v3.4.0) (2025-01-12)
 
 

@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-9d664f2a.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
 import { i as isValuePositive } from './p-13eae0fe.js';
 

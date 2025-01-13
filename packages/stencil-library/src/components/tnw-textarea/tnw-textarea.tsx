@@ -346,7 +346,7 @@ export class TnwTextarea {
     ].filter(Boolean).join(' ').trim();
   }
 
-  private renderLabel(): JSX.Element | null {
+  private renderLabel(): null {
     if (!isNotEmptyString(this.label)) {
       return null;
     }
@@ -362,7 +362,7 @@ export class TnwTextarea {
     );
   }
 
-  private renderAlert(): JSX.Element | null {
+  private renderAlert(): null {
     const alertMessage = this.store.get('alertMessage');
     const alertType = this.store.get('alertType');
 
@@ -380,7 +380,7 @@ export class TnwTextarea {
     );
   }
 
-  private renderHelpText(): JSX.Element | null {
+  private renderHelpText(): null {
     if (!isNotEmptyString(this.helpText)) {
       return null;
     }

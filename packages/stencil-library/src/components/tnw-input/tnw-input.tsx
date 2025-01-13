@@ -368,7 +368,7 @@ export class TnwInput {
     );
   }
 
-  private renderAlert(): JSX.Element | null {
+  private renderAlert(): null {
     const alertMessage = this.store.get('alertMessage');
     const alertType = this.store.get('alertType');
 

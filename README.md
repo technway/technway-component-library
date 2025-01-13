@@ -45,14 +45,45 @@ Technway Component Library is a comprehensive, modern component library built wi
 
 ## 🐛 Common Problems Troubleshooting
 
-1. **Missing `package-lock.json` for packages:**
+1. **Missing `pnpm-lock.yaml` for packages:**
+    *Update: Migrated to pnpm from npm.*
+    **Solution Steps:**
+    1. Remove `node_modules` of the root and all packages
+    2. Remove `pnpm-lock.yaml` file
+    3. Run `pnpm store prune` in the root.
+    4. Run in each package `pnpm install --lockfile-only`
+    5. In the root, run `pnpm install`
 
-    Solution:
-    1. Remove node_modules of the root and all packages
-    2. Remove all package-lock.json files 
-    3. run `npm cache clean --force` in root and ever single package.
-    4. run in each package `npm i --package-lock-only --workspaces false`
-    5. in the root run `npm i`
+2. **New packages not detected by Lerna workspace**
+   When adding new packages to `packages/` or `example-project/` directories, they may not appear in `pnpm lerna list` output.
+
+   **Example:**
+   ```bash
+   > pnpm lerna list
+   lerna notice cli v8.1.9
+   lerna info versioning independent
+   next-v15-app
+   react-app
+   @technway/layout-kit
+   @technway/next-library
+   @technway/react-library
+   @technway/stencil-library
+   lerna success found 6 packages
+   ```
+
+   **Quick Solution:**
+   1. Remove `"private": true` from the new package's `package.json`
+   2. Run `pnpm install` in the root directory
+   3. Verify with `pnpm lerna list`
+
+   **Full Reset (if quick solution fails):**
+   1. `pnpm lerna clean`
+   2. Delete all `node_modules` directories (root and packages)
+   3. Delete `pnpm-lock.yaml`
+   4. `pnpm store prune`
+   5. `pnpm install`
+
+   > **Note:** Ensure your new package is properly configured in the `pnpm-workspace.yaml` file.
 
 ## 📄 License
 

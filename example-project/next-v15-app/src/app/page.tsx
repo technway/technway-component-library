@@ -1,10 +1,12 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+// import { TnwButton } from "@technway/next-library/src/components";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        {/* <TnwButton label="Hello" /> */}
         <Image
           className={styles.logo}
           src="/next.svg"

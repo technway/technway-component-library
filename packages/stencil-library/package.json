@@ -60,6 +60,7 @@
     "components/"
   ],
   "scripts": {
+    "clean": "rmdir /s /q dist components stencil hydrate loader 2>nul || echo Directories not found",
     "build:all": "npm run g:css-utils && stencil build",
     "build:sb": "storybook build",
     "build:stencil": "stencil build --docs",
@@ -133,7 +134,7 @@
     "postcss-mixins": "^11.0.1",
     "postcss-nested": "^6.2.0",
     "postcss-preset-env": "^10.0.3",
-    "puppeteer": "^21.9.0",
+    "puppeteer": "^24.0.0",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "storybook": "^8.3.0",
     "storybook-addon-preview": "^2.3.0",

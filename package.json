@@ -1,10 +1,6 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "example-project/*"
-  ],
   "scripts": {
     "sb": "lerna run sb",
     "docs": "lerna run docs --scope @technway/stencil-library",

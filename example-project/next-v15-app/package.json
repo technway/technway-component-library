@@ -8,6 +8,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@technway/layout-kit": "file:../../packages/layout-kit",
+    "@technway/react-library": "file:../../packages/next-library",
     "next": "15.1.4",
     "next-v15-app": "file:",
     "react": "^19.0.0",

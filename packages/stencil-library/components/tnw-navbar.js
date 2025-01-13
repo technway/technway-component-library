@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-9d664f2a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, c as getBorderRadiusClass, u as isArrayEmpty, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass } from './p-80d80a0e.js';
 import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceColorSheet, e as extendedAppearanceStyleSheet } from './p-20eedb96.js';
-import { h } from './p-93b5355a.js';
-import { d as defineCustomElement$4 } from './p-d53cb6f4.js';
-import { d as defineCustomElement$3 } from './p-3d848afd.js';
-import { d as defineCustomElement$2 } from './p-b708dbe9.js';
+import { h } from './p-b323b83d.js';
+import { d as defineCustomElement$4 } from './p-0157daa2.js';
+import { d as defineCustomElement$3 } from './p-d78ea6f0.js';
+import { d as defineCustomElement$2 } from './p-6af9c4d4.js';
 
 const baseClass$6 = `${GLOBAL_PREFIX}-navbar-menu`;
 const itemClass = `${baseClass$6}__item`;

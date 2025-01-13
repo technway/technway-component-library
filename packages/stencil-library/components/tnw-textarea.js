@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-9d664f2a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
-import { c as createStore } from './p-c039142c.js';
+import { c as createStore } from './p-e110a9f4.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { s as sanitizeInput, c as containsSQLInjectionPatterns } from './p-664fd6b2.js';
-import { d as defineCustomElement$3 } from './p-a256c866.js';
-import { d as defineCustomElement$2 } from './p-29b34b17.js';
+import { d as defineCustomElement$3 } from './p-d8b8ae5e.js';
+import { d as defineCustomElement$2 } from './p-3f108889.js';
 
 const baseClass = `${GLOBAL_PREFIX}-textarea`;
 const styles = `

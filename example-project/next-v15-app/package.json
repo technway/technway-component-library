@@ -8,8 +8,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@technway/layout-kit": "file:../../packages/layout-kit",
-    "@technway/react-library": "file:../../packages/next-library",
+    "@technway/layout-kit": "workspace:*",
+    "@technway/next-library": "workspace:*",
+    "@technway/stencil-library": "workspace:*",
     "next": "15.1.4",
     "next-v15-app": "file:",
     "react": "^19.0.0",

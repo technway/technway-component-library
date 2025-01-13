@@ -1,1 +1,1 @@
-# cd packages/stencil-library && pnpm test.spec
+cd packages/stencil-library && pnpm test.spec

@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-01-12T12:18:19",
+  "timestamp": "2025-01-13T10:49:01",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.23.1",
+    "version": "4.23.0",
     "typescriptVersion": "5.5.4"
   },
   "components": [
@@ -3880,7 +3880,7 @@
       "filePath": "src/components/tnw-copyrights-footer/tnw-copyrights-footer.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-copyrights-footer",
-      "readme": "# tnw-copyrights-footer\n\n\n",
+      "readme": "# tnw-copyrights-footer\r\n\r\n\r\n\r",
       "docs": "The `tnw-footer` component displays footer information such as the organization name, copyright years, \r\nand additional text. The component provides flexible options for colors, text layout, and custom slot content.\r\nIt can be customized to display dynamic or static years, as well as pre-defined text before and after the organization name.",
       "docsTags": [
         {
@@ -5687,7 +5687,7 @@
       "filePath": "src/components/tnw-header-banner/tnw-header-banner.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-header-banner",
-      "readme": "# tnw-header-banner\n\n\n",
+      "readme": "# tnw-header-banner\r\n\r\n\r\n\r",
       "docs": "This component is designed to be used inside the `tnw-header`.\r\n\r\nThe `tnw-header-banner` component creates a customizable banner for headers, featuring headings, subheadings, descriptions, and buttons.\r\nIt is designed to align with the theme of the parent header component, making it a cohesive part of the header design.",
       "docsTags": [
         {

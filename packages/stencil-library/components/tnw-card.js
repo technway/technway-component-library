@@ -2,15 +2,15 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-51091f4a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$7 } from './p-aecebc3f.js';
-import { d as defineCustomElement$6 } from './p-aa4fbea0.js';
-import { d as defineCustomElement$5 } from './p-247f7459.js';
-import { d as defineCustomElement$4 } from './p-3d848afd.js';
-import { d as defineCustomElement$3 } from './p-fa750891.js';
-import { d as defineCustomElement$2 } from './p-b708dbe9.js';
+import { d as defineCustomElement$7 } from './p-c5cb2181.js';
+import { d as defineCustomElement$6 } from './p-20d2046f.js';
+import { d as defineCustomElement$5 } from './p-5faedee9.js';
+import { d as defineCustomElement$4 } from './p-f442dd94.js';
+import { d as defineCustomElement$3 } from './p-75a1c6b1.js';
+import { d as defineCustomElement$2 } from './p-fd4d7c0a.js';
 
 const baseClass = `${GLOBAL_PREFIX}-card`;
 const contentClass = `${baseClass}__content`;
@@ -434,61 +434,30 @@ const TnwCard$1 = /*@__PURE__*/ proxyCustomElement(class TnwCard extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-card`;
-        /**
-         * The height of the image. Value should be a valid CSS unit, such as `px`, `em`, auto, or `%`.
-         */
+        this.imageSrc = undefined;
+        this.imageAlt = undefined;
         this.imageHeight = '300px';
-        /**
-         * The border radius applied to the card's button.
-         */
+        this.heading = undefined;
+        this.subheading = undefined;
+        this.description = undefined;
+        this.buttonLabel = undefined;
+        this.buttonHref = undefined;
         this.buttonRadius = 'default';
-        /**
-         * Controls the alignment of the card's content.
-         */
+        this.date = undefined;
+        this.badgeLabel = undefined;
         this.textAlignment = 'start';
-        /**
-         * Controls the spacing between image and the contnet.
-         */
+        this.itemsAlignment = undefined;
         this.spacing = 'sm';
-        /**
-         * Controls the spacing between elements inside the content.
-         */
         this.contentSpacing = 'sm';
-        /**
-         * The appearance color of the card.
-         */
+        this.padding = undefined;
         this.appearance = 'none';
-        /**
-         * The color appearance color of the card, determining the overall color scheme.
-         */
         this.appearanceColor = 'auto';
-        /**
-         * If `true`, the card content will be displayed before the image.
-         */
         this.orderContentFirst = false;
-        /**
-         * Specifies the layout orientation of the card, either 'vertical' or 'horizontal'.
-         */
         this.layout = 'vertical';
-        /**
-         * The border radius applied to the card.
-         */
         this.borderRadius = 'default';
-        /**
-         * If `true`, the card will have a glassmorphism effect applied to its background.
-         */
         this.useGlassmorphismEffect = false;
-        /**
-         * If `true`, the image slot will be visible.
-         */
         this.enableImageSlot = false;
-        /**
-         * If `true`, the heading, subheading, description, and button will not be rendered. Use the `content` slot to provide custom content instead.
-         */
         this.enableContentSlot = false;
-        /**
-         * If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.
-         */
         this.largerImage = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();

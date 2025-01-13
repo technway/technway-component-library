@@ -44,30 +44,30 @@
     "build:ts": "tsc -p tsconfig.json",
     "build:css": "postcss src/**/*.css --config postcss.config.ts --dir dist/css",
     "build:react": "tsc -p tsconfig.json --outDir dist",
-    "build": "npm run clean && npm run lint && npm run type-check && npm run build:ts && npm run build:css && npm run build:react && npm run copy:assets",
+    "build": "pnpm clean && pnpm lint && pnpm type-check && pnpm build:ts && pnpm build:css && pnpm build:react && pnpm copy:assets",
     "copy:assets": "mkdir dist\\src && xcopy /E /I src dist\\src",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "@technway/layout-kit": "file:",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwind-merge": "^2.0.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
     "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
     "cssnano": "^7.0.6",
-    "eslint": "^8.49.0",
+    "eslint": "^9.18.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.49",

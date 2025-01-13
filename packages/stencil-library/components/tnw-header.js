@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-51091f4a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, j as getColorClass, s as getMinHeightClass, t as getHeightClass } from './p-80d80a0e.js';
 import { a as containerStyleSheet } from './p-20eedb96.js';
 
@@ -165,25 +165,12 @@ const TnwHeader$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeader extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-header`;
-        /**
-         * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
-         */
         this.disableInternalContainer = false;
-        /**
-         * Sets the overall height of the header. Options include predefined size types such as 'full', 'auto', or 'full-screen'. Default is 'auto'.
-         */
+        this.backgroundColor = undefined;
+        this.borderBottomColor = undefined;
         this.height = 'auto';
-        /**
-         * Sets the minimum height of the header. Like the `height` prop, it accepts size types like 'full', 'auto', or 'full-screen'. Default is 'auto'.
-         */
         this.minHeight = 'auto';
-        /**
-         * Controls the alignment of the header content. Accepts logical alignment types such as 'start', 'center', or 'end'. Default is 'start'.
-         */
         this.alignment = 'start';
-        /**
-         * If `true`, centers the banner content both horizontally and vertically within the header.
-         */
         this.centerBanner = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();

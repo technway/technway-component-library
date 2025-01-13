@@ -2,10 +2,10 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-51091f4a.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
 import { i as isNotEmptyString, G as GLOBAL_PREFIX, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
-import { d as defineCustomElement$2 } from './p-3d848afd.js';
+import { d as defineCustomElement$2 } from './p-f442dd94.js';
 
 /**
  * THIS FILE IS AUTO GENERATED. Do not update or add anything manually.
@@ -164,29 +164,12 @@ const TnwScrollToTop$1 = /*@__PURE__*/ proxyCustomElement(class TnwScrollToTop e
         this.scrollToTopClicked = createEvent(this, "scrollToTopClicked", 7);
         this.baseClass = `${GLOBAL_PREFIX}-scroll-to-top`;
         this.isVisible = false;
-        /**
-         * Specifies the size of the scroll-to-top button.
-         */
         this.size = 'md';
-        /**
-         * Defines the appearance color of the scroll-to-top button.
-         */
         this.appearanceColor = 'primary';
-        /**
-         * Determines the appearance of the scroll-to-top button.
-         */
         this.appearance = 'solid';
-        /**
-         * Determines the border radius.
-         */
+        this.color = undefined;
         this.borderRadius = "default";
-        /**
-         * The name of the custom icon to be used for the scroll-to-top button.
-         */
         this.customIconName = 'tnw-arrow-thin-up';
-        /**
-         * If true, a custom SVG icon provided via the `icon-svg` slot will be used.
-         */
         this.enableCustomSvgIcon = false;
         if (isAdoptedStyleSheetsSupported()) {
             this.componentStyles = new CSSStyleSheet();

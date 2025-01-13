@@ -1,24 +1,20 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "example-project/*"
-  ],
   "scripts": {
     "sb": "lerna run sb",
-    "docs": "lerna run docs --scope @technway/stencil-library",
-    "test:stencil": "lerna run test.spec --scope @technway/stencil-library",
-    "test:stencil:u": "lerna run test.spec -- -u --scope @technway/stencil-library",
-    "build:stencil": "lerna run build:stencil --scope @technway/stencil-library",
-    "build:react": "lerna run build --scope @technway/react-library",
-    "build:next": "lerna run build --scope @technway/next-library",
-    "build:all": "npm run build:stencil && npm run build:react && npm run build:next",
-    "build:layout-kit": "npm run build --workspace=@technway/layout-kit",
-    "lint:layout-kit": "npm run lint --workspace=@technway/layout-kit",
-    "test:layout-kit": "npm run test --workspace=@technway/layout-kit",
-    "build:react-ui": "npm run build --workspace=@technway/react-ui",
-    "react-app": "npm run dev --workspace=react-app"
+    "docs": "pnpm --filter @technway/stencil-library run docs",
+    "test:stencil": "pnpm --filter @technway/stencil-library run test.spec",
+    "test:stencil:u": "pnpm --filter @technway/stencil-library run test.spec -- -u",
+    "build:stencil": "pnpm --filter @technway/stencil-library run build:stencil",
+    "build:react": "pnpm --filter @technway/react-library run build",
+    "build:next": "pnpm --filter @technway/next-library run build",
+    "build:all": "pnpm run build:stencil && pnpm run build:react && pnpm run build:next",
+    "build:layout-kit": "pnpm --filter @technway/layout-kit run build",
+    "lint:layout-kit": "pnpm --filter @technway/layout-kit run lint",
+    "test:layout-kit": "pnpm --filter @technway/layout-kit run test",
+    "react": "pnpm --filter react-app run dev",
+    "next-15": "pnpm --filter next-v15-app run dev"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",

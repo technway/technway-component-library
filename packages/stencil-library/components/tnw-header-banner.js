@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-51091f4a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$5 } from './p-aa4fbea0.js';
-import { d as defineCustomElement$4 } from './p-247f7459.js';
-import { d as defineCustomElement$3 } from './p-fa750891.js';
-import { d as defineCustomElement$2 } from './p-b708dbe9.js';
+import { d as defineCustomElement$5 } from './p-20d2046f.js';
+import { d as defineCustomElement$4 } from './p-5faedee9.js';
+import { d as defineCustomElement$3 } from './p-75a1c6b1.js';
+import { d as defineCustomElement$2 } from './p-fd4d7c0a.js';
 
 const baseClass = `${GLOBAL_PREFIX}-header-banner`;
 const contentClass = `${baseClass}__content`;
@@ -276,44 +276,6 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-header-banner`;
-        /**
-         * Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'.
-         */
-        this.theme = 'auto';
-        /**
-         * Controls the alignment of the banner content. Acceptable values are 'start', 'center', or 'end' to align the content horizontally and vertically within the banner. Default is 'start'.
-         */
-        this.alignment = 'start';
-        /**
-         * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
-         *
-         * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.
-         */
-        this.width = 'full';
-        /**
-         * Specifies the width of the content within the banner.
-         */
-        this.contentWidth = 'half';
-        /**
-         * Specifies the maximum width of the content within the banner. use `unset` to remove the limit.
-         */
-        this.contentMaxWidth = 'unset';
-        /**
-         * When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.
-         */
-        this.stickyNavbar = false;
-        /**
-         * Enables the image slot for adding custom images to the banner.
-         */
-        this.enableImageSlot = false;
-        /**
-         * Wraps the image in a container for consistency.
-         */
-        this.wrapImage = false;
-        /**
-         * Controls the border radius of the banner image. It can be set to predefined size types or 'none' for no border.
-         */
-        this.imageBorderRadius = 'none';
         this.getThemeMatchedColor = () => {
             switch (this.theme) {
                 case 'primary':
@@ -332,6 +294,21 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
                     return 'auto';
             }
         };
+        this.heading = undefined;
+        this.subheading = undefined;
+        this.description = undefined;
+        this.buttonLabel = undefined;
+        this.theme = 'auto';
+        this.alignment = 'start';
+        this.width = 'full';
+        this.contentWidth = 'half';
+        this.contentMaxWidth = 'unset';
+        this.stickyNavbar = false;
+        this.enableImageSlot = false;
+        this.imageSrc = undefined;
+        this.imageAlt = undefined;
+        this.wrapImage = false;
+        this.imageBorderRadius = 'none';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -417,7 +394,7 @@ const TnwHeaderBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwHeaderBanner
         return (h("div", { class: this.getContentClasses(), part: 'content' }, this.renderHeadings(), this.renderDescription(), this.renderButton()));
     }
     render() {
-        return (h(Host, { key: '3ca0855c32a63f4eb886b5c41c4a8b81139ac235', class: this.getHostClasses() }, this.renderContent(), this.renderImage()));
+        return (h(Host, { key: 'd497062b7c24aea08e155d3e3ae8190b803ade91', class: this.getHostClasses() }, this.renderContent(), this.renderImage()));
     }
     get el() { return this; }
 }, [1, "tnw-header-banner", {

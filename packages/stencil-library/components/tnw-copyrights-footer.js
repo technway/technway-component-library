@@ -2,12 +2,12 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-51091f4a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, k as isNotEmptyStringOrNumber, j as getColorClass } from './p-80d80a0e.js';
 import { c as colorStyleSheet, a as containerStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$4 } from './p-d53cb6f4.js';
-import { d as defineCustomElement$3 } from './p-3d848afd.js';
-import { d as defineCustomElement$2 } from './p-b708dbe9.js';
+import { d as defineCustomElement$4 } from './p-ccb460e0.js';
+import { d as defineCustomElement$3 } from './p-f442dd94.js';
+import { d as defineCustomElement$2 } from './p-fd4d7c0a.js';
 
 const baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
 const styles = `
@@ -281,52 +281,24 @@ const TnwCopyrightsFooter$1 = /*@__PURE__*/ proxyCustomElement(class TnwCopyrigh
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
-        /* --------------- Internal State Management --------------- */
         this.parsedLinksData = [];
-        /**
-         * If true, the starting year will be set to the current year.
-         */
+        this.startYear = undefined;
+        this.endYear = undefined;
         this.useCurrentYearAsStartYear = false;
-        /**
-         * If true, the ending year will be set to the current year.
-         */
         this.useCurrentYearAsEndYear = false;
-        /**
-         * The color of the organization name. Defaults to the same value as `textColor`.
-         *
-         * @deprecated since v2.2.0
-         */
+        this.organizationName = undefined;
         this.organizationNameColor = this.textColor;
-        /**
-         * The text color for the footer content.
-         */
+        this.preText = undefined;
+        this.postText = undefined;
         this.textColor = 'auto';
-        /**
-         * The background color for the footer.
-         */
         this.backgroundColor = 'auto';
-        /**
-         * The color of the top border of the footer.
-         */
         this.borderTopColor = 'auto';
-        /**
-         * Centering text
-         */
         this.centerContent = false;
-        /**
-         * If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.
-         */
         this.disableInternalContainer = false;
-        /**
-         * If `true`, the footer will be rendered using a `<div>` element instead of a `<footer>` element. This is useful when this component is used inside a `<footer>` or inside the component `<tnw-footer>`.
-         */
         this.useDivAsContainer = false;
-        /**
-         * If `true`, the footer will render custom links using a slot instead of the `linksData`.
-         * Provide accurate `linksLength` when this prop is `true`.
-         * When use this prop, the `linksData` prop will be ignored.
-         */
+        this.linksData = undefined;
         this.useCustomLinks = false;
+        this.linksLength = undefined;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);

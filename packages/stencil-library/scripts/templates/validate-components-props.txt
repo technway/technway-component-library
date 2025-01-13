@@ -8,7 +8,7 @@
  * 
 validateProps([PROPS_NAMES_FOR_ARGS]);
  *
- * GENERATED USING `npm run g:components-validations COMPONENT_TAG`
+ * GENERATED USING `pnpm g:components-validations COMPONENT_TAG`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

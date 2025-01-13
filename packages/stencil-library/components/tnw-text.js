@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { T as TnwText$1, d as defineCustomElement$1 } from './p-b708dbe9.js';
+import { T as TnwText$1, d as defineCustomElement$1 } from './p-6af9c4d4.js';
 
 const TnwText = TnwText$1;
 const defineCustomElement = defineCustomElement$1;

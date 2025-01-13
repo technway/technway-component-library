@@ -2,12 +2,12 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-9d664f2a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass, w as generateRandomColor } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$4 } from './p-247f7459.js';
-import { d as defineCustomElement$3 } from './p-fa750891.js';
-import { d as defineCustomElement$2 } from './p-b708dbe9.js';
+import { d as defineCustomElement$4 } from './p-30ee0b55.js';
+import { d as defineCustomElement$3 } from './p-c110b25e.js';
+import { d as defineCustomElement$2 } from './p-6af9c4d4.js';
 
 const baseClass = `${GLOBAL_PREFIX}-testimonial-card`;
 const authorClass = `${baseClass}__author`;

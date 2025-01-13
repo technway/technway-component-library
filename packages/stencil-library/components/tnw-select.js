@@ -2,11 +2,11 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, c as createEvent, h, d as Host } from './p-9d664f2a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, r as parseJSONAsync, g as generateRandomId, c as getBorderRadiusClass } from './p-80d80a0e.js';
 import { b as borderRadiusStyleSheet, e as extendedAppearanceStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$3 } from './p-aecebc3f.js';
-import { d as defineCustomElement$2 } from './p-3d848afd.js';
+import { d as defineCustomElement$3 } from './p-3e77b874.js';
+import { d as defineCustomElement$2 } from './p-d78ea6f0.js';
 
 const baseClass = `${GLOBAL_PREFIX}-select`;
 const buttonClass = `${baseClass}__button`;

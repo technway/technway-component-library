@@ -90,7 +90,6 @@
     "g:components-mdx": "node scripts/generate-components-mdx.mjs",
     "g:components-validations": "node scripts/validate-components-props.mjs",
     "g:components-css-utils": "node scripts/generate-components-css-utils.mjs",
-    "lint": "eslint src/**/*{.ts,.tsx}",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "genPackagelock": "pnpm install --lockfile-only"
@@ -138,7 +137,11 @@
     "rollup-plugin-node-polyfills": "^0.2.1",
     "storybook": "^8.3.0",
     "storybook-addon-preview": "^2.3.0",
-    "storybook-addon-rtl": "^1.0.1"
+    "storybook-addon-rtl": "^1.0.1",
+    "@eslint/js": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^9.0.0"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {

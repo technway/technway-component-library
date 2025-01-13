@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.5.1](https://github.com/technway/technway-component-library/compare/root-v3.5.0...root-v3.5.1) (2025-01-13)
+
+
+### Bug Fixes
+
+* **stencil-library:** resolve TypeScript build errors in components ([1d8c785](https://github.com/technway/technway-component-library/commit/1d8c785db9456b7850ba53f3066fba4b7a351df6))
+
 ## [3.5.0](https://github.com/technway/technway-component-library/compare/root-v3.4.0...root-v3.5.0) (2025-01-12)
 
 

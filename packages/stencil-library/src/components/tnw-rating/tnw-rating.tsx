@@ -71,7 +71,7 @@ export class TnwRating {
     validateProps([this.emptyStarColor, this.filledStarColor, this.hideEmptyStars, this.rating, this.starSize, this.totalStars]);
   }
 
-  private getDefaultIcon(isFilled: boolean): JSX.Element {
+  private getDefaultIcon(isFilled: boolean) {
     return (
       <tnw-icon enableSvg={true} name="star" size={this.starSize} color={isFilled ? this.filledStarColor : this.emptyStarColor} hiddenAria={true} part="default-icon">
         <svg slot="svg" viewBox="0 0 16 16">
@@ -82,7 +82,7 @@ export class TnwRating {
     )
   }
 
-  private renderRatingIcons(): JSX.Element[] {
+  private renderRatingIcons() {
     const { totalStars, rating, hideEmptyStars } = this;
     const ratingIcons = [];
     const maxStarsNum = hideEmptyStars ? rating : totalStars;

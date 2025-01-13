@@ -314,7 +314,7 @@ export class TnwNavbar {
     }
   }
 
-  private menuToggler(): JSX.Element {
+  private menuToggler() {
     if (this.menu() === null) {
       return null;
     }
@@ -331,7 +331,7 @@ export class TnwNavbar {
     );
   }
 
-  private menu(): JSX.Element | null {
+  private menu(): null {
     const { parsedMenuData, isOpen, menuPlacement, hideMenuBelow, enableLinkSlot, linksLength, menuExactCenter } = this;
     const menu = renderMenu({
       parsedMenuData,
@@ -354,7 +354,7 @@ export class TnwNavbar {
     return menu;
   }
 
-  private logo(): JSX.Element | null {
+  private logo(): null {
     if (!this.enableLogoSlot) {
       return null;
     }
@@ -362,7 +362,7 @@ export class TnwNavbar {
     return <slot name='logo' />;
   }
 
-  private cta(): JSX.Element | null {
+  private cta(): null {
     if (!this.enableCtaSlot) {
       return null;
     }
@@ -370,7 +370,7 @@ export class TnwNavbar {
     return <slot name='cta' />;
   }
 
-  private renderContent(): JSX.Element {
+  private renderContent() {
     return (
       <nav class={this.getContentClasses()} part='navbar'>
         {(((this.menuPlacement === 'start' || this.togglerPlacement === 'start') && this.menu()) || this.logo()) &&

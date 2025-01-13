@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.5.3](https://github.com/technway/technway-component-library/compare/root-v3.5.2...root-v3.5.3) (2025-01-13)
+
+
+### Bug Fixes
+
+* **next-library, layout-kit:** update and add @types/react to solve typings errors ([d956a4d](https://github.com/technway/technway-component-library/commit/d956a4d631cc4599e5cd31c784e1ad22757d77fe))
+
 ## [3.5.2](https://github.com/technway/technway-component-library/compare/root-v3.5.1...root-v3.5.2) (2025-01-13)
 
 

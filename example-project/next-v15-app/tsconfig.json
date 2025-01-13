@@ -26,7 +26,7 @@
         "./src/*"
       ],
       "@technway/*": [
-        "../../node_modules/@technway/*"
+        "./node_modules/@technway/*"
       ],
     },
     "target": "ES2017"

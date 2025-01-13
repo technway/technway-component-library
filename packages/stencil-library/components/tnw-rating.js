@@ -2,10 +2,10 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-51091f4a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
 import { c as colorStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$2 } from './p-3d848afd.js';
+import { d as defineCustomElement$2 } from './p-f442dd94.js';
 
 const baseClass = `${GLOBAL_PREFIX}-rating`;
 const styles = `
@@ -124,29 +124,11 @@ const TnwRating$1 = /*@__PURE__*/ proxyCustomElement(class TnwRating extends H {
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-rating`;
-        /**
-         * The total number of stars to display in the rating component.
-         */
         this.totalStars = 5;
-        /**
-         * The current rating value to display as filled stars.
-         */
         this.rating = this.totalStars || 0;
-        /**
-         * The size of the stars.
-         */
         this.starSize = 'sm';
-        /**
-         * The color of the filled stars.
-         */
         this.filledStarColor = 'primary';
-        /**
-         * The color of the empty (unfilled) stars.
-         */
         this.emptyStarColor = 'auto';
-        /**
-         * If true, empty stars (unfilled) will be hidden, showing only the filled stars.
-         */
         this.hideEmptyStars = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
@@ -179,7 +161,7 @@ const TnwRating$1 = /*@__PURE__*/ proxyCustomElement(class TnwRating extends H {
     }
     render() {
         const { baseClass, rating, totalStars } = this;
-        return (h(Host, { key: '734202bb74eec46a50267e48ee583b14a4337d46', class: baseClass, role: "img", "aria-label": `Rating: ${rating} out of ${totalStars}` }, this.renderRatingIcons()));
+        return (h(Host, { key: '8fd3d73884b7680b380a0daa0df1fe7ea89f07c5', class: baseClass, role: "img", "aria-label": `Rating: ${rating} out of ${totalStars}` }, this.renderRatingIcons()));
     }
     get el() { return this; }
 }, [1, "tnw-rating", {

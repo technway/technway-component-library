@@ -3,7 +3,6 @@ import Accordion from '../../components/accordion/accordion';
 import AccordionGroup from '../../components/accordion/accordion-group';
 import ArticleCard from '../../components/card/card';
 import { TnwDivider, TnwHeading } from '@technway/react-library/src/components';
-import ReactUiButton from '../../components/ui/button';
 import Navbar from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
@@ -37,13 +36,6 @@ function Home() {
                     paddingHorizontal='md'
                     buttonAppearanceColor='black'
                 />
-            </Flex>
-
-            <TnwDivider />
-
-            <Flex direction="col" gap={6}>
-                <TnwHeading text='React UI' level='h2' />
-                <ReactUiButton />
             </Flex>
 
             <TnwDivider />

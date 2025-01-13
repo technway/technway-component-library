@@ -16,123 +16,59 @@ permissions:
   pull-requests: write
 
 jobs:
-  lint:
-    if: ${{ !contains(github.event.head_commit.message, '[skip-lint]') }}
-    name: Lint Code
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js with cache
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: "npm"
-
-      - name: Install Dependencies for @technway/stencil-library
-        working-directory: packages/stencil-library
-        run: npm install
-
-      - name: Run Lint
-        run: npx lerna run lint --scope=@technway/stencil-library
-
   test:
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'windows-latest']
+
     if: ${{ !contains(github.event.head_commit.message, '[skip-test]') }}
-    name: Run Spec Tests
-    runs-on: ubuntu-latest
+
+    name: Lint Code ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    
+    timeout-minutes: 30
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js with cache
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.15.3 
+
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
-          cache: "npm"
+          node-version: '20.11.0'
+          cache: 'pnpm'
 
-      - name: Install Dependencies for @technway/components
-        working-directory: packages/stencil-library
-        run: npm install
+      - name: Install Dependencies
+        run: pnpm install --loglevel=debug
 
       - name: Run Tests
-        run: npx lerna run test.spec
-
-  # chromatic:
-  #     name: Run Chromatic Visual Tests
-  #     runs-on: ubuntu-latest
-  #     steps:
-  #         - name: Checkout code
-  #           uses: actions/checkout@v3
-  #           with:
-  #               fetch-depth: 0
-
-  #         - name: Set up Node.js
-  #           uses: actions/setup-node@v3
-  #           with:
-  #               node-version: 20
-
-  #         - name: Install Dependencies for @technway/components
-  #           working-directory: packages/stencil-library
-  #           run: npm ci
-
-  #         - name: Build Project
-  #           working-directory: packages/stencil-library
-  #           run: npm run build:stencil
-
-  #         - name: Run Chromatic
-  #           env:
-  #               CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-  #           run: |
-  #               cd packages/stencil-library && npx chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes
-
-  # deploy-storybook:
-  #     name: Deploy Storybook to Vercel
-  #     runs-on: ubuntu-latest
-  #     needs: # This ensures deploy-storybook runs only if lint, test and chromatic succeeds
-  #         - bootstrap
-  #         # - lint
-  #         # - test
-  #         # - chromatic
-  #     steps:
-  #         - name: Checkout repository
-  #           uses: actions/checkout@v3
-
-  #         - name: Set up Node.js with cache
-  #           uses: actions/setup-node@v3
-  #           with:
-  #               node-version: 20
-  #               cache: "npm"
-
-  #         - name: Install Dependencies for @technway/components
-  #           working-directory: packages/stencil-library
-  #           run: npm install
-
-  #         - name: Build Stencil components
-  #           run: npx lerna run build:stencil
-
-  #         - name: Generate and update docs
-  #           run: npx lerna run docs
-
-  #         - name: Build Storybook
-  #           run: npx lerna run build:sb
-
-  #         - name: Deploy to Vercel
-  #           env:
-  #               VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-  #           run: cd packages/stencil-library && vercel --yes --prod --token $VERCEL_TOKEN
+        run: pnpm test:stencil
 
   versioning:
     if: ${{ !contains(github.event.head_commit.message, '[skip-versioning]') }}
     name: Versioning Packages
     runs-on: ubuntu-latest
     needs:
-      - lint
       - test
-      # - chromatic
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.15.3 
+
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Release Please
         uses: google-github-actions/release-please-action@v3
@@ -140,84 +76,3 @@ jobs:
           release-type: node
           monorepo-tags: true
           token: ${{ secrets.GITHUB_TOKEN }}
-
-  # publish:
-  #   if: ${{ !contains(github.event.head_commit.message, '[skip-publish]') }}
-  #   runs-on: ubuntu-latest
-  #   needs:
-  #     - lint
-  #     - test
-  #   steps:
-  #     # Checkout the repository
-  #     - name: Checkout code
-  #       uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: 0
-
-  #     # Setup Node.js
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: "20"
-  #         cache: "npm"
-
-  #     # Install dependencies
-  #     - name: Install dependencies
-  #       run: npm install
-
-  #     # Authenticate with npm registry
-  #     - name: Authenticate with npm
-  #       run: |
-  #         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
-  #     # Log git status
-  #     - name: Check Git Status
-  #       run: git status
-
-  #     # Bump versions without creating Git tags
-  #     - name: Version packages
-  #       run: npx lerna version --conventional-commits --yes --no-git-tag-version --no-push --loglevel verbose
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  #     # Log git status
-  #     - name: Check Git Status
-  #       run: git status
-
-  #     # Build Stencil Library
-  #     - name: Build Stencil Library
-  #       run: |
-  #         npm run build:stencil
-
-  #     # Build React Library
-  #     - name: Build React Library
-  #       run: |
-  #         npm run build:react
-
-  #     # Build Next Library
-  #     - name: Build Next Library
-  #       run: |
-  #         npm run build:next
-
-  #     # Build Layout Kit
-  #     - name: Build Layout Kit
-  #       run: |
-  #         npm run build:layout-kit
-
-  #     # Commit the changes made by `lerna version`
-  #     - name: Commit version changes
-  #       run: |
-  #         git config user.name "github-actions[bot]"
-  #         git config user.email "github-actions[bot]@users.noreply.github.com"
-  #         git add .
-  #         git commit -m "chore: version bump and changelog updates [skip ci]"
-  #         git push origin HEAD
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  #     # Publish packages without versioning
-  #     - name: Publish packages
-  #       run: npx lerna publish from-package --yes
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

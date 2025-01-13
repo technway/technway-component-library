@@ -1,3 +1,6 @@
+    ---------------------
+    ⚠️ OUT DATED
+    ---------------------
 # Component Development Workflow
 
 This guide outlines the steps for developing, styling, documenting, testing, and deploying components.
@@ -10,7 +13,7 @@ This guide outlines the steps for developing, styling, documenting, testing, and
 
 ## 2. Create Component (Stencil.js)
 
-- Scaffold a new component using Stencil.js with the `npm run g` command.
+- Scaffold a new component using Stencil.js with the `pnpm g` command.
 - Ensure the component is modular and reusable.
 
 ## 3. Style Component
@@ -68,5 +71,5 @@ Learn how in the [documentation guide](./documentation.md).
 
 ## 7. Deploy and Share
 
-- Build the Storybook with the command `npm run build:sb`.
-- Deploy the Storybook using Vercel with the `npm run deploy` command.
+- Build the Storybook with the command `pnpm build:sb`.
+- Deploy the Storybook using Vercel with the `pnpm deploy` command.

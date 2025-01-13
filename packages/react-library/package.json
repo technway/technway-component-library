@@ -22,22 +22,22 @@
   },
   "scripts": {
     "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",
-    "build": "npm run clean && npm run tsc",
+    "build": "pnpm clean && pnpm tsc",
     "tsc": "tsc -p . --outDir ./dist",
-    "genPackagelock": "npm i --package-lock-only"
+    "genPackagelock": "pnpm install --lockfile-only"
   },
   "bugs": {
     "url": "https://github.com/technway/technway-component-library/issues"
   },
   "dependencies": {
-    "@stencil/react-output-target": "^0.7.4",
+    "@stencil/react-output-target": "^0.8.2",
     "@technway/react-library": "file:",
     "@technway/stencil-library": "^2.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.12",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@types/react": "^19.0.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "typescript": "^5.7.2"
   },
   "gitHead": "972403539a63cd2162ef52cd170a48b91dd26d59"

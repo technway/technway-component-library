@@ -35,9 +35,9 @@
     "@technway/stencil-library": "^2.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.12",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@types/react-dom": "^19",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "typescript": "^5.7.2"
   },
   "gitHead": "972403539a63cd2162ef52cd170a48b91dd26d59"

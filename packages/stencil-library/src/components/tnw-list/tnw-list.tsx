@@ -177,7 +177,7 @@ export class TnwList {
     );
   }
 
-  render(): JSX.Element {
+  render() {
     const { parsedData } = this;
 
     if (parsedData === null) return null;

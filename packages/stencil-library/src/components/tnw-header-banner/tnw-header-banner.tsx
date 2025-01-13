@@ -187,7 +187,7 @@ export class TnwHeaderBanner {
     ].filter(Boolean).join(' ').trim();
   }
 
-  private renderHeading(): JSX.Element {
+  private renderHeading() {
     if (!isNotEmptyString(this.heading)) {
       return <slot name='heading' />;
     }
@@ -197,7 +197,7 @@ export class TnwHeaderBanner {
     );
   }
 
-  private renderSubheading(): JSX.Element {
+  private renderSubheading() {
     if (!isNotEmptyString(this.subheading)) {
       return <slot name='subheading' />;
     }
@@ -207,7 +207,7 @@ export class TnwHeaderBanner {
     );
   }
 
-  private renderDescription(): JSX.Element {
+  private renderDescription() {
     if (!isNotEmptyString(this.description)) {
       return <slot name='description' />;
     }
@@ -217,7 +217,7 @@ export class TnwHeaderBanner {
     );
   }
 
-  private renderButton(): JSX.Element {
+  private renderButton() {
     if (!isNotEmptyString(this.buttonLabel)) {
       return <slot name='button' />;
     }
@@ -227,7 +227,7 @@ export class TnwHeaderBanner {
     );
   }
 
-  private renderHeadings(): JSX.Element {
+  private renderHeadings() {
     if (isNotEmptyString(this.heading) && isNotEmptyString(this.subheading)) {
       return (
         <div class={`${this.baseClass}__headings`}>
@@ -245,7 +245,7 @@ export class TnwHeaderBanner {
     )
   }
 
-  private renderImage(): JSX.Element | null {
+  private renderImage(): null {
     const { enableImageSlot, imageBorderRadius, imageSrc } = this;
 
     if (enableImageSlot || isNotEmptyString(imageSrc)) {
@@ -268,7 +268,7 @@ export class TnwHeaderBanner {
     }
   }
 
-  private renderContent(): JSX.Element {
+  private renderContent() {
     return (
       <div class={this.getContentClasses()} part='content'>
         {this.renderHeadings()}

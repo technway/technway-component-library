@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.5.2](https://github.com/technway/technway-component-library/compare/root-v3.5.1...root-v3.5.2) (2025-01-13)
+
+
+### Bug Fixes
+
+* **layout-kit:** resolve build errors and remove unused dependencies ([db8f867](https://github.com/technway/technway-component-library/commit/db8f867ab0d72a71c1ba4e3af653d971fc4e0e8f))
+
 ## [3.5.1](https://github.com/technway/technway-component-library/compare/root-v3.5.0...root-v3.5.1) (2025-01-13)
 
 

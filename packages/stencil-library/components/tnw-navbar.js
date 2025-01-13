@@ -2,13 +2,13 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, c as createEvent, h as h$1, d as Host } from './p-51091f4a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, c as getBorderRadiusClass, u as isArrayEmpty, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass } from './p-80d80a0e.js';
 import { a as containerStyleSheet, b as borderRadiusStyleSheet, j as appearanceColorSheet, e as extendedAppearanceStyleSheet } from './p-20eedb96.js';
-import { h } from './p-93b5355a.js';
-import { d as defineCustomElement$4 } from './p-d53cb6f4.js';
-import { d as defineCustomElement$3 } from './p-3d848afd.js';
-import { d as defineCustomElement$2 } from './p-b708dbe9.js';
+import { h } from './p-acb6eb5e.js';
+import { d as defineCustomElement$4 } from './p-ccb460e0.js';
+import { d as defineCustomElement$3 } from './p-f442dd94.js';
+import { d as defineCustomElement$2 } from './p-fd4d7c0a.js';
 
 const baseClass$6 = `${GLOBAL_PREFIX}-navbar-menu`;
 const itemClass = `${baseClass$6}__item`;
@@ -839,103 +839,6 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
         this.tnwScrollChange = createEvent(this, "tnwScrollChange", 7);
         // Base class name for the component
         this.baseClass = `${GLOBAL_PREFIX}-navbar`;
-        /**
-         * Parsed menu data from the `menuData` prop.
-         */
-        this.parsedMenuData = null;
-        /**
-         * Tracks if meu is open/closed of the menu When interact with menu toggler
-         */
-        this.isOpen = false;
-        /**
-         * Tracks the visibility of the menu for responsive behaviors.
-         */
-        this.isHidden = false;
-        /* -------------------------- Props -------------------------- */
-        /**
-         * Determines the appearance of the navigation bar. Supports styles like 'outlined', 'solid', 'transparent', etc.
-         */
-        this.appearance = 'solid';
-        /**
-         * Specifies the appearance color of the navigation bar. Available options include 'primary', 'secondary', 'black', 'white', etc.
-         */
-        this.appearanceColor = 'auto';
-        /**
-         * Makes the navigation bar sticky at the top of the viewport when set to true.
-         */
-        this.sticky = false;
-        /**
-         * If true, the navigation bar content will not be wrapped in a container for centering and padding.
-         */
-        this.disableInternalContainer = false;
-        /**
-         * When true, the component will apply its styles (like the appearance colors and effects) to its internal container element.
-         * If false, the styles will be applied directly to the component host element.
-         */
-        this.scopeStylesToContainer = false;
-        /**
-         * When true, the menu will be centered exactly in the horizontal center of the screen. Only if `menuPosition` is set to 'middle'.
-         */
-        this.menuExactCenter = false;
-        /**
-         * Determines the placement of the menu. Available options are 'start', 'middle', or 'end'.
-         */
-        this.menuPlacement = 'middle';
-        /**
-         * Specifies the placement of the burger menu toggler. Options are 'start' or 'end' of the navbar.
-         */
-        this.togglerPlacement = 'end';
-        /**
-         * Sets the border-radius of the navigation bar.
-         */
-        this.borderRadius = 'default';
-        /**
-         * Sets the horizontal padding size of the navigation bar.
-         */
-        this.paddingHorizontal = 'md';
-        /**
-         * Sets the vertical padding size of the navigation bar.
-         */
-        this.paddingVertical = 'md';
-        /**
-         * If true, the CTA slot is enabled.
-         */
-        this.enableCtaSlot = false;
-        /**
-         * If true, the logo slot is enabled.
-         */
-        this.enableLogoSlot = false;
-        /**
-         * If true, the menu slot is enabled.
-         */
-        this.enableMenuSlot = false;
-        /**
-         * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
-         */
-        this.hideMenuBelow = false;
-        /**
-         * Enables custom link slots for menu items.
-         *
-         * This property allows you to inject custom components or HTML elements for the navigation links,
-         * rather than relying on the `menuData` prop for automatic generation of menu items.
-         * When `enableLinkSlot` is set to `true`, each menu item can be represented by a custom element
-         * provided via a named slot in the format `link-<n>` where `<n>` is the index of the link (starting from 1).
-         *
-         * **Usage Notes:**
-         * - This is particularly useful in frameworks like React or Angular where you might need to inject
-         *   custom routing components such as `NavLink` (React) or `routerLink` (Angular).
-         * - When this property is `true`, the `menuData` prop is ignored.
-         * - Ensure that the `linksLength` prop is also specified to define the total number of links.
-         *
-         * **Example:**
-         * ```html
-         * <TnwNavbar enableLinkSlot={true} linksLength={2}>
-         *   <NavLink slot="link-1" to="/">Home</NavLink>
-         *   <NavLink slot="link-2" to="/services">Services</NavLink>
-         * </TnwNavbar>
-         * ```
-         */
-        this.enableLinkSlot = false;
         this.handleResize = () => {
             const breakpoint = typeof this.hideMenuBelow === 'string'
                 ? parseInt(this.hideMenuBelow, 10)
@@ -951,6 +854,27 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
                 this.tnwScrollChange.emit({ scrollY: window.scrollY });
             }
         };
+        this.parsedMenuData = null;
+        this.isOpen = false;
+        this.isHidden = false;
+        this.appearance = 'solid';
+        this.appearanceColor = 'auto';
+        this.sticky = false;
+        this.disableInternalContainer = false;
+        this.scopeStylesToContainer = false;
+        this.menuExactCenter = false;
+        this.menuPlacement = 'middle';
+        this.togglerPlacement = 'end';
+        this.borderRadius = 'default';
+        this.paddingHorizontal = 'md';
+        this.paddingVertical = 'md';
+        this.menuData = undefined;
+        this.enableCtaSlot = false;
+        this.enableLogoSlot = false;
+        this.enableMenuSlot = false;
+        this.hideMenuBelow = false;
+        this.enableLinkSlot = false;
+        this.linksLength = undefined;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);
@@ -1060,7 +984,7 @@ const TnwNavbar$1 = /*@__PURE__*/ proxyCustomElement(class TnwNavbar extends H {
             h$1("div", { class: `${this.baseClass}__end` }, this.menuPlacement === 'end' && this.menu(), this.cta(), this.togglerPlacement === 'end' && this.menuToggler())));
     }
     render() {
-        return (h$1(Host, { key: 'e0e00405fb73e2504135dec41df02874bbda9947', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
+        return (h$1(Host, { key: '6a88daa06776a17513af8c7e40beb77c38d2c41c', class: this.getHostClasses() }, this.disableInternalContainer ? (this.renderContent()) : (h$1("div", { class: 'container' }, this.renderContent()))));
     }
     get el() { return this; }
     static get watchers() { return {

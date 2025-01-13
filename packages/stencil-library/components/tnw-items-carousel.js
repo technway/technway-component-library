@@ -2,10 +2,10 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, d as Host } from './p-51091f4a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported } from './p-80d80a0e.js';
 import { e as extendedAppearanceStyleSheet, c as colorStyleSheet, b as borderRadiusStyleSheet } from './p-20eedb96.js';
-import { d as defineCustomElement$2 } from './p-3d848afd.js';
+import { d as defineCustomElement$2 } from './p-f442dd94.js';
 
 const baseClass = `${GLOBAL_PREFIX}-items-carousel`;
 const slideClass = `${baseClass}__slide`;
@@ -299,38 +299,17 @@ const TnwItemsCarousel$1 = /*@__PURE__*/ proxyCustomElement(class TnwItemsCarous
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-items-carousel`;
-        this.isBeginning = true;
-        this.isEnd = false;
-        /**
-         * Determines whether navigation controls are shown.
-         */
-        this.hideControls = false;
-        /**
-         * If `true`, the `control-prev-icon` and `control-next-icon` slots will be shown.
-         */
-        this.enableControlsSlots = false;
-        /**
-         * If `true`, shadow effects will be shown on the edges of the carousel.
-         */
-        this.showEdgesShadows = false;
-        /**
-         * Sets the size of the control buttons.
-         */
-        this.controlsSize = 'md';
-        /**
-         * If `true`, the carousel width will be cut to match the container width.
-         */
-        this.fitWithContainer = false;
-        /**
-         * The number of slides in the carousel.
-         */
-        this.slidesCount = 0;
-        /**
-         * Sets the size of the slides.
-         */
-        this.slidesSize = 'sm';
         this.touchStartX = 0;
         this.touchEndX = 0;
+        this.isBeginning = true;
+        this.isEnd = false;
+        this.hideControls = false;
+        this.enableControlsSlots = false;
+        this.showEdgesShadows = false;
+        this.controlsSize = 'md';
+        this.fitWithContainer = false;
+        this.slidesCount = 0;
+        this.slidesSize = 'sm';
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();
             this.componentStyles.replaceSync(styles);

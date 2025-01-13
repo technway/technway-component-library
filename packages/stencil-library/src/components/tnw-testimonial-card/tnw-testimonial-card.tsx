@@ -119,7 +119,7 @@ export class TnwTestimonialCard {
     ].filter(Boolean).join(' ').trim();
   }
 
-  private renderRandomAvatar(): JSX.Element | null {
+  private renderRandomAvatar(): null {
     if (!this.useRandomAvatar) return null;
 
     const color1 = generateRandomColor();
@@ -136,7 +136,7 @@ export class TnwTestimonialCard {
     );
   }
 
-  private renderAuthorDetails(): JSX.Element | null {
+  private renderAuthorDetails(): null {
     if (!isNotEmptyString(this.authorName)) return null;
 
     return (

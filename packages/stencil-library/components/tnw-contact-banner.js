@@ -2,7 +2,7 @@
  * Built with Stencil
  * Copyright (c) Tecchnway.biz.
  */
-import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-4617b122.js';
+import { p as proxyCustomElement, H, h, F as Fragment, d as Host } from './p-51091f4a.js';
 import { G as GLOBAL_PREFIX, i as isNotEmptyString, a as isCSSStyleSheetSupported, b as isAdoptedStyleSheetsSupported, n as getAppearanceClass, c as getBorderRadiusClass } from './p-80d80a0e.js';
 
 const baseClass = `${GLOBAL_PREFIX}-contact-banner`;
@@ -391,53 +391,17 @@ const TnwContactBanner$1 = /*@__PURE__*/ proxyCustomElement(class TnwContactBann
         this.__registerHost();
         this.__attachShadow();
         this.baseClass = `${GLOBAL_PREFIX}-contact-banner`;
-        /**
-         * Defines the visual appearance of the banner (e.g., solid, outline).
-         */
         this.appearance = 'solid';
-        /**
-         * Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.
-         */
         this.appearanceColor = 'primary';
-        /**
-         * If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.
-         */
         this.enableContentSlot = false;
-        /**
-         * If `true`, the banner will center its content.
-         */
         this.alignment = 'center';
-        /**
-         * Defines the alignment of the text content.
-         */
         this.textAlignment = 'center';
-        /**
-         * Defines the border radius of the banner.
-         */
         this.borderRadius = 'default';
-        /**
-         * Defines the margin of the banner.
-         */
         this.margin = 'xl';
-        /**
-         * Defines the horizontal padding of the banner.
-         */
         this.paddingHorizontal = 'lg';
-        /**
-         * Defines the vertical padding of the banner.
-         */
         this.paddingVertical = 'lg';
-        /**
-         * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
-         */
         this.gap = 'md';
-        /**
-         * The layout of the banner.
-         */
         this.layout = 'vertical';
-        /**
-         * If `true`, the section body will be wrapped in a container for centering and padding.
-         */
         this.disableInternalContainer = false;
         if (isCSSStyleSheetSupported()) {
             this.componentStyles = new CSSStyleSheet();

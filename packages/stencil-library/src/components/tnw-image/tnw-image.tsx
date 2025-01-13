@@ -148,7 +148,7 @@ export class TnwImage {
    * Returns the rendered image element.
    * @returns A rendered image element (JSX.Element)
    */
-  private renderImage(): JSX.Element {
+  private renderImage() {
     return (
       <Fragment>
         {isNotEmptyString(this.link) ? (
@@ -185,7 +185,7 @@ export class TnwImage {
     );
   }
 
-  private renderFigCaption(): JSX.Element | null {
+  private renderFigCaption(): null {
     if (isNotEmptyString(this.caption)) {
       return (
         <figcaption class={`${this.baseClass}__figure-caption`} part='figcaption'>

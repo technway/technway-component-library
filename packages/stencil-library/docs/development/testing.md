@@ -9,20 +9,20 @@ Jest is used for unit testing the component library. Test files should follow th
 
 ### Running Unit Tests
 1. **Run all unit tests**:  
-   Command: `npm run test.spec`  
+   Command: `pnpm test.spec`  
    This will execute all the unit tests across the library.
 
 2. **Run unit tests for a single component**:  
-   Command: `npm run test.spec:single <component-file-name>`  
+   Command: `pnpm test.spec:single <component-file-name>`  
    Replace `<component-file-name>` with the name of the file you want to test. For example:  
-   `npm run test.spec:single tnw-button.spec.ts`.
+   `pnpm test.spec:single tnw-button.spec.ts`.
 
 3. **Approve or clean up snapshot conflicts**:  
-   Command: `npm run test.spec:single <component-file-name> -- -u`  
+   Command: `pnpm test.spec:single <component-file-name> -- -u`  
    This approves updated snapshots or removes unused ones for the specified component.
 
 4. **Run a single test case within a component**:  
-   Command: `npm run test.spec:single <component-file-name> -- -t "<it-name>"`  
+   Command: `pnpm test.spec:single <component-file-name> -- -t "<it-name>"`  
    Replace `<it-name>` with the name of the specific test case.  
 
    Example: To run the test case  
@@ -32,7 +32,7 @@ Jest is used for unit testing the component library. Test files should follow th
    });
    ```  
    Use the command:  
-   `npm run test.spec:single tnw-accordion.spec.ts -- -t "toggles accordion on Enter key press"`
+   `pnpm test.spec:single tnw-accordion.spec.ts -- -t "toggles accordion on Enter key press"`
 
 ### Notes
 - Use descriptive `it` names to make it easier to locate specific tests.  

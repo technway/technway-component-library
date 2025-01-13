@@ -11,8 +11,6 @@
     "build:next": "pnpm --filter @technway/next-library run build",
     "build:all": "pnpm run build:stencil && pnpm run build:react && pnpm run build:next",
     "build:layout-kit": "pnpm --filter @technway/layout-kit run build",
-    "lint:layout-kit": "pnpm --filter @technway/layout-kit run lint",
-    "test:layout-kit": "pnpm --filter @technway/layout-kit run test",
     "react": "pnpm --filter react-app run dev",
     "next-15": "pnpm --filter next-v15-app run dev"
   },

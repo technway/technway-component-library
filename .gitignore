@@ -33,6 +33,7 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+.npmrc
 
 # Storybook and testing-related files
 storybook.log

@@ -1,40 +1,80 @@
 name: 'Release'
+
+env:
+  ACTIONS_STEP_DEBUG: true
+
 description: 'Releases a package'
+
 inputs:
   scope:
     description: 'The package to release. Must match a package specified in lerna.json.'
   tag:
-    description: 'The tag to publish to on NPM (DRY RUN).'
+    description: 'The tag to publish to on NPM.'
   preid:
     description: 'The prerelease identifier used when doing a prerelease.'
   working-directory:
     required: true
     description: 'The directory of the package to deploy.'
   token:
+    required: true
     description: 'The NPM authentication token required to publish.'
+  github_token:
+    required: true
+    description: 'The GitHub token required for authentication.'
+
 runs:
   using: 'composite'
   steps:
-    - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
-    - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up pnpm
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v2
       with:
-        node-version: '20.11.0'
-        cache: 'pnpm'
+          version: 9.15.3
+
+    # Step 3: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+          node-version: "20.11.0"
+          cache: "pnpm"
+
+    # Step 4: Install Dependencies
     - name: Install Dependencies
       run: pnpm --filter ${{ inputs.scope }} install
       shell: bash
       working-directory: ${{ inputs.working-directory }}
+
+    # Step 5: Run Build
     - name: Run Build
-      run: pnpm run build:all
+      run: pnpm run build:$(echo "${{ inputs.scope }}" | sed 's/@technway\///') # To remove the @technway/ prefix
       shell: bash
       working-directory: ${{ inputs.working-directory }}
+
+    # Step 6: Prepare NPM Token
     - name: Prepare NPM Token
-      run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-      working-directory: ${{ inputs.working-directory }}
+      run: echo "//registry.npmjs.org/:_authToken=${{ inputs.token }}" > ~/.npmrc
       shell: bash
-      env:
-        NPM_TOKEN: ${{ inputs.token }}
+
+    - name: test
+      run: echo ${{ inputs.preid }}
+      shell: bash
+
+    # Step 7: Publish to NPM
     - name: Publish to NPM
-      run: npm publish --tag ${{ inputs.tag }}
+      run: |
+        if [ "${{ inputs.preid }}" = "none" ]; then
+          echo "Publishing without preid..."
+          pnpm publish --tag ${{ inputs.tag }}
+        else
+          echo "Publishing with preid ${{ inputs.preid }}..."
+          pnpm publish --tag ${{ inputs.tag }} --preid ${{ inputs.preid }}
+        fi
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+        NPM_TOKEN: ${{ inputs.token }}
       shell: bash
       working-directory: ${{ inputs.working-directory }}

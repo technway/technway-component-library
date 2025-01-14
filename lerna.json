@@ -10,7 +10,7 @@
       ]
     },
     "version": {
-      "message": "chore: version bump and changelog updates [skip ci]"
+      "conventionalCommits": true
     }
   }
 }

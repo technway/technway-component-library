@@ -8,9 +8,10 @@ on:
                 type: choice
                 description: Which package should be published?
                 options:
-                    - vue
-                    - angular
-                    - react
+                    - react-library
+                    - next-library
+                    - stencil-library
+                    - layout-kit
             tag:
                 required: true
                 type: choice

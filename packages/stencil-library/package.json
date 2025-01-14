@@ -1,6 +1,6 @@
 {
   "name": "@technway/stencil-library",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A modular web component library built with Stencil.js, providing reusable, customizable components for scalable UI development across multiple frameworks.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.mjs",
@@ -64,6 +64,7 @@
     "build:all": "pnpm g:css-utils && stencil build",
     "build:sb": "storybook build",
     "build:stencil": "stencil build --docs",
+    "build:stencil-library": "stencil build --docs",
     "build:react": "stencil build --react",
     "build:components-css-utils": "node scripts/build-components-css-utils.mjs",
     "watch": "concurrently \"pnpm g:css-utils\" \"stencil build --watch\"",

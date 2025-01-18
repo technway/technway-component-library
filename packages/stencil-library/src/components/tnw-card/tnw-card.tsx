@@ -225,17 +225,21 @@ export class TnwCard {
     }
 
     if (isNotEmptyString(this.imageSrc)) {
+      const { baseClass, borderRadius, imageHeight, imageSrc, heading, imageAlt } = this;
+
       return (
-        <div class={`${this.baseClass}__image`} part='image'>
-          <tnw-image
-            src={this.imageSrc}
-            alt={this.heading || this.imageAlt}
-            borderRadius={this.borderRadius}
+        <div class={`${baseClass}__image`} part='image'>
+          <img
+            src={imageSrc}
+            alt={heading || imageAlt}
+            class={borderRadius ? getBorderRadiusClass(borderRadius) : ''}
+            style={{
+              width: '100%',
+              height: imageHeight,
+              objectFit: 'cover',
+            }}
+            loading='lazy'
             part='image'
-            width='100%'
-            height={this.imageHeight}
-            objectFit='cover'
-            lazyLoading={true}
           />
         </div>
       )

@@ -1,5 +1,5 @@
 import { Component, Element, Fragment, Host, Prop, h } from '@stencil/core';
-import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
 import { AlignmentType, BorderRadiusType } from '../../utils/component-props-types';
 import { styles } from './tnw-header-banner.styles';
 import { borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
@@ -199,14 +199,25 @@ export class TnwHeaderBanner {
     ].filter(Boolean).join(' ').trim();
   }
 
-  private getImageClasses(): string {
+  private getImageWrapperClasses(): string {
     const { baseClass, wrapImage } = this;
+
+    const imageWrapperClass = `${baseClass}__image-wrapper`;
+
+    return [
+      imageWrapperClass,
+      !wrapImage ? `${imageWrapperClass}--pos-absolute` : '',
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private getImageClasses(): string {
+    const { baseClass } = this;
 
     const imageClass = `${baseClass}__image`;
 
     return [
       imageClass,
-      !wrapImage ? `${imageClass}--pos-absolute` : '',
+      getBorderRadiusClass(this.imageBorderRadius),
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -269,23 +280,21 @@ export class TnwHeaderBanner {
   }
 
   private renderImage(): null {
-    const { enableImageSlot, imageBorderRadius, imageSrc } = this;
+    const { enableImageSlot, imageSrc } = this;
 
     if (enableImageSlot || isNotEmptyString(imageSrc)) {
       return (
-        <div class={this.getImageClasses()} part='image-container'>
-          {enableImageSlot ?
+        <div class={this.getImageWrapperClasses()} part='image-container'>
+          {enableImageSlot ? (
             <slot name='image' />
-            :
-            <tnw-image
+          ) : (
+            <img
+              class={this.getImageClasses()}
               src={imageSrc}
               alt={this.imageAlt}
-              borderRadius={imageBorderRadius}
               part='image'
-              width='100%'
-              height='auto'
             />
-          }
+          )}
         </div>
       );
     }

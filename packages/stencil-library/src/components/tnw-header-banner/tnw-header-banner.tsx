@@ -2,7 +2,7 @@ import { Component, Element, Fragment, Host, Prop, h } from '@stencil/core';
 import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
 import { AlignmentType, BorderRadiusType } from '../../utils/component-props-types';
 import { styles } from './tnw-header-banner.styles';
-import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
+import { borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-header-banner-validate-props';
 
 /**
@@ -108,6 +108,16 @@ export class TnwHeaderBanner {
    */
   @Prop() imageBorderRadius: BorderRadiusType = 'none';
 
+  /**
+   * If `false`, a container class will be added around the content to align it within the page layout. Default is `false`.
+   */
+  @Prop() disableInternalContainer?: boolean = false;
+
+  /**
+   * If `true`, the content will be vertically centered within the banner.
+   */
+  @Prop() verticalCenter?: boolean = false;
+
   constructor() {
     if (isCSSStyleSheetSupported()) {
       this.componentStyles = new CSSStyleSheet();
@@ -120,6 +130,7 @@ export class TnwHeaderBanner {
       (this.el.shadowRoot as any).adoptedStyleSheets = [
         extendedAppearanceStyleSheet,
         borderRadiusStyleSheet,
+        containerStyleSheet,
         this.componentStyles,
       ];
     }
@@ -155,11 +166,22 @@ export class TnwHeaderBanner {
   };
 
   private getHostClasses(): string {
-    const { baseClass, stickyNavbar } = this;
+    const { baseClass, stickyNavbar, disableInternalContainer, verticalCenter } = this;
 
     return [
       baseClass,
       stickyNavbar ? `${baseClass}--stickyNavbar` : '',
+      disableInternalContainer ? `${baseClass}--container` : '',
+      verticalCenter ? `${baseClass}--verticalCenter` : '',
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private getContainerClasses(): string {
+    const { baseClass, disableInternalContainer } = this;
+    const containerClass = `${baseClass}__container`;
+    return [
+      containerClass,
+      !disableInternalContainer ? containerClass : '',
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -281,8 +303,17 @@ export class TnwHeaderBanner {
   render() {
     return (
       <Host class={this.getHostClasses()}>
-        {this.renderContent()}
-        {this.renderImage()}
+        {!this.disableInternalContainer ? (
+          <div class={this.getContainerClasses()} part='content'>
+            {this.renderContent()}
+            {this.renderImage()}
+          </div>
+        ) : (
+          <Fragment>
+            {this.renderContent()}
+            {this.renderImage()}
+          </Fragment>
+        )}
       </Host>
     );
   }

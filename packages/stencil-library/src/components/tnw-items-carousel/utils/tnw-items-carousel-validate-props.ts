@@ -8,7 +8,7 @@
  * 
 validateProps([this.controlsSize, this.enableControlsSlots, this.fitWithContainer, this.hideControls, this.showEdgesShadows, this.slidesCount, this.slidesSize]);
  *
- * GENERATED USING `npm run g:components-validations tnw-items-carousel`
+ * GENERATED USING `pnpm g:components-validations tnw-items-carousel`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

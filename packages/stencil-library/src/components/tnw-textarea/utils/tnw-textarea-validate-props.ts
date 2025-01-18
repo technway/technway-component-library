@@ -8,7 +8,7 @@
  * 
 validateProps([this.appearance, this.autoComplete, this.borderRadius, this.cols, this.disabled, this.helpText, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.placeholder, this.resize, this.rows, this.sanitizeTextarea, this.textareaId, this.value]);
  *
- * GENERATED USING `npm run g:components-validations tnw-textarea`
+ * GENERATED USING `pnpm g:components-validations tnw-textarea`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

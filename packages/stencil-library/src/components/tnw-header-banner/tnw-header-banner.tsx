@@ -16,6 +16,7 @@ import { validateProps } from './utils/tnw-header-banner-validate-props';
  * @slot description - Slot for custom description content if the `description` prop is not used.
  * @slot button - Slot for custom button content if the `buttonLabel` prop is not used.
  * 
+ * @part container - The container for the banner content. Only rendered when `disableInternalContainer` is `false`.
  * @part heading - The `tnw-heading` element displaying the main heading of the banner.
  * @part subheading - The `tnw-heading` element displaying the subheading of the banner.
  * @part description - The `tnw-text` element displaying the description of the banner.
@@ -137,7 +138,7 @@ export class TnwHeaderBanner {
   }
 
   componentWillLoad() {
-    validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
+    validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.disableInternalContainer, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.verticalCenter, this.width, this.wrapImage]);
   }
 
   private getThemeMatchedColor = () => {
@@ -181,7 +182,7 @@ export class TnwHeaderBanner {
     const containerClass = `${baseClass}__container`;
     return [
       containerClass,
-      !disableInternalContainer ? containerClass : '',
+      !disableInternalContainer ? 'container' : '',
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -304,7 +305,7 @@ export class TnwHeaderBanner {
     return (
       <Host class={this.getHostClasses()}>
         {!this.disableInternalContainer ? (
-          <div class={this.getContainerClasses()} part='content'>
+          <div class={this.getContainerClasses()} part='container'>
             {this.renderContent()}
             {this.renderImage()}
           </div>

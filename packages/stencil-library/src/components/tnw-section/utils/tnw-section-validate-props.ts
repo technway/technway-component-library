@@ -8,7 +8,7 @@
  * 
 validateProps([this.alignment, this.appearance, this.appearanceColor, this.disableInternalContainer, this.isFirstSection, this.isLastSection, this.margin, this.padding, this.spacing, this.useGlassmorphismEffect]);
  *
- * GENERATED USING `npm run g:components-validations tnw-section`
+ * GENERATED USING `pnpm g:components-validations tnw-section`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

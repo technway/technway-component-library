@@ -8,7 +8,7 @@
  * 
 validateProps([this.appearance, this.appearanceColor, this.authorName, this.authorPhotoAlt, this.authorPhotoSrc, this.authorRole, this.borderRadius, this.padding, this.spacing, this.text, this.useGlassmorphismEffect, this.useRandomAvatar]);
  *
- * GENERATED USING `npm run g:components-validations tnw-testimonial-card`
+ * GENERATED USING `pnpm g:components-validations tnw-testimonial-card`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

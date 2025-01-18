@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-14T14:02:32",
+  "timestamp": "2025-01-18T13:56:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -5708,6 +5708,10 @@
         },
         {
           "name": "part",
+          "text": "container - The container for the banner content. Only rendered when `disableInternalContainer` is `false`."
+        },
+        {
+          "name": "part",
           "text": "heading - The `tnw-heading` element displaying the main heading of the banner."
         },
         {
@@ -5886,6 +5890,30 @@
             }
           ],
           "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disableInternalContainer",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-internal-container",
+          "reflectToAttr": false,
+          "docs": "If `false`, a container class will be added around the content to align it within the page layout. Default is `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false
@@ -6147,6 +6175,30 @@
           "setter": false
         },
         {
+          "name": "verticalCenter",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "vertical-center",
+          "reflectToAttr": false,
+          "docs": "If `true`, the content will be vertically centered within the banner.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "width",
           "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
           "complexType": {
@@ -6244,6 +6296,10 @@
         {
           "name": "button",
           "docs": "The `tnw-button` element or the container for the button slot."
+        },
+        {
+          "name": "container",
+          "docs": "The container for the banner content. Only rendered when `disableInternalContainer` is `false`."
         },
         {
           "name": "content",

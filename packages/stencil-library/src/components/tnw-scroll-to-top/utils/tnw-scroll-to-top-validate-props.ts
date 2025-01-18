@@ -8,7 +8,7 @@
  * 
 validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.customIconName, this.enableCustomSvgIcon, this.size]);
  *
- * GENERATED USING `npm run g:components-validations tnw-scroll-to-top`
+ * GENERATED USING `pnpm g:components-validations tnw-scroll-to-top`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

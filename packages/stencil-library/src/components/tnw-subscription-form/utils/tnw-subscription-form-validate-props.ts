@@ -8,7 +8,7 @@
  * 
 validateProps([this.borderRadius, this.buttonLabel, this.enableButtonSlot, this.formAction, this.formAttributes, this.formMethod, this.inputId, this.inputPlaceholder, this.successMessage, this.theme, this.variant]);
  *
- * GENERATED USING `npm run g:components-validations tnw-subscription-form`
+ * GENERATED USING `pnpm g:components-validations tnw-subscription-form`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

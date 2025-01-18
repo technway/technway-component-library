@@ -8,7 +8,7 @@
  * 
 validateProps([this.emptyStarColor, this.filledStarColor, this.hideEmptyStars, this.rating, this.starSize, this.totalStars]);
  *
- * GENERATED USING `npm run g:components-validations tnw-rating`
+ * GENERATED USING `pnpm g:components-validations tnw-rating`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

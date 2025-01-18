@@ -8,7 +8,7 @@
  * 
 validateProps([this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.gap, this.layout, this.margin, this.paddingHorizontal, this.paddingVertical, this.textAlignment]);
  *
- * GENERATED USING `npm run g:components-validations tnw-contact-banner`
+ * GENERATED USING `pnpm g:components-validations tnw-contact-banner`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

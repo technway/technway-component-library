@@ -3,11 +3,13 @@
 exports[`tnw-header-banner Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-header-banner class="tnw-header-banner">
   <template shadowrootmode="open">
-    <div class="tnw-header-banner__content tnw-header-banner__content--start tnw-header-banner__content--w-half" part="content">
-      <slot name="heading"></slot>
-      <slot name="subheading"></slot>
-      <slot name="description"></slot>
-      <slot name="button"></slot>
+    <div class="container tnw-header-banner__container" part="container">
+      <div class="tnw-header-banner__content tnw-header-banner__content--start tnw-header-banner__content--w-half" part="content">
+        <slot name="heading"></slot>
+        <slot name="subheading"></slot>
+        <slot name="description"></slot>
+        <slot name="button"></slot>
+      </div>
     </div>
   </template>
 </tnw-header-banner>

@@ -2,7 +2,7 @@ import { Component, Element, Fragment, Host, Prop, h } from '@stencil/core';
 import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
 import { AlignmentType, BorderRadiusType } from '../../utils/component-props-types';
 import { styles } from './tnw-header-banner.styles';
-import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
+import { borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-header-banner-validate-props';
 
 /**
@@ -16,6 +16,7 @@ import { validateProps } from './utils/tnw-header-banner-validate-props';
  * @slot description - Slot for custom description content if the `description` prop is not used.
  * @slot button - Slot for custom button content if the `buttonLabel` prop is not used.
  * 
+ * @part container - The container for the banner content. Only rendered when `disableInternalContainer` is `false`.
  * @part heading - The `tnw-heading` element displaying the main heading of the banner.
  * @part subheading - The `tnw-heading` element displaying the subheading of the banner.
  * @part description - The `tnw-text` element displaying the description of the banner.
@@ -108,6 +109,16 @@ export class TnwHeaderBanner {
    */
   @Prop() imageBorderRadius: BorderRadiusType = 'none';
 
+  /**
+   * If `false`, a container class will be added around the content to align it within the page layout. Default is `false`.
+   */
+  @Prop() disableInternalContainer?: boolean = false;
+
+  /**
+   * If `true`, the content will be vertically centered within the banner.
+   */
+  @Prop() verticalCenter?: boolean = false;
+
   constructor() {
     if (isCSSStyleSheetSupported()) {
       this.componentStyles = new CSSStyleSheet();
@@ -120,13 +131,14 @@ export class TnwHeaderBanner {
       (this.el.shadowRoot as any).adoptedStyleSheets = [
         extendedAppearanceStyleSheet,
         borderRadiusStyleSheet,
+        containerStyleSheet,
         this.componentStyles,
       ];
     }
   }
 
   componentWillLoad() {
-    validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
+    validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.disableInternalContainer, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.verticalCenter, this.width, this.wrapImage]);
   }
 
   private getThemeMatchedColor = () => {
@@ -155,11 +167,22 @@ export class TnwHeaderBanner {
   };
 
   private getHostClasses(): string {
-    const { baseClass, stickyNavbar } = this;
+    const { baseClass, stickyNavbar, disableInternalContainer, verticalCenter } = this;
 
     return [
       baseClass,
       stickyNavbar ? `${baseClass}--stickyNavbar` : '',
+      disableInternalContainer ? `${baseClass}--container` : '',
+      verticalCenter ? `${baseClass}--verticalCenter` : '',
+    ].filter(Boolean).join(' ').trim();
+  }
+
+  private getContainerClasses(): string {
+    const { baseClass, disableInternalContainer } = this;
+    const containerClass = `${baseClass}__container`;
+    return [
+      containerClass,
+      !disableInternalContainer ? 'container' : '',
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -281,8 +304,17 @@ export class TnwHeaderBanner {
   render() {
     return (
       <Host class={this.getHostClasses()}>
-        {this.renderContent()}
-        {this.renderImage()}
+        {!this.disableInternalContainer ? (
+          <div class={this.getContainerClasses()} part='container'>
+            {this.renderContent()}
+            {this.renderImage()}
+          </div>
+        ) : (
+          <Fragment>
+            {this.renderContent()}
+            {this.renderImage()}
+          </Fragment>
+        )}
       </Host>
     );
   }

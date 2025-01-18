@@ -8,7 +8,7 @@
  * 
 validateProps([this.accordionId, this.appearance, this.appearanceColor, this.borderRadius, this.color, this.content, this.disableExpandIconRotate, this.enableCustomExpandIcon, this.expand, this.heading]);
  *
- * GENERATED USING `npm run g:components-validations tnw-accordion`
+ * GENERATED USING `pnpm g:components-validations tnw-accordion`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

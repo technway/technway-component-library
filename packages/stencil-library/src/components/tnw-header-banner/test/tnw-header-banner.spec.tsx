@@ -97,7 +97,7 @@ describe('tnw-header-banner', () => {
       const image = await createSpecPage(
         TnwHeaderBanner,
         `<tnw-header-banner image-src="image.jpg" image-alt="Alt text"></tnw-header-banner>`,
-        'tnw-image[part="image"]'
+        'img[part="image"]'
       );
       expect(image).not.toBeNull();
       expect(image.getAttribute('src')).toBe('image.jpg');
@@ -126,9 +126,9 @@ describe('tnw-header-banner', () => {
       const image = await createSpecPage(
         TnwHeaderBanner,
         `<tnw-header-banner image-src="image.jpg" image-alt="Alt text" image-border-radius="lg"></tnw-header-banner>`,
-        'tnw-image[part="image"]'
+        'img[part="image"]'
       );
-      expect(image.getAttribute('borderradius')).toBe('lg');
+      expect(image).toHaveClass('rounded-lg');
     });
 
     it('applies the correct container class when disableInternalContainer is true', async () => {

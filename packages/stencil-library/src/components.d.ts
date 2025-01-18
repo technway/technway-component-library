@@ -589,6 +589,10 @@ export namespace Components {
          */
         "description": string;
         /**
+          * If `false`, a container class will be added around the content to align it within the page layout. Default is `false`.
+         */
+        "disableInternalContainer"?: boolean;
+        /**
           * Enables the image slot for adding custom images to the banner.
          */
         "enableImageSlot"?: boolean;
@@ -620,6 +624,10 @@ export namespace Components {
           * Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'.
          */
         "theme": 'primary' | 'secondary' | 'inverse' | 'auto' | 'white' | 'black';
+        /**
+          * If `true`, the content will be vertically centered within the banner.
+         */
+        "verticalCenter"?: boolean;
         /**
           * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
           * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.
@@ -2562,6 +2570,10 @@ declare namespace LocalJSX {
          */
         "description"?: string;
         /**
+          * If `false`, a container class will be added around the content to align it within the page layout. Default is `false`.
+         */
+        "disableInternalContainer"?: boolean;
+        /**
           * Enables the image slot for adding custom images to the banner.
          */
         "enableImageSlot"?: boolean;
@@ -2593,6 +2605,10 @@ declare namespace LocalJSX {
           * Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'.
          */
         "theme"?: 'primary' | 'secondary' | 'inverse' | 'auto' | 'white' | 'black';
+        /**
+          * If `true`, the content will be vertically centered within the banner.
+         */
+        "verticalCenter"?: boolean;
         /**
           * Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.
           * @deprecated since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.

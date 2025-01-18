@@ -8,7 +8,7 @@
  * 
 validateProps([this.alignment, this.color, this.displayMode, this.highlight, this.highlightColor, this.highlightTag, this.highlightWeight, this.lineHeight, this.size, this.text, this.textCase, this.textTag, this.weight, this.widthSize]);
  *
- * GENERATED USING `npm run g:components-validations tnw-text`
+ * GENERATED USING `pnpm g:components-validations tnw-text`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

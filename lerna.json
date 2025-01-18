@@ -10,12 +10,7 @@
       ]
     },
     "version": {
-      "conventionalCommits": true,
-      "message": "chore(release): publish",
-      "ignoreChanges": ["**/*.md", "**/*.test.ts", "**/*.spec.ts", "example-project/**", "**/package.json", "**/package-lock.json"],
-      "skipInstall": true,
-      "noPush": true,
-      "allowBranch": ["main"]
+      "conventionalCommits": true
     }
   }
 }

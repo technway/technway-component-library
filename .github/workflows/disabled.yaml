@@ -1,4 +1,4 @@
-name: Main Workflow
+name: Failing Workflow
 
 env:
     ACTIONS_STEP_DEBUG: true

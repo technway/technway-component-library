@@ -1,78 +1,78 @@
 name: Main Workflow
 
 env:
-  ACTIONS_STEP_DEBUG: true
+    ACTIONS_STEP_DEBUG: true
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
 
 permissions:
-  contents: write
-  pull-requests: write
+    contents: write
+    pull-requests: write
 
 jobs:
-  test:
-    strategy:
-      matrix:
-        os: ['ubuntu-latest', 'windows-latest']
+    test:
+        strategy:
+            matrix:
+                os: ["ubuntu-latest", "windows-latest"]
 
-    if: ${{ !contains(github.event.head_commit.message, '[skip-test]') }}
+        if: ${{ !contains(github.event.head_commit.message, '[skip-test]') }}
 
-    name: Lint Code ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    
-    timeout-minutes: 30
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+        name: Lint Code ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9.15.3 
+        timeout-minutes: 30
 
-      - name: Authenticate with npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20.11.0'
-          cache: 'pnpm'
+            - name: Set up pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 9.15.3
 
-      - name: Install Dependencies
-        run: pnpm install --loglevel=debug
+            - name: Authenticate with npm
+              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - name: Run Tests
-        run: pnpm test:stencil
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "20.11.0"
+                  cache: "pnpm"
 
-  versioning:
-    if: ${{ !contains(github.event.head_commit.message, '[skip-versioning]') }}
-    name: Versioning Packages
-    runs-on: ubuntu-latest
-    needs:
-      - test
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+            - name: Install Dependencies
+              run: pnpm install --loglevel=debug
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9.15.3 
+            - name: Run Tests
+              run: pnpm test:stencil
 
-      - name: Authenticate with npm
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+    root-versioning:
+        if: ${{ !contains(github.event.head_commit.message, '[skip-versioning]') }}
+        name: Versioning Root
+        runs-on: ubuntu-latest
+        needs:
+            - test
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
 
-      - name: Release Please
-        uses: google-github-actions/release-please-action@v3
-        with:
-          release-type: node
-          monorepo-tags: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Set up pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 9.15.3
+
+            - name: Authenticate with npm
+              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+            - name: Release Please
+              uses: google-github-actions/release-please-action@v3
+              with:
+                  release-type: node
+                  monorepo-tags: true
+                  token: ${{ secrets.GITHUB_TOKEN }}

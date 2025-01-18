@@ -41,6 +41,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.5.5](https://github.com/technway/technway-component-library/compare/root-v3.5.4...root-v3.5.5) (2025-01-18)
+
+
+### Bug Fixes
+
+* **stencil-library:** header-banner & card validations ([d0e075e](https://github.com/technway/technway-component-library/commit/d0e075ec2efc2bbbe1a0e9b0c0d540d0301841aa))
+
+## [3.5.4](https://github.com/technway/technway-component-library/compare/root-v3.5.3...root-v3.5.4) (2025-01-18)
+
+
+### Bug Fixes
+
+* header and its banner styling isuues ([5812062](https://github.com/technway/technway-component-library/commit/581206217d58a669a475ac66dc25f8ea7a5dae46))
+
 ## [3.5.3](https://github.com/technway/technway-component-library/compare/root-v3.5.2...root-v3.5.3) (2025-01-13)
 
 

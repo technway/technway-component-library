@@ -1,6 +1,6 @@
 {
   "name": "@technway/react-library",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "> TODO: description",
   "author": "Technway <contact@technway.biz>",
   "homepage": "https://github.com/technway/technway-component-library#readme",
@@ -22,6 +22,7 @@
   },
   "scripts": {
     "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",
+    "build:react-library": "pnpm clean && pnpm --filter @technway/stencil-library run build:stencil-library && pnpm tsc",
     "build": "pnpm clean && pnpm tsc",
     "tsc": "tsc -p . --outDir ./dist",
     "genPackagelock": "pnpm install --lockfile-only"

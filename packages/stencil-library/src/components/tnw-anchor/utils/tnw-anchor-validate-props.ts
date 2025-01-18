@@ -8,7 +8,7 @@
  * 
 validateProps([this.color, this.hideNewTabIcon, this.href, this.labelAria, this.newTab, this.size, this.text, this.textDecoration]);
  *
- * GENERATED USING `npm run g:components-validations tnw-anchor`
+ * GENERATED USING `pnpm g:components-validations tnw-anchor`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

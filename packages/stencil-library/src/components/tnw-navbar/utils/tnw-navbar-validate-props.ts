@@ -8,7 +8,7 @@
  * 
 validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
  *
- * GENERATED USING `npm run g:components-validations tnw-navbar`
+ * GENERATED USING `pnpm g:components-validations tnw-navbar`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

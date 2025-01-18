@@ -1,0 +1,79 @@
+name: "Production Release"
+
+env:
+  ACTIONS_STEP_DEBUG: true
+
+on:
+    workflow_dispatch:
+        inputs:
+            package:
+                required: true
+                type: choice
+                description: Which package should be published?
+                options:
+                    - react-library
+                    - next-library
+                    - stencil-library
+                    - layout-kit
+            tag:
+                required: true
+                type: choice
+                description: Which npm tag should this be published to?
+                options:
+                    - latest
+                    - next
+            preid:
+                type: choice
+                description: Which prerelease identifier should be used? This is only needed when version is "prepatch", "preminor", "premajor", or "prerelease".
+                options:
+                    - none
+                    - alpha
+                    - beta
+                    - rc
+                    - next
+
+jobs:
+    prod-build:
+        runs-on: ubuntu-latest
+        outputs:
+            version: ${{ steps.publish-package.outputs.version }}
+        steps:
+            # Step 1: Checkout the repository
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            # Step 2: Set up pnpm
+            - name: Set up pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 9.15.3
+
+            # Step 3: Set up Node.js
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "20.11.0"
+                  cache: "pnpm"
+
+            # Step 4: Install dependencies
+            - name: Install Dependencies
+              run: pnpm install
+              shell: bash
+
+            # Step 5: Prepare NPM token for authentication
+            - name: Prepare NPM Token
+              run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+              shell: bash
+              env:
+                NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+            # Step 6: Publish the package
+            - name: Publish Package
+              uses: ./.github/workflows/actions/publish-npm
+              with:
+                  tag: ${{ inputs.tag }} # "latest" or "next"
+                  preid: ${{ inputs.preid }} # Only needed when version is "prepatch", "preminor", "premajor", or "prerelease"
+                  scope: "@technway/${{ inputs.package }}"
+                  working-directory: "./packages/${{ inputs.package }}" # Follow the repo structure
+                  token: ${{ secrets.NPM_TOKEN }}
+                  github_token: ${{ secrets.GITHUB_TOKEN }}

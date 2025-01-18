@@ -31,6 +31,7 @@ It is designed to align with the theme of the parent header component, making it
 | **contentMaxWidth** | <div>Specifies the maximum width of the content within the banner. use `unset` to remove the limit.</div> | `'unset'` | `"lg"` \| `"md"` \| `"sm"` \| `"unset"` \| `"xl"` |
 | **contentWidth** | <div>Specifies the width of the content within the banner.</div> | `'half'` | `"full"` \| `"half"` |
 | **description** | <div>The description text of the banner. It offers additional details beneath the heading and subheading, and can be customized via the `description` slot if needed.</div> | N/A | `string` |
+| **disableInternalContainer** | <div>If `false`, a container class will be added around the content to align it within the page layout. Default is `false`.</div> | `false` | `boolean` |
 | **enableImageSlot** | <div>Enables the image slot for adding custom images to the banner.</div> | `false` | `boolean` |
 | **heading** | <div>The main heading text of the banner. This can be a simple string or passed through a slot using the `heading` slot.</div> | N/A | `string` |
 | **imageAlt** | <div>Alternative text for the banner image, improving accessibility.</div> | N/A | `string` |
@@ -39,6 +40,7 @@ It is designed to align with the theme of the parent header component, making it
 | **stickyNavbar** | <div>When set to `true`, shifts the banner's vertical alignment to account for a sticky header. This ensures that the banner aligns properly beneath the sticky navbar.</div> | `false` | `boolean` |
 | **subheading** | <div>The subheading text of the banner. It provides secondary information under the main heading and can be customized via the `subheading` slot if needed.</div> | N/A | `string` |
 | **theme** | <div>Defines the visual theme of the banner, matching it to the header's theme. Options include 'primary', 'secondary', 'inverse', 'auto', 'white', and 'black'. Default is 'auto'.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **verticalCenter** | <div>If `true`, the content will be vertically centered within the banner.</div> | `false` | `boolean` |
 | **width** | <div style="color: #d9534f; font-weight: bold;">⚠️ Deprecated: since v2.2.0. Use `contentWidth` & `contentMaxWidth` instead.</div><br><div>Specifies the width of the banner. It can be set to predefined size types or 'full' for full-width coverage.</div> | `'full'` | `"full"` \| `"lg"` \| `"md"` \| `"sm"` \| `"xl"` |
 | **wrapImage** | <div>Wraps the image in a container for consistency.</div> | `false` | `boolean` |
 
@@ -49,6 +51,7 @@ It is designed to align with the theme of the parent header component, making it
 | Part | Description |
 | --- | --- |
 | **button** | The `tnw-button` element or the container for the button slot. |
+| **container** | The container for the banner content. Only rendered when `disableInternalContainer` is `false`. |
 | **content** | No description provided. |
 | **description** | The `tnw-text` element displaying the description of the banner. |
 | **heading** | The `tnw-heading` element displaying the main heading of the banner. |

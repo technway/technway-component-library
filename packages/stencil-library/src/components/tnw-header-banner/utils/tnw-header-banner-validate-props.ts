@@ -6,9 +6,9 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-header-banner.tsx` file.
  * 
-validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.width, this.wrapImage]);
+validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.disableInternalContainer, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.verticalCenter, this.width, this.wrapImage]);
  *
- * GENERATED USING `npm run g:components-validations tnw-header-banner`
+ * GENERATED USING `pnpm g:components-validations tnw-header-banner`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
@@ -56,6 +56,13 @@ export function validateProps(propsValues: any[]): void {
     "name": "description",
     "type": [
       "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "disableInternalContainer",
+    "type": [
+      "boolean"
     ],
     "isRequired": false
   },
@@ -127,6 +134,13 @@ export function validateProps(propsValues: any[]): void {
       "primary",
       "secondary",
       "white"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "verticalCenter",
+    "type": [
+      "boolean"
     ],
     "isRequired": false
   },

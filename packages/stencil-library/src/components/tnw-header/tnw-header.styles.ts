@@ -13,7 +13,6 @@ export const styles = `
     flex-direction: column;
     gap: 25px;
     position: relative;
-    padding-top: 10px !important;
 }
 :host(.${baseClass}--borderBottom) {
     border-bottom-width: 1px;

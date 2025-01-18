@@ -8,7 +8,7 @@
  * 
 validateProps([this.accessibilityId, this.borderRadius, this.disabled, this.fullWidth, this.label, this.optionAppearance, this.optionsData, this.size, this.variant]);
  *
- * GENERATED USING `npm run g:components-validations tnw-select`
+ * GENERATED USING `pnpm g:components-validations tnw-select`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

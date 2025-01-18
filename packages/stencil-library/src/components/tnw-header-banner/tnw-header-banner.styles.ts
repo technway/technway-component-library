@@ -2,6 +2,8 @@ import { GLOBAL_PREFIX } from "../../utils/utils";
 
 const baseClass = `${GLOBAL_PREFIX}-header-banner`;
 const contentClass = `${baseClass}__content`;
+const containerClass = `${baseClass}__container`;
+const imageWrapperClass = `${baseClass}__image-wrapper`;
 const imageClass = `${baseClass}__image`;
 
 export const styles = `
@@ -9,8 +11,19 @@ export const styles = `
     z-index: 2;
     max-width: 100%;
     width: 100%;
-    margin-block: auto !important;
+    display: block;
+}
+:host(.${baseClass}--container) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+:host(.${baseClass}--verticalCenter) {
     padding-bottom: 100px !important;
+}
+
+.${containerClass} {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,17 +88,22 @@ export const styles = `
     gap: 10px;
 }
 
-.${imageClass} {
+.${imageWrapperClass} {
     height: auto;
     width: 50%;
     max-width: 800px;
 }
 
-.${imageClass}--pos-absolute {
+.${imageWrapperClass}--pos-absolute {
     height: auto;
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.${imageClass} {
+    height: auto;
+    width: 100%;
 }
 `;

@@ -403,7 +403,9 @@ export const TnwHeaderBanner: StencilReactComponent<TnwHeaderBannerElement, TnwH
             imageSrc: 'image-src',
             imageAlt: 'image-alt',
             wrapImage: 'wrap-image',
-            imageBorderRadius: 'image-border-radius'
+            imageBorderRadius: 'image-border-radius',
+            disableInternalContainer: 'disable-internal-container',
+            verticalCenter: 'vertical-center'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

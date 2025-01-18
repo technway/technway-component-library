@@ -101,7 +101,6 @@ It is designed to align with the theme of the parent header component, making it
 - [tnw-heading](../tnw-heading)
 - [tnw-text](../tnw-text)
 - [tnw-button](../tnw-button)
-- [tnw-image](../tnw-image)
 
 ### Graph
 ```mermaid
@@ -109,7 +108,6 @@ graph TD;
   tnw-header-banner --> tnw-heading
   tnw-header-banner --> tnw-text
   tnw-header-banner --> tnw-button
-  tnw-header-banner --> tnw-image
   tnw-heading --> tnw-text
   tnw-text --> tnw-text
   style tnw-header-banner fill:#f9f,stroke:#333,stroke-width:4px

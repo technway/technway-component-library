@@ -8,7 +8,7 @@
  * 
 validateProps([this.alt, this.aspectRatio, this.borderRadius, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
  *
- * GENERATED USING `npm run g:components-validations tnw-image`
+ * GENERATED USING `pnpm g:components-validations tnw-image`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

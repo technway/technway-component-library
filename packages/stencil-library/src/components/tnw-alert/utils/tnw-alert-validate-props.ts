@@ -8,7 +8,7 @@
  * 
 validateProps([this.alertId, this.appearance, this.appearanceColor, this.borderRadius, this.isHidden, this.message, this.size]);
  *
- * GENERATED USING `npm run g:components-validations tnw-alert`
+ * GENERATED USING `pnpm g:components-validations tnw-alert`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

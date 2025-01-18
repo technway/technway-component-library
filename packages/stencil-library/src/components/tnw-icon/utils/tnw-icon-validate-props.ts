@@ -8,7 +8,7 @@
  * 
 validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.enableSvg, this.hiddenAria, this.isButton, this.labelAria, this.name, this.size, this.tooltip]);
  *
- * GENERATED USING `npm run g:components-validations tnw-icon`
+ * GENERATED USING `pnpm g:components-validations tnw-icon`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

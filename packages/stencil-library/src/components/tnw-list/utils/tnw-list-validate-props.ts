@@ -8,7 +8,7 @@
  * 
 validateProps([this.color, this.lineHeight, this.listData, this.markerPosition, this.size, this.textCase, this.weight]);
  *
- * GENERATED USING `npm run g:components-validations tnw-list`
+ * GENERATED USING `pnpm g:components-validations tnw-list`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

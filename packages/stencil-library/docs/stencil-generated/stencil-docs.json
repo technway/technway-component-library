@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-13T18:29:39",
+  "timestamp": "2025-01-18T20:04:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -3222,7 +3222,6 @@
       ],
       "dependents": [],
       "dependencies": [
-        "tnw-image",
         "tnw-icon",
         "tnw-text",
         "tnw-badge",
@@ -3231,7 +3230,6 @@
       ],
       "dependencyGraph": {
         "tnw-card": [
-          "tnw-image",
           "tnw-icon",
           "tnw-text",
           "tnw-badge",
@@ -5708,6 +5706,10 @@
         },
         {
           "name": "part",
+          "text": "container - The container for the banner content. Only rendered when `disableInternalContainer` is `false`."
+        },
+        {
+          "name": "part",
           "text": "heading - The `tnw-heading` element displaying the main heading of the banner."
         },
         {
@@ -5886,6 +5888,30 @@
             }
           ],
           "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disableInternalContainer",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-internal-container",
+          "reflectToAttr": false,
+          "docs": "If `false`, a container class will be added around the content to align it within the page layout. Default is `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false
@@ -6147,6 +6173,30 @@
           "setter": false
         },
         {
+          "name": "verticalCenter",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "vertical-center",
+          "reflectToAttr": false,
+          "docs": "If `true`, the content will be vertically centered within the banner.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "width",
           "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
           "complexType": {
@@ -6246,6 +6296,10 @@
           "docs": "The `tnw-button` element or the container for the button slot."
         },
         {
+          "name": "container",
+          "docs": "The container for the banner content. Only rendered when `disableInternalContainer` is `false`."
+        },
+        {
           "name": "content",
           "docs": ""
         },
@@ -6274,15 +6328,13 @@
       "dependencies": [
         "tnw-heading",
         "tnw-text",
-        "tnw-button",
-        "tnw-image"
+        "tnw-button"
       ],
       "dependencyGraph": {
         "tnw-header-banner": [
           "tnw-heading",
           "tnw-text",
-          "tnw-button",
-          "tnw-image"
+          "tnw-button"
         ],
         "tnw-heading": [
           "tnw-text"
@@ -8321,21 +8373,13 @@
         }
       ],
       "dependents": [
-        "tnw-card",
         "tnw-footer",
-        "tnw-header-banner",
         "tnw-portfolio-grid",
         "tnw-testimonial-card"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "tnw-card": [
-          "tnw-image"
-        ],
         "tnw-footer": [
-          "tnw-image"
-        ],
-        "tnw-header-banner": [
           "tnw-image"
         ],
         "tnw-portfolio-grid": [

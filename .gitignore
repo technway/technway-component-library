@@ -44,3 +44,5 @@ storybook.log
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+packages/stencil-library/components/

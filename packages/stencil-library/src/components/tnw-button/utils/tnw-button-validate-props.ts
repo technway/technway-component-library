@@ -8,7 +8,7 @@
  * 
 validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.hoverEffect, this.href, this.label, this.newTab, this.size, this.type]);
  *
- * GENERATED USING `npm run g:components-validations tnw-button`
+ * GENERATED USING `pnpm g:components-validations tnw-button`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

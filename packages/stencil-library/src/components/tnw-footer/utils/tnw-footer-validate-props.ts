@@ -8,7 +8,7 @@
  * 
 validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor]);
  *
- * GENERATED USING `npm run g:components-validations tnw-footer`
+ * GENERATED USING `pnpm g:components-validations tnw-footer`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

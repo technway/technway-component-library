@@ -1,6 +1,6 @@
 {
   "name": "@technway/layout-kit",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "A lightweight and modular CSS utility framework focused on creating responsive grid systems and flexible layouts for modern web design.",
   "author": "Technway <contact@technway.biz>",
   "main": "./dist/index.js",
@@ -9,7 +9,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/technway/technway-component-library.git"
+    "url": "git+https://github.com/technway/technway-component-library.git"
   },
   "bugs": {
     "url": "https://github.com/technway/technway-component-library/issues"
@@ -41,6 +41,7 @@
     "build:ts": "tsc -p tsconfig.json",
     "build:react": "tsc -p tsconfig.json --outDir dist",
     "build": "pnpm clean && pnpm type-check && pnpm build:ts && pnpm build:react && pnpm copy:css && pnpm copy:css",
+    "build:layout-kit": "pnpm clean && pnpm type-check && pnpm build:ts && pnpm build:react && pnpm copy:css && pnpm copy:css",
     "copy:css": "mkdir dist\\css 2>nul || echo dist\\css exists && (if exist src\\css\\grid.css (copy /Y src\\css\\grid.css dist\\css\\grid.css) else (copy /Y src\\grid.css dist\\css\\grid.css))",
     "copy:assets": "mkdir dist\\src && xcopy /E /I src dist\\src",
     "prepublishOnly": "pnpm build"

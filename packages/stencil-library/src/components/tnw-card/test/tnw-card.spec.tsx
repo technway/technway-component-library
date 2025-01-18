@@ -104,8 +104,8 @@ describe('tnw-card', () => {
         ></tnw-card>`
       ) as HTMLTnwCardElement;
       expect(host).toHaveClass('tnw-card--larger-image');
-      const image = queryElement(host, 'tnw-image');
-      expect(image.getAttribute('height')).toBe('200px');
+      const image = queryElement(host, 'img[part="image"]') as HTMLImageElement;
+      expect(image.style.height).toBe('200px');
       expect(image.getAttribute('src')).toBe('image.jpg');
       expect(image.getAttribute('alt')).toBe('Sample Image');
     });
@@ -250,12 +250,12 @@ describe('tnw-card', () => {
 
   describe('Accessibility Behavior', () => {
     it('has proper alt attribute for the image when imageAlt is set', async () => {
-      const host = await createSpecPage(
+      const image = await createSpecPage(
         TnwCard,
         `<tnw-card image-src="image.jpg" image-alt="Sample Image"></tnw-card>`,
-        'tnw-image'
+        'img[part="image"]'
       );
-      expect(host.getAttribute('alt')).toBe('Sample Image');
+      expect(image.getAttribute('alt')).toBe('Sample Image');
     });
   });
 });

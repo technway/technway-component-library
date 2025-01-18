@@ -8,7 +8,7 @@
  * 
 validateProps([this.color, this.htmlFor, this.isSrOnly, this.size, this.text, this.textCase, this.weight]);
  *
- * GENERATED USING `npm run g:components-validations tnw-label`
+ * GENERATED USING `pnpm g:components-validations tnw-label`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

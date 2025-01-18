@@ -126,7 +126,6 @@ with slots for each, allowing full customization.
 
 ### Depends on
 
-- [tnw-image](../tnw-image)
 - [tnw-icon](../tnw-icon)
 - [tnw-text](../tnw-text)
 - [tnw-badge](../tnw-badge)
@@ -136,7 +135,6 @@ with slots for each, allowing full customization.
 ### Graph
 ```mermaid
 graph TD;
-  tnw-card --> tnw-image
   tnw-card --> tnw-icon
   tnw-card --> tnw-text
   tnw-card --> tnw-badge

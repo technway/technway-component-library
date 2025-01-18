@@ -51,6 +51,7 @@ It is designed to align with the theme of the parent header component, making it
 | Part | Description |
 | --- | --- |
 | **button** | The `tnw-button` element or the container for the button slot. |
+| **container** | The container for the banner content. Only rendered when `disableInternalContainer` is `false`. |
 | **content** | No description provided. |
 | **description** | The `tnw-text` element displaying the description of the banner. |
 | **heading** | The `tnw-heading` element displaying the main heading of the banner. |

@@ -1,4 +1,4 @@
-import { createSpecPage } from '../../../utils/testing-utils';
+import { createSpecPage, queryElement } from '../../../utils/testing-utils';
 import { TnwHeaderBanner } from '../tnw-header-banner';
 
 describe('tnw-header-banner', () => {
@@ -12,14 +12,17 @@ describe('tnw-header-banner', () => {
       expect(host).toMatchSnapshot();
     });
 
-    it('applies default classes', async () => {
+    it('applies default classes and renders container', async () => {
       const host = await createSpecPage(
         TnwHeaderBanner,
         `<tnw-header-banner></tnw-header-banner>`
-      );
+      ) as HTMLTnwHeaderBannerElement;
       expect(host).toHaveClasses([
         'tnw-header-banner',
       ]);
+
+      const container = queryElement(host, '.container');
+      expect(container).not.toBeNull();
     });
   });
 
@@ -126,6 +129,33 @@ describe('tnw-header-banner', () => {
         'tnw-image[part="image"]'
       );
       expect(image.getAttribute('borderradius')).toBe('lg');
+    });
+
+    it('applies the correct container class when disableInternalContainer is true', async () => {
+      const host = await createSpecPage(
+        TnwHeaderBanner,
+        `<tnw-header-banner disable-internal-container></tnw-header-banner>`
+      );
+      expect(host).toHaveClass('tnw-header-banner--container');
+    });
+
+
+    it('does not render container when disableInternalContainer is true', async () => {
+      const container = await createSpecPage(
+        TnwHeaderBanner,
+        `<tnw-header-banner disable-internal-container></tnw-header-banner>`,
+        '.container'
+      );
+      expect(container).toBeNull();
+    });
+
+
+    it('applies the correct vertical center class when verticalCenter is true', async () => {
+      const host = await createSpecPage(
+        TnwHeaderBanner,
+        `<tnw-header-banner vertical-center></tnw-header-banner>`
+      );
+      expect(host).toHaveClass('tnw-header-banner--verticalCenter');
     });
   });
 

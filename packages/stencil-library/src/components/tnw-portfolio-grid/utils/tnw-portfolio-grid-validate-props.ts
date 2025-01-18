@@ -8,7 +8,7 @@
  * 
 validateProps([this.columns, this.itemsData, this.showGradientFade, this.spacing]);
  *
- * GENERATED USING `npm run g:components-validations tnw-portfolio-grid`
+ * GENERATED USING `pnpm g:components-validations tnw-portfolio-grid`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

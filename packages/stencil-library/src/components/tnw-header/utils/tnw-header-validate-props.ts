@@ -8,7 +8,7 @@
  * 
 validateProps([this.alignment, this.backgroundColor, this.borderBottomColor, this.centerBanner, this.disableInternalContainer, this.height, this.minHeight]);
  *
- * GENERATED USING `npm run g:components-validations tnw-header`
+ * GENERATED USING `pnpm g:components-validations tnw-header`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

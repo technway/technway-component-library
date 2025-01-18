@@ -8,7 +8,7 @@
  * 
 validateProps([this.singleExpand]);
  *
- * GENERATED USING `npm run g:components-validations tnw-accordion-group`
+ * GENERATED USING `pnpm g:components-validations tnw-accordion-group`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

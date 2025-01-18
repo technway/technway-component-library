@@ -8,7 +8,7 @@
  * 
 validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.imageSrc, this.label, this.size, this.variant]);
  *
- * GENERATED USING `npm run g:components-validations tnw-badge`
+ * GENERATED USING `pnpm g:components-validations tnw-badge`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

@@ -8,7 +8,7 @@
  * 
 validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.endYear, this.linksData, this.linksLength, this.organizationName, this.organizationNameColor, this.postText, this.preText, this.startYear, this.textColor, this.useCurrentYearAsEndYear, this.useCurrentYearAsStartYear, this.useCustomLinks, this.useDivAsContainer]);
  *
- * GENERATED USING `npm run g:components-validations tnw-copyrights-footer`
+ * GENERATED USING `pnpm g:components-validations tnw-copyrights-footer`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

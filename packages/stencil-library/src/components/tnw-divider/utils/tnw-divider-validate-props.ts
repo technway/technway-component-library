@@ -8,7 +8,7 @@
  * 
 validateProps([this.color, this.variant]);
  *
- * GENERATED USING `npm run g:components-validations tnw-divider`
+ * GENERATED USING `pnpm g:components-validations tnw-divider`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

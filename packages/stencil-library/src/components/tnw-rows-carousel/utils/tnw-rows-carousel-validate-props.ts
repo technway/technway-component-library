@@ -8,7 +8,7 @@
  * 
 validateProps([this.animationSpeed, this.rows]);
  *
- * GENERATED USING `npm run g:components-validations tnw-rows-carousel`
+ * GENERATED USING `pnpm g:components-validations tnw-rows-carousel`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

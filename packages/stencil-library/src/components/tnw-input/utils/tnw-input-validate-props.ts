@@ -8,7 +8,7 @@
  * 
 validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
  *
- * GENERATED USING `npm run g:components-validations tnw-input`
+ * GENERATED USING `pnpm g:components-validations tnw-input`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";

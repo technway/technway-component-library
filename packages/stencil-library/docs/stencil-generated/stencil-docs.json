@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-18T13:30:11",
+  "timestamp": "2025-01-18T13:56:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -5708,6 +5708,10 @@
         },
         {
           "name": "part",
+          "text": "container - The container for the banner content. Only rendered when `disableInternalContainer` is `false`."
+        },
+        {
+          "name": "part",
           "text": "heading - The `tnw-heading` element displaying the main heading of the banner."
         },
         {
@@ -6292,6 +6296,10 @@
         {
           "name": "button",
           "docs": "The `tnw-button` element or the container for the button slot."
+        },
+        {
+          "name": "container",
+          "docs": "The container for the banner content. Only rendered when `disableInternalContainer` is `false`."
         },
         {
           "name": "content",

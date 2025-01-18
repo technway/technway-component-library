@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.5.4](https://github.com/technway/technway-component-library/compare/root-v3.5.3...root-v3.5.4) (2025-01-18)
+
+
+### Bug Fixes
+
+* header and its banner styling isuues ([5812062](https://github.com/technway/technway-component-library/commit/581206217d58a669a475ac66dc25f8ea7a5dae46))
+
 ## [3.5.3](https://github.com/technway/technway-component-library/compare/root-v3.5.2...root-v3.5.3) (2025-01-13)
 
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-14T14:02:32",
+  "timestamp": "2025-01-18T13:30:11",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -5891,6 +5891,30 @@
           "setter": false
         },
         {
+          "name": "disableInternalContainer",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-internal-container",
+          "reflectToAttr": false,
+          "docs": "If `false`, a container class will be added around the content to align it within the page layout. Default is `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "enableImageSlot",
           "type": "boolean",
           "complexType": {
@@ -6142,6 +6166,30 @@
             }
           ],
           "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "verticalCenter",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "vertical-center",
+          "reflectToAttr": false,
+          "docs": "If `true`, the content will be vertically centered within the banner.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false

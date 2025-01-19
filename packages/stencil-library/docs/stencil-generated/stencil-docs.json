@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-19T10:58:17",
+  "timestamp": "2025-01-19T14:09:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -1300,6 +1300,322 @@
         ],
         "tnw-portfolio-grid": [
           "tnw-anchor"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/tnw-anchor-styler/tnw-anchor-styler.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-anchor-styler",
+      "readme": "# tnw-anchor-styler\n\n\n",
+      "docs": "The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.\nIt focuses purely on styling and requires slotted children for its content.\n\nThis component is particularly suitable for use with React Router's `Link` or `NavLink` components \nand Next.js's `Link` components, where navigation functionality is handled externally, \nand styling can be applied through this wrapper.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Default slot for custom content (e.g., an anchor, text, or any HTML structure)."
+        },
+        {
+          "name": "part",
+          "text": "wrapper - The `<div>` element that wraps and styles the slotted content."
+        }
+      ],
+      "usage": {
+        "tnw-anchor-styler-usage": ""
+      },
+      "props": [
+        {
+          "name": "color",
+          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "TextColorType",
+            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "TextColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::TextColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "Sets the color of the text based on the available colors.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "gray100",
+              "type": "string"
+            },
+            {
+              "value": "gray200",
+              "type": "string"
+            },
+            {
+              "value": "gray300",
+              "type": "string"
+            },
+            {
+              "value": "gray400",
+              "type": "string"
+            },
+            {
+              "value": "gray500",
+              "type": "string"
+            },
+            {
+              "value": "gray600",
+              "type": "string"
+            },
+            {
+              "value": "gray700",
+              "type": "string"
+            },
+            {
+              "value": "gray800",
+              "type": "string"
+            },
+            {
+              "value": "gray900",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "placeholder",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "enableNewTabIcon",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-new-tab-icon",
+          "reflectToAttr": false,
+          "docs": "Enables the new tab icon.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "FontSizeType",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
+            "references": {
+              "FontSizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::FontSizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Sets the font size of the anchor text.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "5xl",
+              "type": "string"
+            },
+            {
+              "value": "6xl",
+              "type": "string"
+            },
+            {
+              "value": "7xl",
+              "type": "string"
+            },
+            {
+              "value": "8xl",
+              "type": "string"
+            },
+            {
+              "value": "9xl",
+              "type": "string"
+            },
+            {
+              "value": "heading",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": false,
+          "docs": "Specifies the text content of the link. If not provided, the content should be provided via the default slot.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "textDecoration",
+          "type": "\"line-through\" | \"none\" | \"overline\" | \"underline\"",
+          "complexType": {
+            "original": "'none' | 'underline' | 'overline' | 'line-through'",
+            "resolved": "\"line-through\" | \"none\" | \"overline\" | \"underline\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "text-decoration",
+          "reflectToAttr": false,
+          "docs": "Specifies the text decoration line of the anchor text.",
+          "docsTags": [],
+          "default": "'underline'",
+          "values": [
+            {
+              "value": "line-through",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "overline",
+              "type": "string"
+            },
+            {
+              "value": "underline",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Default slot for custom content (e.g., an anchor, text, or any HTML structure)."
+        }
+      ],
+      "parts": [
+        {
+          "name": "icon",
+          "docs": ""
+        },
+        {
+          "name": "wrapper",
+          "docs": "The `<div>` element that wraps and styles the slotted content."
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "tnw-icon"
+      ],
+      "dependencyGraph": {
+        "tnw-anchor-styler": [
+          "tnw-icon"
         ]
       }
     },
@@ -7762,6 +8078,7 @@
       "dependents": [
         "tnw-accordion",
         "tnw-anchor",
+        "tnw-anchor-styler",
         "tnw-card",
         "tnw-footer",
         "tnw-items-carousel",
@@ -7777,6 +8094,9 @@
           "tnw-icon"
         ],
         "tnw-anchor": [
+          "tnw-icon"
+        ],
+        "tnw-anchor-styler": [
           "tnw-icon"
         ],
         "tnw-card": [
@@ -10786,7 +11106,7 @@
           "detail": "{ isMenuHidden: boolean; windowWidth: number; }",
           "bubbles": true,
           "complexType": {
-            "original": "{ isMenuHidden: boolean,  windowWidth: number }",
+            "original": "{ isMenuHidden: boolean, windowWidth: number }",
             "resolved": "{ isMenuHidden: boolean; windowWidth: number; }",
             "references": {}
           },

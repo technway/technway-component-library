@@ -176,9 +176,7 @@ export class TnwFooter {
       return;
     }
 
-    if (isValidStringifiedJSON(footerData)) {
-      console.log('parsedData is valid JSON');
-    } else {
+    if (!isValidStringifiedJSON(footerData)) {
       throw new Error(`Failed to parse footerData: ${footerData}`);
     }
   }

@@ -467,7 +467,9 @@ export interface PropDependencyCheck {
  */
 export function enforceRequiredPropsWhenConditionMissing(checks: PropDependencyCheck[]): void {
   const failedValidations: string[] = [];
-
+  console.groupCollapsed('enforceRequiredPropsWhenConditionMissing');
+  console.log('checks ', checks);
+  console.groupEnd();
   checks.forEach(({ requiredPropName, requiredProp, conditionalPropName, conditionalProp, customErrorMessage }) => {
     const requiredPropIsMissing = requiredProp === undefined || requiredProp === null || requiredProp === false || requiredProp === '';
     const conditionalPropIsMissing = conditionalProp === undefined || conditionalProp === null || conditionalProp === false || conditionalProp === '';

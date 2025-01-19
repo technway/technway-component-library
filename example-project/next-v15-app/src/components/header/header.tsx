@@ -1,8 +1,7 @@
 'use client';
 
 import { TnwHeader, TnwHeaderBanner, TnwHeading, TnwText } from "@technway/next-library/src/components"
-import Navbar from "../navbar/navbar"
-// import { TnwImage } from "@technway/stencil-library/components/tnw-image.js"
+import NavbarWithData from "../navbar/navbar-with-data";
 
 const Header = () => {
     return (
@@ -11,7 +10,7 @@ const Header = () => {
             height="xl"
             minHeight="md"
         >
-            <Navbar
+            <NavbarWithData
                 slot="navbar"
                 menuPlacement='middle'
             />
@@ -36,9 +35,6 @@ const Header = () => {
                     lineHeight="2"
                     slot="description"
                 />
-                {/* <TnwImage
-                    slo
-                /> */}
             </TnwHeaderBanner>
         </TnwHeader>
     )

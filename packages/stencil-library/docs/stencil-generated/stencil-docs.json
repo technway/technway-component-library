@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-19T10:58:17",
+  "timestamp": "2025-01-20T12:06:56",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -1300,6 +1300,322 @@
         ],
         "tnw-portfolio-grid": [
           "tnw-anchor"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/tnw-anchor-styler/tnw-anchor-styler.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-anchor-styler",
+      "readme": "# tnw-anchor-styler\r\n\r\n\r\n\r",
+      "docs": "The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.\r\nIt focuses purely on styling and requires slotted children for its content.\r\n\r\nThis component is particularly suitable for use with React Router's `Link` or `NavLink` components \r\nand Next.js's `Link` components, where navigation functionality is handled externally, \r\nand styling can be applied through this wrapper.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Default slot for custom content (e.g., an anchor, text, or any HTML structure)."
+        },
+        {
+          "name": "part",
+          "text": "wrapper - The `<div>` element that wraps and styles the slotted content."
+        }
+      ],
+      "usage": {
+        "tnw-anchor-styler-usage": ""
+      },
+      "props": [
+        {
+          "name": "color",
+          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "TextColorType",
+            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "TextColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::TextColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "Sets the color of the text based on the available colors.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "gray100",
+              "type": "string"
+            },
+            {
+              "value": "gray200",
+              "type": "string"
+            },
+            {
+              "value": "gray300",
+              "type": "string"
+            },
+            {
+              "value": "gray400",
+              "type": "string"
+            },
+            {
+              "value": "gray500",
+              "type": "string"
+            },
+            {
+              "value": "gray600",
+              "type": "string"
+            },
+            {
+              "value": "gray700",
+              "type": "string"
+            },
+            {
+              "value": "gray800",
+              "type": "string"
+            },
+            {
+              "value": "gray900",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "placeholder",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "enableNewTabIcon",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-new-tab-icon",
+          "reflectToAttr": false,
+          "docs": "Enables the new tab icon.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "FontSizeType",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"9xl\" | \"heading\" | \"lg\" | \"md\" | \"sm\" | \"text\" | \"xl\" | \"xs\"",
+            "references": {
+              "FontSizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::FontSizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Sets the font size of the anchor text.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "5xl",
+              "type": "string"
+            },
+            {
+              "value": "6xl",
+              "type": "string"
+            },
+            {
+              "value": "7xl",
+              "type": "string"
+            },
+            {
+              "value": "8xl",
+              "type": "string"
+            },
+            {
+              "value": "9xl",
+              "type": "string"
+            },
+            {
+              "value": "heading",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": false,
+          "docs": "Specifies the text content of the link. If not provided, the content should be provided via the default slot.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "textDecoration",
+          "type": "\"line-through\" | \"none\" | \"overline\" | \"underline\"",
+          "complexType": {
+            "original": "'none' | 'underline' | 'overline' | 'line-through'",
+            "resolved": "\"line-through\" | \"none\" | \"overline\" | \"underline\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "text-decoration",
+          "reflectToAttr": false,
+          "docs": "Specifies the text decoration line of the anchor text.",
+          "docsTags": [],
+          "default": "'underline'",
+          "values": [
+            {
+              "value": "line-through",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "overline",
+              "type": "string"
+            },
+            {
+              "value": "underline",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Default slot for custom content (e.g., an anchor, text, or any HTML structure)."
+        }
+      ],
+      "parts": [
+        {
+          "name": "icon",
+          "docs": ""
+        },
+        {
+          "name": "wrapper",
+          "docs": "The `<div>` element that wraps and styles the slotted content."
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "tnw-icon"
+      ],
+      "dependencyGraph": {
+        "tnw-anchor-styler": [
+          "tnw-icon"
         ]
       }
     },
@@ -7762,6 +8078,7 @@
       "dependents": [
         "tnw-accordion",
         "tnw-anchor",
+        "tnw-anchor-styler",
         "tnw-card",
         "tnw-footer",
         "tnw-items-carousel",
@@ -7769,6 +8086,7 @@
         "tnw-navbar",
         "tnw-rating",
         "tnw-scroll-to-top",
+        "tnw-search-input",
         "tnw-select"
       ],
       "dependencies": [],
@@ -7777,6 +8095,9 @@
           "tnw-icon"
         ],
         "tnw-anchor": [
+          "tnw-icon"
+        ],
+        "tnw-anchor-styler": [
           "tnw-icon"
         ],
         "tnw-card": [
@@ -7798,6 +8119,9 @@
           "tnw-icon"
         ],
         "tnw-scroll-to-top": [
+          "tnw-icon"
+        ],
+        "tnw-search-input": [
           "tnw-icon"
         ],
         "tnw-select": [
@@ -10786,7 +11110,7 @@
           "detail": "{ isMenuHidden: boolean; windowWidth: number; }",
           "bubbles": true,
           "complexType": {
-            "original": "{ isMenuHidden: boolean,  windowWidth: number }",
+            "original": "{ isMenuHidden: boolean, windowWidth: number }",
             "resolved": "{ isMenuHidden: boolean; windowWidth: number; }",
             "references": {}
           },
@@ -11896,6 +12220,458 @@
       ],
       "dependencyGraph": {
         "tnw-scroll-to-top": [
+          "tnw-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/tnw-search-input/tnw-search-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-search-input",
+      "readme": "# tnw-search-input\n\n\n",
+      "docs": "The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.\nIt is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.",
+      "docsTags": [
+        {
+          "name": "part",
+          "text": "input - The `<input>` element itself."
+        },
+        {
+          "name": "part",
+          "text": "icon - The `<tnw-icon>` element for the search icon."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "appearance",
+          "type": "\"none\" | \"outlined\" | \"underlined\"",
+          "complexType": {
+            "original": "'outlined' | 'underlined' | 'none'",
+            "resolved": "\"none\" | \"outlined\" | \"underlined\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "Defines the appearance of the input.",
+          "docsTags": [],
+          "default": "'outlined'",
+          "values": [
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            },
+            {
+              "value": "underlined",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "The appearance color of the input, determining the overall color scheme.",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "autoComplete",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "auto-complete",
+          "reflectToAttr": false,
+          "docs": "The autocomplete setting for the input.",
+          "docsTags": [],
+          "default": "'off'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "borderRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-radius",
+          "reflectToAttr": false,
+          "docs": "The border radius of the input.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "inputId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "input-id",
+          "reflectToAttr": false,
+          "docs": "The unique ID for the input element. If not provided, a random ID will be generated.",
+          "docsTags": [],
+          "default": "generateRandomId(this.baseClass)",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label for the input.\nIt will not be displayed (Screen Reader Only).",
+          "docsTags": [],
+          "default": "'Search'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": true,
+          "docs": "The name of the input field.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "The placeholder text for the input.",
+          "docsTags": [],
+          "default": "'Search'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "\"search\" | \"text\"",
+          "complexType": {
+            "original": "'search' | 'text'",
+            "resolved": "\"search\" | \"text\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of the input.",
+          "docsTags": [],
+          "default": "'search'",
+          "values": [
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": true,
+          "docs": "The initial value of the input.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "variant",
+          "type": "\"expandable\" | \"icon-left\" | \"icon-right\" | \"no-icon\"",
+          "complexType": {
+            "original": "'icon-left' | 'icon-right' | 'expandable' | 'no-icon'",
+            "resolved": "\"expandable\" | \"icon-left\" | \"icon-right\" | \"no-icon\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The variant of the search input.",
+          "docsTags": [],
+          "default": "'icon-left'",
+          "values": [
+            {
+              "value": "expandable",
+              "type": "string"
+            },
+            {
+              "value": "icon-left",
+              "type": "string"
+            },
+            {
+              "value": "icon-right",
+              "type": "string"
+            },
+            {
+              "value": "no-icon",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": false,
+          "docs": "The width of the input. Accepts any valid CSS width value.",
+          "docsTags": [],
+          "default": "'100%'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "inputChangedOnType",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input value changes. The event's payload contains the new value.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "icon",
+          "docs": "The `<tnw-icon>` element for the search icon."
+        },
+        {
+          "name": "input",
+          "docs": "The `<input>` element itself."
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "tnw-icon"
+      ],
+      "dependencyGraph": {
+        "tnw-search-input": [
           "tnw-icon"
         ]
       }

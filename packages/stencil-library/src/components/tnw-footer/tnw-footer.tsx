@@ -1,5 +1,13 @@
-import { Component, Element, Fragment, Host, Prop, State, h } from '@stencil/core';
-import { getColorClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, parseJSONAsync } from '../../utils/utils';
+import { Component, Element, Fragment, Host, Prop, State, Watch, h } from '@stencil/core';
+import {
+  getColorClass,
+  GLOBAL_PREFIX,
+  isAdoptedStyleSheetsSupported,
+  isCSSStyleSheetSupported,
+  isNotEmptyString,
+  isValidStringifiedJSON,
+  parseJSONAsync
+} from '../../utils/utils';
 import { ColorType, TextColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';
@@ -91,6 +99,30 @@ export class TnwFooter {
    */
   @Prop() footerData: string;
 
+  /**
+  * Watch for changes to the `footerData` prop and re-parse the JSON.
+  */
+  @Watch('footerData')
+  async handleFooterDataChange(newValue: string | undefined): Promise<void> {
+    let oldParsedData = this.parsedFooterData;
+
+    if (isNotEmptyString(newValue)) {
+      try {
+        const parsedData = await parseJSONAsync(newValue);
+        if (parsedData === oldParsedData) {
+          return;
+        }
+
+        this.parsedFooterData = parsedData;
+      } catch (error) {
+        console.error(`Failed to parse footerData: ${newValue}`, error);
+        this.parsedFooterData = oldParsedData;
+      }
+    } else {
+      this.parsedFooterData = oldParsedData;
+    }
+  }
+
   constructor() {
     if (isCSSStyleSheetSupported()) {
       this.componentStyles = new CSSStyleSheet();
@@ -109,13 +141,12 @@ export class TnwFooter {
   }
 
   async componentWillLoad() {
-    if (this.footerData !== undefined) {
-      this.parsedFooterData = await parseJSONAsync(this.footerData);
+    if (isValidStringifiedJSON(this.footerData)) {
+      await this.handleFooterDataChange(this.footerData);
     }
 
     validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor]);
   }
-
 
   private getHostClasses(): string {
     const { baseClass, backgroundColor, centerContent, borderTopColor, margin } = this;

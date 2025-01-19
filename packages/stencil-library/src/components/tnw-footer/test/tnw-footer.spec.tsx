@@ -226,7 +226,7 @@ describe('tnw-footer', () => {
       await checkSpecPageError(
         TnwFooter,
         `<tnw-footer footer-data="invalid JSON"></tnw-footer>`,
-        'Error parsing JSON:'
+        'Failed to parse footerData:'
       );
     });
   });

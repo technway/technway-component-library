@@ -7,8 +7,9 @@ export interface Menu {
     /**
      * An array of menu items to be displayed in the navigation bar.
      * Each menu item can include a label, link, and optional submenu items.
+     * Don't provide this prop if you want to use the `enable-link-slot` prop.
      */
-    menuItems: Array<MenuItem>;
+    menuItems?: Array<MenuItem>;
 
     /**
      * Determines the font size of the menu items.

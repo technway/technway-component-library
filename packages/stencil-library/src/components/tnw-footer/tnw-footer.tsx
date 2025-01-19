@@ -100,8 +100,19 @@ export class TnwFooter {
   @Prop() footerData: string;
 
   /**
-  * Watch for changes to the `footerData` prop and re-parse the JSON.
-  */
+   * Watches for changes to the `footerData` prop and re-parses the JSON data.
+   * 
+   * This watcher is triggered whenever the `footerData` prop changes. It handles:
+   * - Parsing new JSON data asynchronously
+   * - Comparing with previous parsed data to avoid unnecessary updates
+   * - Maintaining the previous state if parsing fails
+   * - Throwing errors for invalid JSON
+   * 
+   * @param {string | undefined} newValue - The new value of the footerData prop
+   * @returns {Promise<void>} A promise that resolves when parsing is complete
+   * 
+   * @throws {Error} If the JSON parsing fails, with message "Failed to parse footerData: [value]"
+   */
   @Watch('footerData')
   async handleFooterDataChange(newValue: string | undefined): Promise<void> {
     let oldParsedData = this.parsedFooterData;
@@ -115,8 +126,8 @@ export class TnwFooter {
 
         this.parsedFooterData = parsedData;
       } catch (error) {
-        console.error(`Failed to parse footerData: ${newValue}`, error);
         this.parsedFooterData = oldParsedData;
+        throw new Error(`Failed to parse footerData: ${newValue}`);
       }
     } else {
       this.parsedFooterData = oldParsedData;
@@ -141,11 +152,35 @@ export class TnwFooter {
   }
 
   async componentWillLoad() {
-    if (isValidStringifiedJSON(this.footerData)) {
+    // Manually parse footer data on initial load, only if footerData is provided and is valid stringified JSON
+    if (isNotEmptyString(this.footerData) && isValidStringifiedJSON(this.footerData)) {
       await this.handleFooterDataChange(this.footerData);
     }
 
     validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor]);
+  }
+
+  /**
+   * Validates the footerData prop after the component has fully loaded, but only if footerData is provided.
+   * 
+   * This validation is performed in componentDidLoad rather than componentWillLoad
+   * because the footerData prop may not be available during the earlier lifecycle method.
+   * ComponentDidLoad ensures all props and state are fully initialized before validation.
+   * 
+   * @throws {Error} If footerData is provided but is not valid JSON
+   */
+  componentDidLoad() {
+    const { footerData } = this;
+    // Skip validation if footerData is empty, undefined, or null
+    if (!isNotEmptyString(footerData)) {
+      return;
+    }
+
+    if (isValidStringifiedJSON(footerData)) {
+      console.log('parsedData is valid JSON');
+    } else {
+      throw new Error(`Failed to parse footerData: ${footerData}`);
+    }
   }
 
   private getHostClasses(): string {

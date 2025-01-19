@@ -6,19 +6,19 @@ This page provides an overview of statistics related to the components.
 
 | Statistic | Value |
 | --- | --- |
-| **Total Components** | `31` |
-| **Total Props** | `323` |
+| **Total Components** | `32` |
+| **Total Props** | `328` |
 | **Total Events** | `14` |
 | **Total Methods** | `6` |
-| **Total Slots** | `51` |
-| **Total Features** | `394` |
+| **Total Slots** | `52` |
+| **Total Features** | `400` |
 |   |  |
-| **Shadow DOM Components** | `31` |
+| **Shadow DOM Components** | `32` |
 | **Light DOM Components** | `0` |
-| **Components with Props** | `31` |
+| **Components with Props** | `32` |
 | **Components with Events** | `7` |
 | **Components with Methods** | `2` |
-| **Components with Slots** | `19` |
+| **Components with Slots** | `20` |
 
 ## Detailed Component Statistics
 
@@ -50,6 +50,14 @@ This page provides an overview of statistics related to the components.
 | Feature | Count |
 | --- | --- |
 | **Props** | `8` |
+| **Events** | `0` |
+| **Methods** | `0` |
+| **Slots** | `1` |
+
+### tnw-anchor-styler
+| Feature | Count |
+| --- | --- |
+| **Props** | `5` |
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `1` |

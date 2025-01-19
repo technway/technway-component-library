@@ -295,9 +295,7 @@ export class TnwNavbar {
       return;
     }
 
-    if (isValidStringifiedJSON(menuData)) {
-      console.log('parsedData is valid JSON');
-    } else {
+    if (!isValidStringifiedJSON(menuData)) {
       throw new Error(`Failed to parse menuData: ${menuData}`);
     }
   }

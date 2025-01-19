@@ -14,6 +14,7 @@ import { type TnwSelectCustomEvent, type TnwSelectOption } from "@technway/stenc
 import { TnwAccordionGroup as TnwAccordionGroupElement, defineCustomElement as defineTnwAccordionGroup } from "@technway/stencil-library/components/tnw-accordion-group.js";
 import { TnwAccordion as TnwAccordionElement, defineCustomElement as defineTnwAccordion } from "@technway/stencil-library/components/tnw-accordion.js";
 import { TnwAlert as TnwAlertElement, defineCustomElement as defineTnwAlert } from "@technway/stencil-library/components/tnw-alert.js";
+import { TnwAnchorStyler as TnwAnchorStylerElement, defineCustomElement as defineTnwAnchorStyler } from "@technway/stencil-library/components/tnw-anchor-styler.js";
 import { TnwAnchor as TnwAnchorElement, defineCustomElement as defineTnwAnchor } from "@technway/stencil-library/components/tnw-anchor.js";
 import { TnwBadge as TnwBadgeElement, defineCustomElement as defineTnwBadge } from "@technway/stencil-library/components/tnw-badge.js";
 import { TnwButton as TnwButtonElement, defineCustomElement as defineTnwButton } from "@technway/stencil-library/components/tnw-button.js";
@@ -136,6 +137,29 @@ export const TnwAnchor: StencilReactComponent<TnwAnchorElement, TnwAnchorEvents>
             textDecoration: 'text-decoration',
             newTab: 'new-tab',
             hideNewTabIcon: 'hide-new-tab-icon'
+        },
+        hydrateModule: import('@technway/stencil-library/hydrate')
+    });
+
+type TnwAnchorStylerEvents = NonNullable<unknown>;
+
+export const TnwAnchorStyler: StencilReactComponent<TnwAnchorStylerElement, TnwAnchorStylerEvents> = typeof window !== 'undefined'
+    ? /*@__PURE__*/ createComponent<TnwAnchorStylerElement, TnwAnchorStylerEvents>({
+        tagName: 'tnw-anchor-styler',
+        elementClass: TnwAnchorStylerElement,
+        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+        react: React,
+        events: {} as TnwAnchorStylerEvents,
+        defineCustomElement: defineTnwAnchorStyler
+    })
+    : /*@__PURE__*/ createSSRComponent<TnwAnchorStylerElement, TnwAnchorStylerEvents>({
+        tagName: 'tnw-anchor-styler',
+        properties: {
+            text: 'text',
+            color: 'color',
+            size: 'size',
+            textDecoration: 'text-decoration',
+            enableNewTabIcon: 'enable-new-tab-icon'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

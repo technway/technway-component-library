@@ -436,18 +436,14 @@ export function parseJSONAsync(jsonString: string): Promise<any> {
  * isValidStringifiedJSON(undefined) // returns false
  */
 export function isValidStringifiedJSON(str: string | undefined): boolean {
-  if (!str || typeof str !== 'string') {
+  if (typeof str !== 'string' || !isNotEmptyString(str)) {
     return false;
   }
 
-  console.log('str ', str);
-
   try {
     JSON.parse(str);
-    console.log('str is valid JSON');
     return true;
   } catch {
-    console.log('str is not valid JSON');
     return false;
   }
 }

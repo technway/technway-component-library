@@ -164,7 +164,7 @@ describe('tnw-navbar', () => {
       const component = page.rootInstance as TnwNavbar;
 
       const spyEvent = jest.fn();
-      component.tnwMenuVisibilityChange  = { emit: spyEvent };
+      component.tnwMenuVisibilityChange = { emit: spyEvent };
 
       window.innerWidth = 600; // Simulate window resize
       window.dispatchEvent(new Event('resize'));
@@ -381,7 +381,7 @@ describe('tnw-navbar', () => {
     it('does not render toggler when no menu items and enable-links-slot is not enabled', async () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
-        html: `<tnw-navbar menu-data='{"menuItems":[]} enable-link-slot="false"' hide-menu-below="1024">`,
+        html: `<tnw-navbar enable-link-slot="false"' hide-menu-below="1024">`,
       });
 
       const toggler = page.root.shadowRoot?.querySelector('[part="toggler"]');
@@ -448,6 +448,14 @@ describe('tnw-navbar', () => {
         TnwNavbar,
         `<tnw-navbar appearance-color="invalid"></tnw-navbar>`,
         'Invalid prop value for "appearanceColor"'
+      );
+    });
+
+    it('handles invalid JSON data gracefully', async () => {
+      await checkSpecPageError(
+        TnwNavbar,
+        `<tnw-navbar menu-data="invalid JSON"></tnw-navbar>`,
+        'Failed to parse menuData:'
       );
     });
   });

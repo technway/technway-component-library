@@ -1,6 +1,6 @@
 import { Component, Element, Host, Prop, h, Event, EventEmitter, Watch, State } from '@stencil/core';
 import { SizeType, BorderRadiusType, ColorType, OptionalAppearanceType } from '../../utils/component-props-types';
-import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, isValidStringifiedJSON, parseJSONAsync } from '../../utils/utils';
 import { styles } from './tnw-navbar.style';
 import { appearanceColorSheet, borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-navbar-validate-props';
@@ -192,13 +192,39 @@ export class TnwNavbar {
     this.hideMenuBelow = newValue;
   }
 
+  /**
+   * Watches for changes to the `menuData` prop and re-parses the JSON data.
+   * 
+   * This watcher is triggered whenever the `menuData` prop changes. It handles:
+   * - Parsing new JSON data asynchronously
+   * - Comparing with previous parsed data to avoid unnecessary updates
+   * - Maintaining the previous state if parsing fails
+   * - Throwing errors for invalid JSON
+   * 
+   * @param {string | undefined} newValue - The new value of the menuData prop
+   * @returns {Promise<void>} A promise that resolves when parsing is complete
+   * 
+   * @throws {Error} If the JSON parsing fails, with message "Failed to parse menuData: [value]"
+   */
   @Watch('menuData')
-  parseMenuData(newValue: string) {
-    try {
-      this.parsedMenuData = isNotEmptyString(newValue) ? JSON.parse(newValue) : [];
-    } catch (error) {
-      console.error('Navbar: Error parsing menu data', error);
-      this.parsedMenuData = null;
+  async handleMenuDataChange(newValue: string | undefined): Promise<void> {
+    let oldParsedData = this.parsedMenuData;
+
+    if (isNotEmptyString(newValue)) {
+      try {
+        const parsedData = await parseJSONAsync(newValue);
+        if (parsedData === oldParsedData) {
+          return;
+        }
+
+        this.parsedMenuData = parsedData;
+      } catch (error) {
+        console.error('Navbar: Error parsing menu data', error);
+        this.parsedMenuData = oldParsedData;
+        throw new Error(`Failed to parse menuData: ${newValue}`);
+      }
+    } else {
+      this.parsedMenuData = oldParsedData;
     }
   }
 
@@ -212,7 +238,7 @@ export class TnwNavbar {
   /**
    * Emitted when the window is resized depending on the current breakpoint to the value of `hideMenuBelow`
    */
-  @Event() tnwMenuVisibilityChange: EventEmitter<{ isMenuHidden: boolean,  windowWidth: number }>;
+  @Event() tnwMenuVisibilityChange: EventEmitter<{ isMenuHidden: boolean, windowWidth: number }>;
 
   /**
    * Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number }
@@ -244,11 +270,33 @@ export class TnwNavbar {
     }
   }
 
-  componentWillLoad() {
+  async componentWillLoad() {
+    // Manually parse menu data on initial load, only if menuData is provided and is valid stringified JSON
+    if (isNotEmptyString(this.menuData) && isValidStringifiedJSON(this.menuData)) {
+      await this.handleMenuDataChange(this.menuData);
+    }
+
     validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
-    // Manually parse menu data on initial load
-    if (isNotEmptyString(this.menuData)) {
-      this.parseMenuData(this.menuData);
+  }
+
+  /**
+   * Validates the menuData prop after the component has fully loaded, but only if menuData is provided.
+   * 
+   * This validation is performed in componentDidLoad rather than componentWillLoad
+   * because the menuData prop may not be available during the earlier lifecycle method.
+   * ComponentDidLoad ensures all props and state are fully initialized before validation.
+   * 
+   * @throws {Error} If menuData is provided but is not valid JSON
+   */
+  componentDidLoad() {
+    const { menuData } = this;
+    // Skip validation if menuData is empty, undefined, or null
+    if (!isNotEmptyString(menuData)) {
+      return;
+    }
+
+    if (!isValidStringifiedJSON(menuData)) {
+      throw new Error(`Failed to parse menuData: ${menuData}`);
     }
   }
 
@@ -269,7 +317,7 @@ export class TnwNavbar {
           : 0;
 
     const isMenuHidden = window.innerWidth <= breakpoint;
-    
+
     this.isHidden = isMenuHidden;
     this.tnwMenuVisibilityChange.emit({ isMenuHidden, windowWidth: window.innerWidth });
   };

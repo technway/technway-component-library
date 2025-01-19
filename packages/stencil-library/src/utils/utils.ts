@@ -426,6 +426,28 @@ export function parseJSONAsync(jsonString: string): Promise<any> {
   });
 }
 
+/**
+ * Checks if a string is a valid JSON string that can be parsed.
+ * @param {string | undefined} str - The string to validate as JSON.
+ * @returns {boolean} True if the string can be parsed as valid JSON, false otherwise.
+ * @example
+ * isValidStringifiedJSON('{"name": "John"}') // returns true
+ * isValidStringifiedJSON('invalid json') // returns false
+ * isValidStringifiedJSON(undefined) // returns false
+ */
+export function isValidStringifiedJSON(str: string | undefined): boolean {
+  if (typeof str !== 'string' || !isNotEmptyString(str)) {
+    return false;
+  }
+
+  try {
+    JSON.parse(str);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /* -----------------------------------------------------------
  * Prop Validation Utilities
  * -----------------------------------------------------------

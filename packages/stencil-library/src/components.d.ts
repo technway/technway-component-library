@@ -146,6 +146,35 @@ export namespace Components {
         "textDecoration": 'none' | 'underline' | 'overline' | 'line-through';
     }
     /**
+     * The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.
+     * It focuses purely on styling and requires slotted children for its content.
+     * This component is particularly suitable for use with React Router's `Link` or `NavLink` components 
+     * and Next.js's `Link` components, where navigation functionality is handled externally, 
+     * and styling can be applied through this wrapper.
+     */
+    interface TnwAnchorStyler {
+        /**
+          * Sets the color of the text based on the available colors.
+         */
+        "color"?: TextColorType;
+        /**
+          * Enables the new tab icon.
+         */
+        "enableNewTabIcon": boolean;
+        /**
+          * Sets the font size of the anchor text.
+         */
+        "size"?: FontSizeType;
+        /**
+          * Specifies the text content of the link. If not provided, the content should be provided via the default slot.
+         */
+        "text"?: string;
+        /**
+          * Specifies the text decoration line of the anchor text.
+         */
+        "textDecoration": 'none' | 'underline' | 'overline' | 'line-through';
+    }
+    /**
      * The `tnw-badge` component is used to display small pieces of information, such as labels, statuses, or counts, in a compact and visually distinct way.
      * This component supports various customization options including different variants, appearances, and sizes, making it versatile for a wide range of use cases.
      */
@@ -1611,6 +1640,19 @@ declare global {
         new (): HTMLTnwAnchorElement;
     };
     /**
+     * The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.
+     * It focuses purely on styling and requires slotted children for its content.
+     * This component is particularly suitable for use with React Router's `Link` or `NavLink` components 
+     * and Next.js's `Link` components, where navigation functionality is handled externally, 
+     * and styling can be applied through this wrapper.
+     */
+    interface HTMLTnwAnchorStylerElement extends Components.TnwAnchorStyler, HTMLStencilElement {
+    }
+    var HTMLTnwAnchorStylerElement: {
+        prototype: HTMLTnwAnchorStylerElement;
+        new (): HTMLTnwAnchorStylerElement;
+    };
+    /**
      * The `tnw-badge` component is used to display small pieces of information, such as labels, statuses, or counts, in a compact and visually distinct way.
      * This component supports various customization options including different variants, appearances, and sizes, making it versatile for a wide range of use cases.
      */
@@ -1791,7 +1833,7 @@ declare global {
     };
     interface HTMLTnwNavbarElementEventMap {
         "tnwMenuToggle": { isOpen: boolean };
-        "tnwMenuVisibilityChange": { isMenuHidden: boolean,  windowWidth: number };
+        "tnwMenuVisibilityChange": { isMenuHidden: boolean, windowWidth: number };
         "tnwScrollChange": { scrollY: number };
     }
     /**
@@ -1961,6 +2003,7 @@ declare global {
         "tnw-accordion-group": HTMLTnwAccordionGroupElement;
         "tnw-alert": HTMLTnwAlertElement;
         "tnw-anchor": HTMLTnwAnchorElement;
+        "tnw-anchor-styler": HTMLTnwAnchorStylerElement;
         "tnw-badge": HTMLTnwBadgeElement;
         "tnw-button": HTMLTnwButtonElement;
         "tnw-card": HTMLTnwCardElement;
@@ -2113,6 +2156,35 @@ declare namespace LocalJSX {
           * Specifies whether the link should open in a new browser tab.
          */
         "newTab"?: boolean;
+        /**
+          * Sets the font size of the anchor text.
+         */
+        "size"?: FontSizeType;
+        /**
+          * Specifies the text content of the link. If not provided, the content should be provided via the default slot.
+         */
+        "text"?: string;
+        /**
+          * Specifies the text decoration line of the anchor text.
+         */
+        "textDecoration"?: 'none' | 'underline' | 'overline' | 'line-through';
+    }
+    /**
+     * The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.
+     * It focuses purely on styling and requires slotted children for its content.
+     * This component is particularly suitable for use with React Router's `Link` or `NavLink` components 
+     * and Next.js's `Link` components, where navigation functionality is handled externally, 
+     * and styling can be applied through this wrapper.
+     */
+    interface TnwAnchorStyler {
+        /**
+          * Sets the color of the text based on the available colors.
+         */
+        "color"?: TextColorType;
+        /**
+          * Enables the new tab icon.
+         */
+        "enableNewTabIcon"?: boolean;
         /**
           * Sets the font size of the anchor text.
          */
@@ -3048,7 +3120,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the window is resized depending on the current breakpoint to the value of `hideMenuBelow`
          */
-        "onTnwMenuVisibilityChange"?: (event: TnwNavbarCustomEvent<{ isMenuHidden: boolean,  windowWidth: number }>) => void;
+        "onTnwMenuVisibilityChange"?: (event: TnwNavbarCustomEvent<{ isMenuHidden: boolean, windowWidth: number }>) => void;
         /**
           * Emitted when the navbar's scroll position changes (only when sticky=true). Event detail contains { scrollY: number }
          */
@@ -3539,6 +3611,7 @@ declare namespace LocalJSX {
         "tnw-accordion-group": TnwAccordionGroup;
         "tnw-alert": TnwAlert;
         "tnw-anchor": TnwAnchor;
+        "tnw-anchor-styler": TnwAnchorStyler;
         "tnw-badge": TnwBadge;
         "tnw-button": TnwButton;
         "tnw-card": TnwCard;
@@ -3595,6 +3668,14 @@ declare module "@stencil/core" {
              * This component supports both text content and custom content via a slot, making it flexible for various use cases, such as wrapping other elements like images or icons.
              */
             "tnw-anchor": LocalJSX.TnwAnchor & JSXBase.HTMLAttributes<HTMLTnwAnchorElement>;
+            /**
+             * The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.
+             * It focuses purely on styling and requires slotted children for its content.
+             * This component is particularly suitable for use with React Router's `Link` or `NavLink` components 
+             * and Next.js's `Link` components, where navigation functionality is handled externally, 
+             * and styling can be applied through this wrapper.
+             */
+            "tnw-anchor-styler": LocalJSX.TnwAnchorStyler & JSXBase.HTMLAttributes<HTMLTnwAnchorStylerElement>;
             /**
              * The `tnw-badge` component is used to display small pieces of information, such as labels, statuses, or counts, in a compact and visually distinct way.
              * This component supports various customization options including different variants, appearances, and sizes, making it versatile for a wide range of use cases.

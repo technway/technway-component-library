@@ -8,6 +8,7 @@ This page lists all the library components.
 - [tnw-accordion-group](#tnw-accordion-group)
 - [tnw-alert](#tnw-alert)
 - [tnw-anchor](#tnw-anchor)
+- [tnw-anchor-styler](#tnw-anchor-styler)
 - [tnw-badge](#tnw-badge)
 - [tnw-button](#tnw-button)
 - [tnw-card](#tnw-card)
@@ -69,6 +70,17 @@ important notifications, success messages, warnings, or errors.
 
 The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.
 This component supports both text content and custom content via a slot, making it flexible for various use cases, such as wrapping other elements like images or icons.
+
+---
+
+## tnw-anchor-styler
+
+The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.
+It focuses purely on styling and requires slotted children for its content.
+
+This component is particularly suitable for use with React Router's `Link` or `NavLink` components 
+and Next.js's `Link` components, where navigation functionality is handled externally, 
+and styling can be applied through this wrapper.
 
 ---
 

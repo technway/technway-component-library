@@ -14,6 +14,7 @@ import { type TnwSelectCustomEvent, type TnwSelectOption } from "@technway/stenc
 import { TnwAccordionGroup as TnwAccordionGroupElement, defineCustomElement as defineTnwAccordionGroup } from "@technway/stencil-library/components/tnw-accordion-group.js";
 import { TnwAccordion as TnwAccordionElement, defineCustomElement as defineTnwAccordion } from "@technway/stencil-library/components/tnw-accordion.js";
 import { TnwAlert as TnwAlertElement, defineCustomElement as defineTnwAlert } from "@technway/stencil-library/components/tnw-alert.js";
+import { TnwAnchorStyler as TnwAnchorStylerElement, defineCustomElement as defineTnwAnchorStyler } from "@technway/stencil-library/components/tnw-anchor-styler.js";
 import { TnwAnchor as TnwAnchorElement, defineCustomElement as defineTnwAnchor } from "@technway/stencil-library/components/tnw-anchor.js";
 import { TnwBadge as TnwBadgeElement, defineCustomElement as defineTnwBadge } from "@technway/stencil-library/components/tnw-badge.js";
 import { TnwButton as TnwButtonElement, defineCustomElement as defineTnwButton } from "@technway/stencil-library/components/tnw-button.js";
@@ -36,6 +37,7 @@ import { TnwPortfolioGrid as TnwPortfolioGridElement, defineCustomElement as def
 import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating } from "@technway/stencil-library/components/tnw-rating.js";
 import { TnwRowsCarousel as TnwRowsCarouselElement, defineCustomElement as defineTnwRowsCarousel } from "@technway/stencil-library/components/tnw-rows-carousel.js";
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "@technway/stencil-library/components/tnw-scroll-to-top.js";
+import { TnwSearchInput as TnwSearchInputElement, defineCustomElement as defineTnwSearchInput } from "@technway/stencil-library/components/tnw-search-input.js";
 import { TnwSection as TnwSectionElement, defineCustomElement as defineTnwSection } from "@technway/stencil-library/components/tnw-section.js";
 import { TnwSelect as TnwSelectElement, defineCustomElement as defineTnwSelect } from "@technway/stencil-library/components/tnw-select.js";
 import { TnwSubscriptionForm as TnwSubscriptionFormElement, defineCustomElement as defineTnwSubscriptionForm } from "@technway/stencil-library/components/tnw-subscription-form.js";
@@ -136,6 +138,29 @@ export const TnwAnchor: StencilReactComponent<TnwAnchorElement, TnwAnchorEvents>
             textDecoration: 'text-decoration',
             newTab: 'new-tab',
             hideNewTabIcon: 'hide-new-tab-icon'
+        },
+        hydrateModule: import('@technway/stencil-library/hydrate')
+    });
+
+type TnwAnchorStylerEvents = NonNullable<unknown>;
+
+export const TnwAnchorStyler: StencilReactComponent<TnwAnchorStylerElement, TnwAnchorStylerEvents> = typeof window !== 'undefined'
+    ? /*@__PURE__*/ createComponent<TnwAnchorStylerElement, TnwAnchorStylerEvents>({
+        tagName: 'tnw-anchor-styler',
+        elementClass: TnwAnchorStylerElement,
+        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+        react: React,
+        events: {} as TnwAnchorStylerEvents,
+        defineCustomElement: defineTnwAnchorStyler
+    })
+    : /*@__PURE__*/ createSSRComponent<TnwAnchorStylerElement, TnwAnchorStylerEvents>({
+        tagName: 'tnw-anchor-styler',
+        properties: {
+            text: 'text',
+            color: 'color',
+            size: 'size',
+            textDecoration: 'text-decoration',
+            enableNewTabIcon: 'enable-new-tab-icon'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });
@@ -763,6 +788,36 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
             borderRadius: 'border-radius',
             customIconName: 'custom-icon-name',
             enableCustomSvgIcon: 'enable-custom-svg-icon'
+        },
+        hydrateModule: import('@technway/stencil-library/hydrate')
+    });
+
+type TnwSearchInputEvents = { onInputChangedOnType: EventName<CustomEvent<string>> };
+
+export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSearchInputEvents> = typeof window !== 'undefined'
+    ? /*@__PURE__*/ createComponent<TnwSearchInputElement, TnwSearchInputEvents>({
+        tagName: 'tnw-search-input',
+        elementClass: TnwSearchInputElement,
+        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+        react: React,
+        events: { onInputChangedOnType: 'inputChangedOnType' } as TnwSearchInputEvents,
+        defineCustomElement: defineTnwSearchInput
+    })
+    : /*@__PURE__*/ createSSRComponent<TnwSearchInputElement, TnwSearchInputEvents>({
+        tagName: 'tnw-search-input',
+        properties: {
+            label: 'label',
+            inputId: 'input-id',
+            type: 'type',
+            placeholder: 'placeholder',
+            variant: 'variant',
+            appearance: 'appearance',
+            appearanceColor: 'appearance-color',
+            name: 'name',
+            value: 'value',
+            autoComplete: 'auto-complete',
+            borderRadius: 'border-radius',
+            width: 'width'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

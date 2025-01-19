@@ -15,6 +15,7 @@ This page lists all the library components.
 - [tnw-accordion-group](#tnw-accordion-group)
 - [tnw-alert](#tnw-alert)
 - [tnw-anchor](#tnw-anchor)
+- [tnw-anchor-styler](#tnw-anchor-styler)
 - [tnw-badge](#tnw-badge)
 - [tnw-button](#tnw-button)
 - [tnw-card](#tnw-card)
@@ -36,6 +37,7 @@ This page lists all the library components.
 - [tnw-rating](#tnw-rating)
 - [tnw-rows-carousel](#tnw-rows-carousel)
 - [tnw-scroll-to-top](#tnw-scroll-to-top)
+- [tnw-search-input](#tnw-search-input)
 - [tnw-section](#tnw-section)
 - [tnw-select](#tnw-select)
 - [tnw-subscription-form](#tnw-subscription-form)
@@ -76,6 +78,17 @@ important notifications, success messages, warnings, or errors.
 
 The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.
 This component supports both text content and custom content via a slot, making it flexible for various use cases, such as wrapping other elements like images or icons.
+
+---
+
+## tnw-anchor-styler
+
+The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.
+It focuses purely on styling and requires slotted children for its content.
+
+This component is particularly suitable for use with React Router's `Link` or `NavLink` components 
+and Next.js's `Link` components, where navigation functionality is handled externally, 
+and styling can be applied through this wrapper.
 
 ---
 
@@ -229,6 +242,13 @@ with multiple rows. Each row scrolls independently and can move in alternating d
 The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.
 The button becomes visible when the user scrolls down a certain distance.
 It supports customization of the icon, size, appearance, and allows for the use of a custom SVG icon.
+
+---
+
+## tnw-search-input
+
+The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.
+It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
 
 ---
 

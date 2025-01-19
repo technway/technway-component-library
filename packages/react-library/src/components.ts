@@ -13,6 +13,7 @@ import { type TnwSelectCustomEvent, type TnwSelectOption } from "@technway/stenc
 import { TnwAccordionGroup as TnwAccordionGroupElement, defineCustomElement as defineTnwAccordionGroup } from "@technway/stencil-library/components/tnw-accordion-group.js";
 import { TnwAccordion as TnwAccordionElement, defineCustomElement as defineTnwAccordion } from "@technway/stencil-library/components/tnw-accordion.js";
 import { TnwAlert as TnwAlertElement, defineCustomElement as defineTnwAlert } from "@technway/stencil-library/components/tnw-alert.js";
+import { TnwAnchorStyler as TnwAnchorStylerElement, defineCustomElement as defineTnwAnchorStyler } from "@technway/stencil-library/components/tnw-anchor-styler.js";
 import { TnwAnchor as TnwAnchorElement, defineCustomElement as defineTnwAnchor } from "@technway/stencil-library/components/tnw-anchor.js";
 import { TnwBadge as TnwBadgeElement, defineCustomElement as defineTnwBadge } from "@technway/stencil-library/components/tnw-badge.js";
 import { TnwButton as TnwButtonElement, defineCustomElement as defineTnwButton } from "@technway/stencil-library/components/tnw-button.js";
@@ -35,6 +36,7 @@ import { TnwPortfolioGrid as TnwPortfolioGridElement, defineCustomElement as def
 import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating } from "@technway/stencil-library/components/tnw-rating.js";
 import { TnwRowsCarousel as TnwRowsCarouselElement, defineCustomElement as defineTnwRowsCarousel } from "@technway/stencil-library/components/tnw-rows-carousel.js";
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "@technway/stencil-library/components/tnw-scroll-to-top.js";
+import { TnwSearchInput as TnwSearchInputElement, defineCustomElement as defineTnwSearchInput } from "@technway/stencil-library/components/tnw-search-input.js";
 import { TnwSection as TnwSectionElement, defineCustomElement as defineTnwSection } from "@technway/stencil-library/components/tnw-section.js";
 import { TnwSelect as TnwSelectElement, defineCustomElement as defineTnwSelect } from "@technway/stencil-library/components/tnw-select.js";
 import { TnwSubscriptionForm as TnwSubscriptionFormElement, defineCustomElement as defineTnwSubscriptionForm } from "@technway/stencil-library/components/tnw-subscription-form.js";
@@ -85,6 +87,17 @@ export const TnwAnchor: StencilReactComponent<TnwAnchorElement, TnwAnchorEvents>
     react: React,
     events: {} as TnwAnchorEvents,
     defineCustomElement: defineTnwAnchor
+});
+
+type TnwAnchorStylerEvents = NonNullable<unknown>;
+
+export const TnwAnchorStyler: StencilReactComponent<TnwAnchorStylerElement, TnwAnchorStylerEvents> = /*@__PURE__*/ createComponent<TnwAnchorStylerElement, TnwAnchorStylerEvents>({
+    tagName: 'tnw-anchor-styler',
+    elementClass: TnwAnchorStylerElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as TnwAnchorStylerEvents,
+    defineCustomElement: defineTnwAnchorStyler
 });
 
 type TnwBadgeEvents = NonNullable<unknown>;
@@ -342,6 +355,17 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
         onScrollToTopClicked: 'scrollToTopClicked'
     } as TnwScrollToTopEvents,
     defineCustomElement: defineTnwScrollToTop
+});
+
+type TnwSearchInputEvents = { onInputChangedOnType: EventName<CustomEvent<string>> };
+
+export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSearchInputEvents> = /*@__PURE__*/ createComponent<TnwSearchInputElement, TnwSearchInputEvents>({
+    tagName: 'tnw-search-input',
+    elementClass: TnwSearchInputElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: { onInputChangedOnType: 'inputChangedOnType' } as TnwSearchInputEvents,
+    defineCustomElement: defineTnwSearchInput
 });
 
 type TnwSectionEvents = NonNullable<unknown>;

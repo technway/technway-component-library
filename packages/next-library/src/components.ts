@@ -6,4 +6,4 @@
  */
 
 /* eslint-disable */
-export { TnwAccordion, TnwAccordionGroup, TnwAlert, TnwAnchor, TnwBadge, TnwButton, TnwCard, TnwContactBanner, TnwCopyrightsFooter, TnwDivider, TnwFooter, TnwHeader, TnwHeaderBanner, TnwHeading, TnwIcon, TnwImage, TnwInput, TnwItemsCarousel, TnwLabel, TnwList, TnwNavbar, TnwPortfolioGrid, TnwRating, TnwRowsCarousel, TnwScrollToTop, TnwSection, TnwSelect, TnwSubscriptionForm, TnwTestimonialCard, TnwText, TnwTextarea } from "./components.server";
+export { TnwAccordion, TnwAccordionGroup, TnwAlert, TnwAnchor, TnwAnchorStyler, TnwBadge, TnwButton, TnwCard, TnwContactBanner, TnwCopyrightsFooter, TnwDivider, TnwFooter, TnwHeader, TnwHeaderBanner, TnwHeading, TnwIcon, TnwImage, TnwInput, TnwItemsCarousel, TnwLabel, TnwList, TnwNavbar, TnwPortfolioGrid, TnwRating, TnwRowsCarousel, TnwScrollToTop, TnwSearchInput, TnwSection, TnwSelect, TnwSubscriptionForm, TnwTestimonialCard, TnwText, TnwTextarea } from "./components.server";

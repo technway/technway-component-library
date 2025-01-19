@@ -87,6 +87,7 @@ It can be used as a standalone icon or to display custom SVG icons through the `
 
  - [tnw-accordion](../tnw-accordion)
  - [tnw-anchor](../tnw-anchor)
+ - [tnw-anchor-styler](../tnw-anchor-styler)
  - [tnw-card](../tnw-card)
  - [tnw-footer](../tnw-footer)
  - [tnw-items-carousel](../tnw-items-carousel)
@@ -94,6 +95,7 @@ It can be used as a standalone icon or to display custom SVG icons through the `
  - [tnw-navbar](../tnw-navbar)
  - [tnw-rating](../tnw-rating)
  - [tnw-scroll-to-top](../tnw-scroll-to-top)
+ - [tnw-search-input](../tnw-search-input)
  - [tnw-select](../tnw-select)
 
 ### Graph
@@ -101,6 +103,7 @@ It can be used as a standalone icon or to display custom SVG icons through the `
 graph TD;
   tnw-accordion --> tnw-icon
   tnw-anchor --> tnw-icon
+  tnw-anchor-styler --> tnw-icon
   tnw-card --> tnw-icon
   tnw-footer --> tnw-icon
   tnw-items-carousel --> tnw-icon
@@ -108,6 +111,7 @@ graph TD;
   tnw-navbar --> tnw-icon
   tnw-rating --> tnw-icon
   tnw-scroll-to-top --> tnw-icon
+  tnw-search-input --> tnw-icon
   tnw-select --> tnw-icon
   style tnw-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

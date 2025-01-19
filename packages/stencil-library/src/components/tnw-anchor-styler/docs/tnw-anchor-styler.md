@@ -1,0 +1,55 @@
+# tnw-anchor-styler
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Properties](#properties)
+- [Slots](#slots)
+- [Shadow Parts](#shadow-parts)
+- [Usage](#usage)
+
+## Overview
+
+The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.
+It focuses purely on styling and requires slotted children for its content.
+
+This component is particularly suitable for use with React Router's `Link` or `NavLink` components 
+and Next.js's `Link` components, where navigation functionality is handled externally, 
+and styling can be applied through this wrapper.
+
+| Detail | Value |
+| --- | --- |
+| HTML Component Tag | `<tnw-anchor-styler>` |
+| React Component Tag | `TnwAnchorStyler` |
+| Encapsulation | `shadow` |
+
+<div style="overflow-x: auto;">
+## Properties
+
+| Property | Description | Default | Type |
+| --- | --- | --- | --- |
+| **color** | <div>Sets the color of the text based on the available colors.</div> | `'auto'` | `"auto"` \| `"black"` \| `"gray100"` \| `"gray200"` \| `"gray300"` \| `"gray400"` \| `"gray500"` \| `"gray600"` \| `"gray700"` \| `"gray800"` \| `"gray900"` \| `"inverse"` \| `"light"` \| `"placeholder"` \| `"primary"` \| `"secondary"` \| `"white"` |
+| **enableNewTabIcon** | <div>Enables the new tab icon.</div> | `false` | `boolean` |
+| **size** | <div>Sets the font size of the anchor text.</div> | N/A | `"2xl"` \| `"3xl"` \| `"4xl"` \| `"5xl"` \| `"6xl"` \| `"7xl"` \| `"8xl"` \| `"9xl"` \| `"heading"` \| `"lg"` \| `"md"` \| `"sm"` \| `"text"` \| `"xl"` \| `"xs"` |
+| **text** | <div>Specifies the text content of the link. If not provided, the content should be provided via the default slot.</div> | N/A | `string` |
+| **textDecoration** | <div>Specifies the text decoration line of the anchor text.</div> | `'underline'` | `"line-through"` \| `"none"` \| `"overline"` \| `"underline"` |
+
+</div>
+
+## Shadow Parts
+
+| Part | Description |
+| --- | --- |
+| **icon** | No description provided. |
+| **wrapper** | The `<div>` element that wraps and styles the slotted content. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| **default** | Default slot for custom content (e.g., an anchor, text, or any HTML structure). |
+
+## Usage & Examples
+
+No usage is provided for this component.
+

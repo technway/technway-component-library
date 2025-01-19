@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-18T20:04:27",
+  "timestamp": "2025-01-19T07:19:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -7643,7 +7643,7 @@
           },
           "mutable": false,
           "attr": "name",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The name of the icon to be displayed. This is required when `enableSvg` is not set to `true`.",
           "docsTags": [],
           "values": [
@@ -10532,7 +10532,7 @@
           "mutable": false,
           "attr": "menu-data",
           "reflectToAttr": false,
-          "docs": "The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..",
+          "docs": "The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu.",
           "docsTags": [],
           "values": [
             {

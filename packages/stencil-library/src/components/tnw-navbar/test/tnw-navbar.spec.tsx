@@ -181,7 +181,6 @@ describe('tnw-navbar', () => {
         html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="false"></tnw-navbar>`,
       });
       const component = page.rootInstance as TnwNavbar;
-      console.log(page.root.outerHTML)
       window.innerWidth = 1023;
       window.dispatchEvent(new Event('resize'));
       await page.waitForChanges();

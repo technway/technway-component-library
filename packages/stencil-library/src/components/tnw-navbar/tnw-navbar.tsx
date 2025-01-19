@@ -35,12 +35,12 @@ export class TnwNavbar {
   // Holds the component's styles
   private componentStyles: CSSStyleSheet;
 
-  /* --------------- Internal State Management --------------- */
-
   /**
    * The host element reference.
    */
   @Element() el!: HTMLTnwNavbarElement;
+
+  /* --------------- Internal State Management --------------- */
 
   /**
    * Parsed menu data from the `menuData` prop.
@@ -116,7 +116,7 @@ export class TnwNavbar {
   @Prop() paddingVertical?: SizeType | 'none' = 'md';
 
   /**
-   * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
+   * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu.
    */
   @Prop() menuData?: string;
 
@@ -185,7 +185,7 @@ export class TnwNavbar {
    */
   @Prop() linksLength?: number;
 
-  /* -------------------------- Watchers -------------------------- */
+  /* ------------------------- Watchers ------------------------- */
 
   @Watch('hideMenuBelow')
   updateHideMenuBelow(newValue: MenuProps['hideMenuBelow']) {
@@ -246,7 +246,6 @@ export class TnwNavbar {
 
   componentWillLoad() {
     validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
-
     // Manually parse menu data on initial load
     if (isNotEmptyString(this.menuData)) {
       this.parseMenuData(this.menuData);

@@ -27,7 +27,7 @@ export class TnwIcon {
   /**
    * The name of the icon to be displayed. This is required when `enableSvg` is not set to `true`.
    */
-  @Prop() name?: string;
+  @Prop({reflect: true}) name?: string;
 
   /**
    * Defines the appearance color of the icon.
@@ -98,7 +98,6 @@ export class TnwIcon {
 
   componentWillLoad() {
     validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.enableSvg, this.hiddenAria, this.isButton, this.labelAria, this.name, this.size, this.tooltip]);
-
     enforceRequiredPropsWhenConditionMissing(this.getConditionalPropsChecks());
     enforceGroupedPropsUsage(this.getGroupedPropsChecks());
   }

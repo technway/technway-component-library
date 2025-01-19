@@ -1041,7 +1041,7 @@ export namespace Components {
          */
         "linksLength"?: number;
         /**
-          * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
+          * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu.
          */
         "menuData"?: string;
         /**
@@ -3030,7 +3030,7 @@ declare namespace LocalJSX {
          */
         "linksLength"?: number;
         /**
-          * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu. The JSON format should be an array of objects, where each object can include the following properties: - `label`: The text of the menu item. - `link`: (Optional) The URL for the menu item. - `newTab`: (Optional) A boolean indicating whether the link opens in a new tab. - `subMenu`: (Optional) An array of submenu items including item `label`, `link`, and optional newTab..
+          * The menu data as a JSON string. Each item should include a label, optional link, optional newTab, and optional subMenu.
          */
         "menuData"?: string;
         /**

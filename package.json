@@ -12,12 +12,7 @@
     "build:all": "pnpm run build:stencil && pnpm run build:react && pnpm run build:next",
     "build:layout-kit": "pnpm --filter @technway/layout-kit run build",
     "react": "pnpm --filter react-app run dev",
-    "next-15": "pnpm --filter next-v15-app run dev",
-    "preversion": "pnpm install",
-    "version-packages": "lerna version --conventional-commits --yes --no-push",
-    "postversion": "git push && git push --tags",
-    "publish-packages": "lerna publish from-git --yes",
-    "release": "pnpm run version-packages && pnpm install && pnpm run publish-packages"
+    "next-15": "pnpm --filter next-v15-app run dev"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",

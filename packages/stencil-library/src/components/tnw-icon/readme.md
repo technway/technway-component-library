@@ -87,6 +87,7 @@ It can be used as a standalone icon or to display custom SVG icons through the `
 
  - [tnw-accordion](../tnw-accordion)
  - [tnw-anchor](../tnw-anchor)
+ - [tnw-anchor-styler](../tnw-anchor-styler)
  - [tnw-card](../tnw-card)
  - [tnw-footer](../tnw-footer)
  - [tnw-items-carousel](../tnw-items-carousel)
@@ -101,6 +102,7 @@ It can be used as a standalone icon or to display custom SVG icons through the `
 graph TD;
   tnw-accordion --> tnw-icon
   tnw-anchor --> tnw-icon
+  tnw-anchor-styler --> tnw-icon
   tnw-card --> tnw-icon
   tnw-footer --> tnw-icon
   tnw-items-carousel --> tnw-icon

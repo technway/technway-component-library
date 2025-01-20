@@ -30,6 +30,7 @@ This page lists all the library components.
 - [tnw-rating](#tnw-rating)
 - [tnw-rows-carousel](#tnw-rows-carousel)
 - [tnw-scroll-to-top](#tnw-scroll-to-top)
+- [tnw-search-input](#tnw-search-input)
 - [tnw-section](#tnw-section)
 - [tnw-select](#tnw-select)
 - [tnw-subscription-form](#tnw-subscription-form)
@@ -234,6 +235,13 @@ with multiple rows. Each row scrolls independently and can move in alternating d
 The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.
 The button becomes visible when the user scrolls down a certain distance.
 It supports customization of the icon, size, appearance, and allows for the use of a custom SVG icon.
+
+---
+
+## tnw-search-input
+
+The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.
+It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
 
 ---
 

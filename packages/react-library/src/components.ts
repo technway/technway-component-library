@@ -36,6 +36,7 @@ import { TnwPortfolioGrid as TnwPortfolioGridElement, defineCustomElement as def
 import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating } from "@technway/stencil-library/components/tnw-rating.js";
 import { TnwRowsCarousel as TnwRowsCarouselElement, defineCustomElement as defineTnwRowsCarousel } from "@technway/stencil-library/components/tnw-rows-carousel.js";
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "@technway/stencil-library/components/tnw-scroll-to-top.js";
+import { TnwSearchInput as TnwSearchInputElement, defineCustomElement as defineTnwSearchInput } from "@technway/stencil-library/components/tnw-search-input.js";
 import { TnwSection as TnwSectionElement, defineCustomElement as defineTnwSection } from "@technway/stencil-library/components/tnw-section.js";
 import { TnwSelect as TnwSelectElement, defineCustomElement as defineTnwSelect } from "@technway/stencil-library/components/tnw-select.js";
 import { TnwSubscriptionForm as TnwSubscriptionFormElement, defineCustomElement as defineTnwSubscriptionForm } from "@technway/stencil-library/components/tnw-subscription-form.js";
@@ -354,6 +355,17 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
         onScrollToTopClicked: 'scrollToTopClicked'
     } as TnwScrollToTopEvents,
     defineCustomElement: defineTnwScrollToTop
+});
+
+type TnwSearchInputEvents = { onInputChangedOnType: EventName<CustomEvent<string>> };
+
+export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSearchInputEvents> = /*@__PURE__*/ createComponent<TnwSearchInputElement, TnwSearchInputEvents>({
+    tagName: 'tnw-search-input',
+    elementClass: TnwSearchInputElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: { onInputChangedOnType: 'inputChangedOnType' } as TnwSearchInputEvents,
+    defineCustomElement: defineTnwSearchInput
 });
 
 type TnwSectionEvents = NonNullable<unknown>;

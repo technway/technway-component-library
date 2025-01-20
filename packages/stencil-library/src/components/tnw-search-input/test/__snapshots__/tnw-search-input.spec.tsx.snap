@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-search-input Default and Required Prop Behavior renders correctly with default values 1`] = `
+<tnw-search-input class="tnw-search-input tnw-search-input--icon-left tnw-search-input--w" input-id="test-input" value="" style="--tnw-search-input-width: 100%;">
+  <template shadowrootmode="open">
+    <label class="sr-only" htmlfor="test-input">
+      Search
+    </label>
+    <tnw-icon class="tnw-search-input__icon tnw-search-input__icon--left tnw-search-input__icon--pos" color="gray400" name="tnw-search" part="icon"></tnw-icon>
+    <input autocomplete="on" class="rounded-default tnw-search-input__field tnw-search-input__field--left tnw-search-input__field--outlined tnw-search-input__field--outlined-auto" id="test-input" part="input" placeholder="Search" type="search" value="">
+  </template>
+</tnw-search-input>
+`;

@@ -37,6 +37,7 @@ import { TnwPortfolioGrid as TnwPortfolioGridElement, defineCustomElement as def
 import { TnwRating as TnwRatingElement, defineCustomElement as defineTnwRating } from "@technway/stencil-library/components/tnw-rating.js";
 import { TnwRowsCarousel as TnwRowsCarouselElement, defineCustomElement as defineTnwRowsCarousel } from "@technway/stencil-library/components/tnw-rows-carousel.js";
 import { TnwScrollToTop as TnwScrollToTopElement, defineCustomElement as defineTnwScrollToTop } from "@technway/stencil-library/components/tnw-scroll-to-top.js";
+import { TnwSearchInput as TnwSearchInputElement, defineCustomElement as defineTnwSearchInput } from "@technway/stencil-library/components/tnw-search-input.js";
 import { TnwSection as TnwSectionElement, defineCustomElement as defineTnwSection } from "@technway/stencil-library/components/tnw-section.js";
 import { TnwSelect as TnwSelectElement, defineCustomElement as defineTnwSelect } from "@technway/stencil-library/components/tnw-select.js";
 import { TnwSubscriptionForm as TnwSubscriptionFormElement, defineCustomElement as defineTnwSubscriptionForm } from "@technway/stencil-library/components/tnw-subscription-form.js";
@@ -787,6 +788,36 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
             borderRadius: 'border-radius',
             customIconName: 'custom-icon-name',
             enableCustomSvgIcon: 'enable-custom-svg-icon'
+        },
+        hydrateModule: import('@technway/stencil-library/hydrate')
+    });
+
+type TnwSearchInputEvents = { onInputChangedOnType: EventName<CustomEvent<string>> };
+
+export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSearchInputEvents> = typeof window !== 'undefined'
+    ? /*@__PURE__*/ createComponent<TnwSearchInputElement, TnwSearchInputEvents>({
+        tagName: 'tnw-search-input',
+        elementClass: TnwSearchInputElement,
+        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+        react: React,
+        events: { onInputChangedOnType: 'inputChangedOnType' } as TnwSearchInputEvents,
+        defineCustomElement: defineTnwSearchInput
+    })
+    : /*@__PURE__*/ createSSRComponent<TnwSearchInputElement, TnwSearchInputEvents>({
+        tagName: 'tnw-search-input',
+        properties: {
+            label: 'label',
+            inputId: 'input-id',
+            type: 'type',
+            placeholder: 'placeholder',
+            variant: 'variant',
+            appearance: 'appearance',
+            appearanceColor: 'appearance-color',
+            name: 'name',
+            value: 'value',
+            autoComplete: 'auto-complete',
+            borderRadius: 'border-radius',
+            width: 'width'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

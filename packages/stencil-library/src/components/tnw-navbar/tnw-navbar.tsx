@@ -373,7 +373,8 @@ export class TnwNavbar {
         toggleMenu: () => {
           this.isOpen = !this.isOpen;
           this.tnwMenuToggle.emit({ isOpen: this.isOpen });
-        }
+        },
+        displayBelow: this.hideMenuBelow
       })
     );
   }

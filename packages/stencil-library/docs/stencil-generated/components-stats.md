@@ -12,7 +12,6 @@ This page provides an overview of statistics related to the components.
 | **Total Methods** | `6` |
 | **Total Slots** | `52` |
 | **Total Features** | `413` |
-|   |  |
 | **Shadow DOM Components** | `33` |
 | **Light DOM Components** | `0` |
 | **Components with Props** | `33` |

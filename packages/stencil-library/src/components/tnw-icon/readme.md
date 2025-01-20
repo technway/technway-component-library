@@ -95,6 +95,7 @@ It can be used as a standalone icon or to display custom SVG icons through the `
  - [tnw-navbar](../tnw-navbar)
  - [tnw-rating](../tnw-rating)
  - [tnw-scroll-to-top](../tnw-scroll-to-top)
+ - [tnw-search-input](../tnw-search-input)
  - [tnw-select](../tnw-select)
 
 ### Graph
@@ -110,6 +111,7 @@ graph TD;
   tnw-navbar --> tnw-icon
   tnw-rating --> tnw-icon
   tnw-scroll-to-top --> tnw-icon
+  tnw-search-input --> tnw-icon
   tnw-select --> tnw-icon
   style tnw-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

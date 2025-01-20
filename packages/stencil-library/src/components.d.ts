@@ -1215,6 +1215,60 @@ export namespace Components {
         "size"?: ExtendedSizeType;
     }
     /**
+     * The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.
+     * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
+     */
+    interface TnwSearchInput {
+        /**
+          * Defines the appearance of the input.
+         */
+        "appearance"?: 'outlined' | 'underlined' | 'none';
+        /**
+          * The appearance color of the input, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
+        /**
+          * The autocomplete setting for the input.
+         */
+        "autoComplete"?: string;
+        /**
+          * The border radius of the input.
+         */
+        "borderRadius"?: BorderRadiusType;
+        /**
+          * The unique ID for the input element. If not provided, a random ID will be generated.
+         */
+        "inputId"?: string;
+        /**
+          * The label for the input. It will not be displayed (Screen Reader Only).
+         */
+        "label"?: string;
+        /**
+          * The name of the input field.
+         */
+        "name"?: string;
+        /**
+          * The placeholder text for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * The type of the input.
+         */
+        "type"?: 'search' | 'text';
+        /**
+          * The initial value of the input.
+         */
+        "value"?: string;
+        /**
+          * The variant of the search input.
+         */
+        "variant"?: 'icon-left' | 'icon-right' | 'expandable' | 'no-icon';
+        /**
+          * The width of the input. Accepts any valid CSS width value.
+         */
+        "width"?: string;
+    }
+    /**
      * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
      * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
      * content alignment and padding.
@@ -1576,6 +1630,10 @@ export interface TnwScrollToTopCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwScrollToTopElement;
 }
+export interface TnwSearchInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwSearchInputElement;
+}
 export interface TnwSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwSelectElement;
@@ -1917,6 +1975,27 @@ declare global {
         prototype: HTMLTnwScrollToTopElement;
         new (): HTMLTnwScrollToTopElement;
     };
+    interface HTMLTnwSearchInputElementEventMap {
+        "inputChangedOnType": string;
+    }
+    /**
+     * The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.
+     * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
+     */
+    interface HTMLTnwSearchInputElement extends Components.TnwSearchInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwSearchInputElementEventMap>(type: K, listener: (this: HTMLTnwSearchInputElement, ev: TnwSearchInputCustomEvent<HTMLTnwSearchInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwSearchInputElementEventMap>(type: K, listener: (this: HTMLTnwSearchInputElement, ev: TnwSearchInputCustomEvent<HTMLTnwSearchInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLTnwSearchInputElement: {
+        prototype: HTMLTnwSearchInputElement;
+        new (): HTMLTnwSearchInputElement;
+    };
     /**
      * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
      * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
@@ -2025,6 +2104,7 @@ declare global {
         "tnw-rating": HTMLTnwRatingElement;
         "tnw-rows-carousel": HTMLTnwRowsCarouselElement;
         "tnw-scroll-to-top": HTMLTnwScrollToTopElement;
+        "tnw-search-input": HTMLTnwSearchInputElement;
         "tnw-section": HTMLTnwSectionElement;
         "tnw-select": HTMLTnwSelectElement;
         "tnw-subscription-form": HTMLTnwSubscriptionFormElement;
@@ -3262,6 +3342,64 @@ declare namespace LocalJSX {
         "size"?: ExtendedSizeType;
     }
     /**
+     * The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.
+     * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
+     */
+    interface TnwSearchInput {
+        /**
+          * Defines the appearance of the input.
+         */
+        "appearance"?: 'outlined' | 'underlined' | 'none';
+        /**
+          * The appearance color of the input, determining the overall color scheme.
+         */
+        "appearanceColor"?: ColorType;
+        /**
+          * The autocomplete setting for the input.
+         */
+        "autoComplete"?: string;
+        /**
+          * The border radius of the input.
+         */
+        "borderRadius"?: BorderRadiusType;
+        /**
+          * The unique ID for the input element. If not provided, a random ID will be generated.
+         */
+        "inputId"?: string;
+        /**
+          * The label for the input. It will not be displayed (Screen Reader Only).
+         */
+        "label"?: string;
+        /**
+          * The name of the input field.
+         */
+        "name"?: string;
+        /**
+          * Event emitted when the input value changes. The event's payload contains the new value.
+         */
+        "onInputChangedOnType"?: (event: TnwSearchInputCustomEvent<string>) => void;
+        /**
+          * The placeholder text for the input.
+         */
+        "placeholder"?: string;
+        /**
+          * The type of the input.
+         */
+        "type"?: 'search' | 'text';
+        /**
+          * The initial value of the input.
+         */
+        "value"?: string;
+        /**
+          * The variant of the search input.
+         */
+        "variant"?: 'icon-left' | 'icon-right' | 'expandable' | 'no-icon';
+        /**
+          * The width of the input. Accepts any valid CSS width value.
+         */
+        "width"?: string;
+    }
+    /**
      * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
      * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle
      * content alignment and padding.
@@ -3633,6 +3771,7 @@ declare namespace LocalJSX {
         "tnw-rating": TnwRating;
         "tnw-rows-carousel": TnwRowsCarousel;
         "tnw-scroll-to-top": TnwScrollToTop;
+        "tnw-search-input": TnwSearchInput;
         "tnw-section": TnwSection;
         "tnw-select": TnwSelect;
         "tnw-subscription-form": TnwSubscriptionForm;
@@ -3787,6 +3926,11 @@ declare module "@stencil/core" {
              * It supports customization of the icon, size, appearance, and allows for the use of a custom SVG icon.
              */
             "tnw-scroll-to-top": LocalJSX.TnwScrollToTop & JSXBase.HTMLAttributes<HTMLTnwScrollToTopElement>;
+            /**
+             * The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.
+             * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
+             */
+            "tnw-search-input": LocalJSX.TnwSearchInput & JSXBase.HTMLAttributes<HTMLTnwSearchInputElement>;
             /**
              * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
              * It supports various appearance colors, optional glassmorphism effects, and an internal container to handle

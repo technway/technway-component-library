@@ -26,7 +26,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 | --- | --- | --- | --- |
 | **appearance** | <div>Defines the appearance of the input.</div> | `'outlined'` | `"none"` \| `"outlined"` \| `"underlined"` |
 | **appearanceColor** | <div>The appearance color of the input, determining the overall color scheme.</div> | `'auto'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
-| **autoComplete** | <div>The autocomplete setting for the input.</div> | `'off'` | `string` |
+| **autoComplete** | <div>The autocomplete setting for the input.</div> | `'on'` | `string` |
 | **borderRadius** | <div>The border radius of the input.</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **inputId** | <div>The unique ID for the input element. If not provided, a random ID will be generated.</div> | `generateRandomId(this.baseClass)` | `string` |
 | **label** | <div>The label for the input.

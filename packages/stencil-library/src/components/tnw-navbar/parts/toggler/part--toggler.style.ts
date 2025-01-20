@@ -33,7 +33,7 @@ export const styles = `
         display: block;
     }
 }
-.${baseClass}--all {
+.${baseClass}--always {
     display: block;
 }
 `;

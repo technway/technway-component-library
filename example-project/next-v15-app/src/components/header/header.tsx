@@ -9,6 +9,7 @@ const Header = () => {
             disableInternalContainer={true}
             height="xl"
             minHeight="md"
+            centerBanner={true}
         >
             <NavbarWithData
                 slot="navbar"

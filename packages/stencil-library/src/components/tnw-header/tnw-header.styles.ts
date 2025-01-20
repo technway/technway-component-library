@@ -23,13 +23,20 @@ export const styles = `
     align-items: center;
     justify-content: center; 
 }
+:host(.${baseClass}--centerBanner) ::slotted(tnw-navbar) {
+    margin-bottom: auto;
+}
+:host(.${baseClass}--centerBanner) ::slotted(tnw-header-banner) {
+    margin-block: auto;
+    padding-bottom: 10%;
+}
 
 .${contentClass} {
     display: flex;
     flex-direction: column;
     gap: 25px;
     height: 100%;
-    justify-content: center;
+    width: 100%;
 }
 .${contentClass}--center {
     align-items: center;

@@ -13,6 +13,7 @@ const Header = () => {
             <NavbarWithData
                 slot="navbar"
                 menuPlacement='middle'
+                disableInternalContainer={false}
             />
             <TnwHeaderBanner
                 slot="banner"

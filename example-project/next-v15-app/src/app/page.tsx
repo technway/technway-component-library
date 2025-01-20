@@ -9,72 +9,70 @@ import Header from '../components/header/header';
 
 export default function Home() {
   return (
-    <div className="container">
-      <Flex direction="col" gap={16}>
-        <Flex direction="col" gap={6}>
-          <TnwHeading text='Header' level='h2' />
-          <Header />
-        </Flex>
-
-        <Flex direction="col" gap={12}>
-          <TnwHeading text='Navbar' level='h2' />
-          <Navbar
-            menuPlacement='middle'
-          />
-          <Navbar
-            menuPlacement='end'
-            appearance='outlined'
-            borderRadius='full'
-            paddingVertical='md'
-            paddingHorizontal='lg'
-            buttonBorderRadius="full"
-          />
-          <Navbar
-            menuPlacement='start'
-            appearance='outlined'
-            borderRadius='md'
-            paddingVertical='md'
-            paddingHorizontal='md'
-            buttonAppearanceColor='black'
-          />
-        </Flex>
-
-        <TnwDivider />
-
-        <Flex direction="col" gap={6}>
-          <TnwHeading text='Accordions' level='h2' />
-          <Flex direction="col" gap={10}>
-            <Accordion expand={true} />
-            <Accordion expand={false} />
-            <AccordionGroup />
+    <>
+      <Header />
+      <div className="container">
+        <Flex direction="col" gap={16}>
+          <Flex direction="col" gap={12}>
+            <TnwHeading text='Navbar' level='h2' />
+            <Navbar
+              menuPlacement='middle'
+            />
+            <Navbar
+              menuPlacement='end'
+              appearance='outlined'
+              borderRadius='full'
+              paddingVertical='md'
+              paddingHorizontal='lg'
+              buttonBorderRadius="full"
+            />
+            <Navbar
+              menuPlacement='start'
+              appearance='outlined'
+              borderRadius='md'
+              paddingVertical='md'
+              paddingHorizontal='md'
+              buttonAppearanceColor='black'
+            />
           </Flex>
-        </Flex>
 
-        <TnwDivider />
+          <TnwDivider />
 
-        <Flex direction="col" gap={6}>
-          <TnwHeading text='Cards' level='h2' />
-          <Flex direction="col" gap={16}>
-            <Grid columns={2} gap={10}>
-              <ArticleCard imageHeight='280px' />
-              <ArticleCard imageHeight='280px' />
-            </Grid>
-            <ArticleCard layout='horizontal' />
-            <ArticleCard layout='horizontal' appearance='outlined' padding="sm" imageHeight="365px" />
+          <Flex direction="col" gap={6}>
+            <TnwHeading text='Accordions' level='h2' />
+            <Flex direction="col" gap={10}>
+              <Accordion expand={true} />
+              <Accordion expand={false} />
+              <AccordionGroup />
+            </Flex>
           </Flex>
-        </Flex>
 
-        <TnwDivider />
+          <TnwDivider />
 
-        <Flex direction="col" gap={6}>
-          <TnwHeading text='Footer' level='h2' />
-          <Flex direction="col" gap={16}>
-            <Footer />
+          <Flex direction="col" gap={6}>
+            <TnwHeading text='Cards' level='h2' />
+            <Flex direction="col" gap={16}>
+              <Grid columns={2} gap={10}>
+                <ArticleCard imageHeight='280px' />
+                <ArticleCard imageHeight='280px' />
+              </Grid>
+              <ArticleCard layout='horizontal' />
+              <ArticleCard layout='horizontal' appearance='outlined' padding="sm" imageHeight="365px" />
+            </Flex>
           </Flex>
-        </Flex>
 
-        <TnwDivider />
-      </Flex>
-    </div>
+          <TnwDivider />
+
+          <Flex direction="col" gap={6}>
+            <TnwHeading text='Footer' level='h2' />
+            <Flex direction="col" gap={16}>
+              <Footer />
+            </Flex>
+          </Flex>
+
+          <TnwDivider />
+        </Flex>
+      </div>
+    </>
   );
 }

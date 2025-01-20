@@ -104,7 +104,7 @@ tnw-heading {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .${baseClass}__subscription-description {

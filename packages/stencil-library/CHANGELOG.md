@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/ionic-team/stencil-component-starter/compare/@technway/stencil-library@2.0.2...@technway/stencil-library@2.4.0) (2025-01-20)
+
+
+### Bug Fixes
+
+* error in root package-lock file ([1fea8ec](https://github.com/ionic-team/stencil-component-starter/commit/1fea8ecaae6f81c00d631ba2dd76181e6d3f7547))
+* header and its banner styling isuues ([5812062](https://github.com/ionic-team/stencil-component-starter/commit/581206217d58a669a475ac66dc25f8ea7a5dae46))
+* **layout-kit:** add missing packaged files ([ba99064](https://github.com/ionic-team/stencil-component-starter/commit/ba990643500220bb25e228e9b51d99faee89fca6))
+* **layout-kit:** correct Grid component default column behavior ([bd24733](https://github.com/ionic-team/stencil-component-starter/commit/bd24733dd10a600e1f9c4b734715ffc878c50919))
+* **layout-kit:** resolve TypeScript import and type resolution issues ([2b09600](https://github.com/ionic-team/stencil-component-starter/commit/2b09600f0a902db7a8a4d8110f947242581d52e6))
+* **next-library, layout-kit:** update and add @types/react to solve typings errors ([d956a4d](https://github.com/ionic-team/stencil-component-starter/commit/d956a4d631cc4599e5cd31c784e1ad22757d77fe))
+* resolve generated react and next components paths ([bdc7f0c](https://github.com/ionic-team/stencil-component-starter/commit/bdc7f0cd46cc080279e10309c004e0846583686d))
+* **stencil-library, layout-kit:** resolve storybook docs and layout-kit errors ([e515159](https://github.com/ionic-team/stencil-component-starter/commit/e515159c152b2e681ebb4cfe902a924124858d2e))
+* **stencil-library:** downgrade react-output-target from v0.8.1 to v0.7.4 ([8ead93a](https://github.com/ionic-team/stencil-component-starter/commit/8ead93a8dcc26322761fd4fe0c84fa68db51af2c))
+* **stencil-library:** header-banner & card validations ([d0e075e](https://github.com/ionic-team/stencil-component-starter/commit/d0e075ec2efc2bbbe1a0e9b0c0d540d0301841aa))
+* **stencil-library:** resolve TypeScript build errors in components ([1d8c785](https://github.com/ionic-team/stencil-component-starter/commit/1d8c785db9456b7850ba53f3066fba4b7a351df6))
+* **tne-footer:** resolve footerData and slots handling issues ([d1ee48d](https://github.com/ionic-team/stencil-component-starter/commit/d1ee48d69d02092471e636080e9f13c4b84471cd))
+* **tnw-accordion:** resolve issue with accordion toggling in React ([df4531a](https://github.com/ionic-team/stencil-component-starter/commit/df4531adf33e306ce43e3459bed330504bc932c3))
+* **tnw-card:** resolve image width ([a17fed3](https://github.com/ionic-team/stencil-component-starter/commit/a17fed38808e90f722cca5fe5f3169474aa83b2c))
+* **tnw-footer:** handle missing data gracefully in display slots ([313c55f](https://github.com/ionic-team/stencil-component-starter/commit/313c55f5403796d8640c2bcddcb01b523551c34b))
+* **tnw-footer:** resolve data parsing errors encountered in next.js 15 ([8c8d4db](https://github.com/ionic-team/stencil-component-starter/commit/8c8d4db4810d3a7853fe4dcc9c0124759926d432))
+* **tnw-header-banner:** resolve styling issues and update props ([20190b3](https://github.com/ionic-team/stencil-component-starter/commit/20190b303d5478d1cbaf059eb2959848192149ab))
+* **tnw-icon:** resolve validations errors ([e855955](https://github.com/ionic-team/stencil-component-starter/commit/e855955f07414d0a50c3ce272d1953076ef72837))
+* **tnw-image:** resolve borderRadius prop issues ([4a0aea2](https://github.com/ionic-team/stencil-component-starter/commit/4a0aea23c5776a3c16efb6967491240be87a80b5))
+* **tnw-navbar:** implement slot-based approach for custom links and fix issues ([4cdb955](https://github.com/ionic-team/stencil-component-starter/commit/4cdb95517753f6773adf8c32905b2b329b41e077))
+* **tnw-navbar:** resolve data parsing errors encountered in next.js 15 ([721ba6d](https://github.com/ionic-team/stencil-component-starter/commit/721ba6d42549d7764cb8369bf88d92b551990482))
+* update react packages to v19.0.0 ([64a500a](https://github.com/ionic-team/stencil-component-starter/commit/64a500a4d847a5f7c4f393cf092f96eaffce2a46))
+
+
+### Features
+
+* add props to `tnw-contact-banner` ([4cbe247](https://github.com/ionic-team/stencil-component-starter/commit/4cbe24750b96a63ffb15463e3495f8a9e32dac44))
+* **layout-kit:** revamp responsive grid system and configuration ([e138f7a](https://github.com/ionic-team/stencil-component-starter/commit/e138f7aeb04f2c7c07bb08235e922a3384d907ce))
+* **react-ui:** style NavbarMenu component ([604e3be](https://github.com/ionic-team/stencil-component-starter/commit/604e3be8bd716ede15ba284ea0971a62f979df6f))
+* **stencil-library:** introduce 'tnw-search-input' component ([1912cc2](https://github.com/ionic-team/stencil-component-starter/commit/1912cc2c96561bd38e2054d35a302ee829032653))
+* **stencil-library:** introduce tnw-anchor-styler component ([809bce5](https://github.com/ionic-team/stencil-component-starter/commit/809bce597e73381db71cf370e1ee694e4e55a770))
+* **tnw-button:** implement hover effects and styling ([5e3be35](https://github.com/ionic-team/stencil-component-starter/commit/5e3be358a8f5dba15f3177c04ed7aa68c2663acb))
+* **tnw-card:** implement new props and fix styling issues ([467a769](https://github.com/ionic-team/stencil-component-starter/commit/467a76936f1115bd9467b089df1fe294c622ea90))
+* **tnw-copyrights-footer:** introduce new props for links and enhance styles ([0e11d7e](https://github.com/ionic-team/stencil-component-starter/commit/0e11d7e8c0b876e60dd06c84f4362f542198f5a8))
+* **tnw-image:** add new props to customize size of image ([f8ed394](https://github.com/ionic-team/stencil-component-starter/commit/f8ed394f34aadcdd57ef6df0bb856247fd3693ed))
+* **tnw-image:** introduce link prop for linkable images ([8a519cc](https://github.com/ionic-team/stencil-component-starter/commit/8a519cce6768349dba2d900c9f1846ab01e35359))
+* **tnw-input:** add appearanceColor prop ([794a8a1](https://github.com/ionic-team/stencil-component-starter/commit/794a8a1a894b7566f529725b042d4912cf675122))
+* **tnw-navbar:** add new props for more flexibility ([0f4ad16](https://github.com/ionic-team/stencil-component-starter/commit/0f4ad160f53fa0de5d4d6666d2fda83c17f8cdba))
+* **tnw-navbar:** add optional menu slot ([76a1637](https://github.com/ionic-team/stencil-component-starter/commit/76a16373db5a37c4cb0bd41e09dda4c6578bc119))
+* **tnw-subscription-form:** align input appearance with theme prop ([6c36885](https://github.com/ionic-team/stencil-component-starter/commit/6c36885bfbc63ae3b86493228efb1cf4403cc46f))
+
+
+
+
+
+
 # [2.2.0](https://github.com/ionic-team/stencil-component-starter/compare/@technway/stencil-library@2.0.2...@technway/stencil-library@2.2.0) (2025-01-08)
 
 

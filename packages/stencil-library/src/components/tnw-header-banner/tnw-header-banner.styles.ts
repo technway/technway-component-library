@@ -106,4 +106,63 @@ export const styles = `
     height: auto;
     width: 100%;
 }
+
+@media (max-width: 1024px) {
+    .${contentClass}--max-w-xl {
+        max-width: 100%;
+    }
+    
+    .${contentClass}--max-w-lg {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    :host(.${baseClass}--container),
+    .${containerClass} {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    :host(.${baseClass}--verticalCenter) {
+        padding-bottom: 50px !important;
+    }
+
+    .${contentClass} {
+        gap: 20px;
+    }
+
+    .${contentClass}--right,
+    .${contentClass}--left {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .${contentClass}--w-half {
+        width: 100%;
+    }
+
+    .${imageWrapperClass} {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .${imageWrapperClass}--pos-absolute {
+        position: relative;
+        transform: none;
+        top: auto;
+        right: auto;
+    }
+
+    .${contentClass}--max-w-md {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 567px) {
+    .${contentClass}--max-w-sm {
+        max-width: 100%;
+    }
+}
 `;

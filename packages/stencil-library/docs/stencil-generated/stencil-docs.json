@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-20T12:06:56",
+  "timestamp": "2025-01-20T13:44:47",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -12228,8 +12228,8 @@
       "filePath": "src/components/tnw-search-input/tnw-search-input.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-search-input",
-      "readme": "# tnw-search-input\n\n\n",
-      "docs": "The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.\nIt is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.",
+      "readme": "# tnw-search-input\r\n\r\n\r\n\r",
+      "docs": "The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.\r\nIt is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.",
       "docsTags": [
         {
           "name": "part",
@@ -12343,7 +12343,7 @@
           "reflectToAttr": false,
           "docs": "The autocomplete setting for the input.",
           "docsTags": [],
-          "default": "'off'",
+          "default": "'on'",
           "values": [
             {
               "type": "string"
@@ -12460,7 +12460,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label for the input.\nIt will not be displayed (Screen Reader Only).",
+          "docs": "The label for the input.\r\nIt will not be displayed (Screen Reader Only).",
           "docsTags": [],
           "default": "'Search'",
           "values": [

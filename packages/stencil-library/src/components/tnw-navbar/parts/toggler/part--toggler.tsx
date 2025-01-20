@@ -1,11 +1,12 @@
 import { h } from '@stencil/core';
 import { GLOBAL_PREFIX } from '../../../../utils/utils';
+import { MenuProps } from '../menu/part--menu-types';
 
 interface TogglerProps {
     isOpen: boolean;
     toggleMenu: () => void;
     togglerDisplay: {};
-    displayBelow?: "1024" | "767" | "567" | "1439" | "all";
+    displayBelow: MenuProps['hideMenuBelow'];
 }
 
 const baseClass = `${GLOBAL_PREFIX}-navbar__toggler`;

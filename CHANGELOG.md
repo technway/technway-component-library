@@ -41,6 +41,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.7.0](https://github.com/technway/technway-component-library/compare/root-v3.6.0...root-v3.7.0) (2025-01-21)
+
+
+### Features
+
+* **tnw-header:** improve props controlling height and responsive design ([dfbcda1](https://github.com/technway/technway-component-library/commit/dfbcda14f93c116f76ddfe856464589fe19a9253))
+* **tnw-header:** improve styling ([2cdb9f3](https://github.com/technway/technway-component-library/commit/2cdb9f3da44d53c34aa0f63271237e0bd6e63560))
+
+
+### Bug Fixes
+
+* **layout-kit:** responsive prop in Grid ([4e73633](https://github.com/technway/technway-component-library/commit/4e7363360f8c6e6b34e2fe0b0ed7ccd2e03aac43))
+* **stencil-library:** introduce 'tnw-banner' component ([c57b72d](https://github.com/technway/technway-component-library/commit/c57b72dab46b496d077353e3fc90480057f591cf))
+* **tnw-footer:** resolve validadtion issues ([87b4252](https://github.com/technway/technway-component-library/commit/87b42523f45ceeb076441bec4877e777dbf68a11))
+* **tnw-header:** responsive design issues ([0fc26ef](https://github.com/technway/technway-component-library/commit/0fc26ef7369c3df073e3ba1a292919fb3167054c))
+* **tnw-header:** styling issues ([19e1eb1](https://github.com/technway/technway-component-library/commit/19e1eb1242cd2863df1f8ea673b67ee77000259f))
+* **tnw-navbar:** validation errors and responsive design ([329b8d5](https://github.com/technway/technway-component-library/commit/329b8d593057439d48bd1a709db7e36574e9fe4a))
+
 ## [3.6.0](https://github.com/technway/technway-component-library/compare/root-v3.5.5...root-v3.6.0) (2025-01-20)
 
 

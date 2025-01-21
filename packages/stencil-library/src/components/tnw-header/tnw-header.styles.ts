@@ -24,6 +24,15 @@ export const styles = `
     transform: translate(-50%, -50%);
     padding-top: 30px;
 }
+@media (max-width: 1024px) {
+    ::slotted(tnw-header-banner) {
+        padding-block: 30px;
+    }
+    :host(.${baseClass}--centerBanner) ::slotted(tnw-header-banner) {
+        position: static;
+        transform: none;
+    }
+}
 
 .${contentClass} {
     gap: 25px;

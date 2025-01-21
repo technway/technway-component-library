@@ -645,7 +645,7 @@ export namespace Components {
         /**
           * Sets the minimum height of the header. Like the `height` prop, it accepts size types like 'full', 'auto', or 'full-screen'. Default is 'auto'.
          */
-        "minHeight": SizeType | 'full' | 'auto' | 'full-screen';
+        "minHeight": SizeType | 'xl' | 'full' | 'auto' | 'full-screen';
     }
     /**
      * This component is designed to be used inside the `tnw-header`.
@@ -2818,7 +2818,7 @@ declare namespace LocalJSX {
         /**
           * Sets the minimum height of the header. Like the `height` prop, it accepts size types like 'full', 'auto', or 'full-screen'. Default is 'auto'.
          */
-        "minHeight"?: SizeType | 'full' | 'auto' | 'full-screen';
+        "minHeight"?: SizeType | 'xl' | 'full' | 'auto' | 'full-screen';
     }
     /**
      * This component is designed to be used inside the `tnw-header`.

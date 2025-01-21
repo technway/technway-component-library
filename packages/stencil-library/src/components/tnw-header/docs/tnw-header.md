@@ -30,7 +30,7 @@ It allows for flexible layout options with support for navigation bars, banners,
 | **centerBanner** | <div>If `true`, centers the banner content both horizontally and vertically within the header.</div> | `false` | `boolean` |
 | **disableInternalContainer** | <div>If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.</div> | `false` | `boolean` |
 | **height** | <div>Sets the overall height of the header. Options include predefined size types such as 'full', 'auto', or 'full-screen'. Default is 'auto'.</div> | `'auto'` | `"auto"` \| `"full"` \| `"full-screen"` \| `"lg"` \| `"md"` \| `"sm"` \| `"xl"` |
-| **minHeight** | <div>Sets the minimum height of the header. Like the `height` prop, it accepts size types like 'full', 'auto', or 'full-screen'. Default is 'auto'.</div> | `'auto'` | `"auto"` \| `"full"` \| `"full-screen"` \| `"lg"` \| `"md"` \| `"sm"` |
+| **minHeight** | <div>Sets the minimum height of the header. Like the `height` prop, it accepts size types like 'full', 'auto', or 'full-screen'. Default is 'auto'.</div> | `'auto'` | `"auto"` \| `"full"` \| `"full-screen"` \| `"lg"` \| `"md"` \| `"sm"` \| `"xl"` |
 
 </div>
 

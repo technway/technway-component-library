@@ -8,7 +8,7 @@ const Header = () => {
         <TnwHeader
             disableInternalContainer={true}
             height="auto"
-            minHeight="lg"
+            minHeight="xl"
             centerBanner={true}
         >
             <NavbarWithData

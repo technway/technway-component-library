@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      {/* <div className="container layout">
+      <div className="container layout">
         <Flex direction="col" gap={16}>
           <Flex direction="col" gap={12}>
             <TnwHeading text='Banners' level='h2' />
@@ -88,7 +88,7 @@ export default function Home() {
 
           <TnwDivider />
         </Flex>
-      </div > */}
+      </div >
     </>
   );
 }

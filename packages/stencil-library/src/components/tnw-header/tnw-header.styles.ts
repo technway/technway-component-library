@@ -1,6 +1,6 @@
 import { GLOBAL_PREFIX } from "../../utils/utils";
 
-const baseClass = `${GLOBAL_PREFIX}-header`; 
+const baseClass = `${GLOBAL_PREFIX}-header`;
 const contentClass = `${baseClass}__content`;
 
 export const styles = `
@@ -22,15 +22,28 @@ export const styles = `
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding-top: 30px;
+}
+@media (min-width: 1025px) {
+    :host(.${baseClass}--centerBanner) ::slotted(tnw-header-banner) {
+        padding-top: 30px;
+    }
 }
 @media (max-width: 1024px) {
+    :host(.${baseClass}) {
+        min-height: unset !important;
+        height: auto !important;
+    }
     ::slotted(tnw-header-banner) {
-        padding-block: 30px;
+        padding-block: 100px;
     }
     :host(.${baseClass}--centerBanner) ::slotted(tnw-header-banner) {
         position: static;
         transform: none;
+    }
+}
+@media (max-width: 567px) {
+    ::slotted(tnw-header-banner) {
+        padding-block: 60px;
     }
 }
 

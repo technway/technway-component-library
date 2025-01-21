@@ -175,10 +175,10 @@ describe('tnw-navbar', () => {
       expect(spyEvent).toHaveBeenCalledWith({ isMenuHidden: true, windowWidth: 600 });
     });
 
-    it('does not hide the menu when hideMenuBelow is false', async () => {
+    it('does not hide the menu when hideMenuBelow is never', async () => {
       const page = await newSpecPage({
         components: [TnwNavbar],
-        html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="false"></tnw-navbar>`,
+        html: `<tnw-navbar menu-data='{"menuItems":[{"label":"Home","link":"/"}]}' hide-menu-below="never"></tnw-navbar>`,
       });
       const component = page.rootInstance as TnwNavbar;
       window.innerWidth = 1023;
@@ -451,12 +451,15 @@ describe('tnw-navbar', () => {
       );
     });
 
-    it('handles invalid JSON data gracefully', async () => {
-      await checkSpecPageError(
+    it('does not render menu or menu slot when menuData is not valid JSON', async () => {
+      const host = await createSpecPage(
         TnwNavbar,
-        `<tnw-navbar menu-data="invalid JSON"></tnw-navbar>`,
-        'Failed to parse menuData:'
-      );
+        `<tnw-navbar menu-data="invalid JSON"></tnw-navbar>`
+      ) as HTMLTnwNavbarElement;
+      const menu = queryElement(host, '[part="menu"]', false);
+      const menuSlot = queryElement(host, 'slot[name="menu"]');
+      expect(menu).toBeNull();
+      expect(menuSlot).toBeNull();
     });
   });
 });

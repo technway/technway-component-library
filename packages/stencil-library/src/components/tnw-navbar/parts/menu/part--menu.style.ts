@@ -16,10 +16,10 @@ const closedMenuStyles = () => (`
 const openedMenuStyles = () => (`
     transition: opacity 250ms ease-in-out, transform 250ms ease-in-out, visibility 250ms ease-in-out;
     padding: 40px 30px;
-    top: 130%;
+    top: 140%;
     left: 0;
     right: 0;
-    border: var(--tnw-border-sm) solid var(--tnw-primary-color-opacity) !important;
+    border: var(--tnw-border-sm) solid var(--tnw-border-color-opacity) !important;
     background-color: var(--tnw-background-color) !important;
     opacity: 1;
     visibility: visible;
@@ -28,6 +28,7 @@ const openedMenuStyles = () => (`
     align-items: flex-start;
     justify-content: flex-start;
     gap: 20px;
+    z-index: 0;
 `);
 
 export const styles = `
@@ -78,6 +79,12 @@ export const styles = `
     .${baseClass}--hideMenuBelow-567.${baseClass}--opened {
         ${openedMenuStyles()}   
     }
+}
+.${baseClass}--hideMenuBelow-always {
+    ${closedMenuStyles()}
+}
+.${baseClass}--hideMenuBelow-always.${baseClass}--opened {
+    ${openedMenuStyles()}   
 }
 
 .${itemClass} {

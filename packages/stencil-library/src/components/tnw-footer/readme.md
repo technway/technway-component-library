@@ -50,13 +50,13 @@ social media, and a subscription subscription form. It is designed to be highly 
 
 | Part             | Description                                              |
 | ---------------- | -------------------------------------------------------- |
-| `"brand"`        |                                                          |
-| `"contact"`      |                                                          |
+| `"brand"`        | The brand section of the footer.                         |
+| `"contact"`      | The contact section of the footer.                       |
 | `"container"`    | The container wrapping the footer sections.              |
 | `"footer"`       | The main `footer` element wrapping the entire component. |
-| `"links"`        |                                                          |
-| `"socialmedia"`  |                                                          |
-| `"subscription"` |                                                          |
+| `"links"`        | The links section of the footer.                         |
+| `"socialmedia"`  | The social media section of the footer.                  |
+| `"subscription"` | The subscription section of the footer.                  |
 
 
 ## Dependencies

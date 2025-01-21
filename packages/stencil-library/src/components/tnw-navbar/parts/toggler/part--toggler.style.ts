@@ -13,6 +13,11 @@ export const styles = `
 .${baseClass}--1439 {
     display: none;
 }
+.${baseClass}--1439 {
+    @media (max-width: 1439px) {
+        display: block;
+    }
+}
 .${baseClass}--1024 {
     @media (max-width: 1024px) {
         display: block;
@@ -28,12 +33,10 @@ export const styles = `
         display: block;
     }
 }
-.${baseClass}--1439 {
-    @media (max-width: 1439px) {
-        display: block;
-    }
-}
 .${baseClass}--always {
     display: block;
+}
+.${baseClass}--never {
+    display: none;
 }
 `;

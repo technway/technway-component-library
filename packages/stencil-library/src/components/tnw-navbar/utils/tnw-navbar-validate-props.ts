@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-navbar.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
+validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.enableSearchSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
  *
  * GENERATED USING `pnpm g:components-validations tnw-navbar`
  */
@@ -93,14 +93,21 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
+    "name": "enableSearchSlot",
+    "type": [
+      "boolean"
+    ],
+    "isRequired": false
+  },
+  {
     "name": "hideMenuBelow",
     "type": [
       "1024",
       "1439",
       "567",
       "767",
-      "false",
-      "boolean"
+      "always",
+      "never"
     ],
     "isRequired": false
   },

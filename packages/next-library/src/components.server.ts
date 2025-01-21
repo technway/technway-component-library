@@ -713,6 +713,7 @@ export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents>
             enableCtaSlot: 'enable-cta-slot',
             enableLogoSlot: 'enable-logo-slot',
             enableMenuSlot: 'enable-menu-slot',
+            enableSearchSlot: 'enable-search-slot',
             hideMenuBelow: 'hide-menu-below',
             enableLinkSlot: 'enable-link-slot',
             linksLength: 'links-length'

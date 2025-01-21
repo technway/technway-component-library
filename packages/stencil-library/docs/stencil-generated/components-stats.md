@@ -7,11 +7,11 @@ This page provides an overview of statistics related to the components.
 | Statistic | Value |
 | --- | --- |
 | **Total Components** | `34` |
-| **Total Props** | `352` |
+| **Total Props** | `353` |
 | **Total Events** | `15` |
 | **Total Methods** | `6` |
-| **Total Slots** | `57` |
-| **Total Features** | `430` |
+| **Total Slots** | `58` |
+| **Total Features** | `432` |
 |   |  |
 | **Shadow DOM Components** | `34` |
 | **Light DOM Components** | `0` |
@@ -201,10 +201,10 @@ This page provides an overview of statistics related to the components.
 ### tnw-navbar
 | Feature | Count |
 | --- | --- |
-| **Props** | `18` |
+| **Props** | `19` |
 | **Events** | `3` |
 | **Methods** | `0` |
-| **Slots** | `4` |
+| **Slots** | `5` |
 
 ### tnw-portfolio-grid
 | Feature | Count |

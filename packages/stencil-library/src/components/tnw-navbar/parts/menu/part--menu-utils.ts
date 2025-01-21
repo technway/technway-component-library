@@ -13,7 +13,7 @@ export function getMenuClasses(
 ): string {
     return [
         baseClass,
-        typeof hideMenuBelow === 'string' && hideMenuBelow !== 'false' ? `${baseClass}--hideMenuBelow-${hideMenuBelow}` : '',
+        `${baseClass}--hideMenuBelow-${hideMenuBelow}`,
         isMenuOpened ? `${baseClass}--opened` : '',
         `${baseClass}--position-${menuPosition}`,
         menuExactCenter ? `${baseClass}--exact-center` : ``,

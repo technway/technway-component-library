@@ -222,12 +222,21 @@ describe('tnw-footer', () => {
       );
     });
 
-    it('handles invalid JSON data gracefully', async () => {
-      await checkSpecPageError(
+    it('does not render footer content when footerData is not valid JSON', async () => {
+      const host = await createSpecPage(
         TnwFooter,
-        `<tnw-footer footer-data="invalid JSON"></tnw-footer>`,
-        'Failed to parse footerData:'
-      );
+        `<tnw-footer footer-data="invalid JSON"></tnw-footer>`
+      ) as HTMLTnwFooterElement;
+      const brand = queryElement(host, '[part="brand"]', false);
+      const links = queryElement(host, '[part="links"]', false);
+      const contact = queryElement(host, '[part="contact"]', false);
+      const socialmedia = queryElement(host, '[part="socialmedia"]', false);
+      const subscription = queryElement(host, '[part="subscription"]', false);
+      expect(brand).toBeNull();
+      expect(links).toBeNull();
+      expect(contact).toBeNull();
+      expect(socialmedia).toBeNull();
+      expect(subscription).toBeNull();
     });
   });
 });

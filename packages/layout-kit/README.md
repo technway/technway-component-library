@@ -39,22 +39,59 @@ function MyComponent() {
 
 #### Responsive Grid
 
+The Grid component uses max-width media queries, meaning styles are applied when the screen width is below the breakpoint. The order of precedence goes from larger to smaller screens.
+
 ```tsx
 function ResponsiveGrid() {
   return (
     <Grid
-      responsive={{
-        xs: 1, // 1 column on extra small screens
-        sm: 2, // 2 columns on small screens
-        md: 3, // 3 columns on medium screens
-        lg: 4, // 4 columns on large screens
-      }}
       gap={4}
+      responsive={{
+        default: 4, // Base layout (no media query)
+        lg: 3,      // 3 columns when width <= 1279px
+        md: 2,      // 2 columns when width <= 1024px
+        sm: 1       // 1 column when width <= 767px
+      }}
     >
-      {/* Grid items */}
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+      <div>Item 4</div>
     </Grid>
   );
 }
+```
+
+#### Breakpoint Reference
+
+Media query breakpoints (max-width):
+- `2xl`: 1920px
+- `xl`: 1439px
+- `lg`: 1279px
+- `md`: 1024px
+- `sm`: 767px
+- `xs`: 567px
+- `default`: no media query (base layout)
+
+Example of how the responsive grid works:
+```tsx
+// This configuration:
+<Grid
+  responsive={{
+    default: 3, // Base: 3 columns
+    md: 2,      // ≤ 1024px: 2 columns
+    sm: 1,      // ≤ 767px: 1 column
+  }}
+  gap={4}
+>
+
+// Results in these classes:
+"grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4"
+
+// And applies like this:
+// > 1024px: 3 columns (default)
+// ≤ 1024px: 2 columns (md breakpoint)
+// ≤ 767px: 1 column (sm breakpoint)
 ```
 
 ### Flex Component

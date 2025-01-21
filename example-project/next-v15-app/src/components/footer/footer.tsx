@@ -1,6 +1,6 @@
 'use client';
 
-import { TnwCopyrightsFooter, TnwFooter, TnwImage } from "@technway/next-library/src/components";
+import { TnwAnchorStyler, TnwCopyrightsFooter, TnwFooter, TnwImage } from "@technway/next-library/src/components";
 import { FooterData } from "@technway/stencil-library/components/tnw-footer/utils/tnw-footer-data-types";
 import Link from "next/link";
 
@@ -61,14 +61,12 @@ const Footer = () => {
                 linksLength={2}
             >
                 {/* Links */}
-                <Link
-                    slot='link-1'
-                    href="/"
-                >Home</Link>
-                <Link
-                    slot='link-2'
-                    href="/Services"
-                >Services</Link>
+                <TnwAnchorStyler enableNewTabIcon={true} slot='link-1' textDecoration="none">
+                    <Link href="/">Home</Link>
+                </TnwAnchorStyler>
+                <TnwAnchorStyler enableNewTabIcon={true} slot='link-2' textDecoration="none">
+                    <Link href="/Services">Services</Link>
+                </TnwAnchorStyler>
             </TnwCopyrightsFooter>
         </TnwFooter>
     )

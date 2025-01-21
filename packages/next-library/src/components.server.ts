@@ -17,6 +17,7 @@ import { TnwAlert as TnwAlertElement, defineCustomElement as defineTnwAlert } fr
 import { TnwAnchorStyler as TnwAnchorStylerElement, defineCustomElement as defineTnwAnchorStyler } from "@technway/stencil-library/components/tnw-anchor-styler.js";
 import { TnwAnchor as TnwAnchorElement, defineCustomElement as defineTnwAnchor } from "@technway/stencil-library/components/tnw-anchor.js";
 import { TnwBadge as TnwBadgeElement, defineCustomElement as defineTnwBadge } from "@technway/stencil-library/components/tnw-badge.js";
+import { TnwBanner as TnwBannerElement, defineCustomElement as defineTnwBanner } from "@technway/stencil-library/components/tnw-banner.js";
 import { TnwButton as TnwButtonElement, defineCustomElement as defineTnwButton } from "@technway/stencil-library/components/tnw-button.js";
 import { TnwCard as TnwCardElement, defineCustomElement as defineTnwCard } from "@technway/stencil-library/components/tnw-card.js";
 import { TnwContactBanner as TnwContactBannerElement, defineCustomElement as defineTnwContactBanner } from "@technway/stencil-library/components/tnw-contact-banner.js";
@@ -186,6 +187,36 @@ export const TnwBadge: StencilReactComponent<TnwBadgeElement, TnwBadgeEvents> = 
             size: 'size',
             borderRadius: 'border-radius',
             imageSrc: 'image-src'
+        },
+        hydrateModule: import('@technway/stencil-library/hydrate')
+    });
+
+type TnwBannerEvents = NonNullable<unknown>;
+
+export const TnwBanner: StencilReactComponent<TnwBannerElement, TnwBannerEvents> = typeof window !== 'undefined'
+    ? /*@__PURE__*/ createComponent<TnwBannerElement, TnwBannerEvents>({
+        tagName: 'tnw-banner',
+        elementClass: TnwBannerElement,
+        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+        react: React,
+        events: {} as TnwBannerEvents,
+        defineCustomElement: defineTnwBanner
+    })
+    : /*@__PURE__*/ createSSRComponent<TnwBannerElement, TnwBannerEvents>({
+        tagName: 'tnw-banner',
+        properties: {
+            appearance: 'appearance',
+            appearanceColor: 'appearance-color',
+            enableContentSlot: 'enable-content-slot',
+            alignment: 'alignment',
+            textAlignment: 'text-alignment',
+            borderRadius: 'border-radius',
+            margin: 'margin',
+            paddingHorizontal: 'padding-horizontal',
+            paddingVertical: 'padding-vertical',
+            gap: 'gap',
+            layout: 'layout',
+            disableInternalContainer: 'disable-internal-container'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });
@@ -682,6 +713,7 @@ export const TnwNavbar: StencilReactComponent<TnwNavbarElement, TnwNavbarEvents>
             enableCtaSlot: 'enable-cta-slot',
             enableLogoSlot: 'enable-logo-slot',
             enableMenuSlot: 'enable-menu-slot',
+            enableSearchSlot: 'enable-search-slot',
             hideMenuBelow: 'hide-menu-below',
             enableLinkSlot: 'enable-link-slot',
             linksLength: 'links-length'

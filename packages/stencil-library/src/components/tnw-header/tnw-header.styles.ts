@@ -9,9 +9,6 @@ export const styles = `
 }
     
 :host {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
     position: relative;
 }
 :host(.${baseClass}--borderBottom) {
@@ -19,21 +16,15 @@ export const styles = `
     border-bottom-style: solid;
 }
 
-:host(.${baseClass}--centerBanner) {
-    align-items: center;
-    justify-content: center; 
-}
-:host(.${baseClass}--centerBanner) ::slotted(tnw-navbar) {
-    margin-bottom: auto;
-}
 :host(.${baseClass}--centerBanner) ::slotted(tnw-header-banner) {
-    margin-block: auto;
-    padding-bottom: 10%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 30px;
 }
 
 .${contentClass} {
-    display: flex;
-    flex-direction: column;
     gap: 25px;
     height: 100%;
     width: 100%;

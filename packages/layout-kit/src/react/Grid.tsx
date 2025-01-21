@@ -65,7 +65,7 @@ export interface SpacingProps extends HTMLAttributes<HTMLDivElement> {
 // Grid component
 export const Grid = forwardRef<HTMLDivElement, PolymorphicComponentProp<'div', GridProps>>(
   ({ 
-    columns, 
+    columns = 1,
     gap = 4, 
     responsive,
     children, 
@@ -73,24 +73,31 @@ export const Grid = forwardRef<HTMLDivElement, PolymorphicComponentProp<'div', G
     as: Component = 'div', 
     ...props 
   }, ref) => {
-    // Get current grid configuration
     const gridConfig = layoutKitConfig.getGridConfig();
 
-    // Validate column counts
     const validateColumns = (cols?: ColumnCount) => 
       cols && gridConfig.columnCounts.includes(cols) ? cols : gridConfig.columnCounts[0];
 
-    // Determine base columns, prioritizing responsive or falling back to prop
-    const baseColumns = responsive 
-      ? validateColumns(Object.values(responsive)[0]) // Use first responsive column value
-      : validateColumns(columns); // Validate columns prop
+    // Order breakpoints from largest to smallest for max-width media queries
+    const breakpointOrder: Breakpoint[] = ['2xl', 'xl', 'lg', 'md', 'sm', 'xs', 'default'];
 
     const responsiveClasses = responsive 
       ? Object.entries(responsive)
-          .map(([breakpoint, cols]) => 
-            `${breakpoint}:grid-cols-${validateColumns(cols)}`
-          ).join(' ')
+          .sort(([a], [b]) => {
+            return breakpointOrder.indexOf(a as Breakpoint) - breakpointOrder.indexOf(b as Breakpoint);
+          })
+          .map(([breakpoint, cols]) => {
+            if (breakpoint === 'default') {
+              return `grid-cols-${validateColumns(cols)}`;
+            }
+            return `${breakpoint}\:grid-cols-${validateColumns(cols)}`;
+          })
+          .join(' ')
       : '';
+
+    const baseColumns = responsive?.default 
+      ? validateColumns(responsive.default)
+      : validateColumns(columns);
 
     const gridClasses = twMerge(
       `grid grid-cols-${baseColumns} gap-${gap}`,

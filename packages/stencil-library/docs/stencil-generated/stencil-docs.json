@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-21T13:28:53",
+  "timestamp": "2025-01-21T14:04:48",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -6556,10 +6556,10 @@
         },
         {
           "name": "minHeight",
-          "type": "\"auto\" | \"full\" | \"full-screen\" | \"lg\" | \"md\" | \"sm\"",
+          "type": "\"auto\" | \"full\" | \"full-screen\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
           "complexType": {
-            "original": "SizeType | 'full' | 'auto' | 'full-screen'",
-            "resolved": "\"auto\" | \"full\" | \"full-screen\" | \"lg\" | \"md\" | \"sm\"",
+            "original": "SizeType | 'xl' | 'full' | 'auto' | 'full-screen'",
+            "resolved": "\"auto\" | \"full\" | \"full-screen\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
             "references": {
               "SizeType": {
                 "location": "import",
@@ -6597,6 +6597,10 @@
             },
             {
               "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
               "type": "string"
             }
           ],

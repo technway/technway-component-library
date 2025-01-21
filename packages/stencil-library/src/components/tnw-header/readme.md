@@ -55,7 +55,7 @@ It allows for flexible layout options with support for navigation bars, banners,
 | `centerBanner`             | `center-banner`              | If `true`, centers the banner content both horizontally and vertically within the header.                                                      | `boolean`                                                                          | `false`     |
 | `disableInternalContainer` | `disable-internal-container` | If `true`, a container class will be added around the content to align it within the page layout. Default is `false`.                          | `boolean`                                                                          | `false`     |
 | `height`                   | `height`                     | Sets the overall height of the header. Options include predefined size types such as 'full', 'auto', or 'full-screen'. Default is 'auto'.      | `"auto" \| "full" \| "full-screen" \| "lg" \| "md" \| "sm" \| "xl"`                | `'auto'`    |
-| `minHeight`                | `min-height`                 | Sets the minimum height of the header. Like the `height` prop, it accepts size types like 'full', 'auto', or 'full-screen'. Default is 'auto'. | `"auto" \| "full" \| "full-screen" \| "lg" \| "md" \| "sm"`                        | `'auto'`    |
+| `minHeight`                | `min-height`                 | Sets the minimum height of the header. Like the `height` prop, it accepts size types like 'full', 'auto', or 'full-screen'. Default is 'auto'. | `"auto" \| "full" \| "full-screen" \| "lg" \| "md" \| "sm" \| "xl"`                | `'auto'`    |
 
 
 ## Slots

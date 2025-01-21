@@ -1118,7 +1118,11 @@ export namespace Components {
          */
         "enableMenuSlot"?: boolean;
         /**
-          * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
+          * Enables a search slot in the navbar. When enabled, a dedicated search area will be rendered  at the end of the navbar, positioned just before the CTA slot (if enabled). This allows for integration of custom search functionality through slot projection.
+         */
+        "enableSearchSlot"?: boolean;
+        /**
+          * The breakpoint at which the navbar should be hidden. Set to `never` to never hide the navbar.
          */
         "hideMenuBelow"?: MenuProps['hideMenuBelow'];
         /**
@@ -3299,7 +3303,11 @@ declare namespace LocalJSX {
          */
         "enableMenuSlot"?: boolean;
         /**
-          * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
+          * Enables a search slot in the navbar. When enabled, a dedicated search area will be rendered  at the end of the navbar, positioned just before the CTA slot (if enabled). This allows for integration of custom search functionality through slot projection.
+         */
+        "enableSearchSlot"?: boolean;
+        /**
+          * The breakpoint at which the navbar should be hidden. Set to `never` to never hide the navbar.
          */
         "hideMenuBelow"?: MenuProps['hideMenuBelow'];
         /**

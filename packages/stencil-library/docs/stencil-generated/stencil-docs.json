@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-21T14:17:08",
+  "timestamp": "2025-01-21T17:06:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -11106,6 +11106,10 @@
         {
           "name": "slot",
           "text": "link-<n> - Slots for custom menu links (requires `enableLinkSlot`)."
+        },
+        {
+          "name": "slot",
+          "text": "search - Slot for adding a custom search component (requires `enableSearchSlot`)."
         }
       ],
       "usage": {
@@ -11410,11 +11414,35 @@
           "setter": false
         },
         {
+          "name": "enableSearchSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-search-slot",
+          "reflectToAttr": false,
+          "docs": "Enables a search slot in the navbar. When enabled, a dedicated search area will be rendered \r\nat the end of the navbar, positioned just before the CTA slot (if enabled). This allows for\r\nintegration of custom search functionality through slot projection.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "hideMenuBelow",
-          "type": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"false\" | boolean",
+          "type": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"always\" | \"never\"",
           "complexType": {
             "original": "MenuProps['hideMenuBelow']",
-            "resolved": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"false\" | boolean",
+            "resolved": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"always\" | \"never\"",
             "references": {
               "MenuProps": {
                 "location": "import",
@@ -11426,9 +11454,9 @@
           "mutable": false,
           "attr": "hide-menu-below",
           "reflectToAttr": false,
-          "docs": "The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.",
+          "docs": "The breakpoint at which the navbar should be hidden. Set to `never` to never hide the navbar.",
           "docsTags": [],
-          "default": "false",
+          "default": "'never'",
           "values": [
             {
               "value": "1024",
@@ -11447,11 +11475,12 @@
               "type": "string"
             },
             {
-              "value": "false",
+              "value": "always",
               "type": "string"
             },
             {
-              "type": "boolean"
+              "value": "never",
+              "type": "string"
             }
           ],
           "optional": true,
@@ -11789,6 +11818,10 @@
         {
           "name": "menu",
           "docs": "Slot for overriding the default menu (requires `enableMenuSlot`)."
+        },
+        {
+          "name": "search",
+          "docs": "Slot for adding a custom search component (requires `enableSearchSlot`)."
         }
       ],
       "parts": [
@@ -16688,7 +16721,7 @@
       "path": "src/utils/component-props-types.ts"
     },
     "src/components/tnw-navbar/parts/menu/part--menu-types.ts::MenuProps": {
-      "declaration": "export interface MenuProps {\r\n    parsedMenuData: Menu;\r\n    isOpen: boolean;\r\n    menuPlacement: 'start' | 'middle' | 'end';\r\n    hideMenuBelow: \"1024\" | \"767\" | \"567\" | \"1439\" | false | 'false';\r\n    enableLinkSlot: boolean;\r\n    linksLength: number;\r\n    menuExactCenter: boolean;\r\n}",
+      "declaration": "export interface MenuProps {\r\n    parsedMenuData: Menu;\r\n    isOpen: boolean;\r\n    menuPlacement: 'start' | 'middle' | 'end';\r\n    hideMenuBelow: \"1024\" | \"767\" | \"567\" | \"1439\" | 'never' | 'always';\r\n    enableLinkSlot: boolean;\r\n    linksLength: number;\r\n    menuExactCenter: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/tnw-navbar/parts/menu/part--menu-types.ts"
     },

@@ -23,6 +23,7 @@ import { renderMenu } from './parts/menu/part--menu';
  * @slot logo - Slot for adding a custom logo (requires `enableLogoSlot`).
  * @slot menu - Slot for overriding the default menu (requires `enableMenuSlot`).
  * @slot link-<n> - Slots for custom menu links (requires `enableLinkSlot`).
+ * @slot search - Slot for adding a custom search component (requires `enableSearchSlot`).
  */
 @Component({
   tag: 'tnw-navbar',
@@ -136,9 +137,16 @@ export class TnwNavbar {
   @Prop() enableMenuSlot?: boolean = false;
 
   /**
-   * The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.
+   * Enables a search slot in the navbar. When enabled, a dedicated search area will be rendered 
+   * at the end of the navbar, positioned just before the CTA slot (if enabled). This allows for
+   * integration of custom search functionality through slot projection.
    */
-  @Prop() hideMenuBelow?: MenuProps['hideMenuBelow'] = false;
+  @Prop() enableSearchSlot?: boolean = false;
+
+  /**
+   * The breakpoint at which the navbar should be hidden. Set to `never` to never hide the navbar.
+   */
+  @Prop() hideMenuBelow?: MenuProps['hideMenuBelow'] = 'never';
 
   /**
    * Enables custom link slots for menu items.
@@ -209,22 +217,23 @@ export class TnwNavbar {
   @Watch('menuData')
   async handleMenuDataChange(newValue: string | undefined): Promise<void> {
     let oldParsedData = this.parsedMenuData;
-
     if (isNotEmptyString(newValue)) {
+      this.validateMenuData(newValue);
+
       try {
         const parsedData = await parseJSONAsync(newValue);
         if (parsedData === oldParsedData) {
           return;
         }
 
+        // Validate the parsed data before assigning
         this.parsedMenuData = parsedData;
       } catch (error) {
-        console.error('Navbar: Error parsing menu data', error);
         this.parsedMenuData = oldParsedData;
         throw new Error(`Failed to parse menuData: ${newValue}`);
       }
     } else {
-      this.parsedMenuData = oldParsedData;
+      this.parsedMenuData = null;
     }
   }
 
@@ -276,28 +285,7 @@ export class TnwNavbar {
       await this.handleMenuDataChange(this.menuData);
     }
 
-    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
-  }
-
-  /**
-   * Validates the menuData prop after the component has fully loaded, but only if menuData is provided.
-   * 
-   * This validation is performed in componentDidLoad rather than componentWillLoad
-   * because the menuData prop may not be available during the earlier lifecycle method.
-   * ComponentDidLoad ensures all props and state are fully initialized before validation.
-   * 
-   * @throws {Error} If menuData is provided but is not valid JSON
-   */
-  componentDidLoad() {
-    const { menuData } = this;
-    // Skip validation if menuData is empty, undefined, or null
-    if (!isNotEmptyString(menuData)) {
-      return;
-    }
-
-    if (!isValidStringifiedJSON(menuData)) {
-      throw new Error(`Failed to parse menuData: ${menuData}`);
-    }
+    validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.enableSearchSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
   }
 
   disconnectedCallback() {
@@ -308,11 +296,29 @@ export class TnwNavbar {
     }
   }
 
+  /**
+   * Validates the menuData prop after the component has fully loaded, but only if menuData is provided.
+   * 
+   * @returns {void}
+   * 
+   * @throws {Error} If menuData is provided but is not valid JSON
+   */
+  private validateMenuData(menuData: string) {
+    // Skip validation if menuData is empty, undefined, or null
+    if (!isNotEmptyString(menuData)) {
+      return;
+    }
+
+    if (!isValidStringifiedJSON(menuData)) {
+      throw new Error(`Failed to parse menuData: ${menuData}`);
+    }
+  }
+
   private handleResize = () => {
     const breakpoint =
       typeof this.hideMenuBelow === 'string'
         ? parseInt(this.hideMenuBelow, 10)
-        : this.hideMenuBelow === false || this.hideMenuBelow === 'false'
+        : this.hideMenuBelow === 'never'
           ? Infinity
           : 0;
 
@@ -379,7 +385,12 @@ export class TnwNavbar {
     );
   }
 
-  private menu(): null {
+  private menu() {
+    // if the provided menuData is not valid, menu will not be rendered
+    if (isNotEmptyString(this.menuData) && !isValidStringifiedJSON(this.menuData)) {
+      return null;
+    }
+
     const { parsedMenuData, isOpen, menuPlacement, hideMenuBelow, enableLinkSlot, linksLength, menuExactCenter } = this;
     const menu = renderMenu({
       parsedMenuData,
@@ -418,6 +429,14 @@ export class TnwNavbar {
     return <slot name='cta' />;
   }
 
+  private search(): null {
+    if (!this.enableSearchSlot) {
+      return null;
+    }
+
+    return <slot name='search' />;
+  }
+
   private renderContent() {
     return (
       <nav class={this.getContentClasses()} part='navbar'>
@@ -437,6 +456,7 @@ export class TnwNavbar {
 
         {(this.menu() || this.cta()) &&
           <div class={`${this.baseClass}__end`}>
+            {this.search()}
             {this.menuPlacement === 'end' && this.menu()}
             {this.cta()}
             {this.togglerPlacement === 'end' && this.menuToggler()}

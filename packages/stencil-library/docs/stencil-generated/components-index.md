@@ -10,6 +10,7 @@ This page lists all the library components.
 - [tnw-anchor](#tnw-anchor)
 - [tnw-anchor-styler](#tnw-anchor-styler)
 - [tnw-badge](#tnw-badge)
+- [tnw-banner](#tnw-banner)
 - [tnw-button](#tnw-button)
 - [tnw-card](#tnw-card)
 - [tnw-contact-banner](#tnw-contact-banner)
@@ -89,6 +90,14 @@ and styling can be applied through this wrapper.
 
 The `tnw-badge` component is used to display small pieces of information, such as labels, statuses, or counts, in a compact and visually distinct way.
 This component supports various customization options including different variants, appearances, and sizes, making it versatile for a wide range of use cases.
+
+---
+
+## tnw-banner
+
+The `tnw-banner` component is a customizable banner used for multi-purpose content.
+As an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.
+It supports various appearances and colors, and allows for custom content to be inserted via slots.
 
 ---
 

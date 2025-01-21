@@ -84,7 +84,8 @@ export function validateProps(propsValues: any[]): void {
       "full-screen",
       "lg",
       "md",
-      "sm"
+      "sm",
+      "xl"
     ],
     "isRequired": false
   }

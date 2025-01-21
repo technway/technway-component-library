@@ -4,11 +4,11 @@
  *
  * ⚠️ IMPORTANT:
  * 
- * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-navbar.tsx` file.
+ * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-banner.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableCtaSlot, this.enableLinkSlot, this.enableLogoSlot, this.enableMenuSlot, this.enableSearchSlot, this.hideMenuBelow, this.linksLength, this.menuData, this.menuExactCenter, this.menuPlacement, this.paddingHorizontal, this.paddingVertical, this.scopeStylesToContainer, this.sticky, this.togglerPlacement]);
+validateProps([this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.gap, this.layout, this.margin, this.paddingHorizontal, this.paddingVertical, this.textAlignment]);
  *
- * GENERATED USING `pnpm g:components-validations tnw-navbar`
+ * GENERATED USING `pnpm g:components-validations tnw-banner`
  */
 
 import { isNotEmptyString } from "../../../utils/utils";
@@ -16,12 +16,20 @@ import { isNotEmptyString } from "../../../utils/utils";
 export function validateProps(propsValues: any[]): void {
   const props = [
   {
+    "name": "alignment",
+    "type": [
+      "center",
+      "end",
+      "start"
+    ],
+    "isRequired": false
+  },
+  {
     "name": "appearance",
     "type": [
+      "gradient",
       "mixed",
-      "none",
       "outlined",
-      "outlined-bottom",
       "solid",
       "transparent"
     ],
@@ -65,120 +73,86 @@ export function validateProps(propsValues: any[]): void {
     "isRequired": false
   },
   {
-    "name": "enableCtaSlot",
+    "name": "enableContentSlot",
     "type": [
       "boolean"
     ],
     "isRequired": false
   },
   {
-    "name": "enableLinkSlot",
+    "name": "gap",
     "type": [
-      "boolean"
+      "2xl",
+      "3xl",
+      "4xl",
+      "lg",
+      "md",
+      "sm",
+      "xl",
+      "xs"
     ],
     "isRequired": false
   },
   {
-    "name": "enableLogoSlot",
+    "name": "layout",
     "type": [
-      "boolean"
+      "horizontal",
+      "vertical"
     ],
     "isRequired": false
   },
   {
-    "name": "enableMenuSlot",
+    "name": "margin",
     "type": [
-      "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "enableSearchSlot",
-    "type": [
-      "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "hideMenuBelow",
-    "type": [
-      "1024",
-      "1439",
-      "567",
-      "767",
-      "always",
-      "never"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "linksLength",
-    "type": [
-      "number"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "menuData",
-    "type": [
-      "string"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "menuExactCenter",
-    "type": [
-      "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "menuPlacement",
-    "type": [
-      "end",
-      "middle",
-      "start"
+      "2xl",
+      "3xl",
+      "4xl",
+      "lg",
+      "md",
+      "none",
+      "sm",
+      "xl",
+      "xs"
     ],
     "isRequired": false
   },
   {
     "name": "paddingHorizontal",
     "type": [
+      "2xl",
+      "3xl",
+      "4xl",
       "lg",
       "md",
       "none",
-      "sm"
+      "sm",
+      "xl",
+      "xs"
     ],
     "isRequired": false
   },
   {
     "name": "paddingVertical",
     "type": [
+      "2xl",
+      "3xl",
+      "4xl",
       "lg",
       "md",
       "none",
-      "sm"
+      "sm",
+      "xl",
+      "xs"
     ],
     "isRequired": false
   },
   {
-    "name": "scopeStylesToContainer",
+    "name": "textAlignment",
     "type": [
-      "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "sticky",
-    "type": [
-      "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "togglerPlacement",
-    "type": [
+      "center",
       "end",
+      "left",
+      "right",
       "start"
     ],
     "isRequired": false

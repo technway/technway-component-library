@@ -1,12 +1,13 @@
 import { Component, Element, Fragment, Host, Prop, h } from '@stencil/core';
 import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX } from '../../utils/utils';
 import { LogicalAlignmentType, AppearanceType, BorderRadiusType, ColorType, LayoutType, AlignmentType } from '../../utils/component-props-types';
-import { styles } from './tnw-contact-banner.styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
-import { validateProps } from './utils/tnw-contact-banner-validate-props';
+import { styles } from './tnw-banner.styles';
+import { validateProps } from './utils/tnw-banner-validate-props';
 
 /**
- * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
+ * The `tnw-banner` component is a customizable banner used for multi-purpose content.
+ * As an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.
  * It supports various appearances and colors, and allows for custom content to be inserted via slots.
  * 
  * @slot subtitle - Use this slot to insert a short title or subtitle in the banner.
@@ -15,18 +16,16 @@ import { validateProps } from './utils/tnw-contact-banner-validate-props';
  * @slot button - Use this slot to insert a button or call-to-action element.
  * 
  * @slot content - Use this slot to insert custom content when `enableContentSlot` is set to `true`. When enabled, only the `content` slot will be available.
- * 
- * @deprecated Since v2.5.0. Use `tnw-banner` instead.
  */
 @Component({
-	tag: 'tnw-contact-banner',
-	shadow: true,
+  tag: 'tnw-banner',
+  shadow: true,
 })
-export class TnwContactBanner {
-	private baseClass = `${GLOBAL_PREFIX}-contact-banner`;
+export class TnwBanner {
+	private baseClass = `${GLOBAL_PREFIX}-banner`;
 	private componentStyles: CSSStyleSheet;
 
-	@Element() el!: HTMLTnwContactBannerElement;
+	@Element() el!: HTMLTnwBannerElement;
 
 	/**
 	 * Defines the visual appearance of the banner (e.g., solid, outline).

@@ -6,13 +6,21 @@ import { TnwDivider, TnwHeading } from '@technway/next-library/src/components';
 import Navbar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 import Header from '../components/header/header';
+import NewsletterBanner from '@/components/newsletter-banner';
 
 export default function Home() {
   return (
     <>
       <Header />
-      <div className="container">
+      <div className="container layout">
         <Flex direction="col" gap={16}>
+          <Flex direction="col" gap={12}>
+            <TnwHeading text='Banners' level='h2' />
+            <NewsletterBanner />
+          </Flex>
+
+          <TnwDivider />
+
           <Flex direction="col" gap={12}>
             <TnwHeading text='Navbar' level='h2' />
             <Navbar
@@ -52,7 +60,15 @@ export default function Home() {
           <Flex direction="col" gap={6}>
             <TnwHeading text='Cards' level='h2' />
             <Flex direction="col" gap={16}>
-              <Grid columns={2} gap={10}>
+              <Grid
+                gap={10}
+                responsive={{
+                  default: 3,
+                  md: 2,
+                  sm: 1,
+                }}
+              >
+                <ArticleCard imageHeight='280px' />
                 <ArticleCard imageHeight='280px' />
                 <ArticleCard imageHeight='280px' />
               </Grid>
@@ -72,7 +88,7 @@ export default function Home() {
 
           <TnwDivider />
         </Flex>
-      </div>
+      </div >
     </>
   );
 }

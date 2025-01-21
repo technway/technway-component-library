@@ -24,10 +24,15 @@ import { validateProps } from './utils/tnw-footer-validate-props';
  * @slot socialmedia - Slot for social media icons.
  * @slot subscription - Slot for the subscription subscription form.
  * @slot copyrights - Slot for copyright information. Use `tnw-copyrights-footer` instead.
+ * @slot link-<n> - Slots for custom links (requires `footerData.links.useCustomLinks` to be true).
  * 
  * @part footer - The main `footer` element wrapping the entire component.
  * @part container - The container wrapping the footer sections.
- * @slot link-<n> - Slots for custom links (requires `footerData.links.useCustomLinks` to be true).
+ * @part brand - The brand section of the footer.
+ * @part links - The links section of the footer.
+ * @part contact - The contact section of the footer.
+ * @part socialmedia - The social media section of the footer.
+ * @part subscription - The subscription section of the footer.
  */
 @Component({
   tag: 'tnw-footer',
@@ -159,28 +164,7 @@ export class TnwFooter {
 
     validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor]);
   }
-
-  /**
-   * Validates the footerData prop after the component has fully loaded, but only if footerData is provided.
-   * 
-   * This validation is performed in componentDidLoad rather than componentWillLoad
-   * because the footerData prop may not be available during the earlier lifecycle method.
-   * ComponentDidLoad ensures all props and state are fully initialized before validation.
-   * 
-   * @throws {Error} If footerData is provided but is not valid JSON
-   */
-  componentDidLoad() {
-    const { footerData } = this;
-    // Skip validation if footerData is empty, undefined, or null
-    if (!isNotEmptyString(footerData)) {
-      return;
-    }
-
-    if (!isValidStringifiedJSON(footerData)) {
-      throw new Error(`Failed to parse footerData: ${footerData}`);
-    }
-  }
-
+  
   private getHostClasses(): string {
     const { baseClass, backgroundColor, centerContent, borderTopColor, margin } = this;
 
@@ -378,39 +362,64 @@ export class TnwFooter {
     );
   }
 
-  render() {
-    const { parsedFooterData } = this;
+  private isValidFooterData(): boolean {
+    return isNotEmptyString(this.footerData) && isValidStringifiedJSON(this.footerData);
+  }
 
+  private renderFooterContent() {
+    if (!this.parsedFooterData) {
+      return null;
+    }
+
+    const { brand, socialmedia, links, contact, subscription } = this.parsedFooterData;
+
+    return (
+      <Fragment>
+        {this.renderBrand(brand!, socialmedia!)}
+        {this.renderLinks(links!)}
+        {this.renderContact(contact!)}
+        {this.renderSubscription(subscription!)}
+      </Fragment>
+    );
+  }
+
+  private renderDefaultSlots() {
+    const slotNames = ['brand', 'links', 'contact', 'socialmedia', 'subscription'];
+    return (
+      <Fragment>
+        {slotNames.map(name => (
+          <slot name={name} key={name}></slot>
+        ))}
+      </Fragment>
+    );
+  }
+
+  private getFooterContent() {
+    if (this.parsedFooterData === null) {
+      return this.renderDefaultSlots();
+    }
+
+    if (!this.isValidFooterData()) {
+      return null;
+    }
+
+    return this.renderFooterContent();
+  }
+
+  render() {
     return (
       <Host class={this.getHostClasses()}>
         <footer
           class={!this.disableInternalContainer ? 'container' : ''}
           part="container"
         >
-          <div
-            class={this.getContentClasses()}
-          >
-            {parsedFooterData !== null ? (
-              <Fragment>
-                {this.renderBrand(parsedFooterData.brand!, parsedFooterData.socialmedia!)}
-                {this.renderLinks(parsedFooterData.links!)}
-                {this.renderContact(parsedFooterData.contact!)}
-                {this.renderSubscription(parsedFooterData.subscription!)}
-              </Fragment>
-            ) : (
-              <Fragment>
-                <slot name="brand"></slot>
-                <slot name="links"></slot>
-                <slot name="contact"></slot>
-                <slot name="socialmedia"></slot>
-                <slot name="subscription"></slot>
-              </Fragment>
-            )}
+          <div class={this.getContentClasses()}>
+            {this.getFooterContent()}
           </div>
 
           <slot name="copyrights" />
         </footer>
-      </Host >
+      </Host>
     );
   }
 }

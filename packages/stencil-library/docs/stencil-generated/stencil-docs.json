@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-20T20:12:19",
+  "timestamp": "2025-01-21T17:40:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -1976,6 +1976,634 @@
       }
     },
     {
+      "filePath": "src/components/tnw-banner/tnw-banner.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-banner",
+      "readme": "# tnw-banner\n\n\n",
+      "docs": "The `tnw-banner` component is a customizable banner used for multi-purpose content.\nAs an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.\nIt supports various appearances and colors, and allows for custom content to be inserted via slots.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "subtitle - Use this slot to insert a short title or subtitle in the banner."
+        },
+        {
+          "name": "slot",
+          "text": "title - Use this slot to insert the main title or heading of the banner."
+        },
+        {
+          "name": "slot",
+          "text": "description - Use this slot to insert a description or additional information in the banner."
+        },
+        {
+          "name": "slot",
+          "text": "button - Use this slot to insert a button or call-to-action element."
+        },
+        {
+          "name": "slot",
+          "text": "content - Use this slot to insert custom content when `enableContentSlot` is set to `true`. When enabled, only the `content` slot will be available."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "alignment",
+          "type": "\"center\" | \"end\" | \"start\"",
+          "complexType": {
+            "original": "LogicalAlignmentType",
+            "resolved": "\"center\" | \"end\" | \"start\"",
+            "references": {
+              "LogicalAlignmentType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::LogicalAlignmentType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "alignment",
+          "reflectToAttr": false,
+          "docs": "If `true`, the banner will center its content.",
+          "docsTags": [],
+          "default": "'center'",
+          "values": [
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "appearance",
+          "type": "\"gradient\" | \"mixed\" | \"outlined\" | \"solid\" | \"transparent\"",
+          "complexType": {
+            "original": "AppearanceType | 'gradient'",
+            "resolved": "\"gradient\" | \"mixed\" | \"outlined\" | \"solid\" | \"transparent\"",
+            "references": {
+              "AppearanceType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::AppearanceType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "Defines the visual appearance of the banner (e.g., solid, outline).",
+          "docsTags": [],
+          "default": "'solid'",
+          "values": [
+            {
+              "value": "gradient",
+              "type": "string"
+            },
+            {
+              "value": "mixed",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            },
+            {
+              "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "appearanceColor",
+          "type": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "ColorType",
+            "resolved": "\"auto\" | \"black\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance-color",
+          "reflectToAttr": false,
+          "docs": "Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "borderRadius",
+          "type": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "BorderRadiusType",
+            "resolved": "\"2xl\" | \"3xl\" | \"circle\" | \"default\" | \"full\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "BorderRadiusType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::BorderRadiusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-radius",
+          "reflectToAttr": false,
+          "docs": "Defines the border radius of the banner.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "circle",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disableInternalContainer",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-internal-container",
+          "reflectToAttr": false,
+          "docs": "If `true`, the section body will be wrapped in a container for centering and padding.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "enableContentSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-content-slot",
+          "reflectToAttr": false,
+          "docs": "If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "gap",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "gap",
+          "reflectToAttr": false,
+          "docs": "Defines the spacing between the content and the button. This will not control gap between elements inside the content.",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "layout",
+          "type": "\"horizontal\" | \"vertical\"",
+          "complexType": {
+            "original": "LayoutType",
+            "resolved": "\"horizontal\" | \"vertical\"",
+            "references": {
+              "LayoutType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::LayoutType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "layout",
+          "reflectToAttr": false,
+          "docs": "The layout of the banner.",
+          "docsTags": [],
+          "default": "'vertical'",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "margin",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "margin",
+          "reflectToAttr": false,
+          "docs": "Defines the margin of the banner.",
+          "docsTags": [],
+          "default": "'xl'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "paddingHorizontal",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "padding-horizontal",
+          "reflectToAttr": false,
+          "docs": "Defines the horizontal padding of the banner.",
+          "docsTags": [],
+          "default": "'lg'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "paddingVertical",
+          "type": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "'none' | \"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\" | '2xl' | '3xl' | '4xl'",
+            "resolved": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "padding-vertical",
+          "reflectToAttr": false,
+          "docs": "Defines the vertical padding of the banner.",
+          "docsTags": [],
+          "default": "'lg'",
+          "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
+            {
+              "value": "3xl",
+              "type": "string"
+            },
+            {
+              "value": "4xl",
+              "type": "string"
+            },
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "textAlignment",
+          "type": "\"center\" | \"end\" | \"left\" | \"right\" | \"start\"",
+          "complexType": {
+            "original": "AlignmentType",
+            "resolved": "\"center\" | \"end\" | \"left\" | \"right\" | \"start\"",
+            "references": {
+              "AlignmentType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::AlignmentType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "text-alignment",
+          "reflectToAttr": false,
+          "docs": "Defines the alignment of the text content.",
+          "docsTags": [],
+          "default": "'center'",
+          "values": [
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "button",
+          "docs": "Use this slot to insert a button or call-to-action element."
+        },
+        {
+          "name": "content",
+          "docs": "Use this slot to insert custom content when `enableContentSlot` is set to `true`. When enabled, only the `content` slot will be available."
+        },
+        {
+          "name": "description",
+          "docs": "Use this slot to insert a description or additional information in the banner."
+        },
+        {
+          "name": "subtitle",
+          "docs": "Use this slot to insert a short title or subtitle in the banner."
+        },
+        {
+          "name": "title",
+          "docs": "Use this slot to insert the main title or heading of the banner."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
       "filePath": "src/components/tnw-button/tnw-button.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-button",
@@ -3586,6 +4214,10 @@
         {
           "name": "slot",
           "text": "content - Use this slot to insert custom content when `enableContentSlot` is set to `true`. When enabled, only the `content` slot will be available."
+        },
+        {
+          "name": "deprecated",
+          "text": "Since v2.5.0. Use `tnw-banner` instead."
         }
       ],
       "usage": {
@@ -4188,7 +4820,8 @@
       "parts": [],
       "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {}
+      "dependencyGraph": {},
+      "deprecation": "Since v2.5.0. Use `tnw-banner` instead."
     },
     {
       "filePath": "src/components/tnw-copyrights-footer/tnw-copyrights-footer.tsx",
@@ -5050,6 +5683,10 @@
           "text": "copyrights - Slot for copyright information. Use `tnw-copyrights-footer` instead."
         },
         {
+          "name": "slot",
+          "text": "link-<n> - Slots for custom links (requires `footerData.links.useCustomLinks` to be true)."
+        },
+        {
           "name": "part",
           "text": "footer - The main `footer` element wrapping the entire component."
         },
@@ -5058,8 +5695,24 @@
           "text": "container - The container wrapping the footer sections."
         },
         {
-          "name": "slot",
-          "text": "link-<n> - Slots for custom links (requires `footerData.links.useCustomLinks` to be true)."
+          "name": "part",
+          "text": "brand - The brand section of the footer."
+        },
+        {
+          "name": "part",
+          "text": "links - The links section of the footer."
+        },
+        {
+          "name": "part",
+          "text": "contact - The contact section of the footer."
+        },
+        {
+          "name": "part",
+          "text": "socialmedia - The social media section of the footer."
+        },
+        {
+          "name": "part",
+          "text": "subscription - The subscription section of the footer."
         }
       ],
       "usage": {
@@ -5593,11 +6246,11 @@
       "parts": [
         {
           "name": "brand",
-          "docs": ""
+          "docs": "The brand section of the footer."
         },
         {
           "name": "contact",
-          "docs": ""
+          "docs": "The contact section of the footer."
         },
         {
           "name": "container",
@@ -5609,15 +6262,15 @@
         },
         {
           "name": "links",
-          "docs": ""
+          "docs": "The links section of the footer."
         },
         {
           "name": "socialmedia",
-          "docs": ""
+          "docs": "The social media section of the footer."
         },
         {
           "name": "subscription",
-          "docs": ""
+          "docs": "The subscription section of the footer."
         }
       ],
       "dependents": [],
@@ -5923,10 +6576,10 @@
         },
         {
           "name": "minHeight",
-          "type": "\"auto\" | \"full\" | \"full-screen\" | \"lg\" | \"md\" | \"sm\"",
+          "type": "\"auto\" | \"full\" | \"full-screen\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
           "complexType": {
-            "original": "SizeType | 'full' | 'auto' | 'full-screen'",
-            "resolved": "\"auto\" | \"full\" | \"full-screen\" | \"lg\" | \"md\" | \"sm\"",
+            "original": "SizeType | 'xl' | 'full' | 'auto' | 'full-screen'",
+            "resolved": "\"auto\" | \"full\" | \"full-screen\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
             "references": {
               "SizeType": {
                 "location": "import",
@@ -5964,6 +6617,10 @@
             },
             {
               "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
               "type": "string"
             }
           ],
@@ -10469,6 +11126,10 @@
         {
           "name": "slot",
           "text": "link-<n> - Slots for custom menu links (requires `enableLinkSlot`)."
+        },
+        {
+          "name": "slot",
+          "text": "search - Slot for adding a custom search component (requires `enableSearchSlot`)."
         }
       ],
       "usage": {
@@ -10773,11 +11434,35 @@
           "setter": false
         },
         {
+          "name": "enableSearchSlot",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-search-slot",
+          "reflectToAttr": false,
+          "docs": "Enables a search slot in the navbar. When enabled, a dedicated search area will be rendered \r\nat the end of the navbar, positioned just before the CTA slot (if enabled). This allows for\r\nintegration of custom search functionality through slot projection.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "hideMenuBelow",
-          "type": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"false\" | boolean",
+          "type": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"always\" | \"never\"",
           "complexType": {
             "original": "MenuProps['hideMenuBelow']",
-            "resolved": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"false\" | boolean",
+            "resolved": "\"1024\" | \"1439\" | \"567\" | \"767\" | \"always\" | \"never\"",
             "references": {
               "MenuProps": {
                 "location": "import",
@@ -10789,9 +11474,9 @@
           "mutable": false,
           "attr": "hide-menu-below",
           "reflectToAttr": false,
-          "docs": "The breakpoint at which the navbar should be hidden. Set to `false` to always show the navbar.",
+          "docs": "The breakpoint at which the navbar should be hidden. Set to `never` to never hide the navbar.",
           "docsTags": [],
-          "default": "false",
+          "default": "'never'",
           "values": [
             {
               "value": "1024",
@@ -10810,11 +11495,12 @@
               "type": "string"
             },
             {
-              "value": "false",
+              "value": "always",
               "type": "string"
             },
             {
-              "type": "boolean"
+              "value": "never",
+              "type": "string"
             }
           ],
           "optional": true,
@@ -11152,6 +11838,10 @@
         {
           "name": "menu",
           "docs": "Slot for overriding the default menu (requires `enableMenuSlot`)."
+        },
+        {
+          "name": "search",
+          "docs": "Slot for adding a custom search component (requires `enableSearchSlot`)."
         }
       ],
       "parts": [
@@ -15985,13 +16675,8 @@
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/utils/component-props-types.ts::ExtendedSizeType": {
-      "declaration": "export type ExtendedSizeType =\r\n    | \"xs\"\r\n    | \"sm\"\r\n    | \"md\"\r\n    | \"lg\"\r\n    | \"xl\";",
-      "docstring": "",
-      "path": "src/utils/component-props-types.ts"
-    },
-    "src/utils/component-props-types.ts::TextAlignmentType": {
-      "declaration": "export type TextAlignmentType =\r\n    | \"left\"\r\n    | \"right\"\r\n    | \"center\"\r\n    | \"justify\"\r\n    | \"start\"\r\n    | \"end\";",
+    "src/utils/component-props-types.ts::AppearanceType": {
+      "declaration": "export type AppearanceType =\r\n    | \"transparent\"\r\n    | \"solid\"\r\n    | \"outlined\"\r\n    | \"mixed\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
@@ -16000,18 +16685,23 @@
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
+    "src/utils/component-props-types.ts::AlignmentType": {
+      "declaration": "export type AlignmentType =\r\n    | \"start\"\r\n    | \"center\"\r\n    | \"end\"\r\n    | \"right\"\r\n    | \"left\";",
+      "docstring": "",
+      "path": "src/utils/component-props-types.ts"
+    },
     "src/utils/component-props-types.ts::LayoutType": {
       "declaration": "export type LayoutType =\r\n    | \"vertical\"\r\n    | \"horizontal\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/utils/component-props-types.ts::AppearanceType": {
-      "declaration": "export type AppearanceType =\r\n    | \"transparent\"\r\n    | \"solid\"\r\n    | \"outlined\"\r\n    | \"mixed\";",
+    "src/utils/component-props-types.ts::ExtendedSizeType": {
+      "declaration": "export type ExtendedSizeType =\r\n    | \"xs\"\r\n    | \"sm\"\r\n    | \"md\"\r\n    | \"lg\"\r\n    | \"xl\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
-    "src/utils/component-props-types.ts::AlignmentType": {
-      "declaration": "export type AlignmentType =\r\n    | \"start\"\r\n    | \"center\"\r\n    | \"end\"\r\n    | \"right\"\r\n    | \"left\";",
+    "src/utils/component-props-types.ts::TextAlignmentType": {
+      "declaration": "export type TextAlignmentType =\r\n    | \"left\"\r\n    | \"right\"\r\n    | \"center\"\r\n    | \"justify\"\r\n    | \"start\"\r\n    | \"end\";",
       "docstring": "",
       "path": "src/utils/component-props-types.ts"
     },
@@ -16051,7 +16741,7 @@
       "path": "src/utils/component-props-types.ts"
     },
     "src/components/tnw-navbar/parts/menu/part--menu-types.ts::MenuProps": {
-      "declaration": "export interface MenuProps {\r\n    parsedMenuData: Menu;\r\n    isOpen: boolean;\r\n    menuPlacement: 'start' | 'middle' | 'end';\r\n    hideMenuBelow: \"1024\" | \"767\" | \"567\" | \"1439\" | false | 'false';\r\n    enableLinkSlot: boolean;\r\n    linksLength: number;\r\n    menuExactCenter: boolean;\r\n}",
+      "declaration": "export interface MenuProps {\r\n    parsedMenuData: Menu;\r\n    isOpen: boolean;\r\n    menuPlacement: 'start' | 'middle' | 'end';\r\n    hideMenuBelow: \"1024\" | \"767\" | \"567\" | \"1439\" | 'never' | 'always';\r\n    enableLinkSlot: boolean;\r\n    linksLength: number;\r\n    menuExactCenter: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/tnw-navbar/parts/menu/part--menu-types.ts"
     },

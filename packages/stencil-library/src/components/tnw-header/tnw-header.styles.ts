@@ -1,6 +1,6 @@
 import { GLOBAL_PREFIX } from "../../utils/utils";
 
-const baseClass = `${GLOBAL_PREFIX}-header`; 
+const baseClass = `${GLOBAL_PREFIX}-header`;
 const contentClass = `${baseClass}__content`;
 
 export const styles = `
@@ -9,9 +9,7 @@ export const styles = `
 }
     
 :host {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+    display: block;
     position: relative;
 }
 :host(.${baseClass}--borderBottom) {
@@ -19,21 +17,37 @@ export const styles = `
     border-bottom-style: solid;
 }
 
-:host(.${baseClass}--centerBanner) {
-    align-items: center;
-    justify-content: center; 
-}
-:host(.${baseClass}--centerBanner) ::slotted(tnw-navbar) {
-    margin-bottom: auto;
-}
 :host(.${baseClass}--centerBanner) ::slotted(tnw-header-banner) {
-    margin-block: auto;
-    padding-bottom: 10%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+@media (min-width: 1025px) {
+    :host(.${baseClass}--centerBanner) ::slotted(tnw-header-banner) {
+        padding-top: 30px;
+    }
+}
+@media (max-width: 1024px) {
+    :host(.${baseClass}) {
+        min-height: unset !important;
+        height: auto !important;
+    }
+    ::slotted(tnw-header-banner) {
+        padding-block: 100px;
+    }
+    :host(.${baseClass}--centerBanner) ::slotted(tnw-header-banner) {
+        position: static;
+        transform: none;
+    }
+}
+@media (max-width: 567px) {
+    ::slotted(tnw-header-banner) {
+        padding-block: 60px;
+    }
 }
 
 .${contentClass} {
-    display: flex;
-    flex-direction: column;
     gap: 25px;
     height: 100%;
     width: 100%;

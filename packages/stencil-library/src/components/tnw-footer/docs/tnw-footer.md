@@ -53,13 +53,13 @@ Expected structure:
 
 | Part | Description |
 | --- | --- |
-| **brand** | No description provided. |
-| **contact** | No description provided. |
+| **brand** | The brand section of the footer. |
+| **contact** | The contact section of the footer. |
 | **container** | The container wrapping the footer sections. |
 | **footer** | The main `footer` element wrapping the entire component. |
-| **links** | No description provided. |
-| **socialmedia** | No description provided. |
-| **subscription** | No description provided. |
+| **links** | The links section of the footer. |
+| **socialmedia** | The social media section of the footer. |
+| **subscription** | The subscription section of the footer. |
 
 ## Slots
 

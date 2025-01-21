@@ -93,7 +93,7 @@ export interface MenuProps {
     parsedMenuData: Menu;
     isOpen: boolean;
     menuPlacement: 'start' | 'middle' | 'end';
-    hideMenuBelow: "1024" | "767" | "567" | "1439" | false | 'false';
+    hideMenuBelow: "1024" | "767" | "567" | "1439" | 'never' | 'always';
     enableLinkSlot: boolean;
     linksLength: number;
     menuExactCenter: boolean;

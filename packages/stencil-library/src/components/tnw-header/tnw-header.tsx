@@ -47,7 +47,7 @@ export class TnwHeader {
   /**
    * Sets the minimum height of the header. Like the `height` prop, it accepts size types like 'full', 'auto', or 'full-screen'. Default is 'auto'.
    */
-  @Prop() minHeight: SizeType | 'full' | 'auto' | 'full-screen' = 'auto';
+  @Prop() minHeight: SizeType | 'xl' | 'full' | 'auto' | 'full-screen' = 'auto';
 
   /**
    * Controls the alignment of the header content. Accepts logical alignment types such as 'start', 'center', or 'end'. Default is 'start'.

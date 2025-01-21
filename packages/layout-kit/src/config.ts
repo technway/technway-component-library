@@ -94,7 +94,7 @@ export class LayoutKitConfig {
 }
 
 // Export types
-export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type Breakpoint = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 export type ColumnCount = 1 | 2 | 3 | 4 | 6 | 12;
 export type SpacingValue = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32;
 

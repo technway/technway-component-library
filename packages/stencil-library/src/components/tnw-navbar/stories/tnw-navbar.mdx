@@ -90,7 +90,10 @@ provided via a named slot in the format \`link-<n>\` where \`<n>\` is the index 
 {`</div> | \`false\` | \`boolean\` |
 | **enableLogoSlot** | <div>If true, the logo slot is enabled.</div> | \`false\` | \`boolean\` |
 | **enableMenuSlot** | <div>If true, the menu slot is enabled.</div> | \`false\` | \`boolean\` |
-| **hideMenuBelow** | <div>The breakpoint at which the navbar should be hidden. Set to \`false\` to always show the navbar.</div> | \`false\` | \`"1024"\` \\| \`"1439"\` \\| \`"567"\` \\| \`"767"\` \\| \`"false"\` \\| \`boolean\` |
+| **enableSearchSlot** | <div>Enables a search slot in the navbar. When enabled, a dedicated search area will be rendered 
+at the end of the navbar, positioned just before the CTA slot (if enabled). This allows for
+integration of custom search functionality through slot projection.</div> | \`false\` | \`boolean\` |
+| **hideMenuBelow** | <div>The breakpoint at which the navbar should be hidden. Set to \`never\` to never hide the navbar.</div> | \`'never'\` | \`"1024"\` \\| \`"1439"\` \\| \`"567"\` \\| \`"767"\` \\| \`"always"\` \\| \`"never"\` |
 | **linksLength** | <div>Specifies the number of links when \`enableLinkSlot\` is enabled.
 
 This property works in conjunction with \`enableLinkSlot\` to define the total number of 
@@ -139,6 +142,7 @@ If false, the styles will be applied directly to the component host element.</di
 | **link-<n>** | Slots for custom menu links (requires \`enableLinkSlot\`). |
 | **logo** | Slot for adding a custom logo (requires \`enableLogoSlot\`). |
 | **menu** | Slot for overriding the default menu (requires \`enableMenuSlot\`). |
+| **search** | Slot for adding a custom search component (requires \`enableSearchSlot\`). |
 
 ## Events
 

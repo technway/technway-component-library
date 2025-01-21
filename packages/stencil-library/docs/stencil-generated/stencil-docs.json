@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-21T17:06:29",
+  "timestamp": "2025-01-21T17:40:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -5683,6 +5683,10 @@
           "text": "copyrights - Slot for copyright information. Use `tnw-copyrights-footer` instead."
         },
         {
+          "name": "slot",
+          "text": "link-<n> - Slots for custom links (requires `footerData.links.useCustomLinks` to be true)."
+        },
+        {
           "name": "part",
           "text": "footer - The main `footer` element wrapping the entire component."
         },
@@ -5691,8 +5695,24 @@
           "text": "container - The container wrapping the footer sections."
         },
         {
-          "name": "slot",
-          "text": "link-<n> - Slots for custom links (requires `footerData.links.useCustomLinks` to be true)."
+          "name": "part",
+          "text": "brand - The brand section of the footer."
+        },
+        {
+          "name": "part",
+          "text": "links - The links section of the footer."
+        },
+        {
+          "name": "part",
+          "text": "contact - The contact section of the footer."
+        },
+        {
+          "name": "part",
+          "text": "socialmedia - The social media section of the footer."
+        },
+        {
+          "name": "part",
+          "text": "subscription - The subscription section of the footer."
         }
       ],
       "usage": {
@@ -6226,11 +6246,11 @@
       "parts": [
         {
           "name": "brand",
-          "docs": ""
+          "docs": "The brand section of the footer."
         },
         {
           "name": "contact",
-          "docs": ""
+          "docs": "The contact section of the footer."
         },
         {
           "name": "container",
@@ -6242,15 +6262,15 @@
         },
         {
           "name": "links",
-          "docs": ""
+          "docs": "The links section of the footer."
         },
         {
           "name": "socialmedia",
-          "docs": ""
+          "docs": "The social media section of the footer."
         },
         {
           "name": "subscription",
-          "docs": ""
+          "docs": "The subscription section of the footer."
         }
       ],
       "dependents": [],

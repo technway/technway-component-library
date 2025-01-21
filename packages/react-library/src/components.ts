@@ -16,6 +16,7 @@ import { TnwAlert as TnwAlertElement, defineCustomElement as defineTnwAlert } fr
 import { TnwAnchorStyler as TnwAnchorStylerElement, defineCustomElement as defineTnwAnchorStyler } from "@technway/stencil-library/components/tnw-anchor-styler.js";
 import { TnwAnchor as TnwAnchorElement, defineCustomElement as defineTnwAnchor } from "@technway/stencil-library/components/tnw-anchor.js";
 import { TnwBadge as TnwBadgeElement, defineCustomElement as defineTnwBadge } from "@technway/stencil-library/components/tnw-badge.js";
+import { TnwBanner as TnwBannerElement, defineCustomElement as defineTnwBanner } from "@technway/stencil-library/components/tnw-banner.js";
 import { TnwButton as TnwButtonElement, defineCustomElement as defineTnwButton } from "@technway/stencil-library/components/tnw-button.js";
 import { TnwCard as TnwCardElement, defineCustomElement as defineTnwCard } from "@technway/stencil-library/components/tnw-card.js";
 import { TnwContactBanner as TnwContactBannerElement, defineCustomElement as defineTnwContactBanner } from "@technway/stencil-library/components/tnw-contact-banner.js";
@@ -109,6 +110,17 @@ export const TnwBadge: StencilReactComponent<TnwBadgeElement, TnwBadgeEvents> = 
     react: React,
     events: {} as TnwBadgeEvents,
     defineCustomElement: defineTnwBadge
+});
+
+type TnwBannerEvents = NonNullable<unknown>;
+
+export const TnwBanner: StencilReactComponent<TnwBannerElement, TnwBannerEvents> = /*@__PURE__*/ createComponent<TnwBannerElement, TnwBannerEvents>({
+    tagName: 'tnw-banner',
+    elementClass: TnwBannerElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as TnwBannerEvents,
+    defineCustomElement: defineTnwBanner
 });
 
 type TnwButtonEvents = NonNullable<unknown>;

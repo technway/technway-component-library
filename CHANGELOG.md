@@ -41,6 +41,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.6.0](https://github.com/technway/technway-component-library/compare/root-v3.5.5...root-v3.6.0) (2025-01-20)
+
+
+### Features
+
+* **stencil-library:** introduce 'tnw-search-input' component ([1912cc2](https://github.com/technway/technway-component-library/commit/1912cc2c96561bd38e2054d35a302ee829032653))
+* **stencil-library:** introduce tnw-anchor-styler component ([809bce5](https://github.com/technway/technway-component-library/commit/809bce597e73381db71cf370e1ee694e4e55a770))
+* **tnw-footer:** enhance gap between list items ([f3a4dfe](https://github.com/technway/technway-component-library/commit/f3a4dfe576d832fb49756bccb1bd6ef47334d268))
+
+
+### Bug Fixes
+
+* **tnw-footer:** resolve data parsing errors encountered in next.js 15 ([8c8d4db](https://github.com/technway/technway-component-library/commit/8c8d4db4810d3a7853fe4dcc9c0124759926d432))
+* **tnw-header-banner:** responsive design ([e8a1e00](https://github.com/technway/technway-component-library/commit/e8a1e0014b4307aad05efb2535b42711cee516a1))
+* **tnw-header:** styling of 'centerBanner' prop ([6a6a8bc](https://github.com/technway/technway-component-library/commit/6a6a8bc151e36a6622143b0a0f2762f1b488b482))
+* **tnw-icon:** resolve validations errors ([e855955](https://github.com/technway/technway-component-library/commit/e855955f07414d0a50c3ce272d1953076ef72837))
+* **tnw-navbar:** resolve data parsing errors encountered in next.js 15 ([721ba6d](https://github.com/technway/technway-component-library/commit/721ba6d42549d7764cb8369bf88d92b551990482))
+* **tnw-navbar:** toggler visibility depending on 'hideMenuBelow' prop ([a98a3da](https://github.com/technway/technway-component-library/commit/a98a3dafe26b5047f0943c606493db644a64ba38))
+
 ## [3.5.5](https://github.com/technway/technway-component-library/compare/root-v3.5.4...root-v3.5.5) (2025-01-18)
 
 

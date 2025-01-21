@@ -9,6 +9,7 @@ export const styles = `
 }
     
 :host {
+    display: block;
     position: relative;
 }
 :host(.${baseClass}--borderBottom) {

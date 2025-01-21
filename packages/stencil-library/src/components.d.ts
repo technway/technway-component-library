@@ -209,6 +209,61 @@ export namespace Components {
         "variant"?: 'image' | 'status' | 'textual' | 'numeric';
     }
     /**
+     * The `tnw-banner` component is a customizable banner used for multi-purpose content.
+     * As an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
+     */
+    interface TnwBanner {
+        /**
+          * If `true`, the banner will center its content.
+         */
+        "alignment"?: LogicalAlignmentType;
+        /**
+          * Defines the visual appearance of the banner (e.g., solid, outline).
+         */
+        "appearance"?: AppearanceType | 'gradient';
+        /**
+          * Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.
+         */
+        "appearanceColor"?: ColorType;
+        /**
+          * Defines the border radius of the banner.
+         */
+        "borderRadius"?: BorderRadiusType;
+        /**
+          * If `true`, the section body will be wrapped in a container for centering and padding.
+         */
+        "disableInternalContainer"?: boolean;
+        /**
+          * If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.
+         */
+        "enableContentSlot"?: boolean;
+        /**
+          * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
+         */
+        "gap"?: "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * The layout of the banner.
+         */
+        "layout"?: LayoutType;
+        /**
+          * Defines the margin of the banner.
+         */
+        "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the horizontal padding of the banner.
+         */
+        "paddingHorizontal"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the vertical padding of the banner.
+         */
+        "paddingVertical"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the alignment of the text content.
+         */
+        "textAlignment"?: AlignmentType;
+    }
+    /**
      * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
      * It supports various styles, sizes, and appearances, and allows for custom content to be inserted via a slot.
      * By default, the component renders a button element, but it can also render an anchor element if the `href` prop is provided.
@@ -374,6 +429,7 @@ export namespace Components {
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
      * It supports various appearances and colors, and allows for custom content to be inserted via slots.
+     * @deprecated Since v2.5.0. Use `tnw-banner` instead.
      */
     interface TnwContactBanner {
         /**
@@ -1721,6 +1777,17 @@ declare global {
         new (): HTMLTnwBadgeElement;
     };
     /**
+     * The `tnw-banner` component is a customizable banner used for multi-purpose content.
+     * As an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
+     */
+    interface HTMLTnwBannerElement extends Components.TnwBanner, HTMLStencilElement {
+    }
+    var HTMLTnwBannerElement: {
+        prototype: HTMLTnwBannerElement;
+        new (): HTMLTnwBannerElement;
+    };
+    /**
      * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
      * It supports various styles, sizes, and appearances, and allows for custom content to be inserted via a slot.
      * By default, the component renders a button element, but it can also render an anchor element if the `href` prop is provided.
@@ -1746,6 +1813,7 @@ declare global {
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
      * It supports various appearances and colors, and allows for custom content to be inserted via slots.
+     * @deprecated Since v2.5.0. Use `tnw-banner` instead.
      */
     interface HTMLTnwContactBannerElement extends Components.TnwContactBanner, HTMLStencilElement {
     }
@@ -2084,6 +2152,7 @@ declare global {
         "tnw-anchor": HTMLTnwAnchorElement;
         "tnw-anchor-styler": HTMLTnwAnchorStylerElement;
         "tnw-badge": HTMLTnwBadgeElement;
+        "tnw-banner": HTMLTnwBannerElement;
         "tnw-button": HTMLTnwButtonElement;
         "tnw-card": HTMLTnwCardElement;
         "tnw-contact-banner": HTMLTnwContactBannerElement;
@@ -2313,6 +2382,61 @@ declare namespace LocalJSX {
         "variant"?: 'image' | 'status' | 'textual' | 'numeric';
     }
     /**
+     * The `tnw-banner` component is a customizable banner used for multi-purpose content.
+     * As an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.
+     * It supports various appearances and colors, and allows for custom content to be inserted via slots.
+     */
+    interface TnwBanner {
+        /**
+          * If `true`, the banner will center its content.
+         */
+        "alignment"?: LogicalAlignmentType;
+        /**
+          * Defines the visual appearance of the banner (e.g., solid, outline).
+         */
+        "appearance"?: AppearanceType | 'gradient';
+        /**
+          * Specifies the primary appearance color of the banner. if appearance is gradient, this prop will be ignored.
+         */
+        "appearanceColor"?: ColorType;
+        /**
+          * Defines the border radius of the banner.
+         */
+        "borderRadius"?: BorderRadiusType;
+        /**
+          * If `true`, the section body will be wrapped in a container for centering and padding.
+         */
+        "disableInternalContainer"?: boolean;
+        /**
+          * If `true`, the banner will render custom content using the `content` slot. When this is enabled, the standard slots (`subtitle`, `title`, `description`, `button`) will not be used.
+         */
+        "enableContentSlot"?: boolean;
+        /**
+          * Defines the spacing between the content and the button. This will not control gap between elements inside the content.
+         */
+        "gap"?: "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * The layout of the banner.
+         */
+        "layout"?: LayoutType;
+        /**
+          * Defines the margin of the banner.
+         */
+        "margin"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the horizontal padding of the banner.
+         */
+        "paddingHorizontal"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the vertical padding of the banner.
+         */
+        "paddingVertical"?: 'none' | "xs" | "sm" | "md" | "lg" | "xl" | '2xl' | '3xl' | '4xl';
+        /**
+          * Defines the alignment of the text content.
+         */
+        "textAlignment"?: AlignmentType;
+    }
+    /**
      * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
      * It supports various styles, sizes, and appearances, and allows for custom content to be inserted via a slot.
      * By default, the component renders a button element, but it can also render an anchor element if the `href` prop is provided.
@@ -2478,6 +2602,7 @@ declare namespace LocalJSX {
     /**
      * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
      * It supports various appearances and colors, and allows for custom content to be inserted via slots.
+     * @deprecated Since v2.5.0. Use `tnw-banner` instead.
      */
     interface TnwContactBanner {
         /**
@@ -3751,6 +3876,7 @@ declare namespace LocalJSX {
         "tnw-anchor": TnwAnchor;
         "tnw-anchor-styler": TnwAnchorStyler;
         "tnw-badge": TnwBadge;
+        "tnw-banner": TnwBanner;
         "tnw-button": TnwButton;
         "tnw-card": TnwCard;
         "tnw-contact-banner": TnwContactBanner;
@@ -3821,6 +3947,12 @@ declare module "@stencil/core" {
              */
             "tnw-badge": LocalJSX.TnwBadge & JSXBase.HTMLAttributes<HTMLTnwBadgeElement>;
             /**
+             * The `tnw-banner` component is a customizable banner used for multi-purpose content.
+             * As an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.
+             * It supports various appearances and colors, and allows for custom content to be inserted via slots.
+             */
+            "tnw-banner": LocalJSX.TnwBanner & JSXBase.HTMLAttributes<HTMLTnwBannerElement>;
+            /**
              * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
              * It supports various styles, sizes, and appearances, and allows for custom content to be inserted via a slot.
              * By default, the component renders a button element, but it can also render an anchor element if the `href` prop is provided.
@@ -3836,6 +3968,7 @@ declare module "@stencil/core" {
             /**
              * The `tnw-contact-banner` component is a customizable banner used to display contact information or call-to-action content.
              * It supports various appearances and colors, and allows for custom content to be inserted via slots.
+             * @deprecated Since v2.5.0. Use `tnw-banner` instead.
              */
             "tnw-contact-banner": LocalJSX.TnwContactBanner & JSXBase.HTMLAttributes<HTMLTnwContactBannerElement>;
             /**

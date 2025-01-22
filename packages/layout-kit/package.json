@@ -64,5 +64,5 @@
     "@types/react-dom": "^19",
     "typescript": "~5.3.3"
   },
-  "gitHead": "972403539a63cd2162ef52cd170a48b91dd26d59"
+  "gitHead": "bfce688eb1813a9b4482d3085788d89e88503936"
 }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-22T13:06:53",
+  "timestamp": "2025-01-22T14:40:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -3130,6 +3130,7 @@
         "tnw-accordion",
         "tnw-card",
         "tnw-header-banner",
+        "tnw-input-form",
         "tnw-subscription-form"
       ],
       "dependencies": [],
@@ -3141,6 +3142,9 @@
           "tnw-button"
         ],
         "tnw-header-banner": [
+          "tnw-button"
+        ],
+        "tnw-input-form": [
           "tnw-button"
         ],
         "tnw-subscription-form": [
@@ -9978,6 +9982,36 @@
         ],
         "tnw-subscription-form": [
           "tnw-input"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/tnw-input-form/tnw-input-form.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-input-form",
+      "readme": "# tnw-input-form\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "button",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "tnw-button"
+      ],
+      "dependencyGraph": {
+        "tnw-input-form": [
+          "tnw-button"
         ]
       }
     },

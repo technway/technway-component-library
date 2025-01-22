@@ -33,7 +33,7 @@
   "dependencies": {
     "@stencil/react-output-target": "^0.8.2",
     "@technway/next-library": "file:",
-    "@technway/stencil-library": "workspace:*"
+    "@technway/stencil-library": "2.5.0"
   },
   "devDependencies": {
     "@types/react": "^19.0.6",
@@ -42,5 +42,5 @@
     "react-dom": "^19.0.0",
     "typescript": "^5.7.2"
   },
-  "gitHead": "972403539a63cd2162ef52cd170a48b91dd26d59"
+  "gitHead": "bfce688eb1813a9b4482d3085788d89e88503936"
 }

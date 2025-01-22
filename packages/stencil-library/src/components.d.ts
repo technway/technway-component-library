@@ -977,6 +977,8 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface TnwInputForm {
+    }
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
      * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.
@@ -1930,6 +1932,12 @@ declare global {
         prototype: HTMLTnwInputElement;
         new (): HTMLTnwInputElement;
     };
+    interface HTMLTnwInputFormElement extends Components.TnwInputForm, HTMLStencilElement {
+    }
+    var HTMLTnwInputFormElement: {
+        prototype: HTMLTnwInputFormElement;
+        new (): HTMLTnwInputFormElement;
+    };
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
      * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.
@@ -2169,6 +2177,7 @@ declare global {
         "tnw-icon": HTMLTnwIconElement;
         "tnw-image": HTMLTnwImageElement;
         "tnw-input": HTMLTnwInputElement;
+        "tnw-input-form": HTMLTnwInputFormElement;
         "tnw-items-carousel": HTMLTnwItemsCarouselElement;
         "tnw-label": HTMLTnwLabelElement;
         "tnw-list": HTMLTnwListElement;
@@ -3162,6 +3171,8 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface TnwInputForm {
+    }
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
      * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.
@@ -3897,6 +3908,7 @@ declare namespace LocalJSX {
         "tnw-icon": TnwIcon;
         "tnw-image": TnwImage;
         "tnw-input": TnwInput;
+        "tnw-input-form": TnwInputForm;
         "tnw-items-carousel": TnwItemsCarousel;
         "tnw-label": TnwLabel;
         "tnw-list": TnwList;
@@ -4027,6 +4039,7 @@ declare module "@stencil/core" {
              * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
              */
             "tnw-input": LocalJSX.TnwInput & JSXBase.HTMLAttributes<HTMLTnwInputElement>;
+            "tnw-input-form": LocalJSX.TnwInputForm & JSXBase.HTMLAttributes<HTMLTnwInputFormElement>;
             /**
              * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
              * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.

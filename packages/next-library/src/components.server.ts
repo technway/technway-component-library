@@ -29,6 +29,7 @@ import { TnwHeader as TnwHeaderElement, defineCustomElement as defineTnwHeader }
 import { TnwHeading as TnwHeadingElement, defineCustomElement as defineTnwHeading } from "@technway/stencil-library/components/tnw-heading.js";
 import { TnwIcon as TnwIconElement, defineCustomElement as defineTnwIcon } from "@technway/stencil-library/components/tnw-icon.js";
 import { TnwImage as TnwImageElement, defineCustomElement as defineTnwImage } from "@technway/stencil-library/components/tnw-image.js";
+import { TnwInputForm as TnwInputFormElement, defineCustomElement as defineTnwInputForm } from "@technway/stencil-library/components/tnw-input-form.js";
 import { TnwInput as TnwInputElement, defineCustomElement as defineTnwInput } from "@technway/stencil-library/components/tnw-input.js";
 import { TnwItemsCarousel as TnwItemsCarouselElement, defineCustomElement as defineTnwItemsCarousel } from "@technway/stencil-library/components/tnw-items-carousel.js";
 import { TnwLabel as TnwLabelElement, defineCustomElement as defineTnwLabel } from "@technway/stencil-library/components/tnw-label.js";
@@ -598,6 +599,23 @@ export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = 
             borderRadius: 'border-radius',
             sanitizeInput: 'sanitize-input'
         },
+        hydrateModule: import('@technway/stencil-library/hydrate')
+    });
+
+type TnwInputFormEvents = NonNullable<unknown>;
+
+export const TnwInputForm: StencilReactComponent<TnwInputFormElement, TnwInputFormEvents> = typeof window !== 'undefined'
+    ? /*@__PURE__*/ createComponent<TnwInputFormElement, TnwInputFormEvents>({
+        tagName: 'tnw-input-form',
+        elementClass: TnwInputFormElement,
+        // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+        react: React,
+        events: {} as TnwInputFormEvents,
+        defineCustomElement: defineTnwInputForm
+    })
+    : /*@__PURE__*/ createSSRComponent<TnwInputFormElement, TnwInputFormEvents>({
+        tagName: 'tnw-input-form',
+        properties: {},
         hydrateModule: import('@technway/stencil-library/hydrate')
     });
 

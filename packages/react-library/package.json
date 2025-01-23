@@ -33,7 +33,7 @@
   "dependencies": {
     "@stencil/react-output-target": "^0.8.2",
     "@technway/react-library": "file:",
-    "@technway/stencil-library": "2.5.0"
+    "@technway/stencil-library": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^19.0.6",

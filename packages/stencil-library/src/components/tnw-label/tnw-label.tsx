@@ -25,12 +25,12 @@ export class TnwLabel {
   /**
    * The content of the component.
    */
-  @Prop() text!: string | number;
+  @Prop() text: string | number;
 
   /**
    * The `for` attribute, used to associate the label with an input element by ID.
    */
-  @Prop() htmlFor!: string;
+  @Prop({ reflect: true }) htmlFor!: string;
 
   /**
    * Sets the color of the label based on the available colors.

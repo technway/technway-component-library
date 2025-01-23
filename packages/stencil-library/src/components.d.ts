@@ -867,7 +867,7 @@ export namespace Components {
          */
         "height"?: string;
         /**
-          * The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+          * The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
         "heightSize"?: SizeType | "full";
         /**
@@ -895,7 +895,7 @@ export namespace Components {
          */
         "width"?: string;
         /**
-          * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+          * The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
         "widthSize"?: SizeType | "full";
     }
@@ -3053,7 +3053,7 @@ declare namespace LocalJSX {
          */
         "height"?: string;
         /**
-          * The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+          * The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
         "heightSize"?: SizeType | "full";
         /**
@@ -3081,7 +3081,7 @@ declare namespace LocalJSX {
          */
         "width"?: string;
         /**
-          * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+          * The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
         "widthSize"?: SizeType | "full";
     }
@@ -3129,7 +3129,7 @@ declare namespace LocalJSX {
         /**
           * The label for the input.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The maximum number of characters allowed in the input.
          */
@@ -3232,7 +3232,7 @@ declare namespace LocalJSX {
         /**
           * The content of the component.
          */
-        "text": string | number;
+        "text"?: string | number;
         /**
           * Controls the text transformation (e.g., uppercase, lowercase).
          */
@@ -3258,7 +3258,7 @@ declare namespace LocalJSX {
         /**
           * A JSON string representing the list data. Each item can contain `text` and an optional `icon`.
          */
-        "listData": string;
+        "listData"?: string;
         /**
           * Specifies the position of the list marker relative to the text.
          */
@@ -3381,7 +3381,7 @@ declare namespace LocalJSX {
         /**
           * JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number).
          */
-        "itemsData": string;
+        "itemsData"?: string;
         /**
           * Displays a gradient fade at the bottom of the grid. Default is `false`.
          */
@@ -3629,7 +3629,7 @@ declare namespace LocalJSX {
         /**
           * JSON string representing the options available in the select dropdown. Each option can include a label, value, ariaLabel, and disabled state.
          */
-        "optionsData": string;
+        "optionsData"?: string;
         /**
           * Controls the size of the select component. Options are 'sm' (small), 'md' (medium), or 'lg' (large). Default is 'md' (medium).
          */
@@ -3842,7 +3842,7 @@ declare namespace LocalJSX {
         /**
           * The label for the textarea.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The maximum number of characters allowed in the textarea.
          */

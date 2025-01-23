@@ -2,7 +2,7 @@ import { Flex, Grid } from '@technway/layout-kit';
 import Accordion from '../components/accordion/accordion';
 import AccordionGroup from '../components/accordion/accordion-group';
 import ArticleCard from '../components/card/card';
-import { TnwButton, TnwDivider, TnwHeading } from '@technway/next-library/src/components';
+import { TnwDivider, TnwHeading } from '@technway/next-library/src/components';
 import Navbar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 import Header from '../components/header/header';
@@ -15,10 +15,6 @@ export default function Home() {
       <div className="container layout">
         <Flex direction="col" gap={16}>
           <InputForm />
-          <TnwButton
-            label="Submit"
-
-          />
           {/* <Flex direction="col" gap={12}>
             <TnwHeading text='Banners' level='h2' />
             <NewsletterBanner />

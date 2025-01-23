@@ -268,15 +268,13 @@ export class TnwAccordion {
   private renderHeader(buttonId: string, contentId: string): void {
     return (
       <h3 class={`${this.baseClass}__header`} part='header'>
-        <tnw-button
+        <button
           id={buttonId}
           aria-expanded={this.isExpanded.toString()}
           aria-controls={contentId}
           onClick={this.toggleAccordion}
           onKeyDown={this.handleKeyDown}
           tabindex="0"
-          appearance='none'
-          size='sm'
         >
           <div class={`${this.baseClass}__header-button`} part='header-button'>
             <div class={this.getExpandIconClasses()}>
@@ -298,7 +296,7 @@ export class TnwAccordion {
               <slot name="heading"></slot>
             )}
           </div>
-        </tnw-button>
+        </button>
       </h3>
     )
   }

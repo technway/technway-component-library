@@ -27,12 +27,12 @@ export class TnwImage {
   /**
    * The source URL/Path of the image.
    */
-  @Prop() src!: string;
+  @Prop({ reflect: true }) src!: string;
 
   /**
    * The alternative text for the image, used for accessibility.
    */
-  @Prop() alt!: string;
+  @Prop({ reflect: true }) alt!: string;
 
   /**
    * An optional caption to be displayed below the image.
@@ -50,12 +50,12 @@ export class TnwImage {
   @Prop() height?: string;
 
   /**
-   * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+   * The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
    */
   @Prop() widthSize?: SizeType | "full" = 'full';
 
   /**
-   * The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+   * The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
    */
   @Prop() heightSize?: SizeType | "full";
 
@@ -77,7 +77,7 @@ export class TnwImage {
   /**
    * If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.
    */
-  @Prop({ reflect: true }) lazyLoading?: boolean = false;
+  @Prop() lazyLoading?: boolean = false;
 
   /**
    * Determines the border radius of the image.

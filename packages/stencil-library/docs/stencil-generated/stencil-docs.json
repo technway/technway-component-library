@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-23T05:50:21",
+  "timestamp": "2025-01-23T11:32:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -8828,7 +8828,7 @@
           },
           "mutable": false,
           "attr": "alt",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The alternative text for the image, used for accessibility.",
           "docsTags": [],
           "values": [
@@ -9262,7 +9262,7 @@
           },
           "mutable": false,
           "attr": "src",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The source URL/Path of the image.",
           "docsTags": [],
           "values": [

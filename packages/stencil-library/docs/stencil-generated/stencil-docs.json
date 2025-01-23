@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-23T18:23:42",
+  "timestamp": "2025-01-23T19:39:11",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -1961,15 +1961,11 @@
       "parts": [],
       "dependents": [
         "tnw-card",
-        "tnw-input-form",
         "tnw-select"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "tnw-card": [
-          "tnw-badge"
-        ],
-        "tnw-input-form": [
           "tnw-badge"
         ],
         "tnw-select": [
@@ -3131,7 +3127,6 @@
       "dependents": [
         "tnw-card",
         "tnw-header-banner",
-        "tnw-input-form",
         "tnw-subscription-form"
       ],
       "dependencies": [],
@@ -3140,9 +3135,6 @@
           "tnw-button"
         ],
         "tnw-header-banner": [
-          "tnw-button"
-        ],
-        "tnw-input-form": [
           "tnw-button"
         ],
         "tnw-subscription-form": [
@@ -9357,16 +9349,12 @@
       ],
       "dependents": [
         "tnw-footer",
-        "tnw-input-form",
         "tnw-portfolio-grid",
         "tnw-testimonial-card"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "tnw-footer": [
-          "tnw-image"
-        ],
-        "tnw-input-form": [
           "tnw-image"
         ],
         "tnw-portfolio-grid": [
@@ -9984,45 +9972,6 @@
         ],
         "tnw-subscription-form": [
           "tnw-input"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/tnw-input-form/tnw-input-form.tsx",
-      "encapsulation": "shadow",
-      "tag": "tnw-input-form",
-      "readme": "# tnw-input-form\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
-      "props": [],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [
-        {
-          "name": "button",
-          "docs": ""
-        }
-      ],
-      "dependents": [],
-      "dependencies": [
-        "tnw-button",
-        "tnw-text",
-        "tnw-image",
-        "tnw-badge"
-      ],
-      "dependencyGraph": {
-        "tnw-input-form": [
-          "tnw-button",
-          "tnw-text",
-          "tnw-image",
-          "tnw-badge"
-        ],
-        "tnw-text": [
-          "tnw-text"
         ]
       }
     },
@@ -16063,7 +16012,6 @@
         "tnw-footer",
         "tnw-header-banner",
         "tnw-heading",
-        "tnw-input-form",
         "tnw-navbar",
         "tnw-testimonial-card",
         "tnw-text"
@@ -16091,9 +16039,6 @@
           "tnw-text"
         ],
         "tnw-heading": [
-          "tnw-text"
-        ],
-        "tnw-input-form": [
           "tnw-text"
         ],
         "tnw-navbar": [

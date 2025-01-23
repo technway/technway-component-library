@@ -41,6 +41,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.8.0](https://github.com/technway/technway-component-library/compare/root-v3.7.0...root-v3.8.0) (2025-01-23)
+
+
+### Features
+
+* tnw-input-form not stable ([72705fe](https://github.com/technway/technway-component-library/commit/72705fee1ced583ba067e321efabfacfd0c1ca13))
+
+
+### Bug Fixes
+
+* **stencil-library:** reflect required props ([02ce15f](https://github.com/technway/technway-component-library/commit/02ce15f6e483008164e12b24aa9cc8f58652cc3c))
+* **tnw-badge:** resolve rendering issues in Nextjs ([b97eef9](https://github.com/technway/technway-component-library/commit/b97eef999a29b78ee57c224386ccc014c78fc715))
+* **tnw-button:** shadow dom styles ([01b8112](https://github.com/technway/technway-component-library/commit/01b8112c07f2e3936ccce0f857b15863f7556cb0))
+* **tnw-image:** validation errors of required props ([2085646](https://github.com/technway/technway-component-library/commit/208564637f19e9bb15adf6af15d06b7ad0e51f88))
+
 ## [3.7.0](https://github.com/technway/technway-component-library/compare/root-v3.6.0...root-v3.7.0) (2025-01-21)
 
 

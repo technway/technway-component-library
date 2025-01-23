@@ -15,7 +15,7 @@ export class TnwInputForm {
   @Element() el: HTMLTnwInputFormElement;
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
+    if (this.el.shadowRoot && isAdoptedStyleSheetsSupported()) {
       (this.el.shadowRoot as any).adoptedStyleSheets = [
         extendedAppearanceStyleSheet,
         appearanceColorSheet,
@@ -36,6 +36,9 @@ export class TnwInputForm {
           hoverEffect='contrast'
           part='button'
         />
+        <tnw-text text="Some text here" color='primary' size='xl' />
+        <tnw-image src="https://picsum.photos/200/300" alt="Some image" objectFit='cover' height='100px' width='800px' />
+        <tnw-badge label="Some label" appearanceColor='primary' appearance='solid' />
       </Host>
     );
   }

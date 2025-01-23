@@ -188,7 +188,7 @@ export function validateProps(propsValues: any[]): void {
 
     // Check if a required prop has no value
     if (isRequired && (!isNotEmptyString(value) || value === undefined || value === null)) {
-      throw new Error(`Required prop "${prop.name}" must have value`);
+      throw new Error(`tnw-copyrights-footer: Required prop "${prop.name}" must have value`);
     }
 
     // Check if the value is valid for the expected types
@@ -204,7 +204,7 @@ export function validateProps(propsValues: any[]): void {
     });
 
     if (!isValid && value !== undefined) {
-      throw new Error(`Invalid prop value for "${prop.name}": expected one of ${expectedTypes.join(", ")}, but got "${value}".`);
+      throw new Error(`tnw-copyrights-footer: Invalid prop value for "${prop.name}". Expected one of ${expectedTypes.join(", ")}, but got "${value}".`);
     }
   });
 }

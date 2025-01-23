@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-22T14:40:44",
+  "timestamp": "2025-01-23T05:50:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -1963,11 +1963,15 @@
       "parts": [],
       "dependents": [
         "tnw-card",
+        "tnw-input-form",
         "tnw-select"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "tnw-card": [
+          "tnw-badge"
+        ],
+        "tnw-input-form": [
           "tnw-badge"
         ],
         "tnw-select": [
@@ -9359,12 +9363,16 @@
       ],
       "dependents": [
         "tnw-footer",
+        "tnw-input-form",
         "tnw-portfolio-grid",
         "tnw-testimonial-card"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "tnw-footer": [
+          "tnw-image"
+        ],
+        "tnw-input-form": [
           "tnw-image"
         ],
         "tnw-portfolio-grid": [
@@ -9989,7 +9997,7 @@
       "filePath": "src/components/tnw-input-form/tnw-input-form.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-input-form",
-      "readme": "# tnw-input-form\n\n\n",
+      "readme": "# tnw-input-form\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10007,11 +10015,20 @@
       ],
       "dependents": [],
       "dependencies": [
-        "tnw-button"
+        "tnw-button",
+        "tnw-text",
+        "tnw-image",
+        "tnw-badge"
       ],
       "dependencyGraph": {
         "tnw-input-form": [
-          "tnw-button"
+          "tnw-button",
+          "tnw-text",
+          "tnw-image",
+          "tnw-badge"
+        ],
+        "tnw-text": [
+          "tnw-text"
         ]
       }
     },
@@ -16052,6 +16069,7 @@
         "tnw-footer",
         "tnw-header-banner",
         "tnw-heading",
+        "tnw-input-form",
         "tnw-navbar",
         "tnw-testimonial-card",
         "tnw-text"
@@ -16079,6 +16097,9 @@
           "tnw-text"
         ],
         "tnw-heading": [
+          "tnw-text"
+        ],
+        "tnw-input-form": [
           "tnw-text"
         ],
         "tnw-navbar": [

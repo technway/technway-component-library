@@ -86,6 +86,7 @@ By default, the component renders a button element, but it can also render an an
  - [tnw-accordion](../tnw-accordion)
  - [tnw-card](../tnw-card)
  - [tnw-header-banner](../tnw-header-banner)
+ - [tnw-input-form](../tnw-input-form)
  - [tnw-subscription-form](../tnw-subscription-form)
 
 ### Graph
@@ -94,6 +95,7 @@ graph TD;
   tnw-accordion --> tnw-button
   tnw-card --> tnw-button
   tnw-header-banner --> tnw-button
+  tnw-input-form --> tnw-button
   tnw-subscription-form --> tnw-button
   style tnw-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

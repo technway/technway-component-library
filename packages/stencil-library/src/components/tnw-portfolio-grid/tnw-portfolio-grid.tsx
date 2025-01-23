@@ -23,7 +23,7 @@ export class TnwPortfolioGrid {
   /**
    * JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number).
    */
-  @Prop() itemsData!: string;
+  @Prop() itemsData: string;
 
   /**
    * Number of columns in the grid layout. Default is 3.

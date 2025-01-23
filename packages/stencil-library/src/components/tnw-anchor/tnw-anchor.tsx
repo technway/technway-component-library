@@ -30,7 +30,7 @@ export class TnwAnchor {
   /**
    * Specifies the URL that the link navigates to. This prop is required.
    */
-  @Prop() href!: string;
+  @Prop({ reflect: true }) href!: string;
 
   /**
    * Specifies the text content of the link. If not provided, the content should be provided via the default slot.

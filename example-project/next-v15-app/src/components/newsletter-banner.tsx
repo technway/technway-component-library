@@ -23,8 +23,7 @@ const NewsletterBanner = () => {
                 borderRadius="full"
                 variant="secondary"
                 slot="button"
-            >
-            </TnwSubscriptionForm>
+            />
             <TnwText
                 text="Get the latest updates and tips in your inbox."
                 widthSize="sm"
@@ -35,7 +34,7 @@ const NewsletterBanner = () => {
                 text="Stay in the Loop. Join Our Newsletter!"
                 widthSize="sm"
             />
-        </TnwBanner>
+        </TnwBanner> 
     )
 }
 

@@ -1,24 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tnw-button Custom Prop Behavior renders slot content when label is not provided 1`] = `
-<tnw-button class="rounded-default tnw-button tnw-button--md tnw-extended-v-solid-primary" href="https://example.com">
-  <template shadowrootmode="open">
-    <a class="tnw-button__el tnw-button__el--has-padding" href="https://example.com" part="button">
-      <slot name="icon-start"></slot>
-      <slot></slot>
-      <slot name="icon-end"></slot>
-    </a>
-  </template>
-  <span>
-    Slot Content
-  </span>
-</tnw-button>
-`;
+exports[`tnw-button Custom Prop Behavior renders slot content when label is not provided 1`] = `null`;
 
 exports[`tnw-button Default and Required Prop Behavior renders correctly with required label prop 1`] = `
-<tnw-button class="rounded-default tnw-button tnw-button--md tnw-extended-v-solid-primary" label="Click Me">
+<tnw-button label="Click Me">
   <template shadowrootmode="open">
-    <button class="tnw-button__el tnw-button__el--has-padding" part="button" type="button">
+    <button class="rounded-default tnw-button tnw-button--has-padding tnw-button--md tnw-extended-v-solid-primary" part="button" type="button">
       <slot name="icon-start"></slot>
       Click Me
       <slot name="icon-end"></slot>

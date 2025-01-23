@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-23T11:44:55",
+  "timestamp": "2025-01-23T18:23:42",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -510,13 +510,11 @@
       ],
       "dependents": [],
       "dependencies": [
-        "tnw-button",
         "tnw-icon",
         "tnw-text"
       ],
       "dependencyGraph": {
         "tnw-accordion": [
-          "tnw-button",
           "tnw-icon",
           "tnw-text"
         ],
@@ -3131,7 +3129,6 @@
         }
       ],
       "dependents": [
-        "tnw-accordion",
         "tnw-card",
         "tnw-header-banner",
         "tnw-input-form",
@@ -3139,9 +3136,6 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "tnw-accordion": [
-          "tnw-button"
-        ],
         "tnw-card": [
           "tnw-button"
         ],

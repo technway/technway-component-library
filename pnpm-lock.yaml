@@ -81,7 +81,7 @@ importers:
         version: link:../../packages/layout-kit
       '@technway/react-library':
         specifier: file:../../packages/react-library
-        version: link:../../packages/react-library
+        version: file:packages/react-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@technway/stencil-library':
         specifier: file:../../packages/stencil-library
         version: link:../../packages/stencil-library
@@ -176,10 +176,10 @@ importers:
         version: 0.8.2(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@technway/next-library':
         specifier: 'file:'
-        version: 'link:'
+        version: file:packages/next-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@technway/stencil-library':
-        specifier: 2.5.0
-        version: 2.5.0(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: workspace:*
+        version: link:../stencil-library
     devDependencies:
       '@types/react':
         specifier: ^19.0.6
@@ -206,10 +206,10 @@ importers:
         version: 0.8.2(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@technway/react-library':
         specifier: 'file:'
-        version: 'link:'
+        version: file:packages/react-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@technway/stencil-library':
-        specifier: 2.5.0
-        version: 2.5.0(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: workspace:*
+        version: link:../stencil-library
     devDependencies:
       '@types/react':
         specifier: ^19.0.6
@@ -2147,8 +2147,8 @@ packages:
   '@technway/next-library@file:packages/next-library':
     resolution: {directory: packages/next-library, type: directory}
 
-  '@technway/stencil-library@2.5.0':
-    resolution: {integrity: sha512-3fL8nOWj8UXYvIzSz/512lBC2TRRwHO6MVf5wZe4u/KtfobK46FecJJsp6Zu+xXXiF4F66OscDT4Wm9InHgi8w==}
+  '@technway/react-library@file:packages/react-library':
+    resolution: {directory: packages/react-library, type: directory}
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
@@ -10401,26 +10401,22 @@ snapshots:
   '@technway/next-library@file:packages/next-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@stencil/react-output-target': 0.8.2(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@technway/stencil-library': 2.5.0(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@technway/stencil-library': link:packages/stencil-library
     transitivePeerDependencies:
       - '@stencil/core'
       - '@types/react'
       - react
       - react-dom
-      - supports-color
 
-  '@technway/stencil-library@2.5.0(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@technway/react-library@file:packages/react-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@technway/stencil-library': '@technway/next-library@file:packages/next-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)'
-      dotenv: 16.4.7
-      express: 4.21.2
-      express-session: 1.18.1
+      '@stencil/react-output-target': 0.8.2(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@technway/stencil-library': link:packages/stencil-library
     transitivePeerDependencies:
       - '@stencil/core'
       - '@types/react'
       - react
       - react-dom
-      - supports-color
 
   '@testing-library/dom@10.4.0':
     dependencies:

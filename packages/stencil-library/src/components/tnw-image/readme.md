@@ -83,7 +83,6 @@ It supports various properties to control the image source, dimensions, and appe
 ### Used by
 
  - [tnw-footer](../tnw-footer)
- - [tnw-input-form](../tnw-input-form)
  - [tnw-portfolio-grid](../tnw-portfolio-grid)
  - [tnw-testimonial-card](../tnw-testimonial-card)
 
@@ -91,7 +90,6 @@ It supports various properties to control the image source, dimensions, and appe
 ```mermaid
 graph TD;
   tnw-footer --> tnw-image
-  tnw-input-form --> tnw-image
   tnw-portfolio-grid --> tnw-image
   tnw-testimonial-card --> tnw-image
   style tnw-image fill:#f9f,stroke:#333,stroke-width:4px

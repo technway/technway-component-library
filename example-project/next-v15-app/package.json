@@ -8,11 +8,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@technway/layout-kit": "0.9.0",
-    "@technway/next-library": "0.10.0",
-    "@technway/stencil-library": "2.5.0",
+    "@technway/layout-kit": "workspace:*",
+    "@technway/next-library": "workspace:*",
+    "@technway/stencil-library": "workspace:*",
     "next": "15.1.4",
-    "next-v15-app": "file:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

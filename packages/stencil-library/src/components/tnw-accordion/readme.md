@@ -98,14 +98,12 @@ or other UI components requiring content toggling.
 
 ### Depends on
 
-- [tnw-button](../tnw-button)
 - [tnw-icon](../tnw-icon)
 - [tnw-text](../tnw-text)
 
 ### Graph
 ```mermaid
 graph TD;
-  tnw-accordion --> tnw-button
   tnw-accordion --> tnw-icon
   tnw-accordion --> tnw-text
   tnw-text --> tnw-text

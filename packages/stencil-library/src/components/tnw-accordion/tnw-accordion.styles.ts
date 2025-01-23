@@ -107,11 +107,13 @@ h3 {
     background-color: var(--tnw-white);
 }
 
-tnw-button {
+button {
+    background-color: transparent;
+    border: none;
     width: 100%;
 }
 
-.${baseClass}__header {
+.${baseClass}__header, button {
     cursor: pointer;
 }
 

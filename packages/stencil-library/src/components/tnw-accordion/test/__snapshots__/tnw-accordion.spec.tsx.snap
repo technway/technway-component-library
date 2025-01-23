@@ -108,11 +108,13 @@ h3 {
     background-color: var(--tnw-white);
 }
 
-tnw-button {
+button {
+    background-color: transparent;
+    border: none;
     width: 100%;
 }
 
-.tnw-accordion__header {
+.tnw-accordion__header, button {
     cursor: pointer;
 }
 
@@ -145,14 +147,14 @@ tnw-button {
     <style></style>
     <style></style>
     <h3 class="tnw-accordion__header" part="header">
-      <tnw-button appearance="none" aria-controls="accordion-1-body" aria-expanded="false" id="accordion-1-header" size="sm" tabindex="0">
+      <button aria-controls="accordion-1-body" aria-expanded="false" id="accordion-1-header" tabindex="0">
         <div class="tnw-accordion__header-button" part="header-button">
           <div class="tnw-accordion__expand-icon">
             <tnw-icon color="auto" hiddenaria="" name="tnw-chevron-down" part="header-icon"></tnw-icon>
           </div>
           <tnw-text color="auto" part="header-text" size="xs" text="Accordion Title" weight="600"></tnw-text>
         </div>
-      </tnw-button>
+      </button>
     </h3>
     <div aria-labelledby="accordion-1-header" class="tnw-accordion__body" hidden="" id="accordion-1-body" part="body" role="region">
       <tnw-text color="auto" size="xs" text="Accordion Content"></tnw-text>

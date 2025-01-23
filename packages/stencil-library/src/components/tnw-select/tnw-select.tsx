@@ -35,7 +35,7 @@ export class TnwSelect {
    * JSON string representing the options available in the select dropdown.
    * Each option can include a label, value, ariaLabel, and disabled state.
    */
-  @Prop() optionsData!: string;
+  @Prop() optionsData: string;
   /**
    * The label to display when no option is selected.
    */

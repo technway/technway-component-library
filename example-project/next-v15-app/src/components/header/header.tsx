@@ -1,6 +1,6 @@
 'use client';
 
-import { TnwHeader, TnwHeaderBanner, TnwHeading, TnwText } from "@technway/next-library/src/components"
+import { TnwButton, TnwHeader, TnwHeaderBanner, TnwHeading, TnwText } from "@technway/next-library/src/components"
 import NavbarWithData from "../navbar/navbar-with-data";
 
 const Header = () => {
@@ -36,6 +36,13 @@ const Header = () => {
                     widthSize="sm"
                     lineHeight="2"
                     slot="description"
+                />
+                <TnwButton
+                    label="Subscribe"
+                    appearance="solid"
+                    appearanceColor="primary"
+                    size="lg"
+                    slot="button"
                 />
             </TnwHeaderBanner>
         </TnwHeader>

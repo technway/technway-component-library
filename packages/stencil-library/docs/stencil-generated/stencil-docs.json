@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-21T17:40:07",
+  "timestamp": "2025-01-23T11:44:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -613,7 +613,7 @@
           },
           "mutable": false,
           "attr": "alert-id",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The unique ID for the alert message. This ID is important for accessibility purposes, helping to associate the alert with form elements or any other triggering components.",
           "docsTags": [],
           "values": [
@@ -814,7 +814,7 @@
           },
           "mutable": false,
           "attr": "message",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The message text to display in the alert. This is the main content of the alert and should be concise but informative.",
           "docsTags": [],
           "values": [
@@ -1045,7 +1045,7 @@
           },
           "mutable": false,
           "attr": "href",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Specifies the URL that the link navigates to. This prop is required.",
           "docsTags": [],
           "values": [
@@ -1963,11 +1963,15 @@
       "parts": [],
       "dependents": [
         "tnw-card",
+        "tnw-input-form",
         "tnw-select"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "tnw-card": [
+          "tnw-badge"
+        ],
+        "tnw-input-form": [
           "tnw-badge"
         ],
         "tnw-select": [
@@ -1979,8 +1983,8 @@
       "filePath": "src/components/tnw-banner/tnw-banner.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-banner",
-      "readme": "# tnw-banner\n\n\n",
-      "docs": "The `tnw-banner` component is a customizable banner used for multi-purpose content.\nAs an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.\nIt supports various appearances and colors, and allows for custom content to be inserted via slots.",
+      "readme": "# tnw-banner\r\n\r\n\r\n\r",
+      "docs": "The `tnw-banner` component is a customizable banner used for multi-purpose content.\r\nAs an example it can be used to display a newsletter banner, advertisement banner, contact banner etc.\r\nIt supports various appearances and colors, and allows for custom content to be inserted via slots.",
       "docsTags": [
         {
           "name": "slot",
@@ -3130,6 +3134,7 @@
         "tnw-accordion",
         "tnw-card",
         "tnw-header-banner",
+        "tnw-input-form",
         "tnw-subscription-form"
       ],
       "dependencies": [],
@@ -3141,6 +3146,9 @@
           "tnw-button"
         ],
         "tnw-header-banner": [
+          "tnw-button"
+        ],
+        "tnw-input-form": [
           "tnw-button"
         ],
         "tnw-subscription-form": [
@@ -6314,7 +6322,7 @@
       "filePath": "src/components/tnw-header/tnw-header.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-header",
-      "readme": "# tnw-header\n\n\n",
+      "readme": "# tnw-header\r\n\r\n\r\n\r",
       "docs": "The `tnw-header` component is designed to create a customizable and structured header for your application.\r\nIt allows for flexible layout options with support for navigation bars, banners, and various alignment and size customizations.",
       "docsTags": [
         {
@@ -8820,7 +8828,7 @@
           },
           "mutable": false,
           "attr": "alt",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The alternative text for the image, used for accessibility.",
           "docsTags": [],
           "values": [
@@ -9027,7 +9035,7 @@
           "mutable": false,
           "attr": "height-size",
           "reflectToAttr": false,
-          "docs": "The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...",
+          "docs": "The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...",
           "docsTags": [],
           "values": [
             {
@@ -9062,7 +9070,7 @@
           },
           "mutable": false,
           "attr": "lazy-loading",
-          "reflectToAttr": true,
+          "reflectToAttr": false,
           "docs": "If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.",
           "docsTags": [],
           "default": "false",
@@ -9254,7 +9262,7 @@
           },
           "mutable": false,
           "attr": "src",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The source URL/Path of the image.",
           "docsTags": [],
           "values": [
@@ -9307,7 +9315,7 @@
           "mutable": false,
           "attr": "width-size",
           "reflectToAttr": false,
-          "docs": "The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...",
+          "docs": "The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...",
           "docsTags": [],
           "default": "'full'",
           "values": [
@@ -9355,12 +9363,16 @@
       ],
       "dependents": [
         "tnw-footer",
+        "tnw-input-form",
         "tnw-portfolio-grid",
         "tnw-testimonial-card"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "tnw-footer": [
+          "tnw-image"
+        ],
+        "tnw-input-form": [
           "tnw-image"
         ],
         "tnw-portfolio-grid": [
@@ -9719,7 +9731,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -9827,7 +9839,7 @@
           },
           "mutable": false,
           "attr": "placeholder",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The placeholder text for the input.",
           "docsTags": [],
           "values": [
@@ -9874,7 +9886,7 @@
           },
           "mutable": false,
           "attr": "type",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The input type (e.g., text, password).",
           "docsTags": [],
           "values": [
@@ -9978,6 +9990,45 @@
         ],
         "tnw-subscription-form": [
           "tnw-input"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/tnw-input-form/tnw-input-form.tsx",
+      "encapsulation": "shadow",
+      "tag": "tnw-input-form",
+      "readme": "# tnw-input-form\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "button",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "tnw-button",
+        "tnw-text",
+        "tnw-image",
+        "tnw-badge"
+      ],
+      "dependencyGraph": {
+        "tnw-input-form": [
+          "tnw-button",
+          "tnw-text",
+          "tnw-image",
+          "tnw-badge"
+        ],
+        "tnw-text": [
+          "tnw-text"
         ]
       }
     },
@@ -10381,7 +10432,7 @@
           },
           "mutable": false,
           "attr": "html-for",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The `for` attribute, used to associate the label with an input element by ID.",
           "docsTags": [],
           "values": [
@@ -10479,7 +10530,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -10814,7 +10865,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -11944,7 +11995,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -14072,7 +14123,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -16018,6 +16069,7 @@
         "tnw-footer",
         "tnw-header-banner",
         "tnw-heading",
+        "tnw-input-form",
         "tnw-navbar",
         "tnw-testimonial-card",
         "tnw-text"
@@ -16045,6 +16097,9 @@
           "tnw-text"
         ],
         "tnw-heading": [
+          "tnw-text"
+        ],
+        "tnw-input-form": [
           "tnw-text"
         ],
         "tnw-navbar": [
@@ -16344,7 +16399,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -16536,7 +16591,7 @@
           },
           "mutable": false,
           "attr": "textarea-id",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The unique ID for the textarea element. If not provided, a random ID will be generated.",
           "docsTags": [],
           "values": [

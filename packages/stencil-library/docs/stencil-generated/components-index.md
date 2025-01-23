@@ -23,7 +23,6 @@ This page lists all the library components.
 - [tnw-icon](#tnw-icon)
 - [tnw-image](#tnw-image)
 - [tnw-input](#tnw-input)
-- [tnw-input-form](#tnw-input-form)
 - [tnw-items-carousel](#tnw-items-carousel)
 - [tnw-label](#tnw-label)
 - [tnw-list](#tnw-list)
@@ -190,12 +189,6 @@ It supports various properties to control the image source, dimensions, and appe
 
 The `tnw-input` component is a customizable input field that supports various input types, validation, and appearance options.
 It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
-
----
-
-## tnw-input-form
-
-_No overview available for this component._
 
 ---
 

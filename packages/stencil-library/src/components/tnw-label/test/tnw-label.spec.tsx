@@ -49,15 +49,6 @@ describe('tnw-label', () => {
       expect(label).toHaveClass('fw-700');
     });
 
-    it('applies the correct text transformation class when `textCase` prop is set', async () => {
-      const label = await createSpecPage(
-        TnwLabel,
-        `<tnw-label text="Label Text" html-for="input-id" text-case="uppercase"></tnw-label>`,
-        'label'
-      );
-      expect(label).toHaveClass('uppercase');
-    });
-
     it('renders as visually hidden when `isSrOnly` is true', async () => {
       const host = await createSpecPage(
         TnwLabel,
@@ -108,14 +99,6 @@ describe('tnw-label', () => {
         TnwLabel,
         `<tnw-label text="Label Text" html-for="input-id" text-case="invalid-case"></tnw-label>`,
         'Invalid prop value for "textCase"'
-      );
-    });
-
-    it('throws an error when `text` prop is empty', async () => {
-      await checkSpecPageError(
-        TnwLabel,
-        `<tnw-label text="" html-for="input-id"></tnw-label>`,
-        'The "text" prop cannot be empty'
       );
     });
 

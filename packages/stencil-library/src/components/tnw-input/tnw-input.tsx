@@ -38,7 +38,7 @@ export class TnwInput {
   /**
    * The label for the input.
    */
-  @Prop() label!: string;
+  @Prop() label: string;
 
   /**
    * The unique ID for the input element. If not provided, a random ID will be generated.
@@ -48,12 +48,12 @@ export class TnwInput {
   /**
    * The input type (e.g., text, password).
    */
-  @Prop() type!: string;
+  @Prop({ reflect: true }) type!: string;
 
   /**
    * The placeholder text for the input.
    */
-  @Prop() placeholder!: string;
+  @Prop({ reflect: true }) placeholder!: string;
 
   /**
    * Defines the appearance of the input.

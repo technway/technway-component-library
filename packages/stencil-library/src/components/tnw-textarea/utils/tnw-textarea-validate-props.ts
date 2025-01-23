@@ -87,7 +87,7 @@ export function validateProps(propsValues: any[]): void {
     "type": [
       "string"
     ],
-    "isRequired": true
+    "isRequired": false
   },
   {
     "name": "maxlength",

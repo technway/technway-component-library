@@ -1,10 +1,12 @@
-import { Component, Host, Prop, h, Element, State } from '@stencil/core';
+import { Component, Host, Prop, h, Element, State, Watch } from '@stencil/core';
 import { getExtendedAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { BorderRadiusType, ExtendedColorType, OptionalAppearanceType, SizeType } from '../../utils/component-props-types';
 import { validateProps } from './utils/tnw-badge-validate-props';
 import { styles } from './tnw-badge.styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { validateNumericalVariantLabel } from './utils/tnw-badge-validate-props-custom';
+import { borderRadiusStyleSheet } from '../../utils/shared-styles';
+import { extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 
 /**
  * The `tnw-badge` component is used to display small pieces of information, such as labels, statuses, or counts, in a compact and visually distinct way.
@@ -67,6 +69,14 @@ export class TnwBadge {
    */
   @Prop() imageSrc?: string;
 
+  @Watch('label')
+  handleLabelChange(newValue: string | number | undefined) {
+    if (this.displayedLabel !== newValue) {
+      this.setDisplayedLabel(newValue);
+      this.handleNumericVariant(newValue);
+    }
+  }
+
   constructor() {
     if (isCSSStyleSheetSupported()) {
       this.componentStyles = new CSSStyleSheet();
@@ -77,6 +87,8 @@ export class TnwBadge {
   connectedCallback() {
     if (isAdoptedStyleSheetsSupported()) {
       (this.el.shadowRoot as any).adoptedStyleSheets = [
+        extendedAppearanceStyleSheet,
+        borderRadiusStyleSheet,
         this.componentStyles,
       ];
     }
@@ -85,16 +97,9 @@ export class TnwBadge {
   componentWillLoad() {
     validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.imageSrc, this.label, this.size, this.variant]);
 
-    this.initDisplayedLabel();
-
-    if (this.variant === 'numeric') {
-      try {
-        validateNumericalVariantLabel(this.label);
-        this.maximizeLabelNumber(this.label);
-      } catch (e) {
-        this.setDisplayedLabel(0);
-        throw e;
-      }
+    if (this.displayedLabel !== this.label) {
+      this.initDisplayedLabel();
+      this.handleNumericVariant(this.label);
     }
   }
 
@@ -111,7 +116,7 @@ export class TnwBadge {
   * Initializes the displayed label with the current label value.
   */
   private initDisplayedLabel(): void {
-    this.setDisplayedLabel(this.label);
+    this.handleLabelChange(this.label);
   }
 
   /**
@@ -125,6 +130,22 @@ export class TnwBadge {
       this.setDisplayedLabel('99+');
     } else {
       this.setDisplayedLabel(String(numericValue));
+    }
+  }
+
+  /**
+   * Handles the numeric variant of the badge.
+   * @param label - The label to be checked. Should be a number or numeric string.
+   */
+  private handleNumericVariant(label: string | number | undefined) {
+    if (this.variant === 'numeric') {
+      try {
+        validateNumericalVariantLabel(label);
+        this.maximizeLabelNumber(label);
+      } catch (e) {
+        this.setDisplayedLabel(0);
+        throw e;
+      }
     }
   }
 
@@ -185,19 +206,22 @@ export class TnwBadge {
 
   render() {
     const isLabelUsed = isNotEmptyString(this.displayedLabel);
+
     return (
-      <Host
-        class={this.getBadgeClasses()}
-        style={this.getImageStyles()}
-      >
-        {
-          this.variant !== 'status' && this.variant !== 'image'
-          && (
-            isLabelUsed
-              ? this.displayedLabel
-              : <slot />
-          )
-        }
+      <Host>
+        <div
+          class={this.getBadgeClasses()}
+          style={this.getImageStyles()}
+        >
+          {
+            this.variant !== 'status' && this.variant !== 'image'
+            && (
+              isLabelUsed
+                ? this.displayedLabel
+                : <slot />
+            )
+          }
+        </div>
       </Host>
     );
   }

@@ -1,20 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tnw-badge Custom Prop Behavior renders slot content when label is not provided 1`] = `
-<tnw-badge class="rounded-lg tnw-badge tnw-badge--padding-sm tnw-extended-v-outlined-auto">
-  <template shadowrootmode="open">
-    <slot></slot>
-  </template>
-  <span>
-    Custom Slot Content
-  </span>
-</tnw-badge>
+<div class="rounded-lg tnw-badge tnw-badge--padding-sm tnw-extended-v-outlined-auto">
+  <slot></slot>
+</div>
 `;
 
 exports[`tnw-badge Default and Required Prop Behavior renders correctly with default values 1`] = `
-<tnw-badge class="rounded-lg tnw-badge tnw-badge--padding-sm tnw-extended-v-outlined-auto" label="Default Badge">
+<tnw-badge label="Default Badge">
   <template shadowrootmode="open">
-    Default Badge
+    <div class="rounded-lg tnw-badge tnw-badge--padding-sm tnw-extended-v-outlined-auto">
+      Default Badge
+    </div>
   </template>
 </tnw-badge>
 `;

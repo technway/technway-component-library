@@ -30,7 +30,7 @@ export class TnwList {
   /**
    * A JSON string representing the list data. Each item can contain `text` and an optional `icon`.
    */
-  @Prop() listData!: string;
+  @Prop() listData: string;
 
   /**
    * Specifies the position of the list marker relative to the text.

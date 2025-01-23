@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-23T11:32:39",
+  "timestamp": "2025-01-23T11:44:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -613,7 +613,7 @@
           },
           "mutable": false,
           "attr": "alert-id",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The unique ID for the alert message. This ID is important for accessibility purposes, helping to associate the alert with form elements or any other triggering components.",
           "docsTags": [],
           "values": [
@@ -814,7 +814,7 @@
           },
           "mutable": false,
           "attr": "message",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The message text to display in the alert. This is the main content of the alert and should be concise but informative.",
           "docsTags": [],
           "values": [
@@ -1045,7 +1045,7 @@
           },
           "mutable": false,
           "attr": "href",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Specifies the URL that the link navigates to. This prop is required.",
           "docsTags": [],
           "values": [
@@ -9035,7 +9035,7 @@
           "mutable": false,
           "attr": "height-size",
           "reflectToAttr": false,
-          "docs": "The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...",
+          "docs": "The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...",
           "docsTags": [],
           "values": [
             {
@@ -9070,7 +9070,7 @@
           },
           "mutable": false,
           "attr": "lazy-loading",
-          "reflectToAttr": true,
+          "reflectToAttr": false,
           "docs": "If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.",
           "docsTags": [],
           "default": "false",
@@ -9315,7 +9315,7 @@
           "mutable": false,
           "attr": "width-size",
           "reflectToAttr": false,
-          "docs": "The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...",
+          "docs": "The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...",
           "docsTags": [],
           "default": "'full'",
           "values": [
@@ -9731,7 +9731,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -9839,7 +9839,7 @@
           },
           "mutable": false,
           "attr": "placeholder",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The placeholder text for the input.",
           "docsTags": [],
           "values": [
@@ -9886,7 +9886,7 @@
           },
           "mutable": false,
           "attr": "type",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The input type (e.g., text, password).",
           "docsTags": [],
           "values": [
@@ -10432,7 +10432,7 @@
           },
           "mutable": false,
           "attr": "html-for",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The `for` attribute, used to associate the label with an input element by ID.",
           "docsTags": [],
           "values": [
@@ -10530,7 +10530,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -10865,7 +10865,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -11995,7 +11995,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -14123,7 +14123,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -16399,7 +16399,7 @@
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -16591,7 +16591,7 @@
           },
           "mutable": false,
           "attr": "textarea-id",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The unique ID for the textarea element. If not provided, a random ID will be generated.",
           "docsTags": [],
           "values": [

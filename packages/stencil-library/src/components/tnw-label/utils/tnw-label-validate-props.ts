@@ -67,7 +67,7 @@ export function validateProps(propsValues: any[]): void {
       "number",
       "string"
     ],
-    "isRequired": true
+    "isRequired": false
   },
   {
     "name": "textCase",

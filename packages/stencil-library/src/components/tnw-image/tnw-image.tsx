@@ -139,6 +139,7 @@ export class TnwImage {
   private getHostClasses(): string {
     const { baseClass, widthSize, heightSize } = this;
     return [
+      baseClass,
       isNotEmptyString(widthSize) ? `${baseClass}--width-${widthSize}` : ``,
       isNotEmptyString(heightSize) ? `${baseClass}--height-${heightSize}` : ``,
     ].filter(Boolean).join(' ').trim();

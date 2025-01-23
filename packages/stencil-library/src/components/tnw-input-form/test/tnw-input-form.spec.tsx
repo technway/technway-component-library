@@ -7,12 +7,6 @@ describe('tnw-input-form', () => {
       components: [TnwInputForm],
       html: `<tnw-input-form></tnw-input-form>`,
     });
-    expect(page.root).toEqualHtml(`
-      <tnw-input-form>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </tnw-input-form>
-    `);
+    expect(page.root).toMatchSnapshot();
   });
 });

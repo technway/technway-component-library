@@ -12,7 +12,6 @@
     "@technway/next-library": "workspace:*",
     "@technway/stencil-library": "workspace:*",
     "next": "15.1.4",
-    "next-v15-app": "file:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -24,5 +23,6 @@
     "eslint": "^9.18.0",
     "eslint-config-next": "15.1.4",
     "typescript": "^5"
-  }
+  },
+  "gitHead": "bfce688eb1813a9b4482d3085788d89e88503936"
 }

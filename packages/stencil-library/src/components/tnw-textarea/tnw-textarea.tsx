@@ -36,12 +36,12 @@ export class TnwTextarea {
   /**
    * The label for the textarea.
    */
-  @Prop() label!: string;
+  @Prop() label: string;
 
   /**
    * The unique ID for the textarea element. If not provided, a random ID will be generated.
    */
-  @Prop() textareaId?: string;
+  @Prop({ reflect: true }) textareaId?: string;
 
   /**
    * The placeholder text for the textarea.

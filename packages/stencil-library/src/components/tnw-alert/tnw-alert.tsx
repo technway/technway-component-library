@@ -24,12 +24,12 @@ export class TnwAlert {
   /**
    * The unique ID for the alert message. This ID is important for accessibility purposes, helping to associate the alert with form elements or any other triggering components.
    */
-  @Prop() alertId!: string;
+  @Prop({ reflect: true }) alertId!: string;
 
   /**
    * The message text to display in the alert. This is the main content of the alert and should be concise but informative.
    */
-  @Prop() message!: string;
+  @Prop({ reflect: true }) message!: string;
 
   /**
    * Defines the font size of the alert message.

@@ -867,7 +867,7 @@ export namespace Components {
          */
         "height"?: string;
         /**
-          * The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+          * The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
         "heightSize"?: SizeType | "full";
         /**
@@ -895,7 +895,7 @@ export namespace Components {
          */
         "width"?: string;
         /**
-          * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+          * The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
         "widthSize"?: SizeType | "full";
     }
@@ -976,6 +976,8 @@ export namespace Components {
           * The initial value of the input.
          */
         "value"?: string;
+    }
+    interface TnwInputForm {
     }
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
@@ -1930,6 +1932,12 @@ declare global {
         prototype: HTMLTnwInputElement;
         new (): HTMLTnwInputElement;
     };
+    interface HTMLTnwInputFormElement extends Components.TnwInputForm, HTMLStencilElement {
+    }
+    var HTMLTnwInputFormElement: {
+        prototype: HTMLTnwInputFormElement;
+        new (): HTMLTnwInputFormElement;
+    };
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
      * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.
@@ -2169,6 +2177,7 @@ declare global {
         "tnw-icon": HTMLTnwIconElement;
         "tnw-image": HTMLTnwImageElement;
         "tnw-input": HTMLTnwInputElement;
+        "tnw-input-form": HTMLTnwInputFormElement;
         "tnw-items-carousel": HTMLTnwItemsCarouselElement;
         "tnw-label": HTMLTnwLabelElement;
         "tnw-list": HTMLTnwListElement;
@@ -3044,7 +3053,7 @@ declare namespace LocalJSX {
          */
         "height"?: string;
         /**
-          * The height size of the image. This controls the height of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+          * The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
         "heightSize"?: SizeType | "full";
         /**
@@ -3072,7 +3081,7 @@ declare namespace LocalJSX {
          */
         "width"?: string;
         /**
-          * The width size of the image. This controls the width of the image container. Values are not units, but rather likw `full`, `lg`, `md` ...
+          * The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
         "widthSize"?: SizeType | "full";
     }
@@ -3120,7 +3129,7 @@ declare namespace LocalJSX {
         /**
           * The label for the input.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The maximum number of characters allowed in the input.
          */
@@ -3161,6 +3170,8 @@ declare namespace LocalJSX {
           * The initial value of the input.
          */
         "value"?: string;
+    }
+    interface TnwInputForm {
     }
     /**
      * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
@@ -3221,7 +3232,7 @@ declare namespace LocalJSX {
         /**
           * The content of the component.
          */
-        "text": string | number;
+        "text"?: string | number;
         /**
           * Controls the text transformation (e.g., uppercase, lowercase).
          */
@@ -3247,7 +3258,7 @@ declare namespace LocalJSX {
         /**
           * A JSON string representing the list data. Each item can contain `text` and an optional `icon`.
          */
-        "listData": string;
+        "listData"?: string;
         /**
           * Specifies the position of the list marker relative to the text.
          */
@@ -3370,7 +3381,7 @@ declare namespace LocalJSX {
         /**
           * JSON string containing the grid items data. Each item includes required `src` and `alt` (string), and optional `link` (string), `rowStart` (number), `rowEnd` (number), `colStart` (number), and `colEnd` (number).
          */
-        "itemsData": string;
+        "itemsData"?: string;
         /**
           * Displays a gradient fade at the bottom of the grid. Default is `false`.
          */
@@ -3618,7 +3629,7 @@ declare namespace LocalJSX {
         /**
           * JSON string representing the options available in the select dropdown. Each option can include a label, value, ariaLabel, and disabled state.
          */
-        "optionsData": string;
+        "optionsData"?: string;
         /**
           * Controls the size of the select component. Options are 'sm' (small), 'md' (medium), or 'lg' (large). Default is 'md' (medium).
          */
@@ -3831,7 +3842,7 @@ declare namespace LocalJSX {
         /**
           * The label for the textarea.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The maximum number of characters allowed in the textarea.
          */
@@ -3897,6 +3908,7 @@ declare namespace LocalJSX {
         "tnw-icon": TnwIcon;
         "tnw-image": TnwImage;
         "tnw-input": TnwInput;
+        "tnw-input-form": TnwInputForm;
         "tnw-items-carousel": TnwItemsCarousel;
         "tnw-label": TnwLabel;
         "tnw-list": TnwList;
@@ -4027,6 +4039,7 @@ declare module "@stencil/core" {
              * It is designed to be versatile and accessible, allowing for both visual and screen-reader friendly labels, as well as handling error alerts.
              */
             "tnw-input": LocalJSX.TnwInput & JSXBase.HTMLAttributes<HTMLTnwInputElement>;
+            "tnw-input-form": LocalJSX.TnwInputForm & JSXBase.HTMLAttributes<HTMLTnwInputFormElement>;
             /**
              * The `tnw-items-carousel` component provides a flexible and customizable carousel for displaying multiple slides in a row.
              * The carousel supports custom controls, touch gestures, edge shadows, and can be resized dynamically.

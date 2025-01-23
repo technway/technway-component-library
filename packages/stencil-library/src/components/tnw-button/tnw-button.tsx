@@ -1,9 +1,11 @@
 import { Component, Host, Prop, Element, h, Fragment } from '@stencil/core';
-import { GLOBAL_PREFIX, getBorderRadiusClass, getClassNames, getExtendedAppearanceClass, isNotEmptyString } from '../../utils/utils';
+import { GLOBAL_PREFIX, getBorderRadiusClass, getExtendedAppearanceClass, isNotEmptyString } from '../../utils/utils';
 import { OptionalAppearanceType, BorderRadiusType, ExtendedColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { styles } from './tnw-button.styles';
 import { validateProps } from './utils/tnw-button-validate-props';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { extendedAppearanceStyleSheet } from '../../utils/shared-styles';
+import { borderRadiusStyleSheet } from '../../utils/shared-styles';
 
 /**
  * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
@@ -95,6 +97,8 @@ export class TnwButton {
   connectedCallback() {
     if (isAdoptedStyleSheetsSupported()) {
       (this.el.shadowRoot as any).adoptedStyleSheets = [
+        extendedAppearanceStyleSheet,
+        borderRadiusStyleSheet,
         this.componentStyles,
       ];
     }
@@ -104,28 +108,18 @@ export class TnwButton {
     validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.disabled, this.hoverAppearance, this.hoverAppearanceColor, this.hoverEffect, this.href, this.label, this.newTab, this.size, this.type]);
   }
 
-  private getHostClasses(): string {
-    const { baseClass, appearanceColor, appearance, size, hoverAppearance, hoverAppearanceColor, hoverEffect, disabled } = this;
-
-    const classesArray = [size];
+  private getButtonClasses() {
+    const { baseClass, appearance, appearanceColor, size, hoverAppearance, hoverAppearanceColor, hoverEffect, disabled } = this;
 
     return [
       baseClass,
+      appearance !== 'none' ? `${baseClass}--has-padding` : ``,
       disabled ? `${baseClass}--disabled` : '',
       hoverAppearance !== 'none' ? `${baseClass}--hover-${hoverAppearance}-${hoverAppearanceColor}` : ``,
       hoverEffect !== 'none' ? `${baseClass}--hover-${hoverEffect}` : ``,
-      getClassNames(classesArray, baseClass),
+      `${baseClass}--${size}`,
       getExtendedAppearanceClass(appearance, appearanceColor),
       getBorderRadiusClass(this.borderRadius),
-    ].filter(Boolean).join(' ').trim();
-  }
-
-  private getButtonClasses() {
-    const { baseClass, appearance } = this;
-    const elClassBase = `${baseClass}__el`;
-    return [
-      elClassBase,
-      appearance !== 'none' ? `${elClassBase}--has-padding` : ``,
     ].join(' ').trim();
   }
 
@@ -165,7 +159,7 @@ export class TnwButton {
 
   render() {
     return (
-      <Host class={this.getHostClasses()}>
+      <Host>
         {
           isNotEmptyString(this.href) ?
             this.renderAnchor() :

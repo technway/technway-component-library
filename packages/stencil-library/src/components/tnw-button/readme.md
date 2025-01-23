@@ -83,7 +83,6 @@ By default, the component renders a button element, but it can also render an an
 
 ### Used by
 
- - [tnw-accordion](../tnw-accordion)
  - [tnw-card](../tnw-card)
  - [tnw-header-banner](../tnw-header-banner)
  - [tnw-input-form](../tnw-input-form)
@@ -92,7 +91,6 @@ By default, the component renders a button element, but it can also render an an
 ### Graph
 ```mermaid
 graph TD;
-  tnw-accordion --> tnw-button
   tnw-card --> tnw-button
   tnw-header-banner --> tnw-button
   tnw-input-form --> tnw-button

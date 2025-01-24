@@ -114,25 +114,15 @@ export class TnwImage {
     return isNotEmptyString(this.width) || isNotEmptyString(this.height);
   }
 
-  private getImageClasses(applyForAnchor: boolean): string {
+  private getImageClasses(): string {
     const { baseClass, aspectRatio, objectFit, objectPosition } = this;
     return [
       baseClass,
       !this.hasWidthOrHeight() ? `${baseClass}--full` : '',
       getAspectRatioClass(aspectRatio),
-      !applyForAnchor ? getObjectFitClass(objectFit) : '',
-      !applyForAnchor ? getObjectPositionClass(objectPosition) : '',
-      !applyForAnchor ? getBorderRadiusClass(this.borderRadius) : '',
-    ].filter(Boolean).join(' ').trim();
-  }
-
-  private getAnchorImageClasses(): string {
-    const { baseClass, objectPosition, objectFit, borderRadius } = this;
-    return [
-      `${baseClass}--full`,
-      getObjectPositionClass(objectPosition),
       getObjectFitClass(objectFit),
-      getBorderRadiusClass(borderRadius),
+      getObjectPositionClass(objectPosition),
+      getBorderRadiusClass(this.borderRadius),
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -150,37 +140,35 @@ export class TnwImage {
    * @returns A rendered image element (JSX.Element)
    */
   private renderImage() {
+    const image = (
+      <img
+        class={this.getImageClasses()}
+        src={this.src}
+        alt={this.alt}
+        loading={this.lazyLoading ? 'lazy' : 'eager'}
+        part='image'
+        style={{
+          width: this.width,
+          height: this.height,
+        }}
+      />
+    );
+
     return (
       <Fragment>
         {isNotEmptyString(this.link) ? (
           <a
-            class={this.getImageClasses(true)}
-            href={this.link} aria-label={this.alt}
+            href={this.link}
+            aria-label={this.alt}
             style={{
-              width: this.width,
-              height: this.height,
+              display: 'inline-flex',
+              alignItems: 'center',
             }}
           >
-            <img
-              class={this.getAnchorImageClasses()}
-              src={this.src}
-              alt={this.alt}
-              loading={this.lazyLoading ? 'lazy' : 'eager'}
-              part='image'
-            />
+            {image}
           </a>
         ) : (
-          <img
-            class={this.getImageClasses(false)}
-            src={this.src}
-            alt={this.alt}
-            loading={this.lazyLoading ? 'lazy' : 'eager'}
-            part='image'
-            style={{
-              width: this.width,
-              height: this.height,
-            }}
-          />
+          image
         )}
       </Fragment>
     );

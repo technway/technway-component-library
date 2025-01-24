@@ -100,7 +100,6 @@ It supports various typography-related properties, color, and alignment.
  - [tnw-footer](../tnw-footer)
  - [tnw-header-banner](../tnw-header-banner)
  - [tnw-heading](../tnw-heading)
- - [tnw-navbar](../tnw-navbar)
  - [tnw-testimonial-card](../tnw-testimonial-card)
  - [tnw-text](.)
 
@@ -118,7 +117,6 @@ graph TD;
   tnw-footer --> tnw-text
   tnw-header-banner --> tnw-text
   tnw-heading --> tnw-text
-  tnw-navbar --> tnw-text
   tnw-testimonial-card --> tnw-text
   style tnw-text fill:#f9f,stroke:#333,stroke-width:4px
 ```

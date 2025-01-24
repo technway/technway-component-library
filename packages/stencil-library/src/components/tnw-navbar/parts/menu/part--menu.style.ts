@@ -35,7 +35,7 @@ export const styles = `
 .${baseClass} {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: var(--tnw-navbar-menu-gap-f);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -87,10 +87,6 @@ export const styles = `
     ${openedMenuStyles()}   
 }
 
-.${itemClass} {
-    width: fit-content;
-    padding-inline: 10px;
-}
 .${itemClass},
 tnw-anchor::part(anchor),
 tnw-text::part(text),

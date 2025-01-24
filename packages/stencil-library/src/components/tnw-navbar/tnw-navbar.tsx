@@ -368,7 +368,7 @@ export class TnwNavbar {
   }
 
   private menuToggler() {
-    if (this.menu() === null) {
+    if (this.menu() === null || this.hideMenuBelow === 'never') {
       return null;
     }
 

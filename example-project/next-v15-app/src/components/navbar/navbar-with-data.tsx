@@ -22,6 +22,7 @@ interface NavbarProps {
 
 const NavbarWithData = (props: NavbarProps) => {
     const menuData: Menu = {
+        itemsSize: 'xs',
         menuItems: [
             { label: 'Home', link: '/' },
             { label: 'About', link: '/About' },

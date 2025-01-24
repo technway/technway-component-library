@@ -36,7 +36,4 @@ export const styles = `
 .${baseClass}--always {
     display: block;
 }
-.${baseClass}--never {
-    display: none;
-}
 `;

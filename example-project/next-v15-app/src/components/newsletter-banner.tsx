@@ -16,8 +16,9 @@ const NewsletterBanner = () => {
             gap="3xl"
             layout="horizontal"
             textAlignment="start"
-            slot="body"
+            margin="none"
             disableInternalContainer={true}
+            slot="body"
         >
             <TnwSubscriptionForm
                 borderRadius="full"

@@ -384,6 +384,8 @@ describe('tnw-navbar', () => {
         html: `<tnw-navbar enable-link-slot="false"' hide-menu-below="1024">`,
       });
 
+      console.log(page.root.shadowRoot);
+
       const toggler = page.root.shadowRoot?.querySelector('[part="toggler"]');
       expect(toggler).toBeNull();
     });

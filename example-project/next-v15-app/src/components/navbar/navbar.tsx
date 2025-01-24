@@ -6,6 +6,7 @@ import {
     TnwNavbar
 } from '@technway/next-library/src/components';
 import Link from 'next/link';
+import { Menu } from '@technway/stencil-library/components/tnw-navbar/parts/menu/part--menu-types';
 
 interface NavbarProps {
     slot?: string;
@@ -17,16 +18,22 @@ interface NavbarProps {
     paddingHorizontal?: "sm" | "md" | "lg" | "none";
     paddingVertical?: "sm" | "md" | "lg" | "none";
     buttonAppearanceColor?: "primary" | "secondary" | "auto" | "inverse" | "light" | "white" | "black" | "success" | "warning" | "danger" | "info";
+    disableInternalContainer?: boolean;
 }
 
 const Navbar = (props: NavbarProps) => {
+
+    const menuData: Menu = {
+        itemsSize: 'xs',
+        newTab: [true],
+    }
+
     return (
         <TnwNavbar
             slot={props.slot}
             enableCtaSlot={true}
             enableLogoSlot={true}
-            enableMenuSlot={true}
-            disableInternalContainer={true}
+            disableInternalContainer={props.disableInternalContainer}
             paddingHorizontal={props.paddingHorizontal || 'none'}
             paddingVertical={props.paddingVertical || 'md'}
             appearance={props.appearance || "outlined-bottom"}
@@ -37,6 +44,7 @@ const Navbar = (props: NavbarProps) => {
             linksLength={2}
             menuExactCenter={props.menuPlacement === 'middle'}
             menuPlacement={props.menuPlacement}
+            menuData={JSON.stringify(menuData)}
         >
             {/* Logo */}
             <TnwImage

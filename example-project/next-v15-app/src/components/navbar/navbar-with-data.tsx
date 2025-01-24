@@ -49,13 +49,13 @@ const NavbarWithData = (props: NavbarProps) => {
         >
             {/* Logo */}
             <TnwImage
-                src="https://i.ibb.co/cJd7xbW/favicon-04.png"
-                width='110px'
+                src="/technway-logo-full.png"
+                width='130px'
                 height='auto'
-                alt="logo"
-                slot="logo"
+                alt="Technway Logo"
                 link="/"
                 borderRadius="none"
+                slot="logo"
             />
 
             {/* CTA */}

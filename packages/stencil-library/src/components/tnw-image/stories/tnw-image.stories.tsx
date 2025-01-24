@@ -18,7 +18,7 @@ const Template = (args) => getComponentTemplate(args, component);
 // Default Image
 export const Standard = Template.bind({});
 Standard.args = {
-  src: 'https://via.placeholder.com/600?text=Placeholder+Image',
+  src: 'https://picsum.photos/512/288',
   alt: 'Placeholder Image',
 };
 

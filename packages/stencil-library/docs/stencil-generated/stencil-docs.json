@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-23T19:39:11",
+  "timestamp": "2025-01-24T06:55:23",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -1607,13 +1607,18 @@
           "docs": "The `<div>` element that wraps and styles the slotted content."
         }
       ],
-      "dependents": [],
+      "dependents": [
+        "tnw-navbar"
+      ],
       "dependencies": [
         "tnw-icon"
       ],
       "dependencyGraph": {
         "tnw-anchor-styler": [
           "tnw-icon"
+        ],
+        "tnw-navbar": [
+          "tnw-anchor-styler"
         ]
       }
     },
@@ -10259,7 +10264,7 @@
       "filePath": "src/components/tnw-label/tnw-label.tsx",
       "encapsulation": "shadow",
       "tag": "tnw-label",
-      "readme": "# tnw-label\n\n\n",
+      "readme": "# tnw-label\r\n\r\n\r\n\r",
       "docs": "The `tnw-label` component is used to create a text label for a form element like an input or a textarea.\r\nIt supports various font sizes, weights, colors, and text transformations. Additionally, it allows the label to be visually hidden while remaining accessible to screen readers.",
       "docsTags": [
         {
@@ -11867,19 +11872,19 @@
       "dependents": [],
       "dependencies": [
         "tnw-icon",
-        "tnw-text",
-        "tnw-anchor"
+        "tnw-anchor",
+        "tnw-anchor-styler"
       ],
       "dependencyGraph": {
         "tnw-navbar": [
           "tnw-icon",
-          "tnw-text",
-          "tnw-anchor"
-        ],
-        "tnw-text": [
-          "tnw-text"
+          "tnw-anchor",
+          "tnw-anchor-styler"
         ],
         "tnw-anchor": [
+          "tnw-icon"
+        ],
+        "tnw-anchor-styler": [
           "tnw-icon"
         ]
       }
@@ -16012,7 +16017,6 @@
         "tnw-footer",
         "tnw-header-banner",
         "tnw-heading",
-        "tnw-navbar",
         "tnw-testimonial-card",
         "tnw-text"
       ],
@@ -16039,9 +16043,6 @@
           "tnw-text"
         ],
         "tnw-heading": [
-          "tnw-text"
-        ],
-        "tnw-navbar": [
           "tnw-text"
         ],
         "tnw-testimonial-card": [

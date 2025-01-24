@@ -12,10 +12,13 @@ export default function Home() {
   return (
     <>
       <Header />
+      
+      <TnwDivider />
+
       <div className="container layout">
         <Flex direction="col" gap={16}>
           <Flex direction="col" gap={12}>
-            <TnwHeading text='Banners' level='h2' />
+            <TnwHeading text='Banners' level='h2' style={{ marginTop: '100px' }} />
             <NewsletterBanner />
           </Flex>
 
@@ -25,6 +28,7 @@ export default function Home() {
             <TnwHeading text='Navbar' level='h2' />
             <Navbar
               menuPlacement='middle'
+              disableInternalContainer={true}
             />
             <Navbar
               menuPlacement='end'
@@ -33,6 +37,7 @@ export default function Home() {
               paddingVertical='md'
               paddingHorizontal='lg'
               buttonBorderRadius="full"
+              disableInternalContainer={true}
             />
             <Navbar
               menuPlacement='start'
@@ -41,6 +46,7 @@ export default function Home() {
               paddingVertical='md'
               paddingHorizontal='md'
               buttonAppearanceColor='black'
+              disableInternalContainer={true}
             />
           </Flex>
 

@@ -98,17 +98,17 @@ It supports various appearance colors, optional glassmorphism effects, and flexi
 ### Depends on
 
 - [tnw-icon](../tnw-icon)
-- [tnw-text](../tnw-text)
 - [tnw-anchor](../tnw-anchor)
+- [tnw-anchor-styler](../tnw-anchor-styler)
 
 ### Graph
 ```mermaid
 graph TD;
   tnw-navbar --> tnw-icon
-  tnw-navbar --> tnw-text
   tnw-navbar --> tnw-anchor
-  tnw-text --> tnw-text
+  tnw-navbar --> tnw-anchor-styler
   tnw-anchor --> tnw-icon
+  tnw-anchor-styler --> tnw-icon
   style tnw-navbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

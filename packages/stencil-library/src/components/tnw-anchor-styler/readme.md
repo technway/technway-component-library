@@ -50,6 +50,10 @@ and styling can be applied through this wrapper.
 
 ## Dependencies
 
+### Used by
+
+ - [tnw-navbar](../tnw-navbar)
+
 ### Depends on
 
 - [tnw-icon](../tnw-icon)
@@ -58,6 +62,7 @@ and styling can be applied through this wrapper.
 ```mermaid
 graph TD;
   tnw-anchor-styler --> tnw-icon
+  tnw-navbar --> tnw-anchor-styler
   style tnw-anchor-styler fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

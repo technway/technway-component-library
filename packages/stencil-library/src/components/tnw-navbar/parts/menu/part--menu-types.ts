@@ -70,6 +70,16 @@ export interface Menu {
      * itemsBorderRadius: "lg"; // Menu items have a large border radius
      */
     itemsBorderRadius?: BorderRadiusType;
+
+    /**
+     * An array of boolean values indicating whether each menu item should open in a new tab.
+     * 
+     * Only works if `enableLinkSlot` is true.
+     * 
+     * @example
+     * newTab: [true, false, true]; // The first and third menu items will open in a new tab
+     */
+    newTab?: boolean[];
 }
 
 export interface MenuItem {

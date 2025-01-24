@@ -41,6 +41,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.9.0](https://github.com/technway/technway-component-library/compare/root-v3.8.0...root-v3.9.0) (2025-01-24)
+
+
+### Features
+
+* **tnw-navbar:** improve styling ([8c3b1e6](https://github.com/technway/technway-component-library/commit/8c3b1e600af545c182d7d88ff5acad1537fa8276))
+
+
+### Bug Fixes
+
+* **tnw-image:** fix styling issues ([e9807b6](https://github.com/technway/technway-component-library/commit/e9807b67e2ca5b65b3afb6add45cfd614035c74f))
+
 ## [3.8.0](https://github.com/technway/technway-component-library/compare/root-v3.7.0...root-v3.8.0) (2025-01-23)
 
 

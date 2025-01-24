@@ -7,3 +7,13 @@ exports[`tnw-image Default and Required Prop Behavior renders correctly with def
   </template>
 </tnw-image>
 `;
+
+exports[`tnw-image Default and Required Prop Behavior renders correctly with link 1`] = `
+<tnw-image alt="Default Image" class="tnw-image tnw-image--width-full" link="/" src="image.jpg">
+  <template shadowrootmode="open">
+    <a aria-label="Default Image" href="/" style="display: inline-flex; align-items: center;">
+      <img alt="Default Image" class="rounded-default tnw-image tnw-image--full" loading="eager" part="image" src="image.jpg">
+    </a>
+  </template>
+</tnw-image>
+`;

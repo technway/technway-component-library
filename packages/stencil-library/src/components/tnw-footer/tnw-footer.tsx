@@ -355,7 +355,7 @@ export class TnwFooter {
         <tnw-subscription-form
           inputPlaceholder={subscription.placeholder}
           buttonLabel={subscription.buttonText}
-          variant='secondary'
+          variant='button-inside'
           borderRadius='full'
         />
       </div>

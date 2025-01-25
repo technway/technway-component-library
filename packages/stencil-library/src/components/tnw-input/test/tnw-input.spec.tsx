@@ -1,5 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { createSpecPage, checkSpecPageError, queryElement } from '../../../utils/testing-utils';
+import { createSpecPage, queryElement } from '../../../utils/testing-utils';
 import { TnwInput } from '../tnw-input';
 
 describe('tnw-input', () => {

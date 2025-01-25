@@ -49,7 +49,7 @@ export const styles = `
     border-color: var(--tnw-border-color-inverse);
 }
 .${baseClass}--light {
-    border-color: var(--tnw-border-color-light);
+    border-color: var(--tnw-border-color-opacity);
 }
 .${baseClass}--white {
     border-color: var(--tnw-white);

@@ -969,6 +969,10 @@ export namespace Components {
          */
         "sanitizeInput"?: boolean;
         /**
+          * The size of the input.
+         */
+        "size"?: ExtendedSizeType;
+        /**
           * The input type (e.g., text, password).
          */
         "type": string;
@@ -1477,9 +1481,9 @@ export namespace Components {
          */
         "theme"?: ColorType;
         /**
-          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
+          * The variant for the component - button-outside: The button is positioned next to the input field (default) - button-inside: The button is positioned inside the input field on the right
          */
-        "variant"?: 'primary' | 'secondary';
+        "variant"?: 'button-outside' | 'button-inside';
     }
     /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
@@ -3184,6 +3188,10 @@ declare namespace LocalJSX {
          */
         "sanitizeInput"?: boolean;
         /**
+          * The size of the input.
+         */
+        "size"?: ExtendedSizeType;
+        /**
           * The input type (e.g., text, password).
          */
         "type": string;
@@ -3715,9 +3723,9 @@ declare namespace LocalJSX {
          */
         "theme"?: ColorType;
         /**
-          * The variant for the component - Primary: The button is next to the input - Secondary: The button is inside the input
+          * The variant for the component - button-outside: The button is positioned next to the input field (default) - button-inside: The button is positioned inside the input field on the right
          */
-        "variant"?: 'primary' | 'secondary';
+        "variant"?: 'button-outside' | 'button-inside';
     }
     /**
      * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.

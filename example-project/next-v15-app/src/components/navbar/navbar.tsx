@@ -25,9 +25,10 @@ interface NavbarProps {
 
 const Navbar = (props: NavbarProps) => {
 
+    const linksLength = 4;
     const menuData: Menu = {
         itemsSize: 'xs',
-        newTab: [true],
+        newTab: [false, false, false, true],
     }
 
     return (
@@ -43,7 +44,7 @@ const Navbar = (props: NavbarProps) => {
             borderRadius={props.borderRadius || 'none'}
             hideMenuBelow='1024'
             enableLinkSlot={true}
-            linksLength={2}
+            linksLength={linksLength}
             menuExactCenter={props.menuPlacement === 'middle'}
             menuPlacement={props.menuPlacement}
             menuData={JSON.stringify(menuData)}
@@ -66,8 +67,16 @@ const Navbar = (props: NavbarProps) => {
             >Home</Link>
             <Link
                 slot='link-2'
-                href="/Services"
+                href="/about"
+            >About</Link>
+            <Link
+                slot='link-3'
+                href="/services"
             >Services</Link>
+            <Link
+                slot='link-4'
+                href="/blog"
+            >Blog</Link>
 
             {/* Search */}
             <TnwSearchInput

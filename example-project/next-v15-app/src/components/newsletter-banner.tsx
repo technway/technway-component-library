@@ -22,7 +22,7 @@ const NewsletterBanner = () => {
         >
             <TnwSubscriptionForm
                 borderRadius="full"
-                variant="secondary"
+                variant="button-inside"
                 slot="button"
             />
             <TnwText

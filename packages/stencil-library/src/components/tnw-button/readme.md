@@ -56,12 +56,20 @@ By default, the component renders a button element, but it can also render an an
 | `disabled`             | `disabled`               | Specifies whether the button is disabled.                                          | `boolean`                                                                                                                          | `false`     |
 | `hoverAppearance`      | `hover-appearance`       | Specifies the hover appearance color for the button.                               | `"none" \| "outlined" \| "solid"`                                                                                                  | `'none'`    |
 | `hoverAppearanceColor` | `hover-appearance-color` | Specifies the hover appearance color color for the button color.                   | `"auto" \| "black" \| "inverse" \| "primary" \| "secondary" \| "white"`                                                            | `'primary'` |
-| `hoverEffect`          | `hover-effect`           | Specifies the hover effect of the button.                                          | `"contrast" \| "none" \| "opacity" \| "scale-down" \| "scale-up"`                                                                  | `'none'`    |
+| `hoverEffect`          | `hover-effect`           | Specifies the hover effect of the button.                                          | `"contrast" \| "focus-ring" \| "none" \| "opacity" \| "scale-down" \| "scale-up"`                                                  | `'none'`    |
 | `href`                 | `href`                   | If provided, the button will render as a link with this `href`.                    | `string`                                                                                                                           | `undefined` |
 | `label`                | `label`                  | Specifies the text label displayed on the button. This prop is required.           | `string`                                                                                                                           | `undefined` |
 | `newTab`               | `new-tab`                | If `true`, the link will open in a new tab. Only relevant when `href` is provided. | `boolean`                                                                                                                          | `false`     |
 | `size`                 | `size`                   | Determines the size of the button.                                                 | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`                                                                                             | `'md'`      |
 | `type`                 | `type`                   | Specifies the button type.                                                         | `"button" \| "submit"`                                                                                                             | `'button'`  |
+
+
+## Events
+
+| Event              | Description                                   | Type                |
+| ------------------ | --------------------------------------------- | ------------------- |
+| `tnwButtonBlurred` | Event emitted when the button loses focus.    | `CustomEvent<void>` |
+| `tnwButtonFocused` | Event emitted when the button receives focus. | `CustomEvent<void>` |
 
 
 ## Slots

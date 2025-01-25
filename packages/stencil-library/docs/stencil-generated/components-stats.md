@@ -8,15 +8,15 @@ This page provides an overview of statistics related to the components.
 | --- | --- |
 | **Total Components** | `34` |
 | **Total Props** | `354` |
-| **Total Events** | `17` |
+| **Total Events** | `19` |
 | **Total Methods** | `6` |
 | **Total Slots** | `58` |
-| **Total Features** | `435` |
+| **Total Features** | `437` |
 |   |  |
 | **Shadow DOM Components** | `34` |
 | **Light DOM Components** | `0` |
 | **Components with Props** | `34` |
-| **Components with Events** | `8` |
+| **Components with Events** | `9` |
 | **Components with Methods** | `2` |
 | **Components with Slots** | `21` |
 
@@ -82,7 +82,7 @@ This page provides an overview of statistics related to the components.
 | Feature | Count |
 | --- | --- |
 | **Props** | `12` |
-| **Events** | `0` |
+| **Events** | `2` |
 | **Methods** | `0` |
 | **Slots** | `2` |
 

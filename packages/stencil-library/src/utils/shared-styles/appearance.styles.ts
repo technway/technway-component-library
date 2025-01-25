@@ -470,6 +470,7 @@ export const extendedAppearanceStyles = `
 .tnw-extended-v-outlined-white {
   border-style: solid;
   border-width: var(--tnw-border-sm);
+  background: none;
 }
 
 .tnw-extended-v-outlined-primary {

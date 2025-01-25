@@ -34,6 +34,7 @@ import * as stories from './tnw-button.stories';
 - [Properties](#properties)
 - [Slots](#slots)
 - [Shadow Parts](#shadow-parts)
+- [Events](#events)
 - [Usage](#usage)
 
 ## Overview
@@ -59,7 +60,7 @@ By default, the component renders a button element, but it can also render an an
 | **disabled** | <div>Specifies whether the button is disabled.</div> | \`false\` | \`boolean\` |
 | **hoverAppearance** | <div>Specifies the hover appearance color for the button.</div> | \`'none'\` | \`"none"\` \\| \`"outlined"\` \\| \`"solid"\` |
 | **hoverAppearanceColor** | <div>Specifies the hover appearance color color for the button color.</div> | \`'primary'\` | \`"auto"\` \\| \`"black"\` \\| \`"inverse"\` \\| \`"primary"\` \\| \`"secondary"\` \\| \`"white"\` |
-| **hoverEffect** | <div>Specifies the hover effect of the button.</div> | \`'none'\` | \`"contrast"\` \\| \`"none"\` \\| \`"opacity"\` \\| \`"scale-down"\` \\| \`"scale-up"\` |
+| **hoverEffect** | <div>Specifies the hover effect of the button.</div> | \`'none'\` | \`"contrast"\` \\| \`"focus-ring"\` \\| \`"none"\` \\| \`"opacity"\` \\| \`"scale-down"\` \\| \`"scale-up"\` |
 | **href** | <div>If provided, the button will render as a link with this \`href\`.</div> | N/A | \`string\` |
 | **label** | <div>Specifies the text label displayed on the button. This prop is required.</div> | N/A | \`string\` |
 | **newTab** | <div>If \`true\`, the link will open in a new tab. Only relevant when \`href\` is provided.</div> | \`false\` | \`boolean\` |
@@ -80,6 +81,13 @@ By default, the component renders a button element, but it can also render an an
 | --- | --- |
 | **icon-end** | Slot for adding an icon or custom content at the end of the button. |
 | **icon-start** | Slot for adding an icon or custom content at the start of the button. |
+
+## Events
+
+| Event | Description |
+| --- | --- |
+| **tnwButtonBlurred** | Event emitted when the button loses focus. |
+| **tnwButtonFocused** | Event emitted when the button receives focus. |
 
 ## Usage & Examples
 

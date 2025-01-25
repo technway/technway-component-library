@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-25T05:50:55",
+  "timestamp": "2025-01-25T07:14:23",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -2923,10 +2923,10 @@
         },
         {
           "name": "hoverEffect",
-          "type": "\"contrast\" | \"none\" | \"opacity\" | \"scale-down\" | \"scale-up\"",
+          "type": "\"contrast\" | \"focus-ring\" | \"none\" | \"opacity\" | \"scale-down\" | \"scale-up\"",
           "complexType": {
-            "original": "'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity'",
-            "resolved": "\"contrast\" | \"none\" | \"opacity\" | \"scale-down\" | \"scale-up\"",
+            "original": "'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'focus-ring'",
+            "resolved": "\"contrast\" | \"focus-ring\" | \"none\" | \"opacity\" | \"scale-down\" | \"scale-up\"",
             "references": {}
           },
           "mutable": false,
@@ -2938,6 +2938,10 @@
           "values": [
             {
               "value": "contrast",
+              "type": "string"
+            },
+            {
+              "value": "focus-ring",
               "type": "string"
             },
             {
@@ -3003,7 +3007,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false
@@ -3110,7 +3114,36 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "tnwButtonBlurred",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the button loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwButtonFocused",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the button receives focus.",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [

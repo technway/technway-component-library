@@ -143,7 +143,7 @@ export class TnwSearchInput {
 
   componentWillLoad() {
     this.updateDefaultIconColor();
-    validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.inputId, this.label, this.name, this.placeholder, this.type, this.value, this.variant, this.width]);
+    validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.iconColor, this.inputId, this.label, this.name, this.placeholder, this.type, this.value, this.variant, this.width]);
   }
 
   connectedCallback() {

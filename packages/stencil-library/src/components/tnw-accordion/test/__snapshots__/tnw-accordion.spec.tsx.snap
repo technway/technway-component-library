@@ -112,6 +112,7 @@ button {
     background-color: transparent;
     border: none;
     width: 100%;
+    padding: 0;
 }
 
 .tnw-accordion__header, button {
@@ -152,7 +153,7 @@ button {
           <div class="tnw-accordion__expand-icon">
             <tnw-icon color="auto" hiddenaria="" name="tnw-chevron-down" part="header-icon"></tnw-icon>
           </div>
-          <tnw-text color="auto" part="header-text" size="xs" text="Accordion Title" weight="600"></tnw-text>
+          <tnw-text alignment="start" color="auto" part="header-text" size="xs" text="Accordion Title" weight="600"></tnw-text>
         </div>
       </button>
     </h3>

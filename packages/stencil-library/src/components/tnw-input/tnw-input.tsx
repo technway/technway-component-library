@@ -116,6 +116,13 @@ export class TnwInput {
   @Prop() disabled?: boolean = false;
 
   /**
+   * Specifies the hover effect of the input.
+   * - `color`: Changes the border color of the input when hovered.
+   * - `ring`: Adds a ring around the input when hovered.
+   */
+  @Prop() hoverEffect?: 'color' | 'ring' = 'color';
+
+  /**
    * The help text providing additional information about the input.
    */
   @Prop() helpText?: string = '';
@@ -146,6 +153,16 @@ export class TnwInput {
    */
   @Event() validationFailed: EventEmitter<{ inputId: string; error: string }>;
 
+  /**
+   * Event emitted when the input receives focus.
+   */
+  @Event() tnwInputFocused: EventEmitter<void>;
+
+  /**
+   * Event emitted when the input loses focus.
+   */
+  @Event() tnwInputBlurred: EventEmitter<void>;
+
   constructor() {
     if (isCSSStyleSheetSupported()) {
       this.componentStyles = new CSSStyleSheet();
@@ -166,7 +183,7 @@ export class TnwInput {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.size, this.type, this.value]);
+    validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.hoverEffect, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.size, this.type, this.value]);
 
     /**
      * Initialize the store with the initial value.
@@ -329,6 +346,20 @@ export class TnwInput {
     this.setStore(value, false);
   }
 
+  /**
+   * Handles the input focus event.
+   */
+  private handleInputFocus = () => {
+    this.tnwInputFocused.emit();
+  }
+
+  /**
+   * Handles the input blur event.
+   */
+  private handleInputBlur = () => {
+    this.tnwInputBlurred.emit();
+  }
+
   private get uniqueId(): string {
     return this.store.get('uniqueId');
   }
@@ -345,14 +376,16 @@ export class TnwInput {
   }
 
   private getInputClasses(): string {
-    const { baseClass, appearance, appearanceColor, size } = this;
+    const { baseClass, appearance, appearanceColor, size, hoverEffect } = this;
     const alertType = this.store.get('alertType');
 
     return [
       baseClass,
       `${baseClass}--${appearance}`,
-      `${baseClass}--${appearance}-${appearanceColor}`,
+      `${baseClass}--${appearanceColor}`,
       `${baseClass}--${size}`,
+      `${baseClass}--hover-${hoverEffect}`,
+      this.disabled ? `${baseClass}--disabled` : '',
       isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
       getBorderRadiusClass(this.borderRadius),
     ].filter(Boolean).join(' ').trim();
@@ -385,7 +418,7 @@ export class TnwInput {
     return (
       <tnw-alert
         message={alertMessage}
-        appearance={alertType}
+        appearanceColor={alertType}
         alertId={`${this.uniqueId}-${alertType}`}
         part="alert"
       />
@@ -426,6 +459,8 @@ export class TnwInput {
           {...this.getAriaAttributes()}
           onInput={this.handleInputOnInput}
           onChange={this.handleInputOnChange}
+          onFocus={this.handleInputFocus}
+          onBlur={this.handleInputBlur}
           part='input'
         />
         {this.renderAlert() || this.renderHelpText()}

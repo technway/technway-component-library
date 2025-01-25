@@ -20,6 +20,8 @@ export const styles = `
   --${baseClass}-pl-foc-c: var(--tnw-placeholder-color);
   --${baseClass}-fw: var(--tnw-fw-500);
   --${baseClass}-font: var(--tnw-font-text);
+  --${baseClass}-focus-ring-width: 2px;
+  --${baseClass}-focus-ring-offset: 2px;
 }
 
 ::-webkit-input-placeholder {
@@ -57,121 +59,99 @@ export const styles = `
   font-weight: var(--${baseClass}-fw);
 }
 
+
+.${baseClass}--primary {
+  --${baseClass}-border-color: var(--tnw-primary-color);
+}
+.${baseClass}--secondary {
+  --${baseClass}-border-color: var(--tnw-secondary-color);
+}
+.${baseClass}--auto {
+  --${baseClass}-border-color: var(--tnw-border-color);
+}
+.${baseClass}--inverse {
+  --${baseClass}-border-color: var(--tnw-border-color-inverse);
+}
+.${baseClass}--light {
+  --${baseClass}-border-color: var(--tnw-border-color-opacity);
+}
+.${baseClass}--white {
+  --${baseClass}-border-color: var(--tnw-white);
+}
+.${baseClass}--black {
+  --${baseClass}-border-color: var(--tnw-black);
+}
+.${baseClass}--success {
+  --${baseClass}-state-color: var(--${baseClass}-success);
+}
+.${baseClass}--danger {
+  --${baseClass}-state-color: var(--${baseClass}-danger);
+}
+.${baseClass}--warning {
+  --${baseClass}-state-color: var(--${baseClass}-warning);
+}
+.${baseClass}--info {
+  --${baseClass}-state-color: var(--${baseClass}-info);
+}
+
+/* Focus styles */
+.${baseClass}:not(.${baseClass}--underlined):focus-visible {
+    outline: var(--${baseClass}-focus-ring-width) solid var(--${baseClass}-state-color, var(--tnw-primary-color));
+    outline-offset: var(--${baseClass}-focus-ring-offset);
+}
+/* For browsers that don't support :focus-visible */
+.${baseClass}:not(.${baseClass}--underlined):focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Ring Hover styles */
+.${baseClass}--hover-ring:not(.${baseClass}--underlined):hover {
+    outline: var(--${baseClass}-focus-ring-width) solid var(--${baseClass}-state-color, var(--tnw-primary-color));
+    outline-offset: var(--${baseClass}-focus-ring-offset);
+}
+
+.${baseClass}--hover-color {
+  outline: none;
+}
+
 .${baseClass}--none {
   border: 0;
 }
 
+.${baseClass}--disabled {
+  opacity: 0.6;
+}
+
 .${baseClass}--outlined {
   background: none;
-  outline-width: var(--tnw-border-sm);
-  outline-style: solid;
-  border: 0;
+  border-width: var(--tnw-border-sm);
+  border-style: solid;
   padding: var(--${baseClass}-p-y) var(--${baseClass}-p-x);
-  background: none;
+  border-color: var(--${baseClass}-state-color, var(--${baseClass}-border-color));
 }
-.${baseClass}--outlined-primary {
-  outline-color: var(--tnw-primary-color);
+.${baseClass}--outlined.${baseClass}--hover-color:hover {
+  border-color: var(--${baseClass}-state-color, var(--tnw-primary-color));
 }
-.${baseClass}--outlined-secondary {
-  outline-color: var(--tnw-secondary-color);
-}
-.${baseClass}--outlined-auto {
-  outline-color: var(--tnw-border-color);
-}
-.${baseClass}--outlined-inverse {
-  outline-color: var(--tnw-border-color-inverse);
-}
-.${baseClass}--outlined-light {
-  outline-color: var(--tnw-border-color-opacity);
-}
-.${baseClass}--outlined-white {
-  outline-color: var(--tnw-white);
-}
-.${baseClass}--outlined-black {
-  outline-color: var(--tnw-black);
-}
-.${baseClass}--outlined:focus {
-  outline-color: var(--tnw-primary-color);
+.${baseClass}--outlined.${baseClass}:focus-visible {
+  border-color: var(--${baseClass}-state-color, var(--tnw-primary-color));
 }
 
 .${baseClass}--underlined {
-  border: 0;
   outline-color: transparent;
   padding-bottom: var(--${baseClass}-p-y);
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom-width: var(--tnw-border-sm);
+  border-bottom-style: solid;
+  border-bottom-color: var(--${baseClass}-state-color, var(--${baseClass}-border-color));
   background: none;
 }
-.${baseClass}--underlined-primary {
-  border-bottom: var(--tnw-border-color);
+.${baseClass}--underlined.${baseClass}--hover-color:hover {
+  border-bottom-color: var(--${baseClass}-state-color, var(--tnw-primary-color));
 }
-.${baseClass}--underlined-secondary {
-  border-bottom: var(--tnw-secondary-color);
-}
-.${baseClass}--underlined-auto {
-  border-bottom: var(--tnw-border-color);
-}
-.${baseClass}--underlined-inverse {
-  border-bottom: var(--tnw-border-color-inverse);
-}
-.${baseClass}--underlined-light {
-  border-bottom: var(--tnw-border-color-opacity);
-}
-.${baseClass}--underlined-white {
-  border-bottom: var(--tnw-white);
-}
-.${baseClass}--underlined-black {
-  border-bottom: var(--tnw-black);
-}
-.${baseClass}--underlined:focus,
-.${baseClass}--underlined:focus-within,
-.${baseClass}--underlined:focus-visible {
-  border-bottom-color: var(--tnw-primary-color);
-}
-.${baseClass}--underlined:focus-visible {
-  outline-style: none;
-}
-
-.${baseClass}--success {
-  outline-color: var(--${baseClass}-success);
-  border-bottom-color: var(--tnw-primary-success);
-}
-.${baseClass}--success:focus,
-.${baseClass}--success:focus-within,
-.${baseClass}--success:focus-visible {
-  outline-color: var(--${baseClass}-success);
-  border-bottom-color: var(--tnw-primary-success);
-}
-
-.${baseClass}--danger {
-  outline-color: var(--${baseClass}-danger);
-  border-bottom-color: var(--tnw-primary-danger);
-}
-.${baseClass}--danger:focus,
-.${baseClass}--danger:focus-within,
-.${baseClass}--danger:focus-visible {
-  outline-color: var(--${baseClass}-danger);
-  border-bottom-color: var(--tnw-primary-danger);
-}
-
-.${baseClass}--warning {
-  outline-color: var(--${baseClass}-warning);
-  border-bottom-color: var(--tnw-primary-warning);
-}
-.${baseClass}--warning:focus,
-.${baseClass}--warning:focus-within,
-.${baseClass}--warning:focus-visible {
-  outline-color: var(--${baseClass}-warning);
-  border-bottom-color: var(--tnw-primary-warning);
-}
-
-.${baseClass}--info {
-  outline-color: var(--${baseClass}-info);
-  border-bottom-color: var(--tnw-primary-info);
-}
-.${baseClass}--info:focus,
-.${baseClass}--info:focus-within,
-.${baseClass}--info:focus-visible {
-  outline-color: var(--${baseClass}-info);
-  border-bottom-color: var(--tnw-primary-info);
+.${baseClass}--underlined.${baseClass}:focus-visible {
+  border-bottom-color: var(--${baseClass}-state-color, var(--tnw-primary-color));
 }
 
 /* - Sizes - */

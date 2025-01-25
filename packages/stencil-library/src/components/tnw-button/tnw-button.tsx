@@ -67,7 +67,7 @@ export class TnwButton {
   /**
    * Specifies the hover effect of the button.
    */
-  @Prop() hoverEffect?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'focus-ring' = 'none';
+  @Prop() hoverEffect?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'ring' = 'none';
 
   /**
    * If provided, the button will render as a link with this `href`.

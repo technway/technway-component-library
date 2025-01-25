@@ -32,28 +32,27 @@ export class TnwInput {
     alertMessage: this.helpText,
     alertType: undefined,
     isInvalid: false,
-    uniqueId: undefined,
   });
 
   /**
    * The label for the input.
    */
-  @Prop() label: string;
+  @Prop() label?: string;
 
   /**
    * The unique ID for the input element. If not provided, a random ID will be generated.
    */
-  @Prop() inputId?: string;
+  @Prop() inputId?: string = generateRandomId(this.baseClass);
 
   /**
    * The input type (e.g., text, password).
    */
-  @Prop({ reflect: true }) type!: string;
+  @Prop() type: string = 'text';
 
   /**
    * The placeholder text for the input.
    */
-  @Prop({ reflect: true }) placeholder!: string;
+  @Prop() placeholder?: string;
 
   /**
    * Defines the appearance of the input.
@@ -151,17 +150,17 @@ export class TnwInput {
    * - `inputId`: The unique ID of the input element.
    * - `error`: A string message explaining the validation failure.
    */
-  @Event() validationFailed: EventEmitter<{ inputId: string; error: string }>;
+  @Event() validationFailed!: EventEmitter<{ inputId: string; error: string }>;
 
   /**
    * Event emitted when the input receives focus.
    */
-  @Event() tnwInputFocused: EventEmitter<void>;
+  @Event() tnwInputFocused!: EventEmitter<void>;
 
   /**
    * Event emitted when the input loses focus.
    */
-  @Event() tnwInputBlurred: EventEmitter<void>;
+  @Event() tnwInputBlurred!: EventEmitter<void>;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -178,8 +177,6 @@ export class TnwInput {
         this.componentStyles,
       ];
     }
-
-    this.setUniqueId();
   }
 
   componentWillLoad() {
@@ -189,21 +186,6 @@ export class TnwInput {
      * Initialize the store with the initial value.
      */
     this.setStore(this.value);
-  }
-
-  /**
-   * Sets a unique ID for the input element.
-   * 
-   * This method checks if `inputId` is a non-empty string. If it is, 
-   * it stores `inputId` as `uniqueId` in the store. Otherwise, it 
-   * generates a random ID and stores it as `uniqueId`.
-   */
-  private setUniqueId(): void {
-    if (isNotEmptyString(this.inputId)) {
-      this.store.set('uniqueId', this.inputId);
-    } else {
-      this.store.set('uniqueId', generateRandomId(this.baseClass))
-    }
   }
 
   /**
@@ -230,7 +212,7 @@ export class TnwInput {
       this.store.set('alertMessage', errorMsg);
       this.store.set('alertType', 'danger');
       this.store.set('isInvalid', true);
-      this.validationFailed.emit({ inputId: this.uniqueId, error: errorMsg });
+      this.validationFailed.emit({ inputId: this.inputId, error: errorMsg });
     }
   }
 
@@ -360,18 +342,14 @@ export class TnwInput {
     this.tnwInputBlurred.emit();
   }
 
-  private get uniqueId(): string {
-    return this.store.get('uniqueId');
-  }
-
   private getAriaAttributes(): Record<string, string | null> {
     return {
       'aria-invalid': this.store.get('isInvalid') ? 'true' : null,
       'aria-describedby': [
-        isNotEmptyString(this.store.get('alertMessage')) ? `${this.uniqueId}-${this.store.get('alertType')}` : null,
-        isNotEmptyString(this.helpText) ? `${this.uniqueId}-help` : null,
+        isNotEmptyString(this.store.get('alertMessage')) ? `${this.inputId}-${this.store.get('alertType')}` : null,
+        isNotEmptyString(this.helpText) ? `${this.inputId}-help` : null,
       ].filter(Boolean).join(' '),
-      'aria-labelledby': isNotEmptyString(this.label) ? this.uniqueId : null,
+      'aria-labelledby': isNotEmptyString(this.label) ? this.inputId : null,
     };
   }
 
@@ -400,7 +378,7 @@ export class TnwInput {
       <tnw-label
         class={this.isLabelSrOnly ? 'sr-only' : ''}
         text={this.label}
-        htmlFor={this.uniqueId}
+        htmlFor={this.inputId}
         isSrOnly={this.isLabelSrOnly}
         part='label'
       ></tnw-label>
@@ -419,7 +397,7 @@ export class TnwInput {
       <tnw-alert
         message={alertMessage}
         appearanceColor={alertType}
-        alertId={`${this.uniqueId}-${alertType}`}
+        alertId={`${this.inputId}-${alertType}`}
         part="alert"
       />
     );
@@ -433,7 +411,7 @@ export class TnwInput {
     return (
       <tnw-alert
         message={this.helpText}
-        alertId={`${this.uniqueId}-help`}
+        alertId={`${this.inputId}-help`}
         part="help-text"
       />
     );
@@ -445,7 +423,7 @@ export class TnwInput {
         {this.renderLabel()}
         <input
           class={this.getInputClasses()}
-          id={this.uniqueId}
+          id={this.inputId}
           type={this.type}
           name={this.name}
           value={this.store.get('inputValue')}

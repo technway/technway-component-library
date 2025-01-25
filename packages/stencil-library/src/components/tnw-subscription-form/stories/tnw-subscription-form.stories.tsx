@@ -19,13 +19,13 @@ export const Standard = Template.bind({});
 Standard.args = {
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  variant: 'secondary',
+export const ButtonInside = Template.bind({});
+ButtonInside.args = {
+  variant: 'button-inside',
 };
 
-export const SecondaryFullRounded = Template.bind({});
-SecondaryFullRounded.args = {
-  ...Secondary.args,
+export const ButtonInsideFullRounded = Template.bind({});
+ButtonInsideFullRounded.args = {
+  ...ButtonInside.args,
   borderRadius: 'full',
 };

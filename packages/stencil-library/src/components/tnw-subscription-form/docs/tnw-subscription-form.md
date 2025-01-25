@@ -28,13 +28,13 @@ The `tnw-subscription-form` component provides a customizable subscription form.
 | **formAction** | <div>The action attribute for the form</div> | N/A | `string` |
 | **formAttributes** | <div>The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".</div> | N/A | `string` |
 | **formMethod** | <div>The method attribute for the form</div> | N/A | `string` |
-| **inputId** | <div>The id for the email input</div> | N/A | `string` |
+| **inputId** | <div>The id for the email input</div> | `generateRandomId(this.baseClass)` | `string` |
 | **inputPlaceholder** | <div>The placeholder for the email input</div> | `'Enter your email'` | `string` |
 | **successMessage** | <div>The message to display after successful subscription</div> | `'Thanks for subscribing!'` | `string` |
 | **theme** | <div>The theme for the component. It controls the color scheme of the component.</div> | `'primary'` | `"auto"` \| `"black"` \| `"inverse"` \| `"light"` \| `"primary"` \| `"secondary"` \| `"white"` |
 | **variant** | <div>The variant for the component
-- Primary: The button is next to the input
-- Secondary: The button is inside the input</div> | `'primary'` | `"primary"` \| `"secondary"` |
+- button-outside: The button is positioned next to the input field (default)
+- button-inside: The button is positioned inside the input field on the right</div> | `'button-outside'` | `"button-inside"` \| `"button-outside"` |
 
 </div>
 

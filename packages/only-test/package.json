@@ -1,6 +1,6 @@
 {
   "name": "@technway/only-test",
-  "version": "0.0.2-next.2",
+  "version": "0.0.2-next.3",
   "description": "Test package",
   "main": "index.js",
   "scripts": {

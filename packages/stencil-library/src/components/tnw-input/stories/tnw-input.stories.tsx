@@ -107,8 +107,37 @@ NotSanitizedValue.args = {
   value: "'; DROP TABLE users; --",
 };
 
-export const PrimaryColor = Template.bind({});
-PrimaryColor.args = {
+export const PrimaryRingEffect = Template.bind({});
+PrimaryRingEffect.args = {
   ...Standard.args,
   appearanceColor: 'primary',
+  hoverEffect: 'ring',
+};
+
+export const PrimaryColorEffect = Template.bind({});
+PrimaryColorEffect.args = {
+  ...Standard.args,
+  appearanceColor: 'primary',
+  hoverEffect: 'color',
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Standard.args,
+  disabled: true,
+};
+
+export const UnderlinedDisabled = Template.bind({});
+UnderlinedDisabled.args = {
+  ...Standard.args,
+  appearance: 'underlined',
+  borderRadius: 'none',
+  disabled: true,
+};
+
+export const RingDisabled = Template.bind({});
+RingDisabled.args = {
+  ...Standard.args,
+  hoverEffect: 'ring',
+  disabled: true,
 };

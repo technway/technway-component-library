@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-input.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.size, this.type, this.value]);
+validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.hoverEffect, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.size, this.type, this.value]);
  *
  * GENERATED USING `pnpm g:components-validations tnw-input`
  */
@@ -72,6 +72,14 @@ export function validateProps(propsValues: any[]): void {
     "name": "helpText",
     "type": [
       "string"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "hoverEffect",
+    "type": [
+      "color",
+      "ring"
     ],
     "isRequired": false
   },

@@ -4,7 +4,7 @@ exports[`tnw-input Default and Required Prop Behavior renders correctly with def
 <tnw-input input-id="input-test" label="Default Input" placeholder="Enter text" type="text">
   <template shadowrootmode="open">
     <tnw-label htmlfor="input-test" part="label" text="Default Input"></tnw-label>
-    <input aria-describedby="" aria-labelledby="input-test" autocomplete="off" class="rounded-default tnw-input tnw-input--md tnw-input--outlined tnw-input--outlined-auto" id="input-test" part="input" pattern="" placeholder="Enter text" type="text" value="">
+    <input aria-describedby="" aria-labelledby="input-test" autocomplete="off" class="rounded-default tnw-input tnw-input--auto tnw-input--hover-color tnw-input--md tnw-input--outlined" id="input-test" part="input" pattern="" placeholder="Enter text" type="text" value="">
   </template>
 </tnw-input>
 `;

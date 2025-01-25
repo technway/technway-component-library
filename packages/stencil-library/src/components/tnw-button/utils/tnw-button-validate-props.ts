@@ -92,9 +92,9 @@ export function validateProps(propsValues: any[]): void {
     "name": "hoverEffect",
     "type": [
       "contrast",
-      "focus-ring",
       "none",
       "opacity",
+      "ring",
       "scale-down",
       "scale-up"
     ],

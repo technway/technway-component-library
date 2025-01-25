@@ -255,24 +255,24 @@ a {
 }
 
 /* Add hover focus ring color variants */
-:host(.tnw-extended-v-solid-primary) .${baseClass}--hover-focus-ring:hover {
+:host(.tnw-extended-v-solid-primary) .${baseClass}--hover-ring:hover {
     --${baseClass}-focus-ring-color: var(--tnw-primary-color);
 }
 
-:host(.tnw-extended-v-solid-secondary) .${baseClass}--hover-focus-ring:hover {
+:host(.tnw-extended-v-solid-secondary) .${baseClass}--hover-ring:hover {
     --${baseClass}-focus-ring-color: var(--tnw-secondary-color);
 }
 
-:host(.tnw-extended-v-solid-black) .${baseClass}--hover-focus-ring:hover {
+:host(.tnw-extended-v-solid-black) .${baseClass}--hover-ring:hover {
     --${baseClass}-focus-ring-color: var(--tnw-black);
 }
 
-:host(.tnw-extended-v-solid-white) .${baseClass}--hover-focus-ring:hover {
+:host(.tnw-extended-v-solid-white) .${baseClass}--hover-ring:hover {
     --${baseClass}-focus-ring-color: var(--tnw-white);
 }
 
 /* Ensure hover focus ring doesn't show on disabled state */
-.${baseClass}--disabled.${baseClass}--hover-focus-ring:hover {
+.${baseClass}--disabled.${baseClass}--hover-ring:hover {
     outline: none;
 }
 `;

@@ -593,6 +593,7 @@ export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = 
             appearanceColor: 'appearance-color',
             isLabelSrOnly: 'is-label-sr-only',
             name: 'name',
+            size: 'size',
             value: 'value',
             isRequired: 'is-required',
             maxlength: 'maxlength',

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-25T07:21:50",
+  "timestamp": "2025-01-25T08:29:24",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -9897,6 +9897,53 @@
           "setter": false
         },
         {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+          "complexType": {
+            "original": "ExtendedSizeType",
+            "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+            "references": {
+              "ExtendedSizeType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::ExtendedSizeType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the input.",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            },
+            {
+              "value": "xs",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "type",
           "type": "string",
           "complexType": {
@@ -14659,6 +14706,7 @@
           "reflectToAttr": false,
           "docs": "The id for the email input",
           "docsTags": [],
+          "default": "generateRandomId(this.baseClass)",
           "values": [
             {
               "type": "string"
@@ -14774,25 +14822,25 @@
         },
         {
           "name": "variant",
-          "type": "\"primary\" | \"secondary\"",
+          "type": "\"button-inside\" | \"button-outside\"",
           "complexType": {
-            "original": "'primary' | 'secondary'",
-            "resolved": "\"primary\" | \"secondary\"",
+            "original": "'button-outside' | 'button-inside'",
+            "resolved": "\"button-inside\" | \"button-outside\"",
             "references": {}
           },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "The variant for the component\r\n- Primary: The button is next to the input\r\n- Secondary: The button is inside the input",
+          "docs": "The variant for the component\r\n- button-outside: The button is positioned next to the input field (default)\r\n- button-inside: The button is positioned inside the input field on the right",
           "docsTags": [],
-          "default": "'primary'",
+          "default": "'button-outside'",
           "values": [
             {
-              "value": "primary",
+              "value": "button-inside",
               "type": "string"
             },
             {
-              "value": "secondary",
+              "value": "button-outside",
               "type": "string"
             }
           ],

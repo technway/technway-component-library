@@ -41,6 +41,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.10.0](https://github.com/technway/technway-component-library/compare/root-v3.9.0...root-v3.10.0) (2025-01-25)
+
+
+### Features
+
+* **button:** introduce focus events and improve a11y ([4ea6dde](https://github.com/technway/technway-component-library/commit/4ea6ddea4f4b439b3b992338e425c734780ef20e))
+* **tnw-input:** add focus, blur events and hoverEffect props ([b82163e](https://github.com/technway/technway-component-library/commit/b82163e171bdccec7356b888a669f7488b785534))
+* **tnw-input:** add size prop ([1fb7d06](https://github.com/technway/technway-component-library/commit/1fb7d06e3f01730e432ac2da221ef0eb4ca79829))
+* **tnw-search-input:** introduce events handling focus and blur and iconColor prop ([c78360e](https://github.com/technway/technway-component-library/commit/c78360e2a14b342fa5c531da457de204827af5d2))
+* **tokens:** update placeholder-related css variables ([ae64d4d](https://github.com/technway/technway-component-library/commit/ae64d4d49433d6075a52119dac3bd44b3021a33d))
+
+
+### Bug Fixes
+
+* **tnw-accordion:** fix text alignment issues ([7438ca5](https://github.com/technway/technway-component-library/commit/7438ca5cbc2c6911acbca941cadc1811528760d6))
+* **tnw-button:** fix border style issue ([90aa2b7](https://github.com/technway/technway-component-library/commit/90aa2b760f8848471a05ab45d10d34397d84a358))
+* **tnw-divider:** fix light variant styling ([76ae362](https://github.com/technway/technway-component-library/commit/76ae362b808eb7a0299d7d0c119e0eb167c3a4de))
+* **tnw-footer:** update tnw-subscription-form variant ([69486e7](https://github.com/technway/technway-component-library/commit/69486e764295eb172f46ead51f07165bc4f38f40))
+* **tnw-search-input:** update props validations ([ecc3f65](https://github.com/technway/technway-component-library/commit/ecc3f652d11f71971f20fce9b8b0ac97f4e51ab9))
+* **tnw-subscription-form:** fix light appearance color styling ([c6a9f8b](https://github.com/technway/technway-component-library/commit/c6a9f8b7dd9f5d02e35cb2e0456c8175e56022b2))
+* **tnw-subscription-form:** fix variants styling issues ([cd7d15e](https://github.com/technway/technway-component-library/commit/cd7d15e26646e8cc8f306cc9e3ff02a2bed024b5))
+
 ## [3.9.0](https://github.com/technway/technway-component-library/compare/root-v3.8.0...root-v3.9.0) (2025-01-24)
 
 

@@ -296,7 +296,7 @@ export namespace Components {
         /**
           * Specifies the hover effect of the button.
          */
-        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity';
+        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'focus-ring';
         /**
           * If provided, the button will render as a link with this `href`.
          */
@@ -304,7 +304,7 @@ export namespace Components {
         /**
           * Specifies the text label displayed on the button. This prop is required.
          */
-        "label": string;
+        "label"?: string;
         /**
           * If `true`, the link will open in a new tab. Only relevant when `href` is provided.
          */
@@ -1678,6 +1678,10 @@ export interface TnwAccordionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwAccordionElement;
 }
+export interface TnwButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwButtonElement;
+}
 export interface TnwInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwInputElement;
@@ -1795,12 +1799,24 @@ declare global {
         prototype: HTMLTnwBannerElement;
         new (): HTMLTnwBannerElement;
     };
+    interface HTMLTnwButtonElementEventMap {
+        "tnwButtonFocused": void;
+        "tnwButtonBlurred": void;
+    }
     /**
      * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
      * It supports various styles, sizes, and appearances, and allows for custom content to be inserted via a slot.
      * By default, the component renders a button element, but it can also render an anchor element if the `href` prop is provided.
      */
     interface HTMLTnwButtonElement extends Components.TnwButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwButtonElementEventMap>(type: K, listener: (this: HTMLTnwButtonElement, ev: TnwButtonCustomEvent<HTMLTnwButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwButtonElementEventMap>(type: K, listener: (this: HTMLTnwButtonElement, ev: TnwButtonCustomEvent<HTMLTnwButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLTnwButtonElement: {
         prototype: HTMLTnwButtonElement;
@@ -2479,7 +2495,7 @@ declare namespace LocalJSX {
         /**
           * Specifies the hover effect of the button.
          */
-        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity';
+        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'focus-ring';
         /**
           * If provided, the button will render as a link with this `href`.
          */
@@ -2492,6 +2508,14 @@ declare namespace LocalJSX {
           * If `true`, the link will open in a new tab. Only relevant when `href` is provided.
          */
         "newTab"?: boolean;
+        /**
+          * Event emitted when the button loses focus.
+         */
+        "onTnwButtonBlurred"?: (event: TnwButtonCustomEvent<void>) => void;
+        /**
+          * Event emitted when the button receives focus.
+         */
+        "onTnwButtonFocused"?: (event: TnwButtonCustomEvent<void>) => void;
         /**
           * Determines the size of the button.
          */

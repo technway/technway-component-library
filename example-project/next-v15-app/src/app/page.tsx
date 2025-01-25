@@ -3,6 +3,7 @@ import Accordion from '../components/accordion/accordion';
 import AccordionGroup from '../components/accordion/accordion-group';
 import ArticleCard from '../components/card/card';
 import { TnwDivider, TnwHeading } from '@technway/next-library/src/components';
+import { TnwButton } from '@technway/next-library/src/components.server';
 import Navbar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 import Header from '../components/header/header';
@@ -15,8 +16,35 @@ export default function Home() {
       
       <TnwDivider />
 
-      <div className="container layout">
+      <div className="container layout" style={{ paddingTop: '100px' }}>
         <Flex direction="col" gap={16}>
+          <Flex direction="col" gap={12}>
+            <TnwHeading text='Buttons' level='h2' />
+            <Flex gap={8}>
+              <TnwButton
+                label="Focus/Blur Test"
+                onTnwButtonFocused={() => {
+                  console.log('Button focused');
+                }}
+                onTnwButtonBlurred={() => {
+                  console.log('Button blurred');
+                }}
+              />
+              <TnwButton
+                label="Focus Ring Test"
+                hoverEffect="focus-ring"
+              />
+              <TnwButton
+                label="Focus Ring Test"
+                hoverEffect="focus-ring"
+                appearance='outlined'
+                appearanceColor='primary'
+              />
+            </Flex>
+          </Flex>
+
+          <TnwDivider />
+
           <Flex direction="col" gap={12}>
             <TnwHeading text='Banners' level='h2' style={{ marginTop: '100px' }} />
             <NewsletterBanner />

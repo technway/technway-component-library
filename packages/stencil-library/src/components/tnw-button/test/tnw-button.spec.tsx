@@ -1,3 +1,4 @@
+import { newSpecPage } from '@stencil/core/testing';
 import { createSpecPage, checkSpecPageError } from '../../../utils/testing-utils';
 import { TnwButton } from '../tnw-button';
 
@@ -144,6 +145,62 @@ describe('tnw-button', () => {
         'button'
       );
       expect(button.getAttribute('disabled')).not.toBe('false');
+    });
+  });
+
+  describe('Custom Events Behavior', () => {
+    it('emits tnwButtonFocused when button receives focus', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Focus Test"></tnw-button>`,
+      });
+
+      const buttonElement = page.root.shadowRoot.querySelector('button');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwButtonFocused', spy);
+
+      buttonElement.dispatchEvent(new Event('focus'));
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    it('emits tnwButtonBlurred when button loses focus', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Blur Test"></tnw-button>`,
+      });
+
+      const buttonElement = page.root.shadowRoot.querySelector('button');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwButtonBlurred', spy);
+
+      buttonElement.dispatchEvent(new Event('blur'));
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    it('emits focus and blur events for anchor element when href is provided', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Link Test" href="https://example.com"></tnw-button>`,
+      });
+
+      const anchorElement = page.root.shadowRoot.querySelector('a');
+      const focusSpy = jest.fn();
+      const blurSpy = jest.fn();
+      
+      page.root.addEventListener('tnwButtonFocused', focusSpy);
+      page.root.addEventListener('tnwButtonBlurred', blurSpy);
+
+      anchorElement.dispatchEvent(new Event('focus'));
+      await page.waitForChanges();
+      expect(focusSpy).toHaveBeenCalledTimes(1);
+
+      anchorElement.dispatchEvent(new Event('blur'));
+      await page.waitForChanges();
+      expect(blurSpy).toHaveBeenCalledTimes(1);
     });
   });
 });

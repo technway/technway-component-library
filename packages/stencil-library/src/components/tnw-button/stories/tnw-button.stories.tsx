@@ -106,3 +106,9 @@ OpacityHover.args = {
   ...Standard.args,
   hoverEffect: "opacity",
 };
+
+export const FocusRingHover = Template.bind({});
+FocusRingHover.args = {
+  ...Standard.args,
+  hoverEffect: "focus-ring",
+};

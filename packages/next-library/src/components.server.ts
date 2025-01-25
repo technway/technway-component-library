@@ -221,7 +221,10 @@ export const TnwBanner: StencilReactComponent<TnwBannerElement, TnwBannerEvents>
         hydrateModule: import('@technway/stencil-library/hydrate')
     });
 
-type TnwButtonEvents = NonNullable<unknown>;
+type TnwButtonEvents = {
+    onTnwButtonFocused: EventName<CustomEvent<void>>,
+    onTnwButtonBlurred: EventName<CustomEvent<void>>
+};
 
 export const TnwButton: StencilReactComponent<TnwButtonElement, TnwButtonEvents> = typeof window !== 'undefined'
     ? /*@__PURE__*/ createComponent<TnwButtonElement, TnwButtonEvents>({
@@ -229,7 +232,10 @@ export const TnwButton: StencilReactComponent<TnwButtonElement, TnwButtonEvents>
         elementClass: TnwButtonElement,
         // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
         react: React,
-        events: {} as TnwButtonEvents,
+        events: {
+            onTnwButtonFocused: 'tnwButtonFocused',
+            onTnwButtonBlurred: 'tnwButtonBlurred'
+        } as TnwButtonEvents,
         defineCustomElement: defineTnwButton
     })
     : /*@__PURE__*/ createSSRComponent<TnwButtonElement, TnwButtonEvents>({

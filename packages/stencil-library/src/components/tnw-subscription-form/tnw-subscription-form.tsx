@@ -1,7 +1,7 @@
-import { Component, Element, Host, Prop, State, h } from '@stencil/core';
+import { Component, Element, Host, Prop, h } from '@stencil/core';
 import { BorderRadiusType } from '../../components';
 import { ColorType } from '../../utils/component-props-types';
-import { generateRandomId, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-subscription-form.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet, fontFamilyStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-subscription-form-validate-props';
@@ -18,8 +18,6 @@ export class TnwSubscriptionForm {
   private componentStyles: CSSStyleSheet;
 
   @Element() el!: HTMLTnwSubscriptionFormElement;
-
-  @State() finalInputId: string;
 
   /**
    * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
@@ -43,10 +41,10 @@ export class TnwSubscriptionForm {
 
   /**
    * The variant for the component
-   * - Primary: The button is next to the input
-   * - Secondary: The button is inside the input
+   * - button-outside: The button is positioned next to the input field (default)
+   * - button-inside: The button is positioned inside the input field on the right
    */
-  @Prop() variant?: 'primary' | 'secondary' = 'primary';
+  @Prop() variant?: 'button-outside' | 'button-inside' = 'button-outside';
 
   /**
    * The theme for the component. It controls the color scheme of the component.
@@ -61,7 +59,7 @@ export class TnwSubscriptionForm {
   /**
    * The id for the email input
    */
-  @Prop() inputId?: string;
+  @Prop() inputId?: string = generateRandomId(this.baseClass);
 
   /**
    * The action attribute for the form
@@ -97,23 +95,7 @@ export class TnwSubscriptionForm {
   }
 
   componentWillLoad() {
-    this.setInputId();
     validateProps([this.borderRadius, this.buttonLabel, this.enableButtonSlot, this.formAction, this.formAttributes, this.formMethod, this.inputId, this.inputPlaceholder, this.successMessage, this.theme, this.variant]);
-  }
-
-  private setInputId() {
-    if (isNotEmptyString(this.inputId)) {
-      this.finalInputId = this.inputId;
-    } else {
-      this.finalInputId = generateRandomId(this.baseClass);
-    }
-  }
-
-  private getHostClasses() {
-    return [
-      this.baseClass,
-      `${this.baseClass}--${this.variant}`,
-    ].filter(Boolean).join(' ').trim();
   }
 
   /**
@@ -140,18 +122,28 @@ export class TnwSubscriptionForm {
     }
   }
 
+  private getFormClasses() {
+    return [
+      this.baseClass,
+      `${this.baseClass}--${this.variant}`,
+      this.variant === 'button-inside' ? getBorderRadiusClass(this.borderRadius) : '',
+      this.variant === 'button-inside' ? `${this.baseClass}--${this.theme}` : '',
+    ].filter(Boolean).join(' ').trim();
+  }
+
   private renderInput() {
     return (
       <tnw-input
         placeholder={this.inputPlaceholder}
         type='email'
-        inputId={this.finalInputId}
+        inputId={this.inputId}
         label={this.inputPlaceholder}
-        borderRadius={this.borderRadius}
         isRequired={true}
         isLabelSrOnly={true}
-        appearance="outlined"
-        appearanceColor={this.theme}
+        borderRadius={this.variant === 'button-inside' ? 'none' : this.borderRadius}
+        appearance={this.variant === 'button-inside' ? 'none' : 'outlined'}
+        appearanceColor={this.variant === 'button-inside' ? undefined : this.theme}
+        size='md'
         part='input'
       />
     );
@@ -170,6 +162,7 @@ export class TnwSubscriptionForm {
         appearanceColor={this.theme}
         hoverEffect='contrast'
         part='button'
+        size='md'
       />
     )
   }
@@ -178,8 +171,9 @@ export class TnwSubscriptionForm {
     const parsedFormAttributes = this.parseAttributes(this.formAttributes);
 
     return (
-      <Host class={this.getHostClasses()}>
+      <Host>
         <form
+          class={this.getFormClasses()}
           action={this.formAction}
           method={this.formMethod}
           {...parsedFormAttributes}

@@ -1,4 +1,4 @@
-import { Component, Host, Prop, Element, h, Fragment } from '@stencil/core';
+import { Component, Host, Prop, Element, h, Fragment, Event, EventEmitter } from '@stencil/core';
 import { GLOBAL_PREFIX, getBorderRadiusClass, getExtendedAppearanceClass, isNotEmptyString } from '../../utils/utils';
 import { OptionalAppearanceType, BorderRadiusType, ExtendedColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { styles } from './tnw-button.styles';
@@ -27,10 +27,12 @@ export class TnwButton {
 
   @Element() el!: HTMLTnwButtonElement;
 
+  /************************ Props ************************/
+
   /**
    * Specifies the text label displayed on the button. This prop is required.
    */
-  @Prop() label: string;
+  @Prop() label?: string;
 
   /**
    * Specifies the button type.
@@ -65,7 +67,7 @@ export class TnwButton {
   /**
    * Specifies the hover effect of the button.
    */
-  @Prop() hoverEffect?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' = 'none';
+  @Prop() hoverEffect?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'focus-ring' = 'none';
 
   /**
    * If provided, the button will render as a link with this `href`.
@@ -86,6 +88,18 @@ export class TnwButton {
    * Specifies the border radius of the button.
    */
   @Prop() borderRadius?: BorderRadiusType = 'default';
+
+  /************************ Events ************************/
+
+  /**
+   * Event emitted when the button receives focus.
+   */
+  @Event() tnwButtonFocused!: EventEmitter<void>;
+
+  /**
+   * Event emitted when the button loses focus.
+   */
+  @Event() tnwButtonBlurred!: EventEmitter<void>;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -133,6 +147,35 @@ export class TnwButton {
     )
   }
 
+  /**
+   * Handles the button focus event.
+   */
+  private handleButtonFocus = () => {
+    this.tnwButtonFocused.emit();
+  }
+
+  /**
+   * Handles the button blur event.
+   */
+  private handleButtonBlur = () => {
+    this.tnwButtonBlurred.emit();
+  }
+
+  /**
+   * Handles keyboard interaction for accessibility
+   */
+  private handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      if (!this.disabled) {
+        if (this.href) {
+          window.location.href = this.href;
+        }
+        // You could emit a click event here if needed
+      }
+    }
+  }
+
   private renderAnchor = () => (
     <a
       class={this.getButtonClasses()}
@@ -141,6 +184,10 @@ export class TnwButton {
       rel={this.newTab ? "noopener noreferrer" : undefined}
       aria-disabled={this.disabled ? 'true' : undefined}
       part='button'
+      onFocus={this.handleButtonFocus}
+      onBlur={this.handleButtonBlur}
+      onKeyDown={this.handleKeyDown}
+      tabIndex={this.disabled ? -1 : 0}
     >
       {this.renderButtonContent()}
     </a>
@@ -152,6 +199,10 @@ export class TnwButton {
       type={this.type}
       disabled={this.disabled !== false ? true : undefined}
       part='button'
+      onFocus={this.handleButtonFocus}
+      onBlur={this.handleButtonBlur}
+      onKeyDown={this.handleKeyDown}
+      tabIndex={this.disabled ? -1 : 0}
     >
       {this.renderButtonContent()}
     </button>
@@ -159,7 +210,9 @@ export class TnwButton {
 
   render() {
     return (
-      <Host>
+      <Host
+        aria-disabled={this.disabled ? 'true' : undefined}
+      >
         {
           isNotEmptyString(this.href) ?
             this.renderAnchor() :

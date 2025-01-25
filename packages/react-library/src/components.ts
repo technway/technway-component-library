@@ -123,14 +123,20 @@ export const TnwBanner: StencilReactComponent<TnwBannerElement, TnwBannerEvents>
     defineCustomElement: defineTnwBanner
 });
 
-type TnwButtonEvents = NonNullable<unknown>;
+type TnwButtonEvents = {
+    onTnwButtonFocused: EventName<CustomEvent<void>>,
+    onTnwButtonBlurred: EventName<CustomEvent<void>>
+};
 
 export const TnwButton: StencilReactComponent<TnwButtonElement, TnwButtonEvents> = /*@__PURE__*/ createComponent<TnwButtonElement, TnwButtonEvents>({
     tagName: 'tnw-button',
     elementClass: TnwButtonElement,
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
-    events: {} as TnwButtonEvents,
+    events: {
+        onTnwButtonFocused: 'tnwButtonFocused',
+        onTnwButtonBlurred: 'tnwButtonBlurred'
+    } as TnwButtonEvents,
     defineCustomElement: defineTnwButton
 });
 

@@ -11,11 +11,13 @@ export const styles = `
     --${baseClass}-fw: var(--tnw-fw-500);
     --${baseClass}-ff: var(--tnw-font-text);
     --${baseClass}-spacing: var(--tnw-spacing-xs);
+    --${baseClass}-focus-ring-color: var(--tnw-primary-color);
+    --${baseClass}-focus-ring-width: 3px;
+    --${baseClass}-focus-ring-offset: 2px;
     display: inline-block;
 }
 
 .${baseClass} {
-    border: 0;
     outline-color: transparent;
     padding: 0;
     margin: 0;
@@ -26,7 +28,10 @@ export const styles = `
     font-size: var(--${baseClass}-fs);
     font-family: var(--${baseClass}-ff);
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out, outline 0s ease-in-out, outline-offset 0s ease-in-out;
+    white-space: nowrap;
+    position: relative;
+    outline: none;
 }
 .${baseClass}--has-padding {
     padding: var(--${baseClass}-p);
@@ -87,6 +92,10 @@ export const styles = `
 .${baseClass}--hover-opacity:hover {
     opacity: 0.9;
 }
+.${baseClass}--hover-focus-ring:hover {
+    outline: var(--${baseClass}-focus-ring-width) solid var(--${baseClass}-focus-ring-color);
+    outline-offset: var(--${baseClass}-focus-ring-offset);
+}
 
 /* - Hovers - */
 .${baseClass}--hover-solid-primary:hover {
@@ -139,7 +148,7 @@ export const styles = `
 }
 
 .${baseClass}--hover-outlined-primary:hover {
-    border-width: var(--tnw-primary-sm);
+    border-width: var(--tnw-border-sm);
     border-style: solid;
     border-color: var(--tnw-primary-color);
     background: none;
@@ -207,5 +216,60 @@ export const styles = `
 
 a {
     text-decoration: none;
+}
+
+/* Focus styles */
+.${baseClass}:focus-visible {
+    outline: var(--${baseClass}-focus-ring-width) solid var(--${baseClass}-focus-ring-color);
+    outline-offset: var(--${baseClass}-focus-ring-offset);
+}
+
+/* For browsers that don't support :focus-visible */
+.${baseClass}:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Add focus ring color variants */
+:host(.tnw-extended-v-solid-primary) .${baseClass}:focus-visible {
+    --${baseClass}-focus-ring-color: var(--tnw-primary-color);
+}
+
+:host(.tnw-extended-v-solid-secondary) .${baseClass}:focus-visible {
+    --${baseClass}-focus-ring-color: var(--tnw-secondary-color);
+}
+
+:host(.tnw-extended-v-solid-black) .${baseClass}:focus-visible {
+    --${baseClass}-focus-ring-color: var(--tnw-black);
+}
+
+:host(.tnw-extended-v-solid-white) .${baseClass}:focus-visible {
+    --${baseClass}-focus-ring-color: var(--tnw-white);
+}
+
+/* Ensure focus styles work with disabled state */
+.${baseClass}--disabled:focus-visible {
+    outline-color: var(--tnw-gray-400);
+}
+
+/* Add hover focus ring color variants */
+:host(.tnw-extended-v-solid-primary) .${baseClass}--hover-focus-ring:hover {
+    --${baseClass}-focus-ring-color: var(--tnw-primary-color);
+}
+
+:host(.tnw-extended-v-solid-secondary) .${baseClass}--hover-focus-ring:hover {
+    --${baseClass}-focus-ring-color: var(--tnw-secondary-color);
+}
+
+:host(.tnw-extended-v-solid-black) .${baseClass}--hover-focus-ring:hover {
+    --${baseClass}-focus-ring-color: var(--tnw-black);
+}
+
+:host(.tnw-extended-v-solid-white) .${baseClass}--hover-focus-ring:hover {
+    --${baseClass}-focus-ring-color: var(--tnw-white);
+}
+
+/* Ensure hover focus ring doesn't show on disabled state */
+.${baseClass}--disabled.${baseClass}--hover-focus-ring:hover {
+    outline: none;
 }
 `;

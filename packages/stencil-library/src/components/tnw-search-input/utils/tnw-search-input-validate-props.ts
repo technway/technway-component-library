@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-search-input.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.inputId, this.label, this.name, this.placeholder, this.type, this.value, this.variant, this.width]);
+validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.iconColor, this.inputId, this.label, this.name, this.placeholder, this.type, this.value, this.variant, this.width]);
  *
  * GENERATED USING `pnpm g:components-validations tnw-search-input`
  */
@@ -58,6 +58,29 @@ export function validateProps(propsValues: any[]): void {
       "sm",
       "xl",
       "xs"
+    ],
+    "isRequired": false
+  },
+  {
+    "name": "iconColor",
+    "type": [
+      "auto",
+      "black",
+      "gray100",
+      "gray200",
+      "gray300",
+      "gray400",
+      "gray500",
+      "gray600",
+      "gray700",
+      "gray800",
+      "gray900",
+      "inverse",
+      "light",
+      "placeholder",
+      "primary",
+      "secondary",
+      "white"
     ],
     "isRequired": false
   },

@@ -369,14 +369,22 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
     defineCustomElement: defineTnwScrollToTop
 });
 
-type TnwSearchInputEvents = { onInputChangedOnType: EventName<CustomEvent<string>> };
+type TnwSearchInputEvents = {
+    onTnwInputChangedOnType: EventName<CustomEvent<string>>,
+    onTnwInputFocused: EventName<CustomEvent<void>>,
+    onTnwInputBlurred: EventName<CustomEvent<void>>
+};
 
 export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSearchInputEvents> = /*@__PURE__*/ createComponent<TnwSearchInputElement, TnwSearchInputEvents>({
     tagName: 'tnw-search-input',
     elementClass: TnwSearchInputElement,
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
-    events: { onInputChangedOnType: 'inputChangedOnType' } as TnwSearchInputEvents,
+    events: {
+        onTnwInputChangedOnType: 'tnwInputChangedOnType',
+        onTnwInputFocused: 'tnwInputFocused',
+        onTnwInputBlurred: 'tnwInputBlurred'
+    } as TnwSearchInputEvents,
     defineCustomElement: defineTnwSearchInput
 });
 

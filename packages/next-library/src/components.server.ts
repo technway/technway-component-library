@@ -824,7 +824,11 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
         hydrateModule: import('@technway/stencil-library/hydrate')
     });
 
-type TnwSearchInputEvents = { onInputChangedOnType: EventName<CustomEvent<string>> };
+type TnwSearchInputEvents = {
+    onTnwInputChangedOnType: EventName<CustomEvent<string>>,
+    onTnwInputFocused: EventName<CustomEvent<void>>,
+    onTnwInputBlurred: EventName<CustomEvent<void>>
+};
 
 export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSearchInputEvents> = typeof window !== 'undefined'
     ? /*@__PURE__*/ createComponent<TnwSearchInputElement, TnwSearchInputEvents>({
@@ -832,7 +836,11 @@ export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSea
         elementClass: TnwSearchInputElement,
         // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
         react: React,
-        events: { onInputChangedOnType: 'inputChangedOnType' } as TnwSearchInputEvents,
+        events: {
+            onTnwInputChangedOnType: 'tnwInputChangedOnType',
+            onTnwInputFocused: 'tnwInputFocused',
+            onTnwInputBlurred: 'tnwInputBlurred'
+        } as TnwSearchInputEvents,
         defineCustomElement: defineTnwSearchInput
     })
     : /*@__PURE__*/ createSSRComponent<TnwSearchInputElement, TnwSearchInputEvents>({
@@ -849,7 +857,8 @@ export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSea
             value: 'value',
             autoComplete: 'auto-complete',
             borderRadius: 'border-radius',
-            width: 'width'
+            width: 'width',
+            iconColor: 'icon-color'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

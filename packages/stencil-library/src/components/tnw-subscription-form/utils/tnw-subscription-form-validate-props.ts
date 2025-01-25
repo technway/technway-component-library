@@ -104,8 +104,8 @@ export function validateProps(propsValues: any[]): void {
   {
     "name": "variant",
     "type": [
-      "primary",
-      "secondary"
+      "button-inside",
+      "button-outside"
     ],
     "isRequired": false
   }

@@ -42,6 +42,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 | **sanitizeInput** | <div>Determines whether the input value should be sanitized during change events to prevent SQL injection attacks.
 If set to `true`, the input will be sanitized before being validated.
 If set to `false`, the input will still undergo validation but without sanitization.</div> | `false` | `boolean` |
+| **size** | <div>The size of the input.</div> | `'md'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **type** | <div>The input type (e.g., text, password).</div> | N/A | `string` |
 | **value** | <div>The initial value of the input.</div> | `''` | `string` |
 

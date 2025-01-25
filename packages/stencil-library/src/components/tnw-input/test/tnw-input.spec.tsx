@@ -111,6 +111,15 @@ describe('tnw-input', () => {
       expect(input.getAttribute('pattern')).toBe('[A-Za-z]+');
     });
 
+    it('applies the size attribute when provided', async () => {
+      const input = await createSpecPage(
+        TnwInput,
+        `<tnw-input label="Size Input" type="text" placeholder="Enter text" size="sm"></tnw-input>`,
+        'input'
+      );
+      expect(input).toHaveClass('tnw-input--sm');
+    });
+
     it('applies the autocomplete attribute when provided', async () => {
       const input = await createSpecPage(
         TnwInput,

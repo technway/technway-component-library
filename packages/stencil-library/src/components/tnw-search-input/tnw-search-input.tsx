@@ -1,7 +1,7 @@
-import { Component, Prop, Host, h, Element, State, Event, EventEmitter } from '@stencil/core';
-import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX } from '../../utils/utils';
+import { Component, Prop, Host, h, Element, State, Event, EventEmitter, Watch } from '@stencil/core';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { borderRadiusStyleSheet, colorStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
-import { BorderRadiusType, ColorType } from '../../utils/component-props-types';
+import { BorderRadiusType, ColorType, TextColorType } from '../../utils/component-props-types';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import styles from './tnw-search-input.style';
 import { validateProps } from './utils/tnw-search-input-validate-props';
@@ -20,12 +20,14 @@ import { validateProps } from './utils/tnw-search-input-validate-props';
 export class TnwSearchInput {
   private baseClass = `${GLOBAL_PREFIX}-search-input`;
   private componentStyles: CSSStyleSheet;
+  private inputRef?: HTMLInputElement;
 
   @Element() el!: HTMLTnwSearchInputElement;
 
   /************************ States ************************/
 
   @State() isVisible = false;
+  @State() defaultIconColor: TextColorType = 'gray400';
 
   /************************ Props ************************/
 
@@ -90,14 +92,47 @@ export class TnwSearchInput {
    */
   @Prop() width?: string = '100%';
 
+  /**
+   * The color of the search icon.
+   */
+  @Prop() iconColor?: TextColorType;
+
+  /************************ Watchers ************************/
+
+  // Watches the variant prop and updates the default icon color
+  @Watch('variant')
+  variantChanged(newValue: 'expandable' | 'icon-left' | 'icon-right' | 'no-icon') {
+    // If the variant prop is not set, update the default icon color
+    if (newValue !== this.variant) {
+      this.updateDefaultIconColor();
+    }
+  }
+
+  // Watches the iconColor prop and updates the default icon color
+  @Watch('iconColor')
+  iconColorChanged(newValue: TextColorType | undefined) {
+    // If the iconColor prop is not set, update the default icon color
+    if (!isNotEmptyString(newValue)) {
+      this.updateDefaultIconColor();
+    }
+  }
+
   /************************ Events ************************/
 
   /**
    * Event emitted when the input value changes. The event's payload contains the new value.
    */
-  @Event() inputChangedOnType: EventEmitter<string>;
+  @Event() tnwInputChangedOnType: EventEmitter<string>;
 
-  private inputRef?: HTMLInputElement;
+  /**
+   * Event emitted when the input receives focus.
+   */
+  @Event() tnwInputFocused: EventEmitter<void>;
+
+  /**
+   * Event emitted when the input loses focus.
+   */
+  @Event() tnwInputBlurred: EventEmitter<void>;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -107,6 +142,7 @@ export class TnwSearchInput {
   }
 
   componentWillLoad() {
+    this.updateDefaultIconColor();
     validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.inputId, this.label, this.name, this.placeholder, this.type, this.value, this.variant, this.width]);
   }
 
@@ -144,7 +180,7 @@ export class TnwSearchInput {
   private handleInputOnType = (event: Event) => {
     const input = event.target as HTMLInputElement;
     const value: string = input.value;
-    this.inputChangedOnType.emit(value);
+    this.tnwInputChangedOnType.emit(value);
   }
 
   /**
@@ -173,6 +209,20 @@ export class TnwSearchInput {
     }
   };
 
+  /**
+   * Handles the input focus event.
+   */
+  private handleInputFocus = () => {
+    this.tnwInputFocused.emit();
+  }
+
+  /**
+   * Handles the input blur event.
+   */
+  private handleInputBlur = () => {
+    this.tnwInputBlurred.emit();
+  }
+
   private getHostClasses(): string {
     const { baseClass, variant } = this;
     return [
@@ -197,6 +247,13 @@ export class TnwSearchInput {
     ].filter(Boolean).join(' ').trim();
   }
 
+  /**
+   * Updates the default icon color based on the variant
+   */
+  private updateDefaultIconColor() {
+    this.defaultIconColor = this.variant === 'expandable' ? 'auto' : 'gray400';
+  }
+
   private renderSearchIcon(position?: 'left' | 'right') {
     return (
       <tnw-icon
@@ -209,7 +266,7 @@ export class TnwSearchInput {
         `}
         onClick={(event: MouseEvent) => this.setIsVisible(event)}
         isButton={this.variant === 'expandable'}
-        color='gray400'
+        color={this.iconColor || this.defaultIconColor}
       />
     );
   }
@@ -238,6 +295,8 @@ export class TnwSearchInput {
           value={this.value}
           placeholder={this.placeholder}
           onInput={this.handleInputOnType}
+          onFocus={this.handleInputFocus}
+          onBlur={this.handleInputBlur}
           part='input'
           autoComplete={this.autoComplete}
         />

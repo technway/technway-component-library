@@ -3,7 +3,8 @@
 import {
     TnwButton,
     TnwImage,
-    TnwNavbar
+    TnwNavbar,
+    TnwSearchInput
 } from '@technway/next-library/src/components';
 import { Menu } from '@technway/stencil-library/dist/types/components/tnw-navbar/parts/menu/part--menu-types';
 
@@ -46,6 +47,7 @@ const NavbarWithData = (props: NavbarProps) => {
             menuData={JSON.stringify(menuData)}
             menuExactCenter={props.menuPlacement === 'middle'}
             menuPlacement={props.menuPlacement}
+            enableSearchSlot={true}
         >
             {/* Logo */}
             <TnwImage
@@ -56,6 +58,12 @@ const NavbarWithData = (props: NavbarProps) => {
                 link="/"
                 borderRadius="none"
                 slot="logo"
+            />
+            
+            {/* Search */}
+            <TnwSearchInput
+                variant="expandable"
+                slot="search"
             />
 
             {/* CTA */}

@@ -1296,6 +1296,10 @@ export namespace Components {
          */
         "borderRadius"?: BorderRadiusType;
         /**
+          * The color of the search icon.
+         */
+        "iconColor"?: TextColorType;
+        /**
           * The unique ID for the input element. If not provided, a random ID will be generated.
          */
         "inputId"?: string;
@@ -2048,7 +2052,9 @@ declare global {
         new (): HTMLTnwScrollToTopElement;
     };
     interface HTMLTnwSearchInputElementEventMap {
-        "inputChangedOnType": string;
+        "tnwInputChangedOnType": string;
+        "tnwInputFocused": void;
+        "tnwInputBlurred": void;
     }
     /**
      * The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.
@@ -3496,6 +3502,10 @@ declare namespace LocalJSX {
          */
         "borderRadius"?: BorderRadiusType;
         /**
+          * The color of the search icon.
+         */
+        "iconColor"?: TextColorType;
+        /**
           * The unique ID for the input element. If not provided, a random ID will be generated.
          */
         "inputId"?: string;
@@ -3508,9 +3518,17 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Event emitted when the input loses focus.
+         */
+        "onTnwInputBlurred"?: (event: TnwSearchInputCustomEvent<void>) => void;
+        /**
           * Event emitted when the input value changes. The event's payload contains the new value.
          */
-        "onInputChangedOnType"?: (event: TnwSearchInputCustomEvent<string>) => void;
+        "onTnwInputChangedOnType"?: (event: TnwSearchInputCustomEvent<string>) => void;
+        /**
+          * Event emitted when the input receives focus.
+         */
+        "onTnwInputFocused"?: (event: TnwSearchInputCustomEvent<void>) => void;
         /**
           * The placeholder text for the input.
          */

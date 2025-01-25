@@ -3,7 +3,8 @@
 import {
     TnwButton,
     TnwImage,
-    TnwNavbar
+    TnwNavbar,
+    TnwSearchInput
 } from '@technway/next-library/src/components';
 import Link from 'next/link';
 import { Menu } from '@technway/stencil-library/components/tnw-navbar/parts/menu/part--menu-types';
@@ -19,6 +20,7 @@ interface NavbarProps {
     paddingVertical?: "sm" | "md" | "lg" | "none";
     buttonAppearanceColor?: "primary" | "secondary" | "auto" | "inverse" | "light" | "white" | "black" | "success" | "warning" | "danger" | "info";
     disableInternalContainer?: boolean;
+    searchVariant?: "expandable" | "icon-left" | "icon-right" | "no-icon";
 }
 
 const Navbar = (props: NavbarProps) => {
@@ -45,6 +47,7 @@ const Navbar = (props: NavbarProps) => {
             menuExactCenter={props.menuPlacement === 'middle'}
             menuPlacement={props.menuPlacement}
             menuData={JSON.stringify(menuData)}
+            enableSearchSlot={true}
         >
             {/* Logo */}
             <TnwImage
@@ -65,6 +68,12 @@ const Navbar = (props: NavbarProps) => {
                 slot='link-2'
                 href="/Services"
             >Services</Link>
+
+            {/* Search */}
+            <TnwSearchInput
+                variant={props.searchVariant || "expandable"}
+                slot="search"
+            />
 
             {/* CTA */}
             <TnwButton

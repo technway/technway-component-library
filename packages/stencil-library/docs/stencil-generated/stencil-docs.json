@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-24T07:47:29",
+  "timestamp": "2025-01-25T05:50:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -13115,6 +13115,100 @@
           "setter": false
         },
         {
+          "name": "iconColor",
+          "type": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+          "complexType": {
+            "original": "TextColorType",
+            "resolved": "\"auto\" | \"black\" | \"gray100\" | \"gray200\" | \"gray300\" | \"gray400\" | \"gray500\" | \"gray600\" | \"gray700\" | \"gray800\" | \"gray900\" | \"inverse\" | \"light\" | \"placeholder\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "TextColorType": {
+                "location": "import",
+                "path": "../../utils/component-props-types",
+                "id": "src/utils/component-props-types.ts::TextColorType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "icon-color",
+          "reflectToAttr": false,
+          "docs": "The color of the search icon.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "black",
+              "type": "string"
+            },
+            {
+              "value": "gray100",
+              "type": "string"
+            },
+            {
+              "value": "gray200",
+              "type": "string"
+            },
+            {
+              "value": "gray300",
+              "type": "string"
+            },
+            {
+              "value": "gray400",
+              "type": "string"
+            },
+            {
+              "value": "gray500",
+              "type": "string"
+            },
+            {
+              "value": "gray600",
+              "type": "string"
+            },
+            {
+              "value": "gray700",
+              "type": "string"
+            },
+            {
+              "value": "gray800",
+              "type": "string"
+            },
+            {
+              "value": "gray900",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "placeholder",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "white",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "inputId",
           "type": "string",
           "complexType": {
@@ -13328,7 +13422,21 @@
       "methods": [],
       "events": [
         {
-          "event": "inputChangedOnType",
+          "event": "tnwInputBlurred",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwInputChangedOnType",
           "detail": "string",
           "bubbles": true,
           "complexType": {
@@ -13339,6 +13447,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when the input value changes. The event's payload contains the new value.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwInputFocused",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input receives focus.",
           "docsTags": []
         }
       ],

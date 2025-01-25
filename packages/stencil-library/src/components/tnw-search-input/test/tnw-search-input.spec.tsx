@@ -127,6 +127,31 @@ describe('tnw-search-input', () => {
         expect(generatedId).not.toBe('');
       });
     });
+
+    it('applies the default icon color based on variant', async () => {
+      const expandableIcon = await createSpecPage(
+        TnwSearchInput,
+        `<tnw-search-input variant="expandable"></tnw-search-input>`,
+        'tnw-icon'
+      );
+      expect(expandableIcon.getAttribute('color')).toBe('auto');
+
+      const regularIcon = await createSpecPage(
+        TnwSearchInput,
+        `<tnw-search-input variant="icon-left"></tnw-search-input>`,
+        'tnw-icon'
+      );
+      expect(regularIcon.getAttribute('color')).toBe('gray400');
+    });
+
+    it('applies custom icon color when provided', async () => {
+      const icon = await createSpecPage(
+        TnwSearchInput,
+        `<tnw-search-input icon-color="primary"></tnw-search-input>`,
+        'tnw-icon'
+      );
+      expect(icon.getAttribute('color')).toBe('primary');
+    });
   });
 
   describe('Custom Events Behavior', () => {
@@ -138,7 +163,7 @@ describe('tnw-search-input', () => {
 
       const inputElement = page.root.shadowRoot.querySelector('input');
       const spy = jest.fn();
-      page.root.addEventListener('inputChangedOnType', spy);
+      page.root.addEventListener('tnwInputChangedOnType', spy);
 
       // Simulate an input change
       inputElement.value = 'New Value';
@@ -148,6 +173,68 @@ describe('tnw-search-input', () => {
 
       expect(spy).toHaveBeenCalled();
       expect(spy).toHaveBeenCalledWith(expect.objectContaining({ detail: 'New Value' }));
+    });
+
+    it('emits tnwInputFocused when the input receives focus', async () => {
+      const page = await newSpecPage({
+        components: [TnwSearchInput],
+        html: `<tnw-search-input></tnw-search-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwInputFocused', spy);
+
+      // Simulate focus event
+      inputElement.dispatchEvent(new Event('focus'));
+
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    it('emits tnwInputBlurred when the input loses focus', async () => {
+      const page = await newSpecPage({
+        components: [TnwSearchInput],
+        html: `<tnw-search-input></tnw-search-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwInputBlurred', spy);
+
+      // Simulate blur event
+      inputElement.dispatchEvent(new Event('blur'));
+
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    it('handles focus and blur events in sequence', async () => {
+      const page = await newSpecPage({
+        components: [TnwSearchInput],
+        html: `<tnw-search-input></tnw-search-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const focusSpy = jest.fn();
+      const blurSpy = jest.fn();
+      
+      page.root.addEventListener('tnwInputFocused', focusSpy);
+      page.root.addEventListener('tnwInputBlurred', blurSpy);
+
+      // Simulate focus followed by blur
+      inputElement.dispatchEvent(new Event('focus'));
+      await page.waitForChanges();
+      expect(focusSpy).toHaveBeenCalledTimes(1);
+      expect(blurSpy).not.toHaveBeenCalled();
+      
+      inputElement.dispatchEvent(new Event('blur'));
+      await page.waitForChanges();
+      expect(blurSpy).toHaveBeenCalledTimes(1);
     });
   });
 

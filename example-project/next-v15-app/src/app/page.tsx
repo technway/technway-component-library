@@ -59,7 +59,6 @@ export default function Home() {
               disableInternalContainer={true}
             />
             <Navbar
-              searchVariant="icon-left"
               menuPlacement='end'
               appearance='outlined'
               borderRadius='full'
@@ -69,7 +68,7 @@ export default function Home() {
               disableInternalContainer={true}
             />
             <Navbar
-              searchVariant="icon-right"
+              searchVariant="icon-left"
               menuPlacement='start'
               appearance='outlined'
               borderRadius='md'

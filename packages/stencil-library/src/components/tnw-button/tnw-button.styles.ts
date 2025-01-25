@@ -33,6 +33,9 @@ export const styles = `
     position: relative;
     outline: none;
 }
+.${baseClass}--no-border {
+    border: none;
+}
 .${baseClass}--has-padding {
     padding: var(--${baseClass}-p);
 }

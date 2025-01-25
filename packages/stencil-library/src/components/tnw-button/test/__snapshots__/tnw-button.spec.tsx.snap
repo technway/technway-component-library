@@ -5,7 +5,7 @@ exports[`tnw-button Custom Prop Behavior renders slot content when label is not 
 exports[`tnw-button Default and Required Prop Behavior renders correctly with required label prop 1`] = `
 <tnw-button label="Click Me">
   <template shadowrootmode="open">
-    <button class="rounded-default tnw-button tnw-button--has-padding tnw-button--md tnw-extended-v-solid-primary" part="button" tabindex="0" type="button">
+    <button class="rounded-default tnw-button tnw-button--has-padding tnw-button--md tnw-button--no-border tnw-extended-v-solid-primary" part="button" tabindex="0" type="button">
       <slot name="icon-start"></slot>
       Click Me
       <slot name="icon-end"></slot>

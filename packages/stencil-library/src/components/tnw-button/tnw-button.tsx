@@ -128,6 +128,7 @@ export class TnwButton {
     return [
       baseClass,
       appearance !== 'none' ? `${baseClass}--has-padding` : ``,
+      appearance !== 'outlined' ? `${baseClass}--no-border` : ``,
       disabled ? `${baseClass}--disabled` : '',
       hoverAppearance !== 'none' ? `${baseClass}--hover-${hoverAppearance}-${hoverAppearanceColor}` : ``,
       hoverEffect !== 'none' ? `${baseClass}--hover-${hoverEffect}` : ``,

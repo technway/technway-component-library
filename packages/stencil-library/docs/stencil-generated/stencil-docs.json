@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-25T08:29:24",
+  "timestamp": "2025-01-25T13:12:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -2923,10 +2923,10 @@
         },
         {
           "name": "hoverEffect",
-          "type": "\"contrast\" | \"focus-ring\" | \"none\" | \"opacity\" | \"scale-down\" | \"scale-up\"",
+          "type": "\"contrast\" | \"none\" | \"opacity\" | \"ring\" | \"scale-down\" | \"scale-up\"",
           "complexType": {
-            "original": "'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'focus-ring'",
-            "resolved": "\"contrast\" | \"focus-ring\" | \"none\" | \"opacity\" | \"scale-down\" | \"scale-up\"",
+            "original": "'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'ring'",
+            "resolved": "\"contrast\" | \"none\" | \"opacity\" | \"ring\" | \"scale-down\" | \"scale-up\"",
             "references": {}
           },
           "mutable": false,
@@ -2941,15 +2941,15 @@
               "type": "string"
             },
             {
-              "value": "focus-ring",
-              "type": "string"
-            },
-            {
               "value": "none",
               "type": "string"
             },
             {
               "value": "opacity",
+              "type": "string"
+            },
+            {
+              "value": "ring",
               "type": "string"
             },
             {
@@ -9663,6 +9663,35 @@
           "setter": false
         },
         {
+          "name": "hoverEffect",
+          "type": "\"color\" | \"ring\"",
+          "complexType": {
+            "original": "'color' | 'ring'",
+            "resolved": "\"color\" | \"ring\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hover-effect",
+          "reflectToAttr": false,
+          "docs": "Specifies the hover effect of the input.\r\n- `color`: Changes the border color of the input when hovered.\r\n- `ring`: Adds a ring around the input when hovered.",
+          "docsTags": [],
+          "default": "'color'",
+          "values": [
+            {
+              "value": "color",
+              "type": "string"
+            },
+            {
+              "value": "ring",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "inputId",
           "type": "string",
           "complexType": {
@@ -9675,6 +9704,7 @@
           "reflectToAttr": false,
           "docs": "The unique ID for the input element. If not provided, a random ID will be generated.",
           "docsTags": [],
+          "default": "generateRandomId(this.baseClass)",
           "values": [
             {
               "type": "string"
@@ -9750,7 +9780,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false,
           "getter": false,
           "setter": false
@@ -9859,7 +9889,7 @@
           },
           "mutable": false,
           "attr": "placeholder",
-          "reflectToAttr": true,
+          "reflectToAttr": false,
           "docs": "The placeholder text for the input.",
           "docsTags": [],
           "values": [
@@ -9867,8 +9897,8 @@
               "type": "string"
             }
           ],
-          "optional": false,
-          "required": true,
+          "optional": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -9953,16 +9983,17 @@
           },
           "mutable": false,
           "attr": "type",
-          "reflectToAttr": true,
+          "reflectToAttr": false,
           "docs": "The input type (e.g., text, password).",
           "docsTags": [],
+          "default": "'text'",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": true,
+          "required": false,
           "getter": false,
           "setter": false
         },
@@ -10005,6 +10036,34 @@
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when the input value changes. The event's payload contains the new value.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwInputBlurred",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwInputFocused",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input receives focus.",
           "docsTags": []
         },
         {

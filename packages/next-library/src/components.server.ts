@@ -567,7 +567,9 @@ export const TnwImage: StencilReactComponent<TnwImageElement, TnwImageEvents> = 
 
 type TnwInputEvents = {
     onInputChanged: EventName<CustomEvent<string>>,
-    onValidationFailed: EventName<CustomEvent<{ inputId: string; error: string }>>
+    onValidationFailed: EventName<CustomEvent<{ inputId: string; error: string }>>,
+    onTnwInputFocused: EventName<CustomEvent<void>>,
+    onTnwInputBlurred: EventName<CustomEvent<void>>
 };
 
 export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = typeof window !== 'undefined'
@@ -578,7 +580,9 @@ export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = 
         react: React,
         events: {
             onInputChanged: 'inputChanged',
-            onValidationFailed: 'validationFailed'
+            onValidationFailed: 'validationFailed',
+            onTnwInputFocused: 'tnwInputFocused',
+            onTnwInputBlurred: 'tnwInputBlurred'
         } as TnwInputEvents,
         defineCustomElement: defineTnwInput
     })
@@ -601,6 +605,7 @@ export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = 
             pattern: 'pattern',
             autoComplete: 'auto-complete',
             disabled: 'disabled',
+            hoverEffect: 'hover-effect',
             helpText: 'help-text',
             borderRadius: 'border-radius',
             sanitizeInput: 'sanitize-input'

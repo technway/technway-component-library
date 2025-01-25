@@ -296,7 +296,7 @@ export namespace Components {
         /**
           * Specifies the hover effect of the button.
          */
-        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'focus-ring';
+        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'ring';
         /**
           * If provided, the button will render as a link with this `href`.
          */
@@ -929,6 +929,10 @@ export namespace Components {
          */
         "helpText"?: string;
         /**
+          * Specifies the hover effect of the input. - `color`: Changes the border color of the input when hovered. - `ring`: Adds a ring around the input when hovered.
+         */
+        "hoverEffect"?: 'color' | 'ring';
+        /**
           * The unique ID for the input element. If not provided, a random ID will be generated.
          */
         "inputId"?: string;
@@ -943,7 +947,7 @@ export namespace Components {
         /**
           * The label for the input.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The maximum number of characters allowed in the input.
          */
@@ -963,7 +967,7 @@ export namespace Components {
         /**
           * The placeholder text for the input.
          */
-        "placeholder": string;
+        "placeholder"?: string;
         /**
           * Determines whether the input value should be sanitized during change events to prevent SQL injection attacks. If set to `true`, the input will be sanitized before being validated. If set to `false`, the input will still undergo validation but without sanitization.
          */
@@ -1935,6 +1939,8 @@ declare global {
     interface HTMLTnwInputElementEventMap {
         "inputChanged": string;
         "validationFailed": { inputId: string; error: string };
+        "tnwInputFocused": void;
+        "tnwInputBlurred": void;
     }
     /**
      * The `tnw-input` component is a customizable input field that supports various input types, validation, and appearance options.
@@ -2499,7 +2505,7 @@ declare namespace LocalJSX {
         /**
           * Specifies the hover effect of the button.
          */
-        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'focus-ring';
+        "hoverEffect"?: 'none' | 'scale-up' | 'scale-down' | 'contrast' | 'opacity' | 'ring';
         /**
           * If provided, the button will render as a link with this `href`.
          */
@@ -3140,6 +3146,10 @@ declare namespace LocalJSX {
          */
         "helpText"?: string;
         /**
+          * Specifies the hover effect of the input. - `color`: Changes the border color of the input when hovered. - `ring`: Adds a ring around the input when hovered.
+         */
+        "hoverEffect"?: 'color' | 'ring';
+        /**
           * The unique ID for the input element. If not provided, a random ID will be generated.
          */
         "inputId"?: string;
@@ -3172,6 +3182,14 @@ declare namespace LocalJSX {
          */
         "onInputChanged"?: (event: TnwInputCustomEvent<string>) => void;
         /**
+          * Event emitted when the input loses focus.
+         */
+        "onTnwInputBlurred"?: (event: TnwInputCustomEvent<void>) => void;
+        /**
+          * Event emitted when the input receives focus.
+         */
+        "onTnwInputFocused"?: (event: TnwInputCustomEvent<void>) => void;
+        /**
           * Event emitted when validation fails.  The event payload contains: - `inputId`: The unique ID of the input element. - `error`: A string message explaining the validation failure.
          */
         "onValidationFailed"?: (event: TnwInputCustomEvent<{ inputId: string; error: string }>) => void;
@@ -3182,7 +3200,7 @@ declare namespace LocalJSX {
         /**
           * The placeholder text for the input.
          */
-        "placeholder": string;
+        "placeholder"?: string;
         /**
           * Determines whether the input value should be sanitized during change events to prevent SQL injection attacks. If set to `true`, the input will be sanitized before being validated. If set to `false`, the input will still undergo validation but without sanitization.
          */
@@ -3194,7 +3212,7 @@ declare namespace LocalJSX {
         /**
           * The input type (e.g., text, password).
          */
-        "type": string;
+        "type"?: string;
         /**
           * The initial value of the input.
          */

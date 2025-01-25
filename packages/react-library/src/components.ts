@@ -252,7 +252,9 @@ export const TnwImage: StencilReactComponent<TnwImageElement, TnwImageEvents> = 
 
 type TnwInputEvents = {
     onInputChanged: EventName<CustomEvent<string>>,
-    onValidationFailed: EventName<CustomEvent<{ inputId: string; error: string }>>
+    onValidationFailed: EventName<CustomEvent<{ inputId: string; error: string }>>,
+    onTnwInputFocused: EventName<CustomEvent<void>>,
+    onTnwInputBlurred: EventName<CustomEvent<void>>
 };
 
 export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = /*@__PURE__*/ createComponent<TnwInputElement, TnwInputEvents>({
@@ -262,7 +264,9 @@ export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = 
     react: React,
     events: {
         onInputChanged: 'inputChanged',
-        onValidationFailed: 'validationFailed'
+        onValidationFailed: 'validationFailed',
+        onTnwInputFocused: 'tnwInputFocused',
+        onTnwInputBlurred: 'tnwInputBlurred'
     } as TnwInputEvents,
     defineCustomElement: defineTnwInput
 });

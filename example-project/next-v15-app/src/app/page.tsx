@@ -32,11 +32,11 @@ export default function Home() {
               />
               <TnwButton
                 label="Focus Ring Test"
-                hoverEffect="focus-ring"
+                hoverEffect="ring"
               />
               <TnwButton
                 label="Focus Ring Test"
-                hoverEffect="focus-ring"
+                hoverEffect="ring"
                 appearance='outlined'
                 appearanceColor='primary'
               />

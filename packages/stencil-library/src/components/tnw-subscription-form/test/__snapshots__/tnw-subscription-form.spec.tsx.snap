@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-subscription-form Default and Required Prop Behavior renders with default props 1`] = `
+<tnw-subscription-form input-id="test-input">
+  <template shadowrootmode="open">
+    <form class="tnw-subscription-form tnw-subscription-form--button-outside">
+      <tnw-input appearance="outlined" appearancecolor="primary" borderradius="default" inputid="test-input" islabelsronly="" isrequired="" label="Enter your email" part="input" placeholder="Enter your email" size="md" type="email"></tnw-input>
+      <tnw-button appearance="solid" appearancecolor="primary" borderradius="default" hovereffect="contrast" label="Subscribe" part="button" size="md"></tnw-button>
+    </form>
+  </template>
+</tnw-subscription-form>
+`;

@@ -291,7 +291,7 @@ export class TnwAccordion {
             </div>
 
             {isNotEmptyString(this.heading) ? (
-              <tnw-text text={this.heading} size="xs" color={this.getTextColor()} weight='600' part='header-text' />
+              <tnw-text text={this.heading} size="xs" color={this.getTextColor()} weight='600' alignment='start' part='header-text' />
             ) : (
               <slot name="heading"></slot>
             )}

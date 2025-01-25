@@ -111,6 +111,7 @@ button {
     background-color: transparent;
     border: none;
     width: 100%;
+    padding: 0;
 }
 
 .${baseClass}__header, button {

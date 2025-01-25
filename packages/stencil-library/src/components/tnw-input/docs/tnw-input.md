@@ -33,7 +33,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 | **hoverEffect** | <div>Specifies the hover effect of the input.
 - `color`: Changes the border color of the input when hovered.
 - `ring`: Adds a ring around the input when hovered.</div> | `'color'` | `"color"` \| `"ring"` |
-| **inputId** | <div>The unique ID for the input element. If not provided, a random ID will be generated.</div> | N/A | `string` |
+| **inputId** | <div>The unique ID for the input element. If not provided, a random ID will be generated.</div> | `generateRandomId(this.baseClass)` | `string` |
 | **isLabelSrOnly** | <div>If true, the label is visually hidden but still accessible to screen readers.</div> | N/A | `boolean` |
 | **isRequired** | <div>Marks the input as required.</div> | `false` | `boolean` |
 | **label** | <div>The label for the input.</div> | N/A | `string` |
@@ -46,7 +46,7 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 If set to `true`, the input will be sanitized before being validated.
 If set to `false`, the input will still undergo validation but without sanitization.</div> | `false` | `boolean` |
 | **size** | <div>The size of the input.</div> | `'md'` | `"lg"` \| `"md"` \| `"sm"` \| `"xl"` \| `"xs"` |
-| **type** | <div>The input type (e.g., text, password).</div> | N/A | `string` |
+| **type** | <div>The input type (e.g., text, password).</div> | `'text'` | `string` |
 | **value** | <div>The initial value of the input.</div> | `''` | `string` |
 
 </div>

@@ -31,7 +31,7 @@ export const styles = `
     border-bottom-color: var(--tnw-border-color-inverse);
 }
 :host(.${baseClass}--light) {
-    border-bottom-color: var(--tnw-border-color-light);
+    border-bottom-color: var(--tnw-border-color-opacity);
 }
 :host(.${baseClass}--white) {
     border-bottom-color: var(--tnw-white);

@@ -2,7 +2,7 @@ import { Component, Prop, Host, h, Element, State, Event, EventEmitter } from '@
 import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-input.styles';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
-import { BorderRadiusType, ColorType } from '../../utils/component-props-types';
+import { BorderRadiusType, ColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { createStore } from '@stencil/store';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { containsSQLInjectionPatterns, sanitizeInput } from '../../utils/security-utils';
@@ -74,6 +74,11 @@ export class TnwInput {
    * The name of the input field.
    */
   @Prop() name?: string = '';
+
+  /**
+   * The size of the input.
+   */
+  @Prop() size?: ExtendedSizeType = 'md';
 
   /**
    * The initial value of the input.
@@ -161,7 +166,7 @@ export class TnwInput {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.type, this.value]);
+    validateProps([this.appearance, this.appearanceColor, this.autoComplete, this.borderRadius, this.disabled, this.helpText, this.inputId, this.isLabelSrOnly, this.isRequired, this.label, this.maxlength, this.minlength, this.name, this.pattern, this.placeholder, this.sanitizeInput, this.size, this.type, this.value]);
 
     /**
      * Initialize the store with the initial value.
@@ -340,13 +345,14 @@ export class TnwInput {
   }
 
   private getInputClasses(): string {
-    const { baseClass, appearance, appearanceColor } = this;
+    const { baseClass, appearance, appearanceColor, size } = this;
     const alertType = this.store.get('alertType');
 
     return [
       baseClass,
       `${baseClass}--${appearance}`,
       `${baseClass}--${appearance}-${appearanceColor}`,
+      `${baseClass}--${size}`,
       isNotEmptyString(alertType) ? `${baseClass}--${alertType}` : ``,
       getBorderRadiusClass(this.borderRadius),
     ].filter(Boolean).join(' ').trim();

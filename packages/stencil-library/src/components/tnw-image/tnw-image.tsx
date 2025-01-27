@@ -52,12 +52,12 @@ export class TnwImage {
   /**
    * The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
    */
-  @Prop() widthSize?: SizeType | "full" = 'full';
+  @Prop() widthSize?: SizeType | "full" | "unset" = 'full';
 
   /**
    * The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
    */
-  @Prop() heightSize?: SizeType | "full";
+  @Prop() heightSize?: SizeType | "full" | "unset";
 
   /**
    * The aspect ratio of the image (width / height). Useful for maintaining image proportions.
@@ -130,8 +130,8 @@ export class TnwImage {
     const { baseClass, widthSize, heightSize } = this;
     return [
       baseClass,
-      isNotEmptyString(widthSize) ? `${baseClass}--width-${widthSize}` : ``,
-      isNotEmptyString(heightSize) ? `${baseClass}--height-${heightSize}` : ``,
+      isNotEmptyString(widthSize) || widthSize !== 'unset' ? `${baseClass}--width-${widthSize}` : ``,
+      isNotEmptyString(heightSize) || widthSize !== 'unset' ? `${baseClass}--height-${heightSize}` : ``,
     ].filter(Boolean).join(' ').trim();
   }
 

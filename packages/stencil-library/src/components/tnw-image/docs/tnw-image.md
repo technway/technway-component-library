@@ -2,10 +2,15 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Properties](#properties)
-- [Shadow Parts](#shadow-parts)
-- [Usage](#usage)
+- [tnw-image](#tnw-image)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Properties](#properties)
+  - [Shadow Parts](#shadow-parts)
+  - [Usage \& Examples](#usage--examples)
+    - [When to use:](#when-to-use)
+    - [Use Cases:](#use-cases)
+    - [Additional Considerations:](#additional-considerations)
 
 ## Overview
 

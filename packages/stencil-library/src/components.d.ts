@@ -2079,6 +2079,7 @@ declare global {
     };
     interface HTMLTnwSearchInputElementEventMap {
         "tnwInputChangedOnType": string;
+        "tnwInputChangedOnChange": string;
         "tnwInputFocused": void;
         "tnwInputBlurred": void;
     }
@@ -3571,6 +3572,10 @@ declare namespace LocalJSX {
           * Event emitted when the input loses focus.
          */
         "onTnwInputBlurred"?: (event: TnwSearchInputCustomEvent<void>) => void;
+        /**
+          * Event emitted when the input value changes. The event's payload contains the new value.
+         */
+        "onTnwInputChangedOnChange"?: (event: TnwSearchInputCustomEvent<string>) => void;
         /**
           * Event emitted when the input value changes. The event's payload contains the new value.
          */

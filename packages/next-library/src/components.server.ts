@@ -838,6 +838,7 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
 
 type TnwSearchInputEvents = {
     onTnwInputChangedOnType: EventName<CustomEvent<string>>,
+    onTnwInputChangedOnChange: EventName<CustomEvent<string>>,
     onTnwInputFocused: EventName<CustomEvent<void>>,
     onTnwInputBlurred: EventName<CustomEvent<void>>
 };
@@ -850,6 +851,7 @@ export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSea
         react: React,
         events: {
             onTnwInputChangedOnType: 'tnwInputChangedOnType',
+            onTnwInputChangedOnChange: 'tnwInputChangedOnChange',
             onTnwInputFocused: 'tnwInputFocused',
             onTnwInputBlurred: 'tnwInputBlurred'
         } as TnwSearchInputEvents,

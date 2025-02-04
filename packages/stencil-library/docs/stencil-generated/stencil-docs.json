@@ -13583,6 +13583,20 @@
           "docsTags": []
         },
         {
+          "event": "tnwInputChangedOnChange",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input value changes. The event's payload contains the new value.",
+          "docsTags": []
+        },
+        {
           "event": "tnwInputChangedOnType",
           "detail": "string",
           "bubbles": true,

@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.10.1](https://github.com/technway/technway-component-library/compare/root-v3.10.0...root-v3.10.1) (2025-02-05)
+
+
+### Bug Fixes
+
+* resolve styling issues in tnw-badge & tnw-image ([#72](https://github.com/technway/technway-component-library/issues/72)) ([6394d62](https://github.com/technway/technway-component-library/commit/6394d62e3102dbdd7f63ccb087b93d0202376473))
+
 ## [3.10.0](https://github.com/technway/technway-component-library/compare/root-v3.9.0...root-v3.10.0) (2025-01-25)
 
 

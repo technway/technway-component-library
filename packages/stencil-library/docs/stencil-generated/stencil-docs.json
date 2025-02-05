@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-02-05T12:35:01",
+  "timestamp": "2025-01-25T13:12:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -9030,7 +9030,7 @@
           "mutable": false,
           "attr": "height",
           "reflectToAttr": false,
-          "docs": "The height of the image. this will be applied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.",
+          "docs": "The height of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.",
           "docsTags": [],
           "values": [
             {
@@ -9044,10 +9044,10 @@
         },
         {
           "name": "heightSize",
-          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\"",
+          "type": "\"full\" | \"lg\" | \"md\" | \"sm\"",
           "complexType": {
-            "original": "SizeType | \"full\" | \"unset\"",
-            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\"",
+            "original": "SizeType | \"full\"",
+            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\"",
             "references": {
               "SizeType": {
                 "location": "import",
@@ -9076,10 +9076,6 @@
             },
             {
               "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "unset",
               "type": "string"
             }
           ],
@@ -9314,7 +9310,7 @@
           "mutable": false,
           "attr": "width",
           "reflectToAttr": false,
-          "docs": "The width of the image. this will be applied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.",
+          "docs": "The width of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.",
           "docsTags": [],
           "values": [
             {
@@ -9328,10 +9324,10 @@
         },
         {
           "name": "widthSize",
-          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\"",
+          "type": "\"full\" | \"lg\" | \"md\" | \"sm\"",
           "complexType": {
-            "original": "SizeType | \"full\" | \"unset\"",
-            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"unset\"",
+            "original": "SizeType | \"full\"",
+            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\"",
             "references": {
               "SizeType": {
                 "location": "import",
@@ -9361,10 +9357,6 @@
             },
             {
               "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "unset",
               "type": "string"
             }
           ],

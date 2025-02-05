@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tnw-image Default and Required Prop Behavior renders correctly with default values 1`] = `
-<tnw-image alt="Default Image" class="tnw-image tnw-image--height-undefined tnw-image--width-full" src="image.jpg">
+<tnw-image alt="Default Image" class="tnw-image tnw-image--width-full" src="image.jpg">
   <template shadowrootmode="open">
     <img alt="Default Image" class="rounded-default tnw-image tnw-image--full" loading="eager" part="image" src="image.jpg">
   </template>
@@ -9,7 +9,7 @@ exports[`tnw-image Default and Required Prop Behavior renders correctly with def
 `;
 
 exports[`tnw-image Default and Required Prop Behavior renders correctly with link 1`] = `
-<tnw-image alt="Default Image" class="tnw-image tnw-image--height-undefined tnw-image--width-full" link="/" src="image.jpg">
+<tnw-image alt="Default Image" class="tnw-image tnw-image--width-full" link="/" src="image.jpg">
   <template shadowrootmode="open">
     <a aria-label="Default Image" href="/" style="display: inline-flex; align-items: center;">
       <img alt="Default Image" class="rounded-default tnw-image tnw-image--full" loading="eager" part="image" src="image.jpg">

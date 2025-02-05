@@ -40,12 +40,12 @@ export class TnwImage {
   @Prop() caption?: string = '';
 
   /**
-   * The width of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+   * The width of the image. this will be applied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
    */
   @Prop() width?: string;
 
   /**
-   * The height of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+   * The height of the image. this will be applied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
    */
   @Prop() height?: string;
 
@@ -114,7 +114,7 @@ export class TnwImage {
     return isNotEmptyString(this.width) || isNotEmptyString(this.height);
   }
 
-  private getImageClasses(): string {
+  private getImageClasses(): string {   
     const { baseClass, aspectRatio, objectFit, objectPosition } = this;
     return [
       baseClass,
@@ -124,14 +124,14 @@ export class TnwImage {
       getObjectPositionClass(objectPosition),
       getBorderRadiusClass(this.borderRadius),
     ].filter(Boolean).join(' ').trim();
-  }
+  }    
 
   private getHostClasses(): string {
     const { baseClass, widthSize, heightSize } = this;
     return [
       baseClass,
-      isNotEmptyString(widthSize) || widthSize !== 'unset' ? `${baseClass}--width-${widthSize}` : ``,
-      isNotEmptyString(heightSize) || widthSize !== 'unset' ? `${baseClass}--height-${heightSize}` : ``,
+      isNotEmptyString(widthSize) && widthSize !== 'unset' ? `${baseClass}--width-${widthSize}` : ``,
+      isNotEmptyString(heightSize) && heightSize !== 'unset' ? `${baseClass}--height-${heightSize}` : ``,
     ].filter(Boolean).join(' ').trim();
   }
 

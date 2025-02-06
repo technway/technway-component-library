@@ -125,6 +125,11 @@ export class TnwSearchInput {
   @Event() tnwInputChangedOnType: EventEmitter<string>;
 
   /**
+   * Event emitted when the input value changes. The event's payload contains the new value.
+   */
+  @Event() tnwInputChangedOnChange: EventEmitter<string>;
+
+  /**
    * Event emitted when the input receives focus.
    */
   @Event() tnwInputFocused: EventEmitter<void>;
@@ -181,6 +186,17 @@ export class TnwSearchInput {
     const input = event.target as HTMLInputElement;
     const value: string = input.value;
     this.tnwInputChangedOnType.emit(value);
+  }
+
+  /**
+   * Handles the change event.
+   * 
+   * @param event - The change event.
+   */
+  private handleInputOnChange = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    const value: string = input.value;
+    this.tnwInputChangedOnChange.emit(value);
   }
 
   /**
@@ -295,6 +311,7 @@ export class TnwSearchInput {
           value={this.value}
           placeholder={this.placeholder}
           onInput={this.handleInputOnType}
+          onChange={this.handleInputOnChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
           part='input'

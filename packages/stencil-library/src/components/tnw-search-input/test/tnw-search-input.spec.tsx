@@ -175,6 +175,26 @@ describe('tnw-search-input', () => {
       expect(spy).toHaveBeenCalledWith(expect.objectContaining({ detail: 'New Value' }));
     });
 
+    it('emits tnwInputChangedOnChange when the input value changes', async () => {
+      const page = await newSpecPage({
+        components: [TnwSearchInput],
+        html: `<tnw-search-input></tnw-search-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwInputChangedOnChange', spy);
+
+      // Simulate an input change
+      inputElement.value = 'New Value';
+      inputElement.dispatchEvent(new Event('change'));
+
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledWith(expect.objectContaining({ detail: 'New Value' }));
+    });
+
     it('emits tnwInputFocused when the input receives focus', async () => {
       const page = await newSpecPage({
         components: [TnwSearchInput],

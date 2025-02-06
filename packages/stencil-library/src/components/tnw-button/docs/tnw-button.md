@@ -58,8 +58,12 @@ By default, the component renders a button element, but it can also render an an
 
 | Event | Description |
 | --- | --- |
-| **tnwButtonBlurred** | Event emitted when the button loses focus. |
-| **tnwButtonFocused** | Event emitted when the button receives focus. |
+| **tnwButtonBlurred** | Event emitted when the button loses focus. Contains the blur event details. |
+| **tnwButtonClicked** | Event emitted when the button is clicked. Contains the click event details. |
+| **tnwButtonFocused** | Event emitted when the button receives focus. Contains the focus event details. |
+| **tnwButtonKeyDown** | Event emitted when a key is pressed while the button is focused. Contains the keyboard event details. |
+| **tnwButtonMouseEnter** | Event emitted when the button is hovered. Contains the mouse event details. |
+| **tnwButtonMouseLeave** | Event emitted when the mouse leaves the button. Contains the mouse event details. |
 
 ## Usage & Examples
 

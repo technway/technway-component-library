@@ -41,6 +41,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.11.0](https://github.com/technway/technway-component-library/compare/root-v3.10.0...root-v3.11.0) (2025-02-06)
+
+
+### Features
+
+* **tnw-button:** add custom events ([#81](https://github.com/technway/technway-component-library/issues/81)) ([1eb7217](https://github.com/technway/technway-component-library/commit/1eb721717f49c758454a9304b044a02059982772))
+* **tnw-search-input:** add new custom event for handling input on change ([ed5c52e](https://github.com/technway/technway-component-library/commit/ed5c52ebb91f9d46d9a5abe483ebdeed88a8b8b0))
+* **tnw-search-input:** add new custom event for handling input on change ([#79](https://github.com/technway/technway-component-library/issues/79)) ([d5a91ff](https://github.com/technway/technway-component-library/commit/d5a91ff41fce3ac5af839ee5b071251a834cbd89))
+
+
+### Bug Fixes
+
+* resolve styling issues in tnw-badge & tnw-image ([#72](https://github.com/technway/technway-component-library/issues/72)) ([6394d62](https://github.com/technway/technway-component-library/commit/6394d62e3102dbdd7f63ccb087b93d0202376473))
+
 ## [3.10.0](https://github.com/technway/technway-component-library/compare/root-v3.9.0...root-v3.10.0) (2025-01-25)
 
 

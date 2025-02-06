@@ -5,6 +5,282 @@ exports[`tnw-button Custom Prop Behavior renders slot content when label is not 
 exports[`tnw-button Default and Required Prop Behavior renders correctly with required label prop 1`] = `
 <tnw-button label="Click Me">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+
+:host {
+    --tnw-button-fw: var(--tnw-fw-500);
+    --tnw-button-ff: var(--tnw-font-text);
+    --tnw-button-spacing: var(--tnw-spacing-xs);
+    --tnw-button-focus-ring-color: var(--tnw-primary-color);
+    --tnw-button-focus-ring-width: 3px;
+    --tnw-button-focus-ring-offset: 2px;
+    display: inline-block;
+}
+
+.tnw-button {
+    outline-color: transparent;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--tnw-button-spacing);
+    font-weight: var(--tnw-button-fw);
+    font-size: var(--tnw-button-fs);
+    font-family: var(--tnw-button-ff);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out, outline 0s ease-in-out, outline-offset 0s ease-in-out;
+    white-space: nowrap;
+    position: relative;
+    outline: none;
+}
+.tnw-button--no-border {
+    border: none;
+}
+.tnw-button--has-padding {
+    padding: var(--tnw-button-p);
+}
+
+/* - States - */
+:host(.tnw-button--disabled) {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* - Sizes - */
+.tnw-button--xs {
+    --tnw-button-p: 3px 6px;
+    --tnw-button-fs: var(--tnw-fs-2xs);
+}
+.tnw-button--sm {
+    --tnw-button-p: 5px 10px;
+    --tnw-button-fs: var(--tnw-fs-xs);
+}
+.tnw-button--md {
+    --tnw-button-p: 12px 24px;
+    --tnw-button-fs: var(--tnw-fs-text);
+}
+.tnw-button--lg {
+    --tnw-button-p: 16px 32px;
+    --tnw-button-fs: var(--tnw-fs-sm);
+}
+.tnw-button--xl {
+    --tnw-button-p: 20px 40px;
+    --tnw-button-fs: var(--tnw-fs-md);
+}
+@media only screen and (max-width: 567px) {
+    .tnw-button--md {
+        --tnw-button-p: 10px 20px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .tnw-button--xl {
+        --tnw-button-fs: var(--tnw-fs-sm);
+        --tnw-button-p: 14px 28px;
+    }
+    .tnw-button--lg {
+        --tnw-button-p: 17px 34px;
+    }
+}
+
+/* - Hover Effects - */
+.tnw-button--hover-scale-down:hover {
+    transform: scale(0.97);
+}
+.tnw-button--hover-scale-up:hover {
+    transform: scale(1.02);
+}
+.tnw-button--hover-contrast:hover {
+    filter: contrast(1.7);       
+}
+.tnw-button--hover-opacity:hover {
+    opacity: 0.9;
+}
+.tnw-button--hover-focus-ring:hover {
+    outline: var(--tnw-button-focus-ring-width) solid var(--tnw-button-focus-ring-color);
+    outline-offset: var(--tnw-button-focus-ring-offset);
+}
+
+/* - Hovers - */
+.tnw-button--hover-solid-primary:hover {
+    background-color: var(--tnw-primary-color);
+    color: var(--tnw-white);
+}
+.tnw-button--hover-solid-primary:hover tnw-icon {
+    fill: var(--tnw-white);
+    color: var(--tnw-white);
+}
+.tnw-button--hover-solid-secondary:hover {
+    background-color: var(--tnw-secondary-color);
+    color: var(--tnw-white);
+}
+.tnw-button--hover-solid-secondary:hover tnw-icon {
+    fill: var(--tnw-white);
+    color: var(--tnw-white);
+}
+.tnw-button--hover-solid-black:hover {
+    background-color: var(--tnw-black);
+    color: var(--tnw-white);
+}
+.tnw-button--hover-solid-black:hover tnw-icon {
+    fill: var(--tnw-white);
+    color: var(--tnw-white);
+}
+.tnw-button--hover-solid-white:hover {
+    background-color: var(--tnw-white);
+    color: var(--tnw-primary-color);
+}
+.tnw-button--hover-solid-white:hover tnw-icon {
+    fill: var(--tnw-primary-color);
+    color: var(--tnw-primary-color);
+}
+.tnw-button--hover-solid-inverse:hover {
+    background-color: var(--tnw-background-color-inverse);
+    color: var(--tnw-text-color-inverse);
+}
+.tnw-button--hover-solid-inverse:hover tnw-icon {
+    fill: var(--tnw-text-color-inverse);
+    color: var(--tnw-text-color-inverse);
+}
+.tnw-button--hover-solid-auto:hover {
+    background-color: var(--tnw-background-color);
+    color: var(--tnw-text-color);
+}
+.tnw-button--hover-solid-auto:hover tnw-icon {
+    fill: var(--tnw-text-color);
+    color: var(--tnw-text-color);
+}
+
+.tnw-button--hover-outlined-primary:hover {
+    border-width: var(--tnw-border-sm);
+    border-style: solid;
+    border-color: var(--tnw-primary-color);
+    background: none;
+    color: var(--tnw-primary-color);
+}
+.tnw-button--hover-outlined-primary:hover tnw-icon {
+    fill: var(--tnw-primary-color);
+    color: var(--tnw-primary-color);
+}
+.tnw-button--hover-outlined-secondary:hover {
+    border-width: var(--tnw-border-sm);
+    border-style: solid;
+    border-color: var(--tnw-secondary-color);
+    background: none;
+    color: var(--tnw-secondary-color);
+}
+.tnw-button--hover-outlined-secondary:hover tnw-icon {
+    fill: var(--tnw-secondary-color);
+    color: var(--tnw-secondary-color);
+}
+.tnw-button--hover-outlined-black:hover {
+    border-width: var(--tnw-border-sm);
+    border-style: solid;
+    border-color: var(--tnw-black);
+    background: none;
+    color: var(--tnw-black);
+}
+.tnw-button--hover-outlined-black:hover tnw-icon {
+    fill: var(--tnw-black);
+    color: var(--tnw-black);
+}
+.tnw-button--hover-outlined-white:hover {
+    border-width: var(--tnw-border-sm);
+    border-style: solid;
+    border-color: var(--tnw-white);
+    background: none;
+    color: var(--tnw-white);
+}
+.tnw-button--hover-outlined-white:hover tnw-icon {
+    fill: var(--tnw-white);
+    color: var(--tnw-white);
+}
+.tnw-button--hover-outlined-inverse:hover {
+    border-width: var(--tnw-border-sm);
+    border-style: solid;
+    border-color: var(--tnw-border-color-inverse);
+    background: none;
+    color: var(--tnw-text-color-inverse);
+}
+.tnw-button--hover-outlined-inverse:hover tnw-icon {
+    fill: var(--tnw-text-color-inverse);
+    color: var(--tnw-text-color-inverse);
+}
+.tnw-button--hover-outlined-auto:hover {
+    border-width: var(--tnw-border-sm);
+    border-style: solid;
+    border-color: var(--tnw-border-color);
+    background: none;
+    color: var(--tnw-text-color);
+}
+.tnw-button--hover-outlined-auto:hover tnw-icon {
+    fill: var(--tnw-text-color);
+    color: var(--tnw-text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Focus styles */
+.tnw-button:focus-visible {
+    outline: var(--tnw-button-focus-ring-width) solid var(--tnw-button-focus-ring-color);
+    outline-offset: var(--tnw-button-focus-ring-offset);
+}
+
+/* For browsers that don't support :focus-visible */
+.tnw-button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Add focus ring color variants */
+:host(.tnw-extended-v-solid-primary) .tnw-button:focus-visible {
+    --tnw-button-focus-ring-color: var(--tnw-primary-color);
+}
+
+:host(.tnw-extended-v-solid-secondary) .tnw-button:focus-visible {
+    --tnw-button-focus-ring-color: var(--tnw-secondary-color);
+}
+
+:host(.tnw-extended-v-solid-black) .tnw-button:focus-visible {
+    --tnw-button-focus-ring-color: var(--tnw-black);
+}
+
+:host(.tnw-extended-v-solid-white) .tnw-button:focus-visible {
+    --tnw-button-focus-ring-color: var(--tnw-white);
+}
+
+/* Ensure focus styles work with disabled state */
+.tnw-button--disabled:focus-visible {
+    outline-color: var(--tnw-gray-400);
+}
+
+/* Add hover focus ring color variants */
+:host(.tnw-extended-v-solid-primary) .tnw-button--hover-ring:hover {
+    --tnw-button-focus-ring-color: var(--tnw-primary-color);
+}
+
+:host(.tnw-extended-v-solid-secondary) .tnw-button--hover-ring:hover {
+    --tnw-button-focus-ring-color: var(--tnw-secondary-color);
+}
+
+:host(.tnw-extended-v-solid-black) .tnw-button--hover-ring:hover {
+    --tnw-button-focus-ring-color: var(--tnw-black);
+}
+
+:host(.tnw-extended-v-solid-white) .tnw-button--hover-ring:hover {
+    --tnw-button-focus-ring-color: var(--tnw-white);
+}
+
+/* Ensure hover focus ring doesn't show on disabled state */
+.tnw-button--disabled.tnw-button--hover-ring:hover {
+    outline: none;
+}
+    </style>
+    <style></style>
+    <style></style>
     <button class="rounded-default tnw-button tnw-button--has-padding tnw-button--md tnw-button--no-border tnw-extended-v-solid-primary" part="button" tabindex="0" type="button">
       <slot name="icon-start"></slot>
       Click Me

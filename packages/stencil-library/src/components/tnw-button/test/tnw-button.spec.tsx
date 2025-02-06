@@ -202,5 +202,119 @@ describe('tnw-button', () => {
       await page.waitForChanges();
       expect(blurSpy).toHaveBeenCalledTimes(1);
     });
+
+    it('emits tnwButtonClicked when button is clicked', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Click Test"></tnw-button>`,
+      });
+
+      const buttonElement = page.root.shadowRoot.querySelector('button');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwButtonClicked', spy);
+
+      buttonElement.dispatchEvent(new MouseEvent('click'));
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    it('emits tnwButtonKeyDown when key is pressed', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Keydown Test"></tnw-button>`,
+      });
+
+      const buttonElement = page.root.shadowRoot.querySelector('button');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwButtonKeyDown', spy);
+
+      buttonElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    it('triggers click event on Enter or Space key press when no href is provided', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Keyboard Click Test"></tnw-button>`,
+      });
+
+      const buttonElement = page.root.shadowRoot.querySelector('button');
+      const clickSpy = jest.fn();
+      page.root.addEventListener('tnwButtonClicked', clickSpy);
+
+      // Test Enter key
+      buttonElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+      await page.waitForChanges();
+      expect(clickSpy).toHaveBeenCalledTimes(1);
+
+      // Test Space key
+      buttonElement.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }));
+      await page.waitForChanges();
+      expect(clickSpy).toHaveBeenCalledTimes(2);
+    });
+
+    it('emits tnwButtonMouseEnter when mouse enters button', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Mouse Enter Test"></tnw-button>`,
+      });
+
+      const buttonElement = page.root.shadowRoot.querySelector('button');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwButtonMouseEnter', spy);
+
+      buttonElement.dispatchEvent(new MouseEvent('mouseenter'));
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    it('emits tnwButtonMouseLeave when mouse leaves button', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Mouse Leave Test"></tnw-button>`,
+      });
+
+      const buttonElement = page.root.shadowRoot.querySelector('button');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwButtonMouseLeave', spy);
+
+      buttonElement.dispatchEvent(new MouseEvent('mouseleave'));
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not emit events when disabled', async () => {
+      const page = await newSpecPage({
+        components: [TnwButton],
+        html: `<tnw-button label="Disabled Events Test" disabled></tnw-button>`,
+      });
+
+      const buttonElement = page.root.shadowRoot.querySelector('button');
+      const clickSpy = jest.fn();
+      const mouseEnterSpy = jest.fn();
+      const mouseLeaveSpy = jest.fn();
+      const keyDownSpy = jest.fn();
+
+      page.root.addEventListener('tnwButtonClicked', clickSpy);
+      page.root.addEventListener('tnwButtonMouseEnter', mouseEnterSpy);
+      page.root.addEventListener('tnwButtonMouseLeave', mouseLeaveSpy);
+      page.root.addEventListener('tnwButtonKeyDown', keyDownSpy);
+
+      buttonElement.dispatchEvent(new MouseEvent('click'));
+      buttonElement.dispatchEvent(new MouseEvent('mouseenter'));
+      buttonElement.dispatchEvent(new MouseEvent('mouseleave'));
+      buttonElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+      await page.waitForChanges();
+
+      expect(clickSpy).not.toHaveBeenCalled();
+      expect(mouseEnterSpy).not.toHaveBeenCalled();
+      expect(mouseLeaveSpy).not.toHaveBeenCalled();
+      expect(keyDownSpy).not.toHaveBeenCalled();
+    });
   });
 });

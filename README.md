@@ -1,10 +1,9 @@
-<div style="text-align: center;">
+<div align="center">
 
 <img src="https://iili.io/JUYfe2V.png" alt="Technway Logo" height="65px">
 
 <h1 style="border-bottom: none;">Technway Component Library</h1>
 
-![Component Library Version](https://img.shields.io/badge/Component%20Library-v1.0.8-orange)
 [![Stencil.js Version](https://img.shields.io/badge/Stencil.js-v4.23.0-blue)](https://stenciljs.com/)
 [![Storybook Version](https://img.shields.io/badge/Storybook-v8.4.7-blue)](https://storybook.js.org/)
 [![Node.js Version](https://img.shields.io/badge/Node.js-v20.11.0-brightgreen)](https://nodejs.org/)
@@ -19,6 +18,8 @@
 
 - [📋 Table of Contents](#-table-of-contents)
 - [🚀 Project Overview](#-project-overview)
+- [📦 Libraries](#-libraries)
+- [🧪 Testing Libraries](#-testing-libraries)
 - [✨ Features](#-features)
 - [🛠 Prerequisites](#-prerequisites)
   - [Setting up the environment](#setting-up-the-environment)
@@ -32,11 +33,25 @@
 
 Technway Component Library is a comprehensive, modern component library built with Stencil.js, providing a consistent and reusable set of UI components for web applications. Our component library ensures design consistency, improves development efficiency, and offers a seamless user experience across different projects.
 
+## 📦 Libraries
+
+- [stencil-library](./packages/stencil-library)
+- [react-library](./packages/react-library)
+- [next-library](./packages/next-library)
+- [layout-kit](./packages/layout-kit)
+
+## 🧪 Testing Libraries
+
+in directory example-project you can find example projects that uses all libraries.
+
 ## ✨ Features
 
 - 🎨 Fully customizable UI components
 - 🚀 Built with Stencil.js for maximum performance
 - 📱 Responsive and accessible design
+
+
+
 - 🔧 Easy integration with multiple frameworks
 - 📚 Comprehensive documentation and Storybook support
 - 📦 Monorepo structure with Lerna for better package management

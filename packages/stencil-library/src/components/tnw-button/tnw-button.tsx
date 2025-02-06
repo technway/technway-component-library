@@ -3,9 +3,9 @@ import { GLOBAL_PREFIX, getBorderRadiusClass, getExtendedAppearanceClass, isNotE
 import { OptionalAppearanceType, BorderRadiusType, ExtendedColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { styles } from './tnw-button.styles';
 import { validateProps } from './utils/tnw-button-validate-props';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { borderRadiusStyleSheet } from '../../utils/shared-styles';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
@@ -23,7 +23,7 @@ import { borderRadiusStyleSheet } from '../../utils/shared-styles';
 })
 export class TnwButton {
   private baseClass = `${GLOBAL_PREFIX}-button`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwButtonElement;
 
@@ -122,20 +122,15 @@ export class TnwButton {
   @Event() tnwButtonMouseLeave!: EventEmitter<MouseEvent>;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.stylesHandler = new StyleHandler(
+      this.el, 
+      styles, 
+      [extendedAppearanceStyleSheet, borderRadiusStyleSheet]
+    );
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
@@ -202,7 +197,7 @@ export class TnwButton {
   private handleKeyDown = (event: KeyboardEvent) => {
     if (!this.disabled) {
       this.tnwButtonKeyDown.emit(event);
-      
+
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         if (!this.href) {
@@ -229,7 +224,6 @@ export class TnwButton {
       this.tnwButtonMouseLeave.emit(event);
     }
   }
-
   private renderAnchor = () => (
     <a
       class={this.getButtonClasses()}

@@ -92,14 +92,34 @@ export class TnwButton {
   /************************ Events ************************/
 
   /**
-   * Event emitted when the button receives focus.
+   * Event emitted when the button receives focus. Contains the focus event details.
    */
-  @Event() tnwButtonFocused!: EventEmitter<void>;
+  @Event() tnwButtonFocused!: EventEmitter<FocusEvent>;
 
   /**
-   * Event emitted when the button loses focus.
+   * Event emitted when the button loses focus. Contains the blur event details.
    */
-  @Event() tnwButtonBlurred!: EventEmitter<void>;
+  @Event() tnwButtonBlurred!: EventEmitter<FocusEvent>;
+
+  /**
+   * Event emitted when the button is clicked. Contains the click event details.
+   */
+  @Event() tnwButtonClicked!: EventEmitter<MouseEvent>;
+
+  /**
+   * Event emitted when a key is pressed while the button is focused. Contains the keyboard event details.
+   */
+  @Event() tnwButtonKeyDown!: EventEmitter<KeyboardEvent>;
+
+  /**
+   * Event emitted when the button is hovered. Contains the mouse event details.
+   */
+  @Event() tnwButtonMouseEnter!: EventEmitter<MouseEvent>;
+
+  /**
+   * Event emitted when the mouse leaves the button. Contains the mouse event details.
+   */
+  @Event() tnwButtonMouseLeave!: EventEmitter<MouseEvent>;
 
   constructor() {
     if (isCSSStyleSheetSupported()) {
@@ -151,29 +171,62 @@ export class TnwButton {
   /**
    * Handles the button focus event.
    */
-  private handleButtonFocus = () => {
-    this.tnwButtonFocused.emit();
+  private handleButtonFocus = (event: FocusEvent) => {
+    if (!this.disabled) {
+      this.tnwButtonFocused.emit(event);
+    }
   }
 
   /**
    * Handles the button blur event.
    */
-  private handleButtonBlur = () => {
-    this.tnwButtonBlurred.emit();
+  private handleButtonBlur = (event: FocusEvent) => {
+    if (!this.disabled) {
+      this.tnwButtonBlurred.emit(event);
+    }
+  }
+
+  /**
+   * Handles the button click event.
+   */
+  private handleButtonClick = (event: MouseEvent) => {
+    if (!this.disabled) {
+      event.preventDefault();
+      this.tnwButtonClicked.emit(event);
+    }
   }
 
   /**
    * Handles keyboard interaction for accessibility
    */
   private handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      if (!this.disabled) {
-        if (this.href) {
-          window.location.href = this.href;
+    if (!this.disabled) {
+      this.tnwButtonKeyDown.emit(event);
+      
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        if (!this.href) {
+          this.handleButtonClick(event as unknown as MouseEvent);
         }
-        // You could emit a click event here if needed
       }
+    }
+  }
+
+  /**
+   * Handles mouse enter event
+   */
+  private handleMouseEnter = (event: MouseEvent) => {
+    if (!this.disabled) {
+      this.tnwButtonMouseEnter.emit(event);
+    }
+  }
+
+  /**
+   * Handles mouse leave event
+   */
+  private handleMouseLeave = (event: MouseEvent) => {
+    if (!this.disabled) {
+      this.tnwButtonMouseLeave.emit(event);
     }
   }
 
@@ -188,6 +241,9 @@ export class TnwButton {
       onFocus={this.handleButtonFocus}
       onBlur={this.handleButtonBlur}
       onKeyDown={this.handleKeyDown}
+      onClick={this.handleButtonClick}
+      onMouseEnter={this.handleMouseEnter}
+      onMouseLeave={this.handleMouseLeave}
       tabIndex={this.disabled ? -1 : 0}
     >
       {this.renderButtonContent()}
@@ -203,6 +259,9 @@ export class TnwButton {
       onFocus={this.handleButtonFocus}
       onBlur={this.handleButtonBlur}
       onKeyDown={this.handleKeyDown}
+      onClick={this.handleButtonClick}
+      onMouseEnter={this.handleMouseEnter}
+      onMouseLeave={this.handleMouseLeave}
       tabIndex={this.disabled ? -1 : 0}
     >
       {this.renderButtonContent()}

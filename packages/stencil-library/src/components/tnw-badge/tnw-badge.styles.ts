@@ -11,6 +11,7 @@ export const styles = `
   display: inline-block;
   font-weight: var(--${baseClass}-font-weight, var(--tnw-fw-400));
   font-family: var(--tnw-font-text);
+  white-space: nowrap;
 }
 
 .${baseClass}--padding-sm {

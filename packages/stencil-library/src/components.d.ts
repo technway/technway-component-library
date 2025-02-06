@@ -863,13 +863,13 @@ export namespace Components {
          */
         "caption"?: string;
         /**
-          * The height of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+          * The height of the image. this will be applied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
          */
         "height"?: string;
         /**
           * The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
-        "heightSize"?: SizeType | "full";
+        "heightSize"?: SizeType | "full" | "unset";
         /**
           * If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.
          */
@@ -891,13 +891,13 @@ export namespace Components {
          */
         "src": string;
         /**
-          * The width of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+          * The width of the image. this will be applied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
          */
         "width"?: string;
         /**
           * The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
-        "widthSize"?: SizeType | "full";
+        "widthSize"?: SizeType | "full" | "unset";
     }
     /**
      * The `tnw-input` component is a customizable input field that supports various input types, validation, and appearance options.
@@ -3080,13 +3080,13 @@ declare namespace LocalJSX {
          */
         "caption"?: string;
         /**
-          * The height of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+          * The height of the image. this will be applied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
          */
         "height"?: string;
         /**
           * The height size of the image. This controls the height of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
-        "heightSize"?: SizeType | "full";
+        "heightSize"?: SizeType | "full" | "unset";
         /**
           * If `true`, the image will use lazy loading, loading only when it is about to be visible in the viewport.
          */
@@ -3108,13 +3108,13 @@ declare namespace LocalJSX {
          */
         "src": string;
         /**
-          * The width of the image. this will be apllied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
+          * The width of the image. this will be applied to the `<img>` element. Value should be a valid CSS unit, such as `px`, `em`, or `%`.
          */
         "width"?: string;
         /**
           * The width size of the image. This controls the width of the image container. Values are not units, but rather like `full`, `lg`, `md` ...
          */
-        "widthSize"?: SizeType | "full";
+        "widthSize"?: SizeType | "full" | "unset";
     }
     /**
      * The `tnw-input` component is a customizable input field that supports various input types, validation, and appearance options.

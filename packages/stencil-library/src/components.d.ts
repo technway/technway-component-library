@@ -1808,8 +1808,12 @@ declare global {
         new (): HTMLTnwBannerElement;
     };
     interface HTMLTnwButtonElementEventMap {
-        "tnwButtonFocused": void;
-        "tnwButtonBlurred": void;
+        "tnwButtonFocused": FocusEvent;
+        "tnwButtonBlurred": FocusEvent;
+        "tnwButtonClicked": MouseEvent;
+        "tnwButtonKeyDown": KeyboardEvent;
+        "tnwButtonMouseEnter": MouseEvent;
+        "tnwButtonMouseLeave": MouseEvent;
     }
     /**
      * The `tnw-button` component is a customizable button element, which can be used as a standalone button or as a button in a form.
@@ -2079,6 +2083,7 @@ declare global {
     };
     interface HTMLTnwSearchInputElementEventMap {
         "tnwInputChangedOnType": string;
+        "tnwInputChangedOnChange": string;
         "tnwInputFocused": void;
         "tnwInputBlurred": void;
     }
@@ -2519,13 +2524,29 @@ declare namespace LocalJSX {
          */
         "newTab"?: boolean;
         /**
-          * Event emitted when the button loses focus.
+          * Event emitted when the button loses focus. Contains the blur event details.
          */
-        "onTnwButtonBlurred"?: (event: TnwButtonCustomEvent<void>) => void;
+        "onTnwButtonBlurred"?: (event: TnwButtonCustomEvent<FocusEvent>) => void;
         /**
-          * Event emitted when the button receives focus.
+          * Event emitted when the button is clicked. Contains the click event details.
          */
-        "onTnwButtonFocused"?: (event: TnwButtonCustomEvent<void>) => void;
+        "onTnwButtonClicked"?: (event: TnwButtonCustomEvent<MouseEvent>) => void;
+        /**
+          * Event emitted when the button receives focus. Contains the focus event details.
+         */
+        "onTnwButtonFocused"?: (event: TnwButtonCustomEvent<FocusEvent>) => void;
+        /**
+          * Event emitted when a key is pressed while the button is focused. Contains the keyboard event details.
+         */
+        "onTnwButtonKeyDown"?: (event: TnwButtonCustomEvent<KeyboardEvent>) => void;
+        /**
+          * Event emitted when the button is hovered. Contains the mouse event details.
+         */
+        "onTnwButtonMouseEnter"?: (event: TnwButtonCustomEvent<MouseEvent>) => void;
+        /**
+          * Event emitted when the mouse leaves the button. Contains the mouse event details.
+         */
+        "onTnwButtonMouseLeave"?: (event: TnwButtonCustomEvent<MouseEvent>) => void;
         /**
           * Determines the size of the button.
          */
@@ -3571,6 +3592,10 @@ declare namespace LocalJSX {
           * Event emitted when the input loses focus.
          */
         "onTnwInputBlurred"?: (event: TnwSearchInputCustomEvent<void>) => void;
+        /**
+          * Event emitted when the input value changes. The event's payload contains the new value.
+         */
+        "onTnwInputChangedOnChange"?: (event: TnwSearchInputCustomEvent<string>) => void;
         /**
           * Event emitted when the input value changes. The event's payload contains the new value.
          */

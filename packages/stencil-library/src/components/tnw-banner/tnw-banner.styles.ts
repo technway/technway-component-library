@@ -74,9 +74,9 @@ export const styles = `
     background-color: var(--${baseClass}-gradient-from);
     background-image: radial-gradient(
         ellipse at top,
-        var(--tnw-contact-banner-gradient-from) 0%,
-        var(--tnw-contact-banner-gradient-from) 50%,
-        var(--tnw-contact-banner-gradient-to) 100%
+        var(--${baseClass}-gradient-from) 0%,
+        var(--${baseClass}-gradient-from) 50%,
+        var(--${baseClass}-gradient-to) 100%
     );
 }
 

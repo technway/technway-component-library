@@ -9,7 +9,7 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type TnwSelectCustomEvent, type TnwSelectOption } from "@technway/stencil-library";
+import { type TnwButtonCustomEvent, type TnwSelectCustomEvent, type TnwSelectOption } from "@technway/stencil-library";
 import { TnwAccordionGroup as TnwAccordionGroupElement, defineCustomElement as defineTnwAccordionGroup } from "@technway/stencil-library/components/tnw-accordion-group.js";
 import { TnwAccordion as TnwAccordionElement, defineCustomElement as defineTnwAccordion } from "@technway/stencil-library/components/tnw-accordion.js";
 import { TnwAlert as TnwAlertElement, defineCustomElement as defineTnwAlert } from "@technway/stencil-library/components/tnw-alert.js";
@@ -124,8 +124,12 @@ export const TnwBanner: StencilReactComponent<TnwBannerElement, TnwBannerEvents>
 });
 
 type TnwButtonEvents = {
-    onTnwButtonFocused: EventName<CustomEvent<void>>,
-    onTnwButtonBlurred: EventName<CustomEvent<void>>
+    onTnwButtonFocused: EventName<TnwButtonCustomEvent<FocusEvent>>,
+    onTnwButtonBlurred: EventName<TnwButtonCustomEvent<FocusEvent>>,
+    onTnwButtonClicked: EventName<TnwButtonCustomEvent<MouseEvent>>,
+    onTnwButtonKeyDown: EventName<TnwButtonCustomEvent<KeyboardEvent>>,
+    onTnwButtonMouseEnter: EventName<TnwButtonCustomEvent<MouseEvent>>,
+    onTnwButtonMouseLeave: EventName<TnwButtonCustomEvent<MouseEvent>>
 };
 
 export const TnwButton: StencilReactComponent<TnwButtonElement, TnwButtonEvents> = /*@__PURE__*/ createComponent<TnwButtonElement, TnwButtonEvents>({
@@ -135,7 +139,11 @@ export const TnwButton: StencilReactComponent<TnwButtonElement, TnwButtonEvents>
     react: React,
     events: {
         onTnwButtonFocused: 'tnwButtonFocused',
-        onTnwButtonBlurred: 'tnwButtonBlurred'
+        onTnwButtonBlurred: 'tnwButtonBlurred',
+        onTnwButtonClicked: 'tnwButtonClicked',
+        onTnwButtonKeyDown: 'tnwButtonKeyDown',
+        onTnwButtonMouseEnter: 'tnwButtonMouseEnter',
+        onTnwButtonMouseLeave: 'tnwButtonMouseLeave'
     } as TnwButtonEvents,
     defineCustomElement: defineTnwButton
 });
@@ -381,6 +389,7 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
 
 type TnwSearchInputEvents = {
     onTnwInputChangedOnType: EventName<CustomEvent<string>>,
+    onTnwInputChangedOnChange: EventName<CustomEvent<string>>,
     onTnwInputFocused: EventName<CustomEvent<void>>,
     onTnwInputBlurred: EventName<CustomEvent<void>>
 };
@@ -392,6 +401,7 @@ export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSea
     react: React,
     events: {
         onTnwInputChangedOnType: 'tnwInputChangedOnType',
+        onTnwInputChangedOnChange: 'tnwInputChangedOnChange',
         onTnwInputFocused: 'tnwInputFocused',
         onTnwInputBlurred: 'tnwInputBlurred'
     } as TnwSearchInputEvents,

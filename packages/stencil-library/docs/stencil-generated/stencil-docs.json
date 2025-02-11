@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-02-05T12:35:01",
+  "timestamp": "2025-02-11T20:28:32",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -3117,30 +3117,116 @@
       "events": [
         {
           "event": "tnwButtonBlurred",
-          "detail": "void",
+          "detail": "FocusEvent",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when the button loses focus.",
+          "docs": "Event emitted when the button loses focus. Contains the blur event details.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwButtonClicked",
+          "detail": "MouseEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "MouseEvent",
+            "resolved": "MouseEvent",
+            "references": {
+              "MouseEvent": {
+                "location": "global",
+                "id": "global::MouseEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the button is clicked. Contains the click event details.",
           "docsTags": []
         },
         {
           "event": "tnwButtonFocused",
-          "detail": "void",
+          "detail": "FocusEvent",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when the button receives focus.",
+          "docs": "Event emitted when the button receives focus. Contains the focus event details.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwButtonKeyDown",
+          "detail": "KeyboardEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "KeyboardEvent",
+            "resolved": "KeyboardEvent",
+            "references": {
+              "KeyboardEvent": {
+                "location": "global",
+                "id": "global::KeyboardEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when a key is pressed while the button is focused. Contains the keyboard event details.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwButtonMouseEnter",
+          "detail": "MouseEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "MouseEvent",
+            "resolved": "MouseEvent",
+            "references": {
+              "MouseEvent": {
+                "location": "global",
+                "id": "global::MouseEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the button is hovered. Contains the mouse event details.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwButtonMouseLeave",
+          "detail": "MouseEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "MouseEvent",
+            "resolved": "MouseEvent",
+            "references": {
+              "MouseEvent": {
+                "location": "global",
+                "id": "global::MouseEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the mouse leaves the button. Contains the mouse event details.",
           "docsTags": []
         }
       ],
@@ -13580,6 +13666,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when the input loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwInputChangedOnChange",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input value changes. The event's payload contains the new value.",
           "docsTags": []
         },
         {

@@ -21,7 +21,7 @@ Default.args = {
   shortTitleSlot: '<tnw-text slot="subtitle" text="for free!" text-tag="span" size="xs"></tnw-text>',
   titleSlot: '<tnw-heading slot="title" text="Get in Touch"></tnw-heading>',
   descriptionSlot: '<tnw-text slot="description" text="We are here to help you with any questions or concerns. Reach out to us for assistance." size="md"></tnw-text>',
-  buttonSlot: '<tnw-button slot="button" label="Contact Us" variant="white"></tnw-button>',
+  buttonSlot: '<tnw-button slot="button" label="Contact Us" appearance-color="white"></tnw-button>',
 };
 
 // Banner with Alignment Start
@@ -43,7 +43,7 @@ OutlinedAppearance.args = {
 export const InverseVariant = Template.bind({});
 InverseVariant.args = {
   ...Default.args,
-  variant: "inverse",
+  appearanceColor: "inverse",
 };
 
 export const HorizontalLayout = Template.bind({});
@@ -51,6 +51,21 @@ HorizontalLayout.args = {
   ...OutlinedAppearance.args,
   layout: "horizontal",
   textAlignment: 'start'
+};
+
+export const Gradient = Template.bind({});
+Gradient.args = {
+  shortTitleSlot: '<tnw-text slot="subtitle" text="for free!" text-tag="span" size="xs" color="white"></tnw-text>',
+  titleSlot: '<tnw-heading slot="title" text="Get in Touch" color="white"></tnw-heading>',
+  descriptionSlot: '<tnw-text slot="description" text="We are here to help you with any questions or concerns. Reach out to us for assistance." size="md" color="white"></tnw-text>',
+  buttonSlot: '<tnw-button slot="button" label="Contact Us" appearance-color="white"></tnw-button>',
+  appearance: 'gradient',
+  layout: 'vertical',
+  alignment: 'center',
+  textAlignment: 'center',
+  paddingVertical: '4xl',
+  paddingHorizontal: '2xl',
+  margin: 'none',
 };
 
 export const SubscriptionBanner = Template.bind({});
@@ -62,7 +77,7 @@ SubscriptionBanner.args = {
   buttonSlot: `<tnw-subscription-form
                 slot="button"
                 border-radius="full"
-                variant="secondary"
+                appearance-color="secondary"
               ></tnw-subscription-form>`,
   gap: '3xl'
 };
@@ -73,6 +88,6 @@ SubscriptionBanner.args = {
 //   enableContentSlot: true,
 //   contentSlot: `<div slot="content">
 //                   <tnw-text text="For all your unique support requests, we offer tailored solutions. Get in touch for more information."></tnw-text>
-//                   <tnw-button label="Learn More" variant="white"></tnw-button>
+//                   <tnw-button label="Learn More" appearance-color="white"></tnw-button>
 //                 </div>`,
 // };

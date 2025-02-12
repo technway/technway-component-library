@@ -24,7 +24,7 @@ describe('tnw-card', () => {
       ]);
     });
 
-    it('renders the correct structure with slots', async () => {
+    it('renders the correct structure with slots when slots are provided', async () => {
       const host = await createSpecPage(
         TnwCard,
         `<tnw-card enable-image-slot>
@@ -38,13 +38,13 @@ describe('tnw-card', () => {
         </tnw-card>`
       ) as HTMLTnwCardElement;
 
-      const imageSlot = queryElement(host, 'slot[name="image"]');
-      const badgeSlot = queryElement(host, 'slot[name="badge"]');
-      const dateSlot = queryElement(host, 'slot[name="date"]');
-      const headingSlot = queryElement(host, 'slot[name="heading"]');
-      const subheadingSlot = queryElement(host, 'slot[name="subheading"]');
-      const descriptionSlot = queryElement(host, 'slot[name="description"]');
-      const buttonSlot = queryElement(host, 'slot[name="button"]');
+      const imageSlot = document.querySelector('[slot="image"]');
+      const badgeSlot = document.querySelector('[slot="badge"]');
+      const dateSlot = document.querySelector('[slot="date"]');
+      const headingSlot = document.querySelector('[slot="heading"]');
+      const subheadingSlot = document.querySelector('[slot="subheading"]');
+      const descriptionSlot = document.querySelector('[slot="description"]');
+      const buttonSlot = document.querySelector('[slot="button"]');
 
       expect(imageSlot).not.toBeNull();
       expect(badgeSlot).not.toBeNull();
@@ -54,6 +54,29 @@ describe('tnw-card', () => {
       expect(descriptionSlot).not.toBeNull();
       expect(buttonSlot).not.toBeNull();
     });
+  });
+
+  it('does not render slots when slots are not provided', async () => {
+    const host = await createSpecPage(
+      TnwCard,
+      `<tnw-card></tnw-card>`
+    ) as HTMLTnwCardElement;
+
+    const imageSlot = queryElement(host, 'slot[name="image"]');
+    const badgeSlot = queryElement(host, 'slot[name="badge"]');
+    const dateSlot = queryElement(host, 'slot[name="date"]');
+    const headingSlot = queryElement(host, 'slot[name="heading"]');
+    const subheadingSlot = queryElement(host, 'slot[name="subheading"]');
+    const descriptionSlot = queryElement(host, 'slot[name="description"]');
+    const buttonSlot = queryElement(host, 'slot[name="button"]');
+
+    expect(imageSlot).toBeNull();
+    expect(badgeSlot).toBeNull();
+    expect(dateSlot).toBeNull();
+    expect(headingSlot).toBeNull();
+    expect(subheadingSlot).toBeNull();
+    expect(descriptionSlot).toBeNull();
+    expect(buttonSlot).toBeNull();
   });
 
   describe('Custom Prop Behavior', () => {

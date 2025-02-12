@@ -645,3 +645,43 @@ export const generateRandomColor = (): string => {
   }
   return color;
 };
+
+/**
+ * Checks if the component uses Shadow DOM by checking if the element has a shadow root and if the element has the `attachShadow` property.
+ * @param el - The element to check.
+ * @returns {boolean} True if the element has a shadow root, false otherwise.
+ */
+export const hasShadowDom = (el: HTMLElement) => {
+  return !!el.shadowRoot && !!(el as any).attachShadow;
+};
+
+/**
+ * Checks if a named slot in an element contains any content.
+ * Works for both Shadow DOM and Light DOM elements.
+ * 
+ * @param el - The element to check for slot content
+ * @param slotName - The name of the slot to check
+ * @returns {boolean} True if the slot contains content, false otherwise
+ */
+export const hasSlotContent = (
+  { el, slotName, enableDebug = false }: { el: HTMLElement, slotName: string, enableDebug?: boolean }
+): boolean => {
+  if (hasShadowDom(el)) {
+    const slot = el.shadowRoot?.querySelector(`[slot="${slotName}"]`);
+    optionalDebugLog(enableDebug, `Shadow DOM: slot ${slotName} is ${!!slot}`);
+    return !!slot;
+  } else {
+    const slot = el.querySelector(`[slot="${slotName}"]`);
+    optionalDebugLog(enableDebug, `Light DOM: slot ${slotName} is ${!!slot}`);
+    return !!slot;
+  }
+}
+
+/**
+ * Logs a message if the debug mode is enabled.
+ * @param enableDebug - Whether to enable debug mode.
+ * @param message - The message to log.
+ */
+export const optionalDebugLog = (enableDebug: boolean, message: string): void => {
+  if (enableDebug) console.log(message);
+}

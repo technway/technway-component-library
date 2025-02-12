@@ -41,18 +41,18 @@ export class TnwPortfolioGrid {
   @Prop() showGradientFade?: boolean = false;
 
   /**
-   * Watches for changes to the `menuData` prop and re-parses the JSON data.
+   * Watches for changes to the `itemsData` prop and re-parses the JSON data.
    * 
-   * This watcher is triggered whenever the `menuData` prop changes. It handles:
+   * This watcher is triggered whenever the `itemsData` prop changes. It handles:
    * - Parsing new JSON data asynchronously
    * - Comparing with previous parsed data to avoid unnecessary updates
    * - Maintaining the previous state if parsing fails
    * - Throwing errors for invalid JSON
    * 
-   * @param {string | undefined} newValue - The new value of the menuData prop
+   * @param {string | undefined} newValue - The new value of the itemsData prop
    * @returns {Promise<void>} A promise that resolves when parsing is complete
    * 
-   * @throws {Error} If the JSON parsing fails, with message "Failed to parse menuData: [value]"
+   * @throws {Error} If the JSON parsing fails, with message "Failed to parse itemsData: [value]"
    */
   @Watch('itemsData')
   async handleItemsDataChange(newValue: string | undefined): Promise<void> {

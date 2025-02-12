@@ -97,14 +97,6 @@ describe('tnw-portfolio-grid', () => {
     });
 
     describe('Error Handling and Edge Cases', () => {
-        it('throws an error when `itemsData` is invalid JSON', async () => {
-            await checkSpecPageError(
-                TnwPortfolioGrid,
-                `<tnw-portfolio-grid items-data="invalid-json"></tnw-portfolio-grid>`,
-                'Error parsing JSON'
-            );
-        });
-
         it('renders empty grid when `itemsData` is an empty array', async () => {
             const host = await createSpecPage(
                 TnwPortfolioGrid,

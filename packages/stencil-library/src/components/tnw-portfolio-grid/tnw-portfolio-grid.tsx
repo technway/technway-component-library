@@ -1,5 +1,5 @@
-import { Component, Element, Host, Prop, State, h } from '@stencil/core';
-import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, isNotEmptyStringOrNumber, parseJSONAsync } from '../../utils/utils';
+import { Component, Element, Host, Prop, State, Watch, h } from '@stencil/core';
+import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, isNotEmptyStringOrNumber, isValidStringifiedJSON, parseJSONAsync } from '../../utils/utils';
 import { styles } from './tnw-portfolio-grid.style';
 import { TnwPortfolioGridItem } from './utils/types';
 import { ExtendedSizeType } from '../../components';
@@ -40,6 +40,43 @@ export class TnwPortfolioGrid {
    */
   @Prop() showGradientFade?: boolean = false;
 
+  /**
+   * Watches for changes to the `itemsData` prop and re-parses the JSON data.
+   * 
+   * This watcher is triggered whenever the `itemsData` prop changes. It handles:
+   * - Parsing new JSON data asynchronously
+   * - Comparing with previous parsed data to avoid unnecessary updates
+   * - Maintaining the previous state if parsing fails
+   * - Throwing errors for invalid JSON
+   * 
+   * @param {string | undefined} newValue - The new value of the itemsData prop
+   * @returns {Promise<void>} A promise that resolves when parsing is complete
+   * 
+   * @throws {Error} If the JSON parsing fails, with message "Failed to parse itemsData: [value]"
+   */
+  @Watch('itemsData')
+  async handleItemsDataChange(newValue: string | undefined): Promise<void> {
+    let oldParsedData = this.parsedItemsData;
+    if (isNotEmptyString(newValue)) {
+      this.validateItemsData(newValue);
+
+      try {
+        const parsedData = await parseJSONAsync(newValue);
+        if (parsedData === oldParsedData) {
+          return;
+        }
+
+        // Validate the parsed data before assigning
+        this.parsedItemsData = parsedData;
+      } catch (error) {
+        this.parsedItemsData = oldParsedData;
+        throw new Error(`Failed to parse itemsData: ${newValue}`);
+      }
+    } else {
+      this.parsedItemsData = [];
+    }
+  }
+
   constructor() {
     this.initializeStyles();
   }
@@ -49,9 +86,31 @@ export class TnwPortfolioGrid {
   }
 
   async componentWillLoad() {
-    this.parsedItemsData = await parseJSONAsync(this.itemsData);
+    // Manually parse items data on initial load, only if itemsData is provided and is valid stringified JSON
+    if (isNotEmptyString(this.itemsData) && isValidStringifiedJSON(this.itemsData)) {
+      await this.handleItemsDataChange(this.itemsData);
+    }
 
     validateProps([this.columns, this.itemsData, this.showGradientFade, this.spacing]);
+  }
+
+  /**
+   * Validates that the provided itemsData string is valid JSON.
+   * 
+   * This method performs validation on the itemsData string to ensure it can be parsed as JSON.
+   * It skips validation if the input is empty/null/undefined.
+   * 
+   * @throws {Error} If itemsData is provided but cannot be parsed as valid JSON, with message "Failed to parse itemsData: [value]"
+   */
+  private validateItemsData(itemsData: string): void {
+    // Skip validation if itemsData is empty, undefined, or null
+    if (!isNotEmptyString(itemsData)) {
+      return;
+    }
+
+    if (!isValidStringifiedJSON(itemsData)) {
+      throw new Error(`Failed to parse itemsData: ${itemsData}`);
+    }
   }
 
   private initializeStyles() {

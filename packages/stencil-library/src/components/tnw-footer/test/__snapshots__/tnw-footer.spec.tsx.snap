@@ -3,6 +3,129 @@
 exports[`tnw-footer Default and Required Prop Behavior renders correctly with default props 1`] = `
 <tnw-footer class="bg-auto border-t-auto tnw-footer tnw-footer--borderTop tnw-footer--margin-top-none">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    display: block;
+
+    --tnw-footer-spacing-xs: var(--tnw-spacing-xs);
+    --tnw-footer-spacing-sm: var(--tnw-spacing-sm);
+    --tnw-footer-spacing-md: var(--tnw-spacing-md);
+    --tnw-footer-spacing-lg: var(--tnw-spacing-lg);
+    --tnw-footer-spacing-xl: var(--tnw-spacing-xl);
+    --tnw-footer-spacing-2xl: var(--tnw-spacing-2xl);
+    --tnw-footer-spacing-3xl: var(--tnw-spacing-3xl);
+    --tnw-footer-spacing-4xl: var(--tnw-spacing-4xl);
+}
+:host(.tnw-footer--borderTop) {
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+:host(.tnw-footer--center) > footer {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.tnw-footer__content {
+    display: grid;
+    gap: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+    
+/* Paddings Block */
+.tnw-footer__content--padding-xs {
+    padding-block: var(--tnw-footer-spacing-xs);
+}
+.tnw-footer__content--padding-sm {
+    padding-block: var(--tnw-footer-spacing-sm);
+}
+.tnw-footer__content--padding-md {
+    padding-block: var(--tnw-footer-spacing-md);
+}
+.tnw-footer__content--padding-lg {
+    padding-block: var(--tnw-footer-spacing-lg);
+}
+.tnw-footer__content--padding-xl {
+    padding-block: var(--tnw-footer-spacing-xl);
+}
+.tnw-footer__content--padding-2xl {
+    padding-block: var(--tnw-footer-spacing-2xl);
+}
+.tnw-footer__content--padding-3xl {
+    padding-block: var(--tnw-footer-spacing-3xl);
+}
+.tnw-footer__content--padding-4xl {
+    padding-block: var(--tnw-footer-spacing-4xl);
+}
+
+/* Margins */
+:host(.tnw-footer--margin-top-xs) {
+    margin-top: var(--tnw-footer-spacing-xs);
+}
+:host(.tnw-footer--margin-top-sm) {
+    margin-top: var(--tnw-footer-spacing-sm);
+}
+:host(.tnw-footer--margin-top-md) {
+    margin-top: var(--tnw-footer-spacing-md);
+}
+:host(.tnw-footer--margin-top-lg) {
+    margin-top: var(--tnw-footer-spacing-lg);
+}
+:host(.tnw-footer--margin-top-xl) {
+    margin-top: var(--tnw-footer-spacing-xl);
+}
+:host(.tnw-footer--margin-top-2xl) {
+    margin-top: var(--tnw-footer-spacing-2xl);
+}
+:host(.tnw-footer--margin-top-3xl) {
+    margin-top: var(--tnw-footer-spacing-3xl);
+}
+:host(.tnw-footer--margin-top-4xl) {
+    margin-top: var(--tnw-footer-spacing-4xl);
+}
+
+tnw-heading {
+    margin-bottom: 20px;
+}
+
+.tnw-footer__brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tnw-footer__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tnw-footer__subscription-description {
+    margin-bottom: 20px;
+}
+
+.tnw-footer__socialmedia {
+    display: flex;
+    gap: 20px;
+}
+
+::slotted(a) {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+    </style>
+    <style></style>
+    <style></style>
     <footer class="container" part="container">
       <div class="tnw-footer__content tnw-footer__content--padding-xl">
         <slot name="brand"></slot>

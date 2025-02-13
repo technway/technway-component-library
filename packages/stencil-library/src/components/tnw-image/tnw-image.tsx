@@ -5,6 +5,7 @@ import { validateProps } from './utils/tnw-image-validate-props';
 import { styles } from './tnw-image.styles';
 import { borderRadiusStyleSheet, mediaStyleSheet } from '../../utils/shared-styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-image` component is used to display images with optional captions, lazy loading, and customizable styles. 
@@ -20,7 +21,7 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
 })
 export class TnwImage {
   private baseClass = `${GLOBAL_PREFIX}-image`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwImageElement;
 
@@ -90,26 +91,25 @@ export class TnwImage {
   @Prop() link?: string;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        mediaStyleSheet,
-        borderRadiusStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
     validateProps([this.alt, this.aspectRatio, this.borderRadius, this.caption, this.height, this.heightSize, this.lazyLoading, this.link, this.objectFit, this.objectPosition, this.src, this.width, this.widthSize]);
   }
 
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [mediaStyleSheet, borderRadiusStyleSheet]
+    );
+  }
+  
   private hasWidthOrHeight(): boolean {
     return isNotEmptyString(this.width) || isNotEmptyString(this.height);
   }

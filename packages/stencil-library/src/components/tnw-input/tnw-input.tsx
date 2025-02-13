@@ -7,6 +7,7 @@ import { createStore } from '@stencil/store';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { containsSQLInjectionPatterns, sanitizeInput } from '../../utils/security-utils';
 import { validateProps } from './utils/tnw-input-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-input` component is a customizable input field that supports various input types, validation, and appearance options.
@@ -23,7 +24,7 @@ import { validateProps } from './utils/tnw-input-validate-props';
 })
 export class TnwInput {
   private baseClass = `${GLOBAL_PREFIX}-input`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwInputElement;
 
@@ -163,20 +164,11 @@ export class TnwInput {
   @Event() tnwInputBlurred!: EventEmitter<void>;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
@@ -186,6 +178,14 @@ export class TnwInput {
      * Initialize the store with the initial value.
      */
     this.setStore(this.value);
+  }
+
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [extendedAppearanceStyleSheet, ]
+    );
   }
 
   /**

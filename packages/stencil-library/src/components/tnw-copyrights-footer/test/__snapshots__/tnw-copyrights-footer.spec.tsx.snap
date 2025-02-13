@@ -3,6 +3,62 @@
 exports[`tnw-copyrights-footer Default and Required Prop Behavior renders correctly with default props 1`] = `
 <tnw-copyrights-footer class="bg-auto border-t-auto tnw-copyrights-footer tnw-copyrights-footer--borderTop">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    padding: 15px 0;
+    display: block;
+}
+:host(.tnw-copyrights-footer--borderTop) {
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+:host(.tnw-copyrights-footer--center) > footer,
+:host(.tnw-copyrights-footer--center) > div {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+:host > footer,
+:host > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+@media only screen and (max-width: 767px) {
+    :host > footer,
+    :host > div {
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+:host(.tnw-copyrights-footer--center) ul {
+    justify-content: center;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+::slotted(a) {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+    </style>
+    <style></style>
+    <style></style>
     <footer class="container" part="container">
       <slot name="copyrights"></slot>
     </footer>

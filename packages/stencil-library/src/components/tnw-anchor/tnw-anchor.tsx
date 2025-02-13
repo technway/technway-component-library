@@ -5,6 +5,7 @@ import { validateProps } from './utils/tnw-anchor-validate-props';
 import { styles } from './tnw-anchor.styles';
 import { colorStyleSheet, fontSizeStyleSheet } from '../../utils/shared-styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-anchor` component is a versatile anchor link element that can be used to navigate to other pages or external resources.
@@ -21,7 +22,7 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
 })
 export class TnwAnchor {
   private baseClass = `${GLOBAL_PREFIX}-anchor`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwAnchorElement;
 
@@ -69,20 +70,11 @@ export class TnwAnchor {
   @Prop() hideNewTabIcon: boolean = false;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        fontSizeStyleSheet,
-        colorStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
@@ -93,6 +85,14 @@ export class TnwAnchor {
     if (!isNotEmptyString(this.labelAria)) {
       this.labelAriaValue = isNotEmptyString(this.text) ? this.text : 'Link';
     }
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [fontSizeStyleSheet, colorStyleSheet,]
+    );
   }
 
   private getAnchorClasses(): string {

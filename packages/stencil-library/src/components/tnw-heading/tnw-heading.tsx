@@ -4,7 +4,6 @@ import { FontSizeType, FontWeightType, LineHeightType, TextAlignmentType, TextCo
 import { validateProps } from './utils/tnw-heading-validate-props';
 import { styles } from './tnw-heading.styles';
 import { typographyStyleSheet, colorStyleSheet } from '../../utils/shared-styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { validateHighlightText } from '../../utils/component-validations';
 import { StyleHandler } from '../../utils/style-handler';
 

@@ -2,8 +2,6 @@ import { Component, Element, Fragment, Host, Prop, State, Watch, h } from '@sten
 import {
   getColorClass,
   GLOBAL_PREFIX,
-  isAdoptedStyleSheetsSupported,
-  isCSSStyleSheetSupported,
   isNotEmptyString,
   isValidStringifiedJSON,
   parseJSONAsync

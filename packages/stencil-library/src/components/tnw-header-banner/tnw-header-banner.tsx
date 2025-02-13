@@ -1,5 +1,5 @@
 import { Component, Element, Fragment, Host, Prop, h } from '@stencil/core';
-import { getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { AlignmentType, BorderRadiusType } from '../../utils/component-props-types';
 import { styles } from './tnw-header-banner.styles';
 import { borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';

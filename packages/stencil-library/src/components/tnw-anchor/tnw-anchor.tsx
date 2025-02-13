@@ -4,7 +4,6 @@ import { getColorClass, getTypographyClass, GLOBAL_PREFIX, isNotEmptyString } fr
 import { validateProps } from './utils/tnw-anchor-validate-props';
 import { styles } from './tnw-anchor.styles';
 import { colorStyleSheet, fontSizeStyleSheet } from '../../utils/shared-styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { StyleHandler } from '../../utils/style-handler';
 
 /**

@@ -3,6 +3,43 @@
 exports[`tnw-alert Default and Required Prop Behavior renders correctly with required props (alertId and message) 1`] = `
 <tnw-alert alert-id="alert1" aria-live="assertive" class="rounded-default tnw-alert--sm" id="alert1" message="This is an alert message" role="alert">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    --tnw-alert-font: var(--tnw-font-text);
+    --tnw-alert-fs-default: var(--tnw-fs-text);
+    display: block;
+}
+
+:host(.tnw-alert--hasPadding) {
+    padding: var(--tnw-alert-padding, 7px 14px);
+}
+    
+:host(.tnw-alert--auto) {
+    font-size: var(--tnw-alert-font-size, var(--tnw-alert-fs-default))
+}
+:host(.tnw-alert--sm) {
+    font-size: var(--tnw-alert-font-size, var(--tnw-fs-2xs)) 
+}
+:host(.tnw-alert--md) {
+    font-size: var(--tnw-alert-font-size, var(--tnw-fs-xs)) 
+}
+:host(.tnw-alert--lg) {
+    font-size: var(--tnw-alert-font-size, var(--tnw-fs-sm)) 
+}
+
+.tnw-alert {
+    font-family: var(--tnw-alert-font);
+    margin: 0;
+    padding: 0;
+    color: inherit;
+}
+    </style>
+    <style></style>
+    <style></style>
     <p class="tnw-alert" part="text">
       This is an alert message
     </p>

@@ -4,6 +4,7 @@ import { containerStyleSheet } from '../../utils/shared-styles';
 import { ColorType, LogicalAlignmentType, SizeType } from '../../utils/component-props-types';
 import { styles } from './tnw-header.styles';
 import { validateProps } from './utils/tnw-header-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-header` component is designed to create a customizable and structured header for your application.
@@ -20,7 +21,7 @@ import { validateProps } from './utils/tnw-header-validate-props';
 })
 export class TnwHeader {
   private baseClass = `${GLOBAL_PREFIX}-header`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwHeaderElement;
 
@@ -60,19 +61,19 @@ export class TnwHeader {
   @Prop() centerBanner: boolean = false;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        containerStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
+  }
+
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler (
+      this.el,
+      styles,
+      [containerStyleSheet]
+    );
   }
 
   componentWillLoad() {

@@ -3,6 +3,67 @@
 exports[`tnw-header Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-header class="h-auto min-h-auto tnw-header">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    display: block;
+    position: relative;
+}
+:host(.tnw-header--borderBottom) {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+:host(.tnw-header--centerBanner) ::slotted(tnw-header-banner) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+@media (min-width: 1025px) {
+    :host(.tnw-header--centerBanner) ::slotted(tnw-header-banner) {
+        padding-top: 30px;
+    }
+}
+@media (max-width: 1024px) {
+    :host(.tnw-header) {
+        min-height: unset !important;
+        height: auto !important;
+    }
+    ::slotted(tnw-header-banner) {
+        padding-block: 100px;
+    }
+    :host(.tnw-header--centerBanner) ::slotted(tnw-header-banner) {
+        position: static;
+        transform: none;
+    }
+}
+@media (max-width: 567px) {
+    ::slotted(tnw-header-banner) {
+        padding-block: 60px;
+    }
+}
+
+.tnw-header__content {
+    gap: 25px;
+    height: 100%;
+    width: 100%;
+}
+.tnw-header__content--center {
+    align-items: center;
+}
+.tnw-header__content--start {
+    align-items: start;
+}
+.tnw-header__content--end {
+    align-items: end;
+}
+    </style>
+    <style></style>
+    <style></style>
     <header class="container tnw-header__content tnw-header__content--start" part="header">
       <slot name="navbar"></slot>
       <slot name="banner"></slot>

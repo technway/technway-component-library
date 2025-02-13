@@ -3,7 +3,7 @@ import { getBorderRadiusClass, getExtendedAppearanceClass, GLOBAL_PREFIX } from 
 import { BorderRadiusType, OptionalAppearanceType, SizeType } from '../../utils/component-props-types';
 import { styles } from './tnw-alert.styles';
 import { validateProps } from './utils/tnw-alert-validate-props';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-alert` component is used to display a prominent message to the user, such as
@@ -17,7 +17,7 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
 })
 export class TnwAlert {
   private baseClass = `${GLOBAL_PREFIX}-alert`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwAlertElement;
 
@@ -57,22 +57,22 @@ export class TnwAlert {
   @Prop() borderRadius?: BorderRadiusType = 'default';
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        this.componentStyles
-      ]
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
     validateProps([this.alertId, this.appearance, this.appearanceColor, this.borderRadius, this.isHidden, this.message, this.size]);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles
+    );
   }
 
   private getHostClasses() {

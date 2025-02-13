@@ -9,8 +9,6 @@ exports[`tnw-banner Default and Required Prop Behavior renders correctly with de
 }
     
 :host {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     width: 100%;
     row-gap: var(--tnw-banner-spacing-lg);
     --tnw-banner-gradient-from: var(--tnw-background-color-inverse);
@@ -26,11 +24,15 @@ exports[`tnw-banner Default and Required Prop Behavior renders correctly with de
 }
 
 :host(.tnw-banner--vertical) {
+    display: flex;
     flex-direction: column;
 }
 :host(.tnw-banner--horizontal) {
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+:host(.tnw-banner--horizontal) ::slotted([slot="button"]) {
+    width: 100%;
 }
 
 :host(.tnw-banner--vertical.tnw-banner--center) {
@@ -193,10 +195,6 @@ exports[`tnw-banner Default and Required Prop Behavior renders correctly with de
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-
-::slotted([slot="button"]) {
-    width: 100%;
 }
     </style>
     <style></style>

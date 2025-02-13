@@ -64,8 +64,6 @@ with slots for each, allowing full customization.
 | **contentSpacing** | <div>Controls the spacing between elements inside the content.</div> | \`'sm'\` | \`"lg"\` \\| \`"md"\` \\| \`"sm"\` |
 | **date** | <div>Usw this to display a date. Useful for articles and blog posts.</div> | N/A | \`string\` |
 | **description** | <div>The card's description text.</div> | N/A | \`string\` |
-| **enableContentSlot** | <div>If \`true\`, the heading, subheading, description, and button will not be rendered. Use the \`content\` slot to provide custom content instead.</div> | \`false\` | \`boolean\` |
-| **enableImageSlot** | <div>If \`true\`, the image slot will be visible.</div> | \`false\` | \`boolean\` |
 | **heading** | <div>The card's heading text.</div> | N/A | \`string\` |
 | **imageAlt** | <div>Alternate text for the image.</div> | N/A | \`string\` |
 | **imageHeight** | <div>The height of the image. Value should be a valid CSS unit, such as \`px\`, \`em\`, auto, or \`%\`.</div> | \`'300px'\` | \`string\` |
@@ -105,7 +103,7 @@ with slots for each, allowing full customization.
 | --- | --- |
 | **badge** | Slot for custom badge content if the \`badgeLabel\` prop is not used. |
 | **button** | Slot for the card button. This slot can be used if the \`buttonLabel\` prop is not set. |
-| **content** | Slot for custom card content, replacing default content when \`enableContentSlot\` is set to \`true\`. |
+| **content** | Slot for custom card content, replacing default content. |
 | **date** | Slot for custom date content if the \`date\` prop is not used. |
 | **description** | Slot for the card description. This slot can be used if the \`description\` prop is not set. |
 | **heading** | Slot for the card heading. This slot can be used if the \`heading\` prop is not set. |

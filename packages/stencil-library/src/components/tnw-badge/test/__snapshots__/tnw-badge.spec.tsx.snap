@@ -9,6 +9,89 @@ exports[`tnw-badge Custom Prop Behavior renders slot content when label is not p
 exports[`tnw-badge Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-badge label="Default Badge">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+
+.tnw-badge {
+  display: inline-block;
+  font-weight: var(--tnw-badge-font-weight, var(--tnw-fw-400));
+  font-family: var(--tnw-font-text);
+  white-space: nowrap;
+}
+
+.tnw-badge--padding-sm {
+  padding: var(--tnw-badge-padding, 3px 9px);
+}
+.tnw-badge--padding-md {
+  padding: var(--tnw-badge-padding, 4px 12px);
+}
+.tnw-badge--padding-lg {
+  padding: var(--tnw-badge-padding, 6px 18px);
+}
+
+.tnw-badge--status-size-sm {
+  width: 15px;
+  height: 15px;
+}
+.tnw-badge--status-size-md {
+  width: 20px;
+  height: 20px;
+}
+.tnw-badge--status-size-lg {
+  width: 25px;
+  height: 25px;
+}
+
+.tnw-badge--numeric {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tnw-badge--image-size-sm {
+  width: 20px;
+  height: 20px;
+}
+.tnw-badge--image-size-md {
+  width: 30px;
+  height: 30px;
+}
+.tnw-badge--image-size-lg {
+  width: 40px;
+  height: 40px;
+}
+
+.tnw-badge--numeric-size-sm {
+  width: 25px;
+  height: 25px;
+}
+.tnw-badge--numeric-size-md {
+  width: 35px;
+  height: 35px;
+}
+.tnw-badge--numeric-size-lg {
+  width: 45px;
+  height: 45px;
+}
+
+.tnw-badge--numeric-size-sm,
+.tnw-badge--padding-sm {
+  font-size: var(--tnw-badge-font-size, var(--tnw-fs-2xs));
+}
+.tnw-badge--numeric-size-md,
+.tnw-badge--padding-md {
+  font-size: var(--tnw-badge-font-size, var(--tnw-fs-xs));
+}
+.tnw-badge--numeric-size-lg,
+.tnw-badge--padding-lg {
+  font-size: var(--tnw-badge-font-size, var(--tnw-fs-md));
+}
+    </style>
+    <style></style>
+    <style></style>
     <div class="rounded-lg tnw-badge tnw-badge--padding-sm tnw-extended-v-outlined-auto">
       Default Badge
     </div>

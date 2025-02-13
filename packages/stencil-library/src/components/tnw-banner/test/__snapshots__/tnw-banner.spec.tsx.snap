@@ -3,6 +3,204 @@
 exports[`tnw-banner Default and Required Prop Behavior renders correctly with default props 1`] = `
 <tnw-banner class="container rounded-default tnw-banner tnw-banner--center tnw-banner--gap-md tnw-banner--margin-xl tnw-banner--padding-block-lg tnw-banner--padding-inline-lg tnw-banner--text-center tnw-banner--vertical tnw-v-solid-primary">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 100%;
+    row-gap: var(--tnw-banner-spacing-lg);
+    --tnw-banner-gradient-from: var(--tnw-background-color-inverse);
+    --tnw-banner-gradient-to: var(--tnw-primary-color);
+    --tnw-banner-spacing-xs: var(--tnw-spacing-xs);
+    --tnw-banner-spacing-sm: var(--tnw-spacing-sm);
+    --tnw-banner-spacing-md: var(--tnw-spacing-md);
+    --tnw-banner-spacing-lg: var(--tnw-spacing-lg);
+    --tnw-banner-spacing-xl: var(--tnw-spacing-xl);
+    --tnw-banner-spacing-2xl: var(--tnw-spacing-2xl);
+    --tnw-banner-spacing-3xl: var(--tnw-spacing-3xl);
+    --tnw-banner-spacing-4xl: var(--tnw-spacing-4xl);
+}
+
+:host(.tnw-banner--vertical) {
+    flex-direction: column;
+}
+:host(.tnw-banner--horizontal) {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+:host(.tnw-banner--vertical.tnw-banner--center) {
+    justify-content: center;
+}
+:host(.tnw-banner--vertical.tnw-banner--start) {
+    justify-content: start;
+}
+:host(.tnw-banner--vertical.tnw-banner--end) {
+    justify-content: end;
+}
+
+:host(.tnw-banner--center) {
+    align-items: center;
+}
+:host(.tnw-banner--start) {
+    align-items: start;
+}
+:host(.tnw-banner--end) {
+    align-items: end;
+}
+
+:host(.tnw-banner--text-center) {
+    text-align: center;
+}
+:host(.tnw-banner--text-start) {
+    text-align: start;
+}
+:host(.tnw-banner--text-end) {
+    text-align: end;
+}
+:host(.tnw-banner--text-right) {
+    text-align: right;
+}
+:host(.tnw-banner--text-left) {
+    text-align: left;
+}
+
+:host(.tnw-banner--gradient) {
+    background-color: var(--tnw-banner-gradient-from);
+    background-image: radial-gradient(
+        ellipse at top,
+        var(--tnw-banner-gradient-from) 0%,
+        var(--tnw-banner-gradient-from) 50%,
+        var(--tnw-banner-gradient-to) 100%
+    );
+}
+
+/* Gap */
+:host(.tnw-banner--gap-xs) {
+    column-gap: var(--tnw-banner-spacing-xs);
+}
+:host(.tnw-banner--gap-sm) {
+    column-gap: var(--tnw-banner-spacing-sm);
+}
+:host(.tnw-banner--gap-md) {
+    column-gap: var(--tnw-banner-spacing-md);
+}
+:host(.tnw-banner--gap-lg) {
+    column-gap: var(--tnw-banner-spacing-lg);
+}
+:host(.tnw-banner--gap-xl) {
+    column-gap: var(--tnw-banner-spacing-xl);
+}
+:host(.tnw-banner--gap-2xl) {
+    column-gap: var(--tnw-banner-spacing-2xl);
+}
+:host(.tnw-banner--gap-3xl) {
+    column-gap: var(--tnw-banner-spacing-3xl);
+}
+:host(.tnw-banner--gap-4xl) {
+    column-gap: var(--tnw-banner-spacing-4xl);
+}
+
+/* Paddings Block */
+:host(.tnw-banner--padding-block-xs) {
+    padding-block: var(--tnw-banner-spacing-xs);
+}
+:host(.tnw-banner--padding-block-sm) {
+    padding-block: var(--tnw-banner-spacing-sm);
+}
+:host(.tnw-banner--padding-block-md) {
+    padding-block: var(--tnw-banner-spacing-md);
+}
+:host(.tnw-banner--padding-block-lg) {
+    padding-block: var(--tnw-banner-spacing-lg);
+}
+:host(.tnw-banner--padding-block-xl) {
+    padding-block: var(--tnw-banner-spacing-xl);
+}
+:host(.tnw-banner--padding-block-2xl) {
+    padding-block: var(--tnw-banner-spacing-2xl);
+}
+:host(.tnw-banner--padding-block-3xl) {
+    padding-block: var(--tnw-banner-spacing-3xl);
+}
+:host(.tnw-banner--padding-block-4xl) {
+    padding-block: var(--tnw-banner-spacing-4xl);
+}
+    
+/* Paddings Inline */
+:host(.tnw-banner--padding-inline-xs) {
+    padding-inline: var(--tnw-banner-spacing-xs);
+}
+:host(.tnw-banner--padding-inline-sm) {
+    padding-inline: var(--tnw-banner-spacing-sm);
+}
+:host(.tnw-banner--padding-inline-md) {
+    padding-inline: var(--tnw-banner-spacing-md);
+}
+:host(.tnw-banner--padding-inline-lg) {
+    padding-inline: var(--tnw-banner-spacing-lg);
+}
+:host(.tnw-banner--padding-inline-xl) {
+    padding-inline: var(--tnw-banner-spacing-xl);
+}
+:host(.tnw-banner--padding-inline-2xl) {
+    padding-inline: var(--tnw-banner-spacing-2xl);
+}
+:host(.tnw-banner--padding-inline-3xl) {
+    padding-inline: var(--tnw-banner-spacing-3xl);
+}
+:host(.tnw-banner--padding-inline-4xl) {
+    padding-inline: var(--tnw-banner-spacing-4xl);
+}
+    
+/* Margins */
+:host(.tnw-banner--margin-xs) {
+    margin-block: var(--tnw-banner-spacing-xs);
+}
+:host(.tnw-banner--margin-sm) {
+    margin-block: var(--tnw-banner-spacing-sm);
+}
+:host(.tnw-banner--margin-md) {
+    margin-block: var(--tnw-banner-spacing-md);
+}
+:host(.tnw-banner--margin-lg) {
+    margin-block: var(--tnw-banner-spacing-lg);
+}
+:host(.tnw-banner--margin-xl) {
+    margin-block: var(--tnw-banner-spacing-xl);
+}
+:host(.tnw-banner--margin-2xl) {
+    margin-block: var(--tnw-banner-spacing-2xl);
+}
+:host(.tnw-banner--margin-3xl) {
+    margin-block: var(--tnw-banner-spacing-3xl);
+}
+:host(.tnw-banner--margin-4xl) {
+    margin-block: var(--tnw-banner-spacing-4xl);
+}
+
+.tnw-banner__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tnw-banner__content-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+::slotted([slot="button"]) {
+    width: 100%;
+}
+    </style>
+    <style></style>
+    <style></style>
     <div class="tnw-banner__content">
       <div class="tnw-banner__content-heading">
         <slot name="subtitle"></slot>

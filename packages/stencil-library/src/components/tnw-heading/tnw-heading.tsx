@@ -6,6 +6,7 @@ import { styles } from './tnw-heading.styles';
 import { typographyStyleSheet, colorStyleSheet } from '../../utils/shared-styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { validateHighlightText } from '../../utils/component-validations';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-heading` component is used to render a customizable heading or title with various styling options.
@@ -23,7 +24,7 @@ import { validateHighlightText } from '../../utils/component-validations';
 })
 export class TnwHeading {
   private baseClass: string = `${GLOBAL_PREFIX}-heading`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwHeadingElement;
 
@@ -115,20 +116,11 @@ export class TnwHeading {
   }
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        typographyStyleSheet,
-        colorStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
@@ -139,6 +131,14 @@ export class TnwHeading {
     }
 
     this.updateDefaultStyles();
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [typographyStyleSheet, colorStyleSheet]
+    )
   }
 
   private updateDefaultStyles() {

@@ -13,6 +13,7 @@ import { styles } from './tnw-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';
 import { FooterData } from './utils/tnw-footer-data-types';
 import { validateProps } from './utils/tnw-footer-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-footer` component displays a structured footer with sections for branding, links, contact information, 
@@ -40,7 +41,7 @@ import { validateProps } from './utils/tnw-footer-validate-props';
 })
 export class TnwFooter {
   private baseClass = `${GLOBAL_PREFIX}-footer`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwFooterElement;
 
@@ -140,20 +141,11 @@ export class TnwFooter {
   }
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        colorStyleSheet,
-        containerStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   async componentWillLoad() {
@@ -163,6 +155,14 @@ export class TnwFooter {
     }
 
     validateProps([this.backgroundColor, this.borderTopColor, this.centerContent, this.disableInternalContainer, this.footerData, this.headingColor, this.margin, this.padding, this.textColor]);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [colorStyleSheet, containerStyleSheet]
+    )
   }
   
   private getHostClasses(): string {

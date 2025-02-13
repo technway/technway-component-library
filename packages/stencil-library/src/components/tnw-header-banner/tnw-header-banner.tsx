@@ -4,6 +4,7 @@ import { AlignmentType, BorderRadiusType } from '../../utils/component-props-typ
 import { styles } from './tnw-header-banner.styles';
 import { borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-header-banner-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * This component is designed to be used inside the `tnw-header`.
@@ -28,7 +29,7 @@ import { validateProps } from './utils/tnw-header-banner-validate-props';
 })
 export class TnwHeaderBanner {
   private baseClass = `${GLOBAL_PREFIX}-header-banner`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwHeaderBannerElement;
 
@@ -120,25 +121,23 @@ export class TnwHeaderBanner {
   @Prop() verticalCenter?: boolean = false;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        containerStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
     validateProps([this.alignment, this.buttonLabel, this.contentMaxWidth, this.contentWidth, this.description, this.disableInternalContainer, this.enableImageSlot, this.heading, this.imageAlt, this.imageBorderRadius, this.imageSrc, this.stickyNavbar, this.subheading, this.theme, this.verticalCenter, this.width, this.wrapImage]);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [extendedAppearanceStyleSheet, borderRadiusStyleSheet, containerStyleSheet]
+    );
   }
 
   private getThemeMatchedColor = () => {

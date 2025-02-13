@@ -4,6 +4,7 @@ import { LogicalAlignmentType, AppearanceType, BorderRadiusType, ColorType, Layo
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-banner.styles';
 import { validateProps } from './utils/tnw-banner-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-banner` component is a customizable banner used for multi-purpose content.
@@ -18,12 +19,12 @@ import { validateProps } from './utils/tnw-banner-validate-props';
  * @slot content - Use this slot to insert custom content when `enableContentSlot` is set to `true`. When enabled, only the `content` slot will be available.
  */
 @Component({
-  tag: 'tnw-banner',
-  shadow: true,
+	tag: 'tnw-banner',
+	shadow: true,
 })
 export class TnwBanner {
 	private baseClass = `${GLOBAL_PREFIX}-banner`;
-	private componentStyles: CSSStyleSheet;
+	private stylesHandler: StyleHandler;
 
 	@Element() el!: HTMLTnwBannerElement;
 
@@ -88,20 +89,22 @@ export class TnwBanner {
 	@Prop() disableInternalContainer?: boolean = false;
 
 	constructor() {
-		if (isCSSStyleSheetSupported()) {
-			this.componentStyles = new CSSStyleSheet();
-			this.componentStyles.replaceSync(styles);
-		}
+		this.initializeStyles();
 	}
 
 	connectedCallback() {
-		if (isAdoptedStyleSheetsSupported()) {
-			(this.el.shadowRoot as any).adoptedStyleSheets = [this.componentStyles];
-		}
+		this.stylesHandler.applyStyles();
 	}
 
 	componentWillLoad() {
 		validateProps([this.alignment, this.appearance, this.appearanceColor, this.borderRadius, this.disableInternalContainer, this.enableContentSlot, this.gap, this.layout, this.margin, this.paddingHorizontal, this.paddingVertical, this.textAlignment]);
+	}
+
+	private initializeStyles() {
+		this.stylesHandler = new StyleHandler(
+			this.el,
+			styles
+		);
 	}
 
 	private getHostClasses(): string {

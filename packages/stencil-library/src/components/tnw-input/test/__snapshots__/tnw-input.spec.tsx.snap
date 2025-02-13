@@ -3,6 +3,216 @@
 exports[`tnw-input Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-input input-id="input-test" label="Default Input" placeholder="Enter text" type="text">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tnw-input-gap);
+  --tnw-input-success: var(--tnw-success-color);
+  --tnw-input-danger: var(--tnw-danger-color);
+  --tnw-input-warning: var(--tnw-warning-color);
+  --tnw-input-info: var(--tnw-info-color);
+  --tnw-input-gap: 8px;
+  --tnw-input-pl-c: var(--tnw-placeholder-color);
+  --tnw-input-pl-foc-c: var(--tnw-placeholder-color);
+  --tnw-input-fw: var(--tnw-fw-500);
+  --tnw-input-font: var(--tnw-font-text);
+  --tnw-input-focus-ring-width: 2px;
+  --tnw-input-focus-ring-offset: 2px;
+}
+
+::-webkit-input-placeholder {
+  font-family: var(--tnw-input-font);
+  font-size: var(--tnw-input-fs);
+  color: var(--tnw-input-placeholder-color, var(--tnw-input-pl-c));
+  opacity: 1;
+}
+::-moz-placeholder {
+  font-family: var(--tnw-input-font);
+  font-size: var(--tnw-input-fs);
+  color: var(--tnw-input-placeholder-color, var(--tnw-input-pl-c));
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  font-family: var(--tnw-input-font);
+  font-size: var(--tnw-input-fs);
+  color: var(--tnw-input-placeholder-color, var(--tnw-input-pl-c));
+  opacity: 1;
+}
+::placeholder {
+  font-family: var(--tnw-input-font);
+  font-size: var(--tnw-input-fs);
+  color: var(--tnw-input-placeholder-color, var(--tnw-input-pl-c));
+  opacity: 1;
+}
+:focus::placeholder {
+  color: var(--tnw-input-placeholder-focus-color, var(--tnw-input-pl-foc-c));
+  font-size: var(--tnw-input-fs);
+}
+
+.tnw-input {
+  font-family: var(--tnw-input-font);
+  font-size: var(--tnw-input-fs);
+  font-weight: var(--tnw-input-fw);
+}
+
+
+.tnw-input--primary {
+  --tnw-input-border-color: var(--tnw-primary-color);
+}
+.tnw-input--secondary {
+  --tnw-input-border-color: var(--tnw-secondary-color);
+}
+.tnw-input--auto {
+  --tnw-input-border-color: var(--tnw-border-color);
+}
+.tnw-input--inverse {
+  --tnw-input-border-color: var(--tnw-border-color-inverse);
+}
+.tnw-input--light {
+  --tnw-input-border-color: var(--tnw-border-color-opacity);
+}
+.tnw-input--white {
+  --tnw-input-border-color: var(--tnw-white);
+}
+.tnw-input--black {
+  --tnw-input-border-color: var(--tnw-black);
+}
+.tnw-input--success {
+  --tnw-input-state-color: var(--tnw-input-success);
+}
+.tnw-input--danger {
+  --tnw-input-state-color: var(--tnw-input-danger);
+}
+.tnw-input--warning {
+  --tnw-input-state-color: var(--tnw-input-warning);
+}
+.tnw-input--info {
+  --tnw-input-state-color: var(--tnw-input-info);
+}
+
+/* Focus styles */
+.tnw-input:not(.tnw-input--underlined):focus-visible {
+    outline: var(--tnw-input-focus-ring-width) solid var(--tnw-input-state-color, var(--tnw-primary-color));
+    outline-offset: var(--tnw-input-focus-ring-offset);
+}
+/* For browsers that don't support :focus-visible */
+.tnw-input:not(.tnw-input--underlined):focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Ring Hover styles */
+.tnw-input--hover-ring:not(.tnw-input--underlined):hover {
+    outline: var(--tnw-input-focus-ring-width) solid var(--tnw-input-state-color, var(--tnw-primary-color));
+    outline-offset: var(--tnw-input-focus-ring-offset);
+}
+
+.tnw-input--hover-color {
+  outline: none;
+}
+
+.tnw-input--none {
+  border: 0;
+}
+
+.tnw-input--disabled {
+  opacity: 0.6;
+}
+
+.tnw-input--outlined {
+  background: none;
+  border-width: var(--tnw-border-sm);
+  border-style: solid;
+  padding: var(--tnw-input-p-y) var(--tnw-input-p-x);
+  border-color: var(--tnw-input-state-color, var(--tnw-input-border-color));
+}
+.tnw-input--outlined.tnw-input--hover-color:hover {
+  border-color: var(--tnw-input-state-color, var(--tnw-primary-color));
+}
+.tnw-input--outlined.tnw-input:focus-visible {
+  border-color: var(--tnw-input-state-color, var(--tnw-primary-color));
+}
+
+.tnw-input--underlined {
+  outline-color: transparent;
+  padding-bottom: var(--tnw-input-p-y);
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom-width: var(--tnw-border-sm);
+  border-bottom-style: solid;
+  border-bottom-color: var(--tnw-input-state-color, var(--tnw-input-border-color));
+  background: none;
+}
+.tnw-input--underlined.tnw-input--hover-color:hover {
+  border-bottom-color: var(--tnw-input-state-color, var(--tnw-primary-color));
+}
+.tnw-input--underlined.tnw-input:focus-visible {
+  border-bottom-color: var(--tnw-input-state-color, var(--tnw-primary-color));
+}
+
+/* - Sizes - */
+.tnw-input--xs {
+    --tnw-input-p-y: 3px;
+    --tnw-input-p-x: 6px;
+    --tnw-input-fs: var(--tnw-fs-2xs);
+}
+.tnw-input--sm {
+    --tnw-input-p-y: 5px;
+    --tnw-input-p-x: 10px;
+    --tnw-input-fs: var(--tnw-fs-xs);
+}
+.tnw-input--md {
+    --tnw-input-p-y: 12px;
+    --tnw-input-p-x: 18px;
+    --tnw-input-fs: var(--tnw-fs-xs);
+}
+.tnw-input--lg {
+    --tnw-input-p-y: 16px;
+    --tnw-input-p-x: 24px;
+    --tnw-input-fs: var(--tnw-fs-text);
+}
+.tnw-input--xl {
+    --tnw-input-p-y: 20px;
+    --tnw-input-p-x: 24px;
+    --tnw-input-fs: var(--tnw-fs-text);
+}
+@media only screen and (max-width: 567px) {
+    .tnw-input--md {
+        --tnw-input-p-y: 10px;
+        --tnw-input-p-x: 18px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .tnw-input--xl {
+        --tnw-input-fs: var(--tnw-fs-sm);
+        --tnw-input-p-y: 14px;
+        --tnw-input-p-x: 18px;
+    }
+    .tnw-input--lg {
+        --tnw-input-p-y: 17px;
+        --tnw-input-p-x: 24px;
+    }
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+    </style>
+    <style></style>
+    <style></style>
     <tnw-label htmlfor="input-test" part="label" text="Default Input"></tnw-label>
     <input aria-describedby="" aria-labelledby="input-test" autocomplete="off" class="rounded-default tnw-input tnw-input--auto tnw-input--hover-color tnw-input--md tnw-input--outlined" id="input-test" part="input" pattern="" placeholder="Enter text" type="text" value="">
   </template>

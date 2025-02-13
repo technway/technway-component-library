@@ -31,11 +31,12 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 
 ## Events
 
-| Event                   | Description                                                                             | Type                  |
-| ----------------------- | --------------------------------------------------------------------------------------- | --------------------- |
-| `tnwInputBlurred`       | Event emitted when the input loses focus.                                               | `CustomEvent<void>`   |
-| `tnwInputChangedOnType` | Event emitted when the input value changes. The event's payload contains the new value. | `CustomEvent<string>` |
-| `tnwInputFocused`       | Event emitted when the input receives focus.                                            | `CustomEvent<void>`   |
+| Event                     | Description                                                                             | Type                  |
+| ------------------------- | --------------------------------------------------------------------------------------- | --------------------- |
+| `tnwInputBlurred`         | Event emitted when the input loses focus.                                               | `CustomEvent<void>`   |
+| `tnwInputChangedOnChange` | Event emitted when the input value changes. The event's payload contains the new value. | `CustomEvent<string>` |
+| `tnwInputChangedOnType`   | Event emitted when the input value changes. The event's payload contains the new value. | `CustomEvent<string>` |
+| `tnwInputFocused`         | Event emitted when the input receives focus.                                            | `CustomEvent<void>`   |
 
 
 ## Shadow Parts

@@ -53,6 +53,7 @@ It will not be displayed (Screen Reader Only).</div> | `'Search'` | `string` |
 | Event | Description |
 | --- | --- |
 | **tnwInputBlurred** | Event emitted when the input loses focus. |
+| **tnwInputChangedOnChange** | Event emitted when the input value changes. The event's payload contains the new value. |
 | **tnwInputChangedOnType** | Event emitted when the input value changes. The event's payload contains the new value. |
 | **tnwInputFocused** | Event emitted when the input receives focus. |
 

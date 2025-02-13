@@ -301,8 +301,6 @@ export const TnwCard: StencilReactComponent<TnwCardElement, TnwCardEvents> = typ
             layout: 'layout',
             borderRadius: 'border-radius',
             useGlassmorphismEffect: 'use-glassmorphism-effect',
-            enableImageSlot: 'enable-image-slot',
-            enableContentSlot: 'enable-content-slot',
             largerImage: 'larger-image'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-02-11T20:28:32",
+  "timestamp": "2025-02-13T17:57:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -3295,7 +3295,7 @@
         },
         {
           "name": "slot",
-          "text": "content - Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`."
+          "text": "content - Slot for custom card content, replacing default content."
         },
         {
           "name": "slot",
@@ -3753,54 +3753,6 @@
           "setter": false
         },
         {
-          "name": "enableContentSlot",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "enable-content-slot",
-          "reflectToAttr": false,
-          "docs": "If `true`, the heading, subheading, description, and button will not be rendered. Use the `content` slot to provide custom content instead.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "enableImageSlot",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "enable-image-slot",
-          "reflectToAttr": false,
-          "docs": "If `true`, the image slot will be visible.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "heading",
           "type": "string",
           "complexType": {
@@ -4209,7 +4161,7 @@
         },
         {
           "name": "content",
-          "docs": "Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`."
+          "docs": "Slot for custom card content, replacing default content."
         },
         {
           "name": "date",

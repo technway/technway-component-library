@@ -29,6 +29,7 @@ export const AlignmentStart = Template.bind({});
 AlignmentStart.args = {
   ...Default.args,
   alignment: 'start',
+  textAlignment: 'start',
 };
 
 // Banner with Outline Appearance

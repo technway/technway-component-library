@@ -10,8 +10,6 @@ export const styles = `
 }
     
 :host {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     width: 100%;
     row-gap: var(--${baseClass}-spacing-lg);
     --${baseClass}-gradient-from: var(--tnw-background-color-inverse);
@@ -27,11 +25,15 @@ export const styles = `
 }
 
 :host(.${baseClass}--vertical) {
+    display: flex;
     flex-direction: column;
 }
 :host(.${baseClass}--horizontal) {
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+:host(.${baseClass}--horizontal) ::slotted([slot="button"]) {
+    width: 100%;
 }
 
 :host(.${baseClass}--vertical.${baseClass}--center) {
@@ -194,9 +196,5 @@ export const styles = `
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-
-::slotted([slot="button"]) {
-    width: 100%;
 }
 `;

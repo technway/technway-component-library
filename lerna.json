@@ -1,5 +1,5 @@
 {
-  "version": "independent",
+  "version": "2.12.1",
   "npmClient": "pnpm",
   "command": {
     "publish": {

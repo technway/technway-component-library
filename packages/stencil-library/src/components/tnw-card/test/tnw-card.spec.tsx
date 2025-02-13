@@ -38,13 +38,13 @@ describe('tnw-card', () => {
         </tnw-card>`
       ) as HTMLTnwCardElement;
 
-      const imageSlot = document.querySelector('[slot="image"]');
-      const badgeSlot = document.querySelector('[slot="badge"]');
-      const dateSlot = document.querySelector('[slot="date"]');
-      const headingSlot = document.querySelector('[slot="heading"]');
-      const subheadingSlot = document.querySelector('[slot="subheading"]');
-      const descriptionSlot = document.querySelector('[slot="description"]');
-      const buttonSlot = document.querySelector('[slot="button"]');
+      const imageSlot = queryElement(host, '[slot="image"]', false);
+      const badgeSlot = queryElement(host, '[slot="badge"]', false);
+      const dateSlot = queryElement(host, '[slot="date"]', false);
+      const headingSlot = queryElement(host, '[slot="heading"]', false);
+      const subheadingSlot = queryElement(host, '[slot="subheading"]', false);
+      const descriptionSlot = queryElement(host, '[slot="description"]', false);
+      const buttonSlot = queryElement(host, '[slot="button"]', false);
 
       expect(imageSlot).not.toBeNull();
       expect(badgeSlot).not.toBeNull();

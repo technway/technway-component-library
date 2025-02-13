@@ -1,5 +1,5 @@
 import { Component, Element, Host, Prop, h } from '@stencil/core';
-import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { GLOBAL_PREFIX } from '../../utils/utils';
 import { BorderColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-divider.styles';
 import { validateProps } from './utils/tnw-divider-validate-props';

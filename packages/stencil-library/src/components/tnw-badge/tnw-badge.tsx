@@ -3,7 +3,6 @@ import { getExtendedAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isNotE
 import { BorderRadiusType, ExtendedColorType, OptionalAppearanceType, SizeType } from '../../utils/component-props-types';
 import { validateProps } from './utils/tnw-badge-validate-props';
 import { styles } from './tnw-badge.styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { validateNumericalVariantLabel } from './utils/tnw-badge-validate-props-custom';
 import { borderRadiusStyleSheet } from '../../utils/shared-styles';
 import { extendedAppearanceStyleSheet } from '../../utils/shared-styles';

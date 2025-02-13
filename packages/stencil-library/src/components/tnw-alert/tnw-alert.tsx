@@ -56,12 +56,6 @@ export class TnwAlert {
    */
   @Prop() borderRadius?: BorderRadiusType = 'default';
 
-  constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
-  }
 
   connectedCallback() {
     if (isAdoptedStyleSheetsSupported()) {

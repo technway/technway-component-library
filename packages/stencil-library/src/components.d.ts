@@ -366,14 +366,6 @@ export namespace Components {
          */
         "description"?: string;
         /**
-          * If `true`, the heading, subheading, description, and button will not be rendered. Use the `content` slot to provide custom content instead.
-         */
-        "enableContentSlot"?: boolean;
-        /**
-          * If `true`, the image slot will be visible.
-         */
-        "enableImageSlot"?: boolean;
-        /**
           * The card's heading text.
          */
         "heading"?: string;
@@ -2603,14 +2595,6 @@ declare namespace LocalJSX {
           * The card's description text.
          */
         "description"?: string;
-        /**
-          * If `true`, the heading, subheading, description, and button will not be rendered. Use the `content` slot to provide custom content instead.
-         */
-        "enableContentSlot"?: boolean;
-        /**
-          * If `true`, the image slot will be visible.
-         */
-        "enableImageSlot"?: boolean;
         /**
           * The card's heading text.
          */

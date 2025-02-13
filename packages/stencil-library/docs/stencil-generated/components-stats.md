@@ -7,11 +7,11 @@ This page provides an overview of statistics related to the components.
 | Statistic | Value |
 | --- | --- |
 | **Total Components** | `34` |
-| **Total Props** | `356` |
+| **Total Props** | `354` |
 | **Total Events** | `26` |
 | **Total Methods** | `6` |
 | **Total Slots** | `58` |
-| **Total Features** | `446` |
+| **Total Features** | `444` |
 |   |  |
 | **Shadow DOM Components** | `34` |
 | **Light DOM Components** | `0` |
@@ -89,7 +89,7 @@ This page provides an overview of statistics related to the components.
 ### tnw-card
 | Feature | Count |
 | --- | --- |
-| **Props** | `25` |
+| **Props** | `23` |
 | **Events** | `0` |
 | **Methods** | `0` |
 | **Slots** | `8` |

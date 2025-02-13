@@ -1,10 +1,11 @@
 import { Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
-import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-accordion.styles';
 import { BorderRadiusType, ColorType, TextColorType } from '../../utils/component-props-types';
 import { colorStyleSheet } from '../../utils/shared-styles';
 import { setItemExpanded, state } from '../../stores/accordion-store';
 import { validateProps } from './utils/tnw-accordion-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-accordion` component provides a collapsible/expandable section
@@ -27,7 +28,7 @@ import { validateProps } from './utils/tnw-accordion-validate-props';
 })
 export class TnwAccordion {
   private baseClass: string = `${GLOBAL_PREFIX}-accordion`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwAccordionElement;
 
@@ -106,7 +107,7 @@ export class TnwAccordion {
 
   connectedCallback() {
     this.setUniqueId();
-    this.applyStyles();
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
@@ -118,44 +119,11 @@ export class TnwAccordion {
   }
 
   private initializeStyles() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    } else {
-      // Fallback for browsers without CSSStyleSheet support
-      const styleEl = document.createElement('style');
-      styleEl.textContent = styles;
-      this.el.shadowRoot?.appendChild(styleEl);
-    }
-  }
-
-  private applyStyles() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        colorStyleSheet,
-        this.componentStyles
-      ];
-    } else {
-      const colorStyleEl = document.createElement('style');
-      const componentStyleEl = document.createElement('style');
-
-      if (colorStyleSheet && colorStyleSheet.cssRules) {
-        colorStyleEl.textContent = Array.from(colorStyleSheet.cssRules)
-          .map(rule => rule.cssText)
-          .join(' ');
-      } else if (colorStyleSheet) {
-        colorStyleEl.textContent = colorStyleSheet.toString();
-      }
-
-      if (this.componentStyles && this.componentStyles.cssRules) {
-        componentStyleEl.textContent = Array.from(this.componentStyles.cssRules)
-          .map(rule => rule.cssText)
-          .join(' ');
-      }
-
-      this.el.shadowRoot.appendChild(colorStyleEl);
-      this.el.shadowRoot.appendChild(componentStyleEl);
-    }
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [colorStyleSheet]
+    );
   }
 
   private setUniqueId(): void {

@@ -3,6 +3,160 @@
 exports[`tnw-icon Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-icon class="color-auto rounded-default tnw-extended-v-none tnw-icon tnw-icon--font-sm" name="default-icon">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host(.tnw-icon--clickable) {
+  cursor: pointer;
+}
+
+:host(.tnw-icon--padding-3xs),
+:host(.tnw-icon--padding-2xs),
+:host(.tnw-icon--padding-xs) {
+  padding: 2px;
+}
+:host(.tnw-icon--padding-sm) {
+  padding: 4px;
+}
+:host(.tnw-icon--padding-md) {
+  padding: 10px;
+}
+:host(.tnw-icon--padding-lg) {
+  padding: 10px;
+}
+:host(.tnw-icon--padding-xl) {
+  padding: 6px;
+}
+:host(.tnw-icon--padding-2xl) {
+  padding: 15px;
+}
+:host(.tnw-icon--padding-3xl) {
+  padding: 20px;
+}
+
+:host(.tnw-icon--font-3xs) {
+  --tnw-icon-fs: 10px;
+}
+:host(.tnw-icon--font-2xs) {
+  --tnw-icon-fs: 12px;
+}
+:host(.tnw-icon--font-xs) {
+  --tnw-icon-fs: 14px;
+}
+:host(.tnw-icon--font-sm) {
+  --tnw-icon-fs: 16px;
+}
+:host(.tnw-icon--font-md) {
+  --tnw-icon-fs: 20px;
+}
+:host(.tnw-icon--font-lg) {
+  --tnw-icon-fs: 24px;
+}
+:host(.tnw-icon--font-xl) {
+  --tnw-icon-fs: 28px;
+}
+:host(.tnw-icon--font-2xl) {
+  --tnw-icon-fs: 50px;
+}
+:host(.tnw-icon--font-3xl) {
+  --tnw-icon-fs: 54px;
+}
+
+@media only screen and (max-width: 567px) {
+  :host(.tnw-icon--padding-md) {
+    padding: 8px;
+  }
+  :host(.tnw-icon--padding-lg) {
+    padding: 8px;
+  }
+  :host(.tnw-icon--padding-xl) {
+    padding: 6px;
+  }
+  :host(.tnw-icon--padding-2xl) {
+    padding: 10px;
+  }
+  :host(.tnw-icon--padding-3xl) {
+    padding: 15px;
+  }
+    
+  :host(.tnw-icon--font-md) {
+    --tnw-icon-fs: 18px;
+  }
+  :host(.tnw-icon--font-lg) {
+    --tnw-icon-fs: 20px;
+  }
+  :host(.tnw-icon--font-xl) {
+    --tnw-icon-fs: 24px;
+  }
+  :host(.tnw-icon--font-2xl) {
+    --tnw-icon-fs: 45px;
+  }
+  :host(.tnw-icon--font-3xl) {
+    --tnw-icon-fs: 50px;
+  }
+}
+
+:host(.tnw-icon--svg-3xs) {
+  width: 16px;
+  height: 16px;
+}
+
+:host(.tnw-icon--svg-2xs) {
+  width: 18px;
+  height: 18px;
+}
+
+:host(.tnw-icon--svg-xs) {
+  width: 22px;
+  height: 22px;
+}
+:host(.tnw-icon--svg-sm) {
+  width: 26px;
+  height: 26px;
+}
+:host(.tnw-icon--svg-md) {
+  width: 40px;
+  height: 40px;
+}
+:host(.tnw-icon--svg-lg) {
+  width: 40px;
+  height: 40px;
+}
+:host(.tnw-icon--svg-xl) {
+  width: 40px;
+  height: 40px;
+}
+:host(.tnw-icon--svg-2xl) {
+  width: 50px;
+  height: 50px;
+}
+:host(.tnw-icon--svg-3xl) {
+  width: 70px;
+  height: 70px;
+}
+
+i {
+  font-size: var(--tnw-icon-font-size, var(--tnw-icon-fs));
+  color: inherit;
+  display: inline-block;
+}
+  
+::slotted(svg) {
+  fill: inherit;
+  width: 100%;
+  height: 100%;
+}
+    </style>
+    <style></style>
+    <style></style>
     <i aria-label="default-icon" class="icon-default-icon" part="icon"></i>
   </template>
 </tnw-icon>

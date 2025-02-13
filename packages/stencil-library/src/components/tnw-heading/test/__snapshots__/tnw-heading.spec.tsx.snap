@@ -3,6 +3,45 @@
 exports[`tnw-heading Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-heading class="tnw-heading tnw-heading--width-full">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host{
+    --tnw-text-font: var(--tnw-font-text);
+    display: block;
+    max-width: 100%;
+}
+
+:host(.tnw-heading--width-sm) {
+  width: var(--tnw-heading-width, 450px);
+}
+:host(.tnw-heading--width-md) {
+  width: var(--tnw-heading-width, 600px);
+}
+:host(.tnw-heading--width-lg) {
+  width: var(--tnw-heading-width, 800px);
+}
+:host(.tnw-heading--width-xl) {
+  width: var(--tnw-heading-width, 1000px);
+}
+:host(.tnw-heading--width-full) {
+  width: var(--tnw-heading-width, 100%);
+}
+
+.tnw-heading__inner {
+    font-family: var(--tnw-text-font);
+    margin: 0;
+    padding: 0;
+}
+
+.tnw-heading__inner--textFont {
+    font-family: var(--tnw-heading-font-text);
+}
+    </style>
+    <style></style>
+    <style></style>
     <h2 class="fs-heading fw-600 lh-1_5 tnw-heading__inner" part="heading">
       <slot></slot>
     </h2>

@@ -3,6 +3,14 @@ import { TnwAnchorStyler } from '../tnw-anchor-styler';
 
 describe('tnw-anchor-styler', () => {
   describe('Custom Prop Behavior', () => {
+    it('renders correctly with required href and text', async () => {
+      const host = await createSpecPage(
+        TnwAnchorStyler,
+        `<tnw-anchor-styler></tnw-anchor-styler>`
+      );
+      expect(host).toMatchSnapshot();
+    });
+
     it('renders with a custom color class', async () => {
       const wrapper = await createSpecPage(
         TnwAnchorStyler,

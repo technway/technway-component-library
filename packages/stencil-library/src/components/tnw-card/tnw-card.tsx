@@ -1,5 +1,5 @@
 import { Component, Host, Prop, Element, h } from '@stencil/core';
-import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, hasSlotContent, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
 import { ColorType, TextAlignmentType, BorderRadiusType, LayoutType, LogicalAlignmentType, OptionalAppearanceType, SizeType } from '../../utils/component-props-types';
 import { styles } from './tnw-card.styles';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
@@ -16,7 +16,7 @@ import { validateProps } from './utils/tnw-card-validate-props';
  * @slot subheading - Slot for the card subheading. This slot can be used if the `subheading` prop is not set.
  * @slot description - Slot for the card description. This slot can be used if the `description` prop is not set.
  * @slot button - Slot for the card button. This slot can be used if the `buttonLabel` prop is not set.
- * @slot content - Slot for custom card content, replacing default content when `enableContentSlot` is set to `true`.
+ * @slot content - Slot for custom card content, replacing default content.
  * @slot badge - Slot for custom badge content if the `badgeLabel` prop is not used.
  * @slot date - Slot for custom date content if the `date` prop is not used.
  * 
@@ -153,16 +153,6 @@ export class TnwCard {
   @Prop() useGlassmorphismEffect?: boolean = false;
 
   /**
-   * If `true`, the image slot will be visible.
-   */
-  @Prop() enableImageSlot?: boolean = false;
-
-  /**
-   * If `true`, the heading, subheading, description, and button will not be rendered. Use the `content` slot to provide custom content instead.
-   */
-  @Prop() enableContentSlot?: boolean = false;
-
-  /**
    * If `true`, the image will be displayed at a larger size, not be equally split with the content. Used for horizontal layout.
    */
   @Prop() largerImage?: boolean = false;
@@ -185,7 +175,7 @@ export class TnwCard {
   }
 
   componentWillLoad() {
-    validateProps([this.appearance, this.appearanceColor, this.badgeLabel, this.borderRadius, this.buttonHref, this.buttonLabel, this.buttonRadius, this.contentSpacing, this.date, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageHeight, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
+    validateProps([this.appearance, this.appearanceColor, this.badgeLabel, this.borderRadius, this.buttonHref, this.buttonLabel, this.buttonRadius, this.contentSpacing, this.date, this.description, this.heading, this.imageAlt, this.imageHeight, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
   }
 
   private getHostClasses() {
@@ -216,12 +206,12 @@ export class TnwCard {
   }
 
   private renderImage() {
-    if (this.enableImageSlot) {
+    if (hasSlotContent({ el: this.el, slotName: 'image' })) {
       return (
         <div class={`${this.baseClass}__image`} part='image-container'>
           <slot name='image' />
         </div>
-      );
+      )
     }
 
     if (isNotEmptyString(this.imageSrc)) {
@@ -250,7 +240,7 @@ export class TnwCard {
 
   private renderDate() {
     if (!isNotEmptyString(this.date)) {
-      return <slot name='date' />;
+      return hasSlotContent({ el: this.el, slotName: 'date' }) ? <slot name='date' /> : null;
     }
 
     return (
@@ -263,7 +253,7 @@ export class TnwCard {
 
   private renderBadge() {
     if (!isNotEmptyString(this.badgeLabel)) {
-      return <slot name='badge' />;
+      return hasSlotContent({ el: this.el, slotName: 'badge' }) ? <slot name='badge' /> : null;
     }
 
     return (
@@ -279,7 +269,7 @@ export class TnwCard {
 
   private renderHeading() {
     if (!isNotEmptyString(this.heading)) {
-      return <slot name='heading' />;
+      return hasSlotContent({ el: this.el, slotName: 'heading' }) ? <slot name='heading' /> : null;
     }
 
     return (
@@ -289,7 +279,7 @@ export class TnwCard {
 
   private renderSubheading() {
     if (!isNotEmptyString(this.subheading)) {
-      return <slot name='subheading' />;
+      return hasSlotContent({ el: this.el, slotName: 'subheading' }) ? <slot name='subheading' /> : null;
     }
 
     return (
@@ -299,7 +289,7 @@ export class TnwCard {
 
   private renderDescription() {
     if (!isNotEmptyString(this.description)) {
-      return <slot name='description' />;
+      return hasSlotContent({ el: this.el, slotName: 'description' }) ? <slot name='description' /> : null;
     }
 
     return (
@@ -309,7 +299,7 @@ export class TnwCard {
 
   private renderButton() {
     if (!isNotEmptyString(this.buttonLabel)) {
-      return <slot name='button' />;
+      return hasSlotContent({ el: this.el, slotName: 'button' }) ? <slot name='button' /> : null;
     }
 
     return (
@@ -318,13 +308,14 @@ export class TnwCard {
   }
 
   private renderContent() {
-    if (this.enableContentSlot) {
+    if (hasSlotContent({ el: this.el, slotName: 'content' })) {
       return (
         <div class={this.getContentClasses()} part='content'>
           <slot name='content' />
         </div>
-      );
+      )
     }
+
     return (
       <div class={this.getContentClasses()} part='content'>
         <div class={`${this.baseClass}__content-heading`}>

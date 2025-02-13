@@ -5,6 +5,7 @@ import { colorStyleSheet, fontSizeStyleSheet } from '../../utils/shared-styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-anchor-styler.styles';
 import { validateProps } from './utils/tnw-anchor-styler-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-anchor-styler` component is a decorative wrapper for custom anchor-like elements.
@@ -24,7 +25,7 @@ import { validateProps } from './utils/tnw-anchor-styler-validate-props';
 })
 export class TnwAnchorStyler {
   private baseClass = `${GLOBAL_PREFIX}-anchor-styler`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwAnchorStylerElement;
 
@@ -54,10 +55,7 @@ export class TnwAnchorStyler {
   @Prop() enableNewTabIcon: boolean = false;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   componentWillLoad() {
@@ -65,13 +63,15 @@ export class TnwAnchorStyler {
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        fontSizeStyleSheet,
-        colorStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [fontSizeStyleSheet, colorStyleSheet,]
+    );
   }
 
   private getHostClasses(): string {

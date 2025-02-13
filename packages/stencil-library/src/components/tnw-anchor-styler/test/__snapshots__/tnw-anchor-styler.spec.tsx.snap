@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tnw-anchor-styler Custom Prop Behavior renders correctly with required href and text 1`] = `
+<tnw-anchor-styler class="tnw-anchor-styler tnw-anchor-styler--underline">
+  <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:host {
+    --tnw-anchor-styler-font: var(--tnw-font-text);
+    display: inline-block;
+}
+    
+:host(.tnw-anchor-styler--none) ::slotted(*) {
+    text-decoration: none;
+}
+:host(.tnw-anchor-styler--underline) ::slotted(*) {
+    text-decoration: underline;
+}
+:host(.tnw-anchor-styler--overline) ::slotted(*) {
+    text-decoration: overline;
+}
+:host(.tnw-anchor-styler--line-through) ::slotted(*) {
+    text-decoration: line-through;
+}
+
+.tnw-anchor-styler__wrapper {
+    font-family: var(--tnw-anchor-styler-font);
+    display: flex;
+    gap: 3px;
+}
+
+::slotted(*) {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+    </style>
+    <style></style>
+    <style></style>
+    <div class="color-auto tnw-anchor-styler__wrapper" part="wrapper">
+      <slot></slot>
+    </div>
+  </template>
+</tnw-anchor-styler>
+`;

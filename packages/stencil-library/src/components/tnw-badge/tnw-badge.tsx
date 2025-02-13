@@ -7,6 +7,7 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
 import { validateNumericalVariantLabel } from './utils/tnw-badge-validate-props-custom';
 import { borderRadiusStyleSheet } from '../../utils/shared-styles';
 import { extendedAppearanceStyleSheet } from '../../utils/shared-styles';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-badge` component is used to display small pieces of information, such as labels, statuses, or counts, in a compact and visually distinct way.
@@ -20,7 +21,7 @@ import { extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 })
 export class TnwBadge {
   private baseClass = `${GLOBAL_PREFIX}-badge`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwBadgeElement;
 
@@ -78,20 +79,19 @@ export class TnwBadge {
   }
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [extendedAppearanceStyleSheet, borderRadiusStyleSheet,]
+    );
   }
 
   componentWillLoad() {

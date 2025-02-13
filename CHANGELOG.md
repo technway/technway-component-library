@@ -41,6 +41,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.11.1](https://github.com/technway/technway-component-library/compare/root-v3.11.0...root-v3.11.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* **styles:** Add fallback for Constructed Stylesheets (partial [#17](https://github.com/technway/technway-component-library/issues/17)) ([e126a32](https://github.com/technway/technway-component-library/commit/e126a3285814ddf7961810a6d704d134a0248a2d))
+* **tnw-banner:** correct vertical layout behavior ([#97](https://github.com/technway/technway-component-library/issues/97)) ([068d2c0](https://github.com/technway/technway-component-library/commit/068d2c08e19d79b789f4810b3de360bc68c32467))
+* **tnw-banner:** update CSS variable names to fix gradient appearance ([272b3a3](https://github.com/technway/technway-component-library/commit/272b3a37bf7c34072aaff726df597bd62581c3ea))
+* **tnw-card:** prevent rendering of unused slots ([#85](https://github.com/technway/technway-component-library/issues/85)) ([0992849](https://github.com/technway/technway-component-library/commit/0992849a7b72f33f2bb0c0d71c8eecc9745a200c))
+* **tnw-portfolio-grid:** resolve data validation errors ([#87](https://github.com/technway/technway-component-library/issues/87)) ([#91](https://github.com/technway/technway-component-library/issues/91)) ([cdc983c](https://github.com/technway/technway-component-library/commit/cdc983c09f18445bef40cdc04c5483ef3596de4b))
+
 ## [3.11.0](https://github.com/technway/technway-component-library/compare/root-v3.10.0...root-v3.11.0) (2025-02-06)
 
 

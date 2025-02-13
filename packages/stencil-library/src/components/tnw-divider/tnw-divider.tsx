@@ -3,6 +3,7 @@ import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported 
 import { BorderColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-divider.styles';
 import { validateProps } from './utils/tnw-divider-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-divider` component creates a horizontal or vertical line to visually separate content.
@@ -14,7 +15,7 @@ import { validateProps } from './utils/tnw-divider-validate-props';
 })
 export class TnwDivider {
   private baseClass = `${GLOBAL_PREFIX}-divider`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwDividerElement;
 
@@ -29,22 +30,22 @@ export class TnwDivider {
   @Prop() color?: BorderColorType = 'auto';
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        this.componentStyles
-      ];
-    }
+    this.stylesHandler.applyStyles()
   }
 
   componentWillLoad() {
     validateProps([this.color, this.variant]);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles
+    );
   }
 
   private getHostClasses() {

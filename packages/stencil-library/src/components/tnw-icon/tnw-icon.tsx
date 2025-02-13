@@ -5,6 +5,7 @@ import { validateProps } from './utils/tnw-icon-validate-props';
 import { styles } from './tnw-icon.styles';
 import { iconStyleSheet } from '../../utils/shared-styles';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-icon` component is a flexible icon element that supports various styles, sizes, and appearances. 
@@ -20,14 +21,14 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
 })
 export class TnwIcon {
   private baseClass = `${GLOBAL_PREFIX}-icon`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwIconElement;
 
   /**
    * The name of the icon to be displayed. This is required when `enableSvg` is not set to `true`.
    */
-  @Prop({reflect: true}) name?: string;
+  @Prop({ reflect: true }) name?: string;
 
   /**
    * Defines the appearance color of the icon.
@@ -81,25 +82,25 @@ export class TnwIcon {
   @Prop() borderRadius?: BorderRadiusType = 'default';
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        iconStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
     validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.enableSvg, this.hiddenAria, this.isButton, this.labelAria, this.name, this.size, this.tooltip]);
     enforceRequiredPropsWhenConditionMissing(this.getConditionalPropsChecks());
     enforceGroupedPropsUsage(this.getGroupedPropsChecks());
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [iconStyleSheet]
+    );
   }
 
   private getConditionalPropsChecks(): PropDependencyCheck[] {

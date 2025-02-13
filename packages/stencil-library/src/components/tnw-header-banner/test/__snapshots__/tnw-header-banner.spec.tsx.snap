@@ -3,6 +3,168 @@
 exports[`tnw-header-banner Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-header-banner class="tnw-header-banner">
   <template shadowrootmode="open">
+    <style>
+      :host {
+    z-index: 2;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+}
+:host(.tnw-header-banner--container) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+:host(.tnw-header-banner--verticalCenter) {
+    padding-bottom: 100px !important;
+}
+
+.tnw-header-banner__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.tnw-header-banner__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tnw-header-banner__content--start {
+    text-align: start;
+    margin-inline-end: auto;
+    justify-content: start;
+    align-items: start;
+}
+.tnw-header-banner__content--center {
+    text-align: center;
+    margin-inline: auto;
+    justify-content: center;
+    align-items: center;
+}
+.tnw-header-banner__content--end {
+    text-align: end;
+    margin-inline-start: auto;
+    justify-content: end;
+    align-items: end;
+}
+.tnw-header-banner__content--right {
+    text-align: right;
+    margin-left: auto;
+}
+.tnw-header-banner__content--left {
+    text-align: left;
+    margin-right: auto;
+}
+
+.tnw-header-banner__content--max-w-sm {
+    max-width: 450px;
+}
+.tnw-header-banner__content--max-w-md {
+    max-width: 600px;
+}
+.tnw-header-banner__content--max-w-lg {
+    max-width: 800px;
+}
+.tnw-header-banner__content--max-w-xl {
+    max-width: 1000px;
+}
+.tnw-header-banner__content--w-half {
+    width: 50%;
+}
+.tnw-header-banner__content--w-full {
+    width: 100%;
+}
+
+.tnw-header-banner__headings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tnw-header-banner__image-wrapper {
+    height: auto;
+    width: 50%;
+    max-width: 800px;
+}
+
+.tnw-header-banner__image-wrapper--pos-absolute {
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tnw-header-banner__image {
+    height: auto;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .tnw-header-banner__content--max-w-xl {
+        max-width: 100%;
+    }
+    
+    .tnw-header-banner__content--max-w-lg {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    :host(.tnw-header-banner--container),
+    .tnw-header-banner__container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    :host(.tnw-header-banner--verticalCenter) {
+        padding-bottom: 50px !important;
+    }
+
+    .tnw-header-banner__content {
+        gap: 20px;
+    }
+
+    .tnw-header-banner__content--right,
+    .tnw-header-banner__content--left {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .tnw-header-banner__content--w-half {
+        width: 100%;
+    }
+
+    .tnw-header-banner__image-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .tnw-header-banner__image-wrapper--pos-absolute {
+        position: relative;
+        transform: none;
+        top: auto;
+        right: auto;
+    }
+
+    .tnw-header-banner__content--max-w-md {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 567px) {
+    .tnw-header-banner__content--max-w-sm {
+        max-width: 100%;
+    }
+}
+    </style>
+    <style></style>
+    <style></style>
     <div class="container tnw-header-banner__container" part="container">
       <div class="tnw-header-banner__content tnw-header-banner__content--start tnw-header-banner__content--w-half" part="content">
         <slot name="heading"></slot>

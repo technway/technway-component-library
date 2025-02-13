@@ -3,6 +3,42 @@
 exports[`tnw-anchor Custom Prop Behavior renders with slot content when text prop is not provided 1`] = `
 <tnw-anchor href="https://example.com">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:host {
+    --tnw-anchor-font: var(--tnw-font-text);
+    display: inline-block;
+}
+
+.tnw-anchor {
+    font-family: var(--tnw-anchor-font);
+    display: flex;
+    gap: 3px;
+}
+    
+.tnw-anchor--none {
+    text-decoration: none;
+}
+.tnw-anchor--underline {
+    text-decoration: underline;
+}
+.tnw-anchor--overline {
+    text-decoration: overline;
+}
+.tnw-anchor--line-through {
+    text-decoration: line-through;
+}
+    </style>
+    <style></style>
+    <style></style>
     <a aria-label="Link" class="color-auto tnw-anchor tnw-anchor--underline" href="https://example.com" part="anchor">
       <slot></slot>
     </a>
@@ -16,6 +52,42 @@ exports[`tnw-anchor Custom Prop Behavior renders with slot content when text pro
 exports[`tnw-anchor Default and Required Prop Behavior renders correctly with required href and text 1`] = `
 <tnw-anchor href="https://example.com" text="Example">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:host {
+    --tnw-anchor-font: var(--tnw-font-text);
+    display: inline-block;
+}
+
+.tnw-anchor {
+    font-family: var(--tnw-anchor-font);
+    display: flex;
+    gap: 3px;
+}
+    
+.tnw-anchor--none {
+    text-decoration: none;
+}
+.tnw-anchor--underline {
+    text-decoration: underline;
+}
+.tnw-anchor--overline {
+    text-decoration: overline;
+}
+.tnw-anchor--line-through {
+    text-decoration: line-through;
+}
+    </style>
+    <style></style>
+    <style></style>
     <a aria-label="Example" class="color-auto tnw-anchor tnw-anchor--underline" href="https://example.com" part="anchor">
       Example
       <slot></slot>

@@ -6,6 +6,7 @@ import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles'
 import { validateProps } from './utils/tnw-copyrights-footer-validate-props';
 import { validateYearsProps } from './utils/tnw-copyrights-footer-validate-years-props';
 import { TnwCopyrightsFooterLink } from './utils/TnwCopyrightsFooterLink';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-footer` component displays footer information such as the organization name, copyright years, 
@@ -25,7 +26,7 @@ import { TnwCopyrightsFooterLink } from './utils/TnwCopyrightsFooterLink';
 export class TnwCopyrightsFooter {
 
   private baseClass = `${GLOBAL_PREFIX}-copyrights-footer`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwCopyrightsFooterElement;
 
@@ -124,20 +125,11 @@ export class TnwCopyrightsFooter {
   @Prop() linksLength?: number;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        colorStyleSheet,
-        containerStyleSheet,
-        this.componentStyles,
-      ]
-    }
+    this.stylesHandler.applyStyles()
   }
 
   componentWillLoad() {
@@ -150,6 +142,14 @@ export class TnwCopyrightsFooter {
       this.parsedLinksData = null;
     }
   }
+
+	private initializeStyles() {
+		this.stylesHandler = new StyleHandler(
+			this.el,
+			styles,
+      [colorStyleSheet, containerStyleSheet]
+		);
+	}
 
   private getYearsRange(): string {
     const { startYear, endYear, useCurrentYearAsStartYear, useCurrentYearAsEndYear } = this;

@@ -1,5 +1,5 @@
 import { Component, Element, Host, Prop, h } from '@stencil/core';
-import { getColorClass, getHeightClass, getMinHeightClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { getColorClass, getHeightClass, getMinHeightClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { containerStyleSheet } from '../../utils/shared-styles';
 import { ColorType, LogicalAlignmentType, SizeType } from '../../utils/component-props-types';
 import { styles } from './tnw-header.styles';

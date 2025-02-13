@@ -1,10 +1,9 @@
 import { Component, Prop, Host, h, Element, State, Event, EventEmitter } from '@stencil/core';
 import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { styles } from './tnw-input.styles';
-import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
+import { extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { BorderRadiusType, ColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { createStore } from '@stencil/store';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { containsSQLInjectionPatterns, sanitizeInput } from '../../utils/security-utils';
 import { validateProps } from './utils/tnw-input-validate-props';
 import { StyleHandler } from '../../utils/style-handler';

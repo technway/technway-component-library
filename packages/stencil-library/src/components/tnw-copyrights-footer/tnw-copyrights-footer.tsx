@@ -1,5 +1,5 @@
 import { Component, Element, Host, Prop, State, h } from '@stencil/core';
-import { getColorClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, isNotEmptyStringOrNumber } from '../../utils/utils';
+import { getColorClass, GLOBAL_PREFIX, isNotEmptyString, isNotEmptyStringOrNumber } from '../../utils/utils';
 import { ColorType, TextColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-copyrights-footer.style';
 import { colorStyleSheet, containerStyleSheet } from '../../utils/shared-styles';

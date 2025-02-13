@@ -4,7 +4,6 @@ import { AspectRatioType, BorderRadiusType, ObjectFitType, ObjectPositionType, S
 import { validateProps } from './utils/tnw-image-validate-props';
 import { styles } from './tnw-image.styles';
 import { borderRadiusStyleSheet, mediaStyleSheet } from '../../utils/shared-styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { StyleHandler } from '../../utils/style-handler';
 
 /**

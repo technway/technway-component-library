@@ -4,7 +4,6 @@ import { BorderRadiusType, TextColorType, ExtendedColorType, ExtendedSizeType, O
 import { validateProps } from './utils/tnw-icon-validate-props';
 import { styles } from './tnw-icon.styles';
 import { iconStyleSheet } from '../../utils/shared-styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { StyleHandler } from '../../utils/style-handler';
 
 /**

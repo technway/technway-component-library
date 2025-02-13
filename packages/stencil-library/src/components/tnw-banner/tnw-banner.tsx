@@ -1,7 +1,6 @@
 import { Component, Element, Fragment, Host, Prop, h } from '@stencil/core';
 import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX } from '../../utils/utils';
 import { LogicalAlignmentType, AppearanceType, BorderRadiusType, ColorType, LayoutType, AlignmentType } from '../../utils/component-props-types';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-banner.styles';
 import { validateProps } from './utils/tnw-banner-validate-props';
 import { StyleHandler } from '../../utils/style-handler';

@@ -2,7 +2,6 @@ import { Component, Host, Prop, h, Element } from '@stencil/core';
 import { FontSizeType, TextColorType } from '../../utils/component-props-types';
 import { getColorClass, getTypographyClass, GLOBAL_PREFIX } from '../../utils/utils';
 import { colorStyleSheet, fontSizeStyleSheet } from '../../utils/shared-styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { styles } from './tnw-anchor-styler.styles';
 import { validateProps } from './utils/tnw-anchor-styler-validate-props';
 import { StyleHandler } from '../../utils/style-handler';

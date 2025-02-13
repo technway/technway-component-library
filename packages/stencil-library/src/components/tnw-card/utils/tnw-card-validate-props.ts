@@ -6,7 +6,7 @@
  * 
  * Copy these code and put it in the `componentWillLoad()` Lifecycle method in the `tnw-card.tsx` file.
  * 
-validateProps([this.appearance, this.appearanceColor, this.badgeLabel, this.borderRadius, this.buttonHref, this.buttonLabel, this.buttonRadius, this.contentSpacing, this.date, this.description, this.enableContentSlot, this.enableImageSlot, this.heading, this.imageAlt, this.imageHeight, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
+validateProps([this.appearance, this.appearanceColor, this.badgeLabel, this.borderRadius, this.buttonHref, this.buttonLabel, this.buttonRadius, this.contentSpacing, this.date, this.description, this.heading, this.imageAlt, this.imageHeight, this.imageSrc, this.itemsAlignment, this.largerImage, this.layout, this.orderContentFirst, this.padding, this.spacing, this.subheading, this.textAlignment, this.useGlassmorphismEffect]);
  *
  * GENERATED USING `pnpm g:components-validations tnw-card`
  */
@@ -114,20 +114,6 @@ export function validateProps(propsValues: any[]): void {
     "name": "description",
     "type": [
       "string"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "enableContentSlot",
-    "type": [
-      "boolean"
-    ],
-    "isRequired": false
-  },
-  {
-    "name": "enableImageSlot",
-    "type": [
-      "boolean"
     ],
     "isRequired": false
   },

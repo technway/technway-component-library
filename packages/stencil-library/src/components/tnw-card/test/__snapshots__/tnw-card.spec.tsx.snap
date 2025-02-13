@@ -4,16 +4,7 @@ exports[`tnw-card Default and Required Prop Behavior renders correctly with no r
 <tnw-card class="rounded-default tnw-card tnw-card--equal-image tnw-card--spacing-sm tnw-card--vertical tnw-v-none">
   <template shadowrootmode="open">
     <div class="tnw-card__content tnw-card__content--spacing-sm tnw-card__content--text-start" part="content">
-      <div class="tnw-card__content-heading">
-        <div class="tnw-card__badge-wrapper">
-          <slot name="badge"></slot>
-          <slot name="date"></slot>
-        </div>
-        <slot name="heading"></slot>
-        <slot name="subheading"></slot>
-      </div>
-      <slot name="description"></slot>
-      <slot name="button"></slot>
+      <div class="tnw-card__content-heading"></div>
     </div>
   </template>
 </tnw-card>

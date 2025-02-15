@@ -7,6 +7,7 @@ import { validateProps } from './utils/tnw-navbar-validate-props';
 import { renderToggler } from './parts/toggler/part--toggler';
 import { Menu, MenuProps } from './parts/menu/part--menu-types';
 import { renderMenu } from './parts/menu/part--menu';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-navbar` component creates a responsive, customizable navigation bar.
@@ -34,7 +35,7 @@ export class TnwNavbar {
   private baseClass = `${GLOBAL_PREFIX}-navbar`;
 
   // Holds the component's styles
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   /**
    * The host element reference.
@@ -255,24 +256,13 @@ export class TnwNavbar {
   @Event() tnwScrollChange: EventEmitter<{ scrollY: number }>;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
     window.addEventListener('resize', this.handleResize);
 
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        containerStyleSheet,
-        borderRadiusStyleSheet,
-        appearanceColorSheet,
-        extendedAppearanceStyleSheet,
-        this.componentStyles
-      ];
-    }
+    this.stylesHandler.applyStyles()
 
     if (this.sticky) {
       window.addEventListener('scroll', this.handleScroll);
@@ -294,6 +284,14 @@ export class TnwNavbar {
     if (this.sticky) {
       window.removeEventListener('scroll', this.handleScroll);
     }
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [containerStyleSheet, borderRadiusStyleSheet, appearanceColorSheet, extendedAppearanceStyleSheet]
+    )
   }
 
   /**

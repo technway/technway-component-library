@@ -6,6 +6,7 @@ import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../util
 import { styles } from './tnw-textarea.styles';
 import { validateProps } from './utils/tnw-textarea-validate-props';
 import { containsSQLInjectionPatterns, sanitizeInput } from '../../utils/security-utils';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-textarea` component is a customizable textarea field that supports various appearance options, validation, and accessibility features.
@@ -21,7 +22,7 @@ import { containsSQLInjectionPatterns, sanitizeInput } from '../../utils/securit
 })
 export class TnwTextarea {
   private baseClass = `${GLOBAL_PREFIX}-textarea`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwTextareaElement;
 
@@ -140,20 +141,11 @@ export class TnwTextarea {
   @Event() validationFailed: EventEmitter<{ textareaId: string; error: string }>;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        this.componentStyles
-      ];
-    }
+    this.stylesHandler.applyStyles()
 
     this.setUniqueId();
   }
@@ -165,6 +157,14 @@ export class TnwTextarea {
      * Initialize the store with the initial value.
      */
     this.setStore(this.value);
+  }
+
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler (
+      this.el,
+      styles,
+      [extendedAppearanceStyleSheet, borderRadiusStyleSheet]
+    )
   }
 
   /**

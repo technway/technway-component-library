@@ -4,6 +4,7 @@ import { styles } from './tnw-portfolio-grid.style';
 import { TnwPortfolioGridItem } from './utils/types';
 import { ExtendedSizeType } from '../../components';
 import { validateProps } from './utils/tnw-portfolio-grid-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-portfolio-grid` component creates a flexible, responsive grid for displaying portfolio or gallery items.
@@ -14,7 +15,7 @@ import { validateProps } from './utils/tnw-portfolio-grid-validate-props';
 })
 export class TnwPortfolioGrid {
   private baseClass = `${GLOBAL_PREFIX}-portfolio-grid`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @State() parsedItemsData: TnwPortfolioGridItem[] = [];
 
@@ -82,7 +83,7 @@ export class TnwPortfolioGrid {
   }
 
   connectedCallback() {
-    this.applyStyles();
+    this.stylesHandler.applyStyles();
   }
 
   async componentWillLoad() {
@@ -92,6 +93,13 @@ export class TnwPortfolioGrid {
     }
 
     validateProps([this.columns, this.itemsData, this.showGradientFade, this.spacing]);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler (
+      this.el,
+      styles
+    )
   }
 
   /**
@@ -110,35 +118,6 @@ export class TnwPortfolioGrid {
 
     if (!isValidStringifiedJSON(itemsData)) {
       throw new Error(`Failed to parse itemsData: ${itemsData}`);
-    }
-  }
-
-  private initializeStyles() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    } else {
-      const styleEl = document.createElement('style');
-      styleEl.textContent = styles;
-      this.el.shadowRoot?.appendChild(styleEl);
-    }
-  }
-
-  private applyStyles() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        this.componentStyles
-      ];
-    } else {
-      const componentStyleEl = document.createElement('style');
-
-      if (this.componentStyles && this.componentStyles.cssRules) {
-        componentStyleEl.textContent = Array.from(this.componentStyles.cssRules)
-          .map(rule => rule.cssText)
-          .join(' ');
-      }
-
-      this.el.shadowRoot.appendChild(componentStyleEl);
     }
   }
 

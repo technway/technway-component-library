@@ -5,6 +5,7 @@ import { BorderRadiusType, ColorType, TextColorType } from '../../utils/componen
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import styles from './tnw-search-input.style';
 import { validateProps } from './utils/tnw-search-input-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-search-input` component is a customizable search input field that supports various input types, validation, and appearance options.
@@ -19,7 +20,7 @@ import { validateProps } from './utils/tnw-search-input-validate-props';
 })
 export class TnwSearchInput {
   private baseClass = `${GLOBAL_PREFIX}-search-input`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
   private inputRef?: HTMLInputElement;
 
   @Element() el!: HTMLTnwSearchInputElement;
@@ -140,10 +141,7 @@ export class TnwSearchInput {
   @Event() tnwInputBlurred: EventEmitter<void>;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   componentWillLoad() {
@@ -152,14 +150,8 @@ export class TnwSearchInput {
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        colorStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles()
+    
     if (this.variant === 'expandable') {
       document.addEventListener('click', this.handleDocumentClick);
     }
@@ -175,6 +167,14 @@ export class TnwSearchInput {
     if (this.variant !== 'expandable') {
       this.isVisible = true;
     }
+  }
+
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler (
+      this.el,
+      styles,
+      [extendedAppearanceStyleSheet, borderRadiusStyleSheet, colorStyleSheet]
+    )
   }
 
   /**

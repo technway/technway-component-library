@@ -79,6 +79,8 @@ exports[`tnw-rows-carousel Default and Required Prop Behavior renders with defau
   }
 }
     </style>
+    <style></style>
+    <style></style>
     <div class="tnw-rows-carousel__container">
       <div class="tnw-rows-carousel__row" style="animation-name: scroll-loop; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: alternate; animation-duration: 22000ms; animation-play-state: running; transition: animation-play-state 0.3s ease;">
         <slot name="row-1"></slot>

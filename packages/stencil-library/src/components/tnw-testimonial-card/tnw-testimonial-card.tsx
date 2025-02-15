@@ -4,6 +4,7 @@ import { ColorType, BorderRadiusType, OptionalAppearanceType, SizeType } from '.
 import { styles } from './tnw-testimonial-card.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-testimonial-card-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-testimonial-card` component is a versatile component designed to display testimonials. It includes options for an author's photo, name, role, and a testimonial description, with support for custom styles, spacing, and visual effects.
@@ -22,7 +23,7 @@ import { validateProps } from './utils/tnw-testimonial-card-validate-props';
 export class TnwTestimonialCard {
 
   private baseClass = `${GLOBAL_PREFIX}-testimonial-card`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwTestimonialCardElement;
 
@@ -87,24 +88,23 @@ export class TnwTestimonialCard {
   @Prop() useRandomAvatar?: boolean = false;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback(): void {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
     validateProps([this.appearance, this.appearanceColor, this.authorName, this.authorPhotoAlt, this.authorPhotoSrc, this.authorRole, this.borderRadius, this.padding, this.spacing, this.text, this.useGlassmorphismEffect, this.useRandomAvatar]);
+  }
+
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler (
+      this.el,
+      styles,
+      [extendedAppearanceStyleSheet, borderRadiusStyleSheet]
+    )
   }
 
   private getHostClasses(): string {

@@ -3,6 +3,7 @@ import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported 
 import { validateProps } from './utils/tnw-rows-carousel-validate-props';
 import { styles } from './tnw-rows-carousel.style';
 import { isValuePositive } from '../../utils/component-validations';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-rows-carousel` component provides an animated, infinitely scrolling carousel 
@@ -16,7 +17,7 @@ import { isValuePositive } from '../../utils/component-validations';
 })
 export class TnwRowsCarousel {
   private baseClass = `${GLOBAL_PREFIX}-rows-carousel`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwRowsCarouselElement;
 
@@ -90,24 +91,13 @@ export class TnwRowsCarousel {
   }
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
-  connectedCallback(): void {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        this.componentStyles
-      ];
-    } else {
-      const style = document.createElement('style');
-      style.textContent = styles;
-      this.el.shadowRoot?.appendChild(style);
-    }
+  connectedCallback() {
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
@@ -124,6 +114,13 @@ export class TnwRowsCarousel {
     } catch (error) {
       throw error;
     }
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles
+    );
   }
 
   private handleRowHover(rowElement: HTMLElement, isHover: boolean, rowIndex?: number): void {

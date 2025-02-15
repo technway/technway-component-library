@@ -3,6 +3,76 @@
 exports[`tnw-testimonial-card Default and Required Prop Behavior renders correctly with required props 1`] = `
 <tnw-testimonial-card author-name="John Doe" class="rounded-default tnw-testimonial-card tnw-testimonial-card--padding-sm tnw-testimonial-card--spacing-sm tnw-v-outlined-auto" text="Great service!">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+
+    --tnw-testimonial-card-gap-2xs: var(--tnw-spacing-2xs);
+    --tnw-testimonial-card-gap-xs: var(--tnw-spacing-sm);
+    --tnw-testimonial-card-gap-sm: var(--tnw-spacing-md);
+    --tnw-testimonial-card-gap-md: var(--tnw-spacing-lg);
+    --tnw-testimonial-card-gap-lg: var(--tnw-spacing-xl);
+    --tnw-testimonial-card-padding-sm: var(--tnw-spacing-md);
+    --tnw-testimonial-card-padding-md: var(--tnw-spacing-lg);
+    --tnw-testimonial-card-padding-lg: var(--tnw-spacing-xl);
+}
+
+:host(.tnw-testimonial-card--padding-sm) {
+    padding: var(--tnw-testimonial-card-padding-sm);
+}
+:host(.tnw-testimonial-card--padding-md) {
+    padding: var(--tnw-testimonial-card-padding-md);
+}
+:host(.tnw-testimonial-card--padding-lg) {
+    padding: var(--tnw-testimonial-card-padding-lg);
+}
+
+:host(.tnw-testimonial-card--spacing-sm) {
+    gap: var(--tnw-testimonial-card-gap-sm);
+}
+:host(.tnw-testimonial-card--spacing-md) {
+    gap: var(--tnw-testimonial-card-gap-md);
+}
+:host(.tnw-testimonial-card--spacing-lg) {
+    gap: var(--tnw-testimonial-card-gap-lg);
+}
+
+:host(.tnw-testimonial-card--glassmorphism) {
+    background: linear-gradient(to top, rgba(var(--tnw-background-color-inverse-rgb), 0.025), rgba(var(--tnw-background-color-inverse-rgb), 0)) !important;
+}
+
+.tnw-testimonial-card__author-details {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--tnw-testimonial-card-gap-xs);
+}
+
+.tnw-testimonial-card__author-role {
+    margin-top: 2px;
+}
+
+.tnw-testimonial-card__author-photo {
+    width: 48px;
+    height: 48px;
+}
+    
+.tnw-testimonial-card__author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+    </style>
+    <style></style>
+    <style></style>
     <div class="tnw-testimonial-card__author-details" part="author-details">
       <div class="tnw-testimonial-card__author-details-section">
         <tnw-heading class="tnw-testimonial-card__author-name" level="h3" part="author-name" size="sm" text="John Doe" textcase="capitalize" weight="600"></tnw-heading>
@@ -17,6 +87,76 @@ exports[`tnw-testimonial-card Default and Required Prop Behavior renders correct
 exports[`tnw-testimonial-card Slot Behavior renders slot content for description when text is not provided 1`] = `
 <tnw-testimonial-card author-name="John Doe" class="rounded-default tnw-testimonial-card tnw-testimonial-card--padding-sm tnw-testimonial-card--spacing-sm tnw-v-outlined-auto">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+
+    --tnw-testimonial-card-gap-2xs: var(--tnw-spacing-2xs);
+    --tnw-testimonial-card-gap-xs: var(--tnw-spacing-sm);
+    --tnw-testimonial-card-gap-sm: var(--tnw-spacing-md);
+    --tnw-testimonial-card-gap-md: var(--tnw-spacing-lg);
+    --tnw-testimonial-card-gap-lg: var(--tnw-spacing-xl);
+    --tnw-testimonial-card-padding-sm: var(--tnw-spacing-md);
+    --tnw-testimonial-card-padding-md: var(--tnw-spacing-lg);
+    --tnw-testimonial-card-padding-lg: var(--tnw-spacing-xl);
+}
+
+:host(.tnw-testimonial-card--padding-sm) {
+    padding: var(--tnw-testimonial-card-padding-sm);
+}
+:host(.tnw-testimonial-card--padding-md) {
+    padding: var(--tnw-testimonial-card-padding-md);
+}
+:host(.tnw-testimonial-card--padding-lg) {
+    padding: var(--tnw-testimonial-card-padding-lg);
+}
+
+:host(.tnw-testimonial-card--spacing-sm) {
+    gap: var(--tnw-testimonial-card-gap-sm);
+}
+:host(.tnw-testimonial-card--spacing-md) {
+    gap: var(--tnw-testimonial-card-gap-md);
+}
+:host(.tnw-testimonial-card--spacing-lg) {
+    gap: var(--tnw-testimonial-card-gap-lg);
+}
+
+:host(.tnw-testimonial-card--glassmorphism) {
+    background: linear-gradient(to top, rgba(var(--tnw-background-color-inverse-rgb), 0.025), rgba(var(--tnw-background-color-inverse-rgb), 0)) !important;
+}
+
+.tnw-testimonial-card__author-details {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--tnw-testimonial-card-gap-xs);
+}
+
+.tnw-testimonial-card__author-role {
+    margin-top: 2px;
+}
+
+.tnw-testimonial-card__author-photo {
+    width: 48px;
+    height: 48px;
+}
+    
+.tnw-testimonial-card__author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+    </style>
+    <style></style>
+    <style></style>
     <div class="tnw-testimonial-card__author-details" part="author-details">
       <div class="tnw-testimonial-card__author-details-section">
         <tnw-heading class="tnw-testimonial-card__author-name" level="h3" part="author-name" size="sm" text="John Doe" textcase="capitalize" weight="600"></tnw-heading>

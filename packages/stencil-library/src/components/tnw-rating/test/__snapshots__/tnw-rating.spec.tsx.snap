@@ -3,6 +3,21 @@
 exports[`tnw-rating Default and Required Prop Behavior renders correctly with default props 1`] = `
 <tnw-rating aria-label="Rating: 5 out of 5" class="tnw-rating" role="img">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+  --tnw-rating-gap: 5px;
+  
+  display: flex;
+  align-items: center;
+  gap: var(--tnw-rating-gap);
+}
+    </style>
+    <style></style>
+    <style></style>
     <tnw-icon color="primary" enablesvg="" hiddenaria="" name="star" part="default-icon" size="sm">
       <svg slot="svg" viewBox="0 0 16 16">
         <rect fill="none" height="16" width="16"></rect>

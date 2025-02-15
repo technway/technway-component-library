@@ -5,6 +5,7 @@ import { ColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { colorStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-rating-validate-props';
 import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-rating` component is used to display a star-based rating system, allowing users to see a visual representation of a rating out of a total number of stars.
@@ -17,7 +18,7 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
 })
 export class TnwRating {
   private baseClass = `${GLOBAL_PREFIX}-rating`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwRatingElement;
 
@@ -52,23 +53,23 @@ export class TnwRating {
   @Prop() hideEmptyStars: boolean = false;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        colorStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles()
   }
 
   componentWillLoad() {
     validateProps([this.emptyStarColor, this.filledStarColor, this.hideEmptyStars, this.rating, this.starSize, this.totalStars]);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [colorStyleSheet]
+    )
   }
 
   private getDefaultIcon(isFilled: boolean) {

@@ -3,6 +3,54 @@
 exports[`tnw-text Default and Required Prop Behavior renders correctly with default props 1`] = `
 <tnw-text class="tnw-text tnw-text--block tnw-text--width-full">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host{
+    --tnw-text-font: var(--tnw-font-text);
+    max-width: 100%;
+}
+
+:host(.tnw-text--block) {
+  display: block;
+}
+:host(.tnw-text--inline-block) {
+  display: inline-block;
+}
+:host(.tnw-text--inline) {
+  display: inline;
+}
+
+:host(.tnw-text--width-sm) {
+  width: var(--tnw-text-width, 450px);
+}
+:host(.tnw-text--width-md) {
+  width: var(--tnw-text-width, 600px);
+}
+:host(.tnw-text--width-lg) {
+  width: var(--tnw-text-width, 800px);
+}
+:host(.tnw-text--width-xl) {
+  width: var(--tnw-text-width, 1000px);
+}
+:host(.tnw-text--width-full) {
+  width: var(--tnw-text-width, 100%);
+}
+
+.tnw-text__inner {
+    font-family: var(--tnw-text-font);
+    margin: 0;
+    padding: 0;
+}
+
+p {
+  width: 100%;
+}
+    </style>
+    <style></style>
+    <style></style>
     <p class="lh-1_75 tnw-text__inner" part="text">
       <slot></slot>
     </p>

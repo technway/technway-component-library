@@ -5,6 +5,7 @@ import { BorderRadiusType, ExtendedColorType } from '../../utils/component-props
 import { TnwSelectOption } from './utils/tnw-select-data-types';
 import { validateProps } from './utils/tnw-select-validate-props';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-select` component provides a custom dropdown select element with support for dynamic options, selection, and keyboard navigation.
@@ -20,7 +21,7 @@ import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../util
 export class TnwSelect {
   private baseClass = `${GLOBAL_PREFIX}-select`;
   private handleDocumentClickBound = this.handleDocumentClick.bind(this);
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
   private initialWidth: string | undefined;
 
   @Element() el!: HTMLTnwSelectElement;
@@ -138,10 +139,7 @@ export class TnwSelect {
   }
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.handleOptionClick = this.handleOptionClick.bind(this);
@@ -151,13 +149,7 @@ export class TnwSelect {
   connectedCallback() {
     document.addEventListener('click', this.handleDocumentClickBound);
 
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        borderRadiusStyleSheet,
-        this.variant === "withStatus" ? extendedAppearanceStyleSheet : null,
-        this.componentStyles,
-      ].filter(Boolean);
-    }
+    this.stylesHandler.applyStyles()
   }
 
   @Watch('parsedOptionsData')
@@ -198,6 +190,14 @@ export class TnwSelect {
 
   disconnectedCallback() {
     document.removeEventListener('click', this.handleDocumentClickBound);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [borderRadiusStyleSheet, extendedAppearanceStyleSheet],
+    );
   }
 
   private handleDocumentClick(event: Event) {

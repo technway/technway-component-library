@@ -108,3 +108,21 @@ BlogPost.args = {
   contentSpacing: 'md',
   buttonRadius: 'full'
 };
+
+// Test
+export const TestImageSlot = HorizontalTemplate.bind({});
+TestImageSlot.args = {
+  heading: 'Some Heading',
+  description: 'Some Description',
+  appearance: 'outlined',
+  appearanceColor: 'light',
+  padding: 'sm',
+  spacing: 'md',
+  useGlassmorphismEffect: true,
+  imageSlot: `<tnw-image
+                  src="https://picsum.photos/400/200"
+                  alt="Some Alt"
+                  objectFit="cover"
+                  slot="image"
+              ></tnw-image>`
+};

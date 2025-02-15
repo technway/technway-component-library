@@ -16,8 +16,8 @@ import {
   TextAlignmentType,
   TextColorType,
   TextTransformType,
-  WidthSizeType
-} from "./component-props-types";
+  WidthSizeType,
+} from './component-props-types';
 
 /**
  * GLOBAL PREFIX
@@ -95,9 +95,7 @@ export function toPascalCase(str: string): string {
  * @return {string} The kebab-case version of the string.
  */
 export function toKebabCase(str: string): string {
-  return str
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .toLowerCase();
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
 
 /**
@@ -120,43 +118,35 @@ export function toCamelCase(str: string): string {
 
 /**
  * Generates a string of class names based on an array of values.
- * 
+ *
  * @param {any[]} classes - An array containing string, boolean, or other values that determine the classes.
  * @param {string} [baseClassName] - The base class name to be used if `true` values are present.
  * @param {string[]} [valuesToClean=['none']] - An array of values to be ignored/cleaned from the classes.
  * @returns {string} A space-separated string of class names.
- * 
+ *
  * @example
  * getClassNames([true, 'active', false], 'btn'); // 'btn--true active'
  */
-export function getClassNames(
-  classes: any[],
-  baseClassName?: string,
-  valuesToClean: string[] | null = ['none']
-): string {
+export function getClassNames(classes: any[], baseClassName?: string, valuesToClean: string[] | null = ['none']): string {
   return classes
-    .filter((value) => value !== false && !valuesToClean.includes(value))
-    .map((value) => (`${baseClassName}--${value}`))
+    .filter(value => value !== false && !valuesToClean.includes(value))
+    .map(value => `${baseClassName}--${value}`)
     .join(' ')
     .trim();
 }
 
 /**
  * Generates a string of class names based on a map of key-value pairs.
- * 
+ *
  * @param {Record<string, any>} classMap - An object where the keys represent class names and values represent conditions.
  * @param {string} [baseClassName] - The base class name to be used if `true` values are present.
  * @param {string[]} [valuesToClean=['none']] - An array of values to be ignored/cleaned from the classes.
  * @returns {string|null} A space-separated string of class names or null if the base class name is invalid.
- * 
+ *
  * @example
  * getClassNamesMap({ active: true, disabled: false, size: 'large' }, 'btn'); // 'btn--active btn--size-large'
  */
-export function getClassNamesFromMap(
-  classMap: Record<string, any>,
-  baseClassName?: string,
-  valuesToClean: string[] | null = ['none']
-): string | null {
+export function getClassNamesFromMap(classMap: Record<string, any>, baseClassName?: string, valuesToClean: string[] | null = ['none']): string | null {
   if (!isNotEmptyString(baseClassName)) {
     return null;
   }
@@ -178,10 +168,7 @@ export function getClassNamesFromMap(
 /**
  * Returns a class name that can be used to create a visual style for a component.
  */
-export function getAppearanceClass(
-  appearance: OptionalAppearanceType,
-  variant: ColorType
-) {
+export function getAppearanceClass(appearance: OptionalAppearanceType, variant: ColorType) {
   const baseClass = GLOBAL_PREFIX;
   const variantClass = 'v';
 
@@ -204,10 +191,7 @@ export function getAppearanceClass(
 /**
  * Returns a class name that can be used to style a component with an extended appearance variant.
  */
-export function getExtendedAppearanceClass(
-  appearance: OptionalAppearanceType,
-  variant: ExtendedColorType
-) {
+export function getExtendedAppearanceClass(appearance: OptionalAppearanceType, variant: ExtendedColorType) {
   const baseClass = GLOBAL_PREFIX;
   const variantClass = 'extended-v';
 
@@ -227,10 +211,7 @@ export function getExtendedAppearanceClass(
   return appearanceClass;
 }
 
-export function getDirectionalAppearanceClass(
-  appearance: OptionalDirectionalAppearanceType,
-  variant: ExtendedColorType
-) {
+export function getDirectionalAppearanceClass(appearance: OptionalDirectionalAppearanceType, variant: ExtendedColorType) {
   const baseClass = GLOBAL_PREFIX;
   const variantClass = 'directional-v';
 
@@ -251,48 +232,45 @@ export function getDirectionalAppearanceClass(
 }
 
 export function getColorClass(
-  prop: "color" | "bg" | "border" | "placeholder" | "border-right" | "border-left" | "border-top" | "border-bottom",
-  value: TextColorType | BackgroundColorType | BorderColorType
+  prop: 'color' | 'bg' | 'border' | 'placeholder' | 'border-right' | 'border-left' | 'border-top' | 'border-bottom',
+  value: TextColorType | BackgroundColorType | BorderColorType,
 ): string {
-  if (value === "none" || !isNotEmptyString(value)) {
-    return "";
+  if (value === 'none' || !isNotEmptyString(value)) {
+    return '';
   }
 
   const prefixMap: { [key: string]: string } = {
-    color: "color",
-    bg: "bg",
-    border: "border",
-    placeholder: "placeholder",
-    "border-right": "border-r",
-    "border-left": "border-l",
-    "border-top": "border-t",
-    "border-bottom": "border-b",
+    'color': 'color',
+    'bg': 'bg',
+    'border': 'border',
+    'placeholder': 'placeholder',
+    'border-right': 'border-r',
+    'border-left': 'border-l',
+    'border-top': 'border-t',
+    'border-bottom': 'border-b',
   };
 
   const classPrefix = prefixMap[prop];
 
-  if (value?.startsWith("gray")) {
-    const grayValue = value.replace("gray", "gray-");
+  if (value?.startsWith('gray')) {
+    const grayValue = value.replace('gray', 'gray-');
     return `${classPrefix}-${grayValue}`;
   }
 
   return `${classPrefix}-${value}`;
 }
 
-export function getTypographyClass(
-  prop: "fs" | "fw" | "lh" | "ta",
-  value: FontSizeType | FontWeightType | LineHeightType | TextAlignmentType
-): string {
+export function getTypographyClass(prop: 'fs' | 'fw' | 'lh' | 'ta', value: FontSizeType | FontWeightType | LineHeightType | TextAlignmentType): string {
   if (!isNotEmptyString(value)) {
-    return "";
+    return '';
   }
 
   const prefixMap: { [key: string]: string } = {
-    fs: "fs",
-    fw: "fw",
-    lh: "lh",
-    ta: "ta",
-    case: "",
+    fs: 'fs',
+    fw: 'fw',
+    lh: 'lh',
+    ta: 'ta',
+    case: '',
   };
 
   const classPrefix = prefixMap[prop];
@@ -306,67 +284,64 @@ export function getTypographyClass(
  * @param value - The value of the text transformation property.
  * @returns A string representing the class name that can be used to style the component.
  */
-export function getTextTransformClass(
-  value: TextTransformType
-): string {
+export function getTextTransformClass(value: TextTransformType): string {
   if (!isNotEmptyString(value)) {
-    return "";
+    return '';
   }
 
   return value as string;
 }
 
 export function getBorderRadiusClass(value: BorderRadiusType): string {
-  if (value === "none" || !isNotEmptyString(value)) {
-    return "";
+  if (value === 'none' || !isNotEmptyString(value)) {
+    return '';
   }
 
   return `rounded-${value}`;
 }
 
 export function getAspectRatioClass(value: AspectRatioType): string {
-  if (value === "initial" || !isNotEmptyString(value)) {
-    return "";
+  if (value === 'initial' || !isNotEmptyString(value)) {
+    return '';
   }
 
   return `ar-${value}`;
 }
 
-
 export function getObjectPositionClass(value: ObjectPositionType): string {
-  if (value === "initial" || !isNotEmptyString(value)) {
-    return "";
+  if (value === 'initial' || !isNotEmptyString(value)) {
+    return '';
   }
 
   const classValueMap: { [key: string]: string } = {
-    "top": "t",
-    "bottom": "b",
-    "left": "l",
-    "right": "r",
-    "center": "c",
-    "top-left": "tl",
-    "top-right": "tr",
-    "bottom-left": "bl",
-    "bottom-right": "br",
-    "left-top": "lt",
-    "left-bottom": "lb",
-    "right-top": "rt",
-    "right-bottom": "rb",
-    "center-left": "cl",
-    "center-right": "cr",
-    "center-top": "ct",
-    "center-bottom": "cb",
+    'top': 't',
+    'bottom': 'b',
+    'left': 'l',
+    'right': 'r',
+    'center': 'c',
+    'top-left': 'tl',
+    'top-right': 'tr',
+    'bottom-left': 'bl',
+    'bottom-right': 'br',
+    'left-top': 'lt',
+    'left-bottom': 'lb',
+    'right-top': 'rt',
+    'right-bottom': 'rb',
+    'center-left': 'cl',
+    'center-right': 'cr',
+    'center-top': 'ct',
+    'center-bottom': 'cb',
   };
 
   const mappedClass = classValueMap[value];
 
   // Return the class if a mapping exists, otherwise return an empty string
-  return mappedClass.length > 0 ? `obj-pos-${mappedClass}` : "";
+  return mappedClass.length > 0 ? `obj-pos-${mappedClass}` : '';
 }
 
 export function getObjectFitClass(value: ObjectFitType): string {
-  if (value === "none" || !isNotEmptyString(value)) {
-    return "";
+  if (value === 'none' || !isNotEmptyString(value)) {
+    return '';
   }
 
   return `fit-${value}`;
@@ -374,16 +349,15 @@ export function getObjectFitClass(value: ObjectFitType): string {
 
 export function getHeightClass(value: HeightSizeType): string {
   if (!isNotEmptyString(value)) {
-    return "";
+    return '';
   }
 
   return `h-${value}`;
 }
 
-
 export function getMinHeightClass(value: HeightSizeType): string {
   if (!isNotEmptyString(value)) {
-    return "";
+    return '';
   }
 
   return `min-h-${value}`;
@@ -391,7 +365,7 @@ export function getMinHeightClass(value: HeightSizeType): string {
 
 export function getMaxHeightClass(value: HeightSizeType): string {
   if (!isNotEmptyString(value)) {
-    return "";
+    return '';
   }
 
   return `max-h-${value}`;
@@ -399,7 +373,7 @@ export function getMaxHeightClass(value: HeightSizeType): string {
 
 export function getWidthClass(value: WidthSizeType): string {
   if (!isNotEmptyString(value)) {
-    return "";
+    return '';
   }
 
   return `w-${value}`;
@@ -416,7 +390,7 @@ export function getWidthClass(value: WidthSizeType): string {
  * @return {Promise<any>} A promise that resolves to the parsed JSON object or an empty array on error.
  */
 export function parseJSONAsync(jsonString: string): Promise<any> {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     try {
       const result = JSON.parse(jsonString);
       resolve(result);
@@ -464,8 +438,8 @@ export interface PropDependencyCheck {
   /** The value of the required prop. */
   requiredProp: any;
 
-  /** 
-   * The name of the conditional prop that makes the required prop optional. 
+  /**
+   * The name of the conditional prop that makes the required prop optional.
    * If not provided or falsy, the required prop becomes mandatory.
    */
   conditionalPropName?: string;
@@ -473,8 +447,8 @@ export interface PropDependencyCheck {
   /** The value of the conditional prop. If this is truthy, the required prop may be omitted. */
   conditionalProp?: any;
 
-  /** 
-   * A custom error message to display if the validation fails. 
+  /**
+   * A custom error message to display if the validation fails.
    * If not provided, a default error message will be generated.
    */
   customErrorMessage?: string;
@@ -495,8 +469,7 @@ export function enforceRequiredPropsWhenConditionMissing(checks: PropDependencyC
 
     // If both the required and conditional props are missing or falsy, log a failure
     if (requiredPropIsMissing && (!isNotEmptyString(conditionalPropName) || conditionalPropIsMissing)) {
-      const errorMessage = customErrorMessage ||
-        `The "${requiredPropName}" prop is required when the "${conditionalPropName || 'condition'}" prop is not provided.`;
+      const errorMessage = customErrorMessage || `The "${requiredPropName}" prop is required when the "${conditionalPropName || 'condition'}" prop is not provided.`;
 
       failedValidations.push(errorMessage);
     }
@@ -541,8 +514,7 @@ export function enforceGroupedPropsUsage(checks: PropGroupCheck[]): void {
     if (groupHasValue && !groupIsComplete) {
       const missingProps = propNames.filter((_, index) => propValues[index] === undefined || propValues[index] === null || propValues[index] === '');
 
-      const errorMessage = customErrorMessage ||
-        `The following props must be used together: ${missingProps.join(', ')} are missing.`;
+      const errorMessage = customErrorMessage || `The following props must be used together: ${missingProps.join(', ')} are missing.`;
 
       failedValidations.push(errorMessage);
     }
@@ -560,14 +532,13 @@ export function enforceGroupedPropsUsage(checks: PropGroupCheck[]): void {
  * @returns {boolean} True if the string is not empty, false otherwise.
  */
 export function isNotEmptyString(s: string | null | undefined): boolean {
-  return typeof s === "string" && s.trim() !== '' && s !== null && s !== undefined;
+  return typeof s === 'string' && s.trim() !== '' && s !== null && s !== undefined;
 }
-
 
 export function isNotEmptyStringOrNumber(s: string | number | null | undefined): boolean {
   if (s === null || s === undefined) return false;
-  if (typeof s === "string") return s.trim() !== '';
-  if (typeof s === "number") return !isNaN(s);
+  if (typeof s === 'string') return s.trim() !== '';
+  if (typeof s === 'number') return !isNaN(s);
   return false;
 }
 
@@ -581,7 +552,7 @@ export function isNotEmptyStringOrNumber(s: string | number | null | undefined):
  * @param {T[]} validTypes - An array of valid types for the prop.
  * @param {string} propName - The name of the prop being validated.
  * @param {string} [componentName] - (Optional) The name of the component for a more descriptive error message.
- * 
+ *
  * @throws Will throw an error if the value is not found in the validTypes array.
  *
  * @example
@@ -607,10 +578,10 @@ export const isCSSStyleSheetSupported = (): boolean => {
 };
 
 /**
-* Checks if the browser supports `adoptedStyleSheets` on the `Document` object.
-* This property is used for Shadow DOM styling and is supported in some modern browsers.
-* @returns {boolean} True if the browser supports `adoptedStyleSheets`, false otherwise.
-*/
+ * Checks if the browser supports `adoptedStyleSheets` on the `Document` object.
+ * This property is used for Shadow DOM styling and is supported in some modern browsers.
+ * @returns {boolean} True if the browser supports `adoptedStyleSheets`, false otherwise.
+ */
 export const isAdoptedStyleSheetsSupported = (): boolean => {
   return isCSSStyleSheetSupported() && 'adoptedStyleSheets' in Document.prototype;
 };
@@ -627,11 +598,12 @@ export const isAdoptedStyleSheetsSupported = (): boolean => {
 export function generateRandomId(prefix?: string, length: number = 9, suffix?: string): string {
   const minLength = 4;
   const validLength = Math.max(length, minLength);
-  const randomString = Math.random().toString(36).slice(2, 2 + validLength);
+  const randomString = Math.random()
+    .toString(36)
+    .slice(2, 2 + validLength);
 
   return [prefix, randomString, suffix].filter(Boolean).join('-').trim();
 }
-
 
 /**
  * Generates a random color in hexadecimal format.
@@ -656,26 +628,28 @@ export const hasShadowDom = (el: HTMLElement) => {
 };
 
 /**
- * Checks if a named slot in an element contains any content.
+ * Efficiently checks if a named slot in an element contains any content.
  * Works for both Shadow DOM and Light DOM elements.
- * 
+ *
  * @param el - The element to check for slot content
  * @param slotName - The name of the slot to check
  * @returns {boolean} True if the slot contains content, false otherwise
  */
-export const hasSlotContent = (
-  { el, slotName, enableDebug = false }: { el: HTMLElement, slotName: string, enableDebug?: boolean }
-): boolean => {
-  if (hasShadowDom(el)) {
-    const slot = el.shadowRoot?.querySelector(`[slot="${slotName}"]`);
-    optionalDebugLog(enableDebug, `Shadow DOM: slot ${slotName} is ${!!slot}`);
-    return !!slot;
-  } else {
-    const slot = el.querySelector(`[slot="${slotName}"]`);
-    optionalDebugLog(enableDebug, `Light DOM: slot ${slotName} is ${!!slot}`);
-    return !!slot;
+export const hasSlotContent = ({ el, slotName }: { el: HTMLElement; slotName: string; }): boolean => {
+  const children = el.children;
+  
+  // optionalDebugLog(enableDebug, `hasSlotContent: Checking for slot content in ${el.tagName} with slotName ${slotName}.`);
+
+  for (let i = 0; i < children.length; i++) {
+    if (children[i].getAttribute('slot') === slotName) {
+      // optionalDebugLog(enableDebug, `hasSlotContent: Found slot content in ${el.tagName} with slotName ${slotName} in ${hasShadowDom(el) ? 'Shadow' : 'Light'} DOM.`);
+      return true;
+    }
   }
-}
+
+  // optionalDebugLog(enableDebug, `hasSlotContent: No slot content found in ${el.tagName} with slotName ${slotName} in ${hasShadowDom(el) ? 'Shadow' : 'Light'} DOM.`);
+  return false;
+};
 
 /**
  * Logs a message if the debug mode is enabled.
@@ -684,4 +658,4 @@ export const hasSlotContent = (
  */
 export const optionalDebugLog = (enableDebug: boolean, message: string): void => {
   if (enableDebug) console.log(message);
-}
+};

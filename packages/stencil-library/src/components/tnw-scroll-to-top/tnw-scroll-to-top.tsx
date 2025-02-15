@@ -2,8 +2,9 @@ import { Component, Host, Prop, State, Listen, Element, h, Event, EventEmitter }
 import { AppearanceType, BorderRadiusType, ColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-scroll-to-top-validate-props';
-import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported } from '../../utils/utils';
+import { GLOBAL_PREFIX } from '../../utils/utils';
 import { styles } from './tnw-scroll-to-top.styles';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-scroll-to-top` component provides a button that allows users to quickly scroll back to the top of the page.
@@ -20,7 +21,7 @@ import { styles } from './tnw-scroll-to-top.styles';
 })
 export class TnwScrollToTop {
   private baseClass = `${GLOBAL_PREFIX}-scroll-to-top`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwScrollToTopElement;
 
@@ -85,24 +86,23 @@ export class TnwScrollToTop {
   }
 
   constructor() {
-    if (isAdoptedStyleSheetsSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        this.componentStyles
-      ];
-    }
+    this.stylesHandler.applyStyles()
   }
 
   componentWillLoad() {
     validateProps([this.appearance, this.appearanceColor, this.borderRadius, this.color, this.customIconName, this.enableCustomSvgIcon, this.size]);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler (
+      this.el,
+      styles,
+      [extendedAppearanceStyleSheet, borderRadiusStyleSheet]
+    )
   }
 
   private handleVisibility(wasVisible: boolean): void {

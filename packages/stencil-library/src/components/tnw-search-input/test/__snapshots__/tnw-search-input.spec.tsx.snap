@@ -3,6 +3,206 @@
 exports[`tnw-search-input Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-search-input class="tnw-search-input tnw-search-input--icon-left tnw-search-input--w" input-id="test-input" value="" style="--tnw-search-input-width: 100%;">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    --tnw-search-input-p: 10px;
+    --tnw-search-input-pl-c: var(--tnw-placeholder-color);
+    --tnw-search-input-pl-foc-c: var(--tnw-placeholder-color);
+    --tnw-search-input-font: var(--tnw-font-text);
+    --tnw-search-input-transition: 0.3s ease-in-out;
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+
+:host(.tnw-search-input--w) {
+    width: var(--tnw-search-input-width);
+}
+
+:host(.tnw-search-input--expandable) {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.tnw-search-input__field--none {
+    border: 0;
+}
+
+.tnw-search-input__field--outlined {
+    outline-width: var(--tnw-border-sm);
+    outline-style: solid;
+    border: 0;
+    padding: var(--tnw-search-input-padding) calc(var(--tnw-search-input-padding) * 1.5);
+    background: none;
+}
+.tnw-search-input__field--outlined-primary {
+    outline-color: var(--tnw-primary-color);
+}
+.tnw-search-input__field--outlined-secondary {
+    outline-color: var(--tnw-secondary-color);
+}
+.tnw-search-input__field--outlined-auto {
+    outline-color: var(--tnw-border-color);
+}
+.tnw-search-input__field--outlined-inverse {
+    outline-color: var(--tnw-border-color-inverse);
+}
+.tnw-search-input__field--outlined-light {
+    outline-color: var(--tnw-border-color-opacity);
+}
+.tnw-search-input__field--outlined-white {
+    outline-color: var(--tnw-white);
+}
+.tnw-search-input__field--outlined-black {
+    outline-color: var(--tnw-black);
+}
+.tnw-search-input__field--outlined:focus {
+    outline-color: var(--tnw-primary-color);
+}
+
+.tnw-search-input__field--underlined {
+    border: 0;
+    outline-color: transparent;
+    padding-bottom: var(--tnw-search-input-padding);
+    background: none;
+}
+.tnw-search-input__field--underlined-primary {
+    border-bottom: var(--tnw-border-color);
+}
+.tnw-search-input__field--underlined-secondary {
+    border-bottom: var(--tnw-secondary-color);
+}
+.tnw-search-input__field--underlined-auto {
+    border-bottom: var(--tnw-border-color);
+}
+.tnw-search-input__field--underlined-inverse {
+    border-bottom: var(--tnw-border-color-inverse);
+}
+.tnw-search-input__field--underlined-light {
+    border-bottom: var(--tnw-border-color-opacity);
+}
+.tnw-search-input__field--underlined-white {
+    border-bottom: var(--tnw-white);
+}
+.tnw-search-input__field--underlined-black {
+    border-bottom: var(--tnw-black);
+}
+.tnw-search-input__field--underlined:focus,
+.tnw-search-input__field--underlined:focus-within,
+.tnw-search-input__field--underlined:focus-visible {
+    border-bottom-color: var(--tnw-primary-color);
+}
+.tnw-search-input__field--underlined:focus-visible {
+    outline-style: none;
+}
+
+
+::-webkit-input-placeholder {
+    font-family: var(--tnw-search-input-font);
+    color: var(--tnw-input-placeholder-color, var(--tnw-search-input-pl-c));
+    opacity: 1;
+}
+::-moz-placeholder {
+    font-family: var(--tnw-search-input-font);
+    color: var(--tnw-input-placeholder-color, var(--tnw-search-input-pl-c));
+    opacity: 1;
+}
+:-ms-input-placeholder {
+    font-family: var(--tnw-search-input-font);
+    color: var(--tnw-input-placeholder-color, var(--tnw-search-input-pl-c));
+    opacity: 1;
+}
+::placeholder {
+    font-family: var(--tnw-search-input-font);
+    color: var(--tnw-input-placeholder-color, var(--tnw-search-input-pl-c));
+    opacity: 1;
+}
+:focus::placeholder {
+    color: var(--tnw-input-placeholder-focus-color, var(--tnw-search-input-pl-foc-c));
+}
+
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+
+.tnw-search-input__field {
+    padding: var(--tnw-search-input-p) calc(var(--tnw-search-input-p) * 1.5);
+    width: 100%;
+    transition: all var(--tnw-search-input-transition);
+}
+.tnw-search-input__field--left {
+    padding-left: calc(var(--tnw-search-input-p) * 2 + 20px);
+}
+.tnw-search-input__field--right {
+    padding-right: calc(var(--tnw-search-input-p) * 2 + 20px);
+}
+
+.tnw-search-input__field--visible {
+    opacity: 1;
+    width: 100%;
+    visibility: visible;
+    padding-left: calc(var(--tnw-search-input-p) * 1.5) !important;
+
+}
+.tnw-search-input__field--invisible {
+    opacity: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.tnw-search-input__field--expandable {
+    outline-color: transparent;
+    border: 0;
+    background: none;
+    padding: 0;
+}
+
+/* Remove 'x' icon */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+input[type="search"]::-ms-clear,
+input[type="search"]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+
+.tnw-search-input__icon--pos {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.tnw-search-input__icon--pos.tnw-search-input__icon--left {
+    left: var(--tnw-search-input-p);
+}
+.tnw-search-input__icon--pos.tnw-search-input__icon--right {
+    right: var(--tnw-search-input-p);
+}
+    </style>
+    <style></style>
+    <style></style>
     <label class="sr-only" htmlfor="test-input">
       Search
     </label>

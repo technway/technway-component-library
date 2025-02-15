@@ -61,6 +61,7 @@ tnw-anchor::part(anchor) {
 }
     </style>
     <style></style>
+    <style></style>
     <div class="tnw-portfolio-grid__content tnw-portfolio-grid__content--spacing-sm" style="grid-template-columns: repeat(3, 1fr);">
       <div class="tnw-portfolio-grid__item">
         <tnw-image alt="An image" heightsize="full" objectfit="cover" src="image.jpg" widthsize="full"></tnw-image>

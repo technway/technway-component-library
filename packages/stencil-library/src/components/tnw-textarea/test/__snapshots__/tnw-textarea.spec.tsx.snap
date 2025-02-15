@@ -3,6 +3,158 @@
 exports[`tnw-textarea Default and Required Prop Behavior renders correctly with default values 1`] = `
 <tnw-textarea label="Default Textarea" placeholder="Enter text" textarea-id="test-textarea">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tnw-textarea-gap);
+  --tnw-textarea-padding: 10px;
+  --tnw-textarea-gap: 8px;
+  --tnw-input-success: var(--tnw-success-color);
+  --tnw-input-danger: var(--tnw-danger-color);
+  --tnw-input-warning: var(--tnw-warning-color);
+  --tnw-input-info: var(--tnw-info-color);
+  --tnw-textarea-pl-c: var(--tnw-placeholder-color);
+  --tnw-textarea-pl-foc-c: var(--tnw-placeholder-color);
+  --tnw-textarea-font: var(--tnw-font-text);
+}
+
+::-webkit-input-placeholder {
+  font-family: var(--tnw-textarea-font);
+  color: var(--tnw-input-placeholder-color, var(--tnw-textarea-pl-c));
+  opacity: 1;
+}
+::-moz-placeholder {
+  font-family: var(--tnw-textarea-font);
+  color: var(--tnw-input-placeholder-color, var(--tnw-textarea-pl-c));
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  font-family: var(--tnw-textarea-font);
+  color: var(--tnw-input-placeholder-color, var(--tnw-textarea-pl-c));
+  opacity: 1;
+}
+::placeholder {
+  font-family: var(--tnw-textarea-font);
+  color: var(--tnw-input-placeholder-color, var(--tnw-textarea-pl-c));
+  opacity: 1;
+}
+:focus::placeholder {
+  color: var(--tnw-input-placeholder-focus-color, var(--tnw-textarea-pl-foc-c));
+}
+
+.tnw-textarea {
+  min-height: 50px;
+}
+
+.tnw-textarea--outlined {
+  background: none;
+  outline-width: var(--tnw-border-sm);
+  outline-style: solid;
+  outline-color: var(--tnw-border-color);
+  border: 0;
+  padding: var(--tnw-textarea-padding) calc(var(--tnw-textarea-padding) * 1.5);
+  background: none;
+}
+.tnw-textarea--outlined:focus {
+  outline-color: var(--tnw-primary-color);
+}
+
+.tnw-textarea--underlined {
+  border: 0;
+  border-bottom: var(--tnw-border-sm) solid var(--tnw-border-color);
+  outline-color: transparent;
+  padding-bottom: var(--tnw-textarea-padding);
+  background: none;
+}
+.tnw-textarea--underlined:focus,
+.tnw-textarea--underlined:focus-within,
+.tnw-textarea--underlined:focus-visible {
+  border-bottom-color: var(--tnw-primary-color);
+}
+.tnw-textarea--underlined:focus-visible {
+  outline-style: none;
+}
+
+.tnw-textarea--success {
+  outline-color: var(--tnw-input-success);
+  border-bottom-color: var(--tnw-primary-success);
+}
+.tnw-textarea--success:focus,
+.tnw-textarea--success:focus-within,
+.tnw-textarea--success:focus-visible {
+  outline-color: var(--tnw-input-success);
+  border-bottom-color: var(--tnw-primary-success);
+}
+
+.tnw-textarea--danger {
+  outline-color: var(--tnw-input-danger);
+  border-bottom-color: var(--tnw-primary-danger);
+}
+.tnw-textarea--danger:focus,
+.tnw-textarea--danger:focus-within,
+.tnw-textarea--danger:focus-visible {
+  outline-color: var(--tnw-input-danger);
+  border-bottom-color: var(--tnw-primary-danger);
+}
+
+.tnw-textarea--warning {
+  outline-color: var(--tnw-input-warning);
+  border-bottom-color: var(--tnw-primary-warning);
+}
+.tnw-textarea--warning:focus,
+.tnw-textarea--warning:focus-within,
+.tnw-textarea--warning:focus-visible {
+  outline-color: var(--tnw-input-warning);
+  border-bottom-color: var(--tnw-primary-warning);
+}
+
+.tnw-textarea--info {
+  outline-color: var(--tnw-input-info);
+  border-bottom-color: var(--tnw-primary-info);
+}
+.tnw-textarea--info:focus,
+.tnw-textarea--info:focus-within,
+.tnw-textarea--info:focus-visible {
+  outline-color: var(--tnw-input-info);
+  border-bottom-color: var(--tnw-primary-info);
+}
+
+.tnw-textarea--resize-none {
+  resize: none;
+}
+.tnw-textarea--resize-horizontal {
+  resize: horizontal;
+}
+.tnw-textarea--resize-vertical {
+  resize: vertical;
+}
+.tnw-textarea--resize-both {
+  resize: both;
+}
+
+.tnw-textarea--disabled {
+  opacity: 0.7;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+    </style>
+    <style></style>
+    <style></style>
     <tnw-label htmlfor="test-textarea" part="label" text="Default Textarea"></tnw-label><textarea aria-describedby="" aria-labelledby="test-textarea" autocomplete="" class="rounded-default tnw-textarea tnw-textarea--outlined tnw-textarea--resize-vertical" id="test-textarea" part="textarea" placeholder="Enter text" rows="3" value=""></textarea>
   </template>
 </tnw-textarea>

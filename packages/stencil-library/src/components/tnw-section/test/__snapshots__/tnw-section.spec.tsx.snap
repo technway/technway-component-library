@@ -3,6 +3,153 @@
 exports[`tnw-section Default and Required Prop Behavior renders correctly with default props 1`] = `
 <tnw-section class="tnw-section tnw-section--margin-none tnw-section--padding-block-xl">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    display: block;
+
+    --tnw-section-spacing-xs: var(--tnw-spacing-xs);
+    --tnw-section-spacing-sm: var(--tnw-spacing-sm);
+    --tnw-section-spacing-md: var(--tnw-spacing-md);
+    --tnw-section-spacing-lg: var(--tnw-spacing-lg);
+    --tnw-section-spacing-xl: var(--tnw-spacing-xl);
+    --tnw-section-spacing-2xl: var(--tnw-spacing-2xl);
+    --tnw-section-spacing-3xl: var(--tnw-spacing-3xl);
+    --tnw-section-spacing-4xl: var(--tnw-spacing-4xl);
+}
+:host(.tnw-section--glassmorphism) {
+    background: linear-gradient(to top, rgba(var(--tnw-background-color-inverse-rgb), 0.025), rgba(var(--tnw-background-color-inverse-rgb), 0)) !important;
+}
+
+:host(.tnw-section--first) {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+:host(.tnw-section--last) {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+    
+/* Paddings Block */
+:host(.tnw-section--padding-block-xs) {
+    padding-block: var(--tnw-section-spacing-xs);
+}
+:host(.tnw-section--padding-block-sm) {
+    padding-block: var(--tnw-section-spacing-sm);
+}
+:host(.tnw-section--padding-block-md) {
+    padding-block: var(--tnw-section-spacing-md);
+}
+:host(.tnw-section--padding-block-lg) {
+    padding-block: var(--tnw-section-spacing-lg);
+}
+:host(.tnw-section--padding-block-xl) {
+    padding-block: var(--tnw-section-spacing-xl);
+}
+:host(.tnw-section--padding-block-2xl) {
+    padding-block: var(--tnw-section-spacing-2xl);
+}
+:host(.tnw-section--padding-block-3xl) {
+    padding-block: var(--tnw-section-spacing-3xl);
+}
+:host(.tnw-section--padding-block-4xl) {
+    padding-block: var(--tnw-section-spacing-4xl);
+}
+    
+/* Paddings Inline */
+:host(.tnw-section--padding-inline-xs) {
+    padding-inline: var(--tnw-section-spacing-xs);
+}
+:host(.tnw-section--padding-inline-sm) {
+    padding-inline: var(--tnw-section-spacing-sm);
+}
+:host(.tnw-section--padding-inline-md) {
+    padding-inline: var(--tnw-section-spacing-md);
+}
+:host(.tnw-section--padding-inline-lg) {
+    padding-inline: var(--tnw-section-spacing-lg);
+}
+:host(.tnw-section--padding-inline-xl) {
+    padding-inline: var(--tnw-section-spacing-xl);
+}
+:host(.tnw-section--padding-inline-2xl) {
+    padding-inline: var(--tnw-section-spacing-2xl);
+}
+:host(.tnw-section--padding-inline-3xl) {
+    padding-inline: var(--tnw-section-spacing-3xl);
+}
+:host(.tnw-section--padding-inline-4xl) {
+    padding-inline: var(--tnw-section-spacing-4xl);
+}
+    
+/* Margins */
+:host(.tnw-section--margin-xs) {
+    margin-block: var(--tnw-section-spacing-xs);
+}
+:host(.tnw-section--margin-sm) {
+    margin-block: var(--tnw-section-spacing-sm);
+}
+:host(.tnw-section--margin-md) {
+    margin-block: var(--tnw-section-spacing-md);
+}
+:host(.tnw-section--margin-lg) {
+    margin-block: var(--tnw-section-spacing-lg);
+}
+:host(.tnw-section--margin-xl) {
+    margin-block: var(--tnw-section-spacing-xl);
+}
+:host(.tnw-section--margin-2xl) {
+    margin-block: var(--tnw-section-spacing-2xl);
+}
+:host(.tnw-section--margin-3xl) {
+    margin-block: var(--tnw-section-spacing-3xl);
+}
+:host(.tnw-section--margin-4xl) {
+    margin-block: var(--tnw-section-spacing-4xl);
+}
+    
+.tnw-section__content {
+    display: flex;
+    flex-direction: column;
+}
+/* Spacings */
+.tnw-section__content--spacing-xs {
+    gap: var(--tnw-section-spacing-xs);
+}
+.tnw-section__content--spacing-sm {
+    gap: var(--tnw-section-spacing-sm);
+}
+.tnw-section__content--spacing-md {
+    gap: var(--tnw-section-spacing-md);
+}
+.tnw-section__content--spacing-lg {
+    gap: var(--tnw-section-spacing-lg);
+}
+.tnw-section__content--spacing-xl {
+    gap: var(--tnw-section-spacing-xl);
+}
+
+.tnw-section__content--start {
+    text-align: start;
+    align-items: start;
+    justify-content: start;
+}
+.tnw-section__content--center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.tnw-section__content--end {
+    text-align: end;
+    align-items: end;
+    justify-content: end;
+}
+    </style>
+    <style></style>
+    <style></style>
     <section class="container tnw-section__content tnw-section__content--spacing-md tnw-section__content--start" part="section">
       <slot name="header"></slot>
       <slot name="body"></slot>

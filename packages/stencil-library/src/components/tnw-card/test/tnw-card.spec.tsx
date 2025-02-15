@@ -38,13 +38,14 @@ describe('tnw-card', () => {
         </tnw-card>`
       ) as HTMLTnwCardElement;
 
-      const imageSlot = queryElement(host, '[slot="image"]', false);
-      const badgeSlot = queryElement(host, '[slot="badge"]', false);
-      const dateSlot = queryElement(host, '[slot="date"]', false);
-      const headingSlot = queryElement(host, '[slot="heading"]', false);
-      const subheadingSlot = queryElement(host, '[slot="subheading"]', false);
-      const descriptionSlot = queryElement(host, '[slot="description"]', false);
-      const buttonSlot = queryElement(host, '[slot="button"]', false);
+      // Check Slots theirselves
+      const imageSlot = queryElement(host, 'slot[name="image"]');
+      const badgeSlot = queryElement(host, 'slot[name="badge"]');
+      const dateSlot = queryElement(host, 'slot[name="date"]');
+      const headingSlot = queryElement(host, 'slot[name="heading"]');
+      const subheadingSlot = queryElement(host, 'slot[name="subheading"]');
+      const descriptionSlot = queryElement(host, 'slot[name="description"]');
+      const buttonSlot = queryElement(host, 'slot[name="button"]');
 
       expect(imageSlot).not.toBeNull();
       expect(badgeSlot).not.toBeNull();
@@ -53,6 +54,23 @@ describe('tnw-card', () => {
       expect(subheadingSlot).not.toBeNull();
       expect(descriptionSlot).not.toBeNull();
       expect(buttonSlot).not.toBeNull();
+
+      // Check Slots Content
+      const imageSlotContent = queryElement(host, '[slot="image"]', false);
+      const badgeSlotContent = queryElement(host, '[slot="badge"]', false);
+      const dateSlotContent = queryElement(host, '[slot="date"]', false);
+      const headingSlotContent = queryElement(host, '[slot="heading"]', false);
+      const subheadingSlotContent = queryElement(host, '[slot="subheading"]', false);
+      const descriptionSlotContent = queryElement(host, '[slot="description"]', false);
+      const buttonSlotContent = queryElement(host, '[slot="button"]', false);
+
+      expect(imageSlotContent).not.toBeNull();
+      expect(badgeSlotContent).not.toBeNull();
+      expect(dateSlotContent).not.toBeNull();
+      expect(headingSlotContent).not.toBeNull();
+      expect(subheadingSlotContent).not.toBeNull();
+      expect(descriptionSlotContent).not.toBeNull();
+      expect(buttonSlotContent).not.toBeNull();
     });
   });
 
@@ -62,6 +80,7 @@ describe('tnw-card', () => {
       `<tnw-card></tnw-card>`
     ) as HTMLTnwCardElement;
 
+    // Check Slots Contents in Shadow DOM
     const imageSlot = queryElement(host, 'slot[name="image"]');
     const badgeSlot = queryElement(host, 'slot[name="badge"]');
     const dateSlot = queryElement(host, 'slot[name="date"]');
@@ -77,6 +96,23 @@ describe('tnw-card', () => {
     expect(subheadingSlot).toBeNull();
     expect(descriptionSlot).toBeNull();
     expect(buttonSlot).toBeNull();
+
+    // Check Slots Contents in Light DOM
+    const imageSlotLightDom = queryElement(host, 'slot[name="image"]', false);
+    const badgeSlotLightDom = queryElement(host, 'slot[name="badge"]', false);
+    const dateSlotLightDom = queryElement(host, 'slot[name="date"]', false);
+    const headingSlotLightDom = queryElement(host, 'slot[name="heading"]', false);
+    const subheadingSlotLightDom = queryElement(host, 'slot[name="subheading"]', false);
+    const descriptionSlotLightDom = queryElement(host, 'slot[name="description"]', false);
+    const buttonSlotLightDom = queryElement(host, 'slot[name="button"]', false);
+
+    expect(imageSlotLightDom).toBeNull();
+    expect(badgeSlotLightDom).toBeNull();
+    expect(dateSlotLightDom).toBeNull();
+    expect(headingSlotLightDom).toBeNull();
+    expect(subheadingSlotLightDom).toBeNull();
+    expect(descriptionSlotLightDom).toBeNull();
+    expect(buttonSlotLightDom).toBeNull();
   });
 
   describe('Custom Prop Behavior', () => {

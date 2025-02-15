@@ -41,6 +41,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [3.11.2](https://github.com/technway/technway-component-library/compare/root-v3.11.1...root-v3.11.2) (2025-02-15)
+
+
+### Bug Fixes
+
+* **styles:** add fallback for Constructed Stylesheets (closes [#17](https://github.com/technway/technway-component-library/issues/17)) ([3584d31](https://github.com/technway/technway-component-library/commit/3584d31f107ab6e98a88a988bde59f55f6dfb472))
+* **tnw-card:** ensure slots render correctly when used ([#101](https://github.com/technway/technway-component-library/issues/101)) ([f07eb70](https://github.com/technway/technway-component-library/commit/f07eb70d63f92053cb2802149e9fe5d75914078d))
+
 ## [3.11.1](https://github.com/technway/technway-component-library/compare/root-v3.11.0...root-v3.11.1) (2025-02-13)
 
 

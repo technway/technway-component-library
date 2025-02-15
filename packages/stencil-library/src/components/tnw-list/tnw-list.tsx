@@ -4,8 +4,8 @@ import { styles } from './tnw-list.styles';
 import { validateProps } from './utils/tnw-list-validate-props';
 import { FontSizeType, FontWeightType, LineHeightType, TextColorType, TextTransformType } from '../../utils/component-props-types';
 import { colorStyleSheet, typographyStyleSheet } from '../../utils/shared-styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { TnwListData, TnwListItem } from './utils/tnw-list-data-types';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-list` component is a customizable list element supporting both ordered and unordered styles.
@@ -21,7 +21,7 @@ import { TnwListData, TnwListItem } from './utils/tnw-list-data-types';
 })
 export class TnwList {
   private baseClass = `${GLOBAL_PREFIX}-list`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwListElement;
 
@@ -63,26 +63,26 @@ export class TnwList {
   @Prop() lineHeight?: LineHeightType = "1_75";
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        typographyStyleSheet,
-        colorStyleSheet,
-        this.componentStyles,
-      ]
-    }
+    this.stylesHandler.applyStyles();
   }
 
   async componentWillLoad() {
     this.parsedData = await parseJSONAsync(this.listData);
 
     validateProps([this.color, this.lineHeight, this.listData, this.markerPosition, this.size, this.textCase, this.weight]);
+  }
+
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler (
+
+      this.el,
+      styles,
+      [typographyStyleSheet, colorStyleSheet]
+    )
   }
 
   private getMarkerTypeClasses(baseClass: string, markerType?: string, listTag?: string): string {

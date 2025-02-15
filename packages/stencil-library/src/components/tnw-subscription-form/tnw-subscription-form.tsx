@@ -1,10 +1,11 @@
 import { Component, Element, Host, Prop, h } from '@stencil/core';
 import { BorderRadiusType } from '../../components';
 import { ColorType } from '../../utils/component-props-types';
-import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX } from '../../utils/utils';
 import { styles } from './tnw-subscription-form.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet, fontFamilyStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-subscription-form-validate-props';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-subscription-form` component provides a customizable subscription form.
@@ -15,7 +16,7 @@ import { validateProps } from './utils/tnw-subscription-form-validate-props';
 })
 export class TnwSubscriptionForm {
   private baseClass = `${GLOBAL_PREFIX}-subscription-form`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwSubscriptionFormElement;
 
@@ -77,25 +78,23 @@ export class TnwSubscriptionForm {
   @Prop() formAttributes?: string;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        extendedAppearanceStyleSheet,
-        borderRadiusStyleSheet,
-        fontFamilyStyleSheet,
-        this.componentStyles
-      ];
-    }
+    this.stylesHandler.applyStyles()
   }
 
   componentWillLoad() {
     validateProps([this.borderRadius, this.buttonLabel, this.enableButtonSlot, this.formAction, this.formAttributes, this.formMethod, this.inputId, this.inputPlaceholder, this.successMessage, this.theme, this.variant]);
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [extendedAppearanceStyleSheet, borderRadiusStyleSheet, fontFamilyStyleSheet]
+    );
   }
 
   /**

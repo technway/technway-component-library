@@ -1,5 +1,5 @@
 import { Component, Host, Prop, Element, h, Event, EventEmitter, Method } from '@stencil/core';
-import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { GLOBAL_PREFIX } from '../../utils/utils';
 import { validateProps } from './utils/tnw-rows-carousel-validate-props';
 import { styles } from './tnw-rows-carousel.style';
 import { isValuePositive } from '../../utils/component-validations';

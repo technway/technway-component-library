@@ -1,5 +1,5 @@
 import { Component, Element, Host, Prop, h } from '@stencil/core';
-import { getDirectionalAppearanceClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { getDirectionalAppearanceClass, GLOBAL_PREFIX } from '../../utils/utils';
 import { DirectionalAppearanceType, ExtendedSizeType } from '../../utils/component-props-types';
 import { ColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-section.styles';

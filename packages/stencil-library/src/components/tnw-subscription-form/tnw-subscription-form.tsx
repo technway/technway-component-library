@@ -1,7 +1,7 @@
 import { Component, Element, Host, Prop, h } from '@stencil/core';
 import { BorderRadiusType } from '../../components';
 import { ColorType } from '../../utils/component-props-types';
-import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX } from '../../utils/utils';
 import { styles } from './tnw-subscription-form.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet, fontFamilyStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-subscription-form-validate-props';

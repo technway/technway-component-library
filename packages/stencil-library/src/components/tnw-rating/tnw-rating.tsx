@@ -4,7 +4,6 @@ import { styles } from './tnw-rating.styles';
 import { ColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { colorStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-rating-validate-props';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { StyleHandler } from '../../utils/style-handler';
 
 /**

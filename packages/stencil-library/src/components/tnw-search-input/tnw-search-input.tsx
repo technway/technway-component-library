@@ -2,7 +2,6 @@ import { Component, Prop, Host, h, Element, State, Event, EventEmitter, Watch } 
 import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { borderRadiusStyleSheet, colorStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { BorderRadiusType, ColorType, TextColorType } from '../../utils/component-props-types';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import styles from './tnw-search-input.style';
 import { validateProps } from './utils/tnw-search-input-validate-props';
 import { StyleHandler } from '../../utils/style-handler';

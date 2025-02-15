@@ -2,7 +2,7 @@ import { Component, Host, Prop, State, Listen, Element, h, Event, EventEmitter }
 import { AppearanceType, BorderRadiusType, ColorType, ExtendedSizeType } from '../../utils/component-props-types';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-scroll-to-top-validate-props';
-import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported } from '../../utils/utils';
+import { GLOBAL_PREFIX } from '../../utils/utils';
 import { styles } from './tnw-scroll-to-top.styles';
 import { StyleHandler } from '../../utils/style-handler';
 

@@ -1,6 +1,6 @@
 import { Component, Element, Host, Prop, h, Event, EventEmitter, Watch, State } from '@stencil/core';
 import { SizeType, BorderRadiusType, ColorType, OptionalAppearanceType } from '../../utils/component-props-types';
-import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, isValidStringifiedJSON, parseJSONAsync } from '../../utils/utils';
+import { getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString, isValidStringifiedJSON, parseJSONAsync } from '../../utils/utils';
 import { styles } from './tnw-navbar.style';
 import { appearanceColorSheet, borderRadiusStyleSheet, containerStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';
 import { validateProps } from './utils/tnw-navbar-validate-props';

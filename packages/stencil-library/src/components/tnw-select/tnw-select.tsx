@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, State, Event, EventEmitter, Element, Method, Watch } from '@stencil/core';
-import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString, parseJSONAsync, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString, parseJSONAsync } from '../../utils/utils';
 import { styles } from './tnw-select.styles';
 import { BorderRadiusType, ExtendedColorType } from '../../utils/component-props-types';
 import { TnwSelectOption } from './utils/tnw-select-data-types';

@@ -1,5 +1,5 @@
 import { Component, Host, Prop, h, State, Element, Event, EventEmitter } from '@stencil/core';
-import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { createStore } from '@stencil/store';
 import { BorderRadiusType } from '../../utils/component-props-types';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';

@@ -4,7 +4,6 @@ import { getColorClass, getTextTransformClass, getTypographyClass, GLOBAL_PREFIX
 import { validateProps } from './utils/tnw-text-validate-props';
 import { colorStyleSheet, typographyStyleSheet } from '../../utils/shared-styles';
 import { styles } from './tnw-text.styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { validateHighlightText } from '../../utils/component-validations';
 import { StyleHandler } from '../../utils/style-handler';
 

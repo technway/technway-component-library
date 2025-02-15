@@ -1,5 +1,5 @@
 import { Component, Element, Host, Prop, State, Watch, h } from '@stencil/core';
-import { GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString, isNotEmptyStringOrNumber, isValidStringifiedJSON, parseJSONAsync } from '../../utils/utils';
+import { GLOBAL_PREFIX, isNotEmptyString, isNotEmptyStringOrNumber, isValidStringifiedJSON, parseJSONAsync } from '../../utils/utils';
 import { styles } from './tnw-portfolio-grid.style';
 import { TnwPortfolioGridItem } from './utils/types';
 import { ExtendedSizeType } from '../../components';

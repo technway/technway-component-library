@@ -1,5 +1,5 @@
 import { Component, Host, Prop, Element, h } from '@stencil/core';
-import { generateRandomColor, getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported, isNotEmptyString } from '../../utils/utils';
+import { generateRandomColor, getAppearanceClass, getBorderRadiusClass, GLOBAL_PREFIX, isNotEmptyString } from '../../utils/utils';
 import { ColorType, BorderRadiusType, OptionalAppearanceType, SizeType } from '../../utils/component-props-types';
 import { styles } from './tnw-testimonial-card.style';
 import { borderRadiusStyleSheet, extendedAppearanceStyleSheet } from '../../utils/shared-styles';

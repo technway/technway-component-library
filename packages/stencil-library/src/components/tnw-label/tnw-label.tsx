@@ -4,7 +4,6 @@ import { TextColorType, SizeType, FontWeightType, TextTransformType } from '../.
 import { GLOBAL_PREFIX, getColorClass, getTypographyClass, getTextTransformClass } from '../../utils/utils';
 import { styles } from './tnw-label.styles';
 import { validateProps } from './utils/tnw-label-validate-props';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { StyleHandler } from '../../utils/style-handler';
 
 /**

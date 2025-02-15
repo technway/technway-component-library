@@ -4,7 +4,6 @@ import { styles } from './tnw-list.styles';
 import { validateProps } from './utils/tnw-list-validate-props';
 import { FontSizeType, FontWeightType, LineHeightType, TextColorType, TextTransformType } from '../../utils/component-props-types';
 import { colorStyleSheet, typographyStyleSheet } from '../../utils/shared-styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { TnwListData, TnwListItem } from './utils/tnw-list-data-types';
 import { StyleHandler } from '../../utils/style-handler';
 

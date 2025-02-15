@@ -3,6 +3,82 @@
 exports[`tnw-subscription-form Default and Required Prop Behavior renders with default props 1`] = `
 <tnw-subscription-form input-id="test-input">
   <template shadowrootmode="open">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+    
+:host {
+    box-sizing: border-box;
+    display: block;
+}
+
+.tnw-subscription-form {
+    display: flex;
+    position: relative;
+    width: 100%;
+    gap: 6px;
+}
+
+.tnw-subscription-form--button-outside {
+    align-items: stretch;
+}
+
+.tnw-subscription-form--button-inside {
+    border-width: 1px;
+    border-style: solid;
+    align-items: center;
+    padding-block: 6px;
+    padding-inline-start: 18px;
+    padding-inline-end: 6px;
+}
+.tnw-subscription-form--button-inside:focus-within {
+    border-color: var(--tnw-primary-color);
+    outline: 1px solid var(--tnw-primary-color);
+}
+
+.tnw-subscription-form--primary {
+    border-color: var(--tnw-primary-color);
+}
+.tnw-subscription-form--secondary {
+    border-color: var(--tnw-secondary-color);
+}
+.tnw-subscription-form--auto {
+    border-color: var(--tnw-border-color);
+}
+.tnw-subscription-form--inverse {
+    border-color: var(--tnw-border-color-inverse);
+}
+.tnw-subscription-form--light {
+    border-color: var(--tnw-border-color-opacity);
+}
+.tnw-subscription-form--white {
+    border-color: var(--tnw-white);
+}
+.tnw-subscription-form--black {
+    border-color: var(--tnw-black);
+}
+
+.tnw-subscription-form--button-inside {
+    position: relative;
+    min-width: 250px;
+}
+
+tnw-input {
+    width: 100%;
+}
+.tnw-subscription-form--button-inside tnw-input {
+    display: flex;
+    align-items: center;
+}
+.tnw-subscription-form--button-inside tnw-input::part(input) {
+    width: 100%;
+    border: 0;
+    outline-color: transparent;
+}
+    </style>
+    <style></style>
+    <style></style>
     <form class="tnw-subscription-form tnw-subscription-form--button-outside">
       <tnw-input appearance="outlined" appearancecolor="primary" borderradius="default" inputid="test-input" islabelsronly="" isrequired="" label="Enter your email" part="input" placeholder="Enter your email" size="md" type="email"></tnw-input>
       <tnw-button appearance="solid" appearancecolor="primary" borderradius="default" hovereffect="contrast" label="Subscribe" part="button" size="md"></tnw-button>

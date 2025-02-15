@@ -4,7 +4,7 @@ import { TextColorType, SizeType, FontWeightType, TextTransformType } from '../.
 import { GLOBAL_PREFIX, getColorClass, getTypographyClass, getTextTransformClass } from '../../utils/utils';
 import { styles } from './tnw-label.styles';
 import { validateProps } from './utils/tnw-label-validate-props';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-label` component is used to create a text label for a form element like an input or a textarea.
@@ -18,7 +18,7 @@ import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../u
 })
 export class TnwLabel {
   private baseClass: string = `${GLOBAL_PREFIX}-label`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwLabelElement;
 
@@ -58,25 +58,23 @@ export class TnwLabel {
   @Prop() isSrOnly?: boolean = false;
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles();
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        fontWeightStyleSheet,
-        colorStyleSheet,
-        textTransformStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
     validateProps([this.color, this.htmlFor, this.isSrOnly, this.size, this.text, this.textCase, this.weight]);
+  }
+
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler(
+      this.el,
+      styles,
+      [fontWeightStyleSheet, colorStyleSheet, textTransformStyleSheet]
+    )
   }
 
   private getClasses(): string {

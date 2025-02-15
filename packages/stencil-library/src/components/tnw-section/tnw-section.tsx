@@ -1,10 +1,11 @@
 import { Component, Element, Host, Prop, h } from '@stencil/core';
-import { getDirectionalAppearanceClass, GLOBAL_PREFIX, isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
+import { getDirectionalAppearanceClass, GLOBAL_PREFIX } from '../../utils/utils';
 import { DirectionalAppearanceType, ExtendedSizeType } from '../../utils/component-props-types';
 import { ColorType } from '../../utils/component-props-types';
 import { styles } from './tnw-section.styles';
 import { validateProps } from './utils/tnw-section-validate-props';
 import { containerStyleSheet } from '../../utils/shared-styles';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-section` component is a layout container that wraps content such as headers, bodies, and footers.
@@ -23,7 +24,7 @@ import { containerStyleSheet } from '../../utils/shared-styles';
 })
 export class TnwSection {
   private baseClass = `${GLOBAL_PREFIX}-section`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwSectionElement;
 
@@ -78,23 +79,23 @@ export class TnwSection {
   @Prop() alignment?: "start" | "center" | "end" = "start";
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles);
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        containerStyleSheet,
-        this.componentStyles
-      ];
-    }
+    this.stylesHandler.applyStyles();
   }
 
   componentWillLoad() {
     validateProps([this.alignment, this.appearance, this.appearanceColor, this.disableInternalContainer, this.isFirstSection, this.isLastSection, this.margin, this.padding, this.spacing, this.useGlassmorphismEffect]);
+  }
+
+  private initializeStyles () {
+    this.stylesHandler = new StyleHandler (
+      this.el,
+      styles,
+      [containerStyleSheet]
+    )
   }
 
   private getHostClasses() {

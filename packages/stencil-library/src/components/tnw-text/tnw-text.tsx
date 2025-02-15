@@ -4,8 +4,8 @@ import { getColorClass, getTextTransformClass, getTypographyClass, GLOBAL_PREFIX
 import { validateProps } from './utils/tnw-text-validate-props';
 import { colorStyleSheet, typographyStyleSheet } from '../../utils/shared-styles';
 import { styles } from './tnw-text.styles';
-import { isAdoptedStyleSheetsSupported, isCSSStyleSheetSupported } from '../../utils/utils';
 import { validateHighlightText } from '../../utils/component-validations';
+import { StyleHandler } from '../../utils/style-handler';
 
 /**
  * The `tnw-text` component is used to display descriptive text with customizable styling options. 
@@ -22,7 +22,7 @@ import { validateHighlightText } from '../../utils/component-validations';
 })
 export class TnwText {
   private baseClass: string = `${GLOBAL_PREFIX}-text`;
-  private componentStyles: CSSStyleSheet;
+  private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwTextElement;
 
@@ -97,20 +97,11 @@ export class TnwText {
   @Prop() displayMode: "block" | "inline-block" | "inline" = "block";
 
   constructor() {
-    if (isCSSStyleSheetSupported()) {
-      this.componentStyles = new CSSStyleSheet();
-      this.componentStyles.replaceSync(styles)
-    }
+    this.initializeStyles()
   }
 
   connectedCallback() {
-    if (isAdoptedStyleSheetsSupported()) {
-      (this.el.shadowRoot as any).adoptedStyleSheets = [
-        typographyStyleSheet,
-        colorStyleSheet,
-        this.componentStyles,
-      ];
-    }
+    this.stylesHandler.applyStyles()
   }
 
   componentWillLoad() {
@@ -119,6 +110,14 @@ export class TnwText {
     if (isNotEmptyStringOrNumber(this.highlight)) {
       validateHighlightText(this.text as string, this.highlight as string);
     }
+  }
+
+  private initializeStyles() {
+    this.stylesHandler = new StyleHandler (
+      this.el,
+      styles,
+      [typographyStyleSheet, colorStyleSheet]
+    )
   }
 
   private getHostClasses(): string {

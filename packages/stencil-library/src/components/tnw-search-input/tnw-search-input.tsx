@@ -130,6 +130,11 @@ export class TnwSearchInput {
   @Event() tnwInputChangedOnChange: EventEmitter<string>;
 
   /**
+   * Event emitted when the Enter key is pressed. The event's payload contains the current input value.
+   */
+  @Event() tnwInputSubmit: EventEmitter<string>;
+
+  /**
    * Event emitted when the input receives focus.
    */
   @Event() tnwInputFocused: EventEmitter<void>;
@@ -196,6 +201,19 @@ export class TnwSearchInput {
     const input = event.target as HTMLInputElement;
     const value: string = input.value;
     this.tnwInputChangedOnChange.emit(value);
+  }
+
+  /**
+   * Handles the keydown event for the input.
+   * Emits the submit event when Enter key is pressed.
+   * 
+   * @param event - The keyboard event.
+   */
+  private handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      const input = event.target as HTMLInputElement;
+      this.tnwInputSubmit.emit(input.value);
+    }
   }
 
   /**
@@ -311,6 +329,7 @@ export class TnwSearchInput {
           placeholder={this.placeholder}
           onInput={this.handleInputOnType}
           onChange={this.handleInputOnChange}
+          onKeyDown={this.handleKeyDown}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
           part='input'

@@ -233,6 +233,45 @@ describe('tnw-search-input', () => {
       expect(spy).toHaveBeenCalledTimes(1);
     });
 
+    it('emits tnwInputSubmit when Enter key is pressed', async () => {
+      const page = await newSpecPage({
+        components: [TnwSearchInput],
+        html: `<tnw-search-input value="test value"></tnw-search-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwInputSubmit', spy);
+
+      // Simulate Enter key press
+      const enterKeyEvent = new KeyboardEvent('keydown', { key: 'Enter' });
+      inputElement.dispatchEvent(enterKeyEvent);
+
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledWith(expect.objectContaining({ detail: 'test value' }));
+    });
+
+    it('does not emit tnwInputSubmit when other keys are pressed', async () => {
+      const page = await newSpecPage({
+        components: [TnwSearchInput],
+        html: `<tnw-search-input value="test value"></tnw-search-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwInputSubmit', spy);
+
+      // Simulate Space key press
+      const spaceKeyEvent = new KeyboardEvent('keydown', { key: 'Space' });
+      inputElement.dispatchEvent(spaceKeyEvent);
+
+      await page.waitForChanges();
+
+      expect(spy).not.toHaveBeenCalled();
+    });
+
     it('handles focus and blur events in sequence', async () => {
       const page = await newSpecPage({
         components: [TnwSearchInput],

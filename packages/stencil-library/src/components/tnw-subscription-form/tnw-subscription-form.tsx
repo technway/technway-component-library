@@ -1,4 +1,4 @@
-import { Component, Element, Host, Prop, h } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Host, Prop, State, h } from '@stencil/core';
 import { BorderRadiusType } from '../../components';
 import { ColorType } from '../../utils/component-props-types';
 import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX } from '../../utils/utils';
@@ -19,6 +19,15 @@ export class TnwSubscriptionForm {
   private stylesHandler: StyleHandler;
 
   @Element() el!: HTMLTnwSubscriptionFormElement;
+
+  /************************ States ************************/
+
+  /**
+   * Internal state for form validation and values
+   */
+  @State() emailValue: string = '';
+
+  /************************ Props ************************/
 
   /**
    * The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.
@@ -77,6 +86,48 @@ export class TnwSubscriptionForm {
    */
   @Prop() formAttributes?: string;
 
+  /**
+   * Whether the form is in loading state
+   */
+  @Prop() loading?: boolean = false;
+
+  /**
+   * Whether to disable the form
+   */
+  @Prop() disabled?: boolean = false;
+
+  /************************ Events ************************/
+
+  /**
+   * Event emitted when form is submitted with valid email
+   */
+  @Event() tnwSubscribe: EventEmitter<{ email: string }>;
+
+  /**
+   * Event emitted when form submission fails
+   */
+  @Event() tnwError: EventEmitter<{ message: string }>;
+
+  /**
+   * Event emitted when the input value changes onChange. The event's payload contains the new value.
+   */
+  @Event() tnwChangedOnChange: EventEmitter<string>;
+
+  /**
+   * Event emitted when the input value changes onInput. The event's payload contains the new value.
+   */
+  @Event() tnwChangedOnInput: EventEmitter<string>;
+
+  /**
+   * Event emitted when the input receives focus.
+   */
+  @Event() tnwFocused!: EventEmitter<void>;
+
+  /**
+   * Event emitted when the input loses focus.
+   */
+  @Event() tnwBlurred!: EventEmitter<void>;
+
   constructor() {
     this.initializeStyles()
   }
@@ -121,12 +172,81 @@ export class TnwSubscriptionForm {
     }
   }
 
+  private handleInputOnChange = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    const value: string = input.value;
+
+    const isEmailValidated = this.validateEmail(value);
+
+    if (isEmailValidated) {
+      this.tnwChangedOnChange.emit(value);
+    } else {
+      this.tnwError.emit({ message: 'Please enter a valid email address' });
+    }
+  }
+
+  private handleInputOnInput = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    const value: string = input.value;
+
+    const isEmailValidated = this.validateEmail(value);
+
+    if (isEmailValidated) {
+      this.tnwChangedOnInput.emit(value);
+    } else {
+      this.tnwError.emit({ message: 'Please enter a valid email address' });
+    }
+  }
+
+  private handleSubmit = async (e: Event) => {
+    e.preventDefault();
+
+    const emailInput = (e.target as HTMLFormElement).querySelector('input[type="email"]') as HTMLInputElement;
+    const email = emailInput.value.trim();
+
+    if (!this.validateEmail(email)) {
+      this.tnwError.emit({ message: 'Please enter a valid email address' });
+      return;
+    }
+
+    try {
+      this.tnwSubscribe.emit({ email });
+
+      if (!this.formAction) {
+        emailInput.value = '';
+      }
+    } catch (error) {
+      this.tnwError.emit({ message: 'Subscription failed. Please try again.' });
+    }
+  };
+
+  /**
+   * Handles the input focus event.
+   */
+  private handleInputFocus = () => {
+    this.tnwFocused.emit();
+  }
+
+  /**
+   * Handles the input blur event.
+   */
+  private handleInputBlur = () => {
+    this.tnwBlurred.emit();
+  }
+
+  private validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
   private getFormClasses() {
     return [
       this.baseClass,
       `${this.baseClass}--${this.variant}`,
       this.variant === 'button-inside' ? getBorderRadiusClass(this.borderRadius) : '',
       this.variant === 'button-inside' ? `${this.baseClass}--${this.theme}` : '',
+      this.loading ? [`${this.baseClass}--loading`] : '',
+      this.disabled ? [`${this.baseClass}--disabled`] : '',
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -144,6 +264,11 @@ export class TnwSubscriptionForm {
         appearanceColor={this.variant === 'button-inside' ? undefined : this.theme}
         size='md'
         part='input'
+        onTnwChangedOnChange={this.handleInputOnInput}
+        onTnwChangedOnInput={this.handleInputOnChange}
+        onTnwInputFocused={this.handleInputFocus}
+        onTnwInputBlurred={this.handleInputBlur}
+        disabled={this.disabled || this.loading}
       />
     );
   }
@@ -155,13 +280,15 @@ export class TnwSubscriptionForm {
 
     return (
       <tnw-button
-        label={this.buttonLabel}
+        label={this.loading ? 'Loading...' : this.buttonLabel}
         borderRadius={this.borderRadius}
         appearance='solid'
         appearanceColor={this.theme}
         hoverEffect='contrast'
         part='button'
         size='md'
+        disabled={this.disabled || this.loading}
+        type='submit'
       />
     )
   }
@@ -176,6 +303,7 @@ export class TnwSubscriptionForm {
           action={this.formAction}
           method={this.formMethod}
           {...parsedFormAttributes}
+          onSubmit={this.handleSubmit}
         >
           {this.renderInput()}
           {this.renderButton()}

@@ -81,7 +81,7 @@ tnw-input {
     <style></style>
     <form class="tnw-subscription-form tnw-subscription-form--button-outside">
       <tnw-input appearance="outlined" appearancecolor="primary" borderradius="default" inputid="test-input" islabelsronly="" isrequired="" label="Enter your email" part="input" placeholder="Enter your email" size="md" type="email"></tnw-input>
-      <tnw-button appearance="solid" appearancecolor="primary" borderradius="default" hovereffect="contrast" label="Subscribe" part="button" size="md"></tnw-button>
+      <tnw-button appearance="solid" appearancecolor="primary" borderradius="default" hovereffect="contrast" label="Subscribe" part="button" size="md" type="submit"></tnw-button>
     </form>
   </template>
 </tnw-subscription-form>

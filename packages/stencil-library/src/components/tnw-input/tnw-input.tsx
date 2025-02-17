@@ -139,9 +139,19 @@ export class TnwInput {
   @Prop() sanitizeInput?: boolean = false;
 
   /**
-   * Event emitted when the input value changes. The event's payload contains the new value.
+   * Event emitted when the input value changes onChange. The event's payload contains the new value.
    */
-  @Event() inputChanged: EventEmitter<string>;
+  @Event() tnwChangedOnChange: EventEmitter<string>;
+
+  /**
+   * Event emitted when the input value changes onInput. The event's payload contains the new value.
+   */
+  @Event() tnwChangedOnInput: EventEmitter<string>;
+
+  /**
+   * Event emitted when the Enter key is pressed. The event's payload contains the current input value.
+   */
+  @Event() tnwSubmitted: EventEmitter<string>;
 
   /**
    * Event emitted when validation fails.
@@ -179,11 +189,11 @@ export class TnwInput {
     this.setStore(this.value);
   }
 
-  private initializeStyles () {
+  private initializeStyles() {
     this.stylesHandler = new StyleHandler(
       this.el,
       styles,
-      [extendedAppearanceStyleSheet, ]
+      [extendedAppearanceStyleSheet,]
     );
   }
 
@@ -294,7 +304,7 @@ export class TnwInput {
    * 2. Extracts the value from the input element.
    * 3. Validates the extracted value. If the sanitizeInput prop is set to true, the value is sanitized.
    * 4. Updates the store with the new value.
-   * 5. Emits the `inputChanged` event with the new value.
+   * 5. Emits the `tnwChangedOnChange` event with the new value.
    * 6. Sets the input element's value to the validated value.
    */
   private handleInputOnChange = (event: Event) => {
@@ -304,7 +314,7 @@ export class TnwInput {
 
     this.setStore(value)
 
-    this.inputChanged.emit(validatedValue);
+    this.tnwChangedOnChange.emit(validatedValue);
     input.value = this.sanitizeValue(validatedValue);
   }
 
@@ -316,15 +326,32 @@ export class TnwInput {
    * This method performs the following actions:
    * 1. Retrieves the input element from the event target.
    * 2. Extracts the value from the input element.
-   * 3. Updates the store with the new value. It validates the input dynamically and displays alerts if necessary.
+   * 3. Emits the `tnwChangedOnInput` event with the new value.
+   * 4. Updates the store with the new value. It validates the input dynamically and displays alerts if necessary.
    *    The value isn't sanitized even if the sanitizeInput prop is set to true.
    *    It's sanitized only when the input change event is triggered.
    */
   private handleInputOnInput = (event: Event) => {
     const input = event.target as HTMLInputElement;
     const value: string = input.value;
+    const validatedValue = this.sanitizeValue(value);
 
     this.setStore(value, false);
+
+    this.tnwChangedOnInput.emit(validatedValue);
+  }
+
+  /**
+   * Handles the keydown event for the input.
+   * Emits the submit event when Enter key is pressed.
+   * 
+   * @param event - The keyboard event.
+   */
+  private handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      const input = event.target as HTMLInputElement;
+      this.tnwSubmitted.emit(input.value);
+    }
   }
 
   /**
@@ -438,6 +465,7 @@ export class TnwInput {
           onChange={this.handleInputOnChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
+          onKeyDown={this.handleKeyDown}
           part='input'
         />
         {this.renderAlert() || this.renderHelpText()}

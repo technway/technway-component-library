@@ -261,7 +261,7 @@ describe('tnw-input', () => {
   });
 
   describe('Custom Events Behavior', () => {
-    it('emits inputChanged when the input value changes', async () => {
+    it('emits tnwChangedOnChange when the input value changes onChange', async () => {
       const page = await newSpecPage({
         components: [TnwInput],
         html: `<tnw-input label="Test Input" placeholder="Enter text" type="text"></tnw-input>`,
@@ -269,7 +269,7 @@ describe('tnw-input', () => {
 
       const inputElement = page.root.shadowRoot.querySelector('input');
       const spy = jest.fn();
-      page.root.addEventListener('inputChanged', spy);
+      page.root.addEventListener('tnwChangedOnChange', spy);
 
       // Simulate an input change
       inputElement.value = 'New Value';
@@ -279,6 +279,65 @@ describe('tnw-input', () => {
 
       expect(spy).toHaveBeenCalled();
       expect(spy).toHaveBeenCalledWith(expect.objectContaining({ detail: 'New Value' }));
+    });
+    
+    it('emits tnwChangedOnInput when the input value changes onType', async () => {
+      const page = await newSpecPage({
+        components: [TnwInput],
+        html: `<tnw-input label="Test Input" placeholder="Enter text" type="text"></tnw-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwChangedOnInput', spy);
+
+      // Simulate an input change
+      inputElement.value = 'New Value';
+      inputElement.dispatchEvent(new Event('input'));
+
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledWith(expect.objectContaining({ detail: 'New Value' }));
+    });
+
+    it('emits tnwSubmitted when Enter key is pressed', async () => {
+      const page = await newSpecPage({
+        components: [TnwInput],
+        html: `<tnw-input value="test value"></tnw-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwSubmitted', spy);
+
+      // Simulate Enter key press
+      const enterKeyEvent = new KeyboardEvent('keydown', { key: 'Enter' });
+      inputElement.dispatchEvent(enterKeyEvent);
+
+      await page.waitForChanges();
+
+      expect(spy).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalledWith(expect.objectContaining({ detail: 'test value' }));
+    });
+
+    it('does not emit tnwSubmitted when other keys are pressed', async () => {
+      const page = await newSpecPage({
+        components: [TnwInput],
+        html: `<tnw-input value="test value"></tnw-input>`,
+      });
+
+      const inputElement = page.root.shadowRoot.querySelector('input');
+      const spy = jest.fn();
+      page.root.addEventListener('tnwSubmitted', spy);
+
+      // Simulate Space key press
+      const spaceKeyEvent = new KeyboardEvent('keydown', { key: 'Space' });
+      inputElement.dispatchEvent(spaceKeyEvent);
+
+      await page.waitForChanges();
+
+      expect(spy).not.toHaveBeenCalled();
     });
 
     it('emits validationFailed when input does not match the pattern', async () => {
@@ -403,7 +462,7 @@ describe('tnw-input', () => {
   });
 
   describe('Events Behavior', () => {
-    it('onChange => should sanitize value if sanitizeInput is true and emit inputChanged event', async () => {
+    it('onChange => should sanitize value if sanitizeInput is true and emit tnwChangedOnChange event', async () => {
       const page = await newSpecPage({
         components: [TnwInput],
         html: `<tnw-input 
@@ -418,7 +477,7 @@ describe('tnw-input', () => {
 
       const spy = jest.fn();
 
-      page.root.addEventListener('inputChanged', spy);
+      page.root.addEventListener('tnwChangedOnChange', spy);
 
       // Simulate an input change with unsanitized value
       inputElement.value = `<script>alert('test')</script>`;
@@ -433,7 +492,7 @@ describe('tnw-input', () => {
     });
 
 
-    it('onChange => should not sanitize value if sanitizeInput is false and emit inputChanged event', async () => {
+    it('onChange => should not sanitize value if sanitizeInput is false and emit tnwChangedOnChange event', async () => {
       const page = await newSpecPage({
         components: [TnwInput],
         html: `<tnw-input 
@@ -445,7 +504,7 @@ describe('tnw-input', () => {
 
       const inputElement = page.root.shadowRoot.querySelector('input');
       const spy = jest.fn();
-      page.root.addEventListener('inputChanged', spy);
+      page.root.addEventListener('tnwChangedOnChange', spy);
 
       // Simulate an input change with unsanitized value
       inputElement.value = `<script>alert('test')</script>`;

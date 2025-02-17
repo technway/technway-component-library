@@ -1,4 +1,4 @@
-import { Component, Element, Host, Prop, h } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Host, Prop, State, h } from '@stencil/core';
 import { BorderRadiusType } from '../../components';
 import { ColorType } from '../../utils/component-props-types';
 import { generateRandomId, getBorderRadiusClass, GLOBAL_PREFIX } from '../../utils/utils';
@@ -77,6 +77,31 @@ export class TnwSubscriptionForm {
    */
   @Prop() formAttributes?: string;
 
+  /**
+   * Whether the form is in loading state
+   */
+  @Prop() loading?: boolean = false;
+
+  /**
+   * Whether to disable the form
+   */
+  @Prop() disabled?: boolean = false;
+
+  /**
+   * Event emitted when form is submitted with valid email
+   */
+  @Event() tnwSubscribe: EventEmitter<{ email: string }>;
+
+  /**
+   * Event emitted when form submission fails
+   */
+  @Event() tnwError: EventEmitter<{ message: string }>;
+
+  /**
+   * Internal state for form validation and values
+   */
+  @State() emailValue: string = '';
+
   constructor() {
     this.initializeStyles()
   }
@@ -121,12 +146,36 @@ export class TnwSubscriptionForm {
     }
   }
 
+  private handleSubmit = async (e: Event) => {
+    e.preventDefault();
+
+    const emailInput = (e.target as HTMLFormElement).querySelector('input[type="email"]') as HTMLInputElement;
+    const email = emailInput.value;
+
+    if (!emailInput.validity.valid || !email) {
+      this.tnwError.emit({ message: 'Please enter a valid email address' });
+      return;
+    }
+
+    try {
+      this.tnwSubscribe.emit({ email });
+
+      if (!this.formAction) {
+        emailInput.value = '';
+      }
+    } catch (error) {
+      this.tnwError.emit({ message: 'Subscription failed. Please try again.' });
+    }
+  };
+
   private getFormClasses() {
     return [
       this.baseClass,
       `${this.baseClass}--${this.variant}`,
       this.variant === 'button-inside' ? getBorderRadiusClass(this.borderRadius) : '',
       this.variant === 'button-inside' ? `${this.baseClass}--${this.theme}` : '',
+      this.loading ? [`${this.baseClass}--loading`] : '',
+      this.disabled ? [`${this.baseClass}--disabled`] : '',
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -144,6 +193,7 @@ export class TnwSubscriptionForm {
         appearanceColor={this.variant === 'button-inside' ? undefined : this.theme}
         size='md'
         part='input'
+        disabled={this.disabled || this.loading}
       />
     );
   }
@@ -155,13 +205,14 @@ export class TnwSubscriptionForm {
 
     return (
       <tnw-button
-        label={this.buttonLabel}
+        label={this.loading ? 'Loading...' : this.buttonLabel}
         borderRadius={this.borderRadius}
         appearance='solid'
         appearanceColor={this.theme}
         hoverEffect='contrast'
         part='button'
         size='md'
+        disabled={this.disabled || this.loading}
       />
     )
   }

@@ -134,6 +134,33 @@ describe('tnw-subscription-form', () => {
         });
     });
 
+    describe('Custom Events Behavior', () => {
+    //   it('emits tnwChangedOnChange when the input value changes onChange', async () => {
+    //     const page = await newSpecPage({
+    //       components: [TnwSubscriptionForm],
+    //       html: `<tnw-subscription-form></tnw-subscription-form>`,
+    //     });
+  
+    //     const component = page.rootInstance;
+    //     const validEmail = 'test@example.com';
+        
+    //     // Create a spy for the event
+    //     const spy = jest.fn();
+    //     page.root.addEventListener('tnwChangedOnChange', spy);
+  
+    //     // Simulate the input change event with a valid email
+    //     component.handleInputOnChange(new CustomEvent('change', {
+    //       detail: { value: validEmail }
+    //     }));
+  
+    //     await page.waitForChanges();
+  
+    //     // Verify the event was emitted with the correct value
+    //     expect(spy).toHaveBeenCalled();
+    //     expect(spy.mock.calls[0][0].detail).toBe(validEmail);
+    //   });
+    });
+
     describe('Error Handling', () => {
         it('throws error for invalid variant value', async () => {
             await checkSpecPageError(

@@ -249,16 +249,12 @@ export default NewsletterSection;
 
 ### Depends on
 
-- [tnw-input](../tnw-input)
 - [tnw-button](../tnw-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  tnw-subscription-form --> tnw-input
   tnw-subscription-form --> tnw-button
-  tnw-input --> tnw-label
-  tnw-input --> tnw-alert
   tnw-footer --> tnw-subscription-form
   style tnw-subscription-form fill:#f9f,stroke:#333,stroke-width:4px
 ```

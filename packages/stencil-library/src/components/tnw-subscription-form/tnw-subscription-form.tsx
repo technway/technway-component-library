@@ -250,25 +250,27 @@ export class TnwSubscriptionForm {
     ].filter(Boolean).join(' ').trim();
   }
 
+  private getInputClasses(): string {
+    return [
+      `${this.baseClass}__input`,
+      this.disabled ? `${this.baseClass}__input--disabled` : '',
+      this.variant === 'button-outside' ? getBorderRadiusClass(this.borderRadius) : '',
+    ].filter(Boolean).join(' ').trim();
+  }
+
   private renderInput() {
     return (
-      <tnw-input
+      <input
+        class={this.getInputClasses()}
         placeholder={this.inputPlaceholder}
         type='email'
-        inputId={this.inputId}
-        label={this.inputPlaceholder}
-        isRequired={true}
-        isLabelSrOnly={true}
-        borderRadius={this.variant === 'button-inside' ? 'none' : this.borderRadius}
-        appearance={this.variant === 'button-inside' ? 'none' : 'outlined'}
-        appearanceColor={this.variant === 'button-inside' ? undefined : this.theme}
-        size='md'
-        part='input'
-        onTnwChangedOnChange={this.handleInputOnInput}
-        onTnwChangedOnInput={this.handleInputOnChange}
-        onTnwInputFocused={this.handleInputFocus}
-        onTnwInputBlurred={this.handleInputBlur}
+        id={this.inputId}
+        onChange={this.handleInputOnChange}
+        onInput={this.handleInputOnInput}
+        onFocus={this.handleInputFocus}
+        onBlur={this.handleInputBlur}
         disabled={this.disabled || this.loading}
+        part='input'
       />
     );
   }

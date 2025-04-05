@@ -78,12 +78,14 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 
 ## Events
 
-| Event              | Description                                                                                                                                                                       | Type                                               |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `inputChanged`     | Event emitted when the input value changes. The event's payload contains the new value.                                                                                           | `CustomEvent<string>`                              |
-| `tnwInputBlurred`  | Event emitted when the input loses focus.                                                                                                                                         | `CustomEvent<void>`                                |
-| `tnwInputFocused`  | Event emitted when the input receives focus.                                                                                                                                      | `CustomEvent<void>`                                |
-| `validationFailed` | Event emitted when validation fails.  The event payload contains: - `inputId`: The unique ID of the input element. - `error`: A string message explaining the validation failure. | `CustomEvent<{ inputId: string; error: string; }>` |
+| Event                | Description                                                                                                                                                                       | Type                                               |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| `tnwChangedOnChange` | Event emitted when the input value changes onChange. The event's payload contains the new value.                                                                                  | `CustomEvent<string>`                              |
+| `tnwChangedOnInput`  | Event emitted when the input value changes onInput. The event's payload contains the new value.                                                                                   | `CustomEvent<string>`                              |
+| `tnwInputBlurred`    | Event emitted when the input loses focus.                                                                                                                                         | `CustomEvent<void>`                                |
+| `tnwInputFocused`    | Event emitted when the input receives focus.                                                                                                                                      | `CustomEvent<void>`                                |
+| `tnwSubmitted`       | Event emitted when the Enter key is pressed. The event's payload contains the current input value.                                                                                | `CustomEvent<string>`                              |
+| `validationFailed`   | Event emitted when validation fails.  The event payload contains: - `inputId`: The unique ID of the input element. - `error`: A string message explaining the validation failure. | `CustomEvent<{ inputId: string; error: string; }>` |
 
 
 ## Shadow Parts
@@ -98,10 +100,6 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 
 ## Dependencies
 
-### Used by
-
- - [tnw-subscription-form](../tnw-subscription-form)
-
 ### Depends on
 
 - [tnw-label](../tnw-label)
@@ -112,7 +110,6 @@ It is designed to be versatile and accessible, allowing for both visual and scre
 graph TD;
   tnw-input --> tnw-label
   tnw-input --> tnw-alert
-  tnw-subscription-form --> tnw-input
   style tnw-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -92,9 +92,11 @@ If set to \`false\`, the input will still undergo validation but without sanitiz
 
 | Event | Description |
 | --- | --- |
-| **inputChanged** | Event emitted when the input value changes. The event's payload contains the new value. |
+| **tnwChangedOnChange** | Event emitted when the input value changes onChange. The event's payload contains the new value. |
+| **tnwChangedOnInput** | Event emitted when the input value changes onInput. The event's payload contains the new value. |
 | **tnwInputBlurred** | Event emitted when the input loses focus. |
 | **tnwInputFocused** | Event emitted when the input receives focus. |
+| **tnwSubmitted** | Event emitted when the Enter key is pressed. The event's payload contains the current input value. |
 | **validationFailed** | Event emitted when validation fails.
 
 The event payload contains:

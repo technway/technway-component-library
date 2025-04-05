@@ -990,7 +990,8 @@ export const TnwSubscriptionForm: StencilReactComponent<TnwSubscriptionFormEleme
             formMethod: 'form-method',
             formAttributes: 'form-attributes',
             loading: 'loading',
-            disabled: 'disabled'
+            disabled: 'disabled',
+            emailErrorMessage: 'email-error-message'
         },
         hydrateModule: import('@technway/stencil-library/hydrate')
     });

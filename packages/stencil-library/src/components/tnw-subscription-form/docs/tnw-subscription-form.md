@@ -26,6 +26,7 @@ The `tnw-subscription-form` component provides a customizable subscription form.
 | **borderRadius** | <div>The border radius for the component. Set for both input and button</div> | `'default'` | `"2xl"` \| `"3xl"` \| `"circle"` \| `"default"` \| `"full"` \| `"lg"` \| `"md"` \| `"none"` \| `"sm"` \| `"xl"` \| `"xs"` |
 | **buttonLabel** | <div>The label for the subscribe button. If `enableButtonSlot` is true, this prop will be ignored.</div> | `'Subscribe'` | `string` |
 | **disabled** | <div>Whether to disable the form</div> | `false` | `boolean` |
+| **emailErrorMessage** | <div>Custom error message to display for invalid email</div> | `'Please enter a valid email address'` | `string` |
 | **enableButtonSlot** | <div>Whether to enable the button slot. If true, the buttonLabel prop will be ignored.</div> | `false` | `boolean` |
 | **formAction** | <div>The action attribute for the form</div> | N/A | `string` |
 | **formAttributes** | <div>The attributes/data-attribute(s) for the form. The given string is expected to be in the format "key1=value1; key2=value2" or "key1; key2=value2".</div> | N/A | `string` |
@@ -177,10 +178,9 @@ The `tnw-subscription-form` component provides a customizable subscription form.
                 }
             });
 
-            // Track email input changes
-            form.addEventListener('tnwEmailChange', (event) => {
-                const { email, valid } = event.detail;
-                console.log('Email changed:', email, 'Valid:', valid);
+            // Listen for email changes
+            form.addEventListener('tnwChangedOnChange', (event) => {
+                console.log('Email changed:', event.detail);
             });
         });
     </script>

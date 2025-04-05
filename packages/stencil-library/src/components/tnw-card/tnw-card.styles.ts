@@ -44,14 +44,72 @@ export const styles = `
     width: calc(45% - (var(--${baseClass}-gap-lg) / 2)) !important;
 }
 
-@media only screen and (max-width: 567px) {
-    :host {
-        flex-direction: horizontal;
-        justify-content: unset;
+/* Responsive Breakpoints */
+@media only screen and (max-width: 1439px) {
+    :host(.${baseClass}--horizontal.${baseClass}--equal-image) .${imageClass},
+    :host(.${baseClass}--horizontal.${baseClass}--equal-image) .${contentClass} {
+        width: calc(50% - (var(--${baseClass}-gap-md) / 2)) !important;
     }
+
+    :host(.${baseClass}--horizontal.${baseClass}--larger-image) .${imageClass} {
+        width: calc(52% - (var(--${baseClass}-gap-md) / 2)) !important;
+    }
+
+    :host(.${baseClass}--horizontal.${baseClass}--larger-image) .${contentClass} {
+        width: calc(48% - (var(--${baseClass}-gap-md) / 2)) !important;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    :host(.${baseClass}--horizontal.${baseClass}--equal-image) .${imageClass},
+    :host(.${baseClass}--horizontal.${baseClass}--equal-image) .${contentClass} {
+        width: calc(50% - (var(--${baseClass}-gap-sm) / 2)) !important;
+    }
+
+    :host(.${baseClass}--horizontal.${baseClass}--larger-image) .${imageClass} {
+        width: calc(50% - (var(--${baseClass}-gap-sm) / 2)) !important;
+    }
+
+    :host(.${baseClass}--horizontal.${baseClass}--larger-image) .${contentClass} {
+        width: calc(50% - (var(--${baseClass}-gap-sm) / 2)) !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    :host(.${baseClass}--horizontal) {
+        flex-direction: column;
+    }
+
     :host(.${baseClass}--horizontal) .${imageClass},
-    :host(.${baseClass}--horizontal) .${contentClass} {
+    :host(.${baseClass}--horizontal) .${contentClass},
+    :host(.${baseClass}--horizontal.${baseClass}--equal-image) .${imageClass},
+    :host(.${baseClass}--horizontal.${baseClass}--equal-image) .${contentClass},
+    :host(.${baseClass}--horizontal.${baseClass}--larger-image) .${imageClass},
+    :host(.${baseClass}--horizontal.${baseClass}--larger-image) .${contentClass} {
         width: 100% !important;
+    }
+
+    :host(.${baseClass}--horizontal) .${imageClass} {
+        height: auto;
+    }
+
+    :host(.${baseClass}--padding-lg) {
+        padding: var(--${baseClass}-padding-md);
+    }
+}
+
+@media only screen and (max-width: 567px) {
+    :host(.${baseClass}--padding-md),
+    :host(.${baseClass}--padding-lg) {
+        padding: var(--${baseClass}-padding-sm);
+    }
+
+    .${contentClass}--spacing-lg {
+        gap: var(--${baseClass}-gap-sm);
+    }
+
+    .${contentClass}--spacing-md {
+        gap: var(--${baseClass}-gap-xs);
     }
 }
 

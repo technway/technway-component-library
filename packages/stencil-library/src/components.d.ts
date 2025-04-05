@@ -1449,6 +1449,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Custom error message to display for invalid email
+         */
+        "emailErrorMessage"?: string;
+        /**
           * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
          */
         "enableButtonSlot"?: boolean;
@@ -3764,6 +3768,10 @@ declare namespace LocalJSX {
           * Whether to disable the form
          */
         "disabled"?: boolean;
+        /**
+          * Custom error message to display for invalid email
+         */
+        "emailErrorMessage"?: string;
         /**
           * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
          */

@@ -39,6 +39,14 @@ export const styles = `
     box-shadow: 0 0 0 1px var(--tnw-primary-color);
 }
 
+.${baseClass}--button-outside input.${baseClass}__input--error {
+    border-color: var(--tnw-error-color, #dc3545);
+}
+
+.${baseClass}--button-outside input.${baseClass}__input--error:focus {
+    box-shadow: 0 0 0 1px var(--tnw-error-color, #dc3545);
+}
+
 .${baseClass}--button-inside {
     border-width: 1px;
     border-style: solid;
@@ -61,6 +69,14 @@ export const styles = `
 .${baseClass}--button-inside:focus-within {
     border-color: var(--tnw-primary-color);
     box-shadow: 0 0 0 1px var(--tnw-primary-color);
+}
+
+.${baseClass}--button-inside.${baseClass}--error {
+    border-color: var(--tnw-error-color, #dc3545);
+}
+
+.${baseClass}--button-inside.${baseClass}--error:focus-within {
+    box-shadow: 0 0 0 1px var(--tnw-error-color, #dc3545);
 }
 
 /* Theme-based border colors for button-inside variant */

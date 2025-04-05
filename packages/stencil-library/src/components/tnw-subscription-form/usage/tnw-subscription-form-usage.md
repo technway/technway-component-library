@@ -114,10 +114,9 @@
                 }
             });
 
-            // Track email input changes
-            form.addEventListener('tnwEmailChange', (event) => {
-                const { email, valid } = event.detail;
-                console.log('Email changed:', email, 'Valid:', valid);
+            // Listen for email changes
+            form.addEventListener('tnwChangedOnChange', (event) => {
+                console.log('Email changed:', event.detail);
             });
         });
     </script>

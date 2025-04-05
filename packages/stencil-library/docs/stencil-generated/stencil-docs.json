@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-02-15T11:52:56",
+  "timestamp": "2025-04-05T11:07:41",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.23.0",
@@ -6371,12 +6371,7 @@
           "tnw-icon"
         ],
         "tnw-subscription-form": [
-          "tnw-input",
           "tnw-button"
-        ],
-        "tnw-input": [
-          "tnw-label",
-          "tnw-alert"
         ]
       }
     },
@@ -10071,7 +10066,7 @@
       "methods": [],
       "events": [
         {
-          "event": "inputChanged",
+          "event": "tnwChangedOnChange",
           "detail": "string",
           "bubbles": true,
           "complexType": {
@@ -10081,7 +10076,21 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when the input value changes. The event's payload contains the new value.",
+          "docs": "Event emitted when the input value changes onChange. The event's payload contains the new value.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwChangedOnInput",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input value changes onInput. The event's payload contains the new value.",
           "docsTags": []
         },
         {
@@ -10110,6 +10119,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when the input receives focus.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwSubmitted",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the Enter key is pressed. The event's payload contains the current input value.",
           "docsTags": []
         },
         {
@@ -10148,9 +10171,7 @@
           "docs": "The `<label>` element for the input."
         }
       ],
-      "dependents": [
-        "tnw-subscription-form"
-      ],
+      "dependents": [],
       "dependencies": [
         "tnw-label",
         "tnw-alert"
@@ -10159,9 +10180,6 @@
         "tnw-input": [
           "tnw-label",
           "tnw-alert"
-        ],
-        "tnw-subscription-form": [
-          "tnw-input"
         ]
       }
     },
@@ -13661,6 +13679,20 @@
           "composed": true,
           "docs": "Event emitted when the input receives focus.",
           "docsTags": []
+        },
+        {
+          "event": "tnwInputSubmit",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the Enter key is pressed. The event's payload contains the current input value.",
+          "docsTags": []
         }
       ],
       "listeners": [],
@@ -14621,7 +14653,7 @@
       "docs": "The `tnw-subscription-form` component provides a customizable subscription form.",
       "docsTags": [],
       "usage": {
-        "tnw-subscription-form-usage": ""
+        "tnw-subscription-form-usage": "## Code Examples\r\n\r\n### Basic HTML Implementation\r\n\r\n```html\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Newsletter Subscription</title>\r\n    <script type=\"module\" src=\"/path/to/stencil-library/dist/tnw-subscription-form.js\"></script>\r\n</head>\r\n<body>\r\n    <!-- Basic Implementation -->\r\n    <tnw-subscription-form\r\n        buttonLabel=\"Subscribe Now\"\r\n        inputPlaceholder=\"Your email address\"\r\n        successMessage=\"Welcome to our newsletter!\"\r\n        theme=\"primary\"\r\n        borderRadius=\"rounded\"\r\n    ></tnw-subscription-form>\r\n\r\n    <!-- Custom Styled Implementation -->\r\n    <tnw-subscription-form\r\n        variant=\"button-inside\"\r\n        theme=\"secondary\"\r\n        borderRadius=\"pill\"\r\n        formAttributes=\"data-analytics=newsletter-signup\"\r\n        style=\"--tnw-subscription-form-width: 400px;\"\r\n    ></tnw-subscription-form>\r\n</body>\r\n</html>\r\n```\r\n\r\n### Complete Newsletter Subscription Example\r\n\r\n```html\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Newsletter Subscription</title>\r\n    <script type=\"module\" src=\"/path/to/stencil-library/dist/tnw-subscription-form.js\"></script>\r\n    <style>\r\n        .newsletter-section {\r\n            max-width: 600px;\r\n            margin: 2rem auto;\r\n            padding: 2rem;\r\n            background: #f8f9fa;\r\n            border-radius: 8px;\r\n        }\r\n\r\n        tnw-subscription-form {\r\n            --tnw-subscription-form-width: 100%;\r\n            --tnw-subscription-form-gap: 1rem;\r\n        }\r\n\r\n        .custom-button {\r\n            display: flex;\r\n            align-items: center;\r\n            gap: 0.5rem;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <div class=\"newsletter-section\">\r\n        <h2>Join Our Newsletter</h2>\r\n        <p>Stay updated with our latest news and updates.</p>\r\n        \r\n        <tnw-subscription-form\r\n            id=\"newsletterForm\"\r\n            buttonLabel=\"Subscribe\"\r\n            inputPlaceholder=\"Enter your email address\"\r\n            successMessage=\"Thank you for subscribing! Please check your email to confirm.\"\r\n            emailErrorMessage=\"Please enter a valid email address\"\r\n            theme=\"primary\"\r\n            borderRadius=\"rounded\"\r\n            formAttributes=\"data-source=website; data-campaign=main-newsletter\"\r\n        ></tnw-subscription-form>\r\n    </div>\r\n\r\n    <script>\r\n        document.addEventListener('DOMContentLoaded', () => {\r\n            const form = document.getElementById('newsletterForm');\r\n            \r\n            // Handle form submission\r\n            form.addEventListener('tnwSubscribe', async (event) => {\r\n                const { email } = event.detail;\r\n                \r\n                try {\r\n                    // Example API call\r\n                    const response = await fetch('https://api.example.com/subscribe', {\r\n                        method: 'POST',\r\n                        headers: {\r\n                            'Content-Type': 'application/json'\r\n                        },\r\n                        body: JSON.stringify({ email })\r\n                    });\r\n\r\n                    if (!response.ok) {\r\n                        throw new Error('Subscription failed');\r\n                    }\r\n\r\n                    // Success is automatically handled by the component\r\n                } catch (error) {\r\n                    // Dispatch error event to show error message\r\n                    form.dispatchEvent(new CustomEvent('tnwError', {\r\n                        detail: { \r\n                            message: 'Unable to subscribe at this time. Please try again later.'\r\n                        }\r\n                    }));\r\n                }\r\n            });\r\n\r\n            // Track email input changes\r\n            form.addEventListener('tnwEmailChange', (event) => {\r\n                const { email, valid } = event.detail;\r\n                console.log('Email changed:', email, 'Valid:', valid);\r\n            });\r\n        });\r\n    </script>\r\n</body>\r\n</html>\r\n```\r\n\r\n### React Implementation Example\r\n\r\n```jsx\r\nimport React, { useEffect, useRef } from 'react';\r\n\r\nconst NewsletterSection = () => {\r\n    const formRef = useRef(null);\r\n\r\n    useEffect(() => {\r\n        const form = formRef.current;\r\n\r\n        const handleSubscribe = async (event) => {\r\n            const { email } = event.detail;\r\n            \r\n            try {\r\n                const response = await fetch('https://api.example.com/subscribe', {\r\n                    method: 'POST',\r\n                    headers: {\r\n                        'Content-Type': 'application/json'\r\n                    },\r\n                    body: JSON.stringify({ email })\r\n                });\r\n\r\n                if (!response.ok) {\r\n                    throw new Error('Subscription failed');\r\n                }\r\n            } catch (error) {\r\n                form.dispatchEvent(new CustomEvent('tnwError', {\r\n                    detail: { \r\n                        message: 'Subscription failed. Please try again.'\r\n                    }\r\n                }));\r\n            }\r\n        };\r\n\r\n        form.addEventListener('tnwSubscribe', handleSubscribe);\r\n        \r\n        return () => {\r\n            form.removeEventListener('tnwSubscribe', handleSubscribe);\r\n        };\r\n    }, []);\r\n\r\n    return (\r\n        <div className=\"newsletter-section\">\r\n            <h2>Subscribe to Our Newsletter</h2>\r\n            <tnw-subscription-form\r\n                ref={formRef}\r\n                buttonLabel=\"Join Now\"\r\n                inputPlaceholder=\"Your email address\"\r\n                successMessage=\"Welcome aboard! 🎉\"\r\n                theme=\"primary\"\r\n                borderRadius=\"rounded\"\r\n                formAttributes=\"data-source=react-app\"\r\n            ></tnw-subscription-form>\r\n        </div>\r\n    );\r\n};\r\n\r\nexport default NewsletterSection;"
       },
       "props": [
         {
@@ -14712,6 +14744,30 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Whether to disable the form",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -14861,6 +14917,30 @@
           "setter": false
         },
         {
+          "name": "loading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "Whether the form is in loading state",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "successMessage",
           "type": "string",
           "complexType": {
@@ -14970,7 +15050,92 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "tnwBlurred",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwChangedOnChange",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input value changes onChange. The event's payload contains the new value.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwChangedOnInput",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input value changes onInput. The event's payload contains the new value.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwError",
+          "detail": "{ message: string; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ message: string }",
+            "resolved": "{ message: string; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when form submission fails",
+          "docsTags": []
+        },
+        {
+          "event": "tnwFocused",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the input receives focus.",
+          "docsTags": []
+        },
+        {
+          "event": "tnwSubscribe",
+          "detail": "{ email: string; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ email: string }",
+            "resolved": "{ email: string; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when form is submitted with valid email",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [],
@@ -14988,17 +15153,11 @@
         "tnw-footer"
       ],
       "dependencies": [
-        "tnw-input",
         "tnw-button"
       ],
       "dependencyGraph": {
         "tnw-subscription-form": [
-          "tnw-input",
           "tnw-button"
-        ],
-        "tnw-input": [
-          "tnw-label",
-          "tnw-alert"
         ],
         "tnw-footer": [
           "tnw-subscription-form"

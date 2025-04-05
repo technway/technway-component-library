@@ -213,21 +213,21 @@ describe('tnw-subscription-form', () => {
 				html: `<tnw-subscription-form></tnw-subscription-form>`,
 			});
 
-			const inputElement = page.root.shadowRoot.querySelector('input');
-			expect(inputElement).not.toBeNull();
-
+			const form = page.root.shadowRoot.querySelector('form');
+			const input = page.root.shadowRoot.querySelector('input');
+			
 			const spy = jest.fn();
-			page.root.addEventListener('tnwError', spy);
+			page.win.addEventListener('tnwError', spy);
 
-			inputElement.value = 'invalid-email';
-			inputElement.dispatchEvent(new Event('change'));
-
+			// Set invalid email and submit form
+			input.value = 'invalid-email';
+			form.dispatchEvent(new Event('submit'));
 			await page.waitForChanges();
 
 			expect(spy).toHaveBeenCalled();
-			expect(spy).toHaveBeenCalledWith(expect.objectContaining({
-				detail: { message: 'Please enter a valid email address' }
-			}));
+			expect(spy.mock.calls[0][0].detail).toEqual({ 
+				message: 'Please enter a valid email address' 
+			});
 		});
 
 		it('emits tnwFocused and tnwBlurred on input focus/blur', async () => {
@@ -368,6 +368,152 @@ describe('tnw-subscription-form', () => {
 			const form = page.root.shadowRoot.querySelector('form');
 			expect(form.className).toContain('button-outside');
 			expect(form.className).not.toContain('secondary');
+		});
+	});
+
+	describe('Error Handling and Validation', () => {
+		it('uses default error message when emailErrorMessage is not provided', async () => {
+			const page = await newSpecPage({
+				components: [TnwSubscriptionForm],
+				html: `<tnw-subscription-form></tnw-subscription-form>`,
+			});
+
+			const form = page.root.shadowRoot.querySelector('form');
+			const input = page.root.shadowRoot.querySelector('input');
+			
+			const spy = jest.fn();
+			page.win.addEventListener('tnwError', spy);
+
+			// Set invalid email and submit
+			input.value = 'invalid-email';
+			form.dispatchEvent(new Event('submit'));
+			await page.waitForChanges();
+
+			expect(spy).toHaveBeenCalled();
+			expect(spy.mock.calls[0][0].detail).toEqual({ 
+				message: 'Please enter a valid email address' 
+			});
+		});
+
+		it('uses custom error message when emailErrorMessage is provided', async () => {
+			const page = await newSpecPage({
+				components: [TnwSubscriptionForm],
+				html: `<tnw-subscription-form email-error-message="Custom error message"></tnw-subscription-form>`,
+			});
+
+			const form = page.root.shadowRoot.querySelector('form');
+			const input = page.root.shadowRoot.querySelector('input');
+			
+			const spy = jest.fn();
+			page.win.addEventListener('tnwError', spy);
+
+			// Set invalid email and submit
+			input.value = 'invalid-email';
+			form.dispatchEvent(new Event('submit'));
+			await page.waitForChanges();
+
+			expect(spy).toHaveBeenCalled();
+			expect(spy.mock.calls[0][0].detail).toEqual({ 
+				message: 'Custom error message' 
+			});
+		});
+
+		it('does not show error state during typing', async () => {
+			const page = await newSpecPage({
+				components: [TnwSubscriptionForm],
+				html: `<tnw-subscription-form></tnw-subscription-form>`,
+			});
+
+			const input = page.root.shadowRoot.querySelector('input');
+
+			// Type invalid email
+			input.value = 'invalid';
+			input.dispatchEvent(new Event('input'));
+			await page.waitForChanges();
+
+			expect(input.className).not.toContain('__input--error');
+			expect(page.root.shadowRoot.querySelector('form').className).not.toContain('--error');
+		});
+
+		it('shows error state after form submission with invalid email', async () => {
+			const page = await newSpecPage({
+				components: [TnwSubscriptionForm],
+				html: `<tnw-subscription-form variant="button-outside"></tnw-subscription-form>`,
+			});
+
+			const form = page.root.shadowRoot.querySelector('form');
+			const input = page.root.shadowRoot.querySelector('input');
+
+			// Submit with invalid email
+			input.value = 'invalid';
+			form.dispatchEvent(new Event('submit'));
+			await page.waitForChanges();
+
+			expect(input.className).toContain('__input--error');
+		});
+
+		it('removes error state when valid email is entered after error', async () => {
+			const page = await newSpecPage({
+				components: [TnwSubscriptionForm],
+				html: `<tnw-subscription-form variant="button-outside"></tnw-subscription-form>`,
+			});
+
+			const form = page.root.shadowRoot.querySelector('form');
+			const input = page.root.shadowRoot.querySelector('input');
+
+			// First submit with invalid email
+			input.value = 'invalid';
+			form.dispatchEvent(new Event('submit'));
+			await page.waitForChanges();
+
+			// Then enter valid email
+			input.value = 'valid@email.com';
+			input.dispatchEvent(new Event('input'));
+			await page.waitForChanges();
+
+			expect(input.className).not.toContain('__input--error');
+		});
+
+		it('clears email value and error state after successful submission without formAction', async () => {
+			const page = await newSpecPage({
+				components: [TnwSubscriptionForm],
+				html: `<tnw-subscription-form></tnw-subscription-form>`,
+			});
+
+			const form = page.root.shadowRoot.querySelector('form');
+			const input = page.root.shadowRoot.querySelector('input');
+
+			// Submit with valid email
+			input.value = 'test@example.com';
+			page.rootInstance.emailValue = 'test@example.com';
+			form.dispatchEvent(new Event('submit'));
+			await page.waitForChanges();
+
+			expect(input.value).toBe('');
+			expect(page.rootInstance.emailValue).toBe('');
+			expect(page.rootInstance.showError).toBe(false);
+		});
+
+		it('maintains email value after successful submission with formAction', async () => {
+			const page = await newSpecPage({
+				components: [TnwSubscriptionForm],
+				html: `<tnw-subscription-form form-action="/subscribe"></tnw-subscription-form>`,
+			});
+
+			const form = page.root.shadowRoot.querySelector('form');
+			const input = page.root.shadowRoot.querySelector('input');
+			const testEmail = 'test@example.com';
+
+			// Set email value
+			input.value = testEmail;
+			page.rootInstance.emailValue = testEmail;
+			
+			// Submit form
+			form.dispatchEvent(new Event('submit'));
+			await page.waitForChanges();
+
+			expect(input.value).toBe(testEmail);
+			expect(page.rootInstance.emailValue).toBe(testEmail);
 		});
 	});
 });

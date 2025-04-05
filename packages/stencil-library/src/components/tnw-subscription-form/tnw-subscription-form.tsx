@@ -26,6 +26,7 @@ export class TnwSubscriptionForm {
    * Internal state for form validation and values
    */
   @State() emailValue: string = '';
+  @State() showError: boolean = false;
 
   /************************ Props ************************/
 
@@ -95,6 +96,11 @@ export class TnwSubscriptionForm {
    * Whether to disable the form
    */
   @Prop() disabled?: boolean = false;
+
+  /**
+   * Custom error message to display for invalid email
+   */
+  @Prop() emailErrorMessage?: string = 'Please enter a valid email address';
 
   /************************ Events ************************/
 
@@ -175,26 +181,24 @@ export class TnwSubscriptionForm {
   private handleInputOnChange = (event: Event) => {
     const input = event.target as HTMLInputElement;
     const value: string = input.value;
+    this.emailValue = value;
 
     const isEmailValidated = this.validateEmail(value);
-
     if (isEmailValidated) {
+      this.showError = false;
       this.tnwChangedOnChange.emit(value);
-    } else {
-      this.tnwError.emit({ message: 'Please enter a valid email address' });
     }
   }
 
   private handleInputOnInput = (event: Event) => {
     const input = event.target as HTMLInputElement;
     const value: string = input.value;
+    this.emailValue = value;
 
     const isEmailValidated = this.validateEmail(value);
-
     if (isEmailValidated) {
+      this.showError = false;
       this.tnwChangedOnInput.emit(value);
-    } else {
-      this.tnwError.emit({ message: 'Please enter a valid email address' });
     }
   }
 
@@ -205,7 +209,8 @@ export class TnwSubscriptionForm {
     const email = emailInput.value.trim();
 
     if (!this.validateEmail(email)) {
-      this.tnwError.emit({ message: 'Please enter a valid email address' });
+      this.showError = true;
+      this.tnwError.emit({ message: this.emailErrorMessage });
       return;
     }
 
@@ -214,6 +219,7 @@ export class TnwSubscriptionForm {
 
       if (!this.formAction) {
         emailInput.value = '';
+        this.emailValue = '';
       }
     } catch (error) {
       this.tnwError.emit({ message: 'Subscription failed. Please try again.' });
@@ -247,6 +253,7 @@ export class TnwSubscriptionForm {
       this.variant === 'button-inside' ? `${this.baseClass}--${this.theme}` : '',
       this.loading ? `${this.baseClass}--loading` : '',
       this.disabled ? `${this.baseClass}--disabled` : '',
+      this.showError && this.variant === 'button-inside' ? `${this.baseClass}--error` : '',
     ].filter(Boolean).join(' ').trim();
   }
 
@@ -255,6 +262,7 @@ export class TnwSubscriptionForm {
       `${this.baseClass}__input`,
       this.disabled ? `${this.baseClass}__input--disabled` : '',
       this.variant === 'button-outside' ? getBorderRadiusClass(this.borderRadius) : '',
+      this.showError && this.variant === 'button-outside' ? `${this.baseClass}__input--error` : '',
     ].filter(Boolean).join(' ').trim();
   }
 

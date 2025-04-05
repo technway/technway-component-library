@@ -40,6 +40,14 @@ exports[`tnw-subscription-form Default and Required Prop Behavior renders with d
     box-shadow: 0 0 0 1px var(--tnw-primary-color);
 }
 
+.tnw-subscription-form--button-outside input.tnw-subscription-form__input--error {
+    border-color: var(--tnw-error-color, #dc3545);
+}
+
+.tnw-subscription-form--button-outside input.tnw-subscription-form__input--error:focus {
+    box-shadow: 0 0 0 1px var(--tnw-error-color, #dc3545);
+}
+
 .tnw-subscription-form--button-inside {
     border-width: 1px;
     border-style: solid;
@@ -62,6 +70,14 @@ exports[`tnw-subscription-form Default and Required Prop Behavior renders with d
 .tnw-subscription-form--button-inside:focus-within {
     border-color: var(--tnw-primary-color);
     box-shadow: 0 0 0 1px var(--tnw-primary-color);
+}
+
+.tnw-subscription-form--button-inside.tnw-subscription-form--error {
+    border-color: var(--tnw-error-color, #dc3545);
+}
+
+.tnw-subscription-form--button-inside.tnw-subscription-form--error:focus-within {
+    box-shadow: 0 0 0 1px var(--tnw-error-color, #dc3545);
 }
 
 /* Theme-based border colors for button-inside variant */

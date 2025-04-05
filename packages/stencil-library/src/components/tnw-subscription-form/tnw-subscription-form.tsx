@@ -245,8 +245,8 @@ export class TnwSubscriptionForm {
       `${this.baseClass}--${this.variant}`,
       this.variant === 'button-inside' ? getBorderRadiusClass(this.borderRadius) : '',
       this.variant === 'button-inside' ? `${this.baseClass}--${this.theme}` : '',
-      this.loading ? [`${this.baseClass}--loading`] : '',
-      this.disabled ? [`${this.baseClass}--disabled`] : '',
+      this.loading ? `${this.baseClass}--loading` : '',
+      this.disabled ? `${this.baseClass}--disabled` : '',
     ].filter(Boolean).join(' ').trim();
   }
 

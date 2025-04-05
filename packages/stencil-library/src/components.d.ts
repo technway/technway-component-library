@@ -1445,6 +1445,10 @@ export namespace Components {
          */
         "buttonLabel"?: string;
         /**
+          * Whether to disable the form
+         */
+        "disabled"?: boolean;
+        /**
           * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
          */
         "enableButtonSlot"?: boolean;
@@ -1468,6 +1472,10 @@ export namespace Components {
           * The placeholder for the email input
          */
         "inputPlaceholder"?: string;
+        /**
+          * Whether the form is in loading state
+         */
+        "loading"?: boolean;
         /**
           * The message to display after successful subscription
          */
@@ -1706,6 +1714,10 @@ export interface TnwSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwSelectElement;
 }
+export interface TnwSubscriptionFormCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLTnwSubscriptionFormElement;
+}
 export interface TnwTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLTnwTextareaElement;
@@ -1933,7 +1945,9 @@ declare global {
         new (): HTMLTnwImageElement;
     };
     interface HTMLTnwInputElementEventMap {
-        "inputChanged": string;
+        "tnwChangedOnChange": string;
+        "tnwChangedOnInput": string;
+        "tnwSubmitted": string;
         "validationFailed": { inputId: string; error: string };
         "tnwInputFocused": void;
         "tnwInputBlurred": void;
@@ -2076,6 +2090,7 @@ declare global {
     interface HTMLTnwSearchInputElementEventMap {
         "tnwInputChangedOnType": string;
         "tnwInputChangedOnChange": string;
+        "tnwInputSubmit": string;
         "tnwInputFocused": void;
         "tnwInputBlurred": void;
     }
@@ -2129,10 +2144,26 @@ declare global {
         prototype: HTMLTnwSelectElement;
         new (): HTMLTnwSelectElement;
     };
+    interface HTMLTnwSubscriptionFormElementEventMap {
+        "tnwSubscribe": { email: string };
+        "tnwError": { message: string };
+        "tnwChangedOnChange": string;
+        "tnwChangedOnInput": string;
+        "tnwFocused": void;
+        "tnwBlurred": void;
+    }
     /**
      * The `tnw-subscription-form` component provides a customizable subscription form.
      */
     interface HTMLTnwSubscriptionFormElement extends Components.TnwSubscriptionForm, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLTnwSubscriptionFormElementEventMap>(type: K, listener: (this: HTMLTnwSubscriptionFormElement, ev: TnwSubscriptionFormCustomEvent<HTMLTnwSubscriptionFormElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLTnwSubscriptionFormElementEventMap>(type: K, listener: (this: HTMLTnwSubscriptionFormElement, ev: TnwSubscriptionFormCustomEvent<HTMLTnwSubscriptionFormElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLTnwSubscriptionFormElement: {
         prototype: HTMLTnwSubscriptionFormElement;
@@ -3183,9 +3214,13 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Event emitted when the input value changes. The event's payload contains the new value.
+          * Event emitted when the input value changes onChange. The event's payload contains the new value.
          */
-        "onInputChanged"?: (event: TnwInputCustomEvent<string>) => void;
+        "onTnwChangedOnChange"?: (event: TnwInputCustomEvent<string>) => void;
+        /**
+          * Event emitted when the input value changes onInput. The event's payload contains the new value.
+         */
+        "onTnwChangedOnInput"?: (event: TnwInputCustomEvent<string>) => void;
         /**
           * Event emitted when the input loses focus.
          */
@@ -3194,6 +3229,10 @@ declare namespace LocalJSX {
           * Event emitted when the input receives focus.
          */
         "onTnwInputFocused"?: (event: TnwInputCustomEvent<void>) => void;
+        /**
+          * Event emitted when the Enter key is pressed. The event's payload contains the current input value.
+         */
+        "onTnwSubmitted"?: (event: TnwInputCustomEvent<string>) => void;
         /**
           * Event emitted when validation fails.  The event payload contains: - `inputId`: The unique ID of the input element. - `error`: A string message explaining the validation failure.
          */
@@ -3589,6 +3628,10 @@ declare namespace LocalJSX {
          */
         "onTnwInputFocused"?: (event: TnwSearchInputCustomEvent<void>) => void;
         /**
+          * Event emitted when the Enter key is pressed. The event's payload contains the current input value.
+         */
+        "onTnwInputSubmit"?: (event: TnwSearchInputCustomEvent<string>) => void;
+        /**
           * The placeholder text for the input.
          */
         "placeholder"?: string;
@@ -3718,6 +3761,10 @@ declare namespace LocalJSX {
          */
         "buttonLabel"?: string;
         /**
+          * Whether to disable the form
+         */
+        "disabled"?: boolean;
+        /**
           * Whether to enable the button slot. If true, the buttonLabel prop will be ignored.
          */
         "enableButtonSlot"?: boolean;
@@ -3741,6 +3788,34 @@ declare namespace LocalJSX {
           * The placeholder for the email input
          */
         "inputPlaceholder"?: string;
+        /**
+          * Whether the form is in loading state
+         */
+        "loading"?: boolean;
+        /**
+          * Event emitted when the input loses focus.
+         */
+        "onTnwBlurred"?: (event: TnwSubscriptionFormCustomEvent<void>) => void;
+        /**
+          * Event emitted when the input value changes onChange. The event's payload contains the new value.
+         */
+        "onTnwChangedOnChange"?: (event: TnwSubscriptionFormCustomEvent<string>) => void;
+        /**
+          * Event emitted when the input value changes onInput. The event's payload contains the new value.
+         */
+        "onTnwChangedOnInput"?: (event: TnwSubscriptionFormCustomEvent<string>) => void;
+        /**
+          * Event emitted when form submission fails
+         */
+        "onTnwError"?: (event: TnwSubscriptionFormCustomEvent<{ message: string }>) => void;
+        /**
+          * Event emitted when the input receives focus.
+         */
+        "onTnwFocused"?: (event: TnwSubscriptionFormCustomEvent<void>) => void;
+        /**
+          * Event emitted when form is submitted with valid email
+         */
+        "onTnwSubscribe"?: (event: TnwSubscriptionFormCustomEvent<{ email: string }>) => void;
         /**
           * The message to display after successful subscription
          */

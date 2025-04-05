@@ -16,63 +16,94 @@ export const styles = `
     display: flex;
     position: relative;
     width: 100%;
-    gap: 6px;
+    min-width: 250px;
 }
 
 .${baseClass}--button-outside {
     align-items: stretch;
+    gap: 8px;
+}
+
+.${baseClass}--button-outside input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: 1px solid var(--tnw-border-color);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.${baseClass}--button-outside input:focus {
+    border-color: var(--tnw-primary-color);
+    box-shadow: 0 0 0 1px var(--tnw-primary-color);
 }
 
 .${baseClass}--button-inside {
     border-width: 1px;
     border-style: solid;
     align-items: center;
-    padding-block: 6px;
-    padding-inline-start: 18px;
-    padding-inline-end: 6px;
-}
-.${baseClass}--button-inside:focus-within {
-    border-color: var(--tnw-primary-color);
-    outline: 1px solid var(--tnw-primary-color);
+    padding: 4px;
+    background: var(--tnw-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.${baseClass}--primary {
+.${baseClass}--button-inside input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.${baseClass}--button-inside:focus-within {
+    border-color: var(--tnw-primary-color);
+    box-shadow: 0 0 0 1px var(--tnw-primary-color);
+}
+
+/* Theme-based border colors for button-inside variant */
+.${baseClass}--button-inside.${baseClass}--primary {
     border-color: var(--tnw-primary-color);
 }
-.${baseClass}--secondary {
+.${baseClass}--button-inside.${baseClass}--secondary {
     border-color: var(--tnw-secondary-color);
 }
-.${baseClass}--auto {
+.${baseClass}--button-inside.${baseClass}--auto {
     border-color: var(--tnw-border-color);
 }
-.${baseClass}--inverse {
+.${baseClass}--button-inside.${baseClass}--inverse {
     border-color: var(--tnw-border-color-inverse);
 }
-.${baseClass}--light {
+.${baseClass}--button-inside.${baseClass}--light {
     border-color: var(--tnw-border-color-opacity);
 }
-.${baseClass}--white {
+.${baseClass}--button-inside.${baseClass}--white {
     border-color: var(--tnw-white);
 }
-.${baseClass}--black {
+.${baseClass}--button-inside.${baseClass}--black {
     border-color: var(--tnw-black);
 }
 
-.${baseClass}--button-inside {
-    position: relative;
-    min-width: 250px;
+/* States */
+.${baseClass}--loading {
+    opacity: 0.7;
+    pointer-events: none;
 }
 
-tnw-input {
-    width: 100%;
+.${baseClass}--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
-.${baseClass}--button-inside tnw-input {
-    display: flex;
-    align-items: center;
+
+.${baseClass}--disabled input {
+    cursor: not-allowed;
 }
-.${baseClass}--button-inside tnw-input::part(input) {
-    width: 100%;
-    border: 0;
-    outline-color: transparent;
+
+/* Placeholder styling */
+.${baseClass} input::placeholder {
+    color: var(--tnw-text-color-muted, #6c757d);
+    opacity: 0.8;
 }
 `;

@@ -259,7 +259,9 @@ export const TnwImage: StencilReactComponent<TnwImageElement, TnwImageEvents> = 
 });
 
 type TnwInputEvents = {
-    onInputChanged: EventName<CustomEvent<string>>,
+    onTnwChangedOnChange: EventName<CustomEvent<string>>,
+    onTnwChangedOnInput: EventName<CustomEvent<string>>,
+    onTnwSubmitted: EventName<CustomEvent<string>>,
     onValidationFailed: EventName<CustomEvent<{ inputId: string; error: string }>>,
     onTnwInputFocused: EventName<CustomEvent<void>>,
     onTnwInputBlurred: EventName<CustomEvent<void>>
@@ -271,7 +273,9 @@ export const TnwInput: StencilReactComponent<TnwInputElement, TnwInputEvents> = 
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
     events: {
-        onInputChanged: 'inputChanged',
+        onTnwChangedOnChange: 'tnwChangedOnChange',
+        onTnwChangedOnInput: 'tnwChangedOnInput',
+        onTnwSubmitted: 'tnwSubmitted',
         onValidationFailed: 'validationFailed',
         onTnwInputFocused: 'tnwInputFocused',
         onTnwInputBlurred: 'tnwInputBlurred'
@@ -390,6 +394,7 @@ export const TnwScrollToTop: StencilReactComponent<TnwScrollToTopElement, TnwScr
 type TnwSearchInputEvents = {
     onTnwInputChangedOnType: EventName<CustomEvent<string>>,
     onTnwInputChangedOnChange: EventName<CustomEvent<string>>,
+    onTnwInputSubmit: EventName<CustomEvent<string>>,
     onTnwInputFocused: EventName<CustomEvent<void>>,
     onTnwInputBlurred: EventName<CustomEvent<void>>
 };
@@ -402,6 +407,7 @@ export const TnwSearchInput: StencilReactComponent<TnwSearchInputElement, TnwSea
     events: {
         onTnwInputChangedOnType: 'tnwInputChangedOnType',
         onTnwInputChangedOnChange: 'tnwInputChangedOnChange',
+        onTnwInputSubmit: 'tnwInputSubmit',
         onTnwInputFocused: 'tnwInputFocused',
         onTnwInputBlurred: 'tnwInputBlurred'
     } as TnwSearchInputEvents,
@@ -436,14 +442,28 @@ export const TnwSelect: StencilReactComponent<TnwSelectElement, TnwSelectEvents>
     defineCustomElement: defineTnwSelect
 });
 
-type TnwSubscriptionFormEvents = NonNullable<unknown>;
+type TnwSubscriptionFormEvents = {
+    onTnwSubscribe: EventName<CustomEvent<{ email: string }>>,
+    onTnwError: EventName<CustomEvent<{ message: string }>>,
+    onTnwChangedOnChange: EventName<CustomEvent<string>>,
+    onTnwChangedOnInput: EventName<CustomEvent<string>>,
+    onTnwFocused: EventName<CustomEvent<void>>,
+    onTnwBlurred: EventName<CustomEvent<void>>
+};
 
 export const TnwSubscriptionForm: StencilReactComponent<TnwSubscriptionFormElement, TnwSubscriptionFormEvents> = /*@__PURE__*/ createComponent<TnwSubscriptionFormElement, TnwSubscriptionFormEvents>({
     tagName: 'tnw-subscription-form',
     elementClass: TnwSubscriptionFormElement,
     // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
     react: React,
-    events: {} as TnwSubscriptionFormEvents,
+    events: {
+        onTnwSubscribe: 'tnwSubscribe',
+        onTnwError: 'tnwError',
+        onTnwChangedOnChange: 'tnwChangedOnChange',
+        onTnwChangedOnInput: 'tnwChangedOnInput',
+        onTnwFocused: 'tnwFocused',
+        onTnwBlurred: 'tnwBlurred'
+    } as TnwSubscriptionFormEvents,
     defineCustomElement: defineTnwSubscriptionForm
 });
 

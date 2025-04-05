@@ -82,10 +82,7 @@ graph TD;
   tnw-heading --> tnw-text
   tnw-text --> tnw-text
   tnw-anchor --> tnw-icon
-  tnw-subscription-form --> tnw-input
   tnw-subscription-form --> tnw-button
-  tnw-input --> tnw-label
-  tnw-input --> tnw-alert
   style tnw-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

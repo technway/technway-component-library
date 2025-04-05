@@ -7,16 +7,16 @@ This page provides an overview of statistics related to the components.
 | Statistic | Value |
 | --- | --- |
 | **Total Components** | `34` |
-| **Total Props** | `354` |
-| **Total Events** | `26` |
+| **Total Props** | `356` |
+| **Total Events** | `35` |
 | **Total Methods** | `6` |
 | **Total Slots** | `58` |
-| **Total Features** | `444` |
+| **Total Features** | `455` |
 |   |  |
 | **Shadow DOM Components** | `34` |
 | **Light DOM Components** | `0` |
 | **Components with Props** | `34` |
-| **Components with Events** | `9` |
+| **Components with Events** | `10` |
 | **Components with Methods** | `2` |
 | **Components with Slots** | `21` |
 
@@ -170,7 +170,7 @@ This page provides an overview of statistics related to the components.
 | Feature | Count |
 | --- | --- |
 | **Props** | `20` |
-| **Events** | `4` |
+| **Events** | `6` |
 | **Methods** | `0` |
 | **Slots** | `0` |
 
@@ -242,7 +242,7 @@ This page provides an overview of statistics related to the components.
 | Feature | Count |
 | --- | --- |
 | **Props** | `13` |
-| **Events** | `4` |
+| **Events** | `5` |
 | **Methods** | `0` |
 | **Slots** | `0` |
 
@@ -265,8 +265,8 @@ This page provides an overview of statistics related to the components.
 ### tnw-subscription-form
 | Feature | Count |
 | --- | --- |
-| **Props** | `11` |
-| **Events** | `0` |
+| **Props** | `13` |
+| **Events** | `6` |
 | **Methods** | `0` |
 | **Slots** | `0` |
 

@@ -17,70 +17,101 @@ exports[`tnw-subscription-form Default and Required Prop Behavior renders with d
     display: flex;
     position: relative;
     width: 100%;
-    gap: 6px;
+    min-width: 250px;
 }
 
 .tnw-subscription-form--button-outside {
     align-items: stretch;
+    gap: 8px;
+}
+
+.tnw-subscription-form--button-outside input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: 1px solid var(--tnw-border-color);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tnw-subscription-form--button-outside input:focus {
+    border-color: var(--tnw-primary-color);
+    box-shadow: 0 0 0 1px var(--tnw-primary-color);
 }
 
 .tnw-subscription-form--button-inside {
     border-width: 1px;
     border-style: solid;
     align-items: center;
-    padding-block: 6px;
-    padding-inline-start: 18px;
-    padding-inline-end: 6px;
-}
-.tnw-subscription-form--button-inside:focus-within {
-    border-color: var(--tnw-primary-color);
-    outline: 1px solid var(--tnw-primary-color);
+    padding: 4px;
+    background: var(--tnw-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.tnw-subscription-form--primary {
+.tnw-subscription-form--button-inside input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.tnw-subscription-form--button-inside:focus-within {
+    border-color: var(--tnw-primary-color);
+    box-shadow: 0 0 0 1px var(--tnw-primary-color);
+}
+
+/* Theme-based border colors for button-inside variant */
+.tnw-subscription-form--button-inside.tnw-subscription-form--primary {
     border-color: var(--tnw-primary-color);
 }
-.tnw-subscription-form--secondary {
+.tnw-subscription-form--button-inside.tnw-subscription-form--secondary {
     border-color: var(--tnw-secondary-color);
 }
-.tnw-subscription-form--auto {
+.tnw-subscription-form--button-inside.tnw-subscription-form--auto {
     border-color: var(--tnw-border-color);
 }
-.tnw-subscription-form--inverse {
+.tnw-subscription-form--button-inside.tnw-subscription-form--inverse {
     border-color: var(--tnw-border-color-inverse);
 }
-.tnw-subscription-form--light {
+.tnw-subscription-form--button-inside.tnw-subscription-form--light {
     border-color: var(--tnw-border-color-opacity);
 }
-.tnw-subscription-form--white {
+.tnw-subscription-form--button-inside.tnw-subscription-form--white {
     border-color: var(--tnw-white);
 }
-.tnw-subscription-form--black {
+.tnw-subscription-form--button-inside.tnw-subscription-form--black {
     border-color: var(--tnw-black);
 }
 
-.tnw-subscription-form--button-inside {
-    position: relative;
-    min-width: 250px;
+/* States */
+.tnw-subscription-form--loading {
+    opacity: 0.7;
+    pointer-events: none;
 }
 
-tnw-input {
-    width: 100%;
+.tnw-subscription-form--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
-.tnw-subscription-form--button-inside tnw-input {
-    display: flex;
-    align-items: center;
+
+.tnw-subscription-form--disabled input {
+    cursor: not-allowed;
 }
-.tnw-subscription-form--button-inside tnw-input::part(input) {
-    width: 100%;
-    border: 0;
-    outline-color: transparent;
+
+/* Placeholder styling */
+.tnw-subscription-form input::placeholder {
+    color: var(--tnw-text-color-muted, #6c757d);
+    opacity: 0.8;
 }
     </style>
     <style></style>
     <style></style>
     <form class="tnw-subscription-form tnw-subscription-form--button-outside">
-      <tnw-input appearance="outlined" appearancecolor="primary" borderradius="default" inputid="test-input" islabelsronly="" isrequired="" label="Enter your email" part="input" placeholder="Enter your email" size="md" type="email"></tnw-input>
+      <input class="rounded-default tnw-subscription-form__input" id="test-input" part="input" placeholder="Enter your email" type="email">
       <tnw-button appearance="solid" appearancecolor="primary" borderradius="default" hovereffect="contrast" label="Subscribe" part="button" size="md" type="submit"></tnw-button>
     </form>
   </template>

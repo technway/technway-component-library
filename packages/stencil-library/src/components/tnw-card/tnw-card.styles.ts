@@ -12,7 +12,7 @@ export const styles = `
 :host {
     display: flex;
     box-sizing: border-box;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     width: 100%;
 
     --${baseClass}-gap-2xs: var(--tnw-spacing-2xs);

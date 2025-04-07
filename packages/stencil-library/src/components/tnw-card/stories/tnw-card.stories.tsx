@@ -109,6 +109,14 @@ BlogPost.args = {
   buttonRadius: 'full'
 };
 
+// With Large Image
+export const WithLargeImage = HorizontalTemplate.bind({});
+WithLargeImage.args = {
+  ...BlogPost.args,
+  layout: "horizontal",
+  largerImage: true,
+};
+
 // Test
 export const TestImageSlot = HorizontalTemplate.bind({});
 TestImageSlot.args = {

@@ -8,6 +8,7 @@ type ArticleCardProps = {
     appearanceColor?: "primary" | "secondary" | "auto" | "inverse" | "light" | "white" | "black";
     padding?: "sm" | "md" | "lg" | "none";
     imageHeight?: string;
+    largerImage?: boolean;
 }
 
 const ArticleCard = (props: ArticleCardProps) => {
@@ -37,6 +38,7 @@ const ArticleCard = (props: ArticleCardProps) => {
             padding={props.padding || 'none'}
             spacing="md"
             imageHeight={props.imageHeight}
+            largerImage={props.largerImage || false}
         />
     );
 };

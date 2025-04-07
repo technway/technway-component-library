@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      
+
       <TnwDivider />
 
       <div className="container layout" style={{ paddingTop: '100px' }}>
@@ -109,6 +109,7 @@ export default function Home() {
               </Grid>
               <ArticleCard layout='horizontal' />
               <ArticleCard layout='horizontal' appearance='outlined' padding="sm" imageHeight="365px" />
+              <ArticleCard layout='horizontal' appearance='outlined' padding="sm" imageHeight="365px" largerImage={true} />
             </Flex>
           </Flex>
 

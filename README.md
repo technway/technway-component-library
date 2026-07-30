@@ -16,9 +16,16 @@ A modular web component library built with Stencil.js, providing reusable, custo
 
 </div>
 
+> [!IMPORTANT]
+> **This repository is legacy and is no longer maintained.**
+>
+> It uses older pinned versions of Stencil, Storybook, and related packages. There is **no intent to upgrade, maintain, or actively develop** this library going forward. Do not expect bug fixes, dependency updates, or new features :D
+
 ---
 
 - [Libraries](#libraries)
+  - [Core packages](#core-packages)
+  - [Generated packages](#generated-packages)
 - [Testing Libraries](#testing-libraries)
 - [Features](#features)
 - [Framework Compatibility](#framework-compatibility)
@@ -29,12 +36,26 @@ A modular web component library built with Stencil.js, providing reusable, custo
 - [Common Problems Troubleshooting](#common-problems-troubleshooting)
 - [License](#license)
 
-## Libraries
+## Packages
 
-- [stencil-library](./packages/stencil-library)
-- [react-library](./packages/react-library)
-- [next-library](./packages/next-library)
-- [layout-kit](./packages/layout-kit)
+### Core ones
+
+| Package | Version | Path | Description |
+| --- | --- | --- | --- |
+| [`@technway/stencil-library`](./packages/stencil-library) | `2.12.4` | `packages/stencil-library` | Core web components built with Stencil.js |
+| [`@technway/layout-kit`](./packages/layout-kit) | `0.10.2` | `packages/layout-kit` | Responsive grid / layout CSS utilities |
+| [`@technway/only-test`](./packages/only-test) | `0.0.2-next.3` | `packages/only-test` | Internal test package |
+
+### Generated ones
+
+Wrappers and framework bindings produced from `@technway/stencil-library` (Stencil `react-output-target`)
+
+| Package | Version | Path | Description |
+| --- | --- | --- | --- |
+| [`@technway/react-library`](./packages/react-library) | `2.12.4` | `packages/react-library` | React wrappers for the Stencil components |
+| [`@technway/next-library`](./packages/next-library) | `2.12.4` | `packages/next-library` | Next.js integration (SSR / CSR) for the Stencil components |
+
+Published packages use the GitHub Packages registry (`https://npm.pkg.github.com`) under the `@technway` scope.
 
 ## Testing Libraries
 
@@ -78,4 +99,4 @@ Check [Common Issues and Troubleshooting](./docs/development/environment-and-set
 
 ## License
 
-This component library is exclusively for use in projects authorized by Technway. Unauthorized use, distribution, or modification is strictly prohibited.
+MIT License. See [LICENSE.md](./LICENSE.md).

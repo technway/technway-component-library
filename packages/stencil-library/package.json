@@ -51,7 +51,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "https://github.com/technway/technway-component-library.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "files": [
     "dist/",
@@ -60,7 +63,7 @@
     "components/"
   ],
   "scripts": {
-    "clean": "rmdir /s /q dist components stencil hydrate loader 2>nul || echo Directories not found",
+    "clean": "rm -rf dist components stencil hydrate loader || rmdir /s /q dist components stencil hydrate loader || echo Directories not found",
     "build:all": "pnpm g:css-utils && stencil build",
     "build:sb": "storybook build",
     "build:stencil": "stencil build --docs",
@@ -144,9 +147,8 @@
     "storybook-addon-preview": "^2.3.0",
     "storybook-addon-rtl": "^1.0.1"
   },
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "MIT",
   "dependencies": {
-    "@technway/stencil-library": "file:",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "express-session": "^1.18.0"

@@ -4,6 +4,8 @@
     
 <h1>CSS Class Utilities</h1>
 
+> **Why these exist:** These custom PostCSS utility classes were created because **Tailwind CSS v3** did not offer the same capabilities as **Tailwind v4** does today (especially around theming, CSS-first config, and how utilities compose with design tokens). Rather than depending on Tailwind v3 for the design system, the project generated its own utility layer :)
+
 - [Overview](#overview)
 - [Directory Structure](#directory-structure)
   - [Location of Utility Files](#location-of-utility-files)

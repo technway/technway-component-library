@@ -4,7 +4,7 @@
   "description": "> TODO: description",
   "author": "Technway <contact@technway.biz>",
   "homepage": "https://github.com/technway/technway-component-library#readme",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -20,8 +20,11 @@
     "type": "git",
     "url": "https://github.com/technway/technway-component-library.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
-    "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",
+    "clean": "rm -rf dist || rmdir /s /q dist || echo Dist directory not found",
     "build": "pnpm clean && pnpm tsc",
     "build:next-library": "pnpm clean && pnpm --filter @technway/stencil-library run build:stencil-library && pnpm tsc",
     "tsc": "tsc -p . --outDir ./dist",
@@ -32,8 +35,7 @@
   },
   "dependencies": {
     "@stencil/react-output-target": "^0.8.2",
-    "@technway/next-library": "file:",
-    "@technway/stencil-library": "^2.7.0"
+    "@technway/stencil-library": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^19.0.6",

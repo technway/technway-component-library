@@ -1,3 +1,7 @@
+<#
+  this script is no longer used
+#>
+
 # Load the .env file and read the NPM_TOKEN variable
 $envFilePath = ".\.env"
 if (-not (Test-Path $envFilePath)) {

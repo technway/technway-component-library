@@ -20,7 +20,8 @@ log.txt
 # Stencil and tooling-specific folders
 .stencil/
 .idea/
-.vscode/
+.vscode/*
+!.vscode/extensions.json
 .sass-cache/
 .versions/
 
@@ -33,7 +34,6 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
-.npmrc
 
 # Storybook and testing-related files
 storybook.log
@@ -46,5 +46,6 @@ storybook.log
 /playwright/.cache/
 
 packages/stencil-library/components/
+stencil-generated/stencil-docs.json
 
 .pnpm-store

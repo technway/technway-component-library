@@ -26,6 +26,6 @@
   "dependencies": {
     "root": "file:"
   },
-  "version": "3.11.2",
+  "version": "1.0.0",
   "packageManager": "pnpm@9.15.3"
 }

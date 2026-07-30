@@ -6,10 +6,13 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/technway/technway-component-library.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "bugs": {
     "url": "https://github.com/technway/technway-component-library/issues"
@@ -36,18 +39,17 @@
     "./css": "./dist/css/grid.css"
   },
   "scripts": {
-    "clean": "rmdir /s /q dist 2>nul || echo Dist directory not found",
+    "clean": "rm -rf dist || rmdir /s /q dist || echo Dist directory not found",
     "type-check": "tsc --noEmit",
     "build:ts": "tsc -p tsconfig.json",
     "build:react": "tsc -p tsconfig.json --outDir dist",
     "build": "pnpm clean && pnpm type-check && pnpm build:ts && pnpm build:react && pnpm copy:css && pnpm copy:css",
     "build:layout-kit": "pnpm clean && pnpm type-check && pnpm build:ts && pnpm build:react && pnpm copy:css && pnpm copy:css",
-    "copy:css": "mkdir dist\\css 2>nul || echo dist\\css exists && (if exist src\\css\\grid.css (copy /Y src\\css\\grid.css dist\\css\\grid.css) else (copy /Y src\\grid.css dist\\css\\grid.css))",
-    "copy:assets": "mkdir dist\\src && xcopy /E /I src dist\\src",
+    "copy:css": "mkdir -p dist/css && cp -f src/grid.css dist/css/grid.css || cmd /c \"mkdir dist\\css 2>nul & if exist src\\css\\grid.css (copy /Y src\\css\\grid.css dist\\css\\grid.css) else (copy /Y src\\grid.css dist\\css\\grid.css)\"",
+    "copy:assets": "mkdir -p dist/src && cp -R src/. dist/src/ || cmd /c \"mkdir dist\\src & xcopy /E /I src dist\\src\"",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@technway/layout-kit": "file:",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "react": "^19.0.0",

@@ -81,7 +81,7 @@ importers:
         version: link:../../packages/layout-kit
       '@technway/react-library':
         specifier: file:../../packages/react-library
-        version: link:../../packages/react-library
+        version: file:packages/react-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@technway/stencil-library':
         specifier: file:../../packages/stencil-library
         version: link:../../packages/stencil-library
@@ -137,9 +137,6 @@ importers:
 
   packages/layout-kit:
     dependencies:
-      '@technway/layout-kit':
-        specifier: 'file:'
-        version: 'link:'
       postcss:
         specifier: ^8.4.31
         version: 8.5.0
@@ -174,12 +171,9 @@ importers:
       '@stencil/react-output-target':
         specifier: ^0.8.2
         version: 0.8.2(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@technway/next-library':
-        specifier: 'file:'
-        version: 'link:'
       '@technway/stencil-library':
-        specifier: ^2.7.0
-        version: 2.7.0(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: workspace:*
+        version: link:../stencil-library
     devDependencies:
       '@types/react':
         specifier: ^19.0.6
@@ -204,12 +198,9 @@ importers:
       '@stencil/react-output-target':
         specifier: ^0.8.2
         version: 0.8.2(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@technway/react-library':
-        specifier: 'file:'
-        version: 'link:'
       '@technway/stencil-library':
-        specifier: ^2.7.0
-        version: 2.7.0(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: workspace:*
+        version: link:../stencil-library
     devDependencies:
       '@types/react':
         specifier: ^19.0.6
@@ -226,9 +217,6 @@ importers:
 
   packages/stencil-library:
     dependencies:
-      '@technway/stencil-library':
-        specifier: 'file:'
-        version: 'link:'
       dotenv:
         specifier: ^16.4.5
         version: 16.4.7
@@ -2144,11 +2132,8 @@ packages:
   '@swc/types@0.1.17':
     resolution: {integrity: sha512-V5gRru+aD8YVyCOMAjMpWR1Ui577DD5KSJsHP8RAxopAH22jFz6GZd/qxqjO6MJHQhcsjvjOFXyDhyLQUnMveQ==}
 
-  '@technway/next-library@file:packages/next-library':
-    resolution: {directory: packages/next-library, type: directory}
-
-  '@technway/stencil-library@2.7.0':
-    resolution: {integrity: sha512-z+cLXEpJZMKQfGiX5pQsB+d7UmfgNXcqeZcnL/ZqE9UoIFhSFfLwxHR4TbPduH9gCCt5bdzFhhxJ56gKpQjXTg==}
+  '@technway/react-library@file:packages/react-library':
+    resolution: {directory: packages/react-library, type: directory}
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
@@ -10398,29 +10383,15 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@technway/next-library@file:packages/next-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@technway/react-library@file:packages/react-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@stencil/react-output-target': 0.8.2(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@technway/stencil-library': 2.7.0(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@technway/stencil-library': link:packages/stencil-library
     transitivePeerDependencies:
       - '@stencil/core'
       - '@types/react'
       - react
       - react-dom
-      - supports-color
-
-  '@technway/stencil-library@2.7.0(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@technway/stencil-library': '@technway/next-library@file:packages/next-library(@stencil/core@4.23.0)(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)'
-      dotenv: 16.4.7
-      express: 4.21.2
-      express-session: 1.18.1
-    transitivePeerDependencies:
-      - '@stencil/core'
-      - '@types/react'
-      - react
-      - react-dom
-      - supports-color
 
   '@testing-library/dom@10.4.0':
     dependencies:

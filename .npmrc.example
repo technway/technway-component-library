@@ -1,1 +1,5 @@
-//registry.npmjs.org/:_authToken=${NPM_TOKEN}
+@technway:registry=https://npm.pkg.github.com
+# For CI / publish: set GITHUB_TOKEN (PAT with write:packages) or run:
+#   npm login --registry=https://npm.pkg.github.com
+# Optional public npm token (legacy publish flow):
+# //registry.npmjs.org/:_authToken=${NPM_TOKEN}

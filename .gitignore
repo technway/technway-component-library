@@ -46,3 +46,5 @@ storybook.log
 /playwright/.cache/
 
 packages/stencil-library/components/
+
+.pnpm-store
